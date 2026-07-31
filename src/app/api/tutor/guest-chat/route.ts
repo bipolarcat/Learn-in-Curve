@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { streamTutorModel } from "@/lib/tutor/callTutorModel";
 import { buildSystemPrompt } from "@/lib/tutor/buildSystemPrompt";
@@ -19,6 +18,34 @@ import {
 import { estimateTokenCostUsd, usdToGbpCents } from "@/lib/tutor/fair-usage";
 import { sendGuestBudgetAlertEmail } from "@/lib/tutor/guest-budget-alert";
 
+/**
+ * The landing-page demo Sly.
+ *
+ * Deliberately auth-agnostic. This route used to reject any request with a
+ * session ("Signed-in users should use /api/tutor/chat", HTTP 400), which meant
+ * a signed-in visitor could not use the demo at all — and the route it pointed
+ * them at is the in-app tutor, gated on `canAccessSly` (ai_pro). AI Pro is
+ * status "waitlist" and not on sale, so nobody holds that tier: signing in
+ * turned a working demo into a dead end.
+ *
+ * The allowance is now what LIC-111 specifies — three free messages per IP,
+ * identical whether or not the caller is signed in. Auth state must not affect
+ * it in either direction.
+ *
+ * Two things this does NOT do, both load-bearing:
+ *
+ *  - It does not open in-app Sly to anyone. `canAccessSly` in tiers.ts is
+ *    untouched, and no padlocked tutor is surfaced to Starter or Pro. Showing a
+ *    locked tutor would advertise something nobody can buy.
+ *  - It does not use the IP cap for anything paid. IP limiting is trivially
+ *    bypassed (VPN, mobile network change) and over-blocks shared connections;
+ *    that is an acceptable trade for a free teaser and nothing else. Paid
+ *    entitlement stays on the account, via feature_entitlements.
+ *
+ * The cap is enforced in the database by `claim_guest_tutor_message`, an atomic
+ * RPC — not by asking Sly to behave. Soft prompt instructions have already
+ * proven unreliable here (LIC-61).
+ */
 export const runtime = "nodejs";
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
@@ -46,18 +73,6 @@ function sanitizeHistory(raw: unknown): HistoryTurn[] {
 }
 
 export async function GET(request: Request) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (user) {
-    return NextResponse.json(
-      { error: "Signed-in users should use /api/tutor/chat" },
-      { status: 400 },
-    );
-  }
-
   try {
     const admin = createServiceClient();
     const ipHash = hashGuestIp(resolveClientIp(request));
@@ -79,18 +94,6 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (user) {
-    return NextResponse.json(
-      { error: "Signed-in users should use /api/tutor/chat" },
-      { status: 400 },
-    );
-  }
-
   let body: { message?: string; history?: unknown };
   try {
     body = await request.json();

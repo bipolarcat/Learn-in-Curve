@@ -23,12 +23,19 @@ import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
  * ─────────────────────────────────────────────────────────────────────────────
  * IMPORTANT — the feature matrix below is MARKETING COPY, not enforcement
  *
- * Entitlement today is a single boolean (`feature_entitlements.feature =
- * 'ai_tutor'`) which unlocks video, audio, mocks 2–4, Sly AND the end-of-course
- * report together. Nothing here gates anything. Until that's split into real
- * tiers, a Pro purchase grants everything listed under AI Pro as well. See
- * Linear LIC-98 — that ticket must land before Pro goes on sale at a Pro price,
- * or the tier split is fiction.
+ * `tiers.ts` is the enforcement. Everything here is what the cards *say*; every
+ * gate derives from there. Keep the two honest with each other — a claim on this
+ * page that no gate backs (or backs more generously) is a misleading commercial
+ * practice, not a cosmetic mismatch.
+ *
+ * This block previously described entitlement as a single boolean
+ * (`feature_entitlements.feature = 'ai_tutor'`) and stated that "a Pro purchase
+ * grants everything listed under AI Pro as well". That stopped being true when
+ * LIC-98 landed on 2026-07-30: the Stripe webhook now writes a real tier and
+ * tiers.ts enforces the ladder. The stale wording caused a false alarm about
+ * paying customers being locked out of Sly, which is why it is called out here
+ * rather than quietly deleted. Sly is ai_pro only, and ai_pro is `status:
+ * "waitlist"` — no one holds it yet, and that is intended.
  */
 
 export type PmqPlanId = "starter" | "pro" | "ai_pro";

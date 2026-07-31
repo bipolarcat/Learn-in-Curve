@@ -13,6 +13,10 @@ import {
 } from "@/components/SlyChrome";
 import { iconAction } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
+import {
+  JoinWaitlistButton,
+  joinWaitlistButtonClass,
+} from "@/components/pmq/JoinWaitlistButton";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
 
@@ -186,8 +190,8 @@ export function GuestSlyPanel({ open, onClose }: GuestSlyPanelProps) {
               <div className="flex h-full min-h-[10rem] flex-col items-center justify-center px-1 py-8 text-center">
                 <div className="rounded-2xl bg-cream/92 px-4 py-3 shadow-sm ring-1 ring-ink/10">
                   <p className="max-w-[18rem] text-[14px] font-medium leading-relaxed text-ink text-pretty">
-                    This network has already used the free Sly trial. Sign up to
-                    keep chatting with your own free messages.
+                    This network has already used the free Sly trial. Sly
+                    arrives with the AI Pro Bundle — join the waitlist below.
                   </p>
                 </div>
               </div>
@@ -295,24 +299,22 @@ export function GuestSlyPanel({ open, onClose }: GuestSlyPanelProps) {
                 <p className="text-[14px] font-medium leading-snug text-ink text-pretty">
                   You&apos;ve used your {GUEST_TIER_MESSAGE_CAP} free trial
                   messages
-                  {used > 0 ? ` (${used} sent)` : ""}. Create a free account to
-                  keep talking with Sly.
+                  {used > 0 ? ` (${used} sent)` : ""}.
                 </p>
-                <Link
-                  href="/auth/sign-up"
-                  className={`${stampCtaPrimary} mt-3 w-full !justify-center`}
-                >
-                  Create free account
-                </Link>
-                <p className="mt-2.5 text-center text-[12px] text-ink/50">
-                  Already have an account?{" "}
-                  <Link
-                    href="/auth/sign-in"
-                    className="font-medium text-orange hover:text-orange-dark"
-                  >
-                    Sign in
-                  </Link>
+                {/*
+                  Waitlist, not signup. Sly belongs to the AI Pro Bundle, which
+                  is `status: "waitlist"` in plans.ts and not on sale — so there
+                  is nothing to send this user to buy, and "create a free
+                  account to keep talking with Sly" was promising exactly the
+                  thing the tier ladder withholds. Same control as the AI Pro
+                  pricing card, via JoinWaitlistButton.
+                */}
+                <p className="mt-2.5 text-center text-[12px] font-medium text-ink/60">
+                  AI Pro Bundle launching soon
                 </p>
+                <JoinWaitlistButton
+                  className={`${joinWaitlistButtonClass} mt-2`}
+                />
               </div>
             </div>
           ) : (

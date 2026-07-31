@@ -4,7 +4,6 @@ import { useState, useTransition, type ComponentType } from "react";
 import { useRouter } from "next/navigation";
 import { formatGbp } from "@/lib/pmq/constants";
 import {
-  PMQ_AI_PRO_NOTIFY_KEY,
   PMQ_PLANS,
   type PmqPlan,
   type PmqPlanFeature,
@@ -21,7 +20,7 @@ import {
   IconSly,
   IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
-import { NotifyDialog } from "@/components/NotifyDialog";
+import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import { PmqProCheckoutButton } from "@/components/pmq/PmqProCheckoutButton";
 import { CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
@@ -186,7 +185,6 @@ export function PmqPlanCards({
   planIds,
   showCtas = true,
 }: PmqPlanCardsProps) {
-  const [notifyOpen, setNotifyOpen] = useState(false);
   const plans = planIds?.length
     ? PMQ_PLANS.filter((plan) => planIds.includes(plan.id))
     : PMQ_PLANS;
@@ -263,31 +261,13 @@ export function PmqPlanCards({
                     )
                   ) : null}
 
-                  {plan.status === "waitlist" ? (
-                    <button
-                      type="button"
-                      onClick={() => setNotifyOpen(true)}
-                      className={`${styles.ctaBtn} ${styles.ctaSecondary}`}
-                    >
-                      {plan.ctaLabel}
-                    </button>
-                  ) : null}
+                  {plan.status === "waitlist" ? <JoinWaitlistButton /> : null}
                 </div>
               ) : null}
             </li>
           );
         })}
       </ul>
-
-      {showCtas ? (
-        <NotifyDialog
-          open={notifyOpen}
-          onClose={() => setNotifyOpen(false)}
-          notifyKey={PMQ_AI_PRO_NOTIFY_KEY}
-          subjectLabel="AI Pro Bundle"
-          courseCopy="the AI Pro Bundle"
-        />
-      ) : null}
     </>
   );
 }
