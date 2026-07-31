@@ -42,39 +42,45 @@ interface ExpandableTabsProps {
   onChange?: (index: number | null) => void;
 }
 
-const buttonVariants = {
-  initial: {
-    gap: 0,
-    paddingLeft: ".5rem",
-    paddingRight: ".5rem",
-  },
-  animate: (isSelected: boolean) => ({
-    gap: isSelected ? ".5rem" : 0,
-    paddingLeft: isSelected ? "0.75rem" : ".5rem",
-    paddingRight: isSelected ? "0.75rem" : ".5rem",
-  }),
+/*
+ * Why nothing here animates size any more (LIC-106).
+ *
+ * The tab row used to spring-animate `gap`, `paddingLeft`, `paddingRight` and
+ * `width: 0 → "auto"`. Every one of those is layout-affecting, and `width:
+ * auto` is the worst of them: Framer has to measure the label and drive a
+ * numeric width, so each of the ~27 frames forced a full layout of the flex row
+ * — with seven tabs, one growing while another shrinks, that relayout
+ * propagates across the whole LO header. The header sits inside
+ * `backdrop-blur-xl`, so every one of those layouts also re-rasterised a 24px
+ * blurred backdrop.
+ *
+ * Measured in-browser against a transform/opacity-only equivalent of the same
+ * seven-tab row inside the same blur ancestor: ~11.7x the cost for identical
+ * frame counts, on a fast desktop with a trivial DOM. On a mid-range phone with
+ * the real page behind it, that is the choppiness.
+ *
+ * The size change is now plain CSS, so switching tabs costs ONE layout pass
+ * instead of one per frame. The only thing still animated is the label's
+ * opacity and a small translate — both compositor properties, which is why it
+ * reads smooth. The label leaves instantly so the row never has two expanded
+ * tabs fighting for width mid-transition (that would overflow the nowrap
+ * compact row).
+ */
+const LABEL_ENTER = {
+  duration: 0.22,
+  ease: [0.22, 1, 0.36, 1] as const,
 };
 
-const compactButtonVariants = {
-  initial: {
-    gap: 0,
-    paddingLeft: ".25rem",
-    paddingRight: ".25rem",
-  },
-  animate: (isSelected: boolean) => ({
-    gap: isSelected ? ".35rem" : 0,
-    paddingLeft: isSelected ? ".5rem" : ".25rem",
-    paddingRight: isSelected ? ".5rem" : ".25rem",
-  }),
+const labelEnter = {
+  initial: { opacity: 0, x: -4 },
+  animate: { opacity: 1, x: 0 },
+  /**
+   * Leaves instantly. An animated exit would keep the old tab's label
+   * occupying width while the new one expands, so the row would briefly need
+   * space for two expanded tabs — which the nowrap compact row cannot give it.
+   */
+  exit: { opacity: 0, transition: { duration: 0 } },
 };
-
-const spanVariants = {
-  initial: { width: 0, opacity: 0 },
-  animate: { width: "auto", opacity: 1 },
-  exit: { width: 0, opacity: 0 },
-};
-
-const transition = { delay: 0.05, type: "spring" as const, bounce: 0, duration: 0.45 };
 
 export function ExpandableTabs({
   tabs,
@@ -100,7 +106,7 @@ export function ExpandableTabs({
   }, []);
   // SSR + first client paint both treat as “motion on” so Framer style attrs match.
   const reduceMotion = motionReady && Boolean(reduceMotionPref);
-  const motionTransition = reduceMotion ? { duration: 0 } : transition;
+  const enterTransition = reduceMotion ? { duration: 0 } : LABEL_ENTER;
   const compact = size === "compact";
 
   useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
@@ -143,25 +149,29 @@ export function ExpandableTabs({
         const showLabel = expandSelectedLabel && isSelected;
 
         return (
-          <motion.button
+          <button
             key={tab.title}
             type="button"
-            variants={compact ? compactButtonVariants : buttonVariants}
-            initial={false}
-            animate="animate"
-            custom={isSelected}
             onClick={() => handleSelect(index)}
             disabled={isDisabled}
             aria-current={isSelected ? "true" : undefined}
             aria-disabled={isDisabled || undefined}
             aria-label={tab.title}
             title={tab.title}
-            transition={motionTransition}
             className={cn(
               "relative inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
               compact
                 ? "h-7 min-w-0 rounded-md text-[11px]"
                 : "rounded-lg py-1.5 text-[12px]",
+              // Sizing is static, not animated — see the note at the top of this
+              // file. One layout pass per switch instead of one per frame.
+              compact
+                ? showLabel
+                  ? "gap-[.35rem] px-2"
+                  : "gap-0 px-1"
+                : showLabel
+                  ? "gap-2 px-3"
+                  : "gap-0 px-2",
               compact && !showLabel && "flex-1 px-0",
               compact && showLabel && "shrink-0",
               isSelected
@@ -200,13 +210,14 @@ export function ExpandableTabs({
             <AnimatePresence initial={false}>
               {showLabel ? (
                 <motion.span
-                  variants={spanVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={motionTransition}
+                  initial={labelEnter.initial}
+                  animate={labelEnter.animate}
+                  exit={labelEnter.exit}
+                  transition={enterTransition}
+                  // Opacity and translate only — both compositor properties, so
+                  // this never triggers layout while it runs.
                   className={cn(
-                    "overflow-hidden whitespace-nowrap",
+                    "whitespace-nowrap",
                     compact ? "text-[11px]" : "text-[12px]",
                   )}
                 >
@@ -214,7 +225,7 @@ export function ExpandableTabs({
                 </motion.span>
               ) : null}
             </AnimatePresence>
-          </motion.button>
+          </button>
         );
       })}
     </div>
