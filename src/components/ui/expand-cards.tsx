@@ -64,11 +64,13 @@ export default function ExpandCards({
               priority={index === safeInitial}
             />
             <span className={styles.cover} aria-hidden />
+            {/*
+              No position counter here. The collapsed plate is a contents list;
+              the "N of M" reading is already carried by the aria-label for
+              assistive tech, and by .slideNumber once a card is open.
+            */}
             <span className={styles.collapsedLabel} aria-hidden>
               <span>{image.label}</span>
-              <span className={styles.collapsedNumber}>
-                {index + 1}/{images.length}
-              </span>
             </span>
             <span className={styles.slideNumber} aria-hidden>
               {index + 1}/{images.length}

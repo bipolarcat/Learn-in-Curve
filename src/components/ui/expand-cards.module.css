@@ -24,26 +24,62 @@
 }
 
 /*
- * Collapsed cards are a solid orange plate that crossfades away as the slide
- * opens, so a closed row reads as a label rather than a cropped sliver of art.
+ * Glass plate over the slide artwork. Crossfades away as the slide opens, so a
+ * closed row reads as a label rather than a cropped sliver of art.
+ *
+ * Colour is the site's standard button token (--orange-action, what `bg-action`
+ * resolves to) rather than a one-off mix, so the collapsed rows read as the same
+ * control language as every other primary action.
+ *
+ * The 90% is a contrast floor, not a taste call. Paper label text over the plate
+ * has to clear WCAG AA 4.5:1, and a translucent plate's effective colour depends
+ * on whatever artwork happens to sit behind it — which changes per slide and,
+ * on mobile, as the deck scrolls. Measured against pure white, the brightest
+ * backdrop physically possible and therefore the worst case for light-on-dark:
+ *
+ *   opaque --orange-action ............ 5.76:1
+ *   90% over white (worst case) ....... 4.75:1  ✓
+ *   90% over the slides' cream ........ 4.87:1  ✓
+ *   85% over white .................... 4.29:1  ✗
+ *
+ * So 90% is the most transparency this can carry and still pass everywhere.
+ * Don't lower it for a glassier look without redoing that maths — and note the
+ * old opaque mix was 4.70:1, so this is a slight contrast *improvement*, not a
+ * trade.
  */
 .cover {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: color-mix(in srgb, var(--orange-action) 90%, transparent);
   /*
-   * Brand orange deepened toward ink. Paper-on-orange at full strength is
-   * 3.8:1 — fine for a big CTA, short of the 4.5:1 these label-sized rows
-   * need. Mixing rather than hardcoding keeps it tied to the token.
+   * Prefixed first, standard last. Reversing these lets the CSS pipeline's
+   * dedupe keep only `-webkit-backdrop-filter`, which Chromium ignores — the
+   * blur silently disappears while the translucency stays, which looks like a
+   * flat washed-out plate rather than glass.
    */
-  background: color-mix(
-    in srgb,
-    rgb(var(--orange-rgb)) 85%,
-    rgb(var(--ink-rgb))
-  );
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  backdrop-filter: blur(12px) saturate(1.3);
+  /* Hairline lip — reads as the edge of a pane of glass, not a flat fill. */
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    inset 0 0 0 1px rgb(255 255 255 / 0.06);
   opacity: 1;
   pointer-events: none;
+  will-change: opacity;
   transition: opacity 280ms var(--ease-out-quint);
+}
+
+/*
+ * Without backdrop-filter there is nothing to see through, so translucency
+ * would only cost contrast. Fall back to the opaque token (5.76:1).
+ */
+@supports not (
+  (backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))
+) {
+  .cover {
+    background: var(--orange-action);
+  }
 }
 
 .cardActive .cover {
@@ -89,11 +125,6 @@
 
 .cardActive .collapsedLabel {
   opacity: 0;
-}
-
-.collapsedNumber {
-  flex: none;
-  font-variant-numeric: tabular-nums;
 }
 
 .slideNumber {
@@ -190,10 +221,6 @@
     font-size: 0.8125rem;
     white-space: nowrap;
     writing-mode: vertical-rl;
-  }
-
-  .collapsedNumber {
-    color: rgb(var(--paper-rgb) / 0.75);
   }
 }
 

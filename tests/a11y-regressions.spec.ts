@@ -71,6 +71,57 @@ test("course preview starts with the course name as its h1", async ({
   ).toBeVisible();
 });
 
+/**
+ * The collapsed feature tabs are a translucent glass plate, so their effective
+ * colour depends on whatever slide artwork sits behind them — which differs per
+ * card and shifts as the deck scrolls. There is no single background to assert
+ * against, so this composites the plate over pure white: the brightest backdrop
+ * physically possible, and therefore the worst case for the paper-coloured
+ * label. Passing here means passing over every real backdrop.
+ *
+ * This is why the alpha in expand-cards.module.css is a floor, not a taste
+ * call. If a future change makes the plate more transparent, this fails.
+ */
+test("collapsed feature tabs keep AA label contrast over any backdrop", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const plate = await page
+    .locator('[aria-pressed="false"]')
+    .first()
+    .evaluate((card) => {
+      const cover = card.querySelector("span");
+      const label = card.querySelectorAll("span")[1];
+      if (!cover || !label) throw new Error("collapsed plate not found");
+      return {
+        background: getComputedStyle(cover).backgroundColor,
+        backdropFilter: getComputedStyle(cover).backdropFilter,
+        color: getComputedStyle(label).color,
+        labelText: (label as HTMLElement).innerText,
+      };
+    });
+
+  // Glassmorphism means the blur has to actually be there — a pipeline that
+  // drops it leaves the translucency behind and the plate reads as a washed-out
+  // flat fill instead.
+  expect(plate.backdropFilter).toContain("blur");
+
+  // No "1/7"-style position counter belongs on a collapsed tab.
+  expect(plate.labelText).not.toMatch(/\d+\s*\/\s*\d+/);
+
+  const alphaMatch = plate.background.match(/[\d.]+\s*\)$/);
+  const alpha = plate.background.includes("/")
+    ? Number(alphaMatch?.[0].replace(")", ""))
+    : 1;
+  const plateRgb = rgb(plate.background).map((channel) =>
+    plate.background.startsWith("color(") ? channel * 255 : channel,
+  );
+  const overWhite = plateRgb.map((channel) => alpha * channel + (1 - alpha) * 255);
+
+  expect(contrast(rgb(plate.color), overWhite)).toBeGreaterThanOrEqual(4.5);
+});
+
 test("shared stamps and auth controls are touch-sized with AA text", async ({
   page,
 }) => {
