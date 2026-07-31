@@ -784,6 +784,42 @@ body[data-preview-signup-pin="1"] {
   animation-delay: calc(var(--i, 0) * 55ms);
 }
 
+/*
+ * LIC-113 — entrance animations must never be able to hide content.
+ *
+ * A document loaded while hidden (link opened in a background tab, browser
+ * prerender, an app switch mid-load) never advances `document.timeline`. Every
+ * animation sits at currentTime 0 indefinitely, so anything declared
+ * `animation-fill-mode: both` holds its element at the *from* keyframe. Most of
+ * this site's entrance keyframes start at `opacity: 0`, `header-chip-in`
+ * included — which is how the mobile header rendered invisible and stayed that
+ * way until a reload that happened to land while the tab was visible.
+ *
+ * Suppressing the fill alone is NOT enough, which is worth recording because it
+ * is the obvious first fix: with the timeline stuck at 0 the animation is still
+ * inside its active interval, and fill only applies *outside* that interval, so
+ * the from-keyframe keeps winning. Measured — with fill forced to `none` the
+ * chip's computed opacity was still 0.
+ *
+ * The animation itself therefore has to be off while the timeline is frozen,
+ * which drops every element to its own base style — the visible one. The class
+ * is set by a blocking script in <head> and removed the moment the document
+ * becomes visible, at which point the animations start and play normally, so
+ * the entrance is deferred rather than lost.
+ *
+ * This is the same styling contract the reduced-motion block below already
+ * applies to these elements, so it is a well-trodden state for them.
+ *
+ * The `!important` and the universal selector are deliberate: this has to beat
+ * per-component animation declarations across globals.css and every CSS module,
+ * and the rule only exists at all while the page has never been shown to anyone.
+ */
+html.lic-deferred-entrance *,
+html.lic-deferred-entrance *::before,
+html.lic-deferred-entrance *::after {
+  animation: none !important;
+}
+
 @keyframes theme-icon-pop {
   0% {
     opacity: 0.4;

@@ -68,6 +68,38 @@ export default function RootLayout({
             __html: `(function(){var d=document.documentElement;function light(){d.classList.remove('dark');d.style.colorScheme='only light';}try{var p=location.pathname||'';if(!(/^\\/dashboard\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/lo\\/[^/]+\\/?$/.test(p))){light();return;}var m=document.cookie.match(/(?:^|;\\s*)lic_theme=([^;]*)/);if(!m||m[1]!=='dark'){light();return;}d.classList.add('dark');d.style.colorScheme='only dark';}catch(e){light();}})();`,
           }}
         />
+        {/*
+          Entrance animations must not be able to hide content (LIC-113).
+
+          A document that loads while hidden — a link opened in a background
+          tab, a browser prerender, an app switch mid-load — never advances
+          `document.timeline`. Its animations sit at currentTime 0 forever, and
+          any of them declared `animation-fill-mode: both` therefore pins its
+          element at the *from* keyframe. The header's `header-chip-in` starts
+          at `opacity: 0`, so the header controls rendered invisible and stayed
+          that way until a reload that happened to occur while the tab was
+          visible. That is the whole "intermittent, reload fixes it, only on
+          mobile" shape: phones background documents constantly, and devtools
+          emulation keeps the document visible, which is why it never
+          reproduced there.
+
+          Reproduced directly: with visibilityState 'hidden',
+          document.timeline.currentTime was 0, the animation playState was
+          "running" with currentTime 0, and the chip's computed opacity was 0.
+
+          The fix is aimed exactly at that mechanism rather than at the symptom:
+          while the document has never been visible, entrance animations are
+          held off, so every element renders at its own base style — which is
+          visible. Once the page is actually shown the class is dropped and the
+          animations start and play normally, so the entrance is deferred rather
+          than lost. No timeout, no forced re-render, nothing that would paper
+          over a recurrence.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(document.visibilityState==='visible')return;var d=document.documentElement,c='lic-deferred-entrance';d.classList.add(c);var on=function(){if(document.visibilityState!=='visible')return;d.classList.remove(c);document.removeEventListener('visibilitychange',on);};document.addEventListener('visibilitychange',on);}catch(e){document.documentElement.classList.remove('lic-deferred-entrance');}})();`,
+          }}
+        />
       </head>
       {/*
         Intercom, mobile password managers and in-app browsers all decorate
