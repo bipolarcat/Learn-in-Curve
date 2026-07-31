@@ -205,3 +205,33 @@ export function getPmqPlan(id: PmqPlanId): PmqPlan {
   if (!plan) throw new Error(`Unknown PMQ plan: ${id}`);
   return plan;
 }
+
+/**
+ * The advertised quantity for one feature of one plan, e.g. Pro's "960"
+ * practice questions.
+ *
+ * Exists so copy that repeats these figures OUTSIDE the pricing card — the
+ * Stripe checkout description above all — reads them from here instead of
+ * retyping them. Same reasoning as `priceCents` being derived: the pricing page
+ * and the payment page must be structurally incapable of showing a buyer two
+ * different numbers, because a specific figure quoted to a consumer that turns
+ * out to be wrong is a misleading action under the CPRs, not a typo.
+ *
+ * Throws rather than falling back. A missing value means someone edited the
+ * feature list without updating the copy that depends on it; a silent default
+ * would ship a wrong number to a checkout page, which is the exact failure this
+ * function exists to prevent. `tests/plan-counts.test.mjs` keeps that from ever
+ * reaching a deploy.
+ */
+export function planFeatureValue(
+  id: PmqPlanId,
+  icon: PmqPlanFeature["icon"],
+): string {
+  const feature = getPmqPlan(id).features.find((f) => f.icon === icon);
+  if (!feature?.value) {
+    throw new Error(
+      `PMQ plan "${id}" has no advertised value for feature "${icon}"`,
+    );
+  }
+  return feature.value;
+}

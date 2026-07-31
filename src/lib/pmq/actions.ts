@@ -4,12 +4,8 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { isDemoSkipAuth } from "@/lib/demo";
 import { isQaMode } from "@/lib/qa";
-import {
-  formatGbp,
-  PMQ_COURSE_ID,
-  pmqLoHref,
-  PMQ_SLUG,
-} from "@/lib/pmq/constants";
+import { PMQ_COURSE_ID, pmqLoHref, PMQ_SLUG } from "@/lib/pmq/constants";
+import { planFeatureValue } from "@/lib/pmq/plans";
 import {
   getAiTutorEntitlement,
   getPmqQuizSetQuestions,
@@ -20,7 +16,6 @@ import { quizSetContext } from "@/lib/pmq/quiz-sets";
 import { STAGE_REACHED_COLUMN, type LoStageId } from "@/lib/pmq/lo-stages";
 import {
   SLY_TOPUP_MIN_CENTS,
-  SLY_UNLOCK_CREDIT_GBP_CENTS,
   SLY_UNLOCK_PRICE_CENTS,
   topUpCreditGbpCents,
 } from "@/lib/tutor/constants";
@@ -801,13 +796,21 @@ export async function createAiTutorCheckout(input: {
           unit_amount: priceCents,
           product_data: {
             name: "Pro Bundle — PMQ in 5 days",
-            // Built from the same constants as the amount charged. This string
-            // renders on the Stripe checkout page beside the price, so a
-            // hardcoded figure here drifting from `unit_amount` shows the buyer
-            // two different prices at the moment of payment — a misleading price
-            // indication, not just untidy copy. It said "£9.99" for a while after
-            // the price moved to £8. Never hardcode the number again.
-            description: `One-time ${formatGbp(SLY_UNLOCK_PRICE_CENTS)} unlock including ${formatGbp(SLY_UNLOCK_CREDIT_GBP_CENTS)} of Sly fair-usage credit, plus Sly tutoring, extra quiz sets, and the AI-graded full mock.`,
+            // Every figure here is derived, never typed. This string renders on
+            // the Stripe checkout page beside the price, so anything hardcoded
+            // that drifts from its source shows the buyer one claim here and a
+            // different one on the pricing card at the moment of payment — a
+            // misleading indication, not just untidy copy. It said "£9.99" for a
+            // while after the price moved to £8, which is why the price is now
+            // read from SLY_UNLOCK_PRICE_CENTS and the quantities from
+            // PMQ_PLANS. If a price is ever reintroduced into this sentence it
+            // must use formatGbp(SLY_UNLOCK_PRICE_CENTS), never a literal.
+            //
+            // No Sly here on purpose: Sly belongs to the AI Pro Bundle, which is
+            // `status: "waitlist"` in plans.ts and not on sale. The old copy
+            // promised Sly tutoring and fair-usage credit to Pro buyers, which
+            // the tier ladder in tiers.ts does not grant.
+            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} additional practice questions, ${planFeatureValue("pro", "mock")} extra mock exams, and video & audio overviews for every learning objective. One-off payment. No subscription.`,
           },
         },
         quantity: 1,

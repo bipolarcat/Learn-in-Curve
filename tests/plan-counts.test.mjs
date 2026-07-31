@@ -95,6 +95,38 @@ test("mock exam increments match the tier ladder", () => {
   );
 });
 
+test("the Stripe checkout description derives its figures, never types them", () => {
+  // The checkout page and the pricing card quote the same two numbers to the
+  // same buyer seconds apart. Hardcoding either into the description is how
+  // "£9.99" survived a move to £8 — so the description must read them from
+  // PMQ_PLANS via planFeatureValue, and must not contain a money literal.
+  const actions = readFileSync(
+    new URL("../src/lib/pmq/actions.ts", import.meta.url),
+    "utf8",
+  );
+  const description = actions.slice(
+    actions.indexOf("description: `Unlock the complete PMQ"),
+    actions.indexOf("No subscription."),
+  );
+
+  assert.ok(
+    description.includes(`planFeatureValue("pro", "practice")`),
+    "practice-question count must come from PMQ_PLANS",
+  );
+  assert.ok(
+    description.includes(`planFeatureValue("pro", "mock")`),
+    "mock-exam count must come from PMQ_PLANS",
+  );
+  assert.ok(
+    !/£\d/.test(description),
+    "no price literal in the checkout description — Stripe renders unit_amount",
+  );
+  assert.ok(
+    !/\bSly\b/.test(description),
+    "Sly is AI Pro (waitlist) and must not be promised to Pro buyers",
+  );
+});
+
 test("Starter advertises the free tier honestly", () => {
   assert.ok(source.includes(`value: "${STARTER_QUESTIONS}"`));
   assert.ok(
