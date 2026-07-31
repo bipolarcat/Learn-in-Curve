@@ -189,25 +189,58 @@ export function LoStudyJourney({
   /** Tracks seal across refreshes so we don't yank the user out of Practise mid-review. */
   const prevSealedRef = useRef<boolean | null>(null);
 
+  /** Which LO we've already picked a resume stage for — see the effect below. */
+  const resumedForLoRef = useRef<number | null>(null);
+  /** Previous DB-confirmed stage count, to spot a progress reset. */
+  const dbDoneCountRef = useRef(0);
+
   useEffect(() => {
     // DB is the *only* source of truth for done stages and where to
-    // resume, every mount. There used to also be a sessionStorage cache
-    // here for same-session continuity, but it's what caused a reset
-    // account to reopen an LO on a stale stage (e.g. Quiz) instead of
-    // Orient — the cache had no way to tell a real reset apart from a
-    // normal revisit, so it just kept whatever it last saw. Removed
-    // rather than patched again: a stage's `*_reached_at` is only set
-    // when the learner clicks Continue *off* that stage (see advance()
-    // below), so "the stage right after the furthest DB-confirmed stage"
-    // is always exactly where they left off — no client cache required.
+    // resume. There used to also be a sessionStorage cache here for
+    // same-session continuity, but it's what caused a reset account to
+    // reopen an LO on a stale stage (e.g. Quiz) instead of Orient — the
+    // cache had no way to tell a real reset apart from a normal revisit,
+    // so it just kept whatever it last saw. Removed rather than patched
+    // again: a stage's `*_reached_at` is only set when the learner clicks
+    // Continue *off* that stage (see advance() below), so "the stage right
+    // after the furthest DB-confirmed stage" is always exactly where they
+    // left off — no client cache required.
     // See OPERATIONS.md, "reset didn't reset the in-LO pathway".
+    //
+    // Resuming is a MOUNT decision, not a per-render one. `dbReachedStageIds`
+    // is a fresh array on every RSC render, so this effect also re-runs on
+    // every `router.refresh()` — and each checklist tick fires one
+    // (ProgressCheckpointList.toggle), as does the confetti's onDone. Only the
+    // five pre-quiz stages have a `*_reached_at` column; `practice` and
+    // `checkpoint` never appear in `dbReachedStageIds`, so recomputing put the
+    // furthest stage at `apply` and dropped the learner back onto `practice` —
+    // the quiz — mid-checklist. Hence the ref: resume once per LO, then let the
+    // learner's own navigation stand.
     const dbDone = dbReachedStageIds.filter((id) => stageIds.includes(id));
+
+    // A shrinking DB set means progress was reset underneath us (admin reset,
+    // another tab). That's the one case where client state must be discarded
+    // rather than merged, so allow a fresh resume.
+    const wasReset = dbDone.length < dbDoneCountRef.current;
+    dbDoneCountRef.current = dbDone.length;
+    if (wasReset) resumedForLoRef.current = null;
+
+    // Absorb DB-confirmed stages without forgetting ones only the client knows
+    // about — `practice` and `checkpoint` have no column to come back from.
+    setDoneIds((prev) => {
+      if (wasReset) return new Set(dbDone);
+      const next = new Set(prev);
+      for (const id of dbDone) next.add(id);
+      return next;
+    });
+
+    if (resumedForLoRef.current === loNumber) return;
+    resumedForLoRef.current = loNumber;
+
     const furthestDbIdx = dbDone.reduce((max, id) => {
       const idx = stageIds.indexOf(id);
       return idx > max ? idx : max;
     }, -1);
-
-    setDoneIds(new Set(dbDone));
     const nextIdx = Math.min(Math.max(furthestDbIdx + 1, 0), stageIds.length - 1);
     setCurrentId(stageIds[nextIdx] ?? stageIds[0] ?? "orient");
   }, [loNumber, stageIds, dbReachedStageIds]);
