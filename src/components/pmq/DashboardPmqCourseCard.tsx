@@ -12,7 +12,7 @@ import {
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Flame } from "lucide-react";
 import { AI_TUTOR_LAUNCHED, formatGbp, PMQ_SLUG } from "@/lib/pmq/constants";
-import { AiTutorUpgradeCta } from "@/components/pmq/AiTutorUpgradeCta";
+import { GetProBundleButton } from "@/components/pmq/GetProBundleButton";
 import { SlyTopUpDialog } from "@/components/pmq/SlyTopUpDialog";
 import { SlyUsageMeter } from "@/components/pmq/SlyUsageMeter";
 import { Calendar } from "@/components/ui/calendar";
@@ -495,22 +495,9 @@ export function DashboardPmqCourseCard({
                 </span>
               </button>
 
-              <AiTutorUpgradeCta
-                variant="compact"
-                size="sm"
-                buttonAriaLabel={`Get Pro Bundle · ${priceLabel}`}
-                buttonLabel={
-                  <>
-                    Get{" "}
-                    <span className="inline-flex h-4 shrink-0 items-center rounded-[0.2rem] bg-teal px-1 text-[9px] font-bold leading-none tracking-tight text-paper">
-                      Pro
-                    </span>{" "}
-                    Bundle · {priceLabel}
-                  </>
-                }
+              <GetProBundleButton
                 priceCents={tutorPriceCents}
                 returnPath="/dashboard"
-                className="shrink-0 [&_button]:!min-h-8 [&_button]:!w-auto [&_button]:!rounded-lg [&_button]:!border [&_button]:!border-ink/70 [&_button]:!bg-ink [&_button]:!px-2.5 [&_button]:!py-1 [&_button]:!font-body [&_button]:!text-[11px] [&_button]:!font-semibold [&_button]:!normal-case [&_button]:!tracking-tight [&_button]:!text-paper hover:[&_button]:!bg-teal-deep"
               />
             </div>
 
