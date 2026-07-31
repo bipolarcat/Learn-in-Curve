@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  useCallback,
   useEffect,
   useId,
   useMemo,
@@ -138,8 +137,6 @@ function continueButtonLabel(
   return label;
 }
 
-const EXAM_DATE_COACH_KEY = "lic_exam_date_coach_v1";
-
 function ExamDeadlinePicker({
   id,
   value,
@@ -157,9 +154,7 @@ function ExamDeadlinePicker({
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [showCoach, setShowCoach] = useState(false);
   const selected = useMemo(() => parseYmd(value), [value]);
-  const coachId = `${id}-coach`;
 
   const startOfToday = (() => {
     const d = new Date();
@@ -167,41 +162,16 @@ function ExamDeadlinePicker({
     return d;
   })();
 
-  const dismissCoach = useCallback(() => {
-    try {
-      window.localStorage.setItem(EXAM_DATE_COACH_KEY, "1");
-    } catch {
-      // private mode / blocked storage — still hide for this session
-    }
-    setShowCoach(false);
-  }, []);
-
   useEffect(() => {
-    if (selected) {
-      setShowCoach(false);
-      return;
-    }
-    try {
-      if (window.localStorage.getItem(EXAM_DATE_COACH_KEY) !== "1") {
-        setShowCoach(true);
-      }
-    } catch {
-      setShowCoach(true);
-    }
-  }, [selected]);
-
-  useEffect(() => {
-    if (!open && !showCoach) return;
+    if (!open) return;
     const onDoc = (event: MouseEvent) => {
       if (!rootRef.current?.contains(event.target as Node)) {
         setOpen(false);
-        if (showCoach) dismissCoach();
       }
     };
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
-        if (showCoach) dismissCoach();
       }
     };
     document.addEventListener("mousedown", onDoc);
@@ -210,7 +180,7 @@ function ExamDeadlinePicker({
       document.removeEventListener("mousedown", onDoc);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open, showCoach, dismissCoach]);
+  }, [open]);
 
   const label = selected
     ? selected.toLocaleDateString("en-GB", {
@@ -220,24 +190,18 @@ function ExamDeadlinePicker({
       })
     : "Exam date";
 
-  const coachVisible = showCoach && !selected && !open;
-
   return (
     <div ref={rootRef} className="relative min-w-0 flex-1">
       <button
         type="button"
         id={id}
         aria-haspopup="dialog"
-        aria-expanded={open || coachVisible}
-        aria-describedby={coachVisible ? coachId : undefined}
+        aria-expanded={open}
         aria-label={
           selected ? `Exam date ${label}. Change date` : "Set exam date"
         }
         disabled={pending}
-        onClick={() => {
-          if (coachVisible) dismissCoach();
-          setOpen((prev) => !prev);
-        }}
+        onClick={() => setOpen((prev) => !prev)}
         className={`${styles.deadlineBtn}${selected ? "" : ` ${styles.deadlineBtnEmpty}`}`}
       >
         {label}
@@ -251,41 +215,6 @@ function ExamDeadlinePicker({
       </span>
       {msg && msg !== "Saved" ? (
         <p className={styles.deadlineError}>{msg}</p>
-      ) : null}
-
-      {coachVisible ? (
-        <div
-          id={coachId}
-          role="dialog"
-          aria-label="Exam date tip"
-          className={
-            popPlacement === "down" ? styles.coachTipDown : styles.coachTip
-          }
-        >
-          <p className={styles.coachCopy}>
-            Add your exam date so that Sly, the AI tutor, can pace your
-            study.
-          </p>
-          <div className={styles.coachActions}>
-            <button
-              type="button"
-              className={styles.coachPrimary}
-              onClick={() => {
-                dismissCoach();
-                setOpen(true);
-              }}
-            >
-              Set date
-            </button>
-            <button
-              type="button"
-              className={styles.coachSecondary}
-              onClick={dismissCoach}
-            >
-              Not now
-            </button>
-          </div>
-        </div>
       ) : null}
 
       {open ? (
@@ -306,7 +235,6 @@ function ExamDeadlinePicker({
               const picked = new Date(date);
               picked.setHours(0, 0, 0, 0);
               if (picked < startOfToday) return;
-              dismissCoach();
               onPick(formatYmd(date));
               setOpen(false);
             }}
