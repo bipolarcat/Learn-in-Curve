@@ -34,4 +34,5 @@ scripts/captions/.tmp/
 # this file is meant to be gitignored, .gitignore just never caught up)
 .impeccable/config.local.json
 *.mp4
+!public/brand/hero/hero-animals-2.mp4
 node_modules/
