@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { DEFAULT_AUTH_NEXT_PATH, getSafeNextPath } from "@/lib/auth-next";
+import { formActionPrimary } from "@/components/ui/semantic";
+import { Spinner } from "@/components/ui/spinner";
 
 const COOLDOWN_MS = 60_000;
 
@@ -9,6 +13,8 @@ type AuthCheckInboxProps = {
   email: string;
   /** saas = quiet auth chrome; default = ticket/body chrome */
   variant?: "default" | "saas";
+  /** Where Continue lands once the emailed link has been clicked. */
+  nextPath?: string;
   onUseDifferentEmail: () => void;
 };
 
@@ -87,13 +93,17 @@ function MailGlyph() {
 export function AuthCheckInbox({
   email,
   variant = "saas",
+  nextPath = DEFAULT_AUTH_NEXT_PATH,
   onUseDifferentEmail,
 }: AuthCheckInboxProps) {
+  const router = useRouter();
   const supabase = createClient();
   const cardRef = useRef<HTMLDivElement>(null);
   const [footerMode, setFooterMode] = useState<FooterMode>("actions");
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [resending, setResending] = useState(false);
+  const [continuing, setContinuing] = useState(false);
+  const [notConfirmedYet, setNotConfirmedYet] = useState(false);
 
   // Restore refresh-proof cooldown from sessionStorage.
   useEffect(() => {
@@ -160,6 +170,41 @@ export function AuthCheckInbox({
     }
   }
 
+  /**
+   * The user confirms in their mail client, comes back to this tab, and has
+   * nowhere to go — the card is terminal. Clicking the emailed link runs
+   * /auth/callback, which writes the session cookie for the whole browser, so
+   * this tab already holds a valid session; it just has no reason to re-read
+   * it. Continue re-reads it and moves on.
+   *
+   * When the link genuinely hasn't been clicked yet there is no session, and
+   * saying so is the honest outcome — pushing to a protected route would only
+   * bounce them back through auth.
+   */
+  async function handleContinue() {
+    if (continuing) return;
+    setContinuing(true);
+    setNotConfirmedYet(false);
+
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session) {
+        setNotConfirmedYet(true);
+        return;
+      }
+
+      router.push(getSafeNextPath(nextPath));
+      router.refresh();
+    } catch {
+      setNotConfirmedYet(true);
+    } finally {
+      setContinuing(false);
+    }
+  }
+
   const saas = variant === "saas";
   const linkBtn =
     "bg-transparent p-0 font-inherit underline decoration-ink/20 underline-offset-[0.15em] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60";
@@ -201,6 +246,37 @@ export function AuthCheckInbox({
             </span>
           </p>
         </div>
+
+        <button
+          type="button"
+          onClick={handleContinue}
+          disabled={continuing}
+          aria-busy={continuing}
+          aria-label={
+            continuing ? "Checking confirmation" : "Continue after confirming"
+          }
+          className={`${formActionPrimary} mt-4 w-full disabled:cursor-wait disabled:opacity-60`}
+        >
+          {continuing ? (
+            <Spinner
+              variant="bars"
+              size={16}
+              className="text-current"
+              aria-hidden
+            />
+          ) : (
+            "Continue"
+          )}
+        </button>
+
+        <p
+          className={`m-0 mt-2 max-w-[32ch] text-[12px] leading-snug text-ink/45 text-pretty ${saas ? "" : "font-body"}`}
+          role={notConfirmedYet ? "status" : undefined}
+        >
+          {notConfirmedYet
+            ? "That link hasn't been opened yet — confirm from your email, then press Continue."
+            : "Already confirmed in another tab? Press Continue."}
+        </p>
 
         <div
           className={`my-4 h-px w-full ${saas ? "bg-ink/[0.08]" : "bg-ink/10"}`}

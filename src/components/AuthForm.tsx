@@ -186,6 +186,7 @@ export function AuthForm({
         <AuthCheckInbox
           email={awaitingConfirmEmail}
           variant={variant}
+          nextPath={safeNextPath}
           onUseDifferentEmail={handleUseDifferentEmail}
         />
       </div>
