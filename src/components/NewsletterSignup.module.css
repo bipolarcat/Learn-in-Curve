@@ -1,0 +1,29 @@
+@keyframes inputShake {
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes successIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .inputError {
+    animation: inputShake 0.32s var(--ease-out-quint);
+  }
+
+  .success {
+    animation: successIn 0.28s var(--ease-out-quint) both;
+  }
+}

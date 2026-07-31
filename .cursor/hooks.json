@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "node \".cursor/skills/impeccable/scripts/hook-before-edit.mjs\"",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": "node \".cursor/hooks/git-checkpoint.mjs\"",
+        "timeout": 15
+      }
+    ]
+  }
+}

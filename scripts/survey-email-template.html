@@ -1,0 +1,89 @@
+<!--
+  Feedback survey email — Learn in Curve.
+  Reference copy of the HTML used in the Gmail test draft.
+  {{TOKEN}} is a placeholder — swap per recipient when sending the real
+  batch (each of the 43 needs their own token from survey_invites).
+
+  2026-07-07 update: links point at https://pmqin5days.learnincurve.com/survey
+  — the live PMQ in 5 days domain, reverse-proxied (see its Caddyfile) to
+  the Supabase Edge Function (supabase/functions/survey/index.ts). NOT the
+  raw *.supabase.co URL: that triggered Gmail's "Redirect Notice"
+  link-safety interstitial, because a long, machine-generated subdomain of
+  a shared hosting domain like supabase.co is a common phishing signature,
+  so Gmail (and likely other mail clients) doesn't treat it as a trusted
+  destination and inserts a click-through warning. Proxying through a
+  domain recipients already know and have already used avoids that.
+  IMPORTANT: this only works once the PMQ in 5 days repo is redeployed with
+  the updated Caddyfile — the raw supabase.co URL still works today if
+  needed before that deploy happens. Copy shortened to match Sim's own
+  edit of the previous draft.
+-->
+<!DOCTYPE html>
+<html>
+  <body style="margin:0; padding:0; background-color:#F4E9D6; font-family:Georgia, 'Times New Roman', serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F4E9D6; padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="max-width:480px; background-color:#FBF3E1; border:2px solid #241A12; border-radius:16px;">
+            <tr>
+              <td style="padding:36px 32px 28px 32px;">
+
+                <div style="font-family:Georgia, 'Times New Roman', serif; font-weight:bold; font-size:30px; line-height:1.15; color:#D5501F; margin:0 0 18px 0;">
+                  Got 10 seconds?
+                </div>
+
+                <p style="font-family:Helvetica, Arial, sans-serif; font-size:15px; line-height:1.6; color:#241A12; margin:0 0 24px 0;">
+                  Hey it's Sim, you used PMQ in 5 days by Learn in Curve and I'd genuinely love to know how it went.
+                </p>
+
+                <p style="font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; color:#241A12; margin:0 0 12px 0;">
+                  How has your overall experience with PMQ in 5 days by Learn in Curve been so far?
+                </p>
+
+                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 4px 0;">
+                  <tr>
+                    <td style="padding-right:10px;">
+                      <a href="https://pmqin5days.learnincurve.com/survey?token={{TOKEN}}&r=1" style="display:inline-block; text-decoration:none; text-align:center; width:52px; padding:10px 0; border:2px solid #241A12; border-radius:10px; background-color:#FBF3E1;">
+                        <span style="display:block; font-size:22px;">&#128545;</span>
+                        <span style="display:block; font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#241A12;">1</span>
+                      </a>
+                    </td>
+                    <td style="padding-right:10px;">
+                      <a href="https://pmqin5days.learnincurve.com/survey?token={{TOKEN}}&r=2" style="display:inline-block; text-decoration:none; text-align:center; width:52px; padding:10px 0; border:2px solid #241A12; border-radius:10px; background-color:#FBF3E1;">
+                        <span style="display:block; font-size:22px;">&#128577;</span>
+                        <span style="display:block; font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#241A12;">2</span>
+                      </a>
+                    </td>
+                    <td style="padding-right:10px;">
+                      <a href="https://pmqin5days.learnincurve.com/survey?token={{TOKEN}}&r=3" style="display:inline-block; text-decoration:none; text-align:center; width:52px; padding:10px 0; border:2px solid #241A12; border-radius:10px; background-color:#FBF3E1;">
+                        <span style="display:block; font-size:22px;">&#128528;</span>
+                        <span style="display:block; font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#241A12;">3</span>
+                      </a>
+                    </td>
+                    <td style="padding-right:10px;">
+                      <a href="https://pmqin5days.learnincurve.com/survey?token={{TOKEN}}&r=4" style="display:inline-block; text-decoration:none; text-align:center; width:52px; padding:10px 0; border:2px solid #241A12; border-radius:10px; background-color:#FBF3E1;">
+                        <span style="display:block; font-size:22px;">&#128578;</span>
+                        <span style="display:block; font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#241A12;">4</span>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="https://pmqin5days.learnincurve.com/survey?token={{TOKEN}}&r=5" style="display:inline-block; text-decoration:none; text-align:center; width:52px; padding:10px 0; border:2px solid #241A12; border-radius:10px; background-color:#FBF3E1;">
+                        <span style="display:block; font-size:22px;">&#128516;</span>
+                        <span style="display:block; font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#241A12;">5</span>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+          <p style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#8a7a63; margin:18px 0 0 0;">
+            Learn in Curve — not affiliated with APM.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

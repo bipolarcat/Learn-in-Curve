@@ -1,0 +1,798 @@
+WEBVTT
+
+NOTE MACHINE-GENERATED DRAFT — HUMAN QA REQUIRED. LO 17; gemini; gemini-3.1-flash-lite.
+
+1
+00:00:00.000 --> 00:00:02.250
+Welcome back to Learn in Curve.
+
+2
+00:00:02.250 --> 00:00:07.500
+Today, we're jumping right into Learning
+Objective 17, Solutions Development.
+
+3
+00:00:07.500 --> 00:00:12.065
+You know that feeling when you're staring
+at a massive, overwhelming list of project
+
+4
+00:00:12.065 --> 00:00:12.500
+demands?
+
+5
+00:00:12.500 --> 00:00:16.000
+You're just wondering, how on earth are we
+actually going to pull this off?
+
+6
+00:00:16.000 --> 00:00:17.750
+Well, you're in the right place.
+
+7
+00:00:17.750 --> 00:00:20.500
+Today, we're going to demystify all that
+complexity.
+
+8
+00:00:20.500 --> 00:00:25.389
+We'll figure out exactly how to evaluate
+and prioritize requirements to decide what
+
+9
+00:00:25.389 --> 00:00:30.219
+to build, and just as importantly, how to
+build it to deliver the absolute optimal
+
+10
+00:00:30.219 --> 00:00:30.750
+solution.
+
+11
+00:00:31.750 --> 00:00:34.500
+Okay, let's dive right into our roadmap
+for today.
+
+12
+00:00:34.500 --> 00:00:37.000
+First, we'll look at defining the core
+problem.
+
+13
+00:00:37.000 --> 00:00:41.873
+Then, evaluating the available options,
+the art of prioritizing, delivering the
+
+14
+00:00:41.873 --> 00:00:46.500
+optimal solution, and finally, how
+solutions work in different life cycles.
+
+15
+00:00:47.500 --> 00:00:51.744
+All right, part one, defining the core
+problem and navigating conflicting
+
+16
+00:00:51.744 --> 00:00:52.500
+requirements.
+
+17
+00:00:53.500 --> 00:00:57.922
+So, the reality of project management is,
+well, it's usually pretty messy right at
+
+18
+00:00:57.922 --> 00:00:59.000
+the start, isn't it?
+
+19
+00:00:59.000 --> 00:01:03.578
+Projects almost always kick off with this
+crazy storm of conflicting needs, vague
+
+20
+00:01:03.578 --> 00:01:05.500
+objectives, and really big dreams.
+
+21
+00:01:05.500 --> 00:01:08.000
+Let's imagine a scenario to bring this to
+life.
+
+22
+00:01:08.000 --> 00:01:10.500
+Think of the snappy appy office
+renovation.
+
+23
+00:01:10.500 --> 00:01:14.752
+You're the project manager, and AO, the
+passionate founder, comes to you with this
+
+24
+00:01:14.752 --> 00:01:17.500
+massive wish list for their perfect new
+headquarters.
+
+25
+00:01:17.500 --> 00:01:21.606
+They want a quiet mindfulness space,
+interactive whiteboards in literally every
+
+26
+00:01:21.606 --> 00:01:25.556
+meeting room, a lush green wall in the
+kitchen for well-being, and sit/stand
+
+27
+00:01:25.556 --> 00:01:28.000
+adjustable desks for the customer service
+team.
+
+28
+00:01:28.000 --> 00:01:29.500
+Sounds amazing, right?
+
+29
+00:01:29.500 --> 00:01:30.500
+But here's the catch.
+
+30
+00:01:30.500 --> 00:01:32.500
+The building is grade two listed.
+
+31
+00:01:32.500 --> 00:01:36.159
+That means there are incredibly strict
+regulations on what you can actually
+
+32
+00:01:36.159 --> 00:01:36.500
+change.
+
+33
+00:01:36.500 --> 00:01:41.500
+Suddenly, AO's dream list is crashing
+headfirst into legal building constraints.
+
+34
+00:01:41.500 --> 00:01:42.500
+So, what do you do?
+
+35
+00:01:42.500 --> 00:01:47.326
+Well, this is where we really need to nail
+down what solutions development actually
+
+36
+00:01:47.326 --> 00:01:47.500
+is.
+
+37
+00:01:47.500 --> 00:01:52.312
+Basically, it's the ability to determine
+the absolute optimal solution to satisfy
+
+38
+00:01:52.312 --> 00:01:53.500
+agreed requirements.
+
+39
+00:01:53.500 --> 00:01:54.500
+The golden rule here?
+
+40
+00:01:54.500 --> 00:01:59.372
+Before we build a single thing or, you
+know, knock down any walls in AO's office,
+
+41
+00:01:59.372 --> 00:02:02.500
+we need crystal clear clarity on the
+problem itself.
+
+42
+00:02:02.500 --> 00:02:04.500
+Have you ever heard the Russian space pen
+anecdote?
+
+43
+00:02:04.500 --> 00:02:06.500
+It's famous in project management.
+
+44
+00:02:06.500 --> 00:02:10.500
+The story goes that during the space race,
+millions of dollars were spent developing
+
+45
+00:02:10.500 --> 00:02:13.500
+this highly sophisticated pen that could
+write in zero gravity.
+
+46
+00:02:13.500 --> 00:02:14.500
+The Russian solution?
+
+47
+00:02:14.500 --> 00:02:16.000
+They just used a pencil.
+
+48
+00:02:16.000 --> 00:02:19.500
+Now, whether you buy into the complete
+historical accuracy of that or not,
+
+49
+00:02:19.500 --> 00:02:22.000
+the lesson is absolutely brilliant.
+
+50
+00:02:22.000 --> 00:02:25.477
+It perfectly highlights the trap of
+jumping straight to a complex solution
+
+51
+00:02:25.477 --> 00:02:29.000
+before you've actually figured out the
+core problem you're trying to solve.
+
+52
+00:02:29.000 --> 00:02:34.121
+Moving right along to part two, evaluating
+the available options and filtering
+
+53
+00:02:34.121 --> 00:02:35.500
+through the criteria.
+
+54
+00:02:36.500 --> 00:02:40.186
+Now that we actually know the problem
+we're trying to solve, we move into the
+
+55
+00:02:40.186 --> 00:02:41.000
+evaluation phase.
+
+56
+00:02:41.000 --> 00:02:43.500
+Look, every project is unique, right?
+
+57
+00:02:43.500 --> 00:02:47.000
+Which means you have to look at your
+options through five specific lenses.
+
+58
+00:02:47.000 --> 00:02:48.500
+First up, technical.
+
+59
+00:02:48.500 --> 00:02:51.500
+Like what processes, materials, or
+software are we using?
+
+60
+00:02:52.500 --> 00:02:53.500
+Then, social.
+
+61
+00:02:53.500 --> 00:02:56.500
+How is this going to impact people and
+their day-to-day relationships?
+
+62
+00:02:56.500 --> 00:02:58.000
+Next is procurement.
+
+63
+00:02:58.000 --> 00:03:02.000
+Are we leasing, buying, building it
+in-house, or maybe partnering up?
+
+64
+00:03:02.000 --> 00:03:03.500
+Then, management.
+
+65
+00:03:03.500 --> 00:03:06.500
+What do the life cycle and governance
+actually look like?
+
+66
+00:03:06.500 --> 00:03:08.500
+And finally, transition.
+
+67
+00:03:08.500 --> 00:03:12.039
+Are we rolling the solution out in
+carefully phased stages, or are we just
+
+68
+00:03:12.039 --> 00:03:14.000
+going for a big bang release all at once?
+
+69
+00:03:14.500 --> 00:03:18.550
+Now, what's really interesting about this
+slide is that your evaluation checklist
+
+70
+00:03:18.550 --> 00:03:20.500
+doesn't just stop at those five lenses.
+
+71
+00:03:20.500 --> 00:03:24.091
+When you're looking at your requirements,
+you also have to constantly weigh the
+
+72
+00:03:24.091 --> 00:03:25.500
+value of alternative solutions.
+
+73
+00:03:25.500 --> 00:03:29.500
+You got to ask yourself, what's the
+overall market capability right now?
+
+74
+00:03:29.500 --> 00:03:32.804
+Can the supply chain even deliver the
+materials or services we need for this
+
+75
+00:03:32.804 --> 00:03:33.500
+specific option?
+
+76
+00:03:33.500 --> 00:03:37.654
+Because let's be real, a solution that
+looks great on paper is totally useless if
+
+77
+00:03:37.654 --> 00:03:39.500
+the market can't actually supply it.
+
+78
+00:03:40.500 --> 00:03:44.969
+All right, section three, the art of
+prioritizing, or what to do when you
+
+79
+00:03:44.969 --> 00:03:46.500
+simply can't have it all.
+
+80
+00:03:47.500 --> 00:03:51.500
+And this brings us to a somewhat harsh,
+but completely necessary reality.
+
+81
+00:03:51.500 --> 00:03:56.700
+Projects rarely, and I mean rarely, have
+the budget, time, or scope to deliver
+
+82
+00:03:56.700 --> 00:03:59.500
+absolutely everything that everyone wants.
+
+83
+00:03:59.500 --> 00:04:03.500
+So, ruthless prioritization becomes our
+next critical filter.
+
+84
+00:04:03.500 --> 00:04:07.500
+One of the absolute best ways to do this
+is the MoSCoW approach.
+
+85
+00:04:07.500 --> 00:04:11.500
+That stands for must have, should have,
+could have, and won't have.
+
+86
+00:04:11.500 --> 00:04:15.000
+Let's pull this back to AO's renovation
+list for snappy appy.
+
+87
+00:04:15.000 --> 00:04:19.222
+Those sit/stand desks for the customer
+service team, those align with strict
+
+88
+00:04:19.222 --> 00:04:23.500
+occupational health and safety guidelines,
+that makes them a legal must have.
+
+89
+00:04:23.500 --> 00:04:26.500
+But that beautiful communal green wall,
+sure.
+
+90
+00:04:26.500 --> 00:04:30.023
+It's fantastic for well-being, but if the
+budget gets tight or those historic
+
+91
+00:04:30.023 --> 00:04:33.500
+building regulations push back, that green
+wall firmly becomes a could have.
+
+92
+00:04:33.500 --> 00:04:37.449
+Sorting your requirements like this
+ensures that the absolute essentials form
+
+93
+00:04:37.449 --> 00:04:39.500
+the foundation of your optimal solution.
+
+94
+00:04:40.500 --> 00:04:42.500
+But MoSCoW isn't the only tool in your
+tool belts.
+
+95
+00:04:42.500 --> 00:04:45.500
+You can also prioritize using these three
+methods.
+
+96
+00:04:45.500 --> 00:04:49.835
+First, there's an investment appraisal
+where you really dig into the trade-offs
+
+97
+00:04:49.835 --> 00:04:53.951
+between costs, benefits, and risks to see
+what truly adds value to the main
+
+98
+00:04:53.951 --> 00:04:54.500
+objective.
+
+99
+00:04:54.500 --> 00:04:58.761
+Second is the ABC model, which is just a
+super simple way of classifying items
+
+100
+00:04:58.761 --> 00:05:01.000
+purely based on their tier of importance.
+
+101
+00:05:01.000 --> 00:05:05.500
+And third, my personal favorite, the
+brilliantly simple five whys method.
+
+102
+00:05:05.500 --> 00:05:09.510
+This is basically where you play the role
+of a curious toddler, you just repeatedly
+
+103
+00:05:09.510 --> 00:05:13.375
+ask stakeholders why a requirement is
+actually necessary until you drill all the
+
+104
+00:05:13.375 --> 00:05:15.500
+way down to the absolute root
+justification.
+
+105
+00:05:16.500 --> 00:05:20.196
+Which brings us to section four,
+delivering the optimal solution and
+
+106
+00:05:20.196 --> 00:05:21.500
+securing the right path.
+
+107
+00:05:22.500 --> 00:05:26.500
+So, we've defined the problem, evaluated
+our options, and prioritized the needs.
+
+108
+00:05:26.500 --> 00:05:29.891
+Now it's time to select that single most
+optimal solution and lock it into the
+
+109
+00:05:29.891 --> 00:05:30.500
+business case.
+
+110
+00:05:31.500 --> 00:05:34.477
+But hey, before we declare victory, we
+really need to highlight a
+
+111
+00:05:34.477 --> 00:05:37.500
+counter-intuitive but absolutely vital
+rule in project management.
+
+112
+00:05:37.500 --> 00:05:40.500
+The business case must always include the
+option to do nothing.
+
+113
+00:05:40.500 --> 00:05:41.500
+Seriously.
+
+114
+00:05:41.500 --> 00:05:45.237
+Why? Because sometimes after all that
+evaluation and prioritizing, you realize
+
+115
+00:05:45.237 --> 00:05:49.165
+the cost or risk of actually implementing
+a solution is way worse than the problem
+
+116
+00:05:49.165 --> 00:05:49.500
+itself.
+
+117
+00:05:50.500 --> 00:05:54.244
+Sometimes the most strategic optimal
+decision you can possibly make is to just
+
+118
+00:05:54.244 --> 00:05:56.500
+walk away and leave things exactly as they
+are.
+
+119
+00:05:57.500 --> 00:06:00.500
+So, the crucial point is that you have to
+watch out for stakeholder pressure.
+
+120
+00:06:00.500 --> 00:06:01.500
+It's a huge trap.
+
+121
+00:06:01.500 --> 00:06:05.791
+You are absolutely going to face powerful
+individuals who are emotionally attached
+
+122
+00:06:05.791 --> 00:06:10.029
+to their own preferred ideas and they'll
+push for them, even when they aren't the
+
+123
+00:06:10.029 --> 00:06:10.500
+best fit.
+
+124
+00:06:10.500 --> 00:06:13.500
+But remember, your job isn't just to give
+them what they want.
+
+125
+00:06:13.500 --> 00:06:17.230
+Your job is to rely on that rigorous
+evaluation funnel we just talked about,
+
+126
+00:06:17.230 --> 00:06:21.009
+stick to the hard data, and protect the
+project from those non-optimal vanity
+
+127
+00:06:21.009 --> 00:06:21.500
+solutions.
+
+128
+00:06:22.500 --> 00:06:27.709
+And finally, section five, solutions and
+different life cycles, adapting to the
+
+129
+00:06:27.709 --> 00:06:28.500
+environment.
+
+130
+00:06:29.500 --> 00:06:33.167
+Okay, now that we have our optimal
+solution on paper, how do we actually roll
+
+131
+00:06:33.167 --> 00:06:33.500
+it out?
+
+132
+00:06:33.500 --> 00:06:36.500
+Well, this shapes our whole approach to
+execution.
+
+133
+00:06:36.500 --> 00:06:39.500
+Let's look at the left side first, the
+linear life cycle.
+
+134
+00:06:39.500 --> 00:06:42.500
+In a linear project, you do all your
+analysis right up front.
+
+135
+00:06:42.500 --> 00:06:46.626
+You pick your optimal solution, you lock
+in a strictly agreed scope, and from that
+
+136
+00:06:46.626 --> 00:06:50.500
+point on, any tweaks have to go through a
+super rigid change control process.
+
+137
+00:06:50.500 --> 00:06:52.500
+It is a straight line.
+
+138
+00:06:52.500 --> 00:06:54.500
+Now on the right side, we have the
+iterative life cycle.
+
+139
+00:06:54.500 --> 00:06:56.500
+This approach is way more fluid.
+
+140
+00:06:56.500 --> 00:07:00.500
+It gives you the chance to explore
+different design options for much longer.
+
+141
+00:07:00.500 --> 00:07:04.061
+You investigate needs in focused time
+boxes, and you deliver the solution
+
+142
+00:07:04.061 --> 00:07:06.500
+incrementally, piece by piece, adapting as
+you go.
+
+143
+00:07:07.500 --> 00:07:11.500
+And this brilliantly illustrates how that
+iterative cycle works in practice.
+
+144
+00:07:12.500 --> 00:07:16.100
+Imagine you're managing a project to
+launch a mobile app for a fast food
+
+145
+00:07:16.100 --> 00:07:16.500
+company.
+
+146
+00:07:16.500 --> 00:07:20.932
+A rival has just dropped a hugely popular
+app and you're under intense pressure to
+
+147
+00:07:20.932 --> 00:07:22.500
+get to market like yesterday.
+
+148
+00:07:22.500 --> 00:07:26.500
+In an iterative cycle, you do not wait
+around to build the perfect app.
+
+149
+00:07:26.500 --> 00:07:30.500
+Phase one is launching a minimum viable
+product or MVP.
+
+150
+00:07:30.500 --> 00:07:33.985
+You take only your absolute must have
+requirements, maybe just viewing the menu
+
+151
+00:07:33.985 --> 00:07:36.500
+and placing a basic order, and you get it
+out there fast.
+
+152
+00:07:37.500 --> 00:07:41.500
+Phase two then lets you gather progressive
+user feedback from real customers.
+
+153
+00:07:41.500 --> 00:07:45.379
+That feedback directly informs phase
+three, where you refine the app into a
+
+154
+00:07:45.379 --> 00:07:49.517
+minimum marketable product or MMP, which
+is robust enough to actually compete in
+
+155
+00:07:49.517 --> 00:07:50.500
+the broader market.
+
+156
+00:07:51.500 --> 00:07:54.935
+Finally, in phase four and beyond, you
+keep releasing future versions until all
+
+157
+00:07:54.935 --> 00:07:56.500
+those original requirements are met.
+
+158
+00:07:56.500 --> 00:08:00.500
+It's all about speed to value and learning
+while you build.
+
+159
+00:08:00.500 --> 00:08:03.500
+Wow, we've covered a massive amount of
+ground today.
+
+160
+00:08:03.500 --> 00:08:07.971
+From defining chaotic problems and dodging
+that space pen trap, all the way to
+
+161
+00:08:07.971 --> 00:08:12.500
+evaluating requirements and rolling out
+MVPs and MMPs in iterative life cycles.
+
+162
+00:08:12.500 --> 00:08:16.951
+You now know exactly how to evaluate,
+prioritize, and deliver the optimal
+
+163
+00:08:16.951 --> 00:08:17.500
+solution.
+
+164
+00:08:17.500 --> 00:08:21.250
+So, I want to leave you with a bit of a
+provocative question to take into your
+
+165
+00:08:21.250 --> 00:08:22.500
+very next project meeting.
+
+166
+00:08:22.500 --> 00:08:26.389
+Next time a powerful stakeholder demands
+their favorite non-optimal preferred
+
+167
+00:08:26.389 --> 00:08:30.126
+solution, exactly which lenses and
+criteria are you going to use to filter
+
+168
+00:08:30.126 --> 00:08:32.500
+their request and guide them to the right
+path?
+
+169
+00:08:33.500 --> 00:08:36.500
+Keep that funnel in mind, stay focused,
+and keep learning.
+
+170
+00:08:36.500 --> 00:08:37.500
+Catch you next time.

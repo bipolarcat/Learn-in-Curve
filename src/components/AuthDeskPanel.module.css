@@ -1,0 +1,37 @@
+.panel {
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.intro {
+  margin-bottom: 0.9rem;
+  text-align: center;
+}
+
+.intro h1 {
+  color: rgb(var(--ink-rgb));
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.intro p {
+  max-width: 32ch;
+  margin: 0.2rem auto 0;
+  color: rgb(var(--ink-rgb) / 0.7);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.84375rem;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+@media (min-width: 40rem) {
+  .panel {
+    padding-inline: 1.3rem;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+}

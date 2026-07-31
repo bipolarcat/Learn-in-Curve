@@ -1,0 +1,304 @@
+/* Study plan console — sleek flat, no inner dividers, snappy */
+
+.panel {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+}
+
+.panelCompact {
+  border-radius: 0.875rem;
+}
+
+/* —— Title bar —— */
+.titleBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  min-height: 2.85rem;
+  padding: 0.65rem 0.7rem 0.45rem;
+  background: transparent;
+}
+
+.titleCluster {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: rgb(var(--ink-rgb));
+}
+
+.titleAccent {
+  color: var(--orange);
+}
+
+.titleAction {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* —— Day rail (no bottom rule — flows into LO list) —— */
+.dayRail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.15rem;
+  padding: 0.15rem 0.45rem 0.2rem;
+  background: transparent;
+}
+
+.dayTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: rgb(var(--ink-rgb) / 0.5);
+  cursor: pointer;
+  transition:
+    color 80ms var(--ease-out-quint),
+    background-color 80ms var(--ease-out-quint),
+    transform 80ms var(--ease-out-quint);
+}
+
+.dayTab:hover {
+  color: rgb(var(--ink-rgb) / 0.88);
+  background: rgb(var(--ink-rgb) / 0.03);
+}
+
+.dayTab:active {
+  transform: scale(0.96);
+}
+
+.dayTab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--paper-rgb)), 0 0 0 4px var(--orange);
+}
+
+.dayTabSelected {
+  color: rgb(var(--ink-rgb));
+  background: rgb(var(--ink-rgb) / 0.055);
+}
+
+.dayTabDone:not(.dayTabSelected) .dayTabNum {
+  color: var(--olive);
+}
+
+.dayTabProgress:not(.dayTabSelected) .dayTabNum {
+  color: var(--orange);
+}
+
+.dayTabNum {
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.dayTabCount {
+  font-size: 0.625rem;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+
+.dayTabSelected .dayTabCount {
+  opacity: 0.72;
+}
+
+/* —— Body / LO list —— */
+.panelBody {
+  padding: 0.15rem 0.45rem 0.55rem;
+}
+
+.loList {
+  display: grid;
+  gap: 0;
+}
+
+.loRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.55rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 80ms var(--ease-out-quint),
+    transform 80ms var(--ease-out-quint),
+    opacity 80ms var(--ease-out-quint);
+}
+
+.loRow:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.loRow:hover {
+  background: rgb(var(--ink-rgb) / 0.035);
+}
+
+.loRow:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.loRow:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--paper-rgb)), 0 0 0 4px var(--orange);
+}
+
+.loRowDone {
+  background: transparent;
+}
+
+.loRowDone:hover {
+  background: rgb(var(--ink-rgb) / 0.035);
+}
+
+.loRowDone .loTitle {
+  color: rgb(var(--ink-rgb) / 0.72);
+}
+
+.loRowLocked {
+  opacity: 0.72;
+}
+
+.loNum {
+  width: 1.25rem;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: rgb(var(--ink-rgb) / 0.38);
+  text-align: right;
+}
+
+.loTitle {
+  min-width: 0;
+  flex: 1;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: pretty;
+}
+
+.loDone {
+  display: inline-flex;
+  height: 1.15rem;
+  width: 1.15rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--olive);
+}
+
+.loPie {
+  flex-shrink: 0;
+}
+
+.loPending {
+  display: inline-flex;
+  height: 1.15rem;
+  width: 1.15rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.loMeta {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgb(var(--ink-rgb) / 0.35);
+}
+
+@media (min-width: 40rem) {
+  .titleBar {
+    min-height: 3.15rem;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0.85rem 0.5rem;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .courseProgress {
+    padding: 0.2rem 0.85rem 0.4rem;
+  }
+
+  .courseCount {
+    font-size: 0.71875rem;
+  }
+
+  .dayRail {
+    gap: 0.2rem;
+    padding: 0.2rem 0.65rem 0.15rem;
+  }
+
+  .dayTab {
+    min-height: 2.85rem;
+    padding: 0.4rem 0.25rem;
+  }
+
+  .dayTabNum {
+    font-size: 0.8125rem;
+  }
+
+  .panelBody {
+    padding: 0.2rem 0.65rem 0.7rem;
+  }
+
+  .loRow {
+    min-height: 2.85rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .loTitle {
+    font-size: 0.875rem;
+  }
+
+  .loChevron {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dayTab,
+  .loRow,
+  .loChevron {
+    animation: none;
+    transition: none;
+  }
+}

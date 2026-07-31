@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn in Curve — Direction 1: Ticket Studio (Illustrated Edition)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Learn in Curve — Direction 1_ Ticket Studio (Illustrated Edition)_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241A12;
+    --cream:#F4E9D6;
+    --cream-2:#EEDFB8;
+    --sand:#E8CE93;
+    --orange:#D5501F;
+    --gold:#D9A441;
+    --olive:#5F7A3D;
+    --teal:#1B6560;
+    --teal-deep:#123F3C;
+    --rust:#B3341C;
+    --paper:#FBF3E1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    position:relative;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Figtree',sans-serif;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(36,26,18,0.06) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  /* film-grain overlay, sits over everything */
+  body::after{
+    content:'';position:fixed;inset:0;z-index:200;pointer-events:none;
+    opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'Space Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  img,svg{display:block;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,233,214,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--ink);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .mark{width:40px;height:40px;border-radius:50%;background:var(--ink);border:2.5px solid var(--gold);display:flex;align-items:center;justify-content:center;}
+  .mark svg{width:24px;height:24px;}
+  .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:20px;}
+  .nav-links{display:flex;align-items:center;gap:36px;font-weight:600;font-size:15px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--orange);transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;
+    border:2px solid var(--ink);cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;
+    background:none;font-family:'Figtree',sans-serif;
+  }
+  .btn-primary{background:var(--orange);color:var(--paper);box-shadow:4px 4px 0 var(--ink);}
+  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .btn-ghost{background:transparent;color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background:var(--ink);color:var(--cream);
+    border-bottom:2px solid var(--ink);
+    overflow:hidden;white-space:nowrap;padding:10px 0;
+  }
+  .marquee-track{display:inline-block;animation:scroll-left 26s linear infinite;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.08em;}
+  .marquee-track span{margin:0 28px;}
+  .marquee-track span.dot{color:var(--gold);}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- HERO / ILLUSTRATION SCENE ---------- */
+  .hero{position:relative;padding:120px 0 100px;overflow:hidden;}
+  .hero-illo{position:absolute;inset:0;z-index:0;pointer-events:none;}
+  .arch{
+    position:absolute;top:-60px;right:-120px;width:560px;height:640px;
+    background:var(--sand);border-radius:280px 280px 0 0;opacity:.9;
+  }
+  .blob-teal{
+    position:absolute;top:60px;right:60px;width:340px;height:340px;border-radius:50%;
+    background:var(--teal-deep);opacity:.95;animation:float-slow 9s ease-in-out infinite;
+  }
+  .blob-orange{
+    position:absolute;bottom:-140px;right:-40px;width:260px;height:260px;border-radius:50%;
+    background:var(--orange);opacity:.9;animation:float-slow 11s ease-in-out infinite reverse;
+  }
+  .blob-gold-ring{
+    position:absolute;top:220px;left:-60px;width:180px;height:180px;border-radius:50%;
+    border:14px solid var(--gold);opacity:.5;
+  }
+  @keyframes float-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  .sunburst{
+    position:absolute;top:-320px;right:-260px;width:820px;height:820px;
+    background:repeating-conic-gradient(var(--gold) 0deg 8deg, transparent 8deg 16deg);
+    border-radius:50%;opacity:.16;animation:spin 90s linear infinite;pointer-events:none;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--ink);
+    padding:6px 14px;border-radius:999px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;
+    letter-spacing:.06em;margin-bottom:22px;
+  }
+  .eyebrow .pip{width:8px;height:8px;border-radius:50%;background:var(--olive);}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;margin-bottom:22px;}
+  .hero h1 .hl{color:var(--orange);position:relative;white-space:nowrap;}
+  .hero p{font-size:19px;line-height:1.6;max-width:480px;margin-bottom:34px;color:rgba(36,26,18,.82);}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .hero-right{position:relative;}
+
+  /* mascot mark */
+  .mascot{position:absolute;top:-64px;right:18px;width:132px;height:auto;z-index:3;animation:mascot-bob 4.5s ease-in-out infinite;filter:drop-shadow(6px 8px 0 rgba(36,26,18,.18));}
+  @keyframes mascot-bob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(2deg) translateY(-9px)}}
+
+  .ticket{
+    position:relative;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;
+    padding:34px 30px;transform:rotate(3deg);box-shadow:10px 12px 0 var(--ink);
+  }
+  .ticket::before,.ticket::after{
+    content:'';position:absolute;top:50%;width:36px;height:36px;background:var(--cream);
+    border:2.5px solid var(--ink);border-radius:50%;transform:translateY(-50%);
+  }
+  .ticket::before{left:-20px;}
+  .ticket::after{right:-20px;}
+  .ticket .perf{border-top:2.5px dashed var(--ink);margin:20px 0;}
+  .ticket .stamp{
+    position:absolute;top:20px;right:24px;width:74px;height:74px;border-radius:50%;
+    border:3px solid var(--orange);color:var(--orange);display:flex;align-items:center;justify-content:center;
+    font-family:'Space Mono',monospace;font-weight:700;font-size:10px;text-align:center;transform:rotate(-14deg);
+    line-height:1.2;
+  }
+  .ticket h3{font-size:26px;margin-bottom:6px;}
+  .ticket .tag{font-family:'Space Mono',monospace;font-size:12px;color:var(--teal);font-weight:700;letter-spacing:.05em;}
+  .ticket ul{margin-top:14px;padding-left:0;list-style:none;font-size:14px;}
+  .ticket li{padding:5px 0;display:flex;gap:8px;align-items:flex-start;}
+  .ticket li::before{content:'✦';color:var(--gold);}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .stagger .reveal:nth-child(1){transition-delay:.05s;}
+  .stagger .reveal:nth-child(2){transition-delay:.15s;}
+  .stagger .reveal:nth-child(3){transition-delay:.25s;}
+  .stagger .reveal:nth-child(4){transition-delay:.35s;}
+  .stagger .reveal:nth-child(5){transition-delay:.45s;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:96px 0;position:relative;}
+  .section-tag{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:.08em;margin-bottom:10px;}
+  .section-title{font-size:clamp(30px,4vw,46px);margin-bottom:16px;}
+  .section-sub{max-width:560px;color:rgba(36,26,18,.75);font-size:17px;line-height:1.6;margin-bottom:56px;}
+
+  /* ---------- TORN DIVIDER ---------- */
+  .torn{height:26px;background:
+    linear-gradient(135deg, var(--cream) 25%, transparent 25%) -6px 0,
+    linear-gradient(225deg, var(--cream) 25%, transparent 25%) -6px 0;
+    background-size:12px 26px;background-color:var(--ink);
+  }
+  .torn.to-cream2{background-color:var(--ink);}
+  .torn.to-cream2 + *{background:var(--cream-2);}
+
+  /* ---------- BOLD STAT BLOCK (poster bands) ---------- */
+  .statblock{padding:0;}
+  .band{position:relative;padding:46px 0;overflow:hidden;}
+  .band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}
+  .band-teal{background:var(--teal-deep);color:var(--paper);}
+  .band-rust{background:var(--rust);color:var(--paper);}
+  .band-gold{background:var(--gold);color:var(--ink);}
+  .stat-num{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:1;}
+  .stat-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;margin-top:10px;opacity:.85;}
+  .stat-caption{
+    background:var(--ink);color:rgba(244,233,214,.82);padding:20px 0;
+    font-family:'Space Mono',monospace;font-size:13px;text-align:center;letter-spacing:.02em;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--ink);color:var(--cream);}
+  .about .wrap{padding-top:70px;padding-bottom:80px;}
+  .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px;}
+  .about-card{border:1.5px solid rgba(244,233,214,.3);border-radius:14px;padding:26px;transition:transform .2s ease, border-color .2s ease;}
+  .about-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .about-card .icon-badge{width:44px;height:44px;border-radius:50%;background:rgba(217,164,65,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .about-card .icon-badge svg{width:22px;height:22px;}
+  .about-card h3{font-size:21px;margin-bottom:10px;}
+  .about-card p{font-size:14.5px;line-height:1.6;color:rgba(244,233,214,.75);}
+
+  /* ---------- COURSES (with checker strip) ---------- */
+  #courses{position:relative;}
+  .checker-strip{
+    position:absolute;top:0;left:0;right:0;height:14px;
+    background-image:
+      linear-gradient(45deg, var(--ink) 25%, transparent 25%, transparent 75%, var(--ink) 75%),
+      linear-gradient(45deg, var(--ink) 25%, transparent 25%, transparent 75%, var(--ink) 75%);
+    background-size:14px 14px;background-position:0 0, 7px 7px;background-color:var(--cream-2);opacity:.5;
+  }
+  .courses-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .course-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:28px;
+    position:relative;transition:transform .2s ease, box-shadow .2s ease;box-shadow:6px 6px 0 var(--ink);
+  }
+  .course-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink);}
+  .course-badge{
+    display:inline-block;background:var(--olive);color:var(--paper);font-family:'Space Mono',monospace;
+    font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;margin-bottom:14px;letter-spacing:.05em;
+  }
+  .course-card.locked .course-badge{background:var(--gold);color:var(--ink);}
+  .course-card h3{font-size:23px;margin-bottom:8px;}
+  .course-card p{font-size:14.5px;color:rgba(36,26,18,.72);line-height:1.55;margin-bottom:18px;}
+  .course-meta{display:flex;gap:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:18px;}
+
+  /* ---------- LIVE QUIZ DEMO ---------- */
+  .quiz-demo{background:var(--cream-2);}
+  .quiz-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
+  .quiz-card{
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:20px;padding:30px;
+    box-shadow:8px 10px 0 var(--ink);position:relative;
+  }
+  .quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .quiz-tag{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.06em;}
+  .xp-pill{
+    display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--gold);
+    font-family:'Space Mono',monospace;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;
+  }
+  .xp-track{width:120px;height:8px;background:rgba(36,26,18,.15);border-radius:99px;overflow:hidden;margin-top:14px;}
+  .xp-fill{height:100%;width:0%;background:var(--orange);border-radius:99px;transition:width .6s cubic-bezier(.2,.8,.2,1);}
+  .quiz-q{font-size:19px;font-weight:600;margin-bottom:18px;line-height:1.4;}
+  .quiz-opts{display:grid;gap:10px;}
+  .quiz-opt{
+    text-align:left;padding:13px 16px;border-radius:12px;border:2px solid var(--ink);background:var(--cream);
+    font-family:'Figtree',sans-serif;font-size:14.5px;cursor:pointer;transition:transform .12s ease, background .15s ease;
+    position:relative;
+  }
+  .quiz-opt:hover:not(.locked){transform:translateX(4px);}
+  .quiz-opt.correct{background:var(--olive);color:var(--paper);border-color:var(--olive);}
+  .quiz-opt.incorrect{background:var(--rust);color:var(--paper);border-color:var(--rust);animation:shake .35s ease;}
+  .quiz-opt.locked{cursor:default;opacity:.7;}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .quiz-feedback{margin-top:16px;font-size:13.5px;font-family:'Space Mono',monospace;color:var(--teal);min-height:18px;}
+  .quiz-next{margin-top:16px;display:none;}
+  .fly-xp{
+    position:absolute;font-family:'Space Mono',monospace;font-weight:700;color:var(--orange);font-size:16px;
+    pointer-events:none;opacity:0;
+  }
+  .fly-xp.go{animation:fly-up 1s ease-out forwards;}
+  @keyframes fly-up{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-46px)}}
+
+  .quiz-copy h2{margin-bottom:16px;}
+  .quiz-copy p{font-size:16.5px;line-height:1.65;color:rgba(36,26,18,.78);max-width:480px;margin-bottom:20px;}
+  .quiz-copy .feature-list{list-style:none;display:grid;gap:12px;}
+  .quiz-copy .feature-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;}
+  .quiz-copy .feature-list li::before{content:'●';color:var(--orange);}
+
+  /* ---------- GAMIFIED JOURNEY PATH ---------- */
+  .journey{background:var(--paper);}
+  .journey-map{position:relative;padding:40px 0 20px;}
+  .journey-svg{width:100%;height:auto;overflow:visible;}
+  .journey-path{
+    fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:900;stroke-dashoffset:900;
+    transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1);
+  }
+  .journey-path.drawn{stroke-dashoffset:0;}
+  .node{cursor:pointer;}
+  .node circle.ring{fill:var(--paper);stroke:var(--ink);stroke-width:3;}
+  .node.complete circle.ring{fill:var(--olive);stroke:var(--olive);}
+  .node.current circle.ring{fill:var(--orange);stroke:var(--orange);animation:pulse-ring 1.8s ease-in-out infinite;}
+  .node.locked circle.ring{fill:var(--cream-2);stroke:var(--ink);opacity:.6;}
+  @keyframes pulse-ring{0%,100%{filter:drop-shadow(0 0 0 rgba(213,80,31,.5))}50%{filter:drop-shadow(0 0 10px rgba(213,80,31,.55))}}
+  .node text{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;fill:var(--paper);}
+  .node.locked text{fill:var(--ink);}
+
+  .journey-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px;}
+  .jcard{
+    border:2px solid var(--ink);border-radius:14px;padding:16px 14px;background:var(--cream);
+    font-size:12.5px;text-align:center;transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    box-shadow:4px 4px 0 var(--ink);opacity:.5;transform:translateY(8px);pointer-events:none;
+  }
+  .jcard.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .jcard h4{font-size:13.5px;margin-bottom:6px;}
+  .jcard .jmeta{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--teal);}
+  .jcard.locked-card{color:rgba(36,26,18,.5);}
+
+  /* ---------- NEWSLETTER ---------- */
+  .newsletter{background:var(--rust);color:var(--paper);}
+  .newsletter .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .newsletter h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:8px;}
+  .newsletter p{opacity:.9;max-width:420px;}
+  .signup{display:flex;gap:10px;}
+  .signup input{
+    padding:14px 18px;border-radius:999px;border:2px solid var(--ink);font-family:'Figtree',sans-serif;
+    font-size:15px;min-width:260px;background:var(--paper);color:var(--ink);
+  }
+  .signup input:focus{outline:3px solid var(--gold);}
+  .signup button{background:var(--ink);color:var(--cream);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 34px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  .footer-grid h4{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--gold);margin-bottom:16px;}
+  .footer-grid a{display:block;font-size:14.5px;color:rgba(244,233,214,.8);padding:5px 0;}
+  .footer-grid a:hover{color:var(--gold);}
+  .footer-bottom{border-top:1.5px solid rgba(244,233,214,.2);padding-top:24px;display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:12px;color:rgba(244,233,214,.55);flex-wrap:wrap;gap:10px;}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .about-grid,.courses-grid,.steps,.band .wrap{grid-template-columns:1fr;gap:26px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .newsletter .wrap{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .quiz-wrap{grid-template-columns:1fr;}
+    .journey-cards{grid-template-columns:repeat(2,1fr);}
+    .mascot{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 100 100"><path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" fill="none" stroke="#D5501F" stroke-width="8" stroke-linecap="round"></path></svg></div>
+      <span class="brand-name">Learn in Curve</span>
+    </div>
+    <div class="nav-links">
+      <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#about">About</a>
+      <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#courses">Courses</a>
+      <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#careers">Careers</a>
+      <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#" class="btn btn-ghost">Sign in</a>
+      <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span><span class="dot">●</span> APM PMQ EXAM PREP</span>
+    <span><span class="dot">●</span> GAMIFIED STUDY MATERIAL</span>
+    <span><span class="dot">●</span> TIMED MOCK EXAMS</span>
+    <span><span class="dot">●</span> CERTIFICATE ON PASS</span>
+    <span><span class="dot">●</span> APM PMQ EXAM PREP</span>
+    <span><span class="dot">●</span> GAMIFIED STUDY MATERIAL</span>
+    <span><span class="dot">●</span> TIMED MOCK EXAMS</span>
+    <span><span class="dot">●</span> CERTIFICATE ON PASS</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-illo">
+    <div class="sunburst"></div>
+    
+    
+    <div class="blob-orange"></div>
+    <div class="blob-gold-ring"></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="reveal visible">
+      <div class="eyebrow"><span class="pip"></span> NOW BOARDING — PMQ COHORT</div>
+      <h1>Study like it's <span class="hl">your ticket out</span>, not your homework.</h1>
+      <p>Learn in Curve turns exam revision into something you actually want to open — gamified lessons, real mock exams, and a certificate waiting at the finish line.</p>
+      <div class="hero-ctas">
+        <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#courses" class="btn btn-primary">Start free with PMQ →</a>
+        <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#how" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+    <div class="reveal visible hero-right" style="transition-delay:.15s">
+      
+      <div class="ticket">
+        <div class="stamp">PASS<br>GUARANTEED<br>FEEL</div>
+        <span class="tag">BOARDING PASS · 001</span>
+        <h3>APM PMQ in 5 Days</h3>
+        <div class="perf"></div>
+        <ul>
+          <li>24 learning objectives, gamified</li>
+          <li>Practice quizzes per topic</li>
+          <li>Full timed mock exam</li>
+          <li>Free — no card required</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torn"></div>
+
+<section class="statblock">
+  <div class="band band-teal">
+    <div class="wrap">
+      <div><div class="stat-num" data-count="2400">2,400</div><div class="stat-label">LEARNERS ONBOARD</div></div>
+      <div><div class="stat-num" data-count="94" data-suffix="%">94%</div><div class="stat-label">MOCK EXAM PASS RATE</div></div>
+      <div><div class="stat-num" data-count="5" data-suffix=" DAYS">5 DAYS</div><div class="stat-label">AVG. TIME TO FINISH</div></div>
+    </div>
+  </div>
+  <div class="band band-rust" style="padding:0;"></div>
+  <div class="band band-gold" style="padding:14px 0;"></div>
+  <div class="stat-caption">Learn in Curve is a gamified revision studio for professional exams. Founded 2026, first course: APM PMQ.</div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-tag reveal visible">OUR PHILOSOPHY</div>
+    <h2 class="section-title reveal visible" style="transition-delay:.1s">Revision that respects your time.</h2>
+    <p class="section-sub reveal visible" style="color:rgba(244,233,214,.8);transition-delay:.2s">Not a PDF. Not a lecture hall. A focused, interactive sprint built around one goal — passing the exam in front of you.</p>
+    <div class="about-grid stagger">
+      <div class="about-card reveal visible">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#D9A441" stroke-width="2"></circle><circle cx="12" cy="12" r="4.5" stroke="#D9A441" stroke-width="2"></circle><circle cx="12" cy="12" r="1.3" fill="#D9A441"></circle></svg></div>
+        <h3>Exam-scoped only</h3><p>No general PM theory rabbit holes — every lesson maps directly to your syllabus.</p>
+      </div>
+      <div class="about-card reveal visible">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-3-2-4-2-7-1 2-2 2-2 0 0-2-1-3-2-4z" fill="#D9A441"></path></svg></div>
+        <h3>Built to be finished</h3><p>Streaks, stamps, and short sessions designed for the way people actually study.</p>
+      </div>
+      <div class="about-card reveal visible">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="5" stroke="#D9A441" stroke-width="2"></circle><path d="M8.5 13.5L7 21l5-2.4L17 21l-1.5-7.5" stroke="#D9A441" stroke-width="2" fill="none" stroke-linejoin="round"></path></svg></div>
+        <h3>Proof when you're done</h3><p>Pass the mock exam under real conditions and walk away with a certificate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="checker-strip"></div>
+  <div class="wrap">
+    <div class="section-tag reveal">THE LINE-UP</div>
+    <h2 class="section-title reveal" style="transition-delay:.1s">Pick your exam.</h2>
+    <p class="section-sub reveal" style="transition-delay:.2s">One flat fee per course. No subscriptions, no upsells mid-revision.</p>
+    <div class="courses-grid stagger">
+      <div class="course-card reveal">
+        <span class="course-badge">FREE · LIVE NOW</span>
+        <h3>APM PMQ in 5 Days</h3>
+        <p>The full gamified revision path for the APM Project Management Qualification, ready today.</p>
+        <div class="course-meta"><span>24 OBJECTIVES</span><span>~5 DAYS</span></div>
+        <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#" class="btn btn-primary">Start free →</a>
+      </div>
+      <div class="course-card locked reveal">
+        <span class="course-badge">COMING SOON</span>
+        <h3>PFQ in 2 Days</h3>
+        <p>A fast-track revision sprint for the APM PFQ, built on the same framework — join the waitlist.</p>
+        <div class="course-meta"><span>TBC OBJECTIVES</span><span>~2 DAYS</span></div>
+        <a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#" class="btn btn-ghost">Notify me →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-demo">
+  <div class="wrap quiz-wrap">
+    <div class="quiz-card reveal">
+      <div class="quiz-top">
+        <span class="quiz-tag">TRY A REAL QUESTION</span>
+        <div class="xp-pill">✦ <span id="xpCount">0</span> XP</div>
+      </div>
+      <div class="quiz-q" id="quizQ">In the APM Life Cycle, which stage focuses on defining scope, schedule, and budget before work begins?</div>
+      <div class="quiz-opts" id="quizOpts"><button class="quiz-opt">Concept</button><button class="quiz-opt">Definition</button><button class="quiz-opt">Deployment</button><button class="quiz-opt">Transition</button></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
+      <button class="btn btn-primary quiz-next" id="quizNext" style="display: none;">Next question →</button>
+    </div>
+    <div class="quiz-copy reveal" style="transition-delay:.15s">
+      <div class="section-tag">NO WAITING FOR FEEDBACK</div>
+      <h2 class="section-title" style="margin-bottom:16px;">Answer. Get points. See why.</h2>
+      <p>Every lesson ends in quick-fire questions like this one — instant right/wrong, an explanation when you miss it, and XP that actually adds up toward your streak.</p>
+      <ul class="feature-list">
+        <li>Multiple-choice, scenario-based questions pulled straight from the syllabus</li>
+        <li>Instant feedback — no waiting for a marked script</li>
+        <li>XP and streaks carry across every topic in the course</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="how">
+  <div class="wrap">
+    <div class="section-tag reveal">THE JOURNEY</div>
+    <h2 class="section-title reveal" style="transition-delay:.1s">Five stops, one certificate.</h2>
+    <p class="section-sub reveal" style="transition-delay:.2s">Click a stop on the path — see what's unlocked, what's next, and what's still locked.</p>
+    <div class="journey-map">
+      <svg class="journey-svg" viewBox="0 0 1000 140" preserveAspectRatio="none">
+        <path class="journey-path" id="journeyPath" d="M40 100 C 200 20, 320 20, 500 70 S 780 130, 960 40"></path>
+        <g class="node complete" data-i="0" transform="translate(40,100)">
+          <circle class="ring" r="20"></circle><text x="0" y="5" text-anchor="middle">✓</text>
+        </g>
+        <g class="node complete" data-i="1" transform="translate(280,32)">
+          <circle class="ring" r="20"></circle><text x="0" y="5" text-anchor="middle">✓</text>
+        </g>
+        <g class="node current" data-i="2" transform="translate(500,70)">
+          <circle class="ring" r="22"></circle><text x="0" y="5" text-anchor="middle">03</text>
+        </g>
+        <g class="node locked" data-i="3" transform="translate(730,118)">
+          <circle class="ring" r="20"></circle><text x="0" y="5" text-anchor="middle">🔒</text>
+        </g>
+        <g class="node locked" data-i="4" transform="translate(960,40)">
+          <circle class="ring" r="20"></circle><text x="0" y="5" text-anchor="middle">🔒</text>
+        </g>
+      </svg>
+      <div class="journey-cards">
+        <div class="jcard" data-i="0"><h4>01 · Kickoff</h4><p>Intro &amp; study plan</p><div class="jmeta">3 LESSONS · DONE</div></div>
+        <div class="jcard" data-i="1"><h4>02 · Framework</h4><p>PMQ syllabus map</p><div class="jmeta">6 LESSONS · DONE</div></div>
+        <div class="jcard" data-i="2"><h4>03 · Life Cycle</h4><p>You are here</p><div class="jmeta">5 LESSONS · 92% AVG</div></div>
+        <div class="jcard locked-card" data-i="3"><h4>04 · Governance</h4><p>🔒 Unlocks after Unit 3</p><div class="jmeta">6 LESSONS</div></div>
+        <div class="jcard locked-card" data-i="4"><h4>05 · Mock Exam</h4><p>🔒 Timed, full syllabus</p><div class="jmeta">FINAL STOP</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Get notified when new courses drop.</h2>
+      <p>PFQ, PMP, and CAPM revision paths are on the way. No spam — just launch dates.</p>
+    </div>
+    <form class="signup reveal" style="transition-delay:.15s">
+      <input type="email" placeholder="you@email.com" required="">
+      <button type="submit" class="btn btn-primary">Notify me</button>
+    </form>
+  </div>
+</section>
+
+<footer id="careers">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <div class="mark"><svg viewBox="0 0 100 100"><path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" fill="none" stroke="#D5501F" stroke-width="8" stroke-linecap="round"></path></svg></div>
+          <span class="brand-name">Learn in Curve</span>
+        </div>
+        <p style="font-size:14px;color:rgba(244,233,214,.7);max-width:260px;">A gamified, interactive revision platform — one exam at a time.</p>
+      </div>
+      <div><h4>PRODUCT</h4><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#courses">Courses</a><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#how">How it works</a><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#">Pricing</a></div>
+      <div><h4>COMPANY</h4><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#about">About</a><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#careers">Careers</a><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#">Contact</a></div>
+      <div><h4>LEGAL</h4><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#">Privacy</a><a href="file:///C:/Users/simsa/Learn%20in%20Curve/brand/BRAND_KIT_v4.html#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Learn in Curve. All rights reserved.</span>
+      <span>DIRECTION 1 — "TICKET STUDIO" · V4 ILLUSTRATED EDITION</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el));
+
+  // count-up stats
+  function countUp(el){
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min(1,(now-start)/dur);
+      const eased = 1 - Math.pow(1-p, 3);
+      const val = Math.round(target*eased);
+      el.textContent = val.toLocaleString() + suffix;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ countUp(e.target); statIO.unobserve(e.target); }
+    });
+  },{threshold:0.4});
+  document.querySelectorAll('.stat-num').forEach(el=>statIO.observe(el));
+
+  // journey path draw-in
+  const pathEl = document.getElementById('journeyPath');
+  const pathIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ pathEl.classList.add('drawn'); pathIO.disconnect(); }
+    });
+  },{threshold:0.3});
+  pathIO.observe(document.querySelector('.journey-map'));
+
+  // journey node click -> toggle card
+  document.querySelectorAll('.node').forEach(node=>{
+    node.addEventListener('click', ()=>{
+      const i = node.dataset.i;
+      document.querySelectorAll('.jcard').forEach(c=>{
+        c.classList.toggle('open', c.dataset.i === i);
+      });
+    });
+  });
+
+  // quiz demo
+  const questions = [
+    {
+      q: "In the APM Life Cycle, which stage focuses on defining scope, schedule, and budget before work begins?",
+      opts: ["Concept", "Definition", "Deployment", "Transition"],
+      correct: 1,
+      explain: "Definition is where the project plan, scope, schedule and budget are set before deployment starts."
+    },
+    {
+      q: "A RACI matrix is primarily used to clarify what on a project?",
+      opts: ["Risk appetite", "Roles and responsibilities", "Budget variance", "Stakeholder sentiment"],
+      correct: 1,
+      explain: "RACI (Responsible, Accountable, Consulted, Informed) maps who does what across project tasks."
+    },
+    {
+      q: "Which document formally authorises a project and gives the project manager authority to spend resources?",
+      opts: ["Business case", "Project brief", "Project charter", "Risk register"],
+      correct: 2,
+      explain: "The project charter (or PID, depending on methodology) is the formal go-ahead and mandate document."
+    }
+  ];
+  let qi = 0, xp = 0, locked = false;
+  const qEl = document.getElementById('quizQ');
+  const optsEl = document.getElementById('quizOpts');
+  const fbEl = document.getElementById('quizFeedback');
+  const nextBtn = document.getElementById('quizNext');
+  const xpCount = document.getElementById('xpCount');
+  const xpFill = document.getElementById('xpFill');
+
+  function renderQuestion(){
+    const q = questions[qi];
+    locked = false;
+    qEl.textContent = q.q;
+    fbEl.textContent = '';
+    nextBtn.style.display = 'none';
+    optsEl.innerHTML = '';
+    q.opts.forEach((opt, i)=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.addEventListener('click', ()=> handleAnswer(i, b));
+      optsEl.appendChild(b);
+    });
+  }
+
+  function handleAnswer(i, btn){
+    if(locked) return;
+    locked = true;
+    const q = questions[qi];
+    const buttons = optsEl.querySelectorAll('.quiz-opt');
+    buttons.forEach(b=>b.classList.add('locked'));
+    if(i === q.correct){
+      btn.classList.add('correct');
+      xp += 10;
+      xpCount.textContent = xp;
+      xpFill.style.width = Math.min(100, (xp/50)*100) + '%';
+      fbEl.textContent = '✓ Correct — ' + q.explain;
+      spawnFlyXP(btn);
+    } else {
+      btn.classList.add('incorrect');
+      buttons[q.correct].classList.add('correct');
+      fbEl.textContent = '✕ Not quite — ' + q.explain;
+    }
+    nextBtn.style.display = 'inline-block';
+  }
+
+  function spawnFlyXP(btn){
+    const fly = document.createElement('span');
+    fly.className = 'fly-xp go';
+    fly.textContent = '+10 XP';
+    const rect = btn.getBoundingClientRect();
+    const cardRect = document.querySelector('.quiz-card').getBoundingClientRect();
+    fly.style.left = (rect.right - cardRect.left - 40) + 'px';
+    fly.style.top = (rect.top - cardRect.top) + 'px';
+    document.querySelector('.quiz-card').appendChild(fly);
+    setTimeout(()=>fly.remove(), 1000);
+  }
+
+  nextBtn.addEventListener('click', ()=>{
+    qi = (qi+1) % questions.length;
+    renderQuestion();
+  });
+
+  renderQuestion();
+</script>
+
+
+</body></html>

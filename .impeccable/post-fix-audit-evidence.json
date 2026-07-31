@@ -1,0 +1,761 @@
+{
+  "generatedAt": "2026-07-18T17:48:35.918Z",
+  "results": [
+    {
+      "viewport": "mobile",
+      "route": "/",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/about",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/about",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/careers",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/careers",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses/pmq-in-5-days/preview",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/dashboard",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fdashboard",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/mock?tier=lite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/terms",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/terms",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cookies",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/cookies",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "mobile",
+      "route": "/recruitment-privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/recruitment-privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/about",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/about",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/careers",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/careers",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses/pmq-in-5-days/preview",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/dashboard",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fdashboard",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/mock?tier=lite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/terms",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/terms",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/cookies",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/cookies",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "tablet",
+      "route": "/recruitment-privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/recruitment-privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/about",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/about",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/careers",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/careers",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dfull",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/courses/pmq-in-5-days/preview",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/dashboard",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fdashboard",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/mock?tier=lite",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/auth/sign-in?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [
+        {
+          "label": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/terms",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/terms",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cookies",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/cookies",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    },
+    {
+      "viewport": "desktop",
+      "route": "/recruitment-privacy",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/recruitment-privacy",
+      "errors": [],
+      "overflowX": 0,
+      "h1Count": 1,
+      "mainCount": 1,
+      "darkClass": false,
+      "colorScheme": "light",
+      "undersizedPrimary": [],
+      "activeAnimations": 0
+    }
+  ]
+}

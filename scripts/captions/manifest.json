@@ -1,0 +1,510 @@
+{
+  "version": 1,
+  "captionModel": "gemini-3.1-flash-lite",
+  "entries": {
+    "1": {
+      "loNumber": 1,
+      "sourcePath": "public/videos/pmq/lo-01.mp4",
+      "sourceSha256": "c7bc1eb2338531cfc8925b207b9b7b697f92f421ee6d7be9a296638e57851fd8",
+      "durationMs": 491474,
+      "draftPath": "scripts/captions/drafts/lo-01.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-01.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 162,
+      "generatedAt": "2026-07-18T16:55:25.391Z",
+      "runtimeMs": 31159,
+      "usage": {
+        "promptTokens": 12646,
+        "outputTokens": 8779,
+        "totalTokens": 21425,
+        "estimatedCostUsd": null
+      }
+    },
+    "2": {
+      "loNumber": 2,
+      "sourcePath": "public/videos/pmq/lo-02.mp4",
+      "sourceSha256": "746836cd1ff9a81e9c296310630f40b40c52bb12fcca82f9c482b3a658104d1f",
+      "durationMs": 405002,
+      "draftPath": "scripts/captions/drafts/lo-02.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-02.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 133,
+      "generatedAt": "2026-07-18T16:56:10.644Z",
+      "runtimeMs": 24750,
+      "usage": {
+        "promptTokens": 10485,
+        "outputTokens": 7402,
+        "totalTokens": 17887,
+        "estimatedCostUsd": null
+      }
+    },
+    "3": {
+      "loNumber": 3,
+      "sourcePath": "public/videos/pmq/lo-03.mp4",
+      "sourceSha256": "6fd7af39c3cd059a8ff143c873ddd7e5a6006c6bcc48d64f41175c41f56d4c3c",
+      "durationMs": 487991,
+      "draftPath": "scripts/captions/drafts/lo-03.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-03.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 155,
+      "generatedAt": "2026-07-18T16:56:38.868Z",
+      "runtimeMs": 27824,
+      "usage": {
+        "promptTokens": 12558,
+        "outputTokens": 7849,
+        "totalTokens": 20407,
+        "estimatedCostUsd": null
+      }
+    },
+    "4": {
+      "loNumber": 4,
+      "sourcePath": "public/videos/pmq/lo-04.mp4",
+      "sourceSha256": "54d6a17b81be0ae19c4bc50cb9dbf579902673dc8806c40103646edeb1fe6c16",
+      "durationMs": 409948,
+      "draftPath": "scripts/captions/drafts/lo-04.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-04.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 140,
+      "generatedAt": "2026-07-18T16:57:06.575Z",
+      "runtimeMs": 27394,
+      "usage": {
+        "promptTokens": 10608,
+        "outputTokens": 7515,
+        "totalTokens": 18123,
+        "estimatedCostUsd": null
+      }
+    },
+    "5": {
+      "loNumber": 5,
+      "sourcePath": "public/videos/pmq/lo-05.mp4",
+      "sourceSha256": "3b3eaba7f58587ff3c75f1ca8e8c3f245c039dd62723b0e8980533189fdef64c",
+      "durationMs": 393555,
+      "draftPath": "scripts/captions/drafts/lo-05.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-05.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 122,
+      "generatedAt": "2026-07-18T16:57:31.297Z",
+      "runtimeMs": 24403,
+      "usage": {
+        "promptTokens": 10197,
+        "outputTokens": 7176,
+        "totalTokens": 17373,
+        "estimatedCostUsd": null
+      }
+    },
+    "6": {
+      "loNumber": 6,
+      "sourcePath": "public/videos/pmq/lo-06.mp4",
+      "sourceSha256": "2f057c61bcf1e34af6feeec36c6c00e2510aa0282974111fef7d62c37c0a9aac",
+      "durationMs": 482139,
+      "draftPath": "scripts/captions/drafts/lo-06.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-06.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 99,
+      "generatedAt": "2026-07-18T16:58:01.336Z",
+      "runtimeMs": 29689,
+      "usage": {
+        "promptTokens": 12412,
+        "outputTokens": 8304,
+        "totalTokens": 20716,
+        "estimatedCostUsd": null
+      }
+    },
+    "7": {
+      "loNumber": 7,
+      "sourcePath": "public/videos/pmq/lo-07.mp4",
+      "sourceSha256": "908bf3a5dc69f2bbd9df23f7227408226231fe60058588b05ccc1f2df9047080",
+      "durationMs": 419468,
+      "draftPath": "scripts/captions/drafts/lo-07.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-07.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 132,
+      "generatedAt": "2026-07-18T16:58:25.832Z",
+      "runtimeMs": 24170,
+      "usage": {
+        "promptTokens": 10845,
+        "outputTokens": 7002,
+        "totalTokens": 17847,
+        "estimatedCostUsd": null
+      }
+    },
+    "8": {
+      "loNumber": 8,
+      "sourcePath": "public/videos/pmq/lo-08.mp4",
+      "sourceSha256": "956697925925c64fe8cb3b077e4cf85cd00e65fb162b285b6f2f27d9100d2906",
+      "durationMs": 409948,
+      "draftPath": "scripts/captions/drafts/lo-08.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-08.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 140,
+      "generatedAt": "2026-07-18T16:58:51.287Z",
+      "runtimeMs": 25149,
+      "usage": {
+        "promptTokens": 10608,
+        "outputTokens": 7232,
+        "totalTokens": 17840,
+        "estimatedCostUsd": null
+      }
+    },
+    "9": {
+      "loNumber": 9,
+      "sourcePath": "public/videos/pmq/lo-09.mp4",
+      "sourceSha256": "242eb0c3cfd29afad09045e6e3cbaedefc0efeef537a3abba654f6807b283aab",
+      "durationMs": 494631,
+      "draftPath": "scripts/captions/drafts/lo-09.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-09.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 170,
+      "generatedAt": "2026-07-18T16:59:23.343Z",
+      "runtimeMs": 31683,
+      "usage": {
+        "promptTokens": 12725,
+        "outputTokens": 9207,
+        "totalTokens": 21932,
+        "estimatedCostUsd": null
+      }
+    },
+    "10": {
+      "loNumber": 10,
+      "sourcePath": "public/videos/pmq/lo-10.mp4",
+      "sourceSha256": "9d14d00937bf82ce06f70162c7b5b1a94cde168fe2871d29dcbc776e69ab8bbf",
+      "durationMs": 441853,
+      "draftPath": "scripts/captions/drafts/lo-10.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-10.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 138,
+      "generatedAt": "2026-07-18T16:59:47.162Z",
+      "runtimeMs": 23507,
+      "usage": {
+        "promptTokens": 11411,
+        "outputTokens": 6558,
+        "totalTokens": 17969,
+        "estimatedCostUsd": null
+      }
+    },
+    "11": {
+      "loNumber": 11,
+      "sourcePath": "public/videos/pmq/lo-11.mp4",
+      "sourceSha256": "025b16363093359a3f46cf8b017b68d8a45ed12a350642438cbae0c5515fd489",
+      "durationMs": 527139,
+      "draftPath": "scripts/captions/drafts/lo-11.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-11.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 172,
+      "generatedAt": "2026-07-18T17:00:20.348Z",
+      "runtimeMs": 32776,
+      "usage": {
+        "promptTokens": 13539,
+        "outputTokens": 9482,
+        "totalTokens": 23021,
+        "estimatedCostUsd": null
+      }
+    },
+    "12": {
+      "loNumber": 12,
+      "sourcePath": "public/videos/pmq/lo-12.mp4",
+      "sourceSha256": "425c16f6567abf7220afcf2453a14ecd0d1ab4aaccac03546b7d3ad41fb60b6f",
+      "durationMs": 462936,
+      "draftPath": "scripts/captions/drafts/lo-12.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-12.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 155,
+      "generatedAt": "2026-07-18T17:00:49.592Z",
+      "runtimeMs": 28919,
+      "usage": {
+        "promptTokens": 11933,
+        "outputTokens": 8247,
+        "totalTokens": 20180,
+        "estimatedCostUsd": null
+      }
+    },
+    "13": {
+      "loNumber": 13,
+      "sourcePath": "public/videos/pmq/lo-13.mp4",
+      "sourceSha256": "c00ac6c637527970bbbcc224af3978db020ca0731739df25dfb2e98342e8fba2",
+      "durationMs": 417588,
+      "draftPath": "scripts/captions/drafts/lo-13.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-13.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 139,
+      "generatedAt": "2026-07-18T17:01:14.438Z",
+      "runtimeMs": 24532,
+      "usage": {
+        "promptTokens": 10800,
+        "outputTokens": 7190,
+        "totalTokens": 17990,
+        "estimatedCostUsd": null
+      }
+    },
+    "14": {
+      "loNumber": 14,
+      "sourcePath": "public/videos/pmq/lo-14.mp4",
+      "sourceSha256": "d30f8379c5a059c7f6fdb9e5b06849137c00b0504a65a4e5466e30aa283f05ab",
+      "durationMs": 402959,
+      "draftPath": "scripts/captions/drafts/lo-14.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-14.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 124,
+      "generatedAt": "2026-07-18T17:01:38.418Z",
+      "runtimeMs": 23672,
+      "usage": {
+        "promptTokens": 10435,
+        "outputTokens": 6163,
+        "totalTokens": 16598,
+        "estimatedCostUsd": null
+      }
+    },
+    "15": {
+      "loNumber": 15,
+      "sourcePath": "public/videos/pmq/lo-15.mp4",
+      "sourceSha256": "7ecd3d250874259bf57de1a53b22f85aa4af7988e367f8f6812b741b4e9f7c09",
+      "durationMs": 356194,
+      "draftPath": "scripts/captions/drafts/lo-15.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-15.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 95,
+      "generatedAt": "2026-07-18T17:01:59.992Z",
+      "runtimeMs": 21239,
+      "usage": {
+        "promptTokens": 9269,
+        "outputTokens": 6466,
+        "totalTokens": 15735,
+        "estimatedCostUsd": null
+      }
+    },
+    "16": {
+      "loNumber": 16,
+      "sourcePath": "public/videos/pmq/lo-16.mp4",
+      "sourceSha256": "8622c9410ad40ad93b6a01f7f6d6c575af4ac7e57489bdb1e857815f8e73b912",
+      "durationMs": 477820,
+      "draftPath": "scripts/captions/drafts/lo-16.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-16.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 165,
+      "generatedAt": "2026-07-18T17:02:30.469Z",
+      "runtimeMs": 30131,
+      "usage": {
+        "promptTokens": 12306,
+        "outputTokens": 9014,
+        "totalTokens": 21320,
+        "estimatedCostUsd": null
+      }
+    },
+    "17": {
+      "loNumber": 17,
+      "sourcePath": "public/videos/pmq/lo-17.mp4",
+      "sourceSha256": "cd8bec40922538d351fbe3cc1a4c7193b13ae4b26de81f0f136986d88c041338",
+      "durationMs": 520057,
+      "draftPath": "scripts/captions/drafts/lo-17.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-17.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 170,
+      "generatedAt": "2026-07-18T17:03:02.629Z",
+      "runtimeMs": 31586,
+      "usage": {
+        "promptTokens": 13362,
+        "outputTokens": 9218,
+        "totalTokens": 22580,
+        "estimatedCostUsd": null
+      }
+    },
+    "18": {
+      "loNumber": 18,
+      "sourcePath": "public/videos/pmq/lo-18.mp4",
+      "sourceSha256": "f4f0dab9b9f5c8848bc84c63866d04417d19ed83fc32b06b6084e828bdc57acc",
+      "durationMs": 413733,
+      "draftPath": "scripts/captions/drafts/lo-18.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-18.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 142,
+      "generatedAt": "2026-07-18T17:03:28.436Z",
+      "runtimeMs": 25436,
+      "usage": {
+        "promptTokens": 10704,
+        "outputTokens": 7670,
+        "totalTokens": 18374,
+        "estimatedCostUsd": null
+      }
+    },
+    "19": {
+      "loNumber": 19,
+      "sourcePath": "public/videos/pmq/lo-19.mp4",
+      "sourceSha256": "cec9795f761f241e24924b9e01afba34ecf4f3ef198d69adb447fb1e722a150f",
+      "durationMs": 439809,
+      "draftPath": "scripts/captions/drafts/lo-19.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-19.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 140,
+      "generatedAt": "2026-07-18T17:03:53.579Z",
+      "runtimeMs": 24756,
+      "usage": {
+        "promptTokens": 11356,
+        "outputTokens": 6855,
+        "totalTokens": 18211,
+        "estimatedCostUsd": null
+      }
+    },
+    "20": {
+      "loNumber": 20,
+      "sourcePath": "public/videos/pmq/lo-20.mp4",
+      "sourceSha256": "bf005408d9917d8015aa73e667fb44437bf0e4d828f286be17c5adb24cd787a6",
+      "durationMs": 475266,
+      "draftPath": "scripts/captions/drafts/lo-20.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-20.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 158,
+      "generatedAt": "2026-07-18T17:04:24.471Z",
+      "runtimeMs": 30540,
+      "usage": {
+        "promptTokens": 12242,
+        "outputTokens": 8408,
+        "totalTokens": 20650,
+        "estimatedCostUsd": null
+      }
+    },
+    "21": {
+      "loNumber": 21,
+      "sourcePath": "public/videos/pmq/lo-21.mp4",
+      "sourceSha256": "311ea5a28cea5a55e3664d3d1bdc3d851091ef8a5823cba9787cb8941fe2db39",
+      "durationMs": 447913,
+      "draftPath": "scripts/captions/drafts/lo-21.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-21.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 136,
+      "generatedAt": "2026-07-18T17:04:49.083Z",
+      "runtimeMs": 24269,
+      "usage": {
+        "promptTokens": 11558,
+        "outputTokens": 7014,
+        "totalTokens": 18572,
+        "estimatedCostUsd": null
+      }
+    },
+    "22": {
+      "loNumber": 22,
+      "sourcePath": "public/videos/pmq/lo-22.mp4",
+      "sourceSha256": "284f29ee0054c9297436b710f9a715b4b1e779aef07bc42d1bd9ce300ee72463",
+      "durationMs": 428896,
+      "draftPath": "scripts/captions/drafts/lo-22.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-22.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 136,
+      "generatedAt": "2026-07-18T17:05:14.581Z",
+      "runtimeMs": 25143,
+      "usage": {
+        "promptTokens": 11086,
+        "outputTokens": 6937,
+        "totalTokens": 18023,
+        "estimatedCostUsd": null
+      }
+    },
+    "23": {
+      "loNumber": 23,
+      "sourcePath": "public/videos/pmq/lo-23.mp4",
+      "sourceSha256": "fa00c19ac36e23c08e14a77248ce61428120281b9b85aeb146e79599ea6e6e50",
+      "durationMs": 535081,
+      "draftPath": "scripts/captions/drafts/lo-23.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-23.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 173,
+      "generatedAt": "2026-07-18T17:05:44.986Z",
+      "runtimeMs": 30043,
+      "usage": {
+        "promptTokens": 13740,
+        "outputTokens": 8658,
+        "totalTokens": 22398,
+        "estimatedCostUsd": null
+      }
+    },
+    "24": {
+      "loNumber": 24,
+      "sourcePath": "public/videos/pmq/lo-24.mp4",
+      "sourceSha256": "35888e1d2009658ff73864f27ab5bdf4cfbbf004d5b81a948e59bb1c7b8a813a",
+      "durationMs": 435630,
+      "draftPath": "scripts/captions/drafts/lo-24.machine-draft.vtt",
+      "qaPath": "scripts/captions/drafts/lo-24.qa.json",
+      "status": "machine_draft",
+      "humanQaRequired": true,
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "cueCount": 143,
+      "generatedAt": "2026-07-18T17:06:11.534Z",
+      "runtimeMs": 26077,
+      "usage": {
+        "promptTokens": 11251,
+        "outputTokens": 7392,
+        "totalTokens": 18643,
+        "estimatedCostUsd": null
+      }
+    }
+  }
+}

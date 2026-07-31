@@ -1,0 +1,287 @@
+/* Mock exams — flat SaaS console, paired with day-plan quiet language */
+
+.panel {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+}
+
+.titleBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  padding: 0.7rem 0.75rem 0.35rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: rgb(var(--ink-rgb));
+}
+
+.titleAccent {
+  color: var(--orange);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.42);
+}
+
+.meta {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.15rem 0.75rem 0.55rem;
+}
+
+.notice {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.55);
+  text-wrap: pretty;
+}
+
+.list {
+  display: grid;
+  gap: 0;
+  padding: 0.1rem 0.45rem 0.45rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem 0.85rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.55rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: default;
+  transition:
+    background-color 80ms var(--ease-out-quint),
+    opacity 80ms var(--ease-out-quint);
+}
+
+.rowInteractive {
+  cursor: pointer;
+}
+
+.rowInteractive:hover {
+  background: rgb(var(--ink-rgb) / 0.035);
+}
+
+.rowInteractive:hover .rowChevron {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.rowInteractive:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.rowInteractive:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--paper-rgb)), 0 0 0 4px var(--orange);
+}
+
+.rowLocked {
+  opacity: 0.62;
+}
+
+.rowMain {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.55rem;
+}
+
+.rowTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  letter-spacing: -0.012em;
+  color: rgb(var(--ink-rgb));
+}
+
+.rowLockIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: rgb(var(--ink-rgb) / 0.4);
+}
+
+.rowStatus {
+  font-size: 0.6875rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.4);
+}
+
+.rowStatusDone {
+  color: var(--olive);
+}
+
+.rowStatusOpen {
+  color: var(--orange);
+}
+
+.rowTimer {
+  display: inline-flex;
+  align-items: center;
+  height: 1.5rem;
+  margin-left: 0.1rem;
+  padding: 0 0.375rem;
+  border-radius: 0.375rem;
+  background: rgb(var(--ink-rgb) / 0.05);
+  font-size: 0.6875rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: rgb(var(--ink-rgb));
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.rowAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.rowChevron {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: var(--orange);
+  opacity: 0.35;
+  transition:
+    opacity 80ms var(--ease-out-quint),
+    transform 80ms var(--ease-out-quint);
+}
+
+.rowPending {
+  display: inline-flex;
+  height: 1.15rem;
+  width: 1.15rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowLock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.38);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Quiet chips — same language as Practise Generate tip / plan cards */
+.lockProMark {
+  display: inline-flex;
+  height: 0.95rem;
+  align-items: center;
+  border-radius: 0.2rem;
+  background: color-mix(in srgb, var(--teal, #1b6560) 10%, transparent);
+  padding: 0 0.28em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--teal, #1b6560);
+}
+
+:global(.dark) .lockProMark,
+:global(html.dark) .lockProMark {
+  background: color-mix(in srgb, var(--teal, #1b6560) 18%, transparent);
+}
+
+.lockAiProMark {
+  display: inline-flex;
+  height: 0.95rem;
+  align-items: center;
+  border-radius: 0.2rem;
+  background: color-mix(in srgb, var(--gold, #d9a441) 22%, rgb(var(--paper-rgb)));
+  padding: 0 0.28em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--gold, #d9a441) 50%, #241a12);
+}
+
+@media (min-width: 40rem) {
+  .titleBar {
+    padding: 0.8rem 0.85rem 0.4rem;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .subtitle {
+    font-size: 0.8125rem;
+  }
+
+  .meta {
+    padding: 0.2rem 0.85rem 0.6rem;
+  }
+
+  .notice {
+    font-size: 0.8125rem;
+  }
+
+  .list {
+    padding: 0.15rem 0.65rem 0.55rem;
+  }
+
+  .row {
+    min-height: 2.85rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .rowTitle {
+    font-size: 0.875rem;
+  }
+
+  .rowChevron {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .rowChevron {
+    transition: none;
+  }
+}

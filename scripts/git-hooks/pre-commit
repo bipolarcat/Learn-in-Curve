@@ -1,0 +1,25 @@
+#!/bin/sh
+# Auto-bump site version +0.1 on each commit after launch (SITE_VERSION_AUTO_BUMP).
+# Skip:    LIC_SKIP_VERSION=1 git commit ...
+# Jump:    LIC_VERSION=3.0 git commit ...
+# Manual:  already staging src/lib/site-version.ts also skips (avoids double bump).
+
+if [ "$LIC_SKIP_VERSION" = "1" ]; then
+  exit 0
+fi
+
+if git diff --cached --name-only | grep -q '^src/lib/site-version\.ts$'; then
+  exit 0
+fi
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT" || exit 1
+
+if [ -n "$LIC_VERSION" ]; then
+  node scripts/bump-version.mjs --set "$LIC_VERSION" || exit 1
+else
+  node scripts/bump-version.mjs --commit || exit 1
+fi
+
+git add src/lib/site-version.ts package.json
+exit 0

@@ -1,0 +1,8 @@
+.catalogue {
+  /* Extra air under the fixed sticky header before “Pick your course” */
+  padding-block: clamp(2.25rem, 5vw, 3.75rem) clamp(4rem, 9vw, 7rem);
+}
+
+.back {
+  margin-bottom: 0.85rem;
+}

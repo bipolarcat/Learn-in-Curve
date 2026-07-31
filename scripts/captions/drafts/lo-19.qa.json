@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "loNumber": 19,
+  "title": "Integrated Planning",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "cec9795f761f241e24924b9e01afba34ecf4f3ef198d69adb447fb1e722a150f",
+  "durationMs": 439809,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T17:03:53.579Z",
+  "runtimeMs": 24756,
+  "usage": {
+    "promptTokens": 11356,
+    "outputTokens": 6855,
+    "totalTokens": 18211,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 140,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 47,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 19,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 20,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 40,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 41,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 43,
+        "value": 25.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 44,
+        "value": 25.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 45,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 46,
+        "value": 21.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 47,
+        "value": 21.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 48,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 49,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 50,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 51,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 52,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 53,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 54,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 55,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 56,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 57,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 58,
+        "value": 28.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 59,
+        "value": 28.1
+      },
+      {
+        "code": "LONG_GAP",
+        "cue": 60,
+        "value": 22000
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 61,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 62,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 64,
+        "value": 31.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 65,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 66,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 67,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 68,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 69,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 70,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 71,
+        "value": 24.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 78,
+        "value": 26.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 86,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 87,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 90,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 91,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 103,
+        "value": 23.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 104,
+        "value": 23.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 115,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 121,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 131,
+        "value": 23.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 132,
+        "value": 23.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 133,
+        "value": 22.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 138,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 139,
+        "value": 25
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 140,
+        "value": 22
+      }
+    ]
+  }
+}

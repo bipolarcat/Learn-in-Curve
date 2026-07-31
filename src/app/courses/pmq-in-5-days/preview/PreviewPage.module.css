@@ -1,0 +1,9 @@
+.page {
+  display: flex;
+  min-height: calc(100dvh - 4.5rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 5rem);
+  padding-inline: 1.25rem;
+}

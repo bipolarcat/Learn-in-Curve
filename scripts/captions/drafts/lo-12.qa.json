@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "loNumber": 12,
+  "title": "Leadership",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "425c16f6567abf7220afcf2453a14ecd0d1ab4aaccac03546b7d3ad41fb60b6f",
+  "durationMs": 462936,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T17:00:49.592Z",
+  "runtimeMs": 28919,
+  "usage": {
+    "promptTokens": 11933,
+    "outputTokens": 8247,
+    "totalTokens": 20180,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 155,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 48,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 2,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 3,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 7,
+        "value": 21.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 8,
+        "value": 21.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 13,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 14,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 21,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 22,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 27,
+        "value": 21.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 28,
+        "value": 21.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 31,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 32,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 33,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 34,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 35,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 36,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 46,
+        "value": 24
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 49,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 50,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 51,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 52,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 55,
+        "value": 23.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 57,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 58,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 59,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 65,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 69,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 79,
+        "value": 23.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 83,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 84,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 89,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 90,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 92,
+        "value": 24.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 97,
+        "value": 24
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 110,
+        "value": 21.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 113,
+        "value": 22.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 114,
+        "value": 22.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 122,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 123,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 126,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 127,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 129,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 130,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 141,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 142,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 145,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 146,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 155,
+        "value": 24
+      }
+    ]
+  }
+}

@@ -1,0 +1,2796 @@
+{
+  "generatedAt": "2026-07-18T15:52:55.613Z",
+  "results": [
+    {
+      "viewport": "mobile",
+      "route": "/",
+      "finalUrl": "http://localhost:3000/",
+      "status": 200,
+      "loadMs": 3700,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 23,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/about",
+      "finalUrl": "http://localhost:3000/about",
+      "status": 200,
+      "loadMs": 7933,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "About - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Get in touch",
+          "width": 107,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/careers",
+      "finalUrl": "http://localhost:3000/careers",
+      "status": 200,
+      "loadMs": 6421,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Careers - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Read how we handle application data →",
+          "width": 286,
+          "height": 33
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/auth/sign-in",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 1809,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/auth/sign-up",
+      "finalUrl": "http://localhost:3000/auth/sign-up",
+      "status": 200,
+      "loadMs": 3504,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign up — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 12,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Create account",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 34,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 78,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses",
+      "finalUrl": "http://localhost:3000/courses",
+      "status": 200,
+      "loadMs": 1661,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Courses — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Get Pro bundle · £9.99",
+          "width": 255,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [
+        {
+          "level": 3,
+          "text": "PMQ in 5 days"
+        }
+      ],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/preview",
+      "finalUrl": "http://localhost:3000/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "loadMs": 4001,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 32,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 39,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 90,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 43,
+          "height": 17
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 0,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/dashboard",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 3548,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "status": 200,
+      "loadMs": 2808,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "loadMs": 1620,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/courses/pmq-in-5-days/mock",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/mock",
+      "status": 200,
+      "loadMs": 3588,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 170,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Courses",
+          "width": 97,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 278,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 278,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/privacy",
+      "finalUrl": "http://localhost:3000/privacy",
+      "status": 200,
+      "loadMs": 5675,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Privacy Policy - Learn in Curve",
+      "overflowX": 84,
+      "documentWidth": 459,
+      "viewportWidth": 375,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/terms",
+      "finalUrl": "http://localhost:3000/terms",
+      "status": 200,
+      "loadMs": 2381,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Terms of Service - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 19,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cookies",
+      "finalUrl": "http://localhost:3000/cookies",
+      "status": 200,
+      "loadMs": 3317,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Cookie Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "mobile",
+      "route": "/recruitment-privacy",
+      "finalUrl": "http://localhost:3000/recruitment-privacy",
+      "status": 200,
+      "loadMs": 2755,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Recruitment Privacy Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 227,
+          "height": 32
+        },
+        {
+          "tag": "a",
+          "text": "Home",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/",
+      "finalUrl": "http://localhost:3000/",
+      "status": 200,
+      "loadMs": 1790,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 23,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/about",
+      "finalUrl": "http://localhost:3000/about",
+      "status": 200,
+      "loadMs": 1400,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "About - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/careers",
+      "finalUrl": "http://localhost:3000/careers",
+      "status": 200,
+      "loadMs": 2561,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Careers - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Read how we handle application data →",
+          "width": 281,
+          "height": 17
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/auth/sign-in",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 1486,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/auth/sign-up",
+      "finalUrl": "http://localhost:3000/auth/sign-up",
+      "status": 200,
+      "loadMs": 1282,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign up — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 12,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Create account",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 34,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 78,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses",
+      "finalUrl": "http://localhost:3000/courses",
+      "status": 200,
+      "loadMs": 1432,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Courses — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Get Pro bundle · £9.99",
+          "width": 246,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [
+        {
+          "level": 3,
+          "text": "PMQ in 5 days"
+        }
+      ],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/preview",
+      "finalUrl": "http://localhost:3000/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "loadMs": 1941,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 32,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 39,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 90,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 43,
+          "height": 17
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 0,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/dashboard",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 1504,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "status": 200,
+      "loadMs": 1493,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "loadMs": 1722,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/courses/pmq-in-5-days/mock",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/mock",
+      "status": 200,
+      "loadMs": 1533,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/privacy",
+      "finalUrl": "http://localhost:3000/privacy",
+      "status": 200,
+      "loadMs": 1399,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Privacy Policy - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/terms",
+      "finalUrl": "http://localhost:3000/terms",
+      "status": 200,
+      "loadMs": 1444,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Terms of Service - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 19,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/cookies",
+      "finalUrl": "http://localhost:3000/cookies",
+      "status": 200,
+      "loadMs": 1465,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Cookie Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "tablet",
+      "route": "/recruitment-privacy",
+      "finalUrl": "http://localhost:3000/recruitment-privacy",
+      "status": 200,
+      "loadMs": 1335,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Recruitment Privacy Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 169,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/",
+      "finalUrl": "http://localhost:3000/",
+      "status": 200,
+      "loadMs": 3322,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 23,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/about",
+      "finalUrl": "http://localhost:3000/about",
+      "status": 200,
+      "loadMs": 1810,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "About - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/careers",
+      "finalUrl": "http://localhost:3000/careers",
+      "status": 200,
+      "loadMs": 1407,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Careers - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 17,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Read how we handle application data →",
+          "width": 281,
+          "height": 17
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/auth/sign-in",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 1410,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/auth/sign-up",
+      "finalUrl": "http://localhost:3000/auth/sign-up",
+      "status": 200,
+      "loadMs": 1762,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign up — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 12,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Create account",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 34,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 78,
+          "height": 15
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 38,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses",
+      "finalUrl": "http://localhost:3000/courses",
+      "status": 200,
+      "loadMs": 1833,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Courses — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "Get Pro bundle · £9.99",
+          "width": 406,
+          "height": 40
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [
+        {
+          "level": 3,
+          "text": "PMQ in 5 days"
+        }
+      ],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/preview",
+      "finalUrl": "http://localhost:3000/courses/pmq-in-5-days/preview",
+      "status": 200,
+      "loadMs": 1412,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Learn in Curve - Exam revision that moves",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 32,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "tag": "a",
+          "text": "Terms",
+          "width": 39,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Privacy Policy",
+          "width": 90,
+          "height": 17
+        },
+        {
+          "tag": "a",
+          "text": "Sign in",
+          "width": 43,
+          "height": 17
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 0,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/dashboard",
+      "finalUrl": "http://localhost:3000/auth/sign-in",
+      "status": 200,
+      "loadMs": 1754,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days",
+      "status": 200,
+      "loadMs": 1971,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/lo/1",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/lo/1",
+      "status": 200,
+      "loadMs": 1809,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/courses/pmq-in-5-days/mock",
+      "finalUrl": "http://localhost:3000/auth/sign-in?next=/courses/pmq-in-5-days/mock",
+      "status": 200,
+      "loadMs": 1952,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Sign in — Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 9,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "button",
+          "text": "Continue with Google",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "input",
+          "text": "",
+          "width": 270,
+          "height": 41
+        },
+        {
+          "tag": "button",
+          "text": "Sign in",
+          "width": 270,
+          "height": 39
+        },
+        {
+          "tag": "a",
+          "text": "Sign up",
+          "width": 43,
+          "height": 15
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 1,
+        "main": 1,
+        "footer": 0
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/privacy",
+      "finalUrl": "http://localhost:3000/privacy",
+      "status": 200,
+      "loadMs": 1545,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Privacy Policy - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/terms",
+      "finalUrl": "http://localhost:3000/terms",
+      "status": 200,
+      "loadMs": 1368,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Terms of Service - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 19,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cookies",
+      "finalUrl": "http://localhost:3000/cookies",
+      "status": 200,
+      "loadMs": 1325,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Cookie Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 16,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    },
+    {
+      "viewport": "desktop",
+      "route": "/recruitment-privacy",
+      "finalUrl": "http://localhost:3000/recruitment-privacy",
+      "status": 200,
+      "loadMs": 1307,
+      "loadError": null,
+      "consoleErrors": [],
+      "title": "Recruitment Privacy Notice - Learn in Curve",
+      "overflowX": 0,
+      "documentWidth": 1440,
+      "viewportWidth": 1440,
+      "interactiveCount": 18,
+      "smallTargets": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "a",
+          "text": "Learn in Curve",
+          "width": 202,
+          "height": 40
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        },
+        {
+          "tag": "a",
+          "text": "simsamaarshened@gmail.com",
+          "width": 203,
+          "height": 18
+        }
+      ],
+      "unlabeledControls": [],
+      "imagesWithoutAlt": [],
+      "h1Count": 1,
+      "headingJumps": [],
+      "landmarks": {
+        "header": 0,
+        "nav": 2,
+        "main": 1,
+        "footer": 1
+      }
+    }
+  ],
+  "wispr": [
+    {
+      "viewport": "mobile",
+      "status": 200,
+      "error": null,
+      "title": "Wispr Flow | Effortless Voice Dictation",
+      "url": "https://wisprflow.ai/"
+    },
+    {
+      "viewport": "desktop",
+      "status": 200,
+      "error": null,
+      "title": "Wispr Flow | Effortless Voice Dictation",
+      "url": "https://wisprflow.ai/"
+    }
+  ]
+}

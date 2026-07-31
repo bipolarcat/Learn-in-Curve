@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn in Curve — Direction 2: Editorial Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241A12;
+    --cream:#F8F1E1;
+    --orange:#D5501F;
+    --gold:#D9A441;
+    --olive:#5F7A3D;
+    --teal:#1B6560;
+    --line:rgba(36,26,18,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Figtree',sans-serif;font-size:16px;line-height:1.6;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+  .mono{font-family:'Space Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+  .rule{border:none;border-top:1.5px solid var(--ink);}
+  .thin-rule{border:none;border-top:1px solid var(--line);}
+
+  /* underline link style */
+  .u-link{position:relative;font-weight:600;}
+  .u-link::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+  .u-link:hover::after{transform:scaleX(1);}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1.5px solid var(--ink);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .mark{width:34px;height:34px;border-radius:50%;background:var(--ink);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;}
+  .mark svg{width:19px;height:19px;}
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
+  .brand-name .issue{font-family:'Space Mono',monospace;font-size:10px;color:var(--orange);display:block;letter-spacing:.1em;margin-top:-1px;}
+  .nav-links{display:flex;align-items:center;gap:40px;font-size:14.5px;}
+  .nav-links a.u-link{padding-bottom:2px;}
+  .btn{display:inline-block;padding:11px 24px;font-weight:600;font-size:14px;border:1.5px solid var(--ink);cursor:pointer;transition:all .2s ease;}
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:hover{background:var(--orange);border-color:var(--orange);}
+  .btn-ghost{background:transparent;}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .stagger .reveal:nth-child(1){transition-delay:.05s;}
+  .stagger .reveal:nth-child(2){transition-delay:.16s;}
+  .stagger .reveal:nth-child(3){transition-delay:.27s;}
+  .stagger .reveal:nth-child(4){transition-delay:.38s;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:90px 0 70px;}
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:rgba(36,26,18,.55);padding-bottom:18px;}
+  .hero-body{display:grid;grid-template-columns:1.35fr 1fr;gap:70px;padding-top:44px;align-items:start;}
+  .kicker{font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700;color:var(--orange);letter-spacing:.1em;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .kicker::before{content:'';width:26px;height:1.5px;background:var(--orange);}
+  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.06;margin-bottom:26px;font-weight:400;}
+  .hero h1 em{font-style:italic;font-weight:600;color:var(--orange);}
+  .hero .lede{font-size:19px;color:rgba(36,26,18,.78);max-width:520px;margin-bottom:36px;}
+  .hero-ctas{display:flex;gap:18px;align-items:center;}
+  .hero-ctas .u-link{font-size:15px;}
+
+  .drop{border-left:1.5px solid var(--ink);padding-left:28px;}
+  .drop .label{font-family:'Space Mono',monospace;font-size:11px;color:rgba(36,26,18,.5);letter-spacing:.08em;margin-bottom:10px;}
+  .drop h3{font-size:22px;margin-bottom:14px;line-height:1.25;}
+  .drop p{font-size:14.5px;color:rgba(36,26,18,.72);margin-bottom:18px;}
+  .drop-stats{display:flex;gap:26px;margin-top:20px;}
+  .drop-stats div{font-family:'Fraunces',serif;font-size:28px;color:var(--ink);}
+  .drop-stats span{display:block;font-family:'Space Mono',monospace;font-size:10px;color:rgba(36,26,18,.55);margin-top:4px;letter-spacing:.05em;}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:86px 0;}
+  .section-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:end;margin-bottom:56px;}
+  .section-index{font-family:'Fraunces',serif;font-size:64px;color:transparent;-webkit-text-stroke:1.4px var(--ink);line-height:.8;}
+  .section-title{font-size:clamp(28px,3.6vw,42px);font-weight:400;}
+  .section-title em{font-style:italic;color:var(--orange);font-weight:500;}
+
+  /* ---------- ABOUT ---------- */
+  .about-body{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
+  .pull-quote{font-family:'Fraunces',serif;font-size:26px;line-height:1.4;font-style:italic;border-left:3px solid var(--orange);padding-left:24px;color:var(--ink);}
+  .about-list{list-style:none;margin-top:8px;}
+  .about-list li{display:grid;grid-template-columns:32px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .about-list li:first-child{padding-top:0;}
+  .about-list .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--orange);}
+  .about-list h4{font-size:16.5px;margin-bottom:4px;}
+  .about-list p{font-size:14px;color:rgba(36,26,18,.68);}
+
+  /* ---------- COURSES (syllabus table) ---------- */
+  .syllabus{border-top:1.5px solid var(--ink);}
+  .syl-row{display:grid;grid-template-columns:70px 1.6fr 1fr auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);}
+  .syl-row .idx{font-family:'Fraunces',serif;font-size:30px;-webkit-text-stroke:1px var(--ink);color:transparent;}
+  .syl-row h3{font-size:21px;margin-bottom:6px;}
+  .syl-row p{font-size:13.5px;color:rgba(36,26,18,.65);}
+  .syl-status{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;padding:5px 12px;border:1px solid var(--ink);border-radius:20px;justify-self:start;}
+  .syl-status.live{color:var(--olive);border-color:var(--olive);}
+  .syl-status.soon{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- HOW ---------- */
+  .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink);}
+  .how-cell{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:34px 26px;transition:background .25s ease;}
+  .how-cell:hover{background:rgba(213,80,31,.06);}
+  .how-cell .hn{font-family:'Space Mono',monospace;font-size:12px;color:var(--orange);margin-bottom:16px;}
+  .how-cell h4{font-size:17px;margin-bottom:10px;}
+  .how-cell p{font-size:13.5px;color:rgba(36,26,18,.68);}
+
+  /* ---------- NEWSLETTER ---------- */
+  .newsletter{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);}
+  .newsletter .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-top:70px;padding-bottom:70px;}
+  .newsletter h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px;font-weight:400;}
+  .newsletter p{color:rgba(36,26,18,.7);max-width:380px;}
+  .signup{display:flex;border-bottom:1.5px solid var(--ink);padding-bottom:10px;}
+  .signup input{flex:1;border:none;background:transparent;font-family:'Figtree',sans-serif;font-size:17px;color:var(--ink);outline:none;}
+  .signup input::placeholder{color:rgba(36,26,18,.4);}
+  .signup button{background:none;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--orange);cursor:pointer;letter-spacing:.04em;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:60px 0 32px;}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  .footer-grid h4{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(36,26,18,.5);margin-bottom:16px;}
+  .footer-grid a{display:block;font-size:14px;padding:5px 0;color:rgba(36,26,18,.75);}
+  .footer-grid a:hover{color:var(--orange);}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11.5px;color:rgba(36,26,18,.5);flex-wrap:wrap;gap:10px;}
+
+  @media(max-width:900px){
+    .hero-body,.about-body,.newsletter .wrap{grid-template-columns:1fr;}
+    .how-grid{grid-template-columns:1fr 1fr;}
+    .syl-row{grid-template-columns:1fr;gap:8px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 100 100"><path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" fill="none" stroke="#D5501F" stroke-width="8" stroke-linecap="round"/></svg></div>
+      <div><span class="brand-name">Learn in Curve</span><span class="issue">FIELD GUIDE · APM PMQ</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#about" class="u-link">About</a>
+      <a href="#courses" class="u-link">Courses</a>
+      <a href="#careers" class="u-link">Careers</a>
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="masthead">
+      <span>VOL. 01 — REVISION SEASON 2026</span>
+      <span>ESTABLISHED FOR ONE PURPOSE: PASSING</span>
+    </div>
+    <div class="hero-body">
+      <div class="reveal visible">
+        <div class="kicker">THE APPROACH</div>
+        <h1>Exam prep, written like it <em>actually matters</em> to you.</h1>
+        <p class="lede">Learn in Curve is a focused revision sprint, not a textbook. Every lesson, quiz, and mock exam exists for one reason — getting you through the APM PMQ.</p>
+        <div class="hero-ctas">
+          <a href="#courses" class="btn btn-primary">Start free with PMQ</a>
+          <a href="#how" class="u-link">How the sprint works ↓</a>
+        </div>
+      </div>
+      <div class="drop reveal visible" style="transition-delay:.15s">
+        <div class="label">FEATURED COURSE</div>
+        <h3>APM PMQ in 5 Days</h3>
+        <p>Gamified study material, topic quizzes, and a full timed mock exam — free to start, no card required.</p>
+        <a href="#courses" class="u-link">View syllabus →</a>
+        <div class="drop-stats">
+          <div>24<span>OBJECTIVES</span></div>
+          <div>5<span>DAY SPRINT</span></div>
+          <div>1<span>CERTIFICATE</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-index">01</div>
+      <h2 class="section-title">Why this exists, <em>not another course library</em>.</h2>
+    </div>
+    <div class="about-body">
+      <div class="reveal" style="transition-delay:.1s">
+        <p class="pull-quote">"Pay once for an interactive sprint, not a fiver for a PDF you'll never open."</p>
+      </div>
+      <ul class="about-list stagger">
+        <li class="reveal"><span class="n">01</span><div><h4>Scoped strictly to the exam</h4><p>No general PM theory tangents — content maps directly to what's actually tested.</p></div></li>
+        <li class="reveal"><span class="n">02</span><div><h4>Designed to get finished</h4><p>Short sessions and visible momentum, built for revision squeezed between real life.</p></div></li>
+        <li class="reveal"><span class="n">03</span><div><h4>Ends with proof</h4><p>A timed, real-format mock exam — pass it and you leave with a certificate.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="courses">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-index">02</div>
+      <h2 class="section-title">The <em>current syllabus</em>.</h2>
+    </div>
+    <div class="syllabus">
+      <div class="syl-row reveal">
+        <div class="idx">A</div>
+        <div><h3>APM PMQ in 5 Days</h3><p>Full gamified revision path for the APM Project Management Qualification.</p></div>
+        <span class="syl-status live">● LIVE — FREE</span>
+        <a href="#" class="btn btn-ghost">Start free</a>
+      </div>
+      <div class="syl-row reveal" style="transition-delay:.1s">
+        <div class="idx">B</div>
+        <div><h3>PFQ in 2 Days</h3><p>A fast-track sprint for the APM PFQ, built on the same framework.</p></div>
+        <span class="syl-status soon">● COMING SOON</span>
+        <a href="#" class="btn btn-ghost">Join waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-index">03</div>
+      <h2 class="section-title">Four stops to <em>certified</em>.</h2>
+    </div>
+    <div class="how-grid stagger">
+      <div class="how-cell reveal"><div class="hn">STOP 01</div><h4>Sign up free</h4><p>Google or email — you're in the dashboard in seconds.</p></div>
+      <div class="how-cell reveal"><div class="hn">STOP 02</div><h4>Study a topic</h4><p>Interactive, gamified lesson content, one objective at a time.</p></div>
+      <div class="how-cell reveal"><div class="hn">STOP 03</div><h4>Quiz yourself</h4><p>Instant-feedback multiple choice, scored per topic.</p></div>
+      <div class="how-cell reveal"><div class="hn">STOP 04</div><h4>Sit the mock exam</h4><p>Timed, real exam format — pass it, get certified.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Next issue: PFQ, PMP, CAPM.</h2>
+      <p>Get an email the day each new revision sprint goes live. No spam, just launch dates.</p>
+    </div>
+    <form class="signup reveal" style="transition-delay:.15s">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">SUBSCRIBE →</button>
+    </form>
+  </div>
+</section>
+
+<footer id="careers">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <div class="mark"><svg viewBox="0 0 100 100"><path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" fill="none" stroke="#D5501F" stroke-width="8" stroke-linecap="round"/></svg></div>
+          <span class="brand-name">Learn in Curve</span>
+        </div>
+        <p style="font-size:13.5px;color:rgba(36,26,18,.65);max-width:260px;">A focused revision sprint — one exam at a time.</p>
+      </div>
+      <div><h4>PRODUCT</h4><a href="#courses" class="u-link">Courses</a><a href="#how" class="u-link">How it works</a><a href="#" class="u-link">Pricing</a></div>
+      <div><h4>COMPANY</h4><a href="#about" class="u-link">About</a><a href="#careers" class="u-link">Careers</a><a href="#" class="u-link">Contact</a></div>
+      <div><h4>LEGAL</h4><a href="#" class="u-link">Privacy</a><a href="#" class="u-link">Terms</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Learn in Curve. All rights reserved.</span>
+      <span>DIRECTION 2 — "EDITORIAL JOURNAL"</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

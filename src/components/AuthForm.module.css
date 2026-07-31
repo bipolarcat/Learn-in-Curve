@@ -1,0 +1,40 @@
+.root {
+  color-scheme: light;
+}
+
+.root :global(.text-neutral-400),
+.root :global(.text-ink\/45),
+.root :global(.text-ink\/55),
+.root :global(.text-ink\/65) {
+  color: var(--auth-muted);
+}
+
+.input {
+  width: 100%;
+  min-height: 2.75rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  background: rgb(248 247 245);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.875rem;
+  color: rgb(var(--ink-rgb));
+  transition:
+    border-color 160ms var(--ease-out-quint),
+    box-shadow 160ms var(--ease-out-quint),
+    background-color 160ms var(--ease-out-quint);
+}
+
+.input::placeholder {
+  color: var(--auth-placeholder);
+}
+
+.input:hover {
+  border-color: rgb(0 0 0 / 0.14);
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgb(var(--orange-rgb) / 0.5);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(var(--orange-rgb) / 0.12);
+}

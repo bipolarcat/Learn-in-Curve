@@ -1,0 +1,17 @@
+---
+description: Always load Learn in Curve project context
+alwaysApply: true
+---
+
+# Learn in Curve — Project Context
+
+Read these before doing any work in this repo:
+@CLAUDE.md
+@BUSINESS_STATE.md
+@docs/roadmap.md
+
+Follow what's in them, especially:
+- Never edit, move, or delete anything inside `PMQ in 5 days/` unless explicitly asked — it's a live, published site with its own git repo.
+- Never read or reference `JUNK/` unless explicitly asked.
+- New platform work goes at the root of this project or in clearly named subfolders — do not nest everything inside one giant folder.
+- `BUSINESS_STATE.md` is the source of truth for current phase and status, not just `PRD.md`.

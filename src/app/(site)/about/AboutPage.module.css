@@ -1,0 +1,39 @@
+.hero {
+  padding-block: clamp(4rem, 9vw, 7rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+.block {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.block + .block {
+  border-top: 1px solid rgb(var(--ink-rgb) / 0.1);
+}
+
+.founder {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.quietLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--teal-rgb) / 0.35);
+  text-underline-offset: 0.22em;
+}
+
+.quietLink:hover {
+  color: var(--orange-dark);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 35rem) {
+  .aboutRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

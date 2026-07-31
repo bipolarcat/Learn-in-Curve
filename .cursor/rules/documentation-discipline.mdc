@@ -1,0 +1,38 @@
+---
+description: Keep BUSINESS_STATE.md, docs/roadmap.md, and the legal checklist current after every change, however small
+alwaysApply: true
+---
+
+# Documentation discipline
+
+`BUSINESS_STATE.md` is this project's living source of truth, not a one-time
+README — Claude (the planning/docs collaborator on this project) reads it at
+the start of every session. If a change lands here without being logged,
+Claude's picture of the project silently drifts from what the code actually
+does.
+
+After **any** change — a full feature, a small tweak, a bug fix, anything —
+before finishing your turn:
+
+1. **Add an entry to `BUSINESS_STATE.md`'s "## Decision log"** (newest entry at
+   the top). Match the existing style exactly:
+   `- **YYYY-MM-DD** — <what changed, naming the actual files/components
+   touched>. <why, if it's not obvious from the change itself>.` If the "why"
+   isn't obvious, ask the user rather than guess at it.
+2. **Update `docs/roadmap.md`**: check off `- [ ]` → `- [x]` for anything the
+   change completes; add a new bullet if it introduces scope that isn't listed
+   yet.
+3. **Check `legal/PRE_LAUNCH_CHECKLIST.md`** if the change touches data
+   collection, payments, third-party processors, or copy the checklist already
+   references (e.g. the homepage pass-rate stat) — check off or annotate the
+   relevant line rather than leaving it stale.
+4. If a spec doc exists for the work you just did (`GAMIFICATION_SPEC.md`,
+   `PMQ_NATIVE_MIGRATION.md`, `SITE_SHELL_DASHBOARD_SPEC.md`) with a
+   "Definition of done" list, feel free to check items off there as a
+   self-report — Claude still runs an independent verification pass
+   afterward, so this isn't the final word, just a useful signal for that
+   pass.
+
+Do this even for changes the user calls "small" or "quick" — a tweak that
+isn't logged is exactly what causes drift. When in doubt about whether
+something's worth a log entry, log it briefly rather than skip it.

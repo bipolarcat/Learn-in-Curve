@@ -1,0 +1,92 @@
+@keyframes textPop {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.textPop:global(.reveal-animated):not(:global(.visible)) .popItem {
+  opacity: 0;
+  transform: translateY(22px) scale(0.9);
+}
+
+.textPop:global(.reveal-animated):global(.visible) .popItem {
+  animation: textPop 0.65s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+@keyframes consoleIn {
+  from {
+    opacity: 0.92;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.consoleReveal:global(.reveal-animated):global(.visible) .console {
+  animation: consoleIn 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.bubble {
+  animation: bubbleIn 0.42s var(--ease-out-quint) both;
+}
+
+@keyframes caretBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caretBlink 1s steps(1, end) infinite;
+}
+
+@keyframes sendFlash {
+  40% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 6px rgb(213 80 31 / 0.22);
+  }
+}
+
+.sendFlash {
+  animation: sendFlash 0.2s var(--ease-out-quint) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .textPop:global(.reveal-animated):not(:global(.visible)) .popItem,
+  .textPop:global(.reveal-animated):global(.visible) .popItem,
+  .consoleReveal:global(.reveal-animated):global(.visible) .console {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .bubble,
+  .caret,
+  .sendFlash {
+    animation: none;
+  }
+}

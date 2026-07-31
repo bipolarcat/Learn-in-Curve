@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 440 440">
+  <title>Paper airplane icon</title>
+  <g transform="rotate(-18 200 200)">
+    <polygon points="360,200 150,200 50,310" fill="#B2431A" stroke="#241713" stroke-width="12" stroke-linejoin="round"/>
+    <polygon points="360,200 50,90 150,200" fill="#DD5C20" stroke="#241713" stroke-width="12" stroke-linejoin="round"/>
+    <line x1="360" y1="200" x2="150" y2="200" stroke="#241713" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="330" cy="200" r="9" fill="#1C6B68"/>
+  </g>
+</svg>

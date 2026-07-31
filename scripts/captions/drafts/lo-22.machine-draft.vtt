@@ -1,0 +1,635 @@
+WEBVTT
+
+NOTE MACHINE-GENERATED DRAFT — HUMAN QA REQUIRED. LO 22; gemini; gemini-3.1-flash-lite.
+
+1
+00:00:00.000 --> 00:00:02.345
+Welcome to this learn and curve explainer.
+
+2
+00:00:02.345 --> 00:00:03.789
+Let's get right into it.
+
+3
+00:00:03.789 --> 00:00:08.012
+Today we are tackling an absolutely
+foundational pillar of project management.
+
+4
+00:00:08.012 --> 00:00:11.567
+Learning objective 22, budgeting and cost
+control.
+
+5
+00:00:11.567 --> 00:00:15.869
+Because, look, whether you're building a
+new software app or literally constructing
+
+6
+00:00:15.869 --> 00:00:16.543
+a skyscraper,
+
+7
+00:00:16.543 --> 00:00:20.321
+knowing how to estimate your costs,
+agreeing on a budget, and actually keeping
+
+8
+00:00:20.321 --> 00:00:23.567
+your spending in check, that is exactly
+what keeps a project alive.
+
+9
+00:00:24.345 --> 00:00:27.567
+To master this, we're going to follow the
+project's financial life cycle.
+
+10
+00:00:27.567 --> 00:00:29.567
+First up, creating your budget.
+
+11
+00:00:29.567 --> 00:00:31.890
+Second, forecasting and cost control.
+
+12
+00:00:31.890 --> 00:00:34.234
+Third, monitoring financial performance.
+
+13
+00:00:34.234 --> 00:00:37.890
+And finally, number four, closing down
+project finances.
+
+14
+00:00:38.567 --> 00:00:40.234
+Okay, let's dive right into this.
+
+15
+00:00:40.567 --> 00:00:42.567
+Section one, creating your project budget.
+
+16
+00:00:42.567 --> 00:00:44.567
+Setting the financial foundation.
+
+17
+00:00:45.234 --> 00:00:48.983
+So, before you can manage money, you
+really have to know exactly how much you
+
+18
+00:00:48.983 --> 00:00:49.567
+need, right?
+
+19
+00:00:49.567 --> 00:00:54.367
+And to do this accurately, project
+managers rely on what's called a cost
+
+20
+00:00:54.367 --> 00:00:56.234
+breakdown structure, or CBS.
+
+21
+00:00:56.234 --> 00:01:00.290
+Before spending a single dime, you
+literally must map out everything that
+
+22
+00:01:00.290 --> 00:01:01.234
+requires funding.
+
+23
+00:01:01.234 --> 00:01:04.905
+Basically, you take your work breakdown
+structure, all the tasks you need to do,
+
+24
+00:01:04.905 --> 00:01:07.567
+and you assign an estimated cost to every
+single activity.
+
+25
+00:01:07.567 --> 00:01:12.049
+And it's not just about paying your team's
+salaries, a CBS groups the whole shebang,
+
+26
+00:01:12.049 --> 00:01:15.890
+labour, equipment, materials, and any
+external resources you might need.
+
+27
+00:01:16.567 --> 00:01:21.352
+And this brilliantly illustrates exactly
+how a cost breakdown structure works in
+
+28
+00:01:21.352 --> 00:01:21.890
+practice.
+
+29
+00:01:22.234 --> 00:01:26.034
+Notice how we start at the top with a
+really broad work package, which then
+
+30
+00:01:26.034 --> 00:01:28.567
+visually trickles down into specific
+deliverables.
+
+31
+00:01:29.234 --> 00:01:33.838
+From there, we attach an individual price
+tag, the cost, to the activities required
+
+32
+00:01:33.838 --> 00:01:35.890
+to actually produce each deliverable.
+
+33
+00:01:36.234 --> 00:01:40.355
+By adding up all these bottom level costs,
+we can build a highly accurate, totally
+
+34
+00:01:40.355 --> 00:01:42.567
+comprehensive budget for the entire
+project.
+
+35
+00:01:42.567 --> 00:01:44.567
+It's like a giant puzzle coming together.
+
+36
+00:01:45.234 --> 00:01:49.030
+Now, once you're mapping out these costs,
+you really have to understand the nature
+
+37
+00:01:49.030 --> 00:01:50.234
+of what you're paying for.
+
+38
+00:01:50.567 --> 00:01:53.890
+Because as you'll see, not all costs
+behave the same way.
+
+39
+00:01:54.234 --> 00:01:55.890
+First, we have fixed costs.
+
+40
+00:01:55.890 --> 00:01:57.567
+These are completely predictable.
+
+41
+00:01:58.234 --> 00:02:01.567
+Think of a supplier who provides resources
+at a set monthly rate.
+
+42
+00:02:01.890 --> 00:02:05.963
+That price remains exactly the same
+regardless of how much you actually use
+
+43
+00:02:05.963 --> 00:02:06.234
+them.
+
+44
+00:02:06.890 --> 00:02:09.234
+On the flip side, we have variable costs.
+
+45
+00:02:09.567 --> 00:02:11.567
+These fluctuate depending on project
+usage.
+
+46
+00:02:11.890 --> 00:02:15.021
+If you're buying materials as and when
+they're needed, that monthly bill is going
+
+47
+00:02:15.021 --> 00:02:16.567
+to change depending on your consumption.
+
+48
+00:02:17.234 --> 00:02:21.611
+We also need to factor in recurring costs,
+like say software licences, versus
+
+49
+00:02:21.611 --> 00:02:24.567
+non-recurring costs, like a one-off
+equipment setup.
+
+50
+00:02:25.234 --> 00:02:31.234
+Beyond fixed and variable, we also must
+separate direct costs from indirect costs.
+
+51
+00:02:32.234 --> 00:02:34.234
+Direct costs are exactly what they sound
+like.
+
+52
+00:02:34.567 --> 00:02:38.195
+These are the expenses tied directly to
+producing the specific outputs of your
+
+53
+00:02:38.195 --> 00:02:38.567
+project.
+
+54
+00:02:39.234 --> 00:02:41.234
+But indirect costs, they're a bit
+different.
+
+55
+00:02:41.567 --> 00:02:45.185
+They are the background expenses
+associated with simply operating the
+
+56
+00:02:45.185 --> 00:02:46.234
+business as a whole.
+
+57
+00:02:46.567 --> 00:02:50.857
+And knowing the difference here is
+absolutely crucial, because direct costs
+
+58
+00:02:50.857 --> 00:02:55.547
+are much easier for a project manager to
+identify, track, and actively manage on a
+
+59
+00:02:55.547 --> 00:02:56.234
+daily basis.
+
+60
+00:02:56.890 --> 00:03:01.136
+Let's move to section two and see how this
+builds into active management,
+
+61
+00:03:01.136 --> 00:03:04.567
+forecasting and cost control, keeping the
+project on track.
+
+62
+00:03:05.234 --> 00:03:08.567
+So, once execution begins, well, that's
+where your budget meets reality.
+
+63
+00:03:09.234 --> 00:03:13.234
+The recognised best practice for
+identifying variances and refining your
+
+64
+00:03:13.234 --> 00:03:15.567
+budget is earned value management, or EVM.
+
+65
+00:03:16.234 --> 00:03:20.417
+EVM is basically the ultimate tool for a
+project manager, because it answers the
+
+66
+00:03:20.417 --> 00:03:24.234
+single most important question, are we
+actually getting what we paid for?
+
+67
+00:03:24.890 --> 00:03:28.852
+You see, it doesn't just look at what you
+spent, it looks at the value of the work
+
+68
+00:03:28.852 --> 00:03:32.234
+actually performed and compares that right
+back to your baseline plan.
+
+69
+00:03:32.890 --> 00:03:36.278
+Now what's really interesting about this
+slide is how it visually maps out project
+
+70
+00:03:36.278 --> 00:03:36.567
+health.
+
+71
+00:03:36.890 --> 00:03:41.315
+Look right there at the vertical line
+marked time now, we have three specific
+
+72
+00:03:41.315 --> 00:03:42.234
+lines diverging.
+
+73
+00:03:42.567 --> 00:03:45.567
+The top smooth curve, that's our planned
+budget.
+
+74
+00:03:45.890 --> 00:03:50.248
+The green line rising sharply above it is
+our actual costs, so what we've actually
+
+75
+00:03:50.248 --> 00:03:50.567
+spent.
+
+76
+00:03:50.890 --> 00:03:55.663
+But check out the purple line way down at
+the bottom, that's our earned value, the
+
+77
+00:03:55.663 --> 00:03:57.234
+actual work we've achieved.
+
+78
+00:03:57.567 --> 00:04:01.262
+Because our actual costs are so much
+higher than our earned value at time now,
+
+79
+00:04:01.262 --> 00:04:04.720
+this graph instantly reveals that this
+project is currently overspent and
+
+80
+00:04:04.720 --> 00:04:06.567
+definitely not progressing efficiently.
+
+81
+00:04:07.234 --> 00:04:12.234
+To put actual numbers to that graph, EVM
+gives us two critical dashboard dials.
+
+82
+00:04:12.567 --> 00:04:17.531
+First, the cost performance indicator, or
+CPI, which measures the efficiency of our
+
+83
+00:04:17.531 --> 00:04:17.890
+spend.
+
+84
+00:04:18.234 --> 00:04:22.487
+And second, the schedule performance
+indicator, or SPI, which measures our
+
+85
+00:04:22.487 --> 00:04:23.234
+productivity.
+
+86
+00:04:23.567 --> 00:04:25.234
+And it's actually quite simple to read.
+
+87
+00:04:25.567 --> 00:04:27.567
+If your score is above a one, you're doing
+great.
+
+88
+00:04:27.890 --> 00:04:29.567
+You are underspent or ahead of schedule.
+
+89
+00:04:29.890 --> 00:04:33.890
+But if your score drops below one, yeah,
+that triggers the alarms.
+
+90
+00:04:34.234 --> 00:04:38.378
+A CPI of less than one means you're
+overspent, and an SPI of less than one
+
+91
+00:04:38.378 --> 00:04:39.890
+means you are running late.
+
+92
+00:04:40.567 --> 00:04:45.979
+Which leads us nicely into section three,
+monitoring financial performance,
+
+93
+00:04:45.979 --> 00:04:47.567
+reporting the reality.
+
+94
+00:04:47.890 --> 00:04:51.546
+Now that we have all this incredible data
+from our EVM and cost tracking, we
+
+95
+00:04:51.546 --> 00:04:53.567
+obviously can't just keep it to ourselves.
+
+96
+00:04:53.890 --> 00:04:56.890
+You've got to maintain transparency
+through structured communication.
+
+97
+00:04:57.234 --> 00:05:01.403
+Often using a simple traffic light system
+to flag areas that are outside of agreed
+
+98
+00:05:01.403 --> 00:05:05.318
+tolerances, a project manager will
+synthesise their data into a few essential
+
+99
+00:05:05.318 --> 00:05:06.234
+financial reports.
+
+100
+00:05:06.567 --> 00:05:10.482
+So, you'll report on actual versus
+forecasted costs, track your cash flow and
+
+101
+00:05:10.482 --> 00:05:14.550
+funding drawdown requests, detail out
+resource costs, and even monitor financial
+
+102
+00:05:14.550 --> 00:05:15.567
+benefit realisation.
+
+103
+00:05:15.890 --> 00:05:18.903
+This is exactly how you prove to your
+stakeholders that you're staying within
+
+104
+00:05:18.903 --> 00:05:20.234
+those strict financial parameters.
+
+105
+00:05:20.890 --> 00:05:24.624
+So the crucial point here is that
+financial monitoring isn't just random,
+
+106
+00:05:24.624 --> 00:05:26.567
+and it's certainly not done on a whim.
+
+107
+00:05:26.890 --> 00:05:30.732
+It is heavily tied to specific
+chronological milestones in your project's
+
+108
+00:05:30.732 --> 00:05:31.890
+governance life cycle.
+
+109
+00:05:32.234 --> 00:05:36.023
+You will formally report on those
+baselined budgets and timelines during
+
+110
+00:05:36.023 --> 00:05:39.339
+major decision gates, regular stage
+reviews, formal audits, and
+
+111
+00:05:39.339 --> 00:05:41.234
+post-implementation benefit reviews.
+
+112
+00:05:41.567 --> 00:05:46.056
+In a linear life cycle, these gates are
+quite often the only time future funding
+
+113
+00:05:46.056 --> 00:05:47.234
+is actually released.
+
+114
+00:05:47.567 --> 00:05:48.890
+No report, no money.
+
+115
+00:05:49.567 --> 00:05:54.567
+And finally, section four, closing down
+project finances, returning the keys.
+
+116
+00:05:55.234 --> 00:05:58.870
+So, your deliverables are built, the scope
+is complete, but guess what, the
+
+117
+00:05:58.870 --> 00:06:00.567
+financial work isn't done just yet.
+
+118
+00:06:01.234 --> 00:06:05.241
+This closed down process has to happen in
+strict chronological steps to cleanly
+
+119
+00:06:05.241 --> 00:06:08.234
+detach the project and prevent unnecessary
+bleed-out costs.
+
+120
+00:06:08.890 --> 00:06:12.587
+First up, you must reassign resources,
+send them back to the business or supplier
+
+121
+00:06:12.587 --> 00:06:15.234
+so you aren't being charged for people you
+no longer need.
+
+122
+00:06:15.890 --> 00:06:19.528
+Second, formally close all supply chain
+contracts, ensuring final accounts are
+
+123
+00:06:19.528 --> 00:06:22.234
+agreed upon and all expected goods were
+actually received.
+
+124
+00:06:22.567 --> 00:06:26.114
+Third, you update the accounting systems
+to remove project codes, so absolutely no
+
+125
+00:06:26.114 --> 00:06:28.234
+further money can be charged against the
+project.
+
+126
+00:06:28.567 --> 00:06:31.622
+And finally, if you were actually under
+budget, you must return that surplus
+
+127
+00:06:31.622 --> 00:06:34.234
+funding safely back to the business so
+they can use it elsewhere.
+
+128
+00:06:34.890 --> 00:06:37.890
+Which brings us to the ultimate question I
+want to leave you with today.
+
+129
+00:06:38.234 --> 00:06:43.377
+Imagine a project is delivered perfectly
+on time, the scope is flawless, the
+
+130
+00:06:43.377 --> 00:06:47.234
+quality is just impeccable, but it is
+wildly over budget.
+
+131
+00:06:47.567 --> 00:06:48.890
+Is it really a success?
+
+132
+00:06:49.234 --> 00:06:53.589
+Rigorous budgeting and cost control aren't
+just administrative red tape, they are
+
+133
+00:06:53.589 --> 00:06:57.621
+the absolute deciding factor in whether
+your project delivers true value to
+
+134
+00:06:57.621 --> 00:06:59.234
+society and your organisation.
+
+135
+00:06:59.567 --> 00:07:02.567
+Keep your costs under control, and you
+control the success of your project.
+
+136
+00:07:03.234 --> 00:07:06.234
+Thanks for joining me on this explainer
+and keep learning and curve.

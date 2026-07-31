@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "loNumber": 15,
+  "title": "Ethics, Compliance and Professionalism",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "7ecd3d250874259bf57de1a53b22f85aa4af7988e367f8f6812b741b4e9f7c09",
+  "durationMs": 356194,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T17:01:59.992Z",
+  "runtimeMs": 21239,
+  "usage": {
+    "promptTokens": 9269,
+    "outputTokens": 6466,
+    "totalTokens": 15735,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 95,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 18,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 1,
+        "value": 22.9
+      },
+      {
+        "code": "LONG_DURATION",
+        "cue": 3,
+        "value": 34898
+      },
+      {
+        "code": "LONG_DURATION",
+        "cue": 4,
+        "value": 32602
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 5,
+        "value": 90
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 10,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 11,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 17,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 18,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 19,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 23,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 24,
+        "value": 22.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 27,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 32,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 33,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 42,
+        "value": 25.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 43,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 67,
+        "value": 23.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 94,
+        "value": 21.1
+      }
+    ]
+  }
+}

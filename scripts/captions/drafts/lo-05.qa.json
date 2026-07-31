@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "loNumber": 5,
+  "title": "Procurement",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "3b3eaba7f58587ff3c75f1ca8e8c3f245c039dd62723b0e8980533189fdef64c",
+  "durationMs": 393555,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T16:57:31.297Z",
+  "runtimeMs": 24403,
+  "usage": {
+    "promptTokens": 10197,
+    "outputTokens": 7176,
+    "totalTokens": 17373,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 122,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 39,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 4,
+        "value": 23.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 5,
+        "value": 23.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 7,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 8,
+        "value": 22.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 15,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 16,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 17,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 18,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 19,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 20,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 22,
+        "value": 22.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 23,
+        "value": 22.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 24,
+        "value": 22.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 26,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 37,
+        "value": 24
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 40,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 43,
+        "value": 30
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 48,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 68,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 69,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 70,
+        "value": 22.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 71,
+        "value": 22.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 72,
+        "value": 23.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 75,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 83,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 84,
+        "value": 21.6
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 95,
+        "value": 22.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 96,
+        "value": 22.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 97,
+        "value": 22.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 98,
+        "value": 24.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 101,
+        "value": 25.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 102,
+        "value": 25.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 103,
+        "value": 25.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 104,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 105,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 107,
+        "value": 25.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 116,
+        "value": 22.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 118,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 122,
+        "value": 31.2
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+.live {
+  border-color: rgb(var(--ink-rgb) / 0.2);
+}
+
+.live::after {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.28rem;
+  background: linear-gradient(
+    90deg,
+    var(--orange) 0 52%,
+    var(--teal) 52% 78%,
+    var(--gold) 78%
+  );
+  content: "";
+}
+
+.planned {
+  box-shadow: none;
+}
+
+.proNote {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-block: 0.85rem;
+  border-block: 1px solid rgb(var(--ink-rgb) / 0.1);
+}
+
+.proNote p {
+  max-width: 45ch;
+}
+
+@media (max-width: 35rem) {
+  .proNote {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

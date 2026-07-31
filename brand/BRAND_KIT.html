@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn in Curve — Brand Kit v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ===== Learn in Curve — Design Tokens v1 ===== */
+    --color-bg: #F4E9D6;
+    --color-bg-alt: #ECDEC2;
+    --color-surface: #FFFBF2;
+    --color-ink: #3A2A1E;
+    --color-ink-soft: #6B5843;
+    --color-primary: #E8672B;
+    --color-primary-dark: #B84A1B;
+    --color-gold: #D9A441;
+    --color-gold-dark: #B5822C;
+    --color-olive: #6B7A3A;
+    --color-teal: #1F6F6B;
+    --color-maroon: #7A2E2E;
+    --color-line: #C9B48A;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Figtree', sans-serif;
+
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 10px;
+    --border-thick: 3px solid var(--color-ink);
+    --shadow-pop: 6px 6px 0 var(--color-ink);
+    --shadow-pop-sm: 4px 4px 0 var(--color-ink);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--color-bg);
+    color:var(--color-ink);
+    font-family:var(--font-body);
+    line-height:1.5;
+  }
+
+  .halftone{
+    background-image: radial-gradient(var(--color-ink) 1.1px, transparent 1.1px);
+    background-size: 14px 14px;
+    opacity:0.06;
+    position:absolute; inset:0;
+    pointer-events:none;
+  }
+
+  section{ position:relative; padding: 88px 8vw; overflow:hidden; }
+  .band-alt{ background:var(--color-bg-alt); }
+  .band-ink{ background:var(--color-ink); color:var(--color-bg); }
+
+  h1,h2,h3{ font-family:var(--font-display); margin:0 0 0.3em 0; font-weight:700; }
+  .eyebrow{
+    font-family:var(--font-body); font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+    font-size:13px; color:var(--color-primary-dark); margin-bottom:14px; display:inline-block;
+  }
+  p{ max-width:640px; }
+  .lede{ font-size:19px; color:var(--color-ink-soft); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 92vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    background: var(--color-bg);
+  }
+  .sunburst{
+    position:absolute; inset:-20%;
+    background: repeating-conic-gradient(from 0deg,
+      #F4E9D6 0deg 8deg,
+      #EAD3A6 8deg 16deg);
+    opacity:.55;
+    animation: spin 140s linear infinite;
+    z-index:0;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  .hero > *{ position:relative; z-index:1; }
+
+  .mark{ width:150px; height:150px; margin-bottom:28px; filter:drop-shadow(8px 8px 0 rgba(58,42,30,0.18)); }
+  .wordmark{ font-family:var(--font-display); font-size:clamp(48px,9vw,108px); font-weight:900; letter-spacing:-0.01em; line-height:.95; }
+  .wordmark .in{ font-weight:400; font-style:italic; font-size:.34em; color:var(--color-ink-soft); display:block; letter-spacing:.28em; text-transform:uppercase; margin-bottom:.15em; }
+  .wordmark .curve{ color:var(--color-primary); }
+  .tagline{ margin-top:22px; font-size:20px; font-weight:600; color:var(--color-ink-soft); font-family:var(--font-body); }
+  .tagline b{ color:var(--color-ink); }
+
+  .wave-divider{ display:block; width:100%; height:64px; }
+
+  /* ---------- PALETTE ---------- */
+  .swatch-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:20px; margin-top:40px; }
+  .swatch{ border-radius:var(--radius-md); overflow:hidden; border:var(--border-thick); box-shadow:var(--shadow-pop); background:var(--color-surface); }
+  .swatch .chip{ height:110px; }
+  .swatch .info{ padding:14px 16px; }
+  .swatch .name{ font-weight:800; font-size:15px; }
+  .swatch .hex{ font-family:monospace; font-size:13px; color:var(--color-ink-soft); }
+  .swatch .use{ font-size:12.5px; color:var(--color-ink-soft); margin-top:4px; }
+
+  /* ---------- TYPE ---------- */
+  .type-row{ display:flex; align-items:baseline; gap:28px; flex-wrap:wrap; border-bottom:2px dashed var(--color-line); padding:22px 0; }
+  .type-row:last-child{ border-bottom:none; }
+  .type-sample{ font-family:var(--font-display); }
+  .type-meta{ font-family:monospace; font-size:12.5px; color:var(--color-ink-soft); min-width:160px; }
+  .body-sample{ font-family:var(--font-body); }
+
+  /* ---------- VOICE ---------- */
+  .voice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; }
+  .voice-card{ background:var(--color-surface); border:var(--border-thick); border-radius:var(--radius-md); padding:26px; box-shadow:var(--shadow-pop-sm); }
+  .voice-card.dont{ background:#F3E1DC; }
+  .voice-card h3{ font-size:15px; text-transform:uppercase; letter-spacing:.08em; font-family:var(--font-body); font-weight:800; }
+  .voice-card.do h3{ color:var(--color-olive); }
+  .voice-card.dont h3{ color:var(--color-maroon); }
+  .voice-card p{ font-size:15px; margin:0; }
+
+  /* ---------- COMPONENTS ---------- */
+  .component-row{ display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; margin-top:40px; }
+
+  .btn{
+    font-family:var(--font-body); font-weight:800; font-size:16px;
+    padding:16px 30px; border-radius:999px; border:var(--border-thick);
+    background:var(--color-primary); color:#FFF7EC; box-shadow:var(--shadow-pop-sm);
+    cursor:pointer; display:inline-block; transition:transform .15s ease;
+  }
+  .btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--color-ink); }
+  .btn.secondary{ background:var(--color-surface); color:var(--color-ink); }
+
+  .course-card{
+    width:300px; background:var(--color-surface); border:var(--border-thick); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-pop); padding:22px; position:relative;
+  }
+  .course-card .badge{
+    position:absolute; top:-14px; right:18px; background:var(--color-gold); border:2px solid var(--color-ink);
+    border-radius:999px; padding:5px 12px; font-size:12px; font-weight:800; box-shadow:3px 3px 0 var(--color-ink);
+  }
+  .course-card h3{ font-size:22px; margin-bottom:4px; }
+  .course-card .sub{ font-size:13px; color:var(--color-ink-soft); font-weight:600; margin-bottom:18px; }
+  .ring-row{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .ring{ width:56px; height:56px; border-radius:50%;
+    background: conic-gradient(var(--color-primary) 0 62%, #E9DCC4 62% 100%);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .ring span{ background:var(--color-surface); border-radius:50%; width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; }
+  .streak{ font-size:13px; font-weight:700; color:var(--color-teal); }
+
+  .quiz-card{
+    width:340px; background:var(--color-surface); border:var(--border-thick); border-radius:var(--radius-lg);
+    padding:24px; box-shadow:var(--shadow-pop);
+  }
+  .quiz-card .q-label{ font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--color-primary-dark); }
+  .quiz-card .q-text{ font-family:var(--font-display); font-size:19px; font-weight:600; margin:8px 0 18px; }
+  .option{ display:flex; align-items:center; gap:10px; padding:11px 14px; border:2px solid var(--color-line); border-radius:var(--radius-sm); margin-bottom:10px; font-size:14px; font-weight:600; }
+  .option.correct{ border-color:var(--color-olive); background:#EEF2E2; }
+  .option .letter{ width:22px; height:22px; border-radius:50%; border:2px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
+
+  /* ---------- MOTIFS ---------- */
+  .motif-row{ display:flex; gap:24px; flex-wrap:wrap; margin-top:36px; }
+  .motif-box{ width:220px; height:140px; border-radius:var(--radius-md); border:var(--border-thick); position:relative; overflow:hidden; box-shadow:var(--shadow-pop-sm); }
+  .motif-sunburst{ background:var(--color-bg); }
+  .motif-sunburst .inner{ position:absolute; inset:-40%; background:repeating-conic-gradient(var(--color-gold) 0deg 10deg, var(--color-primary) 10deg 20deg); }
+  .motif-halftone{ background:var(--color-teal); }
+  .motif-halftone .inner{ position:absolute; inset:0; background-image:radial-gradient(var(--color-bg) 2px, transparent 2px); background-size:16px 16px; }
+  .motif-arch{ background:var(--color-olive); display:flex; align-items:flex-end; justify-content:center; }
+  .motif-arch .arch{ width:70%; height:70%; border-radius:50% 50% 0 0 / 100% 100% 0 0; background:var(--color-bg); }
+
+  footer{ text-align:center; padding:60px 8vw; font-size:13px; color:var(--color-ink-soft); font-family:monospace; }
+
+  @media (max-width:720px){ .voice-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="sunburst"></div>
+  <svg class="mark" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="47" fill="#3A2A1E"/>
+    <path d="M32 74 C32 60 45 55 50 50 C55 45 68 40 68 26"
+          stroke="#E8672B" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+    <circle cx="68" cy="26" r="6.5" fill="#D9A441"/>
+    <circle cx="32" cy="74" r="6.5" fill="#D9A441"/>
+  </svg>
+  <div class="wordmark">
+    <span class="in">Learn In</span>
+    <span class="curve">Curve</span>
+  </div>
+  <p class="tagline"><b>Brand Kit v1</b> — retro 70s, built for passing exams, not decoration.</p>
+</section>
+
+<svg class="wave-divider" viewBox="0 0 1440 64" preserveAspectRatio="none">
+  <path d="M0 32 C 240 64 480 0 720 32 C 960 64 1200 0 1440 32 L1440 64 L0 64 Z" fill="#ECDEC2"/>
+</svg>
+
+<section class="band-alt">
+  <span class="eyebrow">01 — The Mark</span>
+  <h2>One curve, recolored for the era it's borrowing from.</h2>
+  <p class="lede">The existing S-curve mark (the "learning curve") stays — it's a good idea. What changes is the palette and warmth: black-on-white becomes ink-on-parchment, and the curve now runs between two mustard dots instead of a single flat point, like a groovy rainbow arc mid-swing.</p>
+  <div class="component-row">
+    <svg width="140" height="140" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#3A2A1E"/><path d="M32 74 C32 60 45 55 50 50 C55 45 68 40 68 26" stroke="#E8672B" stroke-width="6.5" fill="none" stroke-linecap="round"/><circle cx="68" cy="26" r="6.5" fill="#D9A441"/><circle cx="32" cy="74" r="6.5" fill="#D9A441"/></svg>
+    <div>
+      <p style="font-family:var(--font-display); font-weight:900; font-size:34px; margin:0;">Curve<span style="color:var(--color-primary)">.</span></p>
+      <p class="lede" style="margin-top:6px;">Minimum size: 28px icon-only, never below. Clearspace: half the mark's height on all sides. Never recolor the mark outside this palette — no gradients, no drop shadows beyond the standard "sticker" offset.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">02 — Color Palette</span>
+  <h2>Warm, earthy, legible.</h2>
+  <p class="lede">Grounded in genuine 1970s palettes (burnt orange, mustard, avocado, petrol teal) but built with enough contrast for real UI — quiz cards and dashboards, not just posters.</p>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background:#E8672B"></div><div class="info"><div class="name">Burnt Orange — Primary</div><div class="hex">#E8672B</div><div class="use">CTAs, links, streaks, the curve itself</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#D9A441"></div><div class="info"><div class="name">Mustard Gold — Secondary</div><div class="hex">#D9A441</div><div class="use">Badges, highlights, progress accents</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#6B7A3A"></div><div class="info"><div class="name">Avocado Olive — Success</div><div class="hex">#6B7A3A</div><div class="use">Correct answers, completed states</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1F6F6B"></div><div class="info"><div class="name">Petrol Teal — Info</div><div class="hex">#1F6F6B</div><div class="use">Streak counters, tutor chat accents</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#7A2E2E"></div><div class="info"><div class="name">Maroon — Alert</div><div class="hex">#7A2E2E</div><div class="use">Wrong answers, warnings, sparingly</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#3A2A1E"></div><div class="info"><div class="name">Ink — Text</div><div class="hex">#3A2A1E</div><div class="use">Body text, borders, replaces pure black</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F4E9D6"></div><div class="info"><div class="name">Parchment — Background</div><div class="hex">#F4E9D6</div><div class="use">Base background, replaces pure white</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FFFBF2"></div><div class="info"><div class="name">Surface</div><div class="hex">#FFFBF2</div><div class="use">Cards, panels, elevated surfaces</div></div></div>
+  </div>
+</section>
+
+<section class="band-alt">
+  <span class="eyebrow">03 — Typography</span>
+  <h2>Fraunces for character. Figtree for clarity.</h2>
+  <p class="lede">Fraunces carries the groovy, swash-era warmth in headlines without tipping into novelty-font territory. Figtree keeps quiz questions and dashboard copy easy to scan at speed — this is a revision tool first.</p>
+
+  <div style="margin-top:36px;">
+    <div class="type-row">
+      <span class="type-meta">Display / Fraunces 900</span>
+      <span class="type-sample" style="font-size:56px; font-weight:900;">Pass the exam</span>
+    </div>
+    <div class="type-row">
+      <span class="type-meta">Display italic / Fraunces 600i</span>
+      <span class="type-sample" style="font-size:32px; font-weight:600; font-style:italic; color:var(--color-ink-soft);">not the whole syllabus.</span>
+    </div>
+    <div class="type-row">
+      <span class="type-meta">Body / Figtree 700</span>
+      <span class="body-sample" style="font-size:20px; font-weight:700;">Which of the following best describes earned value?</span>
+    </div>
+    <div class="type-row">
+      <span class="type-meta">Body / Figtree 500</span>
+      <span class="body-sample" style="font-size:16px; font-weight:500; color:var(--color-ink-soft);">Used across quiz options, dashboard labels, and tutor chat replies.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">04 — Voice &amp; Tone</span>
+  <h2>A coach, not a lecturer.</h2>
+  <div class="voice-grid">
+    <div class="voice-card do">
+      <h3>Do</h3>
+      <p>"You've nailed risk management — 3 sessions left on stakeholder engagement before your mock."</p>
+    </div>
+    <div class="voice-card dont">
+      <h3>Don't</h3>
+      <p>"Let's explore the fascinating world of project governance together! 🎉"</p>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:24px;">Direct, confident, specific to the user's actual weak areas. Never generic edtech cheerfulness — the product respects that the user has a demanding job and a deadline.</p>
+</section>
+
+<section class="band-alt">
+  <span class="eyebrow">05 — In Product</span>
+  <h2>The kit, applied.</h2>
+  <div class="component-row">
+    <div class="course-card">
+      <div class="badge">🔥 6-day streak</div>
+      <h3>PMQ in 5 Days</h3>
+      <div class="sub">APM Project Management Qualification</div>
+      <div class="ring-row">
+        <div class="ring"><span>62%</span></div>
+        <div>
+          <div style="font-weight:800; font-size:14px;">Mock exam readiness</div>
+          <div class="streak">Weak area: Procurement</div>
+        </div>
+      </div>
+      <a class="btn" style="display:block; text-align:center; width:100%;">Continue studying</a>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-label">Topic 4 · Procurement</div>
+      <div class="q-text">A fixed-price contract shifts most risk to whom?</div>
+      <div class="option"><span class="letter">A</span> The buyer</div>
+      <div class="option correct"><span class="letter">B</span> The supplier</div>
+      <div class="option"><span class="letter">C</span> Both equally</div>
+      <div class="option"><span class="letter">D</span> Neither party</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-start;">
+      <a class="btn">Start mock exam</a>
+      <a class="btn secondary">Review weak areas</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">06 — Motifs</span>
+  <h2>Texture, used sparingly.</h2>
+  <p class="lede">Backgrounds and dividers only — never behind body text. One motif per screen, maximum.</p>
+  <div class="motif-row">
+    <div class="motif-box motif-sunburst"><div class="inner"></div></div>
+    <div class="motif-box motif-halftone"><div class="inner"></div></div>
+    <div class="motif-box motif-arch"><div class="arch"></div></div>
+  </div>
+</section>
+
+<footer>
+  Learn in Curve — Brand Kit v1 · 2026-07-01 · Design tokens live in this file's <code>:root</code>
+</footer>
+
+</body>
+</html>

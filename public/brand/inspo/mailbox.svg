@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <title>Mailbox icon</title>
+  <line x1="90" y1="360" x2="310" y2="360" stroke="#1C6B68" stroke-width="8" stroke-linecap="round"/>
+  <rect x="185" y="260" width="30" height="100" rx="6" fill="#241713"/>
+  <path d="M110,270 L110,190 A90,90 0 0 1 290,190 L290,270 Z" fill="#DD5C20" stroke="#241713" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M124,192 A78,78 0 0 1 162,108" fill="none" stroke="#241713" stroke-width="16" stroke-linecap="round" opacity="0.45"/>
+  <line x1="130" y1="228" x2="270" y2="228" stroke="#241713" stroke-width="8" stroke-linecap="round"/>
+  <line x1="290" y1="196" x2="290" y2="156" stroke="#241713" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="290,156 322,144 322,182" fill="#1C6B68" stroke="#241713" stroke-width="8" stroke-linejoin="round"/>
+</svg>

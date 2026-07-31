@@ -1,0 +1,37 @@
+# Reference codebase — has its own separate git repo, don't track it here
+PMQ in 5 days/
+
+# Discard pile — never part of the real project
+JUNK/
+
+# Node / build
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Env / secrets — never commit these
+.env
+.env.local
+.env*.local
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Debug/build artifacts — not meaningful to keep in history
+.cursor/debug-*.log
+.cursor/checkpoint.log
+tsconfig.tsbuildinfo
+test-results/
+playwright-report/
+
+# Caption extraction/transcription scratch files (drafts and QA stay tracked)
+scripts/captions/.tmp/
+
+# Per-developer local overrides (per .cursor/skills/impeccable's own docs —
+# this file is meant to be gitignored, .gitignore just never caught up)
+.impeccable/config.local.json
+*.mp4
+node_modules/

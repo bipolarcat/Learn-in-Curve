@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "loNumber": 17,
+  "title": "Solutions Development",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "cd8bec40922538d351fbe3cc1a4c7193b13ae4b26de81f0f136986d88c041338",
+  "durationMs": 520057,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T17:03:02.629Z",
+  "runtimeMs": 31586,
+  "usage": {
+    "promptTokens": 13362,
+    "outputTokens": 9218,
+    "totalTokens": 22580,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 170,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 25,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 5,
+        "value": 21.4
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 42,
+        "value": 25.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 48,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 50,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 51,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 57,
+        "value": 21.1
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 61,
+        "value": 23.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 71,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 72,
+        "value": 22
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 74,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 75,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 90,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 91,
+        "value": 21.9
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 94,
+        "value": 25
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 108,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 109,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 110,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 111,
+        "value": 21.8
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 119,
+        "value": 25.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 131,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 138,
+        "value": 28
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 150,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 151,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 156,
+        "value": 23
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 157,
+        "value": 23
+      }
+    ]
+  }
+}

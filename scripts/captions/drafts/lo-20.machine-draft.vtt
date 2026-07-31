@@ -1,0 +1,739 @@
+WEBVTT
+
+NOTE MACHINE-GENERATED DRAFT — HUMAN QA REQUIRED. LO 20; gemini; gemini-3.1-flash-lite.
+
+1
+00:00:00.000 --> 00:00:02.000
+Welcome back to the Explainer.
+
+2
+00:00:02.000 --> 00:00:06.129
+Today, we're unpacking a core pillar of
+project success for our learning curve
+
+3
+00:00:06.129 --> 00:00:06.500
+series.
+
+4
+00:00:06.500 --> 00:00:10.000
+We're looking at learning objective 20,
+schedule management.
+
+5
+00:00:10.000 --> 00:00:14.171
+Now, did you know a massive chunk of
+projects fail simply because of poor
+
+6
+00:00:14.171 --> 00:00:14.800
+scheduling?
+
+7
+00:00:14.800 --> 00:00:16.000
+Yeah, it's wild.
+
+8
+00:00:16.000 --> 00:00:19.584
+If you think this is just about, you know,
+drawing up a quick calendar and hoping
+
+9
+00:00:19.584 --> 00:00:21.000
+for the best, well, think again.
+
+10
+00:00:21.000 --> 00:00:24.881
+It is the absolutely critical art of
+time-based planning and resource
+
+11
+00:00:24.881 --> 00:00:25.500
+allocation.
+
+12
+00:00:25.500 --> 00:00:29.383
+It's what ensures a project actually
+crosses the finish line on time and,
+
+13
+00:00:29.383 --> 00:00:30.500
+crucially, on budget.
+
+14
+00:00:30.500 --> 00:00:31.500
+Let's get right into it.
+
+15
+00:00:32.000 --> 00:00:34.000
+So here's our roadmap for today.
+
+16
+00:00:34.000 --> 00:00:37.000
+First up, defining scope and structures.
+
+17
+00:00:37.000 --> 00:00:42.000
+Second, we'll look at sequencing the work
+with links, dependencies, and BAU.
+
+18
+00:00:42.000 --> 00:00:45.000
+And third, re-estimating and optimisation.
+
+19
+00:00:45.000 --> 00:00:46.000
+Let's get building.
+
+20
+00:00:46.500 --> 00:00:49.500
+All right, part one, defining scope and
+structures.
+
+21
+00:00:49.500 --> 00:00:51.500
+The blueprint and materials.
+
+22
+00:00:52.500 --> 00:00:56.000
+Okay, let's dive into what we call the
+golden thread of scope management.
+
+23
+00:00:56.000 --> 00:00:59.500
+Basically, the scope of any project is
+defined by three distinct layers.
+
+24
+00:01:00.000 --> 00:01:01.500
+Step one is the outputs.
+
+25
+00:01:01.500 --> 00:01:05.039
+These are the actual deliverables we're
+physically creating, right, like building
+
+26
+00:01:05.039 --> 00:01:06.000
+a new software system.
+
+27
+00:01:06.500 --> 00:01:08.000
+Step two is the outcomes.
+
+28
+00:01:08.000 --> 00:01:10.500
+This is what happens once that output is
+actually used.
+
+29
+00:01:10.500 --> 00:01:14.500
+So, maybe your team starts processing
+customer requests twice as fast.
+
+30
+00:01:14.500 --> 00:01:16.500
+And finally, step three, the benefits.
+
+31
+00:01:16.500 --> 00:01:18.500
+This is the real value delivered.
+
+32
+00:01:18.500 --> 00:01:21.500
+Think along the lines of a 20% increase in
+annual revenue.
+
+33
+00:01:21.500 --> 00:01:24.500
+You see, you can't just build an output
+and walk away.
+
+34
+00:01:24.500 --> 00:01:27.462
+You've got to schedule the work to make
+sure those outputs generate the right
+
+35
+00:01:27.462 --> 00:01:29.500
+outcomes, which then lead to those
+ultimate benefits.
+
+36
+00:01:30.500 --> 00:01:34.120
+Now, to map out those outputs, we use
+something called a product breakdown
+
+37
+00:01:34.120 --> 00:01:35.000
+structure, or PBS.
+
+38
+00:01:35.500 --> 00:01:38.500
+Think of the PBS as the ultimate what of
+the project.
+
+39
+00:01:38.500 --> 00:01:42.324
+You literally place the final end output
+right at the top level, and then you just
+
+40
+00:01:42.324 --> 00:01:45.821
+break it down, component by component, all
+the way down until you reach the
+
+41
+00:01:45.821 --> 00:01:47.500
+individual products to be delivered.
+
+42
+00:01:48.000 --> 00:01:49.500
+This structure is absolutely vital.
+
+43
+00:01:49.500 --> 00:01:50.000
+Why?
+
+44
+00:01:50.000 --> 00:01:54.065
+Because it defines the acceptance criteria
+for each product and it's exactly what we
+
+45
+00:01:54.065 --> 00:01:58.033
+use to get our stakeholders to agree on
+what is in scope and, just as importantly,
+
+46
+00:01:58.033 --> 00:01:59.000
+what's out of scope.
+
+47
+00:02:00.000 --> 00:02:02.500
+So once we know the what, we move over to
+the how.
+
+48
+00:02:02.500 --> 00:02:06.000
+And we do that using a work breakdown
+structure, or WBS.
+
+49
+00:02:06.000 --> 00:02:10.235
+This shifts our focus from the products
+themselves to the actions needed to make
+
+50
+00:02:10.235 --> 00:02:10.500
+them.
+
+51
+00:02:10.500 --> 00:02:14.878
+It defines our baseline scope of work by
+capturing and grouping all the actual
+
+52
+00:02:14.878 --> 00:02:16.000
+activities required.
+
+53
+00:02:16.000 --> 00:02:19.000
+The lowest level of detail here, that's
+called a work package.
+
+54
+00:02:19.500 --> 00:02:23.107
+By grouping work that requires similar
+skill sets together, we can effectively
+
+55
+00:02:23.107 --> 00:02:26.899
+allocate our resources, estimate the time
+needed, and actually schedule those work
+
+56
+00:02:26.899 --> 00:02:27.500
+packages out.
+
+57
+00:02:27.500 --> 00:02:31.000
+You literally cannot build a schedule
+without first building your WBS.
+
+58
+00:02:31.000 --> 00:02:32.000
+It's impossible.
+
+59
+00:02:32.500 --> 00:02:36.852
+Finally, to complete this trio of
+structures, we have the cost breakdown
+
+60
+00:02:36.852 --> 00:02:38.000
+structure, the CBS.
+
+61
+00:02:38.500 --> 00:02:45.000
+If the PBS is the what and the WBS is the
+how, well, the CBS is the how much.
+
+62
+00:02:45.000 --> 00:02:46.500
+It gives us a financial view.
+
+63
+00:02:46.500 --> 00:02:50.786
+It breaks the whole project down into cost
+elements like people, equipment,
+
+64
+00:02:50.786 --> 00:02:52.500
+materials, that sort of thing.
+
+65
+00:02:52.500 --> 00:02:57.201
+And these costs are assigned either to the
+work packages in our WBS or to functional
+
+66
+00:02:57.201 --> 00:03:00.000
+areas using an organisational breakdown
+structure.
+
+67
+00:03:00.000 --> 00:03:04.364
+The CBS is our go-to tool for tracking
+project spend and constantly comparing it
+
+68
+00:03:04.364 --> 00:03:06.000
+against our initial estimates.
+
+69
+00:03:07.000 --> 00:03:11.653
+Moving on to part two, links,
+dependencies, and BAU, sequencing the
+
+70
+00:03:11.653 --> 00:03:12.000
+work.
+
+71
+00:03:13.000 --> 00:03:16.671
+So, a really crucial point here is
+understanding the delicate dance between
+
+72
+00:03:16.671 --> 00:03:20.000
+project activity and business as usual,
+which we generally call BAU.
+
+73
+00:03:20.000 --> 00:03:22.500
+Projects by definition are temporary,
+right?
+
+74
+00:03:22.500 --> 00:03:26.000
+They're tasks specifically designed to
+deliver a new scope.
+
+75
+00:03:26.000 --> 00:03:30.270
+BAU activities on the other hand are the
+ongoing day-to-day operations of an
+
+76
+00:03:30.270 --> 00:03:31.000
+organisation.
+
+77
+00:03:31.500 --> 00:03:34.500
+The thing is, effective schedule
+management isn't done in a vacuum.
+
+78
+00:03:34.500 --> 00:03:37.500
+A project is basically an interruption to
+regular business.
+
+79
+00:03:37.500 --> 00:03:40.500
+It's kind of like renovating a house while
+you're still trying to live inside it.
+
+80
+00:03:40.500 --> 00:03:44.862
+We have to recognise exactly where our
+temporary project tasks intersect with,
+
+81
+00:03:44.862 --> 00:03:49.000
+rely on, or even compete for resources
+with the permanent BAU environment.
+
+82
+00:03:49.500 --> 00:03:53.000
+Because of this, several severe factors
+can heavily impact your timeline.
+
+83
+00:03:53.500 --> 00:03:54.500
+We've got dependencies.
+
+84
+00:03:54.500 --> 00:03:57.750
+You know, maybe your project needs an
+output from a BAU team, but that team is
+
+85
+00:03:57.750 --> 00:03:58.500
+currently delayed.
+
+86
+00:03:59.500 --> 00:04:03.118
+We have stakeholder needs, where your key
+experts might be tied up in their normal
+
+87
+00:04:03.118 --> 00:04:05.500
+operational work and just unavailable for
+the project.
+
+88
+00:04:06.000 --> 00:04:09.817
+Then you've got schedule clashes, poor
+scope boundaries where stakeholders expect
+
+89
+00:04:09.817 --> 00:04:13.634
+the project to just handle BAU work, and
+of course, the sheer effort required for
+
+90
+00:04:13.634 --> 00:04:15.000
+business change and adoption.
+
+91
+00:04:15.500 --> 00:04:18.933
+If you don't map these links and
+dependencies out early on, costs, quality
+
+92
+00:04:18.933 --> 00:04:22.784
+risks, and poor scope boundaries are going
+to violently crash your project schedule
+
+93
+00:04:22.784 --> 00:04:24.500
+right into daily business operations.
+
+94
+00:04:25.000 --> 00:04:30.500
+All right, part three, re-estimating and
+optimisation, getting back on track.
+
+95
+00:04:31.000 --> 00:04:33.000
+Now, this brings up a really fantastic
+question.
+
+96
+00:04:33.000 --> 00:04:37.333
+If we already made a detailed schedule,
+why on earth do we need to continually
+
+97
+00:04:37.333 --> 00:04:38.000
+re-estimate?
+
+98
+00:04:38.500 --> 00:04:43.000
+Well, the simple answer is that an initial
+estimate is just that, an approximation.
+
+99
+00:04:43.000 --> 00:04:44.000
+It's not a crystal ball.
+
+100
+00:04:44.500 --> 00:04:46.000
+Think back to our building metaphor.
+
+101
+00:04:46.000 --> 00:04:49.344
+If your construction materials are
+suddenly delayed by a massive storm, your
+
+102
+00:04:49.344 --> 00:04:51.500
+original timeline just goes right out the
+window.
+
+103
+00:04:52.000 --> 00:04:55.817
+So as the project progresses and more
+information becomes known, estimating
+
+104
+00:04:55.817 --> 00:05:00.042
+shouldn't be a one-and-done event, it has
+to be an ongoing activity to keep reality
+
+105
+00:05:00.042 --> 00:05:00.500
+in check.
+
+106
+00:05:01.000 --> 00:05:04.500
+And the benefits of this ongoing
+re-estimation, they are massive.
+
+107
+00:05:05.000 --> 00:05:08.939
+First off, it deeply involves the project
+team, letting them apply their growing
+
+108
+00:05:08.939 --> 00:05:11.500
+technical expertise to validate earlier
+assumptions.
+
+109
+00:05:12.000 --> 00:05:15.500
+It allows us to incorporate lessons
+learned on the fly, which is huge.
+
+110
+00:05:16.000 --> 00:05:18.500
+Brilliantly, it helps us reduce
+contingency reserves.
+
+111
+00:05:18.500 --> 00:05:22.485
+Like, if a phase goes really well, we can
+remove the reserves that we no longer need
+
+112
+00:05:22.485 --> 00:05:25.000
+and actually free up that funding for
+other projects.
+
+113
+00:05:25.500 --> 00:05:29.573
+It also lets us accurately assess realised
+risks, which ultimately gives everyone
+
+114
+00:05:29.573 --> 00:05:33.294
+way more confidence and a much higher
+likelihood of actually hitting those
+
+115
+00:05:33.294 --> 00:05:34.500
+overall final estimates.
+
+116
+00:05:35.500 --> 00:05:39.373
+Okay, so let's dive into how we actually
+optimise and fix a schedule once we've
+
+117
+00:05:39.373 --> 00:05:40.500
+done our re-estimating.
+
+118
+00:05:41.000 --> 00:05:45.182
+In practice, there are two primary
+optimisation techniques that we use to
+
+119
+00:05:45.182 --> 00:05:46.500
+ensure peak efficiency.
+
+120
+00:05:47.000 --> 00:05:48.500
+The first is the critical path method.
+
+121
+00:05:49.000 --> 00:05:52.931
+Now, this method places its entire
+emphasis on time and the logical order of
+
+122
+00:05:52.931 --> 00:05:53.500
+activities.
+
+123
+00:05:54.000 --> 00:05:58.611
+It identifies the longest logical chain of
+activities through the project that have
+
+124
+00:05:58.611 --> 00:06:00.500
+absolutely zero float, zero slack.
+
+125
+00:06:00.500 --> 00:06:04.179
+Meaning any delay in these specific
+critical activities will directly push out
+
+126
+00:06:04.179 --> 00:06:05.500
+your final project end date.
+
+127
+00:06:06.000 --> 00:06:09.079
+So to optimise a schedule using this
+method, a project manager will often move
+
+128
+00:06:09.079 --> 00:06:11.921
+resources away from non-critical
+activities, the ones that actually have
+
+129
+00:06:11.921 --> 00:06:15.000
+some float, and assign them over to the
+critical path just to speed things up.
+
+130
+00:06:15.500 --> 00:06:17.500
+Our second method is the critical chain.
+
+131
+00:06:18.000 --> 00:06:22.231
+So instead of focusing just on time, the
+critical chain method focuses heavily on
+
+132
+00:06:22.231 --> 00:06:25.000
+resources and keeping them at a constant
+utilisation.
+
+133
+00:06:25.500 --> 00:06:28.500
+What's really fascinating here is how it
+handles contingency.
+
+134
+00:06:29.000 --> 00:06:33.085
+Instead of having a little bit of float
+spread across individual tasks, it takes
+
+135
+00:06:33.085 --> 00:06:37.272
+the estimated duration for tasks, usually
+reduces them, and then pools all of that
+
+136
+00:06:37.272 --> 00:06:41.000
+saved time into one massive project buffer
+right at the end of the chain.
+
+137
+00:06:41.500 --> 00:06:45.500
+This buffer just sits there to protect the
+entire project from variations, balancing
+
+138
+00:06:45.500 --> 00:06:48.500
+out the tasks that finish early with the
+ones that finish late.
+
+139
+00:06:49.000 --> 00:06:52.644
+Let's clearly summarise this distinction
+because it is absolutely crucial for your
+
+140
+00:06:52.644 --> 00:06:53.000
+success.
+
+141
+00:06:53.500 --> 00:06:58.142
+The critical path is obsessively focused
+on time, the logical order of activities,
+
+142
+00:06:58.142 --> 00:06:59.500
+and managing task float.
+
+143
+00:07:00.000 --> 00:07:04.442
+The critical chain on the other hand is
+entirely focused on resource utilisation,
+
+144
+00:07:04.442 --> 00:07:08.500
+removing individual task float, and
+relying on one overall project buffer.
+
+145
+00:07:09.000 --> 00:07:12.429
+Here's the thing, if resources were
+unlimited and always available, both
+
+146
+00:07:12.429 --> 00:07:15.000
+methods would actually give you the exact
+same result.
+
+147
+00:07:15.500 --> 00:07:19.100
+But in the real world, choosing the right
+optimisation method depends entirely on
+
+148
+00:07:19.100 --> 00:07:21.500
+whether time or resources are your biggest
+constraint.
+
+149
+00:07:22.000 --> 00:07:24.000
+Which brings us to our final takeaway.
+
+150
+00:07:24.000 --> 00:07:28.500
+Schedule management isn't just about
+drawing up a perfect timeline on day one.
+
+151
+00:07:28.500 --> 00:07:31.000
+It's about continuously adapting to
+reality.
+
+152
+00:07:31.500 --> 00:07:35.874
+You do this through proper structures,
+managing those tricky BAU dependencies,
+
+153
+00:07:35.874 --> 00:07:37.500
+and relentless re-estimating.
+
+154
+00:07:37.500 --> 00:07:41.500
+All of this is to guarantee the project
+actually delivers its true benefits.
+
+155
+00:07:42.000 --> 00:07:44.500
+So the next time your project hits a
+roadblock, what are you going to do?
+
+156
+00:07:44.500 --> 00:07:48.855
+Will you blindly stick to the original
+plan, or will you use these tools to adapt
+
+157
+00:07:48.855 --> 00:07:49.500
+and survive?
+
+158
+00:07:50.000 --> 00:07:52.500
+Thanks for joining me for this explainer,
+and keep learning.

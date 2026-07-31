@@ -1,0 +1,265 @@
+.deck {
+  --deck-height: clamp(13rem, 27vw, 19rem);
+  display: flex;
+  width: 100%;
+  max-width: 68rem;
+  height: var(--deck-height);
+  margin-inline: auto;
+  gap: 0.45rem;
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: 1.25rem;
+  background: #f6efdd;
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 8px 22px rgb(var(--ink-rgb) / 0.06);
+  cursor: pointer;
+}
+
+/*
+ * Collapsed cards are a solid orange plate that crossfades away as the slide
+ * opens, so a closed row reads as a label rather than a cropped sliver of art.
+ */
+.cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /*
+   * Brand orange deepened toward ink. Paper-on-orange at full strength is
+   * 3.8:1 — fine for a big CTA, short of the 4.5:1 these label-sized rows
+   * need. Mixing rather than hardcoding keeps it tied to the token.
+   */
+  background: color-mix(
+    in srgb,
+    rgb(var(--orange-rgb)) 85%,
+    rgb(var(--ink-rgb))
+  );
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 280ms var(--ease-out-quint);
+}
+
+.cardActive .cover {
+  opacity: 0;
+  transition-delay: 100ms;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: rgb(var(--ink-rgb) / 0.18);
+}
+
+.card:focus-visible {
+  z-index: 2;
+  outline: 2px solid rgb(var(--orange-rgb));
+  outline-offset: 2px;
+}
+
+.cardActive {
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 10px 26px rgb(var(--ink-rgb) / 0.09);
+}
+
+.image {
+  z-index: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.collapsedLabel {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  color: rgb(var(--paper-rgb));
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 160ms var(--ease-out-quint);
+}
+
+.cardActive .collapsedLabel {
+  opacity: 0;
+}
+
+.collapsedNumber {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.slideNumber {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.45rem;
+  z-index: 2;
+  display: none;
+  padding: 0.18rem 0.4rem;
+  border-radius: 999px;
+  background: rgb(var(--paper-rgb) / 0.9);
+  color: rgb(var(--ink-rgb) / 0.6);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgb(var(--ink-rgb) / 0.08);
+}
+
+.cardActive .slideNumber {
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  left: 0.55rem;
+  bottom: 0.45rem;
+  z-index: 2;
+  display: none;
+  min-height: 1.25rem;
+  align-items: center;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.35rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgb(var(--ink-rgb) / 0.08);
+}
+
+.cardActive .badge {
+  display: inline-flex;
+}
+
+.badgePro {
+  background: var(--teal);
+  color: rgb(var(--paper-rgb));
+}
+
+.badgeAiPro {
+  background: var(--gold);
+  color: rgb(var(--ink-rgb));
+}
+
+/*
+ * Layout sizing (flex/height) is split into two mutually exclusive,
+ * explicitly-scoped breakpoints rather than "unconditional desktop rule +
+ * mobile override of equal specificity." The previous version relied on
+ * source order to make the mobile block win over an unconditional
+ * `.card { height: 100% }` — correct per spec, but one stray reorder (a CSS
+ * Modules chunk re-split, a duplicate class injection, anything that changes
+ * which declaration is "later") silently breaks it with no visual warning
+ * until someone loads it on a phone. Scoping both sides removes the
+ * ambiguity entirely: at any given viewport, exactly one block's height
+ * rules exist in the cascade for `.card` — there is nothing for the other
+ * breakpoint to lose a specificity/order tie against.
+ */
+@media (min-width: 768px) {
+  /* Total width is constant across states, so centring never shifts on open. */
+  .deck {
+    justify-content: center;
+  }
+
+  .card {
+    flex: 0 1 3.25rem;
+    height: 100%;
+    transition:
+      flex-basis 500ms var(--ease-out-quint),
+      border-color 180ms var(--ease-out-quint),
+      box-shadow 180ms var(--ease-out-quint);
+  }
+
+  .cardActive {
+    flex-basis: calc(var(--deck-height) * 1.7778);
+  }
+
+  /* Vertical spine label so a closed column stays legible at ~52px wide. */
+  .collapsedLabel {
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding-block: 1.1rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+  }
+
+  .collapsedNumber {
+    color: rgb(var(--paper-rgb) / 0.75);
+  }
+}
+
+/*
+ * Fixed px, not rem, on purpose. The old `48rem`/`47.99rem` breakpoints could
+ * resolve to a different real pixel width on an actual phone than in a
+ * simulated/devtools mobile check, depending on the device's text-size
+ * setting — landing a real iPhone in the desktop flex-row branch above while
+ * every simulated check showed the correct stacked layout. Fixed px removes
+ * that drift entirely.
+ */
+@media (max-width: 767.98px) {
+  .deck {
+    /*
+     * Matches the slides' 16:9 exactly, so an open card is the artwork with no
+     * letterboxing and nothing cropped. Card width is the wrap width (viewport
+     * minus 20px of `.wrap` padding per side) capped at the deck's 34rem.
+     */
+    --mobile-expanded-height: calc(min(100vw - 40px, 34rem) * 0.5625);
+    flex-direction: column;
+    height: auto;
+    max-width: 34rem;
+    gap: 0.65rem;
+  }
+
+  .card {
+    flex: none;
+    width: 100%;
+    height: 2.75rem;
+    /*
+     * `box-shadow` is deliberately NOT in this list. Animating blur/spread on
+     * the same element whose `height` is also animating is a known mobile
+     * WebKit/Blink repaint bug: the compositor rasterizes the shadow at each
+     * intermediate size but doesn't always invalidate the *previous* frame's
+     * shadow region, leaving a stale "ghost" shadow sitting at the old
+     * (larger) size after the box has already collapsed. Snapping the shadow
+     * instantly on the `cardActive` class change, combined with promoting the
+     * card to its own compositor layer via `transform`, avoids the per-frame
+     * shadow repaint entirely instead of racing it.
+     */
+    transition:
+      height 500ms var(--ease-out-quint),
+      border-color 180ms var(--ease-out-quint);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .cardActive {
+    height: var(--mobile-expanded-height);
+  }
+
+  .collapsedLabel {
+    inset: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-inline: 1rem;
+    font-size: 0.875rem;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cover,
+  .collapsedLabel {
+    transition: none;
+  }
+}

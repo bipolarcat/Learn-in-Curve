@@ -1,0 +1,220 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.35rem;
+  max-width: 38rem;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: balance;
+}
+
+.titleAccent {
+  color: var(--orange);
+}
+
+/* —— Day path —— */
+.path {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.path::before {
+  content: "";
+  position: absolute;
+  top: 1.15rem;
+  left: 1.2rem;
+  right: 1.2rem;
+  border-top: 2px dashed rgb(var(--ink-rgb) / 0.35);
+  pointer-events: none;
+}
+
+.day {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.dayDisc {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  border: 2.5px solid rgb(var(--ink-rgb));
+  background: rgb(var(--paper-rgb));
+  box-shadow: 3px 3px 0 rgb(var(--ink-rgb) / 0.18);
+  color: rgb(var(--ink-rgb));
+}
+
+.day:nth-child(1) .dayDisc {
+  background: rgb(var(--sand-rgb));
+}
+.day:nth-child(2) .dayDisc {
+  background: color-mix(in srgb, var(--teal) 18%, rgb(var(--paper-rgb)));
+  color: var(--teal-deep);
+}
+.day:nth-child(3) .dayDisc {
+  background: color-mix(in srgb, var(--orange) 16%, rgb(var(--paper-rgb)));
+  color: var(--rust);
+}
+.day:nth-child(4) .dayDisc {
+  background: color-mix(in srgb, var(--gold) 28%, rgb(var(--paper-rgb)));
+}
+.day:nth-child(5) .dayDisc {
+  background: color-mix(in srgb, var(--olive) 22%, rgb(var(--paper-rgb)));
+  color: var(--teal-deep);
+}
+
+.dayNum {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dayLabel {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.55);
+  white-space: nowrap;
+}
+
+/* —— Feature stamps —— */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 4.25rem;
+}
+
+.chipTile {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.85rem;
+  border: 2.5px solid rgb(var(--ink-rgb));
+  background: rgb(var(--paper-rgb));
+  box-shadow: 4px 5px 0 rgb(var(--ink-rgb));
+  color: var(--teal);
+  transition: transform 150ms var(--ease-out-quint);
+}
+
+.chip:nth-child(2) .chipTile {
+  color: var(--orange);
+}
+.chip:nth-child(3) .chipTile {
+  color: var(--teal-deep);
+}
+.chip:nth-child(4) .chipTile {
+  color: var(--rust);
+}
+.chip:nth-child(5) .chipTile {
+  color: var(--gold);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chip:hover .chipTile {
+    transform: translate(-2px, -2px);
+  }
+}
+
+.chipIcon {
+  display: grid;
+  place-items: center;
+}
+
+.chipIcon :global(svg) {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.chipLabel {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(var(--ink-rgb));
+  line-height: 1.2;
+}
+
+@media (min-width: 40rem) {
+  .root {
+    gap: 1.6rem;
+  }
+
+  .path {
+    max-width: 24rem;
+  }
+
+  .path::before {
+    top: 1.25rem;
+  }
+
+  .dayDisc {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .chip {
+    width: 4.6rem;
+  }
+
+  .chipTile {
+    width: 3.85rem;
+    height: 3.85rem;
+  }
+
+  .chipIcon :global(svg) {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chipTile {
+    transition: none;
+  }
+}

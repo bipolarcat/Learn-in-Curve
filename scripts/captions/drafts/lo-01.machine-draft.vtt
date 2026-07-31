@@ -1,0 +1,758 @@
+WEBVTT
+
+NOTE MACHINE-GENERATED DRAFT — HUMAN QA REQUIRED. LO 01; gemini; gemini-3.1-flash-lite.
+
+1
+00:00:00.000 --> 00:00:02.340
+Hey everyone, and welcome to another
+explainer.
+
+2
+00:00:02.340 --> 00:00:06.999
+I am genuinely so excited to dive into
+today's topic because we're looking at the
+
+3
+00:00:06.999 --> 00:00:09.990
+absolute foundation of how things actually
+get done.
+
+4
+00:00:10.290 --> 00:00:12.390
+We're talking about project life cycles.
+
+5
+00:00:12.790 --> 00:00:16.290
+Now you might initially think of a life
+cycle as just, you know, a timeline.
+
+6
+00:00:16.290 --> 00:00:20.547
+But it's actually the fundamental engine
+of project delivery. It's the structural
+
+7
+00:00:20.547 --> 00:00:24.909
+blueprint that takes an idea from a rough
+concept and transforms it into reality in
+
+8
+00:00:24.909 --> 00:00:26.590
+a really orderly, efficient way.
+
+9
+00:00:27.290 --> 00:00:31.315
+Okay, let's kick this off with a question
+that has honestly baffled business leaders
+
+10
+00:00:31.315 --> 00:00:31.890
+for decades.
+
+11
+00:00:32.190 --> 00:00:34.690
+Why do highly funded projects still fail?
+
+12
+00:00:35.190 --> 00:00:39.721
+Think about it. You've got all the money,
+you've got top-tier talent, and yet the
+
+13
+00:00:39.721 --> 00:00:41.790
+project completely crashes and burns.
+
+14
+00:00:41.790 --> 00:00:42.890
+Why does that happen?
+
+15
+00:00:43.490 --> 00:00:47.331
+Well, it's because structural choices,
+rather than just raw funding, are the real
+
+16
+00:00:47.331 --> 00:00:48.990
+secret ingredients to success here.
+
+17
+00:00:49.390 --> 00:00:53.390
+The way you organize the work is literally
+just as important as the work itself.
+
+18
+00:00:54.090 --> 00:00:57.426
+To get a solid grip on this, we're going
+to break this explainer down into four
+
+19
+00:00:57.426 --> 00:00:57.890
+core areas.
+
+20
+00:00:58.390 --> 00:01:01.290
+First, linear, iterative, and hybrid life
+cycles.
+
+21
+00:01:01.590 --> 00:01:03.890
+Second, project versus extended cycles.
+
+22
+00:01:04.190 --> 00:01:06.590
+Third, context, culture, and adaptations.
+
+23
+00:01:06.890 --> 00:01:08.790
+And finally, strengths and limitations.
+
+24
+00:01:09.090 --> 00:01:09.890
+Let's jump right in.
+
+25
+00:01:10.390 --> 00:01:14.390
+Starting with section one, linear,
+iterative, and hybrid life cycles.
+
+26
+00:01:14.890 --> 00:01:18.190
+You can kind of think of these life cycles
+like different types of restaurant menus.
+
+27
+00:01:18.490 --> 00:01:20.290
+First up is the linear life cycle.
+
+28
+00:01:20.290 --> 00:01:22.290
+This is your classic set course meal.
+
+29
+00:01:22.590 --> 00:01:26.290
+You order right up front and the courses
+come out in a very strict sequence.
+
+30
+00:01:26.290 --> 00:01:29.390
+Concept, then definition, deployment, and
+transition.
+
+31
+00:01:29.890 --> 00:01:33.908
+You absolutely do not move to the next
+phase until the previous one is 100%
+
+32
+00:01:33.908 --> 00:01:34.390
+finished.
+
+33
+00:01:34.390 --> 00:01:38.038
+It's highly predictive, which makes it
+absolutely perfect for stable, low-risk
+
+34
+00:01:38.038 --> 00:01:41.733
+projects, like constructing a physical
+building or a bridge, where expectations
+
+35
+00:01:41.733 --> 00:01:43.790
+are just perfectly known right from day
+one.
+
+36
+00:01:44.390 --> 00:01:47.390
+Now, why do linear models use these
+incredibly strict phases?
+
+37
+00:01:47.790 --> 00:01:51.253
+Well, it's all about creating a crystal
+clear framework for control and
+
+38
+00:01:51.253 --> 00:01:51.790
+governance.
+
+39
+00:01:52.090 --> 00:01:55.684
+It forces everyone to get an early
+understanding of the requirements during
+
+40
+00:01:55.684 --> 00:01:56.690
+the definition phase.
+
+41
+00:01:56.690 --> 00:01:59.990
+Meaning you spend adequate time planning
+before you ever start building.
+
+42
+00:02:00.390 --> 00:02:02.290
+It also gives you maximum transparency.
+
+43
+00:02:02.290 --> 00:02:06.078
+At the end of each phase, you can stop,
+look around and assess exactly what was
+
+44
+00:02:06.078 --> 00:02:09.290
+achieved against the original requirements
+before you move forward.
+
+45
+00:02:09.890 --> 00:02:12.890
+But you know, what if you aren't exactly
+sure what you want up front?
+
+46
+00:02:13.390 --> 00:02:14.890
+Enter the iterative life cycle.
+
+47
+00:02:15.390 --> 00:02:18.390
+If linear is a set course meal, iterative
+is tapas.
+
+48
+00:02:18.890 --> 00:02:22.390
+Instead of a straight line, you're working
+in a loop of evolutionary development.
+
+49
+00:02:22.690 --> 00:02:26.990
+You're assembling, reviewing, and
+deploying in simultaneous, parallel steps.
+
+50
+00:02:27.390 --> 00:02:31.062
+You might use time boxes or sprints to
+deliver staged functionality, which is
+
+51
+00:02:31.062 --> 00:02:33.590
+ideal for something like software or app
+development.
+
+52
+00:02:34.090 --> 00:02:38.260
+This way you get to observe the benefits
+early on, gather real feedback and tweak
+
+53
+00:02:38.260 --> 00:02:39.290
+your next iteration.
+
+54
+00:02:39.590 --> 00:02:42.790
+It's practically custom built for evolving
+objectives and vague scopes.
+
+55
+00:02:43.390 --> 00:02:45.390
+And then, of course, we have the hybrid
+life cycle.
+
+56
+00:02:45.690 --> 00:02:46.790
+This is the buffet model.
+
+57
+00:02:47.090 --> 00:02:51.442
+A hybrid approach adds iteration right
+into a linear life cycle, allowing for a
+
+58
+00:02:51.442 --> 00:02:53.590
+really pragmatic mix of working styles.
+
+59
+00:02:53.890 --> 00:02:55.790
+The crucial point here is that it adapts.
+
+60
+00:02:56.090 --> 00:02:59.425
+So for example, your project might have a
+fixed unchangeable requirement set by a
+
+61
+00:02:59.425 --> 00:03:00.290
+government regulator.
+
+62
+00:03:00.590 --> 00:03:03.390
+So okay, you use a linear approach for
+that initial definition.
+
+63
+00:03:03.690 --> 00:03:07.034
+But then during deployment, you switch
+over to an iterative style to develop the
+
+64
+00:03:07.034 --> 00:03:08.790
+output, test it out and add functionality.
+
+65
+00:03:09.090 --> 00:03:12.390
+It handles complex situations by giving
+you the best of both worlds.
+
+66
+00:03:13.290 --> 00:03:17.390
+All right, moving on to section two,
+project versus extended cycles.
+
+67
+00:03:18.190 --> 00:03:20.690
+Let me ask you this, and tell me if this
+sounds familiar.
+
+68
+00:03:21.090 --> 00:03:25.112
+Have you ever delivered a project, maybe a
+shiny new piece of internal software,
+
+69
+00:03:25.112 --> 00:03:29.134
+handed it over to the client, and then
+found out six months later that literally
+
+70
+00:03:29.134 --> 00:03:30.390
+nobody ended up using it?
+
+71
+00:03:30.790 --> 00:03:34.390
+Yeah, that's the massive danger of a
+standard project life cycle.
+
+72
+00:03:34.790 --> 00:03:36.490
+It ends right at transition and closure.
+
+73
+00:03:36.790 --> 00:03:39.652
+The team is disbanded, they wash their
+hands of it, and accountability is tossed
+
+74
+00:03:39.652 --> 00:03:40.690
+over the fence to the client.
+
+75
+00:03:41.390 --> 00:03:45.052
+An extended life cycle on the other hand
+goes way beyond closure to ensure that the
+
+76
+00:03:45.052 --> 00:03:47.390
+change is actually embedded into the
+business itself.
+
+77
+00:03:47.990 --> 00:03:52.080
+To turn a standard cycle into an extended
+life cycle, we add two really critical
+
+78
+00:03:52.080 --> 00:03:54.790
+phases, adoption of outputs and benefits
+realisation.
+
+79
+00:03:55.590 --> 00:03:59.403
+Adoption is all about the operations and
+sustainment required to actually get
+
+80
+00:03:59.403 --> 00:04:00.790
+people to use the new thing.
+
+81
+00:04:01.590 --> 00:04:05.590
+Benefits realisation ensures the required
+business outcomes are actually achieved.
+
+82
+00:04:06.390 --> 00:04:10.121
+By using an extended cycle, the
+accountability stays with the project team
+
+83
+00:04:10.121 --> 00:04:12.390
+until the change is fully, properly
+embedded.
+
+84
+00:04:12.390 --> 00:04:15.900
+And this is brilliant because it prevents
+those frustrating knowledge silos from
+
+85
+00:04:15.900 --> 00:04:19.190
+popping up between the project creators
+and the day-to-day operations team.
+
+86
+00:04:19.890 --> 00:04:23.400
+Now, choosing an extended life cycle
+drastically changes your day-to-day
+
+87
+00:04:23.400 --> 00:04:23.790
+reality.
+
+88
+00:04:23.790 --> 00:04:26.390
+It's not just, oh, the timeline is longer.
+
+89
+00:04:26.390 --> 00:04:31.208
+Your documentation shifts from short-term
+project plans to long-term operational
+
+90
+00:04:31.208 --> 00:04:31.690
+manuals.
+
+91
+00:04:31.990 --> 00:04:36.289
+Quality assurance becomes an ongoing
+living process to maintain the asset's
+
+92
+00:04:36.289 --> 00:04:36.690
+safety.
+
+93
+00:04:37.090 --> 00:04:40.307
+You're going to need a much broader range
+of skills on the team, things like
+
+94
+00:04:40.307 --> 00:04:43.186
+technical support and life cycle
+management, rather than just strict
+
+95
+00:04:43.186 --> 00:04:43.990
+project management.
+
+96
+00:04:44.390 --> 00:04:48.691
+Even legal and compliance extends to the
+ongoing use and eventual decommissioning
+
+97
+00:04:48.691 --> 00:04:50.390
+of whatever it is you delivered.
+
+98
+00:04:51.190 --> 00:04:55.390
+Let's move to section three, context,
+culture, and adaptations.
+
+99
+00:04:56.090 --> 00:04:59.390
+Here's the truth, you can't just pick a
+life cycle out of a hat.
+
+100
+00:04:59.690 --> 00:05:01.790
+Company culture dictates the methodology.
+
+101
+00:05:02.490 --> 00:05:06.240
+Organisations that naturally favour linear
+life cycles are typically highly
+
+102
+00:05:06.240 --> 00:05:09.790
+structured, hierarchical, and they have a
+really low appetite for risk.
+
+103
+00:05:10.290 --> 00:05:13.790
+They want maximum control and usually
+assume perfect knowledge up front.
+
+104
+00:05:14.390 --> 00:05:18.136
+On the flip side, organisations that
+favour iterative life cycles are highly
+
+105
+00:05:18.136 --> 00:05:21.390
+adaptable, open to change, and super
+comfortable with uncertainty.
+
+106
+00:05:21.690 --> 00:05:25.486
+They embrace simultaneous engineering and
+are totally willing to use prototypes to
+
+107
+00:05:25.486 --> 00:05:26.690
+explore high-risk options.
+
+108
+00:05:27.490 --> 00:05:31.305
+Honestly, if you try to force an
+iterative, agile project into a rigidly
+
+109
+00:05:31.305 --> 00:05:33.690
+linear organisation, it'll cause total
+chaos.
+
+110
+00:05:34.290 --> 00:05:37.390
+But it's not just the overarching company
+culture you have to worry about.
+
+111
+00:05:37.390 --> 00:05:39.990
+It's also the specific needs of the
+project itself.
+
+112
+00:05:40.290 --> 00:05:44.195
+If your project requirements are unstable
+or super unclear, an iterative approach
+
+113
+00:05:44.195 --> 00:05:45.690
+lets you continuously reassess.
+
+114
+00:05:45.990 --> 00:05:49.849
+If your project demands frequent, heavy
+stakeholder input, again, iterative is
+
+115
+00:05:49.849 --> 00:05:50.690
+your best friend.
+
+116
+00:05:50.990 --> 00:05:54.635
+But if your project needs guaranteed
+resource availability mapped out months
+
+117
+00:05:54.635 --> 00:05:55.690
+and months in advance.
+
+118
+00:05:55.690 --> 00:05:59.390
+Well, the predictable phases of a linear
+approach might be absolutely necessary.
+
+119
+00:05:59.690 --> 00:06:03.044
+Highly complex projects often demand a
+hybrid approach just to balance out all
+
+120
+00:06:03.044 --> 00:06:03.990
+these competing needs.
+
+121
+00:06:04.690 --> 00:06:08.776
+So, what exactly happens when standard
+textbook models don't perfectly fit your
+
+122
+00:06:08.776 --> 00:06:09.190
+reality?
+
+123
+00:06:09.590 --> 00:06:10.690
+Easy, you adapt them.
+
+124
+00:06:11.190 --> 00:06:14.936
+For instance, if an organisation is
+totally brand new to project management,
+
+125
+00:06:14.936 --> 00:06:18.190
+jumping straight into pure agile might be
+way too much of a shock.
+
+126
+00:06:18.690 --> 00:06:21.190
+A smart adaptation is a phased
+implementation.
+
+127
+00:06:21.590 --> 00:06:25.190
+You introduce linear checkpoints to ease
+the team into standard processes.
+
+128
+00:06:25.490 --> 00:06:29.361
+Or you might use custom iteration lengths
+depending on external market feedback, or
+
+129
+00:06:29.361 --> 00:06:33.278
+integrate specific agile techniques into a
+traditional model to boost responsiveness
+
+130
+00:06:33.278 --> 00:06:35.190
+without sacrificing your overall control.
+
+131
+00:06:36.090 --> 00:06:39.690
+Finally, section four, strengths and
+limitations.
+
+132
+00:06:40.390 --> 00:06:42.690
+Look, every single choice has a trade-off,
+right?
+
+133
+00:06:43.090 --> 00:06:45.590
+So let's do a quick objective reality
+check here.
+
+134
+00:06:46.190 --> 00:06:48.690
+The biggest strength of the linear model
+is its clear framework.
+
+135
+00:06:48.690 --> 00:06:50.890
+It is fantastic for low-risk projects.
+
+136
+00:06:51.190 --> 00:06:55.256
+But its limitation, it is incredibly
+inflexible and requires perfect early
+
+137
+00:06:55.256 --> 00:06:56.190
+clarity on scope.
+
+138
+00:06:56.190 --> 00:06:58.590
+Plus you're waiting a long time to see
+actual benefits.
+
+139
+00:06:59.390 --> 00:07:00.690
+Iterative totally flips this.
+
+140
+00:07:00.690 --> 00:07:04.390
+Its strength is accommodating change and
+evolving solutions with early feedback.
+
+141
+00:07:04.690 --> 00:07:08.316
+But its limitation, you really lack early
+certainty regarding overall duration and
+
+142
+00:07:08.316 --> 00:07:11.190
+total cost, which can make managing
+resources a massive headache.
+
+143
+00:07:11.990 --> 00:07:15.190
+And that brings us to what I call the
+hybrid catch.
+
+144
+00:07:15.590 --> 00:07:19.307
+You're probably thinking, well, obviously
+I'll just use hybrid for everything so I
+
+145
+00:07:19.307 --> 00:07:21.890
+get the efficiency of agile with the
+structure of linear.
+
+146
+00:07:22.190 --> 00:07:24.390
+But there is a massive limitation here.
+
+147
+00:07:24.790 --> 00:07:26.990
+It requires immense skill.
+
+148
+00:07:27.490 --> 00:07:31.374
+Mixing multiple different systems of
+working is tough, if your project manager
+
+149
+00:07:31.374 --> 00:07:35.408
+and your team aren't highly skilled, clear
+communicators, a hybrid model can very
+
+150
+00:07:35.408 --> 00:07:39.442
+quickly devolve into a disorganised mess
+where literally no one knows which rules
+
+151
+00:07:39.442 --> 00:07:39.990
+apply when.
+
+152
+00:07:40.690 --> 00:07:43.948
+So, as we wrap up this explainer, I really
+want to leave you with a provocative
+
+153
+00:07:43.948 --> 00:07:44.690
+thought to ponder.
+
+154
+00:07:45.190 --> 00:07:47.390
+Take a look at the projects you are
+running right now.
+
+155
+00:07:47.690 --> 00:07:51.644
+Are you truly using the right life cycle
+tailored for your specific project's
+
+156
+00:07:51.644 --> 00:07:53.390
+context, risk profile and culture?
+
+157
+00:07:53.690 --> 00:07:57.601
+Or are you just defaulting to a linear or
+agile habit simply because that's the way
+
+158
+00:07:57.601 --> 00:07:58.590
+we've always done it?
+
+159
+00:07:59.090 --> 00:08:02.923
+Mastering life cycles isn't just academic
+theory, it really is the blueprint to
+
+160
+00:08:02.923 --> 00:08:03.990
+building successfully.
+
+161
+00:08:04.490 --> 00:08:07.908
+Thanks so much for joining me on this deep
+dive, and I will absolutely catch you in
+
+162
+00:08:07.908 --> 00:08:08.690
+the next explainer.

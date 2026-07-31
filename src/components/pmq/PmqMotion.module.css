@@ -1,0 +1,71 @@
+@keyframes settle {
+  from {
+    opacity: 0.92;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview {
+  animation: settle 0.35s var(--ease-out-quint) both;
+}
+
+.loEnter {
+  animation: settle 0.28s var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 35ms);
+}
+
+.panel {
+  animation: settle 0.32s var(--ease-out-quint) both;
+  animation-delay: calc(var(--lo-panel-index, var(--i, 0)) * 70ms);
+}
+
+.outcome {
+  animation: settle 0.28s var(--ease-out-quint) both;
+  animation-delay: calc(0.12s + var(--i, 0) * 40ms);
+}
+
+@keyframes pathPulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgb(213 80 31 / 0.28);
+  }
+  50% {
+    box-shadow: 0 4px 18px rgb(213 80 31 / 0.45);
+  }
+}
+
+.currentStation :global(.lo-path-node),
+.currentStation > span:first-child {
+  animation: pathPulse 2.8s ease-in-out infinite;
+}
+
+.pathFill {
+  transition: width 280ms var(--ease-out-quint);
+}
+
+.pathSheet {
+  transition: box-shadow 200ms var(--ease-out-quint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overview,
+  .loEnter,
+  .panel,
+  .outcome {
+    animation: none;
+  }
+
+  .currentStation :global(.lo-path-node),
+  .currentStation > span:first-child {
+    animation: none;
+  }
+
+  .pathFill,
+  .pathSheet {
+    transition: none;
+  }
+}

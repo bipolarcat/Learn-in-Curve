@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn in Curve — Brand Kit v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700;1,9..144,900&family=Figtree:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-bg:#F2E6CC; --color-bg-alt:#E7D6AE; --color-surface:#FFFCF3;
+    --color-ink:#241A12; --color-ink-soft:#5C4A36;
+    --color-primary:#D5501F; --color-primary-dark:#A83B14;
+    --color-gold:#D9A441; --color-olive:#5F7A3D; --color-teal:#1B6560; --color-maroon:#7A2E2E;
+    --color-line:#BE9F6C;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Figtree', sans-serif;
+    --font-stamp:'Space Mono', monospace;
+    --radius-lg:26px; --radius-md:16px;
+    --border:2.5px solid var(--color-ink);
+    --shadow:7px 7px 0 var(--color-ink);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body);line-height:1.5;overflow-x:hidden;}
+  section{position:relative;padding:100px 8vw;overflow:hidden;}
+  .band-alt{background:var(--color-bg-alt);}
+  h1,h2,h3{font-family:var(--font-display);margin:0 0 .3em;font-weight:700;}
+  .eyebrow{font-family:var(--font-stamp);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--color-primary-dark);display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--color-primary-dark);}
+  p{max-width:640px;} .lede{font-size:19px;color:var(--color-ink-soft);}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---- MARQUEE ---- */
+  .marquee{background:var(--color-ink);color:var(--color-bg);padding:14px 0;overflow:hidden;white-space:nowrap;border-top:var(--border);border-bottom:var(--border);}
+  .marquee-track{display:inline-block;padding-left:100%;animation:scroll 22s linear infinite;font-family:var(--font-stamp);font-weight:700;letter-spacing:.08em;font-size:14px;}
+  .marquee-track span{margin:0 28px;color:var(--color-gold);}
+  @keyframes scroll{ to{ transform:translateX(-100%);} }
+
+  /* ---- HERO ---- */
+  .hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--color-bg);}
+  .sunburst{position:absolute;inset:-25%;background:repeating-conic-gradient(from 0deg,#F2E6CC 0deg 9deg,#E2C98D 9deg 18deg);opacity:.5;animation:spin 160s linear infinite;z-index:0;}
+  @keyframes spin{ to{transform:rotate(360deg);} }
+  .hero>*{position:relative;z-index:1;}
+  .mark{width:140px;filter:drop-shadow(8px 8px 0 rgba(36,26,18,.18));animation:pop .8s cubic-bezier(.34,1.56,.64,1) both;}
+  @keyframes pop{ from{transform:scale(.4) rotate(-12deg);opacity:0;} to{transform:scale(1) rotate(0);opacity:1;} }
+  .wordmark{font-family:var(--font-display);font-size:clamp(46px,9vw,104px);font-weight:900;font-style:italic;letter-spacing:-.01em;line-height:.95;margin-top:22px;
+    animation:rise .8s .2s ease both;}
+  @keyframes rise{ from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+  .wordmark .in{display:block;font-style:normal;font-weight:500;font-size:.3em;color:var(--color-ink-soft);letter-spacing:.32em;text-transform:uppercase;margin-bottom:.2em;}
+  .wordmark .curve{color:var(--color-primary);}
+  .tagline{margin-top:20px;font-size:19px;font-weight:600;color:var(--color-ink-soft);animation:rise .8s .4s ease both;}
+  .tagline b{color:var(--color-ink);}
+  .ticket-chip{margin-top:34px;display:inline-flex;align-items:center;gap:12px;background:var(--color-surface);border:var(--border);border-radius:999px;padding:10px 20px;box-shadow:var(--shadow);font-family:var(--font-stamp);font-size:13px;font-weight:700;animation:rise .8s .6s ease both;}
+  .ticket-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--color-olive);animation:blink 1.6s ease infinite;}
+  @keyframes blink{ 50%{opacity:.3;} }
+
+  /* ---- MARK SECTION ---- */
+  .mark-compare{display:flex;gap:40px;align-items:center;flex-wrap:wrap;margin-top:36px;}
+  .mark-compare svg{transition:transform .3s ease;}
+  .mark-compare svg:hover{transform:rotate(-6deg) scale(1.05);}
+
+  /* ---- PALETTE ---- */
+  .swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:36px;}
+  .swatch{border-radius:var(--radius-md);overflow:hidden;border:var(--border);box-shadow:var(--shadow);background:var(--color-surface);transition:transform .25s ease, box-shadow .25s ease;}
+  .swatch:hover{transform:translate(-4px,-4px);box-shadow:11px 11px 0 var(--color-ink);}
+  .swatch .chip{height:100px;position:relative;}
+  .swatch .chip::after{content:attr(data-hex);position:absolute;bottom:6px;right:8px;font-family:var(--font-stamp);font-size:11px;background:rgba(255,255,255,.75);padding:2px 6px;border-radius:4px;}
+  .swatch .info{padding:12px 14px;}
+  .swatch .name{font-weight:800;font-size:14.5px;}
+  .swatch .use{font-size:12px;color:var(--color-ink-soft);margin-top:3px;}
+
+  /* ---- TYPE ---- */
+  .type-row{display:flex;align-items:baseline;gap:26px;flex-wrap:wrap;border-bottom:2px dashed var(--color-line);padding:20px 0;}
+  .type-meta{font-family:var(--font-stamp);font-size:12px;color:var(--color-ink-soft);min-width:170px;}
+
+  /* ---- TICKET CARD (course card) ---- */
+  .ticket{
+    width:320px;background:var(--color-surface);border:var(--border);border-radius:var(--radius-lg);
+    box-shadow:var(--shadow);position:relative;transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .ticket:hover{ transform:rotate(-1.5deg) translateY(-4px); box-shadow:10px 12px 0 var(--color-ink); }
+  .ticket-top{padding:22px 22px 16px;}
+  .ticket-perf{ position:relative; height:0; border-top:3px dashed var(--color-line); margin:0 18px; }
+  .ticket-perf::before,.ticket-perf::after{content:"";position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--color-bg-alt);border:var(--border);}
+  .ticket-perf::before{left:-33px;} .ticket-perf::after{right:-33px;}
+  .ticket-bottom{padding:16px 22px 22px;display:flex;justify-content:space-between;align-items:center;}
+  .ticket-bottom .code{font-family:var(--font-stamp);font-size:12px;color:var(--color-ink-soft);}
+  .ticket h3{font-size:23px;margin-bottom:2px;}
+  .ticket .sub{font-size:12.5px;font-weight:700;color:var(--color-ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+  .streak-flag{position:absolute;top:-13px;right:20px;background:var(--color-gold);border:2px solid var(--color-ink);border-radius:8px;padding:5px 10px;font-size:11px;font-weight:800;transform:rotate(4deg);box-shadow:3px 3px 0 var(--color-ink);}
+
+  /* ---- JOURNEY PATH (gamification, not mascots) ---- */
+  .journey{margin-top:44px;background:var(--color-ink);border-radius:var(--radius-lg);border:var(--border);padding:40px;overflow-x:auto;}
+  .journey svg{ display:block; min-width:640px; }
+  .journey-path{ stroke-dasharray:900; stroke-dashoffset:900; animation:draw 2.4s ease forwards; }
+  .journey.in .journey-path{ animation-play-state:running; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .node{ transition:transform .2s ease; cursor:pointer; }
+  .node:hover{ transform:scale(1.18); }
+  .node-active{ animation:pulse 1.8s ease infinite; }
+  @keyframes pulse{ 0%,100%{ filter:drop-shadow(0 0 0 rgba(213,80,31,.6)); } 50%{ filter:drop-shadow(0 0 10px rgba(213,80,31,.9)); } }
+  .journey-label{ font-family:var(--font-stamp); font-size:11px; fill:#F2E6CC; }
+
+  /* ---- VOICE ---- */
+  .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px;}
+  .voice-card{background:var(--color-surface);border:var(--border);border-radius:var(--radius-md);padding:24px;box-shadow:5px 5px 0 var(--color-ink);}
+  .voice-card.dont{background:#F1DED4;}
+  .voice-card h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-stamp);font-weight:700;}
+  .voice-card.do h3{color:var(--color-olive);} .voice-card.dont h3{color:var(--color-maroon);}
+  @media (max-width:720px){ .voice-grid{grid-template-columns:1fr;} }
+
+  .btn{font-family:var(--font-body);font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:var(--border);background:var(--color-primary);color:#FFF6E9;box-shadow:5px 5px 0 var(--color-ink);cursor:pointer;display:inline-block;transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translate(-3px,-3px) rotate(-1deg);box-shadow:8px 8px 0 var(--color-ink);}
+  .btn.secondary{background:var(--color-surface);color:var(--color-ink);}
+
+  .component-row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin-top:36px;}
+  .mascot{transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+  .mascot:hover{transform:translateY(-8px) rotate(-4deg);}
+  .mascot-badge{background:var(--color-surface);border:var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);max-width:240px;}
+  .mascot-badge .tag{font-family:var(--font-stamp);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--color-primary-dark);}
+  footer{text-align:center;padding:56px 8vw;font-size:12.5px;color:var(--color-ink-soft);font-family:var(--font-stamp);}
+</style>
+</head>
+<body>
+
+<div class="marquee"><div class="marquee-track">
+  PMQ IN 5 DAYS <span>&#9679;</span> PFQ IN 2 DAYS <span>&#9679;</span> PMP IN 5 DAYS <span>&#9679;</span> CAPM IN 2 DAYS <span>&#9679;</span>
+  PMQ IN 5 DAYS <span>&#9679;</span> PFQ IN 2 DAYS <span>&#9679;</span> PMP IN 5 DAYS <span>&#9679;</span> CAPM IN 2 DAYS <span>&#9679;</span>
+</div></div>
+
+<section class="hero">
+  <div class="sunburst"></div>
+  <svg class="mark" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="#241A12" stroke="#D9A441" stroke-width="2"/>
+    <path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" stroke="#D5501F" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="wordmark"><span class="in">Learn In</span><span class="curve">Curve</span></div>
+  <p class="tagline"><b>Brand Kit v2</b> — vintage ticket-stub retro, built to move.</p>
+  <div class="ticket-chip"><span class="dot"></span> ADMIT ONE · VALID FOR ONE EXAM PASS</div>
+</section>
+
+<section class="band-alt reveal">
+  <span class="eyebrow">01 — The Mark</span>
+  <h2>The curve becomes a route between two stops.</h2>
+  <p class="lede">Same idea as v1 — the S-curve stays — but it's now framed like a stamped travel ticket: gold departure/arrival dots, thick ink-and-gold ring, tilts on hover like it's being picked up off a table.</p>
+  <div class="mark-compare">
+    <svg width="130" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#241A12" stroke="#D9A441" stroke-width="2"/><path d="M16 66 C 10 74, 20 80, 30 74 C 42 66, 44 56, 50 50 C 56 44, 58 34, 70 26 C 80 20, 90 26, 84 34" stroke="#D5501F" stroke-width="6.5" fill="none" stroke-linecap="round"/></svg>
+    <p class="lede">Minimum size 28px. Clearspace = half mark height. The gold ring never changes color; the ink circle never becomes a gradient.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <span class="eyebrow">02 — Palette</span>
+  <h2>Deeper, less "safe."</h2>
+  <p class="lede">Pushed every tone one notch darker/richer than v1 so it reads as vintage print, not pastel decor.</p>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background:#D5501F" data-hex="#D5501F"></div><div class="info"><div class="name">Burnt Orange</div><div class="use">Primary, CTAs, the curve</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#D9A441" data-hex="#D9A441"></div><div class="info"><div class="name">Mustard Gold</div><div class="use">Stamps, badges, ticket details</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#5F7A3D" data-hex="#5F7A3D"></div><div class="info"><div class="name">Olive</div><div class="use">Correct / complete states</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1B6560" data-hex="#1B6560"></div><div class="info"><div class="name">Petrol Teal</div><div class="use">Tutor chat, info accents</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#7A2E2E" data-hex="#7A2E2E"></div><div class="info"><div class="name">Maroon</div><div class="use">Alerts only, used sparingly</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#241A12" data-hex="#241A12"></div><div class="info"><div class="name">Ink</div><div class="use">Text, borders, the mark's circle</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F2E6CC" data-hex="#F2E6CC"></div><div class="info"><div class="name">Parchment</div><div class="use">Base background</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FFFCF3" data-hex="#FFFCF3"></div><div class="info"><div class="name">Surface</div><div class="use">Cards, tickets, panels</div></div></div>
+  </div>
+</section>
+
+<section class="band-alt reveal">
+  <span class="eyebrow">03 — Typography</span>
+  <h2>Fraunces italic, pushed harder. Space Mono for the ticket stuff.</h2>
+  <p class="lede">v1's Fraunces was too polite. Going bold-italic by default for headlines gives it the swash energy that was missing. Space Mono handles anything that should feel "stamped" — codes, labels, counters.</p>
+  <div style="margin-top:32px;">
+    <div class="type-row"><span class="type-meta">Display / Fraunces 900 italic</span><span style="font-family:var(--font-display);font-size:52px;font-weight:900;font-style:italic;">Pass the exam</span></div>
+    <div class="type-row"><span class="type-meta">Stamp / Space Mono 700</span><span style="font-family:var(--font-stamp);font-size:20px;font-weight:700;letter-spacing:.04em;">SEAT 04A · GATE PMQ</span></div>
+    <div class="type-row"><span class="type-meta">Body / Figtree 700</span><span style="font-size:19px;font-weight:700;">Which of the following best describes earned value?</span></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <span class="eyebrow">04 — The Journey (gamification)</span>
+  <h2>A route, not a mascot.</h2>
+  <p class="lede">Instead of cute characters and confetti, progress is a route being traveled — closer to a transit map than a kids' app. The path draws itself in; the current stop pulses.</p>
+  <div class="journey reveal">
+    <svg viewBox="0 0 640 160" width="100%" height="160">
+      <path class="journey-path" d="M20 130 C 120 60, 200 160, 300 90 S 460 20, 600 60" fill="none" stroke="#D9A441" stroke-width="4" stroke-linecap="round"/>
+      <circle class="node" cx="20" cy="130" r="9" fill="#5F7A3D"/>
+      <text class="journey-label" x="8" y="150">START</text>
+      <circle class="node" cx="220" cy="118" r="9" fill="#5F7A3D"/>
+      <text class="journey-label" x="200" y="145">TOPIC 2</text>
+      <circle class="node node-active" cx="300" cy="90" r="12" fill="#D5501F"/>
+      <text class="journey-label" x="272" y="72">YOU ARE HERE</text>
+      <circle class="node" cx="460" cy="45" r="9" fill="#241A12" stroke="#D9A441" stroke-width="2"/>
+      <text class="journey-label" x="440" y="35">MOCK EXAM</text>
+      <circle class="node" cx="600" cy="60" r="10" fill="#241A12" stroke="#D9A441" stroke-width="2"/>
+      <text class="journey-label" x="578" y="90">PASS</text>
+    </svg>
+  </div>
+</section>
+
+<section class="band-alt reveal">
+  <span class="eyebrow">05 — Voice</span>
+  <h2>A coach, not a lecturer.</h2>
+  <div class="voice-grid">
+    <div class="voice-card do"><h3>Do</h3><p>"You've nailed risk management — 3 sessions left on procurement before your mock."</p></div>
+    <div class="voice-card dont"><h3>Don't</h3><p>"Let's explore the fascinating world of project governance together! 🎉"</p></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <span class="eyebrow">06 — In Product</span>
+  <h2>The kit, applied.</h2>
+  <div class="component-row">
+    <div class="ticket">
+      <div class="streak-flag">🔥 6-DAY STREAK</div>
+      <div class="ticket-top">
+        <h3>PMQ in 5 Days</h3>
+        <div class="sub">APM Qualification · Admit One</div>
+      </div>
+      <div class="ticket-perf"></div>
+      <div class="ticket-bottom">
+        <span class="code">NO. 0472 · 62% READY</span>
+        <a class="btn" style="padding:10px 18px;font-size:13px;">Continue</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <a class="btn">Start mock exam</a>
+      <a class="btn secondary">Review weak areas</a>
+    </div>
+  </div>
+</section>
+
+<section class="band-alt reveal">
+  <span class="eyebrow">07 — Mascot</span>
+  <h2>A masked raccoon, not a corporate blob.</h2>
+  <p class="lede">Raccoons already wear a mask in nature — putting a caped cowl on top of that is a near-free joke, and it keeps "gamified" from tipping into mascot-cute. Use it in empty states, streak milestones, and loading moments; never as permanent UI chrome.</p>
+  <div class="component-row" style="align-items:flex-end;">
+    <svg class="mascot" viewBox="0 0 200 240" width="180">
+      <path d="M70 152 C 30 162, 15 202, 35 232 C 55 207, 65 177, 75 154 Z" fill="#D5501F"/>
+      <path d="M130 152 C 170 162, 185 202, 165 232 C 145 207, 135 177, 125 154 Z" fill="#D5501F"/>
+      <path d="M150 207 C 178 197, 190 167, 178 140 C 172 152, 165 167, 158 180 C 165 187, 168 197, 160 212 Z" fill="#F2E6CC" stroke="#241A12" stroke-width="2.5"/>
+      <ellipse cx="176" cy="163" rx="7" ry="4" fill="#241A12" transform="rotate(35 176 163)"/>
+      <ellipse cx="166" cy="181" rx="7" ry="4" fill="#241A12" transform="rotate(35 166 181)"/>
+      <path d="M55 212 C 55 197, 145 197, 145 212 L 150 240 L 50 240 Z" fill="#241A12"/>
+      <circle cx="100" cy="202" r="14" fill="#241A12" stroke="#D9A441" stroke-width="2.5"/>
+      <path d="M93 210 C 93 204 97 202 100 200 C 103 198 107 196 107 190" stroke="#D5501F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="100" cy="112" rx="55" ry="52" fill="#E3C08C"/>
+      <polygon points="68,60 55,18 88,52" fill="#241A12" stroke="#D9A441" stroke-width="2"/>
+      <polygon points="132,60 145,18 112,52" fill="#241A12" stroke="#D9A441" stroke-width="2"/>
+      <path d="M100 55 C 60 55, 43 85, 46 112 C 47 122, 53 130, 60 126 C 63 138, 72 145, 85 143 C 90 143, 95 138, 100 130 C 105 138, 110 143, 115 143 C 128 145, 137 138, 140 126 C 147 130, 153 122, 154 112 C 157 85, 140 55, 100 55 Z" fill="#241A12"/>
+      <polygon points="55,124 60,114 66,126" fill="#241A12"/>
+      <polygon points="145,124 140,114 134,126" fill="#241A12"/>
+      <ellipse cx="78" cy="99" rx="12" ry="8" fill="#F2E6CC" transform="rotate(-12 78 99)"/>
+      <ellipse cx="122" cy="99" rx="12" ry="8" fill="#F2E6CC" transform="rotate(12 122 99)"/>
+      <circle cx="80" cy="101" r="4" fill="#241A12"/>
+      <circle cx="120" cy="101" r="4" fill="#241A12"/>
+      <ellipse cx="100" cy="150" rx="24" ry="18" fill="#E3C08C"/>
+      <ellipse cx="100" cy="140" rx="7" ry="5" fill="#241A12"/>
+      <path d="M85 160 Q 100 170 115 160" stroke="#241A12" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="mascot-badge">
+      <div class="tag">FIRST DRAFT</div>
+      <p class="lede" style="font-size:15px;margin-top:8px;">Silhouette and palette are set — name and exact pose still open. Once Gemini's connected I'll run a proper AI-illustrated pass on top of this.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Learn in Curve — Brand Kit v2 · 2026-07-01 · Tokens live in this file's :root</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

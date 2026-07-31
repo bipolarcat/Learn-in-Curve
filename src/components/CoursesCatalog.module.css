@@ -1,0 +1,405 @@
+.shell {
+  display: grid;
+  gap: clamp(1.35rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.toolbar {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.1rem;
+  pointer-events: auto;
+}
+
+.pageTitle {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(2.35rem, 5.5vw, 3.85rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: balance;
+}
+
+.filterDropdown {
+  position: relative;
+  z-index: 31;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: auto;
+}
+
+.filterDropdownOpen {
+  z-index: 50;
+}
+
+.filterLabel {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.filterNativeShell,
+.filterCustom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile keeps the native OS picker; desktop uses the themed menu */
+.filterCustom {
+  display: none;
+}
+
+.filterSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 1.75rem;
+  min-width: 7.75rem;
+  padding: 0.2rem 1.55rem 0.2rem 0.55rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.12);
+  border-radius: 0.5rem;
+  background: rgb(var(--paper-rgb) / 0.92);
+  color: rgb(var(--ink-rgb) / 0.9);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.filterSelect:focus {
+  outline: 2px solid rgb(var(--orange-rgb));
+  outline-offset: 2px;
+}
+
+.filterTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 1.75rem;
+  min-width: 8.75rem;
+  padding: 0.2rem 0.4rem 0.2rem 0.6rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.12);
+  border-radius: 0.5rem;
+  background: rgb(var(--paper-rgb) / 0.92);
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.03),
+    0 4px 14px rgb(var(--ink-rgb) / 0.05);
+  color: rgb(var(--ink-rgb) / 0.9);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ease-out-quint),
+    background-color 150ms var(--ease-out-quint),
+    transform 150ms var(--ease-out-quint);
+}
+
+.filterTrigger:hover {
+  border-color: rgb(var(--ink-rgb) / 0.22);
+  background: rgb(var(--paper-rgb));
+}
+
+.filterTrigger:focus-visible {
+  outline: 2px solid rgb(var(--orange-rgb));
+  outline-offset: 2px;
+}
+
+.filterTrigger:active {
+  transform: scale(0.98);
+}
+
+.filterTriggerValue {
+  text-align: left;
+}
+
+.filterChevron {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  color: rgb(var(--ink-rgb) / 0.45);
+  pointer-events: none;
+  transition: transform 150ms var(--ease-out-quint);
+}
+
+.filterNativeShell .filterChevron {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.filterChevronOpen {
+  transform: rotate(180deg);
+}
+
+.filterMenu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 52;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.28rem;
+  list-style: none;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  border-radius: 0.65rem;
+  background: rgb(var(--paper-rgb));
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 10px 28px rgb(var(--ink-rgb) / 0.1);
+}
+
+.filterOption {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: 1.85rem;
+  padding: 0.3rem 0.55rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: rgb(var(--ink-rgb) / 0.84);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 120ms var(--ease-out-quint), color 120ms
+    var(--ease-out-quint);
+}
+
+.filterOption:hover {
+  background: rgb(var(--ink-rgb) / 0.06);
+}
+
+.filterOption:focus-visible {
+  outline: 2px solid rgb(var(--orange-rgb));
+  outline-offset: -2px;
+}
+
+.filterOptionActive {
+  background: rgb(var(--ink-rgb));
+  color: rgb(var(--paper-rgb));
+}
+
+.filterOptionActive:hover {
+  background: rgb(var(--ink-rgb));
+  color: rgb(var(--paper-rgb));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 22rem));
+  gap: clamp(1.15rem, 2.8vw, 1.75rem);
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.item {
+  min-width: 0;
+  max-width: 22rem;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.tile {
+  /* Sampled from PMQ illustration cream — one colour for every band */
+  --course-card-cream: #f6efdd;
+  display: grid;
+  grid-template-rows: auto minmax(9.5rem, auto) auto;
+  overflow: hidden;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: 1.25rem;
+  background: var(--course-card-cream);
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 8px 22px rgb(var(--ink-rgb) / 0.06);
+}
+
+.tileIllustrated {
+  background: var(--course-card-cream);
+}
+
+.tileEmpty {
+  background: var(--course-card-cream);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem 1rem;
+  background: var(--course-card-cream);
+}
+
+.head {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: center;
+  width: 100%;
+  padding: 1rem 1rem 0.55rem;
+  text-align: center;
+  background: var(--course-card-cream);
+}
+
+.title {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: balance;
+}
+
+.comingSoon {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.5);
+  white-space: nowrap;
+}
+
+.subhead,
+.subheadMuted {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: clamp(0.7rem, 1.55vw, 0.8rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgb(var(--ink-rgb) / 0.74);
+  text-wrap: pretty;
+}
+
+.subheadMuted {
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+/* Mobile: force two lines with a longer first line */
+.subheadLine {
+  display: block;
+}
+
+/* Illustration band — art only, same cream as card (no seam) */
+.art {
+  position: relative;
+  width: 100%;
+  min-height: 10.5rem;
+  aspect-ratio: 16 / 9;
+  background: var(--course-card-cream);
+}
+
+.artEmpty {
+  display: grid;
+  place-items: center;
+  border-block: 1.5px dashed rgb(var(--ink-rgb) / 0.12);
+  background: var(--course-card-cream);
+}
+
+.artImage {
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.artImageLarge {
+  transform: scale(1.14);
+  transform-origin: center;
+}
+
+.artSoon {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.38);
+}
+
+.empty {
+  margin: 0;
+  padding-top: 0.35rem;
+  font-size: 0.9rem;
+  color: rgb(var(--ink-rgb) / 0.65);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterTrigger:active,
+  .filterChevron {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .filterNativeShell {
+    display: none;
+  }
+
+  .filterCustom {
+    display: inline-flex;
+  }
+
+  .grid {
+    justify-content: start;
+  }
+
+  .item {
+    margin-inline: 0;
+  }
+
+  .head {
+    gap: 0.45rem;
+    padding: 1.15rem 1.15rem 0.65rem;
+  }
+
+  .subhead {
+    max-width: 38ch;
+  }
+
+  .subheadLine {
+    display: inline;
+  }
+
+  .art {
+    min-height: 11rem;
+  }
+
+  .footer {
+    padding: 0.65rem 1.15rem 1.15rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .grid {
+    grid-template-columns: minmax(0, 22rem);
+    justify-content: center;
+  }
+}

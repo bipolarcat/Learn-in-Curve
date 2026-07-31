@@ -1,0 +1,299 @@
+.root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+}
+
+.scroller {
+  /* Bound to the viewport so body overflow-x-clip can’t hide the table */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 0.1rem 0.35rem;
+  padding-inline: 0;
+  /* Soft hint that more columns exist if content still overflows */
+  scrollbar-width: thin;
+}
+
+.board {
+  display: grid;
+  /* Fit the phone — no 32rem floor that got clipped off-screen */
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto repeat(8, minmax(2.45rem, auto));
+  column-gap: 0.4rem;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+.labels,
+.card {
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
+  min-width: 0;
+}
+
+.card {
+  position: relative;
+  /* Opaque but quieter cream — ~55% white / 45% paper */
+  background: color-mix(in srgb, white 55%, rgb(var(--paper-rgb)));
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 6px 20px rgb(var(--ink-rgb) / 0.06);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+:global(.dark) .card {
+  background: color-mix(in srgb, rgb(var(--paper-rgb)) 88%, black);
+}
+
+.cardPro {
+  border-color: rgb(0 0 0 / 0.08);
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 6px 20px rgb(var(--ink-rgb) / 0.06);
+}
+
+.featureHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.65rem 0.55rem 0.55rem;
+  min-width: 0;
+  text-align: left;
+}
+
+.featureHeadTitle {
+  font-family: var(--font-fraunces), serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: rgb(var(--ink-rgb));
+  text-align: left;
+}
+
+.planHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.08rem;
+  padding: 0.65rem 0.3rem 0.55rem;
+  text-align: center;
+  min-width: 0;
+}
+
+.planName {
+  font-family: var(--font-fraunces), serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: rgb(var(--ink-rgb));
+  text-wrap: balance;
+}
+
+.planMeta {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgb(var(--ink-rgb) / 0.55);
+  text-wrap: balance;
+}
+
+.feature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
+  min-width: 0;
+}
+
+.feature::before,
+.cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background: rgb(var(--ink-rgb) / 0.1);
+  pointer-events: none;
+}
+
+/* First column: line starts at icon left edge; same inset on the right */
+.feature::before {
+  left: 0.55rem;
+  right: 0.55rem;
+}
+
+.featureIcon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--orange);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.featureText {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: rgb(var(--ink-rgb) / 0.78);
+  text-wrap: balance;
+  min-width: 0;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.25rem;
+  text-align: center;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: rgb(var(--ink-rgb) / 0.62);
+  min-width: 0;
+}
+
+.cellText {
+  max-width: 100%;
+  white-space: normal;
+  text-wrap: balance;
+  color: rgb(var(--ink-rgb) / 0.62);
+}
+
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--ink-rgb));
+  line-height: 0;
+}
+
+.tick svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.hyphen {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgb(var(--ink-rgb) / 0.38);
+}
+
+@media (min-width: 40rem) {
+  .board {
+    column-gap: 0.8rem;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto repeat(8, minmax(2.7rem, auto));
+  }
+
+  .featureIcon {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+
+  .featureText {
+    font-size: 0.875rem;
+  }
+
+  .featureHead {
+    padding: 0.75rem 0.7rem 0.65rem;
+  }
+
+  .featureHeadTitle {
+    font-size: 1.05rem;
+  }
+
+  .feature {
+    padding: 0.35rem 0.7rem;
+    gap: 0.55rem;
+  }
+
+  .feature::before {
+    left: 0.7rem;
+    right: 0.7rem;
+  }
+
+  .planHead {
+    padding: 0.75rem 0.5rem 0.65rem;
+  }
+
+  .planName {
+    font-size: 1.05rem;
+  }
+
+  .planMeta {
+    font-size: 0.78rem;
+  }
+
+  .cell {
+    font-size: 0.8125rem;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .cellText {
+    white-space: nowrap;
+    max-width: none;
+  }
+
+  .tick svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .board {
+    min-width: 0;
+  }
+}
+
+@supports not (grid-template-rows: subgrid) {
+  .labels,
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featureHead,
+  .planHead {
+    min-height: 3.25rem;
+  }
+
+  .feature,
+  .cell {
+    flex: 1 1 auto;
+    min-height: 2.45rem;
+  }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body style="margin:0;padding:0;background-color:#F0E7D4;font-family:Georgia,'Times New Roman',serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F0E7D4;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" style="max-width:600px;background-color:#F0E7D4;border-radius:16px;border:1px solid rgba(36,26,18,0.08);overflow:hidden;">
+            <tr>
+              <td style="padding:32px 40px 0 40px;text-align:center;">
+                <img src="https://dbjoimidfbftammchnql.supabase.co/storage/v1/object/public/public-assets/email/confirm-highfive.png" width="280" alt="Two Learn in Curve characters high-fiving" style="display:block;width:100%;max-width:280px;height:auto;margin:0 auto;border:0;" />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 40px 32px 40px;text-align:center;">
+                <h1 style="margin:0;font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:22px;line-height:1.3;color:#241A12;">Please confirm your email address</h1>
+                <p style="margin:12px 0 0 0;font-size:15px;line-height:1.6;color:#241A12cc;">
+                  Thanks for signing up to Learn in Curve. We're happy to have you.
+                </p>
+                <p style="margin:10px 0 0 0;font-size:15px;line-height:1.6;color:#241A12cc;">
+                  Please take a second to make sure we have your correct email address.
+                </p>
+
+                <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:24px auto 0;">
+                  <tr>
+                    <td style="border-radius:10px;background-color:#D5501F;">
+                      <a href="{{ .ConfirmationURL }}"
+                         style="display:inline-block;padding:13px 32px;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:10px;">
+                        Confirm your email address
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <p style="margin:20px 0 0 0;font-size:12px;line-height:1.6;color:#241A1299;">
+                  Button not working? Paste this into your browser:<br />
+                  <a href="{{ .ConfirmationURL }}" style="color:#241A1299;word-break:break-all;">{{ .ConfirmationURL }}</a>
+                </p>
+              </td>
+            </tr>
+          </table>
+          <p style="max-width:600px;margin:16px auto 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.6;color:#241A1299;">
+            Didn't sign up for Learn in Curve? <a href="mailto:hello@learnincurve.com" style="color:#241A1299;">Let us know</a>.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

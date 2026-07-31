@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "loNumber": 7,
+  "title": "Assurance",
+  "status": "machine_draft",
+  "humanQaRequired": true,
+  "sourceSha256": "908bf3a5dc69f2bbd9df23f7227408226231fe60058588b05ccc1f2df9047080",
+  "durationMs": 419468,
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "generatedAt": "2026-07-18T16:58:25.832Z",
+  "runtimeMs": 24170,
+  "usage": {
+    "promptTokens": 10845,
+    "outputTokens": 7002,
+    "totalTokens": 17847,
+    "estimatedCostUsd": null
+  },
+  "summary": {
+    "cueCount": 132,
+    "deterministicErrors": 0,
+    "deterministicWarnings": 12,
+    "lowConfidenceCues": 0,
+    "modelQaMarkers": 0
+  },
+  "modelReviewMarkers": [],
+  "deterministicChecks": {
+    "errors": [],
+    "warnings": [
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 18,
+        "value": 21.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 22,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 24,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 25,
+        "value": 22.7
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 29,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 30,
+        "value": 21.2
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 49,
+        "value": 26
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 54,
+        "value": 25
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 69,
+        "value": 21
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 70,
+        "value": 21.3
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 83,
+        "value": 21.5
+      },
+      {
+        "code": "FAST_READING_SPEED",
+        "cue": 97,
+        "value": 21
+      }
+    ]
+  }
+}
