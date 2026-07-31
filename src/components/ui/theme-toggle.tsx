@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { setDocumentTheme } from "@/lib/theme-routes";
+import { saveThemePreference } from "@/lib/profile-actions";
 
 export interface ThemeToggleProps {
   className?: string;
@@ -31,10 +32,24 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     return () => window.removeEventListener("lic-theme", read);
   }, []);
 
+  /**
+   * Optimistic locally, durable server-side.
+   *
+   * `setDocumentTheme` flips `.dark` and the mirror cookie immediately so the
+   * switch feels instant and a navigation in the same breath resolves the same
+   * way. `saveThemePreference` writes `profiles.theme_preference`, which is
+   * what carries the choice across logout and devices — without it this would
+   * be a per-browser setting again.
+   */
   const toggle = () => {
-    const next = !document.documentElement.classList.contains("dark");
-    setIsDark(next);
+    const next = document.documentElement.classList.contains("dark")
+      ? "light"
+      : "dark";
+    setIsDark(next === "dark");
     setDocumentTheme(next);
+    void saveThemePreference(next).catch(() => {
+      /* the local flip stands; the next sign-in re-reads the stored value */
+    });
   };
 
   // Until mounted, keep the SSR light shell (avoids dark-class FOUC mismatch).

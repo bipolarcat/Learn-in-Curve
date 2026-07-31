@@ -45,9 +45,27 @@ export default function RootLayout({
           entirely — we already ship our own light/dark themes.
         */}
         <meta name="darkreader-lock" content="" />
+        {/*
+          Theme resolution, before first paint.
+
+          Blocking and inline on purpose: anything that resolves after
+          hydration shows a flash of the wrong theme on every load, and on a
+          public page (always light) a dark-mode user would get a dark flash
+          before it corrected.
+
+          Reads the `lic_theme` cookie and nothing else. It must never consult
+          `prefers-color-scheme` — that fallback is what opened the dashboard in
+          dark mode for a user who had never asked for it (LIC-107). Middleware
+          deletes the cookie whenever there is no session, so this also can't
+          apply a signed-out user's leftover preference.
+
+          Kept as a hand-written string rather than importing from
+          theme-routes.ts because it has to run before any bundle loads; the
+          route test here and `allowsDarkMode` there must be changed together.
+        */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var d=document.documentElement,p=location.pathname||'',a=/^\\/dashboard\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/lo\\/[^/]+\\/?$/.test(p);if(!a){d.classList.remove('dark');d.style.colorScheme='only light';return;}var t=localStorage.getItem('theme'),x=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);d.classList.toggle('dark',x);d.style.colorScheme=x?'only dark':'only light';}catch(e){document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='only light';}})();`,
+            __html: `(function(){var d=document.documentElement;function light(){d.classList.remove('dark');d.style.colorScheme='only light';}try{var p=location.pathname||'';if(!(/^\\/dashboard\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/lo\\/[^/]+\\/?$/.test(p))){light();return;}var m=document.cookie.match(/(?:^|;\\s*)lic_theme=([^;]*)/);if(!m||m[1]!=='dark'){light();return;}d.classList.add('dark');d.style.colorScheme='only dark';}catch(e){light();}})();`,
           }}
         />
       </head>

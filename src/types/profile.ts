@@ -1,4 +1,5 @@
 import type { AvatarId } from "@/lib/avatars";
+import type { ThemeChoice } from "@/lib/theme-routes";
 
 export type UserProfile = {
   user_id: string;
@@ -10,6 +11,8 @@ export type UserProfile = {
   study_goal: string | null;
   target_exam_date: string | null;
   avatar_id: AvatarId;
+  /** Dark-mode opt-in. Per account, never inferred from the OS. */
+  theme_preference: ThemeChoice;
   created_at: string;
   updated_at: string;
 };

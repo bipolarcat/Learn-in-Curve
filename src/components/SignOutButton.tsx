@@ -3,6 +3,8 @@
 import { useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
+import { setDocumentTheme } from "@/lib/theme-routes";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +30,15 @@ export function SignOutButton({
     setExiting(true);
 
     await supabase.auth.signOut();
+
+    // Drop the theme mirror cookie with the session. The preference itself
+    // stays on the account — this only stops a dark plate being left behind for
+    // whoever signs in next on a shared machine. See LIC-114.
+    setDocumentTheme("light");
+    await syncThemeCookieFromProfile().catch(() => {
+      /* the client-side clear above already removed the visible effect */
+    });
+
     router.push("/");
     router.refresh();
   }

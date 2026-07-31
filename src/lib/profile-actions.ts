@@ -1,9 +1,20 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import { isAvatarId } from "@/lib/avatars";
-import { upsertExamDeadline, upsertUserProfile } from "@/lib/profile";
+import {
+  upsertExamDeadline,
+  upsertThemePreference,
+  upsertUserProfile,
+} from "@/lib/profile";
+import {
+  parseThemeChoice,
+  THEME_COOKIE,
+  THEME_COOKIE_MAX_AGE,
+  type ThemeChoice,
+} from "@/lib/theme-routes";
 import {
   normalizeProfileField,
   PROFILE_AGE_MAX,
@@ -138,4 +149,97 @@ export async function saveExamDeadline(
 
   revalidatePath("/dashboard");
   return { ok: true };
+}
+
+/**
+ * Persist the dark-mode opt-in (LIC-114).
+ *
+ * Two writes, both needed:
+ *  - `profiles.theme_preference` is the durable, per-account value. It is what
+ *    makes the choice survive logout, re-login and a change of device.
+ *  - the `lic_theme` cookie is a same-browser mirror so the blocking script in
+ *    <head> can resolve the theme before first paint without a DB round trip.
+ *
+ * Signed-out callers are rejected outright. There is no anonymous dark mode:
+ * every dark-capable route is behind auth, and honouring a preference for a
+ * signed-out visitor is exactly how the OS-inference bug used to surface.
+ */
+export async function saveThemePreference(
+  next: ThemeChoice,
+): Promise<SaveProfileResult> {
+  const theme = parseThemeChoice(next);
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { ok: false, error: "Not signed in" };
+  }
+
+  const result = await upsertThemePreference(supabase, user.id, theme);
+  if (!result.ok) {
+    return {
+      ok: false,
+      error:
+        "Couldn’t save your theme. Apply the profiles / theme_preference migration if this persists.",
+    };
+  }
+
+  const store = await cookies();
+  store.set(THEME_COOKIE, theme, {
+    path: "/",
+    maxAge: THEME_COOKIE_MAX_AGE,
+    sameSite: "lax",
+    // Readable by the head script on purpose — see theme-routes.ts.
+    httpOnly: false,
+  });
+
+  return { ok: true };
+}
+
+/**
+ * Bring the `lic_theme` mirror cookie in line with the account's stored
+ * preference, or clear it when signed out.
+ *
+ * This is what makes the choice follow the ACCOUNT rather than the browser: a
+ * user who turned dark on at home gets dark on a new device the first time they
+ * sign in there, because this seeds the cookie the head script reads.
+ *
+ * Called at every point where the session changes — the OAuth/confirm callback,
+ * password sign-in, and sign-out. Middleware would look like the natural home
+ * for this, but response headers set on `NextResponse.next()` do not reach the
+ * client for page responses in this app, so a Set-Cookie written there is
+ * silently dropped. Verified, not assumed. Server actions and route handlers
+ * can write cookies, so the sync lives at the session events instead — which is
+ * also a handful of writes per session rather than one query per request.
+ */
+export async function syncThemeCookieFromProfile(): Promise<ThemeChoice> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const store = await cookies();
+
+  if (!user) {
+    store.delete(THEME_COOKIE);
+    return "light";
+  }
+
+  const { data } = await supabase
+    .from("profiles")
+    .select("theme_preference")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  const theme = parseThemeChoice(data?.theme_preference);
+  store.set(THEME_COOKIE, theme, {
+    path: "/",
+    maxAge: THEME_COOKIE_MAX_AGE,
+    sameSite: "lax",
+    httpOnly: false,
+  });
+  return theme;
 }

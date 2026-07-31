@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
 import { createClient } from "@/lib/supabase/client";
 import { markHasAccount } from "@/lib/auth-hints";
+import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import { AuthCheckInbox } from "@/components/AuthCheckInbox";
 import {
   formActionPrimary,
@@ -147,6 +148,13 @@ export function AuthForm({
       setLoading(false);
       return;
     }
+
+    // Password sign-in never touches /auth/callback, so the theme mirror cookie
+    // has to be seeded from the account here or a dark-mode user would land
+    // light on any browser they haven't toggled in. See LIC-114.
+    await syncThemeCookieFromProfile().catch(() => {
+      /* non-fatal: worst case they land light and can toggle */
+    });
 
     router.push(safeNextPath);
     router.refresh();

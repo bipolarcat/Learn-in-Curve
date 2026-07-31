@@ -5,13 +5,15 @@ import { usePathname } from "next/navigation";
 import {
   allowsDarkMode,
   applyDocumentTheme,
-  prefersDarkTheme,
+  readThemeCookie,
 } from "@/lib/theme-routes";
 
 /**
- * Enforces light mode everywhere except the dashboard, PMQ overview and LOs.
- * Reapplies a saved/device dark preference when entering an allowed route, and
- * re-asserts `.dark` if React/hydration strips it from <html>.
+ * Enforces light everywhere except the dashboard and individual LOs.
+ *
+ * The blocking script in <head> already resolves the theme for the initial
+ * load; this handles client-side navigation (where that script never re-runs)
+ * and re-asserts `.dark` if anything strips it from <html>.
  */
 export function ThemeRoutePolicy() {
   const pathname = usePathname();
@@ -32,7 +34,8 @@ export function ThemeRoutePolicy() {
     };
 
     const observer = new MutationObserver(() => {
-      const wantDark = allowsDarkMode(pathname) && prefersDarkTheme();
+      const wantDark =
+        allowsDarkMode(pathname) && readThemeCookie() === "dark";
       const hasDark = root.classList.contains("dark");
       if (wantDark === hasDark) return;
       root.classList.toggle("dark", wantDark);

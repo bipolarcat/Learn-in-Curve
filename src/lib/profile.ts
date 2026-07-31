@@ -4,6 +4,7 @@ import {
   resolveAvatarId,
   type AvatarId,
 } from "@/lib/avatars";
+import { parseThemeChoice } from "@/lib/theme-routes";
 import type { UserProfile, UserProfileInput } from "@/types/profile";
 
 function emptyProfile(userId: string): UserProfile {
@@ -18,6 +19,7 @@ function emptyProfile(userId: string): UserProfile {
     study_goal: null,
     target_exam_date: null,
     avatar_id: DEFAULT_AVATAR_ID,
+    theme_preference: "light",
     created_at: now,
     updated_at: now,
   };
@@ -50,6 +52,7 @@ function normalizeProfile(row: Record<string, unknown>): UserProfile {
     study_goal: asTrimmed(row.study_goal),
     target_exam_date,
     avatar_id: resolveAvatarId(row.avatar_id),
+    theme_preference: parseThemeChoice(row.theme_preference),
     created_at: String(row.created_at ?? new Date().toISOString()),
     updated_at: String(row.updated_at ?? new Date().toISOString()),
   };
@@ -156,6 +159,35 @@ export async function upsertExamDeadline(
 
   if (error) {
     console.error("upsertExamDeadline:", error.message);
+    return { ok: false, error: error.message };
+  }
+
+  return { ok: true };
+}
+
+/**
+ * Persist the dark-mode opt-in against the account.
+ *
+ * Upsert, not update: a user can reach the toggle before anything else has
+ * created their profile row, and silently dropping the write would make the
+ * preference look like it saved and then reappear as light on the next device.
+ */
+export async function upsertThemePreference(
+  supabase: SupabaseClient,
+  userId: string,
+  theme: UserProfile["theme_preference"],
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const { error } = await supabase.from("profiles").upsert(
+    {
+      user_id: userId,
+      theme_preference: theme,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "user_id" },
+  );
+
+  if (error) {
+    console.error("upsertThemePreference:", error.message);
     return { ok: false, error: error.message };
   }
 
