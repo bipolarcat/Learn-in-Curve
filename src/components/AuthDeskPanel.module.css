@@ -7,7 +7,8 @@
   text-align: center;
 }
 
-.intro h1 {
+.intro h1,
+.intro h2 {
   color: rgb(var(--ink-rgb));
   font-family: var(--font-fraunces), Georgia, serif;
   font-size: 1.35rem;
@@ -31,7 +32,8 @@
     padding-inline: 1.3rem;
   }
 
-  .intro h1 {
+  .intro h1,
+  .intro h2 {
     font-size: 1.5rem;
   }
 }

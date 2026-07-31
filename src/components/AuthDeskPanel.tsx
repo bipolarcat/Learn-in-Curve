@@ -12,6 +12,15 @@ type AuthDeskPanelProps = {
    * appeared out of nowhere. Checkout resumes on its own once they land back.
    */
   proIntent?: boolean;
+  /**
+   * Heading level for the card's title.
+   *
+   * Defaults to 1 because on `/auth/sign-in` and `/auth/sign-up` this card IS
+   * the page — "Welcome back" is the document title. The PMQ preview embeds it
+   * under a page heading that names the course, so it passes 2 to keep one h1
+   * per page and the outline in order.
+   */
+  headingLevel?: 1 | 2;
   className?: string;
 };
 
@@ -23,8 +32,11 @@ export function AuthDeskPanel({
   mode,
   nextPath,
   proIntent = false,
+  headingLevel = 1,
   className = "",
 }: AuthDeskPanelProps) {
+  const Heading = headingLevel === 2 ? "h2" : "h1";
+
   return (
     <div className={`relative w-full max-w-[22rem] ${className}`.trim()}>
       <AuthDeskScene />
@@ -32,7 +44,7 @@ export function AuthDeskPanel({
         className={`${quietFormSurface} ${styles.panel} relative overflow-hidden`}
       >
         <div className={styles.intro}>
-          <h1>
+          <Heading>
             {proIntent ? (
               <>
                 Almost <span className="text-orange">there</span>
@@ -47,7 +59,7 @@ export function AuthDeskPanel({
                 <span className="text-orange">free</span>
               </>
             )}
-          </h1>
+          </Heading>
           {proIntent ? (
             <p>
               {mode === "sign-in"

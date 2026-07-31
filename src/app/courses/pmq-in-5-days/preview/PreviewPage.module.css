@@ -7,3 +7,15 @@
   padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 5rem);
   padding-inline: 1.25rem;
 }
+
+/* Course name above the signup card — quiet, so the card stays the focus. */
+.courseTitle {
+  margin: 0 0 clamp(0.85rem, 2vw, 1.15rem);
+  color: rgb(var(--ink-rgb) / 0.75);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
