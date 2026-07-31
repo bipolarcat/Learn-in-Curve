@@ -83,12 +83,26 @@ export function CookieBanner() {
         <div className="flex gap-3">
           <CookieMark className="mt-0.5 h-10 w-10 shrink-0 sm:h-11 sm:w-11" />
           <div className="min-w-0 flex-1">
-            <h2
+            {/*
+              Named with a <p>, not a heading, on purpose.
+
+              This is a floating role="dialog" that renders on every page. As an
+              <h2> it inserted itself into each page's document outline, so a
+              screen-reader user navigating by heading met "Cookies" as a
+              top-level section of whatever they were reading — and every page's
+              heading structure gained a section that is not part of the page.
+
+              `aria-labelledby` accepts any element, so the dialog keeps exactly
+              the same accessible name without the outline side effect. Styling
+              is utility classes rather than tag-derived, so this looks
+              identical.
+            */}
+            <p
               id={titleId}
               className="font-display text-[1.05rem] font-bold tracking-[-0.03em] text-balance text-ink"
             >
               Cookies
-            </h2>
+            </p>
             <p className="mt-1.5 text-[13px] leading-relaxed text-pretty text-ink/75">
               We use a strictly necessary session cookie to keep you signed in.
               No ads or analytics cookies today.{" "}
