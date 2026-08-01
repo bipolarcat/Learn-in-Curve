@@ -33,6 +33,7 @@ const TrialQuiz = dynamic(
   },
 );
 
+
 export default async function HomePage() {
   const supabase = await createClient();
   const {

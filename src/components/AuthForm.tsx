@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
 import { createClient } from "@/lib/supabase/client";
-import { markHasAccount } from "@/lib/auth-hints";
+import { getCanonicalOrigin } from "@/lib/site-url";
+import {
+  forgetLastGoogleEmail,
+  markHasAccount,
+  readLastGoogleEmail,
+} from "@/lib/auth-hints";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import { AuthCheckInbox } from "@/components/AuthCheckInbox";
 import {
@@ -20,6 +25,13 @@ type AuthFormProps = {
   nextPath: string;
   /** Soft SaaS chrome for auth pages; default keeps stamp/ticket look elsewhere. */
   variant?: "default" | "saas";
+  /**
+   * Copy for a failure that happened BEFORE this form rendered — a dead
+   * confirmation link or a failed OAuth exchange, arriving as `?error=`.
+   * Seeded into the same message slot as inline validation so there is exactly
+   * one place errors appear. See src/lib/auth-errors.ts and LIC-120.
+   */
+  initialError?: string | null;
   className?: string;
 };
 
@@ -50,6 +62,7 @@ export function AuthForm({
   mode,
   nextPath,
   variant = "default",
+  initialError = null,
   className = "",
 }: AuthFormProps) {
   const router = useRouter();
@@ -59,10 +72,17 @@ export function AuthForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
-  const [isError, setIsError] = useState(false);
+  const [message, setMessage] = useState<string | null>(initialError);
+  const [isError, setIsError] = useState(Boolean(initialError));
   const [agreed, setAgreed] = useState(false);
   const [termsError, setTermsError] = useState(false);
+  /**
+   * Last Google account used on this device, passed to Google as a login_hint so
+   * returning users skip the account chooser. Read in an effect rather than at
+   * render time: it comes from document.cookie, which doesn't exist during SSR,
+   * so reading it inline would cause a hydration mismatch.
+   */
+  const [googleHint, setGoogleHint] = useState<string | null>(null);
   /** Sign-up succeeded but email confirmation required — show check-inbox card. */
   const [awaitingConfirmEmail, setAwaitingConfirmEmail] = useState<
     string | null
@@ -70,10 +90,21 @@ export function AuthForm({
   const saas = variant === "saas";
   const safeNextPath = getSafeNextPath(nextPath);
   const callbackPath = authHrefWithNext("/auth/callback", safeNextPath);
+  /*
+   * Canonical origin, NOT window.location.origin (LIC-120). A user on the apex
+   * domain would otherwise get auth links pointing at the apex, and
+   * https://learnincurve.com/auth/callback returns "Not Found" — the apex→www
+   * redirect only covers "/" and strips the path. See src/lib/site-url.ts.
+   */
+  const canonicalOrigin = getCanonicalOrigin();
   const accountSwitchPath = authHrefWithNext(
     mode === "sign-in" ? "/auth/sign-up" : "/auth/sign-in",
     safeNextPath,
   );
+
+  useEffect(() => {
+    setGoogleHint(readLastGoogleEmail());
+  }, []);
 
   function requireTermsAcceptance(): boolean {
     if (mode !== "sign-up" || agreed) {
@@ -123,7 +154,7 @@ export function AuthForm({
             email,
             password,
             options: {
-              emailRedirectTo: `${window.location.origin}${callbackPath}`,
+              emailRedirectTo: `${canonicalOrigin}${callbackPath}`,
             },
           })
         : supabase.auth.signInWithPassword({ email, password });
@@ -160,6 +191,11 @@ export function AuthForm({
     router.refresh();
   }
 
+  function handleForgetGoogleAccount() {
+    forgetLastGoogleEmail();
+    setGoogleHint(null);
+  }
+
   async function handleGoogle() {
     if (!requireTermsAcceptance()) {
       return;
@@ -172,7 +208,12 @@ export function AuthForm({
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}${callbackPath}`,
+        redirectTo: `${canonicalOrigin}${callbackPath}`,
+        // Naming the account lets Google skip its chooser for people with more
+        // than one Google session. It is only a hint: if that session has
+        // expired, or the account can't be used, Google falls back to the
+        // chooser on its own. Cleared via "Use a different Google account".
+        ...(googleHint ? { queryParams: { login_hint: googleHint } } : {}),
       },
     });
     if (error) {
@@ -213,6 +254,16 @@ export function AuthForm({
           <GoogleMark />
           Continue with Google
         </button>
+
+        {googleHint && (
+          <button
+            type="button"
+            onClick={handleForgetGoogleAccount}
+            className="mb-3 w-full text-center text-[11px] text-ink/45 underline underline-offset-2 hover:text-ink/70"
+          >
+            Use a different Google account
+          </button>
+        )}
 
         <div className="my-3 flex items-center gap-3" role="separator" aria-label="or email">
           <div className="h-px min-w-0 flex-1 bg-ink/[0.08]" aria-hidden />
@@ -405,11 +456,21 @@ export function AuthForm({
         type="button"
         onClick={handleGoogle}
         disabled={loading}
-        className="btn btn-secondary mb-6 w-full disabled:cursor-not-allowed disabled:opacity-50"
+        className={`btn btn-secondary w-full disabled:cursor-not-allowed disabled:opacity-50 ${googleHint ? "mb-2" : "mb-6"}`}
       >
         <GoogleMark />
         Continue with Google
       </button>
+
+      {googleHint && (
+        <button
+          type="button"
+          onClick={handleForgetGoogleAccount}
+          className="mb-6 w-full text-center font-body text-xs text-ink-soft underline underline-offset-2 hover:text-ink"
+        >
+          Use a different Google account
+        </button>
+      )}
 
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">

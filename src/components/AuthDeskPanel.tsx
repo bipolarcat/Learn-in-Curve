@@ -21,6 +21,12 @@ type AuthDeskPanelProps = {
    * per page and the outline in order.
    */
   headingLevel?: 1 | 2;
+  /**
+   * Failure copy from a `?error=` param — a dead confirmation link or a failed
+   * OAuth exchange. Passed straight through to AuthForm's message slot so the
+   * card has one error location, not two. See src/lib/auth-errors.ts, LIC-120.
+   */
+  initialError?: string | null;
   className?: string;
 };
 
@@ -33,6 +39,7 @@ export function AuthDeskPanel({
   nextPath,
   proIntent = false,
   headingLevel = 1,
+  initialError = null,
   className = "",
 }: AuthDeskPanelProps) {
   const Heading = headingLevel === 2 ? "h2" : "h1";
@@ -72,7 +79,12 @@ export function AuthDeskPanel({
             <p>Upgrade anytime after.</p>
           )}
         </div>
-        <AuthForm mode={mode} variant="saas" nextPath={nextPath} />
+        <AuthForm
+          mode={mode}
+          variant="saas"
+          nextPath={nextPath}
+          initialError={initialError}
+        />
         {proIntent ? (
           <p className="mt-3 text-center text-[11.5px] leading-snug text-ink/45">
             You won&apos;t be charged until you confirm on the payment page.
