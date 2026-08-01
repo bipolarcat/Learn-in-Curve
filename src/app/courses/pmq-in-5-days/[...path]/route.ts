@@ -3,6 +3,7 @@ import { readFile, stat } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isDemoSkipAuth } from "@/lib/demo";
+import { getSiteOrigin } from "@/lib/site-origin";
 
 const PMQ_ROOT = path.join(process.cwd(), "PMQ in 5 days");
 
@@ -38,7 +39,9 @@ export async function GET(
   } = await supabase.auth.getUser();
 
   if (!user && !isDemoSkipAuth()) {
-    return NextResponse.redirect(new URL("/auth/sign-in", _request.url));
+    return NextResponse.redirect(
+      new URL("/auth/sign-in", getSiteOrigin(_request)),
+    );
   }
 
   const { path: segments } = await context.params;

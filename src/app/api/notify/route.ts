@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { sendNotifyConfirmationEmail } from "@/lib/notify/send-confirmation-email";
+import { getSiteOrigin } from "@/lib/site-origin";
 import {
   getNotifyList,
   NEWSLETTER_LIST_KEY,
@@ -261,7 +262,9 @@ export async function POST(request: Request) {
         email,
         listKey: primary.key,
         unsubscribeToken,
-        origin: new URL(request.url).origin,
+        // Same proxy trap as LIC-116: request.url is https://localhost:8080 in
+        // prod, which would put dead unsubscribe links in confirmation emails.
+        origin: getSiteOrigin(request),
       }).then(async (sent) => {
         if (!sent) return;
         const { error: stampError } = await supabase

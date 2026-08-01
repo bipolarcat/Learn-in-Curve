@@ -8,7 +8,7 @@
  *   `LIC_VERSION=3.0` on the commit, or `npm run version:set -- 3.0`.
  * - Skip a bump: `LIC_SKIP_VERSION=1` on the commit.
  */
-export const SITE_VERSION = "2.17";
+export const SITE_VERSION = "2.18";
 
 /** Flip to false to show the version but pause auto-bumps. */
 export const SITE_VERSION_AUTO_BUMP = true;

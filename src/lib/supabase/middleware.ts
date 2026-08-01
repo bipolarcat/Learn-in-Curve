@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSafeNextPath } from "@/lib/auth-next";
+import { getSiteOrigin } from "@/lib/site-origin";
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
@@ -31,7 +32,7 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
-    const url = new URL("/auth/sign-in", request.url);
+    const url = new URL("/auth/sign-in", getSiteOrigin(request));
     const requestedPath = `${request.nextUrl.pathname}${request.nextUrl.search}`;
     url.searchParams.set("next", getSafeNextPath(requestedPath));
     return NextResponse.redirect(url);
@@ -43,7 +44,7 @@ export async function updateSession(request: NextRequest) {
       request.nextUrl.pathname.startsWith("/auth/sign-up"))
   ) {
     const nextPath = getSafeNextPath(request.nextUrl.searchParams.get("next"));
-    return NextResponse.redirect(new URL(nextPath, request.url));
+    return NextResponse.redirect(new URL(nextPath, getSiteOrigin(request)));
   }
 
   return supabaseResponse;
