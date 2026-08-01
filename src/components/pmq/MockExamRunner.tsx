@@ -1179,6 +1179,10 @@ function Results({
         >
           {passed ? "Pass — well done." : "Refer - keep going."}
         </p>
+        <p className={styles.resultMeta}>
+          Measured against our practice threshold. The real exam&apos;s pass
+          mark varies by paper.
+        </p>
         <button
           type="button"
           onClick={showReview ? onCloseReview : onLoadReview}

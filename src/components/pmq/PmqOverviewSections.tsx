@@ -36,36 +36,41 @@ const INCLUDED_ITEMS = [
   },
 ];
 
-const COMMAND_WORDS = [
+const COMMAND_WORD_GROUPS = [
   {
-    word: "State",
-    expectation:
-      "A brief factual answer only. One or two words or a short phrase. No explanation required.",
+    type: "Multiple response",
+    verbs: "Select, Choose",
+    action: "Pick the correct option or combination.",
   },
   {
-    word: "Describe",
-    expectation:
-      "Identify and characterise. Name the concept and explain its key features. Both parts needed for full marks.",
+    type: "Select from list",
+    verbs: "Select, Choose",
+    action: "Choose the option that completes the text.",
   },
   {
-    word: "Explain",
-    expectation:
-      "Name the concept, explain how it works, and connect it to why it matters in context. All three parts required.",
+    type: "Short response",
+    verbs: "Give, List, State, Provide, Identify",
+    action: "A single word, phrase, or short list.",
   },
   {
-    word: "Identify",
-    expectation:
-      "Spot the correct item, concept, or factor from the scenario. Usually one mark per item identified.",
+    type: "Long response",
+    verbs: "Differentiate",
+    action: "Explain how the areas differ.",
   },
   {
-    word: "Analyse",
-    expectation:
-      "Break down the components or factors and examine their relationship or significance in context.",
+    type: "Long response",
+    verbs: "Describe, Explain",
+    action: "Give key characteristics, qualities or events.",
   },
   {
-    word: "Evaluate",
-    expectation:
-      "Weigh up options, advantages, and disadvantages to reach a reasoned judgement or recommendation.",
+    type: "Long response",
+    verbs: "Interpret",
+    action: "Explain the meaning in the given context.",
+  },
+  {
+    type: "Long response",
+    verbs: "Outline",
+    action: "Give the main points or characteristics.",
   },
 ];
 
@@ -155,21 +160,36 @@ export function PmqCommandWordsTable() {
         </p>
 
         <dl className={styles.mobileList}>
-          {COMMAND_WORDS.map((row) => (
-            <div key={row.word} className={styles.mobileItem}>
-              <dt className={styles.mobileWord}>{row.word}</dt>
-              <dd className={styles.mobileExpectation}>{row.expectation}</dd>
+          {COMMAND_WORD_GROUPS.map((row, i) => (
+            <div key={`${row.type}-${i}`} className={styles.mobileItem}>
+              <p className={styles.mobileType}>{row.type}</p>
+              <dt className={styles.mobileWord}>{row.verbs}</dt>
+              <dd className={styles.mobileExpectation}>{row.action}</dd>
             </div>
           ))}
         </dl>
 
         <div className={styles.tableWrap}>
           <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.th} scope="col">
+                  Question type
+                </th>
+                <th className={styles.th} scope="col">
+                  Verbs
+                </th>
+                <th className={styles.th} scope="col">
+                  What to do
+                </th>
+              </tr>
+            </thead>
             <tbody>
-              {COMMAND_WORDS.map((row) => (
-                <tr key={row.word} className={styles.tr}>
-                  <td className={styles.tdWord}>{row.word}</td>
-                  <td className={styles.tdExpectation}>{row.expectation}</td>
+              {COMMAND_WORD_GROUPS.map((row, i) => (
+                <tr key={`${row.type}-${i}`} className={styles.tr}>
+                  <td className={styles.tdType}>{row.type}</td>
+                  <td className={styles.tdVerbs}>{row.verbs}</td>
+                  <td className={styles.tdExpectation}>{row.action}</td>
                 </tr>
               ))}
             </tbody>

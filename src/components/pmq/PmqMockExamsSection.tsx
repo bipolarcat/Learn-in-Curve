@@ -201,7 +201,7 @@ export function PmqMockExamsSection({
             Mock <span className={styles.titleAccent}>exams</span>
           </h2>
           <p className={styles.subtitle} aria-label="Exam format">
-            40 questions · 90 marks · Pass 54/90
+            40 questions · 90 marks · pass mark varies by paper
           </p>
         </div>
 

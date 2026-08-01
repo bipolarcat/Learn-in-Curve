@@ -260,6 +260,14 @@ export function AuthForm({
               }
               placeholder={mode === "sign-up" ? "At least 6 characters" : "••••••••"}
             />
+            {mode === "sign-in" && (
+              <Link
+                href="/auth/forgot-password"
+                className="mt-1.5 inline-block text-[12px] font-medium text-orange hover:text-orange-dark"
+              >
+                Forgot password?
+              </Link>
+            )}
           </div>
 
           {message && !termsError && (
@@ -452,6 +460,14 @@ export function AuthForm({
               mode === "sign-up" ? "new-password" : "current-password"
             }
           />
+          {mode === "sign-in" && (
+            <Link
+              href="/auth/forgot-password"
+              className="mt-2 inline-block text-sm font-bold text-primary hover:text-primary-dark"
+            >
+              Forgot password?
+            </Link>
+          )}
         </div>
 
         {message && !termsError && (

@@ -14,6 +14,8 @@ export type CoreContentBlock = {
     caption: string;
     placement: string;
     heading: string;
+    figure_number?: string;
+    alt?: string;
   }[];
 };
 

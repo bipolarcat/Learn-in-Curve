@@ -4,7 +4,12 @@ import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 
-const PMQ_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
+const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
+
+function loNumberFromOutcomeCode(outcomeCode: string): number | null {
+  const match = outcomeCode.match(/^\d+/);
+  return match ? parseInt(match[0], 10) : null;
+}
 
 /** Leading codes like “1a.” / “1b)” / “2.1 —” — strip for display only. */
 const LEADING_OUTCOME_CODE =
@@ -44,12 +49,29 @@ function DiagramFigure({
   file,
   caption,
   id,
+  figureNumber,
+  alt,
+  loNumber,
 }: {
   file: string;
   caption: string;
   id: string;
+  figureNumber?: string;
+  alt?: string;
+  loNumber: number | null;
 }) {
   const displayCaption = stripLeadingCode(caption);
+  // v2 diagrams always carry `alt`; v1 diagrams never do — use that to
+  // decide which base path serves the file.
+  const isV2Diagram = Boolean(alt);
+  const src =
+    isV2Diagram && loNumber !== null
+      ? `/diagrams/lo${loNumber}/${file}`
+      : `${LEGACY_DIAGRAM_BASE}/${file}`;
+  const imgAlt = alt ?? displayCaption;
+  const captionText = figureNumber
+    ? `Figure ${figureNumber} — ${displayCaption}`
+    : displayCaption;
 
   return (
     <figure
@@ -58,8 +80,8 @@ function DiagramFigure({
     >
       <div className="flex w-full max-w-full min-w-0 flex-col items-center overflow-hidden rounded-xl border border-black/[0.08] bg-paper px-3 pb-3 pt-3 dark:border-white/[0.12] sm:px-4 sm:pb-3.5 sm:pt-4">
         <Image
-          src={`${PMQ_DIAGRAM_BASE}/${file}`}
-          alt={displayCaption}
+          src={src}
+          alt={imgAlt}
           width={1200}
           height={800}
           sizes="(max-width: 768px) calc(100vw - 2.5rem), min(1040px, 100vw)"
@@ -67,7 +89,7 @@ function DiagramFigure({
           loading="lazy"
         />
         <figcaption className="mt-2.5 w-full text-center font-body text-xs italic leading-snug text-pretty text-ink/60">
-          {displayCaption}
+          {captionText}
         </figcaption>
       </div>
     </figure>
@@ -93,6 +115,7 @@ type CoreContentBlockProps = {
  */
 export function CoreContentBlock({ block }: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
+  const loNumber = loNumberFromOutcomeCode(block.outcome_code);
 
   function renderHeading(
     Tag: "h4" | "h5",
@@ -111,6 +134,9 @@ export function CoreContentBlock({ block }: CoreContentBlockProps) {
             id={d.id}
             file={d.file}
             caption={d.caption}
+            figureNumber={d.figure_number}
+            alt={d.alt}
+            loNumber={loNumber}
           />
         ))}
       </div>
