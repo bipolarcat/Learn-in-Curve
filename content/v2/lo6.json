@@ -1,0 +1,251 @@
+{
+  "lo_number": 6,
+  "lo_code": "6a, 6b, 6c, 6d",
+  "title": "Reviews",
+  "competence_area": "B. Preparing for change",
+  "exam_coverage_note": "Area B (LOs 5-9) accounts for 15-20% of exam marks.",
+  "source_ref": "APM BoK 8e s3.5 (p147), s3.5.1 (p148-149), s3.5.2 (p150-151), s3.5.3 (p152-153), s3.5.4 (p154-155), s3.5.5 (p156-157); APM PMQ Handbook 2024, LO6",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand reviews as a way of gathering information to provide an assessment on the status of a project and the ongoing viability of the work.",
+  "learning_outcomes": [
+    "6a) Understand the benefits of conducting reviews throughout the life cycle (including decision gates, benefits reviews and audits).",
+    "6b) Know the factors which would typically be reported on to help ensure successful project outcomes.",
+    "6c) Understand the importance of producing information and collecting data to inform decision making and communicate actions and decisions to stakeholders.",
+    "6d) Understand why activities may be re-planned after a review."
+  ],
+  "where_this_fits": "Reviews are the mechanism that keeps everything else honest. LO2 built the governance structure; reviews are what feed it information. LO4 said the business case must be re-tested; reviews are where that happens. LO9 benefits and LO7 assurance both connect here. The distinction to fix early and never lose: reviews are internal to the initiative, assurance is independent of it. Getting those two the wrong way round costs marks in both LO6 and LO7.",
+  "key_definitions": [
+    {
+      "term": "Review",
+      "apm_definition": "A means of gathering information about a change initiative to provide an internal assessment of its status and ongoing viability. Reviews are a means of oversight and the basis for informed decision-making.",
+      "plain_english": "A structured look at where the project actually is and whether it is still worth continuing — run from inside the initiative."
+    },
+    {
+      "term": "Decision gate",
+      "apm_definition": "A point in the life cycle where a review confirms the viability of the work against the business case. Also called a stage gate, gateway or boundary gate.",
+      "plain_english": "The formal go / no-go point between phases. Higher stakes than an ordinary review, because the project's future is on the table."
+    },
+    {
+      "term": "Conditional go",
+      "apm_definition": "A decision-gate outcome permitting the work to proceed subject to a set of conditions being met within a set timeframe.",
+      "plain_english": "Yes, but — carry on, provided these specific things are fixed by a stated date."
+    },
+    {
+      "term": "Tolerance",
+      "apm_definition": "The level of deviation from plan, budget, scope or quality that determines the level of concern, benchmarked against project control documents such as the master plan and business case.",
+      "plain_english": "How far off-plan is acceptable before someone has to act. Without it, every variance looks either trivial or catastrophic."
+    },
+    {
+      "term": "Retrospective",
+      "apm_definition": "A review in which the development team examines its own performance and processes to optimise how it works together.",
+      "plain_english": "The team reviewing how it worked, not what it produced. Aimed at the process, not the product."
+    },
+    {
+      "term": "Lessons-learned review",
+      "apm_definition": "A review identifying and documenting the lessons from a project review, assimilated into the organisation's knowledge management process and made widely available.",
+      "plain_english": "Writing down what this project taught, in a form another project can actually find and use."
+    },
+    {
+      "term": "PMO",
+      "apm_definition": "An organisational structure offering frameworks, guidance and support to an organisation's project management community. Known as a project, programme or portfolio management office depending on its role.",
+      "plain_english": "The team that provides the standards, templates, reporting and support that individual projects cannot resource on their own."
+    },
+    {
+      "term": "Information management",
+      "apm_definition": "The collection, storage, curation, dissemination, archiving and destruction of documents, images, drawings and other sources of information.",
+      "plain_english": "The whole life of project information, from creating it to legally destroying it."
+    },
+    {
+      "term": "Version control",
+      "apm_definition": "Rigorous control of document versions to avoid wasted time and expensive errors arising from people working with out-of-date versions.",
+      "plain_english": "Making sure everyone is working from the same, current document. Sounds administrative; prevents genuinely costly mistakes."
+    },
+    {
+      "term": "Sunk cost trap",
+      "apm_definition": "The error of continuing an initiative because of resources already committed rather than on the merits of continuing. Avoided by decision gates taking the right decision for the organisation, including pausing, replanning or terminating.",
+      "plain_english": "Throwing good money after bad because of what has already been spent. Money already gone should not decide what happens next."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "6a",
+      "outcome_title": "The benefits of reviews throughout the life cycle",
+      "key_takeaway": "Reviews are internal oversight feeding informed decision-making. Decision gates are the high-stakes formal version, asking a backward-looking and a forward-looking question. Their purpose is the right decision for the organisation — which may be to pause, replan or terminate.",
+      "source_ref": "BoK 8e 3.5 (p147), 3.5.1 (p148-149), 3.5.2 (p150-151), 3.5.3 (p152-153)",
+      "body_markdown": "## What reviews are, and the distinction that matters\n\nA review gathers information about a change initiative to assess its status and whether it is still worth doing. It provides oversight and gives decision-makers something factual to decide on.\n\n**The distinction to lock in now, because LO7 depends on it:**\n\n| | Reviews | Assurance |\n|---|---|---|\n| **Position** | **Internal** to the change initiative | **Independent** of it |\n| **Who takes part** | Governance tiers of the project, plus stakeholders such as customers and users | People outside the initiative |\n\nA review may include an element of peer assessment, but it is fundamentally the initiative looking at itself. That is not a weakness — it is why reviews can be frequent and candid — but it is why assurance exists alongside them.\n\n**The principles are the same for linear and iterative life cycles.** What changes is timing and frequency, not purpose.\n\n| | Linear | Iterative |\n|---|---|---|\n| **When** | Key milestones, product deliveries, stage boundaries, or when issues emerge | Start or end of each iteration or sprint |\n| **Character** | Less frequent, more formal | Frequent, continuous feedback |\n| **Suited to** | Stable environments | Dynamic or uncertain environments |\n\n## The benefits\n\nWhy conduct them at all — the answer to a direct 6a question:\n\n- **Governance and oversight.** Their primary function is to be part of good governance, and the basis for informed decision-making.\n- **Keeping the project relevant.** A review re-tests whether what the project assumed about its **outcomes and benefits still holds**, and whether the work **still fits the policy and strategy the organisation is running today**. A project can drift out of relevance without anything going wrong inside it.\n- **Identifying deviations and, more importantly, remedial actions.** Recording the variance is the easy part; **the real value is in the remedial actions identified**.\n- **Advice, confidence and authority.** Reviews give guidance to the professionals leading the work, and lend the project a sense of authority.\n- **Learning.** Lessons identified feed the organisation's knowledge management, so other projects benefit.\n- **Stakeholder engagement.** A review is a chance to show what has been achieved, shift stakeholder opinion, win backing for a risk response, and pull senior attention back to the work.\n\n**A review is not a box to tick.** Doing it properly takes sustained effort and people to run it — often a PMO.\n\n## Decision gates\n\nDecision gates are formal review points confirming viability against the business case. They can be **internal** to the project, scrutinised by the governance board, or **external**, staffed by reviewers pulled from elsewhere in the organisation — so a decision gate can be part of a review *or* part of assurance.\n\n**Timing by life cycle:**\n\n| Life cycle | When gates fall |\n|---|---|\n| **Linear** | Event-driven — at the end of a phase of work |\n| **Iterative** | In line with the fixed cycles |\n| **Hybrid** | Main gates at the end of major phases, plus interim review points reflecting the iterative development |\n\n**Accountability sits with the sponsor and the governance board** for the decision to continue. Whoever manages the project, programme or portfolio is **responsible for turning up ready**, documentation complete and on time.\n\n### The two questions every gate asks\n\n| Direction | Question |\n|---|---|\n| **Backward-looking** | Is everything that should have been done by now actually done? |\n| **Forward-looking** | Does the business case still stand — are those benefits reachable at a cost and risk the organisation will accept? |\n\nThat pairing is the single most useful thing to memorise in 6a. A gate is not only a completeness check; it re-tests the justification.\n\n### Outcomes and attitude\n\n- Gates are **go / no-go** points, but a **conditional go** is available — proceed subject to conditions met within a set timeframe.\n- **When the next gate falls** is normally settled last, before everyone leaves the room.\n- They are also an opportunity to **obtain authority** — for procurement, drawdown of finance, or scope changes.\n- **In the space between gates the sponsor holds accountability**, overseeing the work and taking the significant calls.\n\n**Gates are not an ambush.** The reviewers are there as a **critical friend**, and their scrutiny is what helps the team surface and fix problems.\n\n**And the hard part:** while preparing for a gate the natural focus is getting a 'go', but the review's responsibility is **the right decision for the organisation** — which may be to pause, replan or terminate. That is precisely **how organisations avoid the sunk cost trap**.\n\nIn standalone projects a gate considers only that project. In programmes and portfolios the decision extends to rephasing or terminating existing work, or initiating new work.\n\n## Reviews across the extended life cycle\n\nBeyond decision gates, two other named review types run later:\n\n- **Post-project review** — after transition, once the outputs are delivered.\n- **Benefits review** — during adoption and benefits realisation, testing whether the anticipated benefits actually arrived. Connects directly to LO9.\n- **Audits** — ongoing, and independent, which places them nearer assurance than review.\n\n## Iterative review formats worth naming\n\nA scenario set in an iterative project may expect a specific format rather than 'a review':\n\n| Format | Purpose |\n|---|---|\n| **Iteration / sprint review** | Team demonstrates completed work at the end of a cycle to get feedback |\n| **Demos and showcases** | Show work in progress for feedback and course correction |\n| **Retrospective** | Team reviews **its own performance and processes**, not the product |\n| **Backlog grooming** | Simplifies drawdown for later iterations |\n| **Adaptive planning** | Revises the plan on new information, changed priorities or previous feedback |\n| **WIP reviews** | Identify and resolve bottlenecks |\n| **Risk and opportunity reviews** | Enable proactive management and strategy adjustment |\n\nThe principles behind them apply equally to linear projects: stakeholder collaboration, data-driven assessment, **focus on learning rather than assigning blame**, continuous improvement (kaizen — 'change for the better'), transparency, risk mitigation, adaptation, actionable recommendations, progress over perfection, and regularity.",
+      "diagrams": [
+        {
+          "id": "lo6-decision-gates",
+          "figure_number": "6.1",
+          "caption": "Decision gates and reviews across the extended life cycle",
+          "placement": "after_heading",
+          "heading": "Reviews across the extended life cycle",
+          "file": null,
+          "spec": "The extended life cycle as a horizontal timeline: Concept, Definition, Deployment (subdivided into tranches), Transition, Adoption, Benefits realisation. Mark decision gates between the early phases, stage reviews within deployment, a post-project review after transition, and a benefits review during benefits realisation. Mark 'output' at transition and 'outcome' at the end. The argument: different review types belong at different points, and reviewing does not stop when delivery does.",
+          "alt": "The extended life cycle shown as a timeline with decision gates between early phases, stage reviews during deployment, a post-project review after transition and a benefits review during benefits realisation."
+        },
+        {
+          "id": "lo6-gate-questions",
+          "figure_number": "6.2",
+          "caption": "The two questions asked at every decision gate",
+          "placement": "after_heading",
+          "heading": "The two questions every gate asks",
+          "file": null,
+          "spec": "A single gate shown in the middle with two arrows: one pointing back over completed work labelled 'has it achieved what it should?', one pointing forward labelled 'is the business case still viable — benefits for acceptable cost and risk?'. Below, the three possible outcomes: go, conditional go, no-go (pause, replan or terminate). Keep it simple — this is a memorisation aid.",
+          "alt": "A decision gate with a backward-looking question about completed work and a forward-looking question about business case viability, leading to go, conditional go or no-go outcomes."
+        }
+      ]
+    },
+    {
+      "outcome_code": "6b",
+      "outcome_title": "What gets reported on",
+      "key_takeaway": "Reporting centres on deviations from plan, budget, scope and quality, measured against tolerances set by the master plan and business case — plus the reasons for them and the proposed remedial actions.",
+      "source_ref": "BoK 8e 3.5.1 (p148-149), 3.5.2 (p150), 3.5.3 (p152)",
+      "body_markdown": "## The core reporting set\n\nReviews find and write down where the project has drifted — against **plan, against budget, against scope, against quality**. That four-part list is the backbone of any 6b answer.\n\nBut a deviation on its own is not a report. Three things travel together:\n\n| Element | Why it is needed |\n|---|---|\n| **The deviation** | What has moved, and by how much |\n| **The reason** | Why it moved — without this, remedial action is guesswork |\n| **The response** | The proposed remedial action. **This is where the real value sits** |\n\n## Tolerances make reporting meaningful\n\nYou have to know **the tolerances that decide how worried to be**. Without them a report is a list of numbers with no signal about which matter.\n\nThe benchmarks come from project control documents — principally the **master plan and the business case**. That is the link back to LO4: the business case is the reference point against which variance is judged.\n\n## What else reviews report on\n\nBeyond the core four, the source names further areas that reviews and gate reviews examine:\n\n- **Whether assumptions about outcomes and benefits are still valid**\n- **Whether the work still fits the organisation's current policy and strategy**\n- **Risks and issues**, and the responses to them\n- **Progress against milestones**, and in contract terms against KPIs\n- **Business case viability** — benefits achievable for acceptable cost and risk\n\nIn iterative contexts, reviews are explicitly **data-driven**, leaning on metrics and performance indicators to judge progress and surface problems.\n\n## Raw data beats interpretation\n\nA specific and easily-missed point: **the closer reviewers get to raw data, the more objective their decision — every round of analysis and interpretation is another chance for bias to creep in.**\n\nThat is a genuinely useful thing to say in a scenario where a project team presents a heavily summarised status report — the summarising itself is a risk to the decision.\n\n## Tailor the report to the audience\n\nStakeholders are both a **source of information** and an **audience with an interest in the outcomes**. They will want to understand the status and form a view on proposed remedial actions.\n\nSo ask them: **what do you need to know, and in what form do you want it?** Reporting is not one document broadcast to everyone — it connects directly to LO10.\n\n## How much reporting, and how often\n\n**How formal reviews are, and how often they happen, follows the initiative's risk, its complexity and its value.** Proportionality again, exactly as in governance: a small internal project reported like a national infrastructure programme wastes effort that should be going into delivery.",
+      "diagrams": [
+        {
+          "id": "lo6-review-process",
+          "figure_number": "6.3",
+          "caption": "The project review process from planning to lessons learned",
+          "placement": "after_heading",
+          "heading": "The core reporting set",
+          "file": null,
+          "spec": "A left-to-right flow in five grouped stages, each with its sub-elements stacked beneath: (1) Plan the review — scheduling, format, stakeholders, requirements; (2) Data — gathering, analysis, information; (3) Deviations — recording, reasons, responses; (4) Governance oversight — scrutiny, approval, reporting; (5) Response implementation and lessons learned — implementing, monitoring, control, sharing. The argument: a review is a pipeline ending in action and learning, not a status meeting.",
+          "alt": "The project review process shown as five grouped stages: planning the review, gathering and analysing data, recording deviations with reasons and responses, governance scrutiny and approval, then implementing responses and sharing lessons."
+        }
+      ]
+    },
+    {
+      "outcome_code": "6c",
+      "outcome_title": "Producing information and managing it",
+      "key_takeaway": "Decisions are only as good as the information behind them. Information management covers the full life from collection to destruction, and its processes, responsibilities, data security and version control belong in the project management plan, approved by governance.",
+      "source_ref": "BoK 8e 3.5 (p147), 3.5.1 (p148), 3.5.4 (p154-155), 3.5.5 (p156-157)",
+      "body_markdown": "## Why this is a sub-outcome in its own right\n\nProject work **runs on information that is both accurate and timely**. Teams and stakeholders need it to make informed decisions and fulfil their roles, and project professionals need it to communicate and to provide **documentary evidence for assurance**.\n\nSo the quality of decisions is capped by the quality of information. A governance board with poor information does not make cautious decisions — it makes uninformed ones.\n\n## The six stages of information management\n\n| Stage | What it covers |\n|---|---|\n| **Collection** | Capturing documents, data sets, images, drawings |\n| **Storage** | Where it lives, designed with retrieval in mind |\n| **Curation** | Keeping it accurate, current and organised |\n| **Dissemination** | Getting it to the people who need it |\n| **Archiving** | Retaining it as an audit trail once no longer active |\n| **Destruction** | Disposing of it, subject to statutory requirements and organisational policy |\n\nDestruction being an explicit stage is the part candidates forget. Holding information indefinitely is a **data protection** problem, not a cautious default.\n\n## What good information management requires\n\n- **Settle the processes and who owns them during set-up** — not once documents have started piling up.\n- **Standard templates** help authors cover the key points, and make life easier for reviewers, assurance, audit and process improvement.\n- **Quality and integrity of data** means attending to accuracy, completeness, consistency, timeliness and formatting, supported by **data governance policies and procedures**.\n- **Version control must be rigorous.** People working from out-of-date versions cause wasted time and expensive errors.\n- **Accessibility.** Storage and retrieval must be designed so people can find things — **information nobody can get to is worth nothing**. Access rights make retrieval efficient and are **critical for meeting data protection requirements**.\n- **Write the approach down** in the plan's information management section, **data security included**, and have the **sponsor or governance body approve** it.\n\n## Communicating decisions and actions\n\nInformation flows two ways. Reviews consume information to reach decisions; they then have to push decisions and actions back out.\n\nProcesses should **establish ways to communicate changes to documents** to relevant stakeholders. Where no standard document control system exists, project professionals **create their own** — the absence of a corporate system is not an excuse for the absence of control.\n\nAnd once governance approves the responses coming out of a review, the team implements them — which can mean **diverting resources from baseline activities** — with **monitoring and reporting of the remediation** expected by the governance tiers.\n\n## Context changes the requirement\n\n| Factor | Effect |\n|---|---|\n| **Purpose and complexity of the work** | More complex work, more documentation |\n| **Standard processes and policies** | May prescribe formats and retention |\n| **Type of life cycle** | **Iterative projects care more about capturing what emerges** than about maintaining plans approved in advance, so their capture methods are more fluid |\n| **Sitting inside a programme or portfolio** | May lighten the admin load — the coordinating framework, or its PMO, can own information management instead |\n\n## The PMO's role\n\nA PMO offers frameworks, guidance and support to the organisation's project management community. Its four delivery areas:\n\n| Area | What it provides |\n|---|---|\n| **Delivery support** | Benefits that cannot be resourced project by project; consistency and visibility through reporting and analysis |\n| **Governance frameworks** | Controls such as assurance, giving a repeatable approach and confidence to sponsors |\n| **Prioritisation and alignment to strategy** | Capacity planning, a balanced portfolio, insight towards organisational objectives |\n| **Capability development and knowledge management** | An environment where people learn, and a culture that keeps improving practice |\n\nFour typical models: **centralised or embedded**, **hub and spoke**, **central**, and **governance and delivery split**. Which fits depends on organisational need, project management maturity, the nature and size of teams, and organisational structure. PMOs can be **temporary or permanent**.\n\nFor reviews specifically, the PMO matters twice: it provides the **ongoing support and personnel** that stop reviews becoming tick-box exercises, and it can **get other projects to apply the lessons** a review produced.",
+      "diagrams": [
+        {
+          "id": "lo6-information-management",
+          "figure_number": "6.4",
+          "caption": "The six stages of information management",
+          "placement": "after_heading",
+          "heading": "The six stages of information management",
+          "file": null,
+          "spec": "A closed cycle of six stages: collection, storage, curation, dissemination, archiving, destruction. Drawing it as a cycle rather than a line makes the point that destruction is a legitimate planned end-state subject to statutory requirements, not information falling off the end of a process.",
+          "alt": "The six stages of information management shown as a cycle: collection, storage, curation, dissemination, archiving and destruction."
+        }
+      ]
+    },
+    {
+      "outcome_code": "6d",
+      "outcome_title": "Why activities get re-planned after a review",
+      "key_takeaway": "A review that changes nothing was wasted. Re-planning follows because deviations need remedial action, the environment has moved, new information has emerged, or the gate decision was conditional — and implementing responses often means diverting resources from the baseline.",
+      "source_ref": "BoK 8e 3.5.1 (p148-149), 3.5.2 (p150-151), 3.5.3 (p152-153)",
+      "body_markdown": "## The principle\n\nA review exists to make sense of a problem **so that the right corrective action can be chosen**. Reviews must **make a difference to outcomes** — actionable recommendations are one of the named review principles. So re-planning is not a sign the review found a problem; it is the review working.\n\n## The reasons activities get re-planned\n\n| Reason | What triggered it |\n|---|---|\n| **Deviation from plan, budget, scope or quality** | The review recorded a variance beyond tolerance, and the agreed response changes what happens next |\n| **Remedial actions need resourcing** | Putting approved responses into effect often means **pulling resources off work the baseline plan had already committed them to** — so the baseline itself has to change |\n| **Assumptions no longer valid** | Reviews check that assumptions about outcomes and benefits still hold. When they do not, the plan built on them does not either |\n| **Loss of alignment with policy or strategy** | The organisation moved. The project must follow or stop |\n| **Business case viability in question** | The forward-looking gate question failed — benefits are no longer achievable for acceptable cost and risk |\n| **Conditional go** | The gate allowed progress subject to conditions within a timeframe. Meeting them is new work that must be planned |\n| **New information or changed priorities** | Adaptive planning rewrites the plan when fresh information arrives, priorities shift, or the last iteration taught the team something |\n| **Bottlenecks and process problems** | WIP reviews and retrospectives change how the team works, not just what it does |\n\n## What re-planning actually looks like\n\n1. The review **records the deviation and the reason**, and identifies a **response**.\n2. **Governance structures scrutinise the response plans.** Depending on severity, there may be **stages of escalation**.\n3. Once **governance approves** the responses, the team **implements** them.\n4. Governance tiers **expect monitoring and reporting of the remediation** — approval is not the end of it.\n\nThe critical sequence point: **the team does not re-plan unilaterally.** Responses are scrutinised and approved by governance before implementation. That is the same delegated-authority principle as LO2, applied to plan changes.\n\n## Re-planning can mean stopping\n\nThe strongest version of this answer acknowledges that re-planning includes **pausing, replanning or terminating** the work, because the review's responsibility is the right decision for the organisation rather than continuation. Naming the sunk cost trap here shows why a project that has already consumed budget is not thereby entitled to more.\n\n## Iterative projects re-plan by design\n\nIn an iterative life cycle, adaptation is built into the rhythm rather than triggered by exception:\n\n- **Adaptive planning** revises the plan each cycle on new information and feedback.\n- **Backlog grooming** re-orders what gets drawn down next.\n- **Progress over perfection** means later iterations pick up optimisation deliberately deferred.\n\nSo in a linear project re-planning after a review is a response to variance; in an iterative one it is the normal operation of the life cycle. A scenario question often turns on knowing which of those two situations it has described."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Reviews and assurance are two words for the same activity.",
+      "right": "Reviews are internal to the change initiative and involve its governance tiers and stakeholders. Assurance is independent of it. A decision gate can be either, depending on whether the review team comes from inside the project or outside it."
+    },
+    {
+      "wrong": "Iterative projects have lighter reviews than linear ones.",
+      "right": "Iterative reviews are more frequent and less formal, happening at the start or end of each iteration. Linear reviews are less frequent and more formal. The principles are the same for both; only timing and formality differ."
+    },
+    {
+      "wrong": "The point of a review is to record what went wrong.",
+      "right": "Identifying and documenting deviations is only part of it. The real value is in the remedial actions identified, and reviews must make a difference to outcomes to be worth running."
+    },
+    {
+      "wrong": "A decision gate is a completeness check on the previous phase.",
+      "right": "It asks two questions. Backward-looking: has the initiative achieved what it should? Forward-looking: is the business case still viable for acceptable cost and risk? Passing the first and failing the second is still a no-go."
+    },
+    {
+      "wrong": "The project manager decides whether the project passes a gate.",
+      "right": "The sponsor and governance board are accountable for the decision to continue. The project manager is responsible for being ready, including having documentation available on time."
+    },
+    {
+      "wrong": "A gate review team is there to catch the project out.",
+      "right": "The review team's role is to act as a critical friend, whose scrutiny helps the project identify and resolve issues. Gates are also an opportunity to gain authority for procurement, finance drawdown or scope change."
+    },
+    {
+      "wrong": "A well-run project should never be terminated at a gate.",
+      "right": "The review's responsibility is the right decision for the organisation, which may be to pause, replan or terminate. That is how organisations avoid the sunk cost trap."
+    },
+    {
+      "wrong": "A polished summary report is the best input to a review decision.",
+      "right": "The closer reviewers get to raw data, the more objective the decision. Every round of analysis and interpretation is another chance for bias to enter."
+    },
+    {
+      "wrong": "Once governance approves a remedial action, the review is closed.",
+      "right": "Governance tiers usually expect monitoring and reporting of the remediation. Implementing responses can also require diverting resources from baseline activities, which changes the plan."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Reviews look in, assurance looks on",
+      "expansion": "Reviews are internal to the change initiative. Assurance is independent of it. The one distinction LO6 and LO7 both turn on."
+    },
+    {
+      "type": "cue",
+      "acronym": "Back then forward",
+      "expansion": "Every decision gate asks both. Backward: did it achieve what it should? Forward: is the business case still viable for acceptable cost and risk?"
+    },
+    {
+      "type": "cue",
+      "acronym": "Plan, budget, scope, quality",
+      "expansion": "The four things deviations are recorded against, judged by tolerances set in the master plan and business case."
+    },
+    {
+      "type": "cue",
+      "acronym": "Deviation, reason, response",
+      "expansion": "The three parts of a useful review finding. The response is where the value is; a deviation without one is just a number."
+    },
+    {
+      "type": "cue",
+      "acronym": "Collect, store, curate, share, archive, destroy",
+      "expansion": "The six stages of information management. Destruction is a planned stage subject to statutory requirements, not an oversight."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define a review, distinguish it from assurance by who conducts it, and explain why decision gates can be either.",
+    "I can give the benefits of conducting reviews, including checking that assumptions about benefits are still valid and that the project stays aligned with current strategy.",
+    "I can state the two questions asked at every decision gate, name the possible outcomes including a conditional go, and say who is accountable versus responsible.",
+    "I can explain how the sunk cost trap is avoided, and why a review may correctly recommend pausing or terminating a viable-looking project.",
+    "I can list the four things deviations are recorded against, explain why tolerances matter, and say why raw data beats summarised analysis.",
+    "I can explain how review timing and formality differ between linear and iterative life cycles, and name iterative review formats including retrospectives.",
+    "I can give the six stages of information management and explain why the approach belongs in the project management plan with governance approval.",
+    "I can give several reasons activities are re-planned after a review, and describe the scrutiny, approval and monitoring sequence that governs it."
+  ],
+  "source_confidence": [
+    {
+      "claim": "Benefits reviews, post-project reviews and audits as review types across the extended life cycle.",
+      "sub_outcome": "6a",
+      "level": "assembled",
+      "basis": "The PMQ 2024 syllabus names decision gates, benefits reviews and audits explicitly in 6a. BoK 8e 3.5 covers decision gates in depth at 3.5.3 but does not give benefits reviews or audits their own treatment in the reviews section — post-project review and benefits review appear as labels in Figure 3.5.3 (p153), and audit is covered under assurance at 3.4 rather than reviews.",
+      "risk": "Moderate. Two of the three review types the syllabus names for 6a are barely developed in the reviews section. Content places them correctly on the life cycle and cross-references LO7 and LO9 where the substance lives, but a question asking specifically about benefits reviews or audits under LO6 would be answered from those other sections."
+    },
+    {
+      "claim": "The consolidated list of 'factors typically reported on' for 6b.",
+      "sub_outcome": "6b",
+      "level": "assembled",
+      "basis": "Deviations from plan, budget, scope and quality are stated directly at BoK 8e 3.5.1 (p148), as are tolerances, reasons and responses. The additional items — validity of benefits assumptions, alignment with policy and strategy, risks and issues, progress against milestones, business case viability — are drawn from across 3.5.1, 3.5.2 and 3.5.3 rather than from a single reporting list.",
+      "risk": "Low. Every item is sourced; only the consolidation into one reporting set is ours. The syllabus asks for factors 'typically' reported, so a composed list is the appropriate answer shape."
+    },
+    {
+      "claim": "The eight reasons activities are re-planned after a review.",
+      "sub_outcome": "6d",
+      "level": "assembled",
+      "basis": "Each trigger is sourced — remedial actions and resource diversion at 3.5.1 (p148), invalid assumptions and strategy alignment at 3.5 (p147), conditional go at 3.5.3 (p152), adaptive planning and WIP reviews at 3.5.2 (p150-151). BoK does not present them as a list of re-planning reasons.",
+      "risk": "Low. Composition is ours; substance is sourced throughout."
+    },
+    {
+      "claim": "The four PMO models and four delivery areas.",
+      "sub_outcome": "6c",
+      "level": "sourced",
+      "basis": "BoK 8e 3.5.4 (p154-155).",
+      "risk": "None on substance. Recorded because Figure 3.5.4 is reproduced by permission of a named third party (Wellingtone Ltd), so no diagram here may follow that figure's arrangement. LO6 deliberately carries no PMO diagram for this reason."
+    }
+  ]
+}

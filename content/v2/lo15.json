@@ -1,0 +1,230 @@
+{
+  "lo_number": 15,
+  "lo_code": "15a, 15b, 15c",
+  "title": "Ethics, compliance and professionalism",
+  "competence_area": "C. People and behaviours",
+  "exam_coverage_note": "Area C (LOs 10-15) accounts for 20-25% of exam marks — the largest single area. LO15 closes it.",
+  "source_ref": "APM BoK 8e s4.6 (p217), s4.6.1 (p218-219), s4.6.2 (p220-221), s4.6.3 (p222-223); APM PMQ Handbook 2024, LO15",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand ethics, compliance and professionalism as the ability to work consistently in a moral, legal and socially responsible manner.",
+  "learning_outcomes": [
+    "15a) Understand the importance of continuing professional development, which should cover both knowledge, skills and behaviours, and the individual's role in identifying and addressing their own competence gaps.",
+    "15b) Knowledge of the sources of specialist advice and standards that need to be adhered to.",
+    "15c) Understand the impact of the legal and regulatory landscape on projects (such as the impact on working conditions, risk management, governance and sustainability)."
+  ],
+  "where_this_fits": "This is the LO about the project professional rather than the project. It connects to LO14 (the duty to speak out when you see discrimination), LO3 (responsible project management and CSR), LO2 (the sponsor and board who oversee compliance) and LO23 (regulatory change as a risk). The single idea running through it: responsibility sits with the individual. Your employer supports your CPD but does not own it, and 'I did not know the regulation existed' is not a defence in law.",
+  "key_definitions": [
+    {
+      "term": "Professionalism",
+      "apm_definition": "A commitment to developing and maintaining the highest standards of competence and integrity. APM frames it as five things: knowledge, competence, career development, continuing professional development and professional conduct.",
+      "plain_english": "Knowing your job, keeping that knowledge current, and behaving properly while doing it."
+    },
+    {
+      "term": "Continuing professional development (CPD)",
+      "apm_definition": "Learning experiences which help you develop and improve your professional practice (CIPD). It involves identifying current and future needs, setting learning objectives, planning development activities, and recording activities and achievements.",
+      "plain_english": "Deliberately staying good at your job. Planned and recorded, not just whatever happened to come up."
+    },
+    {
+      "term": "Reflective practitioner",
+      "apm_definition": "Someone who actively reflects on their experiences, finding learning opportunities in daily experiences, successes, setbacks and unresolved issues rather than relying on digested knowledge such as training.",
+      "plain_english": "Someone who learns from the work itself, not only from courses about the work."
+    },
+    {
+      "term": "APM FIVE Dimensions of Professionalism",
+      "apm_definition": "A framework of standards guiding the development of project professionals: breadth (Body of Knowledge), depth (Competence Framework), achievement (qualifications), accountability (Code of Professional Conduct) and commitment (CPD).",
+      "plain_english": "Five things a professional is measured on, each with an APM artefact behind it."
+    },
+    {
+      "term": "APM Code of Professional Conduct",
+      "apm_definition": "The code setting standards for project professionals in four areas: professional conduct, personal responsibility, responsibility to the profession and the Association, and ethical conduct.",
+      "plain_english": "The rulebook for behaviour. Accountability is the dimension of professionalism it sits under."
+    },
+    {
+      "term": "Discretionary standard",
+      "apm_definition": "An international or industry standard an organisation elects to follow rather than being required to, adopted for reasons including risk aversion, continuous improvement or as a marketing differentiator. An example is ISO 14001:2015 for environmental performance.",
+      "plain_english": "A standard you choose to meet. Nobody makes you; you do it because it is worth doing or worth being seen to do."
+    },
+    {
+      "term": "Corporate social responsibility (CSR)",
+      "apm_definition": "The basis on which some organisations go beyond minimum compliance, aiming to achieve or exceed the spirit of the law rather than just its letter.",
+      "plain_english": "Meeting the intention behind a rule rather than the minimum the rule technically requires."
+    },
+    {
+      "term": "Compliance risk appetite",
+      "apm_definition": "An organisation's defined appetite for compliance risk, alongside specific compliance objectives. A common example is a desire to 'do no harm'.",
+      "plain_english": "How close to the legal line the organisation is willing to operate. Set deliberately, not by accident."
+    },
+    {
+      "term": "Whistleblowing",
+      "apm_definition": "Speaking up to report any form of wrongdoing. A professional duty under the ethical conduct standard, with responsibilities extending beyond the professional body and carrying wider legal implications.",
+      "plain_english": "Reporting wrongdoing. A duty rather than an option, and protected by law in many countries."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "15a",
+      "outcome_title": "Continuing professional development and your own competence gaps",
+      "key_takeaway": "CPD is a cycle — reflect, plan, act, evaluate — covering knowledge, skills and behaviours. Three parties are involved, but responsibility for identifying and closing your own competence gaps sits firmly with you.",
+      "source_ref": "BoK 8e 4.6 (p217), 4.6.1 (p218-219), 4.6.3 (p222)",
+      "body_markdown": "## What CPD is\n\nThe definition the source borrows from the CIPD (and the attribution travels with it): CPD is **the learning that develops and improves how you practise professionally**.\n\nAnd where it sits: APM frames **professionalism as five things — knowledge, competence, career development, CPD and professional conduct.** CPD is one of five, not the whole of it.\n\n## The four ongoing activities\n\n| Activity | What it involves |\n|---|---|\n| **Identify current and future needs** | Both — what you lack now, and what the work is about to require |\n| **Set learning objectives and targets** | Turning a gap into something you can aim at |\n| **Plan activities** | Supporting personal and professional development |\n| **Record activities and achievements** | Which matters for maintaining formal status, and for knowing what you actually did |\n\n## The CPD cycle\n\nA repeating loop rather than a list:\n\n1. **Reflection on practice** — where are the gaps in what I know and what I can do?\n2. **Planning** — how can I learn it?\n3. **Action** — the learning, and putting it into practice.\n4. **Evaluation** — what have I learned, and how is it benefiting my practice?\n\nThen back to reflection. The evaluation step is the one that gets skipped, and it is the one that makes the difference: attending a course is not development until something about your practice changes.\n\n## Three participants, one owner\n\nThis is the heart of 15a, because the syllabus asks specifically about **the individual's role in identifying and addressing their own competence gaps.**\n\n| Participant | Their part |\n|---|---|\n| **The learner** | **Takes responsibility for identifying their own competence gaps**, and pursues learning or opportunities to fill them |\n| **The manager** | Offers **good performance feedback**, helping set the direction for learning and development |\n| **The organisation** | Supports CPD activities — which **may include funded training or paid time off** |\n\n**The responsibility lies firmly with each project professional.** An employer who funds nothing has made your CPD harder; they have not made it someone else's problem. That is the answer to any scenario where a candidate's development has stalled and the employer is being blamed.\n\n## Knowledge, skills and behaviours\n\nThe syllabus is explicit that CPD covers all three. Worth separating:\n\n| Dimension | Example gap | How it gets closed |\n|---|---|---|\n| **Knowledge** | Not knowing how earned value works | Reading, courses, qualifications |\n| **Skills** | Being unable to facilitate a workshop | Practice, coaching, doing it with support |\n| **Behaviours** | Reacting badly to challenge | Reflection, feedback, deliberate change |\n\nBehaviours are the hardest to self-diagnose, which is exactly why **the manager's performance feedback** matters — you cannot see your own shadow, to borrow LO12's phrase.\n\n## Qualifications and accreditation\n\n**Formal qualifications and accreditations carry real weight in a project professional's CPD.** APM runs a structured ladder:\n\n| Level | Qualification |\n|---|---|\n| **Foundation** | Project Fundamentals Qualification (PFQ) |\n| **Practitioner** | **Project Management Qualification (PMQ)** — the one you are taking |\n| **Advanced** | Project Professional Qualification (PPQ) |\n| **Chartered** | **Chartered Project Professional (ChPP)** — the highest attainment of knowledge, professional practice and ethical behaviour, recorded on APM's **Register of Chartered Project Professionals** |\n\nOther awarding bodies also offer qualifications — further and higher education institutions, and other professional bodies — and **project professionals often hold accreditations from more than one.**\n\n**Maintaining status requires CPD.** Those holding formal certifications may need continuing CPD to keep them, and **each professional body publishes its own CPD requirements**, usually counted in **CPD units, or professional development units — PDUs**.\n\n## Learning beyond courses\n\n**Development works better when it reaches past courses and certificates.** The sources named:\n\n| Source | What it offers |\n|---|---|\n| **Academic journals** — e.g. *International Journal of Project Management* | Research findings |\n| **Practitioner magazines** — e.g. *Project* | The profession in practice |\n| **Podcasts and YouTube channels** | A mix of knowledge and opinion |\n| **Blogs and social media** | Keeping up with trends and challenges |\n| **Conferences** | Platforms for sharing and learning, and building contacts |\n\n## The reflective practitioner\n\nThe most useful idea in 15a for an answer. **Reflective practitioners actively reflect on their experiences.** They **take their learning from the work rather than from pre-packaged training** — mining **the ordinary run of the job: what went well, what went badly, and what is still unresolved.**\n\nNote all four sources of learning in that list. **Setbacks and unresolved issues** count as much as successes — which connects to LO12's point that a leader must accept mistakes will happen and focus on what can be learned, and to LO6's lessons-learned reviews.\n\nA project professional who only develops on training days is developing a few days a year. A reflective practitioner is developing continuously, from work they were doing anyway.",
+      "diagrams": [
+        {
+          "id": "lo15-cpd-cycle",
+          "figure_number": "15.1",
+          "caption": "The continuing professional development cycle",
+          "placement": "after_heading",
+          "heading": "The CPD cycle",
+          "file": null,
+          "spec": "A four-stage closed loop: reflection on practice ('what do I need to know or be able to do?'), planning ('how can I learn?'), action (learning and implementation), evaluation ('what have I learned, and how is it benefiting my practice?'), returning to reflection. Include the question under each stage — the questions are what make the cycle usable. Note BoK Figure 4.6.1 is credited 'adapted from Friedman (2012)', so ours must be an original depiction.",
+          "alt": "A four-stage CPD cycle running from reflection on practice through planning and action to evaluation, then back to reflection."
+        }
+      ]
+    },
+    {
+      "outcome_code": "15b",
+      "outcome_title": "Sources of specialist advice and the standards to adhere to",
+      "key_takeaway": "Advice comes from organisational functions, embedded specialists, and external legal or consultancy support. Standards form a hierarchy from law down to organisational policy, with discretionary standards adopted by choice on top.",
+      "source_ref": "BoK 8e 4.6 (p217), 4.6.2 (p220-221), 4.6.3 (p222-223)",
+      "body_markdown": "## Why you need advice at all\n\n**A single piece of project work can reach across several industries and several countries, each carrying its own laws, regulations and standards.** No individual carries that in their head, and **in law, ignorance is not a defence** — so knowing where to get advice is itself a professional competence.\n\n## Where specialist advice comes from\n\n| Source | When used |\n|---|---|\n| **Organisational functions** | Specialists who advise the project from within the organisation — **procurement and project finance law specialists** are the examples given |\n| **Core project team members** | Where the need is constant, the specialist is embedded — **health and safety managers on a construction project** |\n| **External legal or consultancy advice** | **In an unfamiliar regulatory environment**, brought in from outside |\n| **The sponsor and governance board** | They **oversee and challenge project practice, provide support**, and **may commission expert guidance or legal support** |\n| **Professional bodies** | APM and others publish codes, frameworks and standards |\n\nThe governance route matters and links straight to LO2: if a project needs legal support it cannot fund, that is an escalation to the sponsor, not a decision to proceed uninformed.\n\n**And the standing instruction from LO14, which applies here too: if unsure, seek advice.**\n\n## The hierarchy of standards\n\nStandards are not a flat list. They stack:\n\n| Level | Character |\n|---|---|\n| **Laws** | Binding. Non-compliance can carry fines or custodial sentences |\n| **Regulations** | Binding, and often industry-specific |\n| **International directives** | Binding depending on jurisdiction |\n| **Government or industry guidance** | Expected practice; may be effectively mandatory in a sector |\n| **Discretionary standards** | **Adopted by choice** — e.g. ISO 14001:2015 for environmental performance |\n| **Organisational policy and procedure** | The organisation's own rules, sitting inside all of the above |\n\n**Codes of practice** sit within many regulatory frameworks, and **can be mandatory**. On top of those, **organisations can elect to follow discretionary standards.**\n\n## Why organisations adopt discretionary standards\n\nThree named reasons:\n\n- **risk aversion**\n- **continuous improvement**\n- **as a marketing differentiator**\n\nThat third reason is worth carrying — a standard can be adopted for commercial positioning rather than for its content, and both are legitimate.\n\n## Minimum compliance versus the spirit of the law\n\n| Position | What it means |\n|---|---|\n| **Minimum compliance** | What **most organisations aim for** — meeting the relevant legislation and regulations |\n| **Beyond compliance** | Some **set out to meet, or better, what the law was actually trying to achieve**, as part of **corporate social responsibility** |\n\nPlenty of organisations also set **compliance objectives explicitly, and decide how much compliance risk they will carry** — **'do no harm'** being a common example. That is the same deliberate-appetite thinking as risk appetite in LO1 and LO23, applied to compliance.\n\n## Professional standards: the FIVE Dimensions\n\nBeyond legal and regulatory standards, project professionals are held to professional ones. The **APM FIVE Dimensions of Professionalism**:\n\n| Dimension | The APM artefact behind it |\n|---|---|\n| **Breadth** | The **Body of Knowledge** — what you need to know to run a project of any type |\n| **Depth** | The **Competence Framework** — levels of knowledge and experience, mapped |\n| **Achievement** | **APM qualifications**, recognised across the profession |\n| **Accountability** | The **Code of Professional Conduct** — the ethical practice expected |\n| **Commitment** | **CPD** |\n\n## The Code of Professional Conduct\n\nFour areas, and the detail under 'personal responsibility' is the most examinable part:\n\n| Area | What it covers |\n|---|---|\n| **Professional conduct** | Being competent, acting with integrity, and respecting the law, the regulations, and health, safety and environmental duties |\n| **Personal responsibility** | Honesty, probity, confidentiality and sound judgement; serving the interests of employers and clients. Plus **keeping your CPD up**, **declaring any interest**, **turning down inducements**, working with due diligence, and owning what you do |\n| **Responsibility to the profession and the Association** | Protecting and strengthening how APM and the profession are regarded |\n| **Ethical conduct** | Doing the right thing, and **raising ethical concerns when you have them** |\n\n**Rejecting inducements** appears here and connects directly to LO10 — where the use of rewards and coercion to influence stakeholders was said to rarely have integrity. The same principle, stated as a professional obligation.\n\n## The duty to speak up\n\n**Reporting wrongdoing is a professional duty, and the ethical conduct standard says so.** **Speaking up is everyone's obligation** — the familiar word for it is **whistleblowing** — and **that obligation runs wider than the professional body, with legal weight behind it.**\n\n**What organisations must provide:**\n\n- **a policy and process enabling individuals to speak up**\n- **Legal protection for people reporting suspected wrongdoing exists in many countries** — the examples given being **fraud or corruption** and **health and safety not being safeguarded**\n- that protection can cover **what has happened, what is happening, and what might happen**, and can extend to raising concerns about **a different company** — one inside the project, the programme or the supply chain\n\n**What project professionals must do:**\n\n1. **Build a culture ethical enough that speaking up feels safe.**\n2. **Make sure every team member knows the route, should they need it.**\n\nBoth halves are needed. A reporting process nobody feels safe using, or a safe culture where nobody knows the route, each fails on its own. And good organisations **write down a clear set of values, communicate them, and actually live by them at every level where decisions get made** — the same 'best values are the ones the team sets for itself' idea from LO12."
+    },
+    {
+      "outcome_code": "15c",
+      "outcome_title": "How the legal and regulatory landscape affects projects",
+      "key_takeaway": "Regulation comes in three types and reaches into requirements, planning, scheduling, risk, change control and assurance. Non-compliance carries sanctions scaled by severity, systemic-versus-individual failure, and whether it was accidental or deliberate.",
+      "source_ref": "BoK 8e 4.6 (p217), 4.6.2 (p220-221)",
+      "body_markdown": "## Where the framework comes from\n\n**Every piece of project work sits inside a legal and regulatory framework.** Where that framework comes from: **the industry involved, the country the work is done in, and the country the product ends up in.**\n\nBoth locations matter. A product built in one jurisdiction and sold into another inherits obligations from both.\n\n**Understanding the regulatory environment is part of the job. The law does not accept not knowing as an excuse.**\n\n## Regulation changes, so monitor it\n\n**The legal and regulatory picture shifts**, so you need **something standing that watches for those changes.** Not a one-off check at the start — a standing arrangement, staffed by **qualified and experienced experts**.\n\nThis is also a live link to LO23: regulatory change is a project risk with a known likelihood of occurring, and a monitoring mechanism is the response.\n\n## Three categories of regulation\n\nDirectly examinable, and each demands something different of the project.\n\n| Category | What it requires | Example |\n|---|---|---|\n| **Prescriptive** | **Specific actions the project must take** | Control of substances hazardous to health |\n| **Competence-based** | **Competence of key team members to be pre-established** | Roles requiring certification before work starts |\n| **Goal-setting** | **Employers set goals but decide how to meet them** | Manual handling operations |\n\nThe distinction is practical. A prescriptive regulation tells you what to do. A goal-setting one leaves the method to you but still holds you to the outcome — which is harder, because there is no checklist to complete.\n\n**Some regulations are specific to the type of work** — construction design and management regulations, for instance. **Others are relevant to all work** — **data privacy** and **safeguarding people at work**. And **some situations require team members or specialist advisors to be appropriately qualified or certified** for specific pieces of work.\n\n## What the regulatory environment reaches into\n\nThe syllabus asks about the impact on projects, and the source names the processes affected:\n\n| Process | How regulation shapes it |\n|---|---|\n| **Requirements capture** | Regulatory obligations become requirements — non-negotiable ones |\n| **Quality planning** | Standards to be met and evidenced |\n| **Integrated planning** | Compliance activity has to be planned and resourced |\n| **Scheduling** | Approvals, inspections and certifications take time and sit on the critical path |\n| **Risk and issue management** | Non-compliance is a risk; regulatory change is a risk |\n| **Change control** | Changes must be assessed for compliance impact, not only cost and schedule |\n| **Project audit and assurance** | What gets audited against |\n\nThat is the answer to a 15c question in one table — regulation is not a separate workstream, it is a constraint threaded through the existing processes.\n\n**The syllabus also names working conditions, governance and sustainability specifically:**\n\n- **Working conditions** — safeguarding people at work, health and safety, and the competence requirements that go with them.\n- **Governance** — the sponsor and board **oversee and challenge project practice**, and compliance sits inside the governance framework from LO2.\n- **Sustainability** — regulatory compliance is one of the named benefits of embedding sustainability in LO3, preserving the **licence to operate**, and discretionary standards such as ISO 14001 are adopted to improve environmental performance.\n\n## Consequences of non-compliance\n\n**Breach a legally binding regulation and the organisation can face corrective action or a fine. For some breaches, an individual can go to prison.**\n\nThat last point is worth stating plainly in an answer: the consequence is not always corporate. Individuals can go to prison.\n\n**Three factors scale the sanction:**\n\n| Factor | The question |\n|---|---|\n| **Extent and impact** | How far did the non-compliance reach, and what harm did it do? |\n| **Individual or systemic failure** | Was this one person, or the way the organisation works? |\n| **How it arose** | **Accident, oversight, carelessness or deliberate commission** |\n\nThe third factor runs on a scale of culpability: an accident and a deliberate act are treated very differently, with oversight and carelessness in between. That is a genuinely useful thing to reason with in a scenario.\n\n## Conflicting jurisdictions\n\n**Run a project across borders and you will eventually find two sets of rules that cannot both be satisfied.**\n\nThe answer: **which standard the project aligns to is settled by the governance structure, on specialist advice where that is needed.**\n\nNote what that is *not*. It is not the project manager picking the more convenient standard, and it is not defaulting to the home jurisdiction. It is a governance decision, informed by specialist advice — which is the same delegated-authority principle as LO2, applied to a decision that exceeds the project's competence as well as its authority.",
+      "diagrams": [
+        {
+          "id": "lo15-regulatory-hierarchy",
+          "figure_number": "15.2",
+          "caption": "The hierarchy of legal and regulatory influences",
+          "placement": "after_heading",
+          "heading": "The hierarchy of standards",
+          "file": null,
+          "spec": "A layered stack, most binding at the top descending to most local: laws, regulations, international directives, government or industry guidance, discretionary standards, organisational policy and procedure. Mark clearly which layers are binding and which are adopted by choice — that boundary is the teaching point. If drawn as a pyramid, check it does not duplicate the existing v1 `compliance-pyramid.svg`.",
+          "alt": "A layered hierarchy of legal and regulatory influences from laws and regulations at the top through international directives and guidance to discretionary standards and organisational policy."
+        },
+        {
+          "id": "lo15-scope-of-ethics",
+          "figure_number": "15.3",
+          "caption": "What sits inside the scope of ethics",
+          "placement": "after_heading",
+          "heading": "The duty to speak up",
+          "file": null,
+          "spec": "Ethics at the centre with its components arranged around it: moral principles, values, rules and policies, codes of practice, ethical practices, rules of conduct — with society as the outer context. The argument: ethics is broader than compliance, and rules are only one part of it. A v1 asset exists covering the scope of ethics; check it before drawing new.",
+          "alt": "Ethics shown at the centre of moral principles, values, rules and policies, codes of practice and rules of conduct, set within the wider context of society."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "CPD is the employer's responsibility to provide.",
+      "right": "Three parties are involved — learner, manager and organisation — but responsibility lies firmly with each project professional to identify their own competence gaps and pursue learning to fill them."
+    },
+    {
+      "wrong": "CPD means training courses and qualifications.",
+      "right": "Learning is more effective when it ranges beyond formal courses — journals, practitioner magazines, podcasts, blogs, conferences. A reflective practitioner finds learning in daily experiences, successes, setbacks and unresolved issues."
+    },
+    {
+      "wrong": "CPD covers knowledge and skills.",
+      "right": "The syllabus specifies knowledge, skills and behaviours. Behaviours are the hardest to self-diagnose, which is why a manager's performance feedback matters."
+    },
+    {
+      "wrong": "Not knowing about a regulation is a reasonable explanation for breaching it.",
+      "right": "In law, ignorance is not a defence. Project professionals must understand the regulatory environment and establish a mechanism for monitoring changes to it."
+    },
+    {
+      "wrong": "All regulations tell you what actions to take.",
+      "right": "There are three categories. Some prescribe specific actions, some require competence to be pre-established, and some set goals but leave employers to decide how to meet them."
+    },
+    {
+      "wrong": "Non-compliance is an organisational risk.",
+      "right": "Organisations face corrective action or fines, and for some breaches an individual can go to prison. The sanction scales with how far the breach reached and what harm it did, whether one person or the system failed, and whether it was an accident or done deliberately."
+    },
+    {
+      "wrong": "Where jurisdictions conflict, the project manager chooses which standard to apply.",
+      "right": "Which standard the project aligns to is a governance decision, taken on specialist advice where needed. It sits beyond the project's competence as well as its authority."
+    },
+    {
+      "wrong": "Meeting minimum compliance is what good practice requires.",
+      "right": "Minimum compliance is what most organisations target, but some go further and set out to meet or better what the law was trying to achieve, as part of corporate social responsibility and a deliberately set compliance risk appetite."
+    },
+    {
+      "wrong": "Speaking up about wrongdoing is a matter of personal conscience.",
+      "right": "It is a professional duty under the ethical conduct standard of the Code, with implications beyond the professional body. Project professionals must both create a culture where it feels safe and ensure everyone knows how to do it."
+    },
+    {
+      "wrong": "Whistleblowing protection applies to reporting your own employer about current events.",
+      "right": "Protection in many countries extends to past, present or potential future events, and can cover speaking up about another company — one in the project, programme or supply chain."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Reflect, plan, act, evaluate",
+      "expansion": "The CPD cycle. Evaluation is the step that gets skipped, and it is the one that turns a course attended into practice changed."
+    },
+    {
+      "type": "cue",
+      "acronym": "Three involved, one responsible",
+      "expansion": "Learner, manager and organisation all take part in CPD. The responsibility for identifying and closing your own competence gaps sits with you."
+    },
+    {
+      "type": "cue",
+      "acronym": "Breadth, depth, achievement, accountability, commitment",
+      "expansion": "The APM FIVE Dimensions of Professionalism — Body of Knowledge, Competence Framework, qualifications, Code of Professional Conduct, CPD."
+    },
+    {
+      "type": "cue",
+      "acronym": "Do this, be qualified, hit this goal",
+      "expansion": "The three categories of regulation. Prescriptive actions, pre-established competence, or goals with the method left to you."
+    },
+    {
+      "type": "cue",
+      "acronym": "Safe to speak, and know how",
+      "expansion": "Both halves are needed. A reporting process nobody trusts fails, and a trusting culture with no known route fails too."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define CPD, give the four stages of the CPD cycle, and explain what each stage asks.",
+    "I can name the three participants in CPD and explain where responsibility for competence gaps actually sits.",
+    "I can explain what a reflective practitioner does differently, and name learning sources beyond formal courses.",
+    "I can name the sources of specialist advice available to a project and say when each is used.",
+    "I can describe the hierarchy of legal and regulatory influences and explain why organisations adopt discretionary standards.",
+    "I can name the APM FIVE Dimensions of Professionalism and the four areas of the Code of Professional Conduct.",
+    "I can give the three categories of regulation and name the project processes the regulatory environment affects.",
+    "I can explain the consequences of non-compliance and what scales a sanction, and say who decides when jurisdictions conflict."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All substantive content across 15a, 15b and 15c — the CPD cycle and participants, the qualification ladder, sources of specialist advice, the standards hierarchy, the FIVE Dimensions, the Code of Professional Conduct's four areas, the three categories of regulation, affected processes, sanction factors and jurisdictional conflict.",
+      "sub_outcome": "15a",
+      "level": "sourced",
+      "basis": "BoK 8e 4.6 (p217), 4.6.1 (p218-219), 4.6.2 (p220-221), 4.6.3 (p222-223). Coverage is thorough and maps closely onto the syllabus — this is among the best-sourced LOs in the course, alongside LO7 and LO11.",
+      "risk": "None."
+    },
+    {
+      "claim": "The knowledge / skills / behaviours breakdown with worked examples of each type of competence gap.",
+      "sub_outcome": "15a",
+      "level": "assembled",
+      "basis": "The three dimensions are named in the PMQ 2024 syllabus for 15a. BoK 8e 4.6.1 covers CPD without separating knowledge, skills and behaviours; the breakdown and the worked examples are ours.",
+      "risk": "Low. Uncontroversial, and it follows the syllabus's own wording."
+    },
+    {
+      "claim": "The table mapping regulatory impact onto specific project processes, and the linkage to working conditions, governance and sustainability named in the syllabus.",
+      "sub_outcome": "15c",
+      "level": "assembled",
+      "basis": "The affected processes are listed directly at BoK 8e 4.6.2 (p220) — requirements capture, quality planning, integrated planning, scheduling, risk and issue management, change control, project audit and assurance. How each is shaped, and the cross-references to LO2 governance and LO3 sustainability, are ours.",
+      "risk": "Low. The list is sourced; the explanation of each and the cross-referencing are composition."
+    },
+    {
+      "claim": "The CPD definition attributed to CIPD.",
+      "sub_outcome": "15a",
+      "level": "sourced",
+      "basis": "BoK 8e 4.6.1 (p218) quotes the Chartered Institute of Personnel and Development definition directly and attributes it.",
+      "risk": "None on substance. Recorded because the definition is third-party attributed within the source, so the attribution must travel with it wherever it is used."
+    }
+  ]
+}

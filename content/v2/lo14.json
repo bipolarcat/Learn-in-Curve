@@ -1,0 +1,233 @@
+{
+  "lo_number": 14,
+  "lo_code": "14a, 14b, 14c",
+  "title": "Diversity and inclusion",
+  "competence_area": "C. People and behaviours",
+  "exam_coverage_note": "Area C (LOs 10-15) accounts for 20-25% of exam marks — the largest single area.",
+  "source_ref": "APM BoK 8e s4.5 (p209), s4.5.1 (p210-211), s4.5.2 (p212-213), s4.5.3 (p214-215); APM PMQ Handbook 2024, LO14. Protected characteristics framing from the Equality Act 2010 — see source_confidence.",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand diversity and inclusion as the ability to build and maintain an inclusive environment that embraces a diverse culture.",
+  "learning_outcomes": [
+    "14a) Knowledge of diversity, including characteristics which may cause a person to be treated less favourably, such as: age, disability, marriage and civil partnership, pregnancy and maternity, race, religion or belief, sex, and sexual orientation.",
+    "14b) Understand why incorporating diversity into all parts of a project, from team members to customers, is a factor in creating a positive working environment, and understand the importance of embracing diverse thinking in teams as a means of generating innovative solutions.",
+    "14c) Understand how conscious and unconscious bias can affect actions, and know how to treat people fairly, including adapting behaviours to support individuals' needs and facilitate their contributions."
+  ],
+  "where_this_fits": "LO13 built the team; LO14 is about who is in it and whether they can actually contribute. It connects directly to LO11 — diverse thinking is the raw material for the constructive challenge that prevents groupthink — and to LO12's inclusive culture. The idea that organises the whole LO: diversity without inclusion delivers nothing. Getting different people into a room is the easy half; making it possible for them to be heard is the half that produces the performance.",
+  "key_definitions": [
+    {
+      "term": "Diversity",
+      "apm_definition": "Having the broadest range of different people. It includes race and ethnicity, class, age, gender and gender identity, sexual orientation, language, mental health, religion, physical and mental ability, and neurodivergence.",
+      "plain_english": "The range of difference present in a group. Much wider than the legally protected list."
+    },
+    {
+      "term": "Inclusion",
+      "apm_definition": "Creating an environment where everyone feels welcome.",
+      "plain_english": "Making it possible for the people who are there to actually take part."
+    },
+    {
+      "term": "Belonging",
+      "apm_definition": "Making everyone feel that this is their environment — people do not feel the need to 'fit in', because the team accepts and values their differences.",
+      "plain_english": "One step past inclusion. Not 'you are welcome here' but 'this is yours too'."
+    },
+    {
+      "term": "Advocacy",
+      "apm_definition": "Speaking up for a group or individual who is marginalised, discriminated against, or not getting the respect they deserve.",
+      "plain_english": "Using your voice for someone who is not being heard — while being aware it can disempower, even when well meant."
+    },
+    {
+      "term": "Allyship",
+      "apm_definition": "Supporting people from marginalised groups — not by speaking for them, but by helping them secure a platform to speak for themselves.",
+      "plain_english": "Handing over the microphone rather than using it on someone's behalf. Ask first whether help is wanted, and how."
+    },
+    {
+      "term": "Discrimination",
+      "apm_definition": "When one person is treated more or less favourably than another. Its sources are prejudice and bias.",
+      "plain_english": "Different treatment for reasons unrelated to what someone can do."
+    },
+    {
+      "term": "Prejudice",
+      "apm_definition": "Forming an opinion before having all the relevant facts, often based on stereotypes or outdated perceptions.",
+      "plain_english": "Judging before knowing. The clue is in the word — pre-judging."
+    },
+    {
+      "term": "Bias",
+      "apm_definition": "A preference for or against a person or their ideas without reference to their specific merits. Can be conscious (explicit) or unconscious (implicit).",
+      "plain_english": "Leaning for or against someone for reasons that have nothing to do with the actual merits."
+    },
+    {
+      "term": "Conscious bias",
+      "apm_definition": "Stereotypes and attitudes that people are aware of and express deliberately, often rooted in upbringing, social conditioning, experiences and cultural norms.",
+      "plain_english": "Bias the holder knows about and acts on anyway. Some expressions of it are illegal."
+    },
+    {
+      "term": "Unconscious bias",
+      "apm_definition": "Bias arising from beliefs, stereotypes and assumptions below the level of conscious awareness, affecting selection, recognition, working relationships and decision-making without the people involved knowing it is happening.",
+      "plain_english": "The bias you cannot feel operating. Which is exactly why processes rather than good intentions are the defence."
+    },
+    {
+      "term": "Blinded CV",
+      "apm_definition": "A CV from which names, genders, ages and other personal identification have been removed before review.",
+      "plain_english": "Taking the identifying details off so the assessment lands on capability."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "14a",
+      "outcome_title": "What diversity covers, and the characteristics that attract less favourable treatment",
+      "key_takeaway": "Diversity is the full range of human difference, wider than any legal list. The syllabus names characteristics from UK equality law — those define the legal floor, and project professionals are expected to go beyond it to inclusion and belonging.",
+      "source_ref": "BoK 8e 4.5 (p209), 4.5.1 (p210); protected characteristics from the Equality Act 2010 — see source_confidence",
+      "body_markdown": "## What diversity means here\n\n**Diversity is about spanning the widest possible range of people.** The dimensions the source names:\n\n- ethnicity and race\n- social class\n- age\n- gender, and gender identity\n- sexual orientation\n- the languages people speak\n- mental health\n- faith or religion\n- ability, both physical and mental\n- neurodivergence\n\nNote how wide that is. **Class, language and neurodivergence** all appear, and none of them is a legally protected characteristic in the UK. Diversity as a concept is broader than the law's list.\n\n## The five terms to keep separate\n\nThe source introduces five, and the exam can test the distinctions between them.\n\n| Term | Meaning |\n|---|---|\n| **Diversity** | Having the broadest range of different people |\n| **Inclusion** | Creating an environment where everyone feels welcome |\n| **Belonging** | Everyone feeling the environment is *theirs*, not somewhere they were let into |\n| **Advocacy** | Using your voice on behalf of a group being marginalised or discriminated against |\n| **Allyship** | Backing people from marginalised groups |\n\nThe progression from diversity → inclusion → belonging is the one to hold. Each is a step further, and each is harder.\n\n## The characteristics named in the syllabus\n\nThe syllabus lists characteristics **which may cause a person to be treated less favourably**:\n\n| Characteristic |\n|---|\n| **Age** |\n| **Disability** |\n| **Marriage and civil partnership** |\n| **Pregnancy and maternity** |\n| **Race** |\n| **Religion or belief** |\n| **Sex** |\n| **Sexual orientation** |\n\nThese are protected characteristics under the **Equality Act 2010**, which is where the framing comes from — not from the Body of Knowledge.\n\n**Two things worth knowing precisely:**\n\n1. **The Act protects nine characteristics; the syllabus list names eight.** The one not listed is **gender reassignment**. The syllabus says 'such as', so the list is illustrative rather than complete — learn all nine, because the ninth is equally protected in law.\n2. **This is the legal floor, not the goal.** **Plenty of countries make discrimination unlawful — the expectation on a project professional runs past that, into owning inclusion and belonging.** Compliance with the Act stops you being unlawful. It does not produce a team where people can contribute.\n\n## Why the legal frame is not enough on its own\n\nThe source's position is that **teams are stronger for their differences**, and that they **do best where people are valued for their capabilities instead of being run down for their weak spots.**\n\nThat is a performance argument rather than a compliance one — and it is the argument the exam is more interested in. LO14b and 14c both build on it.\n\n## The jurisdiction point\n\nWorth carrying, because scenarios can be set anywhere: **some jurisdictions require diversity, inclusion and cultural-difference training by law**, and **in many places certain expressions of conscious bias are themselves unlawful** — putting both the individual and the organisation **at risk of prosecution**.\n\nThe source's own instruction where that arises: **if unsure, project professionals should always seek advice.** That is the correct answer in any scenario where the legal position is uncertain — not a guess about what the law requires."
+    },
+    {
+      "outcome_code": "14b",
+      "outcome_title": "Why diversity across the project creates a positive environment and innovative solutions",
+      "key_takeaway": "Different people interpret situations through different filters, which produces more perspectives, broader skills, better problem-solving, more creativity and more robust decisions. But diversity only pays out where inclusion lets those perspectives be heard.",
+      "source_ref": "BoK 8e 4.5 (p209), 4.5.1 (p210-211), 4.5.2 (p212-213)",
+      "body_markdown": "## The mechanism\n\n**The benefits of diversity are proven** — but knowing *why* is what earns marks. The mechanism is this: **people genuinely perceive the world differently, and read the same situation through unlike filters.** The result is **a different angle on every part of a project, programme or portfolio.**\n\nEverything else follows from that single fact.\n\n## The benefits\n\n| Benefit | How it arises |\n|---|---|\n| **More perspectives** | Different backgrounds and cultures bring different experiences to bear on the same problem |\n| **Broader skills** | **Irrelevant-seeming capabilities find useful applications** in project work, making the team more adaptable |\n| **More effective problem-solving** | More approaches available to any given problem |\n| **Greater creative thinking and innovation** | The direct answer to the second half of 14b |\n| **More robust decision-making** | Options get tested from more angles before being chosen |\n| **Deeper empathy with end users** | **The more a team resembles the community it is building for**, the better it designs and delivers something those users actually need |\n| **Strong community** | An inclusive environment produces a **stronger sense of community within the team** |\n| **Greater adaptability and resilience** | A broader range of personalities, experiences and skills lets a team **tolerate and support one another and thrive under stress**, and **absorb a shock through fresh thinking, moving fast, and backing each other** |\n\n## 'From team members to customers'\n\nThe syllabus phrase matters. Diversity is not only an internal staffing question — the **deeper empathy with end users** benefit is about the *output*, not the working environment.\n\nA team that resembles the people it is building for understands them better. A team that does not will make confident assumptions about users it has never met, and those assumptions end up in the product. That is a delivery risk, not only an ethical one.\n\n## The equation that organises the whole LO\n\nThe source is unusually direct here, and this is the highest-value thing in 14b:\n\n| Combination | Result |\n|---|---|\n| **Diversity without inclusion** | Leaders **cannot get the best from people** — the perspectives are present but cannot be heard |\n| **Inclusion without diversity** | **Comfortable, short on new ideas, short on challenge, and poorly attuned to the society the project exists to serve** |\n| **Diversity with inclusion** | **Enhanced team performance and better results** |\n\nThat middle row is the one candidates never think of. A warm, welcoming, entirely homogeneous team is not the safe option — it is the groupthink condition from LO11 with better manners.\n\n## Why project professionals specifically can do this\n\nA point some candidates dismiss: it is easy to assume a project manager has no real purchase on organisational culture. The source rejects that.\n\n**A project team gets built with a culture of its own**, which puts **its wellbeing in the project professional's hands** — and **assembling a diverse team is frequently a choice available to them**, with enough control to make that team an inclusive one.\n\nA temporary team is built from scratch. That is an opportunity a line manager inheriting a permanent department does not get.\n\n## Building an inclusive environment\n\n**Start at the entry point.** **Inclusion starts with ensuring there are no barriers to entry**, which probably means **measuring who applies, who gets appointed, and who stays — particularly from underrepresented groups**. Retention as well as appointment — hiring people into an environment they then leave is not inclusion.\n\n**At hiring:**\n\n- **capability-based requirements** set for each role\n- **open recruitment** wherever possible\n- **blinded CVs** where possible — names, genders, ages and other personal identifiers removed before review\n- a deliberate call on whether you are **recruiting the strongest individuals or assembling the strongest team**, with perspectives balanced across it\n\nThat last one is a genuine judgement call and a good scenario answer: the strongest individuals do not automatically compose the strongest team.\n\n**Once the team exists:**\n\n| Action | Purpose |\n|---|---|\n| **Training** in diversity, inclusion and cultural differences | Mandatory in some jurisdictions, good practice everywhere |\n| **Periodic surveys** | Feedback on how the team actually feels, rather than how you assume they feel |\n| **Meeting structure and facilitation** | So everyone can contribute **and people listen** |\n| **Echo and attribute** | **Where a contribution is not acknowledged, repeat the point and attribute it to the speaker** |\n| **Recognition and celebration** | Give recognition for collaboration and celebrate wins together |\n| **Mentoring and sponsorship** | Gives people a route through the culture and someone to raise difficulties with. **Not everyone finds it easy to promote themselves**, and a sponsor can make sure their achievements get aired |\n| **Advocacy** | Speaking up for someone being denied due respect — though **it can strip power from the person, however kindly meant** |\n| **Allyship** | Supporting people **without speaking for them** — helping them secure a platform to speak for themselves. **Check first that support is wanted, and what form it should take** |\n| **Speak out** | **If you see prejudice, discrimination or disrespect, say so** |\n\n**The 'echo and attribute' technique is small and specific enough to be worth naming in an answer.** So is the advocacy-versus-allyship distinction: advocacy speaks *for* someone, allyship helps them speak. The source flags that advocacy can disempower, which is why allyship is usually the better default.\n\n**And on leadership:** the job is to **set the standard and call out breaches of it. Everyone needs a line they will hold, and the willingness to challenge whoever steps over it.**",
+      "diagrams": [
+        {
+          "id": "lo14-diversity-performance",
+          "figure_number": "14.1",
+          "caption": "How diversity produces higher performance",
+          "placement": "after_heading",
+          "heading": "The benefits",
+          "file": null,
+          "spec": "Eight benefit nodes feeding into a central 'higher performance' outcome: more perspectives, broader skills, more effective problem-solving, more robust decision-making, deeper empathy with end users, strong community, greater adaptability, greater resilience to setbacks. Show inclusion as a gate the benefits must pass through — diversity alone does not reach the outcome. That gate is the argument.",
+          "alt": "Eight benefits of diversity feeding through inclusion into higher performance, showing that diversity alone does not deliver the outcome without inclusion."
+        },
+        {
+          "id": "lo14-diversity-inclusion-matrix",
+          "figure_number": "14.2",
+          "caption": "Diversity and inclusion are two separate dials",
+          "placement": "after_heading",
+          "heading": "The equation that organises the whole LO",
+          "file": null,
+          "spec": "A two-by-two grid, diversity low to high on one axis, inclusion low to high on the other. Four cells: low/low (homogeneous and unwelcoming); high diversity, low inclusion (perspectives present but unheard — cannot get the best from people); low diversity, high inclusion (comfortable, few new ideas, little challenge, poor understanding of the society served); high/high (enhanced performance and better results). The low-diversity, high-inclusion cell should be visually flagged as a trap, because it feels like success.",
+          "alt": "A grid plotting diversity against inclusion, showing that a comfortable but homogeneous team and a diverse but non-inclusive team both fail, and only high diversity with high inclusion delivers performance."
+        }
+      ]
+    },
+    {
+      "outcome_code": "14c",
+      "outcome_title": "Conscious and unconscious bias, and treating people fairly",
+      "key_takeaway": "Conscious bias is deliberate and sometimes illegal; unconscious bias is subtle, harder to spot and operates without awareness. Three strategies address both. And fairness is not treating everyone the same — it is adapting to each person's needs.",
+      "source_ref": "BoK 8e 4.5 (p209), 4.5.2 (p212), 4.5.3 (p214-215)",
+      "body_markdown": "## Where bias comes from\n\n**Human beings are most at ease around people who resemble them.** That is the root, and stating it matters — bias is not presented as a moral failing found in bad people, but as a default human tendency that everyone has to work against.\n\nIt leads to **discrimination**, whose sources are **prejudice** and **bias**:\n\n| Term | Definition |\n|---|---|\n| **Discrimination** | One person treated more or less favourably than another |\n| **Prejudice** | Reaching a view **before the relevant facts are in**, usually off stereotypes or perceptions that have dated |\n| **Bias** | Favouring or disfavouring someone, or their ideas, **on something other than the merits** |\n\n**Fairness, respect and wellbeing all suffer from either one.**\n\n## Conscious versus unconscious\n\n| | Conscious (explicit) bias | Unconscious (implicit) bias |\n|---|---|---|\n| **Awareness** | People **are aware of it and express it deliberately** | Operates **below conscious awareness** — people do not know it is happening |\n| **Roots** | Upbringing, social conditioning, experiences, cultural norms | Beliefs, stereotypes and assumptions |\n| **How it shows** | People or groups **discriminated against, excluded or harassed** because of who they are | Affects **selection, recognition, working relationships and decision-making** |\n| **Legal exposure** | **In many jurisdictions some expressions are illegal**, exposing individuals and organisations to **risk of prosecution** | Harder to identify, and correspondingly harder to police |\n| **Difficulty** | Easier to spot, harder to excuse | **More subtle and harder to identify** |\n\n**Handling conscious bias** — three specific actions:\n\n1. **Enforce strict anti-discrimination policies.**\n2. **Give people a route to report misconduct.**\n3. **Act quickly on anything that raises concern.**\n\nAnd where the legal position is unclear: **always seek advice.**\n\n## Four common causes of unconscious bias\n\n| Cause | What it looks like |\n|---|---|\n| **Fear** | Of difference, of competition, or of failure |\n| **Shortcuts** | Snap judgements that never get examined |\n| **Reluctance** | Unwillingness to learn about people, to unlearn habits, or to change |\n| **Perceptions** | Getting it wrong about what is right or what is expected |\n\n## Why bias is a project risk, not only an ethical problem\n\nThe source makes this argument explicitly, and it is the strongest framing available for a scenario answer:\n\n- Bias leads to **unfair hiring, opportunities and advancement**.\n- That harms individuals **and misses out on access to talent**.\n- It makes the workplace **hostile**. **Instances that look trivial still leave people feeling unwelcome and undervalued**, and that costs **morale, productivity and welfare**.\n- It **skews choices that affect delivery, drives stakeholders away, and can leave a situation misrepresented**.\n- **Projects, programmes and portfolios end up at risk because of it.**\n\nThat final sentence is the one to reach for. Bias is a delivery risk with a named mechanism, not a soft topic bolted onto the syllabus.\n\n## The three strategies\n\nThis is the directly examinable list for 14c.\n\n| Strategy | What it involves |\n|---|---|\n| **Awareness and education** | Talking openly about diversity and inclusion, and **bringing in expert training** |\n| **Inclusive processes** | Structure in **how decisions get made, how people are hired, how communication is planned** |\n| **Constant vigilance** | **Holding a culture of belonging in place through feedback, accountability and individual responsibility** |\n\nThe middle one is the most practically useful. Because unconscious bias operates without awareness, **good intentions cannot detect it** — only structured process can. That is why blinded CVs, capability-based role requirements and structured decision-making appear as remedies rather than 'try harder to be fair'.\n\nAnd 'constant' in the third strategy is doing real work. **Project professionals must constantly apply these strategies** — bias is not addressed once and closed out.\n\n## What fairness actually means\n\nThe single most important line in 14c, and the one most likely to be misunderstood:\n\n> **Treating everyone identically is not what fairness means. Fairness means adjusting to what each person needs and prefers.**\n\nIdentical treatment is not fair treatment. Someone who needs a written agenda in advance to contribute well, or a different meeting time, or a screen reader, is not being given an advantage when they get it — they are being given the same opportunity to contribute that others already had.\n\nThis maps directly onto the syllabus wording for 14c: **adapting behaviours to support individuals' needs and facilitate their contributions.**\n\n## Facilitating contributions in practice\n\nDrawing the specific techniques together:\n\n- **Structure meetings and facilitate** so everyone can contribute — **and so people listen**.\n- **Echo an unacknowledged contribution and attribute it to the speaker.**\n- **Mentoring and sponsorship**, particularly because **self-promotion is less comfortable for some people**.\n- **Allyship over advocacy** where possible — help people speak for themselves rather than speaking for them, and **ask first whether help is wanted and how**.\n- **Periodic surveys** to find out how people actually feel.\n- **Speak out** when you see prejudice, discrimination or disrespect.",
+      "diagrams": [
+        {
+          "id": "lo14-bias-impact",
+          "figure_number": "14.3",
+          "caption": "Conscious and unconscious bias both lead to discrimination",
+          "placement": "after_heading",
+          "heading": "Conscious versus unconscious",
+          "file": null,
+          "spec": "Two source boxes converging on a single 'discrimination' outcome. Conscious bias fed by social conditioning, upbringing, cultural norms. Unconscious bias fed by experiences, fears, perceptions. Show the conscious route as visible or solid and the unconscious route as faint or dashed, since the difference in detectability is the teaching point — both arrive at the same place, but only one can be seen coming.",
+          "alt": "Conscious bias arising from social conditioning, upbringing and cultural norms, and unconscious bias arising from experiences, fears and perceptions, both leading to discrimination."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Diversity means the legally protected characteristics.",
+      "right": "Diversity covers a much wider range — including class, language, mental health and neurodivergence, none of which is a protected characteristic in UK law. The legal list defines a floor, not the scope of diversity."
+    },
+    {
+      "wrong": "Not discriminating is what diversity and inclusion requires.",
+      "right": "Many countries make discrimination unlawful, but the expectation on a project professional runs past that into owning inclusion and belonging. Compliance keeps you legal; it does not produce a team where people can contribute."
+    },
+    {
+      "wrong": "A diverse team automatically performs better.",
+      "right": "Diversity without inclusion means the team cannot harness the different perspectives. The benefits only arrive when people feel comfortable, respected and valued."
+    },
+    {
+      "wrong": "A team where everyone gets along well is a healthy team.",
+      "right": "A team that is inclusive but not diverse ends up comfortable, short on new ideas, short on challenge, and poorly attuned to the society it serves. It feels like success and is the groupthink condition."
+    },
+    {
+      "wrong": "Fairness means treating everybody the same way.",
+      "right": "Fairness is adapting to each person's needs and preferences. Identical treatment gives an equal-looking process, not an equal opportunity to contribute."
+    },
+    {
+      "wrong": "Unconscious bias can be fixed by trying harder to be fair.",
+      "right": "It operates below conscious awareness, so intentions cannot detect it. Inclusive processes — structured decision-making, hiring practices, blinded CVs — are what address it, alongside education and constant vigilance."
+    },
+    {
+      "wrong": "Bias is an ethical issue rather than a project issue.",
+      "right": "It affects choices that impact delivery, alienates stakeholders, can lead to misrepresentation of a situation, and loses access to talent. The source states plainly that it puts projects, programmes and portfolios at risk."
+    },
+    {
+      "wrong": "Speaking up on someone's behalf is always the supportive thing to do.",
+      "right": "That is advocacy, and it can be disempowering even when well meant. Allyship helps people secure a platform to speak for themselves — and starts by asking whether help is wanted and how."
+    },
+    {
+      "wrong": "A project manager cannot influence organisational culture.",
+      "right": "A project team is built with a culture of its own, which puts its wellbeing in the project professional's hands — and they usually have both the chance and the control to make that culture inclusive."
+    },
+    {
+      "wrong": "The best team is made of the best individuals.",
+      "right": "The source treats this as a real decision — whether to hire the best individuals or aim for the best team, balancing different perspectives. The strongest individuals do not automatically compose the strongest team."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Diversity is who is there, inclusion is whether they can speak",
+      "expansion": "Getting different people into the room is the first half. Making it possible for them to contribute is the half that produces the performance."
+    },
+    {
+      "type": "cue",
+      "acronym": "Welcome, then it's yours",
+      "expansion": "Inclusion means everyone feels welcome. Belonging means everyone feels this environment is theirs, so nobody has to fit in."
+    },
+    {
+      "type": "cue",
+      "acronym": "Advocacy speaks for, allyship makes room",
+      "expansion": "Advocacy uses your voice on someone's behalf and can disempower. Allyship helps them get a platform to use their own. Ask which is wanted."
+    },
+    {
+      "type": "cue",
+      "acronym": "Same treatment is not fair treatment",
+      "expansion": "Fairness is adapting to each person's needs and preferences, not applying one process identically to everybody."
+    },
+    {
+      "type": "cue",
+      "acronym": "Aware, process, vigilant",
+      "expansion": "The three strategies against bias: awareness and education, inclusive processes, constant vigilance. Process is the one that catches what awareness cannot."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define diversity, inclusion, belonging, advocacy and allyship, and explain how the first three build on each other.",
+    "I can name the characteristics that may cause someone to be treated less favourably, and explain that they are the legal floor rather than the goal.",
+    "I can explain the mechanism by which diversity improves performance, and list the benefits it produces.",
+    "I can explain what happens with diversity but no inclusion, and with inclusion but no diversity.",
+    "I can describe how to build an inclusive environment, from hiring practices through to meeting facilitation.",
+    "I can distinguish conscious from unconscious bias and name the common causes of each.",
+    "I can explain why bias is a risk to project delivery and not only an ethical concern, and name the three strategies for addressing it.",
+    "I can explain what fairness actually means, and give specific techniques for supporting individuals' needs and facilitating their contributions."
+  ],
+  "source_confidence": [
+    {
+      "claim": "The characteristics listed in 14a as attracting less favourable treatment, and their identification with the Equality Act 2010.",
+      "sub_outcome": "14a",
+      "level": "inferred",
+      "basis": "The eight characteristics are listed verbatim in the PMQ 2024 syllabus for 14a. **BoK 8e does not list protected characteristics anywhere** — 4.5.1 (p210) gives a broader and differently-framed list of diversity dimensions. The identification with the Equality Act 2010, and the observation that the Act protects nine characteristics rather than eight, is ours.",
+      "risk": "Content-accurate and legally correct as stated. Two points recorded deliberately. First, **the syllabus list omits gender reassignment**, which is the ninth protected characteristic under the Act; the syllabus says 'such as', so the list is illustrative, and the content teaches all nine. Second, this is UK law — a scenario set in another jurisdiction has a different legal frame, which is why the content carries the source's own instruction to seek advice where unsure. This is educational content about the law, not legal advice, and the content is framed accordingly."
+    },
+    {
+      "claim": "All content for 14b and 14c — benefits of diversity, the diversity/inclusion combinations, building inclusive environments, conscious and unconscious bias, the three strategies, and the definition of fairness.",
+      "sub_outcome": "14b",
+      "level": "sourced",
+      "basis": "BoK 8e 4.5 (p209), 4.5.1 (p210-211), 4.5.2 (p212-213), 4.5.3 (p214-215). Coverage is strong and maps closely onto the syllabus wording, including 'fairness is not about treating everybody in the same way' which answers 14c directly.",
+      "risk": "None."
+    },
+    {
+      "claim": "The framing of bias as a project delivery risk rather than solely an ethical issue.",
+      "sub_outcome": "14c",
+      "level": "sourced",
+      "basis": "BoK 8e 4.5.3 (p214) states directly that biases can affect choices impacting delivery, alienate stakeholders, lead to misrepresentation, and put projects, programmes and portfolios at risk.",
+      "risk": "None. Recorded because it reads as our editorialising and is in fact the source's own argument."
+    }
+  ]
+}

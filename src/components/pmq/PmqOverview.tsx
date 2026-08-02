@@ -55,8 +55,8 @@ export function PmqOverview({
   const courseComplete = sections.length > 0 && next === null;
 
   return (
-    <div className="relative z-[1] flex justify-center px-3 sm:px-5">
-      <div className="grid w-full max-w-wrap gap-6 pb-28 pt-4 sm:gap-[2.125rem] sm:pb-24 sm:pt-6">
+    <div className="relative z-[1] flex w-full min-w-0 justify-center overflow-x-clip px-3 sm:px-5">
+      <div className="grid w-full min-w-0 max-w-wrap grid-cols-1 gap-6 pb-28 pt-4 sm:gap-[2.125rem] sm:pb-24 sm:pt-6">
         {courseId ? (
           <CourseReportCard
             courseComplete={courseComplete}

@@ -76,8 +76,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             className={`${styles.popItem} mt-3 text-[14px] leading-relaxed text-ink/55 text-pretty`}
             style={{ ["--i" as string]: 1 }}
           >
-            Sly Unlimited arrives soon with AI Pro. Free accounts include the
-            complete course; unlimited AI tutoring is part of AI Pro.
+            The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.
           </p>
         </ScrollReveal>
       </div>

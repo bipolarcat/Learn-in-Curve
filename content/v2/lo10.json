@@ -1,0 +1,269 @@
+{
+  "lo_number": 10,
+  "lo_code": "10a, 10b, 10c, 10d, 10e, 10f",
+  "title": "Stakeholder engagement and communication management",
+  "competence_area": "C. People and behaviours",
+  "exam_coverage_note": "Area C (LOs 10-15) accounts for 20-25% of exam marks — the largest single area. LO10 has six sub-outcomes, the most of any LO in the course.",
+  "source_ref": "APM BoK 8e s4.1 (p171), s4.1.1 (p172-173), s4.1.2 (p174-175), s4.1.3 (p176-177), s4.1.4 (p178-179); APM PMQ Handbook 2024, LO10",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand stakeholder engagement and communication management as the ability to work with people internally and externally to achieve intended outcomes.",
+  "learning_outcomes": [
+    "10a) Understand the relationship between stakeholder analysis, influence and engagement.",
+    "10b) Understand the relationship between stakeholder analysis and an effective communication management plan.",
+    "10c) Understand the benefits to a project of a communication plan.",
+    "10d) Understand the importance of managing stakeholder expectations to the success of the project.",
+    "10e) Know the range of communication methods available, and understand the importance of tailoring messaging to meet stakeholder requirements.",
+    "10f) Know the factors which can positively or negatively affect communication."
+  ],
+  "where_this_fits": "Six sub-outcomes inside the largest competence area, so LO10 carries real weight. It also runs underneath almost everything else: LO2's governance depends on stakeholders being informed, LO8's transition depends on them accepting outputs, LO9's benefits depend on them adopting them, and LO11's conflict resolution starts where engagement has broken down. One idea threads through all six sub-outcomes — analysis comes first, and everything else (influence strategy, communication plan, message, medium) is built on top of it.",
+  "key_definitions": [
+    {
+      "term": "Stakeholder",
+      "apm_definition": "Anyone who has an interest or role in a project, programme or portfolio, or is impacted by it.",
+      "plain_english": "Anyone who can affect the project or be affected by it — which is usually a much wider group than the list you first think of."
+    },
+    {
+      "term": "Stakeholder engagement",
+      "apm_definition": "The process of engaging with stakeholders, following five steps: identify, analyse, plan, act and review. It replaced the earlier term 'stakeholder management'.",
+      "plain_english": "Working with people rather than managing them. The change in wording was deliberate — you do not manage someone who has power over your project."
+    },
+    {
+      "term": "Stakeholder analysis",
+      "apm_definition": "The dynamic process of understanding stakeholders by factors including power, influence or impact; interests, needs and priorities; and support for, opposition to or undecided attitude towards the initiative.",
+      "plain_english": "Working out who matters, what they want, and whether they are for you, against you or undecided."
+    },
+    {
+      "term": "Power-interest grid",
+      "apm_definition": "A simple method of analysing stakeholders by plotting their influence and interest, and their attitude for or against the initiative.",
+      "plain_english": "A two-axis map of who has clout and who cares, used to decide how much attention each person gets."
+    },
+    {
+      "term": "Stakeholder engagement plan",
+      "apm_definition": "The plan setting out how the team will meet its engagement objectives, with contacts and communications. It allocates responsibilities, sets out timings, and ensures the team tracks the impact and outcomes of engagement.",
+      "plain_english": "Who talks to whom, about what, when — and how you will tell whether it worked."
+    },
+    {
+      "term": "Communication plan",
+      "apm_definition": "A plan building on stakeholder analysis to outline the what, why, when, who and how of communication, both within the team and between the team and stakeholders, including channels for feedback.",
+      "plain_english": "The deliberate version of who gets told what. Built from the analysis, not from a distribution list."
+    },
+    {
+      "term": "Social network diagram",
+      "apm_definition": "A map of the network of relationships among stakeholders, visualising who knows whom and the influences between them. Also called a soft systems diagram or sociogram.",
+      "plain_english": "A picture of who actually talks to whom — which is often nothing like the org chart."
+    },
+    {
+      "term": "Facilitation",
+      "apm_definition": "Creating an opportunity for people to participate in a conversation, allowing co-creation of better solutions. It means remaining neutral and letting people collaborate to solve problems or reach agreement.",
+      "plain_english": "Running the conversation without steering its content. Your job is the process; theirs is the answer."
+    },
+    {
+      "term": "Active listening",
+      "apm_definition": "The skill of hearing feedback — on progress, uncertainty, lack of progress, emerging issues, risks, disagreements and discontent — alongside reading verbal clues.",
+      "plain_english": "Communication running the other way. If nothing uncomfortable ever reaches you, your channels are broken."
+    },
+    {
+      "term": "Psychological safety",
+      "apm_definition": "A condition in which everyone feels confident to join in, created in facilitated sessions through means such as contracting with participants at the start of a workshop.",
+      "plain_english": "People believing it is safe to speak up. Without it, the quiet room is hiding the problem, not lacking one."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "10a",
+      "outcome_title": "Stakeholder analysis, influence and engagement",
+      "key_takeaway": "Engagement runs identify, analyse, plan, act, review. Analysis sets the engagement objective for each stakeholder, and because project professionals rarely hold positional power, influence comes from credibility, expertise, alliances and social skill instead.",
+      "source_ref": "BoK 8e 4.1 (p171), 4.1.1 (p172-173), 4.1.2 (p174-175), 4.1.3 (p176-177)",
+      "body_markdown": "## Why stakeholders are the whole game\n\nTake the stakeholders away and a project has nothing to aim at. They are the ones who **set what success actually means here** — and they are also **the biggest threat to reaching it**. Both at once — which is why engagement is treated as critical work rather than a courtesy.\n\n**A terminology point worth knowing.** The Body of Knowledge moved away from 'stakeholder **management**' in its previous edition, and 'stakeholder **engagement**' is now near-universal. The shift is meaningful: you do not manage people who hold power over your project.\n\nAnd a warning that makes a sharp scenario answer: **nobody feels included by engagement that was not real.** Where it looks like coercion or manipulation, what you build is cynicism. **Engagement takes time and cannot be rushed**, so it needs proper planning.\n\n## The five steps\n\n| Step | What happens |\n|---|---|\n| **Identify** | Look as widely as possible, inside and outside the sponsoring organisation. Some project professionals count their own team as stakeholders |\n| **Analyse** | Understand power, interests and attitude |\n| **Plan** | Set an engagement objective per stakeholder or group, and how it will be met |\n| **Act** | Execute, coordinating across initiatives to avoid missed or conflicting messages |\n| **Review** | Check effectiveness and how the stakeholder landscape has shifted |\n\n**Identify, analyse, plan, act, review.** This is the spine of 10a.\n\nStakeholders sit at varying distances from the work, with **decreasing levels of interest and involvement**, and some care about **different aspects at different times** — so identification is not one list held for the whole project.\n\n## What analysis looks at\n\nThree factors are most often critical:\n\n| Factor | The question |\n|---|---|\n| **Power, influence or impact** | How much can this person affect the initiative? |\n| **Interests, needs and priorities** | What do they actually want from it? |\n| **Attitude** | Are they **supportive, opposed, or undecided**? |\n\nThe attitude dimension is the one candidates leave out. A powerful supporter and a powerful opponent need entirely different strategies, and an undecided one is where engagement effort pays back most.\n\n**Analysis is dynamic.** Revisit it throughout the life cycle, **updating assumptions and tracking changes to attitudes and relationships**. A stakeholder map made at concept and never touched again is describing a project that no longer exists.\n\n**The simple method** is plotting influence and interest on a **power-interest grid**. In complex social contexts, more advanced approaches are needed that account for **political positions, alliances and sources of power**.\n\n## Analysis sets the engagement objective\n\nThis is the actual relationship 10a asks about. **Stakeholder analysis forms the basis for planning engagement**, and the first planning step is deciding **the objective of engaging with each stakeholder or group**:\n\n- **keep the supporters onside and put that support to work**\n- **blunt or push back against opposition**\n- **draw on what they know** — expertise, insight\n- **shift what they think, feel or do**\n- **collect requirements** from them\n\nSo the chain is: analysis tells you power, interest and attitude → those determine which objective applies → the objective determines what engagement you plan. A supportive expert gets 'harness knowledge'; a powerful opponent gets 'minimise or counter opposition'. Different objectives, different tactics, same analysis underneath.\n\nThe **stakeholder engagement plan** then sets out how the objectives will be met — contacts, communications, **allocated responsibilities, timings**, and tracking of **impact and outcomes**.\n\n## Influence without authority\n\nThe most useful idea in this sub-outcome: **project professionals often have little formal power of their own.** They must understand and use the forms of power and social skills they do have.\n\n**Sources of power inside the organisation:**\n\n| Source | What it rests on |\n|---|---|\n| **Position** (hierarchical or legitimate) | Formal role in the hierarchy |\n| **Reward and coercive** | Ability to give or withhold |\n| **Resource and information** | Control of what others need |\n| **Expert** | Knowledge others lack |\n| **Connection or alliance** | Who you know and who backs you |\n| **Personal (referent)** | Character and credibility |\n\n**From outside it:** **political power**, and the **power to approve**.\n\n**Normally a project professional holds no positional authority over their stakeholders at all.** What they have instead is **credibility, character and how they carry themselves**, plus **expertise resting on solid evidence** — and **alliances** they have deliberately built.\n\n**An ethics point that is directly examinable:** leaning on **reward or coercion seldom sits right ethically**. Congratulating contributions or highlighting the risks of a decision is fine; **inducements and threats go against the professional ethical codes**. If a scenario has someone leaning on a stakeholder, that is the flag.\n\n## The social and political context\n\nProject work happens in a complex social and political setting extending beyond the sponsoring organisation. Complexity comes from working with multiple organisations, conflicting priorities and different cultural norms — but also from **behaviours**: power struggles, misaligned communication, conflict.\n\nSo project professionals **map the network of relationships** — who knows whom, and the influences between them — producing a **social network diagram**. The principle behind it: **once people and groups are wired together, the network behaves in ways no individual or single group would. The whole exceeds what its parts would do separately.**\n\n**Organisational politics** mixes personal and project objectives, creating **explicit and hidden agendas, alliances and conflicts**. Understanding that network helps craft engagement and communication strategies — and helps **identify people- and behaviour-based risks**, which links straight to LO23.\n\nUnderstanding the network is not sufficient on its own. Project professionals also need **social skills** and **political acumen** — the ability to read and navigate a political landscape.\n\n**A life cycle consequence worth carrying:** political complexity can push you towards one delivery approach over another. **Linear struggles where you cannot see the requirements coming**, whereas **iterative approaches favour stakeholder collaboration, co-creation and adaptive response** — better suited to resolving the uncertainties of a complex social context. That is a genuine LO1 link most candidates miss.\n\n## Five capabilities effective engagement needs\n\n| Capability | What it enables |\n|---|---|\n| **Situational awareness** | Picking your moment, your setting and your wording |\n| **Cultural awareness** | Grasping where people come from, how they see things, what they value |\n| **Communication skills** | Crafting clear, compelling, persuasive messages |\n| **Influencing skills** | Shifting opinion, reducing opposition, winning support |\n| **Conflict resolution skills** | Challenging others and resolving conflict fairly and respectfully |\n\n## Facilitation as an engagement tool\n\nFacilitation creates the opportunity for people to participate and **co-create better solutions**. It means **remaining neutral** and letting people collaborate towards a solution or agreement — the facilitator **steps back from the content and focuses on the process**.\n\nIt earns its keep when you are surfacing risks, dependencies, constraints or stakeholders; working through plans and budgets; steering a group towards a decision; running a problem-solving session; or chairing a meeting.\n\n**Success factors:** pre-planning so everyone who needs to contribute can; **creating psychological safety**, often by **contracting with participants at the start**; asking good questions and ensuring attentive listening; drawing out contributions and managing responses; observing the group's mood and behaviour; summarising and synthesising themes.\n\n**The judgement call:** where a project professional is **too close to the detail, or has skin in the decision, facilitating it themselves is the wrong call**. A neutral facilitator then lets everyone participate equally — including them.",
+      "diagrams": [
+        {
+          "id": "lo10-power-interest",
+          "figure_number": "10.1",
+          "caption": "Analysing stakeholders by power, interest and attitude",
+          "placement": "after_heading",
+          "heading": "What analysis looks at",
+          "file": null,
+          "spec": "A power (vertical, low to high) against interest (horizontal, low to high) grid — but split into two halves, 'against the project' on the left and 'for the project' on the right, so attitude is a visible third dimension rather than an afterthought. Plot a few example stakeholders across both halves. The teaching point is that a high-power, high-interest opponent and a high-power, high-interest supporter occupy the same grid square on a conventional power-interest matrix but need opposite strategies.",
+          "alt": "A power against interest grid divided into stakeholders opposed to and in favour of the project, showing attitude alongside power and interest."
+        },
+        {
+          "id": "lo10-engagement-cycle",
+          "figure_number": "10.2",
+          "caption": "The five steps of stakeholder engagement",
+          "placement": "after_heading",
+          "heading": "The five steps",
+          "file": null,
+          "spec": "Identify, analyse, plan, act, review shown as a closed loop rather than a line, with the review step feeding back into identify and analyse. The loop is the argument: analysis is dynamic and the stakeholder landscape shifts throughout the life cycle.",
+          "alt": "The five stakeholder engagement steps — identify, analyse, plan, act, review — drawn as a continuous loop with review feeding back into identification and analysis."
+        },
+        {
+          "id": "lo10-social-network",
+          "figure_number": "10.3",
+          "caption": "A social network diagram showing real influence routes",
+          "placement": "after_heading",
+          "heading": "The social and political context",
+          "file": null,
+          "spec": "Six or so named actors connected by labelled arrows showing the type of relationship — command, funding, information, advice. Deliberately not a hierarchy: the point is that influence routes cut across the org chart. Note BoK Figure 4.1.2 carries a third-party source credit (APM/INCOSE UK Systems Thinking SIG), so ours must be an original arrangement with our own example actors.",
+          "alt": "A network of actors connected by labelled arrows showing command, funding, information and advice relationships that cut across formal hierarchy."
+        }
+      ]
+    },
+    {
+      "outcome_code": "10b",
+      "outcome_title": "From stakeholder analysis to the communication management plan",
+      "key_takeaway": "The communication plan is built on the stakeholder analysis. Analysis says who they are, what they want and how they feel; the plan turns that into what, why, when, who and how — with feedback channels built in.",
+      "source_ref": "BoK 8e 4.1.1 (p172-173), 4.1.4 (p178-179)",
+      "body_markdown": "## The dependency\n\nCommunication plans **build on a stakeholder analysis**. That is the relationship 10b is asking you to explain, and it is worth stating as a dependency rather than a sequence: without the analysis, a communication plan is a distribution list.\n\n**What the analysis supplies:**\n\n| From analysis | What the plan can then decide |\n|---|---|\n| **Who the stakeholders are** | Who receives communication at all |\n| **Their power and influence** | How much effort and seniority the communication warrants |\n| **Their interests, needs and priorities** | What content is actually relevant to them |\n| **Their attitude — for, against, undecided** | What the message needs to achieve |\n| **The engagement objective set for them** | Why the communication exists at all |\n| **The social network and political context** | Which routes and which people the message travels through |\n\n## What the plan contains\n\nA communication plan sets the **what, why, when, who and how** — covering talk **inside the team as well as outward to stakeholders**.\n\nInternal as well as external. A plan covering only outward reporting misses half its job.\n\n| Element | What it settles |\n|---|---|\n| **What** | The content of the message |\n| **Why** | The objective it serves, traceable back to the engagement objective |\n| **When** | Timing and frequency |\n| **Who** | Sender and audience |\n| **How** | The medium chosen |\n\n## Feedback channels are part of the plan\n\n**A communication plan that works has feedback routes built in, formal and informal alike.** The reasoning is a strong exam line: **better routes mean problems get voiced sooner, and dealt with sooner.**\n\nSo feedback channels are a delivery control, not a courtesy. A project that only broadcasts finds out about problems late.\n\n## Measure and adjust\n\n**Measure whether it is landing, then tune the plan for more impact.** Combined with the review step of engagement, this makes the communication plan a living document — the same pattern as the business case in LO4 and the stakeholder analysis itself.\n\n## Coordination across initiatives\n\nWhen acting on the plan, engagement gets **coordinated across the whole project, programme or portfolio, so nobody is skipped and no two messages contradict each other**. Where **several initiatives touch the same people, those teams have to talk to each other** — and at **portfolio level this usually needs senior leaders behind it**.\n\nA stakeholder receiving three different messages from three projects in the same organisation does not conclude that the projects are uncoordinated — they conclude the organisation is."
+    },
+    {
+      "outcome_code": "10c",
+      "outcome_title": "The benefits of a communication plan",
+      "key_takeaway": "Planning makes communication deliberate rather than reactive: aligned stakeholders, motivated teams, embedded knowledge, no conflicting messages, early warning through feedback, and effectiveness that can be measured and improved.",
+      "source_ref": "BoK 8e 4.1 (p171), 4.1.1 (p172), 4.1.4 (p178-179)",
+      "body_markdown": "## Why plan at all\n\nThe underlying principle: **the thing that counts is deliberateness — the message shaped on purpose, the medium chosen on purpose, each communication planned rather than fired off.** A communication plan is what makes deliberate possible at scale.\n\n## The benefits\n\n| Benefit | What it delivers |\n|---|---|\n| **Everyone understands the same things** | Requirements, objectives, plans and benefits only become shared through communication |\n| **Aligned stakeholders** | Communication is how stakeholders get aligned in the first place |\n| **Motivated teams** | It is how teams are motivated, not only informed |\n| **Embedded knowledge** | It is how knowledge gets embedded — the LO8 link |\n| **No missed or conflicting messages** | Coordination across the project, programme or portfolio prevents stakeholders receiving contradictory information |\n| **Early warning** | Feedback channels mean issues surface earlier and are addressed sooner |\n| **Measurable effectiveness** | Because it is planned, it can be measured and adjusted for greatest impact |\n| **Right message, right medium, right moment** | Medium is chosen against audience, urgency, complexity and risk of miscommunication rather than habit |\n| **Compliance with protocols** | Many organisations and sectors have their own communication standards; a plan makes adherence deliberate |\n\n## The cost of not planning\n\nWorth being able to state the negative case, because scenario questions usually present the failure rather than the success:\n\n- **Avoidable delays, errors and conflict** where organisational communication norms are not learned and followed.\n- **Misunderstandings and conflicts** where behaviours are poor — the source is explicit that **good practices deliver good results and poor behaviours lead to misunderstandings and conflicts**.\n- Issues surfacing late, because no feedback channel existed to raise them early.\n- Stakeholders receiving conflicting messages from initiatives that did not coordinate.\n\n## A point that cuts against instinct\n\nOne of the more useful claims here: **how well communication works is decided far more by the project's own culture and habits than by whichever tools it happens to use.**\n\nSo a scenario in which a team responds to poor communication by adopting a new platform has probably misdiagnosed the problem. New tooling does not fix a culture where people do not say difficult things."
+    },
+    {
+      "outcome_code": "10d",
+      "outcome_title": "Managing stakeholder expectations",
+      "key_takeaway": "Stakeholders determine whether a project is judged successful, so expectations have to be understood through analysis, shaped through genuine engagement, and kept current through feedback and review — never rushed, and never manufactured.",
+      "source_ref": "BoK 8e 4.1 (p171), 4.1.1 (p172-173), 4.1.4 (p178)",
+      "body_markdown": "## Why expectations decide success\n\n**Whether an initiative counts as a success is decided by its stakeholders.** They are simultaneously **the thing that makes it work and the thing most likely to sink it**. A project can hit every target in its plan and still be judged a failure by people whose expectations were never understood.\n\nThat is the core of 10d, and it connects to LO9: benefits realisation is often what stakeholders judge success on, and their expectations of those benefits were set long before delivery.\n\n## How expectations get managed\n\n| Mechanism | What it does |\n|---|---|\n| **Analysis** | Surfaces **interests, needs and priorities** — you cannot manage an expectation you have not identified |\n| **Engagement objectives** | Deciding per stakeholder whether to maintain support, counter opposition, harness expertise, influence attitudes or gather requirements |\n| **Inclusion in articulation** | Bring stakeholders into **describing what the project is, what it will change and what it is worth**, and delivery and results tend to improve |\n| **Requirements gathering** | One of the five named engagement objectives, and the formal route by which expectations become scope |\n| **Tailored communication** | Message and medium matched to the audience, so what they hear is what was meant |\n| **Feedback channels** | Formal and informal, so drift in expectations is detected early |\n| **Review** | Regularly checking engagement effectiveness and **changes to the stakeholder landscape** |\n\n## Genuine, not performed\n\nThe strongest point available in 10d: **only real engagement produces a feeling of inclusion. Anything that reads as coercion or manipulation breeds cynicism instead.**\n\nSo managing expectations is not persuading people to expect less. It is understanding what they actually need, involving them in shaping the work, and being straight about what will and will not happen. Engagement that is really presentation will be recognised as such, and costs more trust than it buys.\n\nRelated, from LO3: stakeholder expectations are now **proactively secured** rather than merely 'managed' — the same shift in posture as management to engagement.\n\n## Expectations shift\n\n**Analysis is dynamic and must be revisited throughout the life cycle**, updating assumptions and tracking changes to attitudes and relationships. Expectations set at concept do not survive untouched to transition — the organisation changes, people change roles, and what looked valuable eighteen months ago may not now.\n\n## The ethical boundary\n\nInfluence has limits. **Rewards and coercion rarely have integrity** — congratulating contributions or highlighting the risks of a decision is legitimate, **inducements and threats are not**. Managing expectations stays on the right side of that line, or it is not engagement at all."
+    },
+    {
+      "outcome_code": "10e",
+      "outcome_title": "Communication methods, and tailoring the message",
+      "key_takeaway": "Media differ in the clues they carry — face to face gives tactile, auditory and written clues, voice only gives auditory, words only gives written. Choose against audience, urgency, complexity and emotional impact, and the consequences of being misunderstood.",
+      "source_ref": "BoK 8e 4.1.4 (p178-179)",
+      "body_markdown": "## Message and medium are two decisions\n\nCommunicating well means deciding two things: **what you are trying to say, and which channel carries it**. Getting the content right and the medium wrong still fails.\n\n## The range of methods\n\nEvery medium mixes **words on a page, symbols, the voice, and the signals a body gives off** in different proportions. The useful way to hold this is by what clues each channel carries:\n\n| Channel | Interpretation clues available |\n|---|---|\n| **Face to face** | Appearance, expression, posture, movement, touch — plus pitch, pace, tone, volume — plus syntax, words, symbols |\n| **Voice only** | Pitch, pace, tone, volume, syntax, words |\n| **Words only** | Syntax, words, symbols |\n\nThe pattern to memorise: **each step away from face to face strips out a layer of interpretation clues.** Written communication carries the words and nothing else — no tone, no reaction, no chance to adjust mid-sentence.\n\nWhich is exactly why **an emotionally difficult or ambiguous message sent by email goes wrong**: the medium removed everything the recipient needed to interpret it correctly.\n\n## The four choice factors\n\nChoosing a method must account for:\n\n| Factor | What it implies |\n|---|---|\n| **Target audience** | Who they are, what they need, how they prefer to receive it |\n| **Urgency of the issue** | Fast channels for fast decisions |\n| **Complexity and emotional impact of the message** | Complex or emotive content needs richer media |\n| **Likelihood and consequences of miscommunication** | Where being misunderstood would be costly, use a channel with more clues and a feedback loop |\n\nThat fourth factor is the one that makes a scenario answer sharp: it is a risk assessment applied to communication.\n\n## Tailoring the message\n\nTailoring is not simplification. It means matching content, framing and medium to what a specific stakeholder needs:\n\n- Start from their **interests, needs and priorities** as established in analysis.\n- Serve the **engagement objective** set for them — a message intended to counter opposition reads differently from one intended to harness expertise.\n- Apply **situational awareness** — the right time, place and message.\n- Apply **cultural awareness** — background, perspectives and values.\n- Craft it to be **clear, compelling and persuasive**.\n\nThe LO6 echo is deliberate: ask stakeholders what information they need and how they want it presented, rather than assuming.\n\n## Communication runs both ways\n\n**Communicating well also means taking information in** — about progress and about **the absence of it**, about uncertainty, risks and issues surfacing, and about where people disagree or are unhappy.\n\n**Active listening matters enormously**, and so does **picking up verbal clues**. Note what appears on that feedback list: lack of progress, disagreement, discontent. The things nobody volunteers. Channels that only carry good news are not channels."
+    },
+    {
+      "outcome_code": "10f",
+      "outcome_title": "Factors that help or hinder communication",
+      "key_takeaway": "Success turns on cultural influences, the method chosen and the language used — but more than any of these, on the culture and practices within the project. Good practices deliver good results; poor behaviours produce misunderstandings and conflict.",
+      "source_ref": "BoK 8e 4.1.2 (p174-175), 4.1.4 (p178-179)",
+      "body_markdown": "## The three named factors\n\n**Many factors affect the success of communication.** The source names three directly:\n\n| Factor | How it helps or hinders |\n|---|---|\n| **Cultural influences** | Different backgrounds, perspectives and values change how a message is received. Cultural awareness is one of the five engagement capabilities for this reason |\n| **The method of communication** | Each medium carries a different set of interpretation clues. The wrong medium strips out what the recipient needed |\n| **The language used** | Wording, clarity and register. Jargon excludes; ambiguity invites the wrong reading |\n\n## The factor that outweighs the others\n\n**What decides whether communication works is usually the project's own culture and habits**, not the tooling — **the specific tools tend to matter less**.\n\nAnd the plainest cause and effect available: **do it well and you get good results; behave badly and you get misunderstanding and conflict.**\n\n## What helps\n\n| Positive factor | Effect |\n|---|---|\n| **Deliberate planning** | Message, medium and timing chosen rather than defaulted |\n| **Feedback channels, formal and informal** | Issues raised earlier and addressed sooner |\n| **Active listening and reading verbal clues** | Real information reaches the project, including the unwelcome kind |\n| **Psychological safety** | People contribute honestly rather than saying what is expected |\n| **Cultural and situational awareness** | Right message, right time, framed for this audience |\n| **Following organisational protocols and standards** | Procurement, governance oversight and approvals run without friction |\n| **Coordination across initiatives** | No conflicting messages reaching shared stakeholders |\n| **Facilitation** | Draws out contributions, manages responses, ensures everyone is heard |\n\n## What hinders\n\n| Negative factor | Effect |\n|---|---|\n| **Poor behaviours** | Named directly as the cause of misunderstanding and conflict |\n| **Misaligned communication** | Listed as one of the behavioural sources of complexity, alongside power struggles and conflict |\n| **Power struggles and organisational politics** | Hidden agendas, alliances and conflicts distort what gets said and believed |\n| **Ignoring organisational communication norms** | **Avoidable delays, errors and conflict** |\n| **Coercive or manipulative engagement** | Stakeholders become cynical — engagement that damages rather than builds |\n| **Rushing engagement** | It takes time and cannot be hurried |\n| **Wrong medium for the message** | Complex or emotive content sent through a channel that strips the interpretive clues |\n| **Broadcasting without feedback** | Problems surface late |\n| **Relying on tools to fix culture** | The tools matter less than the practices; a new platform does not repair poor behaviours |\n\n## Protocols and norms\n\nA specific and easily-missed point: **plenty of organisations and whole sectors run their own communication protocols and standards**, and sticking to them can matter — the examples given are **procurement, governance oversight and getting approvals through**.\n\n**Learn the communication norms wherever you are working.** The stated alternative is **delay, error and conflict that need not have happened**. For contractors and consultants moving between organisations, that is a live risk rather than a theoretical one.\n\n## Dispersed and virtual working\n\nEverything above intensifies at distance, because a dispersed team loses face to face — the richest medium — as its default. **LO13c covers dispersed and hybrid teams in full**, including why the leadership approach itself has to change. The communication point to carry from here: with fewer interpretation clues and no incidental conversation, choice of medium and explicit feedback channels stop being good practice and become the only channels there are.",
+      "diagrams": [
+        {
+          "id": "lo10-media-clues",
+          "figure_number": "10.4",
+          "caption": "What each communication channel carries — and what it strips out",
+          "placement": "after_heading",
+          "heading": "The range of methods",
+          "file": null,
+          "spec": "Three nested or stepped columns — face to face, voice only, words only — showing the clue sets each carries. Face to face: appearance, expression, posture, movement, touch (tactile); pitch, pace, tone, volume (auditory); syntax, words, symbols (written). Voice only: auditory and written clue sets. Words only: written clue set. Show the stripping visually, so the reader sees clue layers disappearing as you move away from face to face. That loss is the whole argument.",
+          "alt": "Three communication channels compared — face to face, voice only and words only — showing which tactile, auditory and written interpretation clues each one carries."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Stakeholders are managed.",
+      "right": "The Body of Knowledge moved away from 'stakeholder management' in its previous edition; 'stakeholder engagement' is now near-universal. The change reflects that you work with people who hold power over your project rather than managing them."
+    },
+    {
+      "wrong": "A power-interest grid is enough to plan engagement.",
+      "right": "It is described as a simple method. Attitude — supportive, opposed or undecided — also matters, and complex social contexts need approaches accounting for political positions, alliances and sources of power."
+    },
+    {
+      "wrong": "Stakeholder analysis is done once at the start.",
+      "right": "It is a dynamic process, revisited throughout the life cycle to update assumptions and track changes in attitudes and relationships. The stakeholder landscape shifts as the project runs."
+    },
+    {
+      "wrong": "A project manager influences stakeholders through their authority.",
+      "right": "In most situations they have no positional power over stakeholders. Influence comes from credibility, personality and character, expertise backed by solid information, and alliances built for support."
+    },
+    {
+      "wrong": "Offering incentives is a legitimate way to secure stakeholder support.",
+      "right": "Rewards and coercion rarely have integrity. Congratulating contributions or highlighting the risks of a decision is fine; inducements and threats go against professional ethical codes."
+    },
+    {
+      "wrong": "A communication plan lists who gets which report.",
+      "right": "It builds on stakeholder analysis to set out the what, why, when, who and how, covers communication within the team as well as outward, and must include formal and informal feedback channels."
+    },
+    {
+      "wrong": "Poor communication is fixed by better tools.",
+      "right": "Effectiveness is usually decided by the project's culture and habits rather than by its tooling. Do it well and results follow; behave badly and you get misunderstanding and conflict."
+    },
+    {
+      "wrong": "Any message can be sent by any medium if the words are right.",
+      "right": "Each step away from face to face removes interpretation clues. Method must be chosen against audience, urgency, complexity and emotional impact, and the likelihood and consequences of miscommunication."
+    },
+    {
+      "wrong": "The project professional should always facilitate their own workshops.",
+      "right": "Where they are too close to the detail or have a stake in the decision, it may not be appropriate. A neutral facilitator lets everyone participate equally, including them."
+    },
+    {
+      "wrong": "Engagement can be delivered quickly if the plan is good.",
+      "right": "Engagement takes time and cannot be rushed, which is why it must be properly planned. People only feel included when the engagement was genuine, and they become cynical if it looks coercive or manipulative."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Identify, analyse, plan, act, review",
+      "expansion": "The five steps of stakeholder engagement, in order. Review feeds back into identify and analyse, because the landscape keeps moving."
+    },
+    {
+      "type": "cue",
+      "acronym": "Power, interest, attitude",
+      "expansion": "The three things analysis establishes. Attitude is the one candidates drop — and a powerful supporter and a powerful opponent sit in the same grid square needing opposite strategies."
+    },
+    {
+      "type": "cue",
+      "acronym": "Analysis first, plan second",
+      "expansion": "The communication plan is built on the stakeholder analysis. Without the analysis underneath it, a communication plan is only a distribution list."
+    },
+    {
+      "type": "cue",
+      "acronym": "Face, voice, words",
+      "expansion": "Each step strips a layer of interpretation clues. Face to face carries tactile, auditory and written; voice only carries auditory and written; words only carries written."
+    },
+    {
+      "type": "cue",
+      "acronym": "No positional power",
+      "expansion": "The project professional's normal starting position. Influence comes from credibility, expertise backed by evidence, and alliances — never from inducements or threats."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define a stakeholder, give the five engagement steps in order, and explain why the term changed from management to engagement.",
+    "I can name the three factors stakeholder analysis examines and explain why attitude matters as much as power and interest.",
+    "I can list the five engagement objectives and explain how analysis determines which one applies to a given stakeholder.",
+    "I can name the sources of power available inside and outside an organisation, explain how a project professional influences without positional power, and state where the ethical line sits.",
+    "I can explain how a communication plan is built from stakeholder analysis, what it contains, and why feedback channels are part of it.",
+    "I can give the benefits of a communication plan and state the cost of not having one.",
+    "I can explain why stakeholder expectations determine success and how they are understood, shaped and kept current.",
+    "I can compare face to face, voice only and words only by the clues each carries, name the four factors governing method choice, and give factors that positively or negatively affect communication."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All content for 10a, 10e and 10f — five engagement steps, analysis factors, engagement objectives, sources of power, social context, facilitation, communication media and clue sets, choice factors, and factors affecting communication.",
+      "sub_outcome": "10a",
+      "level": "sourced",
+      "basis": "BoK 8e 4.1 (p171), 4.1.1 (p172-173), 4.1.2 (p174-175), 4.1.3 (p176-177), 4.1.4 (p178-179). Coverage is strong and maps closely onto the syllabus.",
+      "risk": "None."
+    },
+    {
+      "claim": "The consolidated list of benefits of a communication plan (10c).",
+      "sub_outcome": "10c",
+      "level": "assembled",
+      "basis": "Each benefit is sourced — shared understanding, alignment, motivation and embedded knowledge at 4.1.4 (p178); coordination avoiding missed or conflicting messages at 4.1.1 (p172); feedback channels surfacing issues earlier and measuring effectiveness at 4.1.4 (p178); protocols and standards at 4.1.4 (p179). BoK does not present a list of communication plan benefits, which is what 10c asks for.",
+      "risk": "Low. Substance sourced throughout; only the framing as a benefits list is ours, following the syllabus wording."
+    },
+    {
+      "claim": "The 10d treatment of managing stakeholder expectations as a distinct discipline.",
+      "sub_outcome": "10d",
+      "level": "assembled",
+      "basis": "BoK 8e has no section on managing expectations. The components are sourced — stakeholders determining success at 4.1.1 (p172), genuine versus coercive engagement at 4.1 (p171), inclusion in articulation improving delivery at 4.1 (p171), dynamic analysis at 4.1.1 (p172), feedback channels at 4.1.4 (p178). The 'proactively secured rather than managed' framing comes from 2.2.1 (p66) in the sustainability chapter.",
+      "risk": "Moderate. The syllabus treats expectation management as its own sub-outcome; BoK distributes the material and never uses the phrase. Content is defensible and every element traces to the source, but it is our composition rather than a BoK topic."
+    },
+    {
+      "claim": "The dispersed and virtual working paragraph in 10f.",
+      "sub_outcome": "10f",
+      "level": "assembled",
+      "basis": "SOURCE_MAP flags dispersed and virtual communications at BoK 4.1.4 (p178), but the extracted text for that section does not develop it — dispersed teams are covered at 4.4.2 (p204-205), which belongs to LO13. The reasoning here is extrapolated from the media clue-set content.",
+      "risk": "RESOLVED 2026-08-02. LO13c was authored from BoK 4.4.2 (p204-205) and now carries the full dispersed-teams treatment. This paragraph was cut back to a cross-reference plus the communication-specific point, so the two LOs cannot diverge."
+    }
+  ]
+}

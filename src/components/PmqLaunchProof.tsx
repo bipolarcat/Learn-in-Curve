@@ -43,7 +43,7 @@ export function PmqLaunchProof({ isSignedIn }: PmqLaunchProofProps) {
     <section
       id="home-pmq-live"
       aria-labelledby="home-pmq-live-title"
-      className="relative overflow-x-clip pt-12 pb-[clamp(2rem,4vw,3rem)] sm:pt-[clamp(1.5rem,4vw,2.5rem)]"
+      className="relative overflow-x-clip pt-12 pb-3 sm:pt-[clamp(1.5rem,4vw,2.5rem)] sm:pb-4"
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex max-w-[40rem] flex-col items-center text-center">

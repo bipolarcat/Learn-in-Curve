@@ -1,0 +1,225 @@
+{
+  "lo_number": 13,
+  "lo_code": "13a, 13b, 13c",
+  "title": "Team management",
+  "competence_area": "C. People and behaviours",
+  "exam_coverage_note": "Area C (LOs 10-15) accounts for 20-25% of exam marks — the largest single area.",
+  "source_ref": "APM BoK 8e s4.4 (p201), s4.4.1 (p202-203), s4.4.2 (p204-205), s4.4.3 (p206-207), s3.6.3 (p164); APM PMQ Handbook 2024, LO13. Team development models (Belbin, Margerison McCann, Myers-Briggs, Katzenbach and Smith) written from general management theory — see source_confidence.",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand team management as the ability to work with team members to create and sustain teams.",
+  "learning_outcomes": [
+    "13a) Know the different stages in the development of a team, including creation, development, maintenance and leadership, and understand the factors which influence these stages. Knowledge of the models used to understand team development (such as Belbin, Margerison McCann, Myers-Briggs, Hackman, Tuckman, Katzenbach and Smith).",
+    "13b) Know the characteristics and benefits of effective teams and teamwork.",
+    "13c) Understand why different leadership approaches are needed to support virtual and hybrid teams."
+  ],
+  "where_this_fits": "LO12 gave you the leader; LO13 gives you the team they are leading. The two interlock directly — a leader's style has to track the team's maturity, and team maturity is what this LO describes. It also picks up LO8's reintegration and LO10's communication problems at distance. Same warning as LO12: four of the six models the syllabus names for 13a are absent from the Body of Knowledge, and this content marks that boundary explicitly.",
+  "key_definitions": [
+    {
+      "term": "Team",
+      "apm_definition": "A small number of people working together towards a shared goal. In project-based working, teams are temporary and formed for a specific purpose.",
+      "plain_english": "A handful of people pointed at one goal. On a project, assembled for the job and dissolved afterwards."
+    },
+    {
+      "term": "Team development",
+      "apm_definition": "Transforming a group into an effective team, respecting team members as individuals with their own capabilities, preferences, cultural norms and expectations, and creating a positive working culture that enables high performance.",
+      "plain_english": "Turning the people you were given into a team. Rarely does a ready-made one arrive."
+    },
+    {
+      "term": "Dispersed team",
+      "apm_definition": "A team separated by geography and possibly time zones. Also called a virtual or remote team.",
+      "plain_english": "People working on the same thing from different places. Increasingly the default rather than the exception."
+    },
+    {
+      "term": "Servant leadership",
+      "apm_definition": "The more subtle leadership role appropriate once a team is performing well — providing the team with the resources it needs to continue performing.",
+      "plain_english": "Getting out of the way and clearing the path. What good leadership looks like once a team can run itself."
+    },
+    {
+      "term": "Reintegration",
+      "apm_definition": "The final stage of team development, in which team members are helped to transition into their next roles.",
+      "plain_english": "The stage most projects forget. The team ends; the people carry on somewhere else, and that transition needs managing."
+    },
+    {
+      "term": "Process and technical work",
+      "apm_definition": "A distinction used to provide role variety and build team resilience — process roles carry little technical content and can be trained relatively easily, allowing team members to take on unfamiliar work.",
+      "plain_english": "Some roles need deep expertise; some mostly need the method. Moving people through the second kind builds cover and broadens understanding."
+    },
+    {
+      "term": "Virtual mindset",
+      "apm_definition": "The starting point of virtual leadership development, alongside leadership style — a facilitative approach to working with remote colleagues and stakeholders, understanding preferences and skills, and how to build and maintain trust.",
+      "plain_english": "Leading remotely is not leading in a room with the video on. It starts with a different posture, not a different tool."
+    },
+    {
+      "term": "Team norms",
+      "apm_definition": "The agreed conventions for communication, collaboration and challenge, which must take everyone's preferences into account.",
+      "plain_english": "The rules the team writes for itself about how it will work. Explicit for dispersed teams, because nothing gets absorbed by osmosis."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "13a",
+      "outcome_title": "Stages of team development and the models used to understand it",
+      "key_takeaway": "A group becomes a team through five stages, and the leader's role changes at each. Individuality has to be allowed to emerge in stage two rather than suppressed — and the reintegration stage at the end is the one most projects skip.",
+      "source_ref": "BoK 8e 4.4 (p201), 4.4.1 (p202-203), 3.6.3 (p164); team role and type models from general management theory — see source_confidence",
+      "body_markdown": "## The starting position\n\n**A team that is ready to go almost never turns up.** The job is to **take whoever you were given and make them cohere** — and that phrasing matters, because it acknowledges the constraint: **you rarely get full say over who ends up on it.**\n\nWhat does help is reputation. **A project professional's reputation strongly influences who wants to come and work for them**, and since the right skills are often hard to get, **the team is frequently developed on the project** — creating future capability and, in turn, enhancing that reputation for next time.\n\n**Treat them as individuals.** Everyone arrives with **different capabilities, different preferences, different cultural expectations**. What team development should produce is **a working culture positive enough to sustain high performance**.\n\n## The five stages\n\nThe leader's **role and priorities change as the group matures**. This is the core content of 13a.\n\n| Stage | The team | What the leader does |\n|---|---|---|\n| **1 — Unstructured group** | Not yet a team | Set out goals and objectives plainly, build an environment nobody is excluded from, and get people working |\n| **2 — People assert their individuality** | Differences surface | **Allow differences to emerge**, support open discussion, **resolve conflicts positively** |\n| **3 — Team starts to get on** | Settling | Supply structure, process and clarity about who does what — but **let the team settle its own behavioural norms** |\n| **4 — Effective team** | Performing | Promote open, honest and trusting relationships. The team collaborates, so the leader **focuses on supporting its work** |\n| **5 — Reintegration** | Work complete | **Help team members transition into their next roles** |\n\n**Stage 2 is the one that gets handled badly.** The instruction is to *allow* differences to emerge — not to suppress them in the name of harmony. That is the LO11 argument arriving inside team development: a team that never surfaces its differences goes into stage 3 with them intact and unspoken.\n\n**Stage 5 is the one that gets forgotten.** Reintegration links directly to LO8's administrative closure — new skills recorded, learning put to use elsewhere, HR involved where roles no longer exist.\n\n## As the team matures, management reduces\n\nAs a team performs, **there is less to manage and the leader's role gets quieter**. It turns into **servant leadership — supplying whatever the team needs to keep going**.\n\nThis is the direct link to LO12's situational leadership. The four styles map onto the maturity of the team, and stage 4 is where **trusting** applies.\n\n## Factors that influence the stages\n\n| Factor | Effect |\n|---|---|\n| **Who you get** | Little control over team membership; skills often developed on the project rather than recruited |\n| **Individual differences** | Capabilities, preferences, cultural norms and expectations all differ |\n| **Whether conflict is allowed to surface** | Stage 2 depends on differences emerging and conflicts being resolved positively |\n| **Role fit** | Assigning people to roles that **suit them, match their strengths, or offer development** |\n| **Variety in the work** | Some project tasks are **dull and teach nobody anything**, so roles have to be built with variety and learning in them |\n| **Support provided** | **Training, coaching and mentoring** |\n| **Co-located or dispersed** | Changes how relationships and trust form — see 13c |\n| **Multi-organisation membership** | Consultants, suppliers, partners and client staff bring different loyalties and norms |\n| **Temporary nature** | People **return to business-as-usual roles** afterwards, which shapes their engagement throughout |\n| **Pressure and wellbeing** | Motivating pressure can **become unbearable, and overload leads to damaging stress** |\n\n## Building resilience through role design\n\nA practical technique worth knowing: distinguish **process** work from **technical** work. **It is easy to train someone into a process role with little technical content** — the example given is a business analyst working on requirements capture taking on a risk analysis role.\n\nThe payoff is threefold: **role variety**, **skills built**, and **team resilience** — and it gives people **a feel for what the rest of the team actually does**.\n\n## The models the syllabus names\n\n**Read this before learning them.** The syllabus names six models for 13a. **Four of them do not appear in the Body of Knowledge at all** — Belbin, Margerison McCann, Myers-Briggs, and Katzenbach and Smith all return zero occurrences. **Tuckman appears only as a figure attribution**, and **Hackman only in a recommended-reading title**. Treat all of them as general management theory the exam expects, not as APM doctrine.\n\n### Tuckman — stages of group development\n\nThe five stages above are explicitly **inspired by Tuckman's model**, so the mapping is worth holding:\n\n| Tuckman | BoK stage | Character |\n|---|---|---|\n| **Forming** | 1 — Unstructured group | Polite, uncertain, dependent on the leader |\n| **Storming** | 2 — Asserting individuality | Differences and conflict surface |\n| **Norming** | 3 — Starting to get on | Norms and roles settle |\n| **Performing** | 4 — Effective team | Collaborative, largely self-managing |\n| **Adjourning** | 5 — Reintegration | The team disbands and members move on |\n\nTeams can **move back down** as well as up — a change of membership or objective can push a performing team back into storming.\n\n### Belbin — team roles\n\nNine roles a person tends towards, grouped in three:\n\n| Group | Roles |\n|---|---|\n| **Thinking** | Plant, Monitor Evaluator, Specialist |\n| **Action** | Shaper, Implementer, Completer Finisher |\n| **People** | Coordinator, Teamworker, Resource Investigator |\n\n**The usable idea:** an effective team needs a spread of roles, not nine copies of the same one. It echoes LO12's point that a leader **builds a team that complements their own strengths and weaknesses**.\n\n### Margerison McCann — team management profile\n\nMaps preferences around a wheel of work functions — advising, innovating, promoting, developing, organising, producing, inspecting, maintaining, with linking at the centre. **The usable idea:** teams often over-invest in the work they enjoy and leave a gap elsewhere on the wheel.\n\n### Myers-Briggs — personality type preferences\n\nFour preference pairs — extraversion/introversion, sensing/intuition, thinking/feeling, judging/perceiving. **The usable idea:** differences in how people take in information and reach decisions are preferences, not deficiencies. Directly relevant to LO12's warning that people **view others through their own lens**.\n\n### Katzenbach and Smith — team performance curve\n\nDistinguishes a **working group** from a **real team**, and plots a curve from working group → pseudo-team → potential team → real team → high-performing team. **The usable idea:** a **pseudo-team performs worse than a working group**, because it has the coordination overhead of a team without the shared commitment. Calling a group a team does not make it one.\n\n### Hackman — enabling conditions\n\nFocuses on the conditions that let a team succeed — a real team with clear boundaries, a compelling direction, an enabling structure, a supportive context and expert coaching. **The usable idea:** most team performance is decided by set-up, not by intervention once running.",
+      "diagrams": [
+        {
+          "id": "lo13-team-stages",
+          "figure_number": "13.1",
+          "caption": "From a group of individuals into a team",
+          "placement": "after_heading",
+          "heading": "The five stages",
+          "file": null,
+          "spec": "Five stages progressing left to right: unstructured group, asserting individuality, starting to get on, effective team, reintegration. Show the leader's changing role beneath each stage. Include a backward arrow from effective team to asserting individuality, marked 'membership or objective changes' — teams regress, and the diagram should say so. Note BoK Figure 4.4.1 is credited 'inspired by Tuckman's 5 stages', so ours must be an original depiction.",
+          "alt": "Five stages of team development from unstructured group through asserting individuality, starting to get on and effective team to reintegration, with a backward arrow showing teams can regress."
+        },
+        {
+          "id": "lo13-belbin-roles",
+          "figure_number": "13.2",
+          "caption": "Belbin's nine team roles in three groups",
+          "placement": "after_heading",
+          "heading": "### Belbin — team roles",
+          "file": null,
+          "spec": "Nine roles arranged under three headings — Thinking (Plant, Monitor Evaluator, Specialist), Action (Shaper, Implementer, Completer Finisher), People (Coordinator, Teamworker, Resource Investigator). Add a visible caption noting this is general management theory, not APM Body of Knowledge content. NOTE: the v1 diagram audit flagged that v1's caption said nine roles in four categories, which is wrong — standard Belbin is nine roles in three groups. Do not reuse the v1 asset without correcting that.",
+          "alt": "Belbin's nine team roles grouped under thinking, action and people headings."
+        }
+      ]
+    },
+    {
+      "outcome_code": "13b",
+      "outcome_title": "Characteristics and benefits of effective teams",
+      "key_takeaway": "Effective teams collaborate and communicate well, pursue their own development, innovate and challenge one another, are efficient and productive, and become largely self-managing and self-motivating — which is what lets the leader step back.",
+      "source_ref": "BoK 8e 4.4 (p201), 4.4.1 (p202-203)",
+      "body_markdown": "## The five characteristics\n\nA team that is performing tends to show all five of these:\n\n| Characteristic | What it looks like in practice |\n|---|---|\n| **Collaborate and communicate well** | Information moves without being chased; people work across role boundaries |\n| **Pursue their own development** | Learning is not something the leader has to impose |\n| **Innovate and challenge one another** | The LO11 link — **positive conflict is present**, so weak ideas get tested |\n| **Be efficient and productive** | Output per unit of effort rises as coordination overhead falls |\n| **Become largely self-managing and self-motivating** | Direction is needed less often, and motivation does not depend on the leader supplying it |\n\nThat third characteristic is the one to notice. **An effective team challenges one another** — which means an absence of challenge is a symptom, not a sign of health. A team where nobody argues is displaying the groupthink failure state from LO11.\n\n## The benefits\n\n| Benefit | Why it follows |\n|---|---|\n| **The need for team management reduces** | The leader's role becomes **more subtle — a servant leadership role providing resources** |\n| **The leader's time is freed** | For stakeholder engagement, decisions, and developing the team further |\n| **Better decisions** | Diversity of thinking plus challenge produces better group decisions than individuals reach alone |\n| **Resilience** | Where people have skills that **can cover for colleagues**, absence and turnover hurt less |\n| **Future organisational capability** | People **leave with enhanced skills and experience**, taking that capability into their next role |\n| **Reputation** | A team developed well **enhances the leader's reputation for future projects**, which influences who wants to join next time |\n| **Wellbeing** | A team that looks out for one another spots overload earlier |\n\n## What makes a team effective\n\nDrawing the conditions together from across the source:\n\n- **Clear goals and objectives** established from stage 1, and an **inclusive environment**.\n- **Structure, process and clear roles and responsibilities** provided at stage 3 — but with the team **developing its own behavioural norms** rather than having them imposed.\n- **Open, honest and trusting relationships** promoted at stage 4.\n- **Roles that suit people** — matching strengths or offering development — with **variety and opportunities to learn**, because some project work is neither exciting nor developmental.\n- **Support through training, coaching and mentoring.**\n- **Differences allowed to emerge and conflicts resolved positively**, rather than suppressed.\n- **Attention to wellbeing**, because pressure that was motivating can **become unbearable**.\n\n## The temporary-team dimension\n\nProject teams are **temporary, formed for a specific purpose**, and **their transitory nature brings different challenges from business-as-usual teams.**\n\nTwo consequences for effectiveness:\n\n- **There is less time.** A permanent team can take a year to reach stage 4; a project team may not have one. That is an argument for deliberate team development rather than waiting for it to happen.\n- **People are thinking about what comes next.** Members **return to business-as-usual roles** when the work finishes, and should **ideally leave with enhanced skills and experience, without losing out in terms of advancement.** Where an organisation cannot place people at closure, LO8's warning applies — talent leaves, and people start exiting projects early to stay employed.\n\n## Wellbeing as an effectiveness issue\n\n**Project work can be genuinely exciting — fast, pressured, delivering good work against the time and money available.** But **the same pressure that was energising can tip into something people cannot carry, and that overload does real damage.**\n\n**Looking after the team, and yourself, is a duty rather than a nicety** — which means being able to **spot workplace stress, reduce it, and handle it when it appears**.\n\nWorth treating as a performance factor rather than a welfare footnote — a team under sustained overload will not display any of the five characteristics above."
+    },
+    {
+      "outcome_code": "13c",
+      "outcome_title": "Leading virtual and hybrid teams",
+      "key_takeaway": "Distance removes what co-location supplies for free — trust, informal conversation, visible signs of conflict and of distress. Virtual leadership starts with style and mindset, then norms, then technology. Technology is an enabler and is not enough by itself.",
+      "source_ref": "BoK 8e 4.4 (p201), 4.4.2 (p204-205), 4.1.3 (p176-177)",
+      "body_markdown": "## What co-location gives you\n\nWorth stating first, because the challenges are all consequences of losing it. Where teams share a place, you get **one room where the plans and the progress are up on the wall**, and **relationships that grow close through proximity**.\n\n**A dispersed team is one split across places, and often across time zones too** — virtual or remote are the other names for it. **The technology has made this both more common and less painful**, and **home working rose in many organisations after the COVID-19 pandemic.**\n\n## The hybrid rule\n\nA specific and highly examinable instruction: **run it as a dispersed team even if most of the people happen to sit together.** Doing so hands **the same access and the same opportunities to everyone, as nearly as that can be managed.**\n\nThat is the answer to a hybrid-team scenario. Running the meeting in the room and dialling the remote people in creates two classes of membership. Treating everyone as remote levels it.\n\n## The seven challenges\n\n| Challenge | What is lost |\n|---|---|\n| **Trust and relationships** | **Depth and trust are harder to build through a screen than face to face** |\n| **Communication** | Degrades, taking **understanding and empathy** down with it |\n| **Spotting and resolving conflict** | Harder to see conflict developing, and harder to resolve it |\n| **Less positive conflict** | The result is **less constructive challenge** — the LO11 failure state, arriving by default rather than by culture |\n| **Informal conversation** | The **unplanned talk that happens around a kettle or a corridor** disappears, and with it goes some **connection and sense of shared responsibility** |\n| **Development, productivity and wellbeing** | Personal and professional development and productivity can suffer; **being isolated and lonely through the working day harms wellbeing**, and **those problems are much harder to notice and address at a distance** |\n| **Diversity and practicalities** | **Differences in culture and language, generational differences**, and the practical problem of **different time zones** |\n\nThe fourth row is the one worth carrying into an answer, because it is not obvious: distance does not only reduce communication, it specifically reduces the *productive disagreement* a team needs. Silence on a call reads as consent far more easily than silence in a room.\n\nThe response the source gives: **hearing out every individual, and understanding how they see it, matters more here than it would in a room.**\n\n## Why the leadership approach must differ\n\n**Tools enable this; they do not deliver it.** Virtual leadership is built from the middle outward, and **what sits in the middle is leadership style and a virtual mindset**:\n\n| Layer | What it requires |\n|---|---|\n| **1. Style and mindset** | **Facilitating rather than directing** when working with remote colleagues and stakeholders. Knowing **what people prefer and what they can do**, and **how trust gets built and kept** |\n| **2. Team norms** | Agreement on how the team will **communicate, collaborate and challenge** — reached with **everyone's preferences in the room** |\n| **3. Technology** | Only then can technology **implement team processes** |\n\nThe ordering is the answer to 13c. A leader who starts with tool selection has begun at layer three and skipped the two that decide whether it works.\n\n**A facilitative approach specifically** — which connects to LO10's facilitation content. Remaining neutral, drawing out contributions, ensuring everyone can contribute and be heard. Those skills are optional in a room where people interrupt naturally; they are load-bearing on a call.\n\n## What technology has to be evaluated for\n\n| Area | What it must support |\n|---|---|\n| **Virtual meetings** | Talking, facilitating, sharing information, reaching consensus, capturing notes |\n| **Workload management** | Identifying tasks, allocating them, tracking them |\n| **Collaboration** | Working on things together, holding a dialogue, getting at documents |\n\n**A social element, a clear process and a facilitative approach all improve a virtual meeting.** The social element is deliberate, not decoration — it is the replacement for the informal conversation that distance removed.\n\n## The organising principle\n\nThe source states it plainly, and it is the best single line to end a 13c answer on: **much of leading a dispersed team consists of rebuilding, by other means, whatever people would have got for free from sharing a room.**\n\nEverything else follows from that. Trust that would have formed naturally has to be built deliberately. Challenge that would have happened over a desk has to be invited explicitly. Distress that would have been visible has to be asked about.",
+      "diagrams": [
+        {
+          "id": "lo13-virtual-leadership",
+          "figure_number": "13.3",
+          "caption": "Virtual leadership development works outward from mindset to technology",
+          "placement": "after_heading",
+          "heading": "Why the leadership approach must differ",
+          "file": null,
+          "spec": "Concentric rings. Centre: leadership style and virtual mindset — facilitative approach, understanding preferences and skills, building trust. Middle ring: agreed team norms for communication, collaboration and challenge. Outer ring: technology for virtual meetings, workload management and collaboration. Around the edge, the contextual pressures: time zones, language, culture, generational differences. The argument is the ordering — start at the centre, not the outside. Note BoK Figure 4.4.2 is credited to Pullan (2016), so ours must be an original depiction.",
+          "alt": "Concentric rings showing virtual leadership development from a central core of leadership style and virtual mindset, outward through agreed team norms to technology, surrounded by contextual pressures of time zone, language, culture and generation."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Belbin, Myers-Briggs, Margerison McCann and Katzenbach and Smith are APM models.",
+      "right": "None of the four appears in BoK 8e. Tuckman appears only as a figure attribution and Hackman only in a reading list. All are general management theory the PMQ syllabus expects, and should not be attributed to APM in an answer."
+    },
+    {
+      "wrong": "A project manager should minimise conflict during the early stages of team formation.",
+      "right": "Stage 2 is where individuality asserts itself. The leader's job is to let those differences surface, keep the discussion open, and settle conflicts constructively. Suppress them and they travel unresolved into the later stages."
+    },
+    {
+      "wrong": "Team development ends once the team is performing.",
+      "right": "There is a fifth stage. Reintegration means helping team members transition into their next roles, and it links to administrative closure — recording new skills and finding places to use them."
+    },
+    {
+      "wrong": "A well-performing team needs the same leadership as a new one.",
+      "right": "Both the leader's role and their priorities shift as the group matures. Once it is performing there is less to manage, and the job becomes servant leadership — supplying what the team needs to keep going."
+    },
+    {
+      "wrong": "Calling a group a team makes it one.",
+      "right": "Katzenbach and Smith distinguish a working group from a real team, and identify the pseudo-team — which performs worse than a working group, because it carries the coordination overhead of a team without the shared commitment."
+    },
+    {
+      "wrong": "An effective team is one that agrees.",
+      "right": "Effective teams innovate and challenge one another. An absence of challenge is a symptom of groupthink rather than evidence of health."
+    },
+    {
+      "wrong": "In a hybrid team, remote members join the meeting the co-located team is holding.",
+      "right": "Run it as a dispersed team even when most people sit together. That hands everyone equivalent access and opportunity, instead of creating two classes of membership."
+    },
+    {
+      "wrong": "Virtual team problems are solved by better collaboration software.",
+      "right": "Technology is an enabler but not enough by itself. Virtual leadership starts with leadership style and a virtual mindset, then agreed team norms, and only then technology."
+    },
+    {
+      "wrong": "Remote working mainly costs a team some convenience.",
+      "right": "It specifically reduces trust, empathy, the visibility of developing conflict and of wellbeing problems, and the amount of constructive challenge. Isolation during work hours can damage wellbeing directly."
+    },
+    {
+      "wrong": "Pressure keeps a project team performing.",
+      "right": "Pressure that has been motivating can become unbearable, and overload leads to damaging stress. Project professionals have a duty of care to their team and themselves, including the skills to reduce, identify and deal with workplace stress."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Group, individuality, getting on, effective, reintegration",
+      "expansion": "The five stages in order. Maps onto Tuckman as forming, storming, norming, performing, adjourning."
+    },
+    {
+      "type": "cue",
+      "acronym": "Let them storm",
+      "expansion": "Stage 2 asks the leader to allow differences to emerge and resolve conflicts positively — not to suppress disagreement in the name of harmony."
+    },
+    {
+      "type": "cue",
+      "acronym": "As the team rises, the leader steps back",
+      "expansion": "The leader's role changes with team maturity, ending in servant leadership — providing resources to a team that is largely self-managing."
+    },
+    {
+      "type": "cue",
+      "acronym": "Treat everyone as remote",
+      "expansion": "The hybrid rule. Even when most of the team is co-located, run it as a dispersed team so everyone gets the same access and opportunity."
+    },
+    {
+      "type": "cue",
+      "acronym": "Mindset, norms, then tools",
+      "expansion": "Virtual leadership works outward from the centre. Starting with the technology means skipping the two layers that decide whether it works."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can name the five stages of team development in order and say what the leader does at each.",
+    "I can explain why differences must be allowed to emerge at stage 2, and what reintegration involves at stage 5.",
+    "I can name factors that influence the stages, including role fit, variety, support, and whether the team is co-located.",
+    "I can outline Tuckman, Belbin, Margerison McCann, Myers-Briggs, Katzenbach and Smith and Hackman, and state that most of them do not come from the Body of Knowledge.",
+    "I can give the five characteristics of an effective team and explain why challenging one another is among them.",
+    "I can state the benefits of an effective team, including reduced management need, resilience and future organisational capability.",
+    "I can explain what makes project teams different from business-as-usual teams, and why wellbeing is a performance issue.",
+    "I can give the challenges of dispersed teams, state the hybrid rule, and explain why virtual leadership starts with mindset and norms rather than technology."
+  ],
+  "source_confidence": [
+    {
+      "claim": "Belbin's nine team roles in three groups; Margerison McCann's team management wheel; Myers-Briggs four preference pairs; Katzenbach and Smith's team performance curve including the pseudo-team; Hackman's enabling conditions.",
+      "sub_outcome": "13a",
+      "level": "inferred",
+      "basis": "**Belbin, Margerison McCann, Myers-Briggs and Katzenbach all return zero occurrences in a full-text search of BoK 8e.** Hackman appears only inside a recommended-reading book title at 4.4.1 (p203). All are named explicitly in the PMQ 2024 syllabus for 13a. Content written from standard management theory.",
+      "risk": "**Highest-risk item in this LO and comparable to LO12's motivation models** — four to five examinable models named by the syllabus with no coverage in the permitted source. Mitigated as elsewhere: the content states plainly that these are general management theory rather than APM doctrine. The models are stable and widely documented, but the specific depth the exam expects is unknown. REVIEWED 2026-08-02: Sim confirmed these are established techniques adopted by APM and published by other authors. The standard is that our explanation matches what the term and concept actually mean — not verification against a published sample paper. Content checked against that standard and accepted."
+    },
+    {
+      "claim": "Tuckman's forming, storming, norming, performing, adjourning and its mapping onto the five BoK stages.",
+      "sub_outcome": "13a",
+      "level": "assembled",
+      "basis": "BoK 8e 4.4.1 (p202-203) gives all five stages with the leader's role at each, and Figure 4.4.1 is credited 'inspired by Tuckman's 5 stages of team development model'. The Tuckman stage names themselves are not stated in BoK — the mapping between the two is ours.",
+      "risk": "Low. The five stages and leader behaviours are fully sourced; only the Tuckman labels and the mapping are added. The BoK attribution makes the connection explicit, so this is a well-grounded inference rather than a guess."
+    },
+    {
+      "claim": "The claim that teams can regress from performing back to storming when membership or objectives change.",
+      "sub_outcome": "13a",
+      "level": "inferred",
+      "basis": "Standard in team development literature and reflected in the v1 diagram library, but **not stated in BoK 8e**, which presents the five stages as a forward progression.",
+      "risk": "Low but real. It is included in the diagram spec as well as the body. Uncontroversial as theory; flagged because a candidate might present it as BoK content."
+    },
+    {
+      "claim": "All content for 13b and 13c — effective team characteristics, temporary team challenges, wellbeing, dispersed team challenges, the hybrid rule, and the mindset-norms-technology ordering.",
+      "sub_outcome": "13c",
+      "level": "sourced",
+      "basis": "BoK 8e 4.4 (p201), 4.4.1 (p202-203), 4.4.2 (p204-205). Coverage here is strong — the dispersed teams section in particular maps closely onto what 13c asks for.",
+      "risk": "None. Note that LO10f currently carries a short dispersed-working paragraph written before this LO existed; it should now be cut or reduced to a cross-reference so the two do not diverge."
+    }
+  ]
+}

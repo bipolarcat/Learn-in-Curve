@@ -1,0 +1,202 @@
+{
+  "lo_number": 1,
+  "lo_code": "1a, 1b, 1c, 1d",
+  "title": "Life cycles",
+  "competence_area": "A. Setting up for success",
+  "exam_coverage_note": "Area A (LOs 1-4) accounts for 15-20% of exam marks.",
+  "source_ref": "APM BoK 8e s1.2.1 (p32-33), s1.2.2 (p34-35), s1.2.3 (p36-37), s1.3.1 (p44-45), s2.5.1-2.5.4 (p91-99), s3.1.3 (p118); APM PMQ Handbook 2024, LO1",
+  "authored_on": "2026-08-01",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand the distinct life cycle stages used to structure and organise a project.",
+  "learning_outcomes": [
+    "1a) Understand the distinctive features of linear, iterative and hybrid life cycles (including why projects are structured as phases in linear life cycles) and know when each is applicable.",
+    "1b) Knowledge of the differences between a project life cycle and an extended life cycle.",
+    "1c) Understand how the context and culture of an organisation, and the needs of a specific project, influence the choice of life cycle and any adaptations that may be needed to the life cycle.",
+    "1d) Knowledge of the strengths and limitations of different life cycles."
+  ],
+  "where_this_fits": "The life cycle is the first structural decision on a project, and nearly everything else inherits from it. Choose linear and you get gated phases, fixed scope and formal change control. Choose iterative and you get evolving scope, rapid feedback and a different risk process entirely. That single choice reaches into governance, reviews, benefits, resourcing, risk and change control — several of which ask you directly how a process differs between linear and iterative. Get life cycles solid here and you are part-way through four other learning objectives.",
+  "key_definitions": [
+    {
+      "term": "Life cycle",
+      "apm_definition": "A framework comprising a series of distinct phases required to transform an idea into reality in an orderly and efficient manner.",
+      "plain_english": "The set of stages a project moves through from first idea to finished output. It is the skeleton everything else hangs on."
+    },
+    {
+      "term": "Linear life cycle",
+      "apm_definition": "A life cycle that takes the project through a set of distinct, sequential phases in a single pass, only progressing from phase to phase once all the work on the current phase is completed.",
+      "plain_english": "One pass, in order, finish each phase before starting the next. Sometimes called 'waterfall'."
+    },
+    {
+      "term": "Iterative life cycle",
+      "apm_definition": "A life cycle that takes the project through a set of repeatable phases to create an initial output, which is then built upon with further deliveries of incremental value.",
+      "plain_english": "Build a first working version, then keep improving it in repeated cycles as you learn more."
+    },
+    {
+      "term": "Hybrid life cycle",
+      "apm_definition": "A life cycle that blends the philosophies, principles, tools and techniques of both linear and iterative life cycles to suit a particular project.",
+      "plain_english": "Mix and match. Commonly iterative early where uncertainty is high, linear later once scope is settled."
+    },
+    {
+      "term": "Extended life cycle",
+      "apm_definition": "A life cycle that adds adoption and benefits realisation phases to the end of a standard project life cycle.",
+      "plain_english": "The project does not stop at handover. The team stays accountable until the change is embedded and the benefits show up."
+    },
+    {
+      "term": "Benefits realisation",
+      "apm_definition": "The process of ensuring that benefits are derived from delivered outputs and outcomes.",
+      "plain_english": "Checking the value actually arrived, rather than assuming it did because the thing got built."
+    },
+    {
+      "term": "Project approach",
+      "apm_definition": "The overarching values, principles and behaviours the project works to throughout its delivery.",
+      "plain_english": "How the team agrees to operate — agreed before picking frameworks or tools, not after."
+    },
+    {
+      "term": "Sprint",
+      "apm_definition": "A timeboxed iteration with a fixed end date.",
+      "plain_english": "A short, fixed-length work cycle. The end date does not move; the scope inside it does."
+    },
+    {
+      "term": "Minimum viable product (MVP)",
+      "apm_definition": "An initial output delivered rapidly, with additional scope items assessed, prioritised and planned for in future iterations.",
+      "plain_english": "The smallest useful thing you can put in front of users to start learning from them."
+    },
+    {
+      "term": "Output / outcome / benefit",
+      "apm_definition": "Adoption and use of outputs creates improved business outcomes, with those outcomes going on to generate the anticipated business benefit.",
+      "plain_english": "Output = the thing you built. Outcome = what changes because people use it. Benefit = the measurable value that change creates."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "1a",
+      "outcome_title": "Linear, iterative and hybrid life cycles",
+      "key_takeaway": "Two fundamental approaches — linear (sequential, one pass) and iterative (repeatable cycles). Hybrid blends them. Phases exist for three named reasons: grouping activities, better estimates, tracking progress.",
+      "source_ref": "BoK 8e 1.2.1 (p32-33), 2.5, 2.5.1, 2.5.2, 2.5.3 (p91-97)",
+      "body_markdown": "## Why projects are structured as phases\n\nThe syllabus asks for this in so many words, so learn it as three named reasons rather than a vague sense that phases are tidy.\n\n| Reason | What it buys you |\n|---|---|\n| **Better grouping of activities** | Phases group work by type — analysis, planning, building — so the right people are on the right kind of work at the right time. |\n| **More accurate plans and estimates** | Smaller chunks are easier to plan and estimate, which raises both accuracy and confidence. |\n| **Tracking and monitoring progress** | Phases create clear break points to measure against checkpoints and milestones, so you can see early whether things are on track. |\n\nEvery project passes through the same high-level phases whichever life cycle is used. The life cycle decides *how* you move through them, not whether they exist.\n\n## The two fundamental approaches\n\nThere are only two at the top level. Everything else blends them.\n\n**Linear** — distinct, sequential phases in a single pass. You move on only once the current phase is complete.\n\n**Iterative** — repeatable phases. You create an initial output, then build on it with further deliveries of incremental value as the solution evolves.\n\n**Hybrid** — a deliberate blend, because most real environments are messy enough that neither pure approach fits end to end.\n\n## Linear: the phases, and the control they buy\n\nBecause each phase finishes before the next begins, linear gives tight control over progression and a clear framework for scheduling, budgeting, resourcing and risk.\n\nThe boundaries matter as much as the phases. They create clear **gateways** — which is where milestones, governance and reviews live. No gateway, nowhere to put the decision.\n\n| Phase | What happens |\n|---|---|\n| **Concept** | An idea — exploiting an opportunity or solving a problem — is analysed for viability and fit with organisational objectives. Research, high-level requirements, often an outline business case. |\n| **Definition** | How to make it real is planned: detailed analysis, estimation, planning and a fuller statement of requirements, ending in the sponsor's approval to proceed. |\n| **Deployment** | Plans are implemented. Testing and assurance monitor performance to keep intended outcomes and benefits on track. |\n| **Transition** | Outputs are accepted and transitioned into use — handover, then formal closure. |\n\nNaming and phasing vary by organisation, shaped by its nature, purpose, environment and governance culture. Smaller projects often use a shorter cycle.\n\n**Fits best:** clearly defined or high-risk projects, where time, cost and risk can flex to protect agreed scope and quality — and projects with a **high cost of change**, where extra rigour up front pays for itself.\n\n## Iterative: how it actually works\n\nIterative rests on continuous improvement and evolutionary development: the solution evolves as learning takes place and new information emerges.\n\nYou start with a high-level vision. Detail is defined and built inside each cycle. Because specification and design run in parallel, deployment is fast-tracked and users get value earlier — which produces rapid feedback you can act on.\n\nA common structure comes from the dynamic systems development method (DSDM):\n\n| Phase | What happens |\n|---|---|\n| **Pre-project and feasibility** | The idea is established — aligned to objectives, cost effective, technically possible, with a clear measurable goal. |\n| **Foundations** | Planning and design: a high-level delivery plan and a technical design. |\n| **Evolutionary development and deployment** | Repeatable cycles of detailed design, development, testing and deployment. Early cycles produce an initial output; later ones add value as learning emerges. |\n| **Realisation** | Embed the outputs and evolve the next iteration. |\n\nMany iterative life cycles use **sprints** — timeboxed iterations with a fixed end date — typically producing a **minimum viable product** first, with further scope assessed, prioritised and planned into later iterations. A daily **scrum** keeps the team synchronised.\n\n**Fits best:** new or innovative work without detailed up-front knowledge, prototypes and pioneering technology, and situations with a **low cost of change** so the project can pivot quickly.\n\n**What it demands:** collaboration and co-creation. It runs on engagement and regular feedback from end users, and works best with co-located teams, which keeps communication barriers down.\n\n## Hybrid: blending the two\n\nThere is no one-size-fits-all life cycle. A hybrid takes the useful parts of each for a specific project.\n\nThe common pattern: **iterative through concept and definition** to work through early uncertainty, then **linear for deployment and transition** once there is clarity. Stakeholders get certainty on scope; the project gets structure for controlling schedule, budget, quality and risk.\n\nYou are not locked in. Many successful projects adapt as they go.\n\nWhat makes hybrid work or fail is alignment with the organisation's wider governance — reporting, change control, roles and responsibilities, and dependencies on other initiatives. Blend the life cycles without aligning governance and you get two systems of working arguing with each other.",
+      "diagrams": [
+        {
+          "id": "lo1-iterative",
+          "figure_number": "1.1",
+          "caption": "Iterative life cycle: repeatable cycles building incremental value",
+          "placement": "after_heading",
+          "heading": "Iterative: how it actually works",
+          "file": "lo1-iterative-life-cycle.svg",
+          "alt": "Iterative life cycle showing repeating development cycles that build an initial output into further increments of value."
+        },
+        {
+          "id": "lo1-hybrid",
+          "figure_number": "1.2",
+          "caption": "Hybrid life cycle: iterative early to resolve uncertainty, linear later for control",
+          "placement": "after_heading",
+          "heading": "Hybrid: blending the two",
+          "file": "lo1-hybrid-life-cycle.svg",
+          "alt": "Hybrid life cycle combining an iterative approach in the early phases with a linear approach for deployment and transition."
+        }
+      ]
+    },
+    {
+      "outcome_code": "1b",
+      "outcome_title": "Project life cycle vs extended life cycle",
+      "key_takeaway": "A standard life cycle ends at transition. An extended one adds adoption and benefits realisation, which run in parallel, and keeps the project team accountable until benefits appear.",
+      "source_ref": "BoK 8e 2.5.4 (p98-99), 3.1.3 (p118)",
+      "body_markdown": "## Where each one stops\n\nA standard project life cycle ends once the agreed outputs are deployed and handed over. An **extended** life cycle adds two phases on the end.\n\n| Added phase | What it covers |\n|---|---|\n| **Adoption** | Communications, training, knowledge sharing and change management, so operational teams actually use the outputs correctly. |\n| **Benefits realisation** | Measuring business performance to confirm adoption is producing the intended outcomes and the anticipated benefits. |\n\nThey typically **run in parallel**, not one after the other. As adoption rises, outcomes improve, and benefits follow.\n\n## The chain that makes it make sense\n\n> A new software tool is delivered (**output**) → customer usage increases (**outcome**) → service delivery costs fall (**benefit**).\n\nDelivering the output guarantees none of the rest. That is the entire argument for extending.\n\n## How benefits actually get measured\n\nWorth knowing, because it is what the extra phases *do*:\n\n- The groundwork is laid in **benefits planning**, not at the end — activities and resources for transition into use, testing schedules, acceptance criteria, quality assurance thresholds.\n- **Benefit owners and change managers** work throughout the project to get the business ready to accept the outputs.\n- Measurement varies by benefit type: **quantitative** for operational and financial benefits, **qualitative** (such as user feedback) for non-financial ones.\n- The **project sponsor is ultimately accountable** for the measurement process being robust, usually through formal benefits realisation reviews.\n- If benefits are not landing, the response is to **increase adoption or re-baseline the benefit target**.\n\n## Timing differs by life cycle\n\nThis one is directly examinable and easy to miss:\n\n- **Linear** — benefits are usually realised at the end, once all outputs are delivered.\n- **Iterative** — benefits are realised incrementally, as the project progresses.\n\n## When to extend\n\nProgrammes normally include adoption and benefits realisation as standard. For a **standalone project** it is a real trade-off:\n\n| For extending | Against extending |\n|---|---|\n| Higher adoption rates | The organisation pays for project professionals' time on those activities |\n| Better chance the benefits are realised — often what stakeholders judge success on | Operational teams could manage it instead |\n| The project team learns how their work actually lands in the business | |\n\nA project inside a larger programme may only need to deliver outputs, because the programme handles adoption and benefits.\n\n**Timing matters.** If you are going to extend, plan for it in the **early phases** — the requirements, work, resources and risks of the extra phases all belong in the project management plan from the start.",
+      "diagrams": [
+        {
+          "id": "lo1-extended",
+          "figure_number": "1.3",
+          "caption": "Extended life cycle: adoption and benefits realisation follow transition",
+          "placement": "after_heading",
+          "heading": "Where each one stops",
+          "file": "lo1-extended-life-cycle.svg",
+          "alt": "Extended life cycle adding adoption and benefits realisation phases after transition, showing the progression from output to outcome to benefit."
+        }
+      ]
+    },
+    {
+      "outcome_code": "1c",
+      "outcome_title": "How context and culture drive the choice",
+      "key_takeaway": "Four factors set the approach: risk appetite, cost of change, business agility, decision-making autonomy. Then project type (how well you know the what and the how) and organisational culture push you towards linear or iterative.",
+      "source_ref": "BoK 8e 1.2.2 (p34-35), 1.2.3 (p36-37), 1.3.1 (p44-45), 2.5, 2.5.3",
+      "body_markdown": "## Four factors that set the project approach\n\nBefore choosing a life cycle, teams agree a **project approach** — the values, principles and behaviours the project works to. Four factors shape it, and they are the most reliable thing to reason from in a scenario question.\n\n| Factor | The question it asks |\n|---|---|\n| **Risk appetite** | How much risk is the project willing to take? Usually inherited from the organisation and its industry. |\n| **Cost of change** | How easy is it to pivot mid-deployment? Rewriting software code is cheap. Demolishing and rebuilding a football stadium is not. |\n| **Business agility** | Is the organisation flexible, resilient and adaptable, or rigid and bureaucratic? |\n| **Decision-making autonomy** | Is the team empowered to decide, or does everything need layers of approval? |\n\n**The pattern worth memorising:**\n\n- High risk appetite + low cost of change + team autonomy + strong business agility → fast progress, learning by trial and error → **iterative**.\n- Low risk appetite + high cost of change + low autonomy + low agility → the team cannot afford mistakes → controlled, cautious, methodical → **linear**.\n\nA project's approach is not black and white. It moves along a spectrum of agility, risk taking and autonomy as the project progresses.\n\n## Project type: how well do you know the what and the how?\n\nTurner and Cochrane's goals-and-methods matrix asks two questions — how well do we know **what** we are doing, and how well do we know **how** we will do it?\n\n| Type | Goals | Methods | Example | What to do about it |\n|---|---|---|---|---|\n| **1 — earth** | Clear | Clear | Large engineering | Keep concept and planning brief; deliver quickly |\n| **2 — water** | Clear | Unclear | Product development | Focus early effort on the 'what' via a clear business case |\n| **3 — fire** | Unclear | Clear | Software development | Move fast through concept; experiment between definition and deployment |\n| **4 — air** | Unclear | Unclear | Organisational development | Spend longer in concept and definition to gain information and confidence |\n\nType 4 is the exam-useful row: **high uncertainty justifies more time in concept and definition** — a concrete reason you can point at in a scenario answer.\n\n## Organisational culture\n\nCulture is the unwritten set of rules shaping behaviour and attitudes. Cameron and Quinn's model splits it on two competing pairs — stability vs flexibility, and inward vs outward looking.\n\n| Culture | Character | Life cycle implication |\n|---|---|---|\n| **Clan** (inward/flexible) | Collaborative, nurturing, family feel, coaching leadership | Supports collaboration and co-creation |\n| **Adhocracy** (outward/flexible) | Energetic, entrepreneurial, innovation and risk taking welcome | Iterative projects often have a strong element of adhocracy culture |\n| **Hierarchy** (inward/stable) | Rigid, strong order and control, consistency over creativity | Suits projects under strict governance — points to linear |\n| **Market** (outward/stable) | Results-orientated, competitive, focused on profit and market share | Creates rivalry between project teams |\n\nCulture also varies *within* an organisation — regional offices, functions, departments and project teams develop their own subcultures.\n\n## Adapting the life cycle\n\nAdaptation is normal, not a planning failure.\n\n- **Phasing and naming change by organisation**, shaped by its nature, purpose, environment and governance culture. Smaller projects often use a shorter cycle.\n- **The approach can change mid-project.** Projects move in and out of stability, uncertainty and risk, and the approach should adapt with the environment and stakeholders' needs.\n- **Blending scales upwards** to programmes and portfolios — iterative deployment lets a programme realise benefits earlier through rapid user feedback.\n\n**The constraint on all of it:** whatever you adapt must stay aligned with organisational governance — reporting, change control, clear roles, and visible dependencies on other initiatives."
+    },
+    {
+      "outcome_code": "1d",
+      "outcome_title": "Strengths and limitations",
+      "key_takeaway": "Every strength has a matching cost. Linear buys control and pays in flexibility; iterative buys adaptability and pays in certainty; hybrid buys fit and pays in complexity.",
+      "source_ref": "BoK 8e 2.5.1, 2.5.2, 2.5.3, 2.5.4",
+      "body_markdown": "## The grid\n\n| Life cycle | Strengths | Limitations |\n|---|---|---|\n| **Linear** | Tight control of progression; clear framework for scheduling, budgeting, resourcing and risk; clear gateways for milestones, governance and reviews; suits a high cost of change | Assumes a lot of knowledge up front; poor fit for developing or changeable environments; users wait longer for value; limited scope for major change once delivery is complete |\n| **Iterative** | Value delivered earlier; rapid user feedback; adapts as learning emerges; suits innovation, prototypes and pioneering technology; suits a low cost of change | Depends on sustained user engagement and regular feedback; works best with co-located teams; less up-front certainty on total scope, time and cost |\n| **Hybrid** | Pragmatic mix tailored to the project; resolves early uncertainty while keeping later control; can adapt as the project progresses | Needs greater skill and clarity to run two ways of working; must be aligned to organisational governance or reporting and change control break down |\n| **Extended** | Higher adoption rates; better chance benefits are realised — often what stakeholders judge success on; the team learns how its work lands | Additional cost for project professionals' time; must be planned from the early phases, not bolted on |\n\n## The trade-off in one line each\n\n- **Linear** buys control and pays for it in flexibility.\n- **Iterative** buys adaptability and pays for it in certainty.\n- **Hybrid** buys fit and pays for it in complexity.\n- **Extended** buys benefits and pays for it in cost.\n\nIf you can state the cost as fluently as the strength, you understand the life cycle."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Iterative is the modern approach and is therefore better.",
+      "right": "Neither is better. Each suits different conditions — cost of change, information available up front, risk appetite, and how much the project depends on user feedback."
+    },
+    {
+      "wrong": "Linear projects cannot handle change.",
+      "right": "They handle change through formal change control. What they handle badly is continuously evolving scope, especially once delivery is well advanced."
+    },
+    {
+      "wrong": "An extended life cycle just means a longer project.",
+      "right": "It means two specific phases were added — adoption and benefits realisation — and the project team stayed accountable through them."
+    },
+    {
+      "wrong": "Once you have chosen a life cycle you are committed to it.",
+      "right": "The approach can change as the project progresses, and often should. Projects move in and out of stability, uncertainty and risk."
+    },
+    {
+      "wrong": "Hybrid is the easy option because you can do whatever you like.",
+      "right": "Hybrid demands more skill, because two ways of working must be reconciled with one set of governance, reporting and change control."
+    },
+    {
+      "wrong": "Delivering the output means the project delivered its benefits.",
+      "right": "Outputs do not automatically generate benefit. Adoption creates outcomes, and outcomes generate benefits. Each step has to actually happen."
+    },
+    {
+      "wrong": "You must never use the word 'waterfall'.",
+      "right": "The Body of Knowledge itself notes that linear life cycles are often referred to as waterfall. 'Linear' is the primary term and the safer one to lead with, but the word is not forbidden."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "CDDT",
+      "expansion": "Concept, Definition, Deployment, Transition — the four phases, in order."
+    },
+    {
+      "type": "acronym",
+      "acronym": "CDDT + AB",
+      "expansion": "Add Adoption and Benefits realisation and you have the extended life cycle."
+    },
+    {
+      "type": "cue",
+      "acronym": "Built it, used it, worth it",
+      "expansion": "Output, outcome, benefit. Three words, always in that order."
+    },
+    {
+      "type": "cue",
+      "acronym": "Stadium or software?",
+      "expansion": "Cost of change decides most scenarios. You cannot un-build a stadium; you can rewrite code. High cost of change points to linear."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can give the three reasons projects are structured as phases — grouping activities, more accurate estimates, tracking progress.",
+    "I can name the two fundamental approaches, linear and iterative, explain how hybrid relates to them, and list the four linear phases in order.",
+    "I can explain what phase boundaries are for: they create the gateways where milestones, governance and reviews sit.",
+    "I can describe the iterative cycle and explain what sprints and an MVP are for.",
+    "I can state the two phases an extended life cycle adds, and explain why adoption and benefits realisation run in parallel.",
+    "I can distinguish output, outcome and benefit with an example, and explain how benefits timing differs between linear and iterative.",
+    "I can name the four factors that set a project's approach — risk appetite, cost of change, business agility, decision-making autonomy — and explain how organisational culture pushes the choice either way.",
+    "I can state one strength and one limitation for each of linear, iterative and hybrid, and justify a life cycle choice using specific details from a scenario."
+  ],
+  "source_confidence": [
+    {
+      "claim": "Turner and Cochrane goals-and-methods matrix, including the earth / water / fire / air type labels and the worked examples for each.",
+      "sub_outcome": "1c",
+      "level": "sourced",
+      "basis": "BoK 8e 1.2.2 Project types (p34-35).",
+      "risk": "None on the facts. Noted because the memory aid built on it was removed on 2026-08-02 for being confusing — it named the four elements without encoding which dimension was unclear in each. The matrix itself stays in the body content."
+    }
+  ]
+}

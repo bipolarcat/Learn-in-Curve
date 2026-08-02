@@ -8,9 +8,8 @@ import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { slyChromeStyles } from "@/components/SlyChrome";
 import showcase from "@/components/SlyShowcase.module.css";
-import { stampCtaPrimary } from "@/components/stamp-chip";
+import { stampCtaPrimary, stampCtaPrimaryCompact, CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
-import { CtaArrow } from "@/components/stamp-chip";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
@@ -149,7 +148,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                 <div className="rounded-2xl bg-cream/92 px-4 py-3 shadow-sm ring-1 ring-ink/10">
                   <p className="m-0 max-w-[20rem] text-[14px] font-medium leading-relaxed text-ink text-pretty">
                     {isSignedIn
-                      ? "Sly is waiting inside your course, ready for your PMQ questions."
+                      ? "Launching soon!"
                       : unavailable
                         ? "Sly’s free trial is taking a short break. Create a free account to keep learning in the meantime."
                         : locked
@@ -249,13 +248,13 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           className={`${slyChromeStyles.composer} relative z-10 shrink-0 px-3 pb-3 pt-2.5 sm:px-4`}
         >
           {isSignedIn ? (
-            <div className="rounded-xl border border-ink/10 bg-paper/85 p-4 shadow-sm backdrop-blur-sm">
-              <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
-                You&apos;re signed in — Sly is waiting inside your course.
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-ink/10 bg-paper/85 p-3.5 shadow-sm backdrop-blur-sm">
+              <p className="m-0 text-[14px] font-medium leading-snug text-ink shrink-0">
+                You&apos;re signed in
               </p>
               <Link
                 href={`/courses/${PMQ_SLUG}`}
-                className={`${stampCtaPrimary} mt-3 w-full !justify-center`}
+                className={`${stampCtaPrimaryCompact} shrink-0`}
               >
                 Open your course
                 <CtaArrow />

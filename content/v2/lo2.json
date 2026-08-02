@@ -1,0 +1,261 @@
+{
+  "lo_number": 2,
+  "lo_code": "2a, 2b, 2c, 2d",
+  "title": "Governance arrangements",
+  "competence_area": "A. Setting up for success",
+  "exam_coverage_note": "Area A (LOs 1-4) accounts for 15-20% of exam marks.",
+  "source_ref": "APM BoK 8e s1.1.2 (p24-25), s2.1.1 (p58-59), s2.6, s2.6.1-2.6.4 (p101-109), s3.6.1 (p159-160), s5.7 intro (p282-283), s5.7.1 (p284-285); APM PMQ Handbook 2024, LO2",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand governance structures as a framework of authority and accountability for the delivery of a project, which align with organisational practice.",
+  "learning_outcomes": [
+    "2a) Knowledge of different types of permanent and temporary organisation structures and their features (including functional, matrix, and project), and know that an organisation's governance approach will inform the approach used for a project.",
+    "2b) Understand why there are distinct roles within project management and know the responsibilities of each role (including users, project team members, the project manager, the project steering group/board and the product owner), and understand the differences in responsibilities of the project manager and project sponsor throughout the project.",
+    "2c) Understand why aspects of project management governance are required (such as the use of policies, regulations, functions, processes, procedures and delegated responsibilities), and understand the impact of a project's life cycle on its governance framework and the limits of financial authority.",
+    "2d) Understand the importance of linking projects to an organisation's objectives."
+  ],
+  "where_this_fits": "Governance answers one question: who is allowed to decide what. Everything you learn later that involves a decision — approving a business case, passing a decision gate, accepting a change request, signing off quality, escalating a risk — is really a governance question wearing a different hat. LO1 decided the shape of the project; LO2 decides who controls it. The two are directly linked, and the syllabus says so: the life cycle you chose changes the governance framework you need. Reviews, assurance, change control and business case all sit downstream of this LO, so time spent here pays back four or five times over.",
+  "key_definitions": [
+    {
+      "term": "Governance",
+      "apm_definition": "The system by which the organisation and its portfolio, programme and projects are directed and controlled. It is a framework of authority and accountability.",
+      "plain_english": "Who is allowed to decide what, who answers for the result, and how decisions get escalated when they exceed someone's authority."
+    },
+    {
+      "term": "Corporate governance",
+      "apm_definition": "The governance of the organisation as a whole, covering vision, mission and strategy, within which business-as-usual governance and business change governance both sit.",
+      "plain_english": "The organisation's own rulebook. Project governance has to fit inside it, not compete with it."
+    },
+    {
+      "term": "Sponsor",
+      "apm_definition": "The individual accountable for good governance and for ensuring the work meets its objectives and the organisation's needs. Sometimes known as the senior responsible owner.",
+      "plain_english": "The business leader who owns the investment. Accountable for the business case and the benefits, before, during and after delivery."
+    },
+    {
+      "term": "Governance board",
+      "apm_definition": "A body that oversees a project, programme or portfolio, reviewing performance and making decisions consistent with the size and complexity of the work. Also called a project board, programme board, steering group or steering committee.",
+      "plain_english": "The group the sponsor usually chairs, representing financial, provider and user interests, that makes the decisions too big for the project manager."
+    },
+    {
+      "term": "Terms of reference",
+      "apm_definition": "The document setting out a governance board's responsibilities and authority, usually developed by the sponsor. It may define specific member roles and escalation routes for decisions beyond the board's authority.",
+      "plain_english": "The board's job description and its ceiling — what it can decide, and where it has to pass the decision upwards."
+    },
+    {
+      "term": "Delegated limits of authority",
+      "apm_definition": "The boundaries within which a role may decide, defined by governance, together with a clear escalation route for issues, decisions and change requests that exceed them.",
+      "plain_english": "How far you can go before you have to ask. Exceed your limit and it becomes someone else's decision, not a judgement call."
+    },
+    {
+      "term": "Temporary structure",
+      "apm_definition": "The organisational structure created to manage the activities and resources of a project or programme, delivering specific objectives within predetermined timeframes. It does not typically match the permanent organisation's structure but must be coordinated with it.",
+      "plain_english": "The project's own org chart. It exists for the life of the project and then dissolves."
+    },
+    {
+      "term": "Functional / matrix / project structures",
+      "apm_definition": "The three most common temporary structures for projects, each distributing resources differently: functional (resources stay in and report to their function), matrix (resources split reporting between functional lead and project manager), project (resources dedicated to and reporting only to the project).",
+      "plain_english": "Three answers to 'who does this person actually work for while the project runs?' — their department, both, or the project."
+    },
+    {
+      "term": "Organisational breakdown structure (OBS)",
+      "apm_definition": "A hierarchical structure created by the choice of organisational structure, visualising the project hierarchy and enabling identification of resource requirements.",
+      "plain_english": "The project org chart in breakdown form. Combined with the WBS it produces the responsibility assignment matrix."
+    },
+    {
+      "term": "Responsibility assignment matrix (RAM)",
+      "apm_definition": "A matrix formed by combining the work breakdown structure and the organisational breakdown structure, clarifying which roles are accountable and responsible for activities and decisions, which must be consulted, and which need to be informed.",
+      "plain_english": "The grid that stops 'I thought you were doing that'. Often seen as RACI."
+    },
+    {
+      "term": "Product owner",
+      "apm_definition": "A role used in iterative life cycles that represents the user, prioritises what is built next, and accepts outputs on the user's behalf.",
+      "plain_english": "The single voice for what the users want, so an iterative team gets one prioritised list instead of twenty competing opinions."
+    },
+    {
+      "term": "Strategic intent",
+      "apm_definition": "The driver to achieve an important outcome, encapsulating the broad direction of travel for the organisation and staying constant over a reasonable period while the ways of achieving it may change.",
+      "plain_english": "The long-run goal projects are supposed to serve. Strategy changes; strategic intent mostly does not."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "2a",
+      "outcome_title": "Governance structures, permanent and temporary organisations",
+      "key_takeaway": "Governance is a framework of authority and accountability that must sit inside corporate governance. Projects run temporary structures inside a permanent one — functional, matrix or project — and the organisation's governance approach constrains what the project can choose.",
+      "source_ref": "BoK 8e 1.1.2 (p24-25), 2.6 (p101), 2.6.1 (p102-103), 2.6.3 (p106-107), 5.7.1 (p284-285)",
+      "body_markdown": "## What governance is actually for\n\nGovernance is a framework of **authority and accountability**. It is the mechanism through which the organisation funding the work keeps oversight of it — setting and controlling what the project produces, what changes as a result, and what value the organisation gets back.\n\nThe cleanest one-line version, and the one worth carrying into the exam: **governance decides who gets to decide what.**\n\nIt exists to make sure projects:\n\n- **do the right things** — serving the investing organisation's objectives\n- **in the right way** — complying with good practice, ethical standards, policies, procedures, regulation and legislation\n\nThose two halves are worth memorising as a pair, because scenario questions usually break on one or the other. A project delivering something nobody needs fails the first. A project delivering the right thing by cutting regulatory corners fails the second.\n\n## Three levels, one system\n\nProject governance does not stand alone. It overlaps with the rest of the organisation's governance.\n\n| Level | What it governs |\n|---|---|\n| **Corporate governance** | Vision, mission, strategy — the whole organisation |\n| **Business-as-usual governance** | Operations, the ongoing work |\n| **Business change governance** | Projects, programmes and portfolios |\n\nProject governance principles must **integrate with wider corporate governance**, and must also be shaped by what the initiative actually is — how big it is, how complicated, how far its effects reach, and which life cycle it runs on. Governance that ignores either half breaks: too detached from corporate and it gets overruled; too generic and it does not fit the project.\n\nGovernance is also **fractal** — the same mechanisms apply at each level, with each level governing the one below and feeding information back to the one above. Direction, goals and objectives flow down; feedback, information and KPIs flow up.\n\n## Two levels of control\n\nA useful distinction for structuring an answer:\n\n| Control | At project level it means |\n|---|---|\n| **Control of direction** | Determining the problem to be solved, defining the outcomes and benefits, and assuring the project's goals stay aligned with organisational strategy |\n| **Control of implementation** | Managing alignment of delivery to the agreed outcomes, overseeing key milestones and deliverables, monitoring progress and taking corrective action |\n\n## Delegation is the point, not a compromise\n\nNot every decision can be taken by one person, so governance has to allow **delegation of decision-making within parameters**. The general principle is to delegate to the **lowest level possible** while still keeping control of direction and oversight of progress.\n\nThat is why governance both **empowers and constrains**. It empowers project professionals by giving them defined limits of authority to act within, and constrains leaders, who must themselves decide through the process governance lays down rather than around it. Governance is not a brake bolted onto delivery; without it nobody below the sponsor could decide anything at all.\n\nFor delegation to work, roles and responsibilities across the team and the governance tiers have to be clearly defined — which is exactly what a **responsibility assignment matrix** does, by clarifying who is accountable and responsible, who must be consulted, and who must be informed.\n\n## Permanent versus temporary organisations\n\nOrganisational structures are fundamentally about **power and information**: who holds roles, responsibilities and power, and how information flows between levels of management.\n\n- The **permanent organisation** is the stable backdrop: decisions get made and information travels along routes that stay put. It is built around functional departments — finance, IT, product development, HR — which hold the resources, processes and technologies that do the work.\n- **Projects and programmes are temporary endeavours with temporary structures**, designed to manage activities and resources to deliver specific objectives within predetermined timeframes.\n\nThose two do not typically match, but they must be coordinated. Project professionals work across both, and how hard that is depends on how well the two structures align.\n\n**Where the friction shows up:** competing priorities. Pulling skilled people out of the permanent organisation affects operational performance. The **sponsor** manages this interface — negotiating access to the right people, managing the tensions across the boundary, and easing the transition from delivery back into operations.\n\n## The three temporary structures\n\nThis table is high-yield. Learn the trade-off, not just the label.\n\n| Structure | Who they report to | Strength | Weakness |\n|---|---|---|---|\n| **Functional** | Their functional lead only (e.g. the finance director), while working solely on project work | Builds expert domain knowledge | People can feel isolated — a lone project worker in a business-as-usual team |\n| **Matrix** | Split between functional lead **and** project manager | Keeps the project visible inside the operation | People struggle with conflicting priorities and two bosses |\n| **Project** | The project lead only; fully dedicated | Complete focus on project objectives | The project can become disconnected from the operation |\n\nAuthority moves in opposite directions across that list: **line manager authority is highest in a functional structure and lowest in a project structure; project manager authority is the reverse.** Matrix sits deliberately in the middle, which is why it produces the most conflict — nobody has clear primacy.\n\nChoosing a structure creates the **organisational breakdown structure (OBS)**. Combine the OBS with the work breakdown structure and you get the **responsibility assignment matrix (RAM)**, showing each work item, the resources assigned and the role each one holds.\n\n## Why the organisation's governance approach constrains the project's\n\nThis is the second half of 2a and easy to skip.\n\nThe project does not get a free choice. Its governance arrangements have to reflect the organisation's permanent structure and existing practice — reporting lines, approval thresholds, change control, the standards it already applies. A project inside a rigid, hierarchical organisation with tight approval limits cannot simply declare itself self-governing because the team prefers it.\n\nThe practical consequence, and a good scenario answer: if the project's chosen life cycle and the organisation's governance approach pull in different directions, that gap is a **risk to be managed and made visible**, not something to quietly ignore. It usually shows up as decisions taking longer than the delivery approach assumed.",
+      "diagrams": [
+        {
+          "id": "lo2-governance-levels",
+          "figure_number": "2.1",
+          "caption": "Corporate, business-as-usual and business change governance",
+          "placement": "after_heading",
+          "heading": "Three levels, one system",
+          "file": null,
+          "spec": "Corporate governance (vision, mission, strategy) at the top, branching down to two peers: business-as-usual governance (operations) and business change governance (projects, programmes, portfolios). The point the reader must take: project governance is one branch inside corporate governance, not a separate system alongside it.",
+          "alt": "Corporate governance sitting above and encompassing both business-as-usual governance of operations and business change governance of projects, programmes and portfolios."
+        },
+        {
+          "id": "lo2-org-structures",
+          "figure_number": "2.2",
+          "caption": "Functional, matrix and project structures, and where authority sits in each",
+          "placement": "after_heading",
+          "heading": "The three temporary structures",
+          "file": null,
+          "spec": "Three org charts side by side — functional, matrix, project — with two opposing authority gradients running across them: line manager authority max-to-min left to right, project manager authority min-to-max. A v1 asset already exists at `PMQ in 5 days/public/diagrams/LO2-1_org-structure-authority.svg` and may be reusable or a starting point.",
+          "alt": "Functional, matrix and project organisational structures shown side by side, with line manager authority decreasing and project manager authority increasing across the three."
+        }
+      ]
+    },
+    {
+      "outcome_code": "2b",
+      "outcome_title": "Roles and responsibilities, and sponsor versus project manager",
+      "key_takeaway": "Roles are distinct so that accountability is unambiguous and decisions sit at the right level. The sponsor owns the business case and the benefits; the project manager owns delivery of the outputs. The sponsor's involvement starts before and ends after the project manager's.",
+      "source_ref": "BoK 8e 1.1.2 (p24), 2.6.2 (p104-105), 2.6.4 (p108-109), 3.6.1 (p159-160)",
+      "body_markdown": "## Why distinct roles exist at all\n\nBecause governance is a framework of accountability, and accountability that is shared is accountability that is absent. Distinct roles exist to:\n\n- put each decision at the **level with the right authority and the right information**\n- make it unambiguous **who answers** for the business case, for delivery and for benefits\n- create a **working escalation route**, so an issue beyond one role's limits has somewhere to go\n- let people be **empowered inside clear boundaries** rather than waiting on permission for everything\n\n## The roles the syllabus names\n\n| Role | Core responsibility |\n|---|---|\n| **Sponsor** | Accountable for good governance and for the work meeting its objectives and the organisation's needs. Owns the vision and business case, secures funding, is accountable for benefits, and is the project manager's first point of escalation. |\n| **Project manager** | Responsible for day-to-day delivery of the agreed outputs — planning, managing the work, the team and the resources, controlling progress, and escalating what exceeds their delegated authority. |\n| **Project steering group / board** | Oversees performance and makes the decisions above the project manager's authority. Represents financial, provider and user interests. |\n| **Project team members** | Deliver the work packages assigned to them, to the agreed quality, and report progress and problems honestly and early. |\n| **Users** | Represent the operational reality the outputs must work in. Specify and validate requirements, take part in testing and acceptance, and ultimately accept the deliverables at transition. |\n| **Product owner** | Used in iterative life cycles. Represents the user, prioritises what gets built next, and accepts outputs on the user's behalf. |\n\nTwo cautions worth carrying:\n\n- **The product owner is an iterative-life-cycle role.** If a scenario describes sprints, a backlog and incremental delivery, a product owner belongs there. In a linear project, sign-off is usually the sponsor's or client's.\n- **Users are not the same as the sponsor.** The sponsor represents the *investment*; users represent the *operational use*. A project can satisfy one and fail the other, and that failure mode is a common exam scenario.\n\n## What the governance board actually does\n\nThe board discharges its responsibility by:\n\n- watching progress, and checking the work still **lines up with organisational strategy**\n- keeping an eye on whether the **benefits** are actually going to land\n- keeping an eye on **risk**\n- tracking performance through reports, assurance and audit, and testing it against **objective metrics** rather than reassurance\n- signing off **corrective action** where performance has drifted, and approving any **major departure from the plan**\n- **deciding change requests**, and passing them up the chain when they exceed its own authority\n- making sure the project stays inside **policy, regulation, statutory duty and professional and ethical standards**\n- taking the formal **go/no-go call at each decision gate**\n\nIts responsibilities and authority are set out in **terms of reference**, usually written by the sponsor, which also define escalation routes for decisions beyond the board's authority.\n\n**Two common models** — know both, because a scenario will describe one of them:\n\n1. **The board is the primary governance body.** Authority is delegated to the board itself, and the sponsor sits on it as one member among several.\n2. **The sponsor is the primary source of governance.** Authority is delegated to the sponsor personally, and the board exists to advise them.\n\nWhere a project needs so many experts that the board becomes unwieldy, the answer is a **small decision-making board supported by a wider steering group in an advisory role only**.\n\n## Sponsor versus project manager, across the life cycle\n\nThis is the sharpest, most frequently examined comparison in the LO. The clean split: **the sponsor is accountable for the project being worth doing; the project manager is responsible for it being done.**\n\n| Phase | Sponsor | Project manager |\n|---|---|---|\n| **Before / concept** | Identifies needs and requirements, establishes the business case, secures funding, and often selects and appoints the project manager | Frequently not yet appointed |\n| **Definition** | Approves the plan and confirms the business case still stands | Plans the work — estimating, scheduling, resourcing, risk |\n| **Deployment** | Leads day-to-day governance: oversight, decisions, interfacing between organisation and project. First point of escalation | Manages delivery, the team and the plan; controls progress; escalates beyond delegated limits |\n| **Transition** | Ensures the work is properly closed out, oversees handover to operations | Completes handover, closes the project, captures lessons |\n| **After** | Remains accountable for **benefits realisation**, during and after delivery | Role has normally ended |\n\n**Two facts that carry marks:**\n\n- The sponsor's role **starts before and continues after** the project manager's.\n- The sponsor's engagement **fluctuates, peaking at the initial and final stages** — heavy at the start setting the project up, lighter in the middle, heavy again at closure and benefits.\n\n## What makes a sponsor effective\n\nBeyond the governance duties, sponsorship is a leadership, management, communications and coaching role — supporting the project manager, motivating the wider team through difficult periods, and engaging influential and senior stakeholders.\n\nAn effective sponsor is a decision-maker who can work across organisational boundaries, carries enough authority to commit the organisation funding the work, is a genuine advocate for the change, commits enough time to the role, understands project practice well enough to challenge the project manager intelligently, and is aware enough of their own gaps to bring in expertise where needed.\n\nThat last point is the one candidates forget: **a sponsor who cannot challenge the project manager competently is a governance weakness**, not a harmless one.",
+      "diagrams": [
+        {
+          "id": "lo2-governance-structure",
+          "figure_number": "2.3",
+          "caption": "Generic project governance structure",
+          "placement": "after_heading",
+          "heading": "The roles the syllabus names",
+          "file": null,
+          "spec": "Vertical hierarchy: management board → project sponsor → project board / steering group (marked 'if applicable') → project manager → project team. Internal and external stakeholders shown as dotted inputs to the sponsor. Product owner shown as a dotted branch off the project manager, labelled 'iterative life cycles only'. Users shown as a dotted link from the project team. The dotted lines matter — they mark roles that are context-dependent rather than always present.",
+          "alt": "Generic project governance structure showing the management board above the project sponsor, the project board beneath the sponsor, the project manager reporting to the board, and the project team beneath the project manager, with stakeholders, users and a product owner shown as related roles."
+        }
+      ]
+    },
+    {
+      "outcome_code": "2c",
+      "outcome_title": "Why governance mechanisms are required, and how the life cycle changes them",
+      "key_takeaway": "Policies, processes, procedures and delegated responsibilities exist to make decisions consistent, compliant, auditable and fast enough. The life cycle decides where control points sit: decision gates between phases in linear, an end-of-iteration review in iterative.",
+      "source_ref": "BoK 8e 2.6 (p101), 2.6.1 (p102-103), 2.6.2 (p104), 2.6.4 (p108-109)",
+      "body_markdown": "## Why each mechanism exists\n\nThe syllabus lists the mechanisms; the marks are in saying what each one is *for*. Learn the purpose column, not the list.\n\n| Mechanism | Why it is required |\n|---|---|\n| **Policies** | Set the organisation's non-negotiable positions, so every project applies the same standard without renegotiating it each time |\n| **Regulations and statutory obligations** | Compliance is not optional. A project that ignores them exposes the organisation to legal, financial and reputational harm regardless of how well it delivers |\n| **Functions** | Give the project access to specialist capability — finance, legal, HR, assurance — rather than each project improvising it |\n| **Processes** | Make outcomes repeatable and comparable across projects, so performance can be measured against something |\n| **Procedures** | Turn a process into consistent day-to-day practice, so results do not depend on who happens to be doing the work |\n| **Delegated responsibilities** | Push decisions to the lowest level that can properly take them, so the project moves at pace without losing control |\n\nBehind all six sits one common thread: **governance records underpin internal and external audit**. Accurate, well-organised and accessible records are essential — a decision nobody can evidence is, for audit purposes, a decision that was never properly made.\n\n## What good governance depends on\n\nGovernance runs on **good and timely information** and **fully engaged people**. Sponsors, boards and senior stakeholders can only make informed decisions from robust reporting and good-quality information.\n\nWhere work has **multiple owners** — co-owned or co-funded projects — the structure has to hand each stakeholder a share of influence that matches what they have put in, where they sit and what they know — plus somewhere to take a disagreement. Equal say for unequal stakes is a governance design fault.\n\n## Limits of financial authority\n\nAuthority is not binary; it is bounded. Governance sets **delegated limits of authority**, and names in advance where anything exceeding them has to go — whether that is an issue, a decision or a change request.\n\nIn financial terms this produces a ladder. Each level can commit spend or approve change up to its threshold, and anything beyond it escalates:\n\n| Level | Typically decides |\n|---|---|\n| **Project manager** | Spend and change within the agreed budget tolerance |\n| **Sponsor** | Beyond the project manager's limit; also holds **top-level contingency (management reserve)** |\n| **Governance board** | Beyond the sponsor's limit; determines change requests and agrees major departures from plan |\n| **Corporate / higher authority** | Beyond the board's terms of reference — the board escalates |\n\nTwo things to be precise about in an answer:\n\n- The **sponsor secures funding and top-level contingency**. Management reserve is not the project manager's to spend.\n- **Escalation is a designed route, not an admission of failure.** Working within your limit and escalating past it is the system operating correctly.\n\n## How the life cycle changes the governance framework\n\nGovernance arrangements have to fit the life cycle chosen — and the structures, standards and levels of rigour should be proportionate to the work. Rigour scaled to a large infrastructure programme, applied to a small internal project, buys nothing and slows everything.\n\nThe **principle common to every life cycle**: nothing moves forward until whatever the previous phase was supposed to deliver has actually been delivered. What changes is *where the control point sits* and *how often it happens*.\n\n| | Linear | Iterative |\n|---|---|---|\n| **Control point** | Decision gates between life cycle phases | Formal review at the end of each iteration |\n| **Frequency** | Few, at fixed phase boundaries | Many, at the end of every cycle |\n| **The decision being made** | Go / no-go to enter the next phase | Whether to draw down work for the next cycle |\n| **Test applied** | Assurance of the work done, plus integrated plans for the work to come | Whether the **value proposition remains positive** |\n| **Consequence** | Change is handled through formal change control between gates | Direction can change every cycle without a change request |\n\n**\"The value proposition remains positive\"** is the phrase to remember for iterative governance. It captures the real difference: an iterative project is re-justified continuously, and can be stopped at the end of any cycle when it stops being worth continuing. A linear project is justified at gates, and between them the machinery is change control.\n\nThis also explains why iterative governance is not lighter, only differently placed. Reviewing every cycle is more frequent oversight, not less — it is just faster and closer to the work.",
+      "diagrams": [
+        {
+          "id": "lo2-control-points",
+          "figure_number": "2.4",
+          "caption": "Where governance control points sit in linear and iterative life cycles",
+          "placement": "after_heading",
+          "heading": "How the life cycle changes the governance framework",
+          "file": null,
+          "spec": "Two horizontal tracks stacked for comparison. Top: linear — Concept → gate → Definition → gate → Deployment → gate → Transition, gates drawn as diamonds. Bottom: iterative — Iteration → review → Iteration → review → Iteration, with the review labelled 'value proposition still positive?'. The visual argument is frequency: three gates versus a review after every cycle. Iterative governance is more frequent, not lighter.",
+          "alt": "Linear life cycle with decision gates between each phase, compared with an iterative life cycle with a review at the end of every iteration testing whether the value proposition remains positive."
+        }
+      ]
+    },
+    {
+      "outcome_code": "2d",
+      "outcome_title": "Linking projects to organisational objectives",
+      "key_takeaway": "Projects exist to implement strategy. Senior leaders must be able to show how each one contributes to strategic intent, and where a project does not align, its relevance should be questioned — including cancelling it.",
+      "source_ref": "BoK 8e 2.1.1 (p58-59), 1.1.2 (p24), 2.6.4 (p108)",
+      "body_markdown": "## Projects are how strategy actually happens\n\nStrategy that stays on a slide changes nothing. Projects, programmes and portfolios flow out of strategic decisions and are the mechanism that turns them into capability, process, technology and, eventually, benefit. Strategy implementation is widely regarded as the hardest part of the strategy process, and it is precisely the domain project professionals work in.\n\nThe hierarchy worth being able to sketch:\n\n**Strategic intent** — the constant, long-run direction of travel → **strategy formulation** — how the organisation intends to get there → **strategy implementation** — the projects and programmes that do it.\n\n## Why the link has to be explicit\n\nSenior leaders need to be able to **demonstrate how each project or programme they fund contributes to the overall strategy** and delivers the strategic intent. The corollary is the sharp bit, and it is examinable: **where projects do not align with organisational strategy, executives must question their relevance.**\n\nRead that as intended — a misaligned project is a candidate for cancellation, not for a communications plan. Organisational resources spent on it are resources not spent on something that does advance the strategy.\n\n## What alignment buys, concretely\n\n| Benefit of a clear link | What goes wrong without it |\n|---|---|\n| Justifies the investment and keeps the business case credible | The project competes for funding on personality and volume, not merit |\n| Gives the project a basis for prioritisation against other work | Resource conflicts get settled by whoever escalates loudest |\n| Provides a decision rule when scope, cost or schedule must be traded | Trade-offs get made on local convenience |\n| Focuses the project on **benefits and value**, not just outputs | The team optimises for delivering the thing, not for the value it was meant to create |\n| Lets governance actually govern — the board can review alignment with strategy | The board can only review progress against plan, which says nothing about whether the plan is still worth following |\n\nThat last row connects 2d straight back to 2b: checking that the work still serves the organisation's strategy and its strategic intent is a stated duty of the governance board. Without an explicit link, the board cannot perform one of its core duties.\n\n## Not every project is a direct strategic play\n\nA nuance that protects you from over-simplifying in a scenario. Project work may also be an enabler that:\n\n- **creates capabilities or assets** needed for later change initiatives\n- **maintains existing capabilities or assets**\n- ensures **compliance with new legislation or regulation**\n- satisfies **professional, ethical or social imperatives**\n\nA compliance project may show a weak direct return and still be entirely correct to fund. The link to organisational objectives is real; it just runs through licence to operate rather than through growth.\n\n## Who keeps the link alive\n\nAlignment is not a one-off check at approval:\n\n- The **sponsor** ensures the **continuing validity of the business case** — continuing, not initial.\n- The **governance board** reviews alignment with strategy as a standing responsibility.\n- **Portfolio management** maintains alignment between project work and strategic objectives across the whole set of initiatives, and balances them.\n- **Control of direction**, one of the two levels of governance control, exists precisely to assure that the project's goals stay aligned with organisational strategy as the environment shifts.\n\nStrategies evolve as opportunities and threats emerge. A project that was well aligned at approval can drift out of alignment without changing at all — because the strategy moved. That is why the check is periodic, and why 'we got approval' is not an answer to 'is this still worth doing?'"
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Governance is bureaucracy that slows the project down.",
+      "right": "Governance both empowers and constrains. It defines delegated limits of authority so people can decide without asking permission every time, and gives a clear escalation route when a decision exceeds them. Without it, every decision would have to travel to the top."
+    },
+    {
+      "wrong": "The sponsor and the project manager are basically the same job at different seniorities.",
+      "right": "They are different accountabilities. The sponsor is accountable for the business case and the benefits — whether the project is worth doing. The project manager is responsible for delivering the agreed outputs — whether it gets done."
+    },
+    {
+      "wrong": "The project manager is accountable for delivering the benefits.",
+      "right": "The sponsor remains accountable for benefits realisation, during and after delivery. The project manager delivers the outputs that make benefits possible. The sponsor's role continues after the project manager's has ended."
+    },
+    {
+      "wrong": "Iterative projects have lighter governance than linear ones.",
+      "right": "Iterative governance is more frequent, not lighter — a formal review at the end of every iteration rather than a gate at each phase boundary. What changes is where the control point sits and what it tests, not how much oversight there is."
+    },
+    {
+      "wrong": "A matrix structure is the balanced compromise, so it is the safest choice.",
+      "right": "Matrix is the structure most likely to produce conflicting priorities, because people report to a functional lead and a project manager at the same time. It buys visibility inside the operation and pays for it in split loyalty."
+    },
+    {
+      "wrong": "Every project needs a governance board.",
+      "right": "Boards oversee work in a way consistent with its size and complexity. In one common model the sponsor is the primary source of governance and any board only advises them. Governance rigour should be proportionate to the work."
+    },
+    {
+      "wrong": "A steering group and a decision-making board are the same thing.",
+      "right": "Where the number of experts would make a board unwieldy, a small board makes the decisions and a wider steering group supports it in an advisory role only. The terms overlap in general use, so read the scenario for which function is described."
+    },
+    {
+      "wrong": "Every project must show a direct financial contribution to strategy or it should be cancelled.",
+      "right": "Project work may instead create or maintain capabilities, ensure compliance with legislation, or satisfy professional, ethical or social imperatives. The link to organisational objectives is still required — it just may run through licence to operate rather than growth."
+    },
+    {
+      "wrong": "Once the business case is approved, strategic alignment is settled.",
+      "right": "The sponsor ensures the continuing validity of the business case and the board reviews alignment as a standing duty. Strategy evolves, so a project can drift out of alignment without changing at all."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Who decides what?",
+      "expansion": "The one-line definition of governance. If a question is really asking about authority, accountability or escalation, it is a governance question."
+    },
+    {
+      "type": "cue",
+      "acronym": "Right things, right way",
+      "expansion": "The two purposes of governance. Right things = serving the investing organisation. Right way = complying with good practice, ethics, policy, regulation and legislation."
+    },
+    {
+      "type": "cue",
+      "acronym": "Worth doing / getting done",
+      "expansion": "Sponsor is accountable for the project being worth doing (business case, benefits). Project manager is responsible for it getting done (outputs, delivery)."
+    },
+    {
+      "type": "cue",
+      "acronym": "Function, both, project",
+      "expansion": "Who does the person report to? Functional = their function only. Matrix = both function and project manager. Project = the project manager only. Name the structure by naming the reporting line."
+    },
+    {
+      "type": "cue",
+      "acronym": "Gates or cycles",
+      "expansion": "Linear governs at decision gates between phases. Iterative governs at the end of every iteration, asking whether the value proposition remains positive."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define governance as a framework of authority and accountability, and state its two purposes — the right things, done the right way.",
+    "I can explain why governance both empowers and constrains, using delegated limits of authority and escalation routes.",
+    "I can describe functional, matrix and project structures with one strength and one weakness each, and say how authority shifts across the three.",
+    "I can explain why tensions arise between the permanent and temporary organisations, and what the sponsor does about them.",
+    "I can name the responsibilities of the sponsor, project manager, governance board, project team members, users and product owner.",
+    "I can compare sponsor and project manager responsibilities across the life cycle, including that the sponsor starts earlier, finishes later, and peaks at the start and end.",
+    "I can say why policies, regulations, processes, procedures and delegated responsibilities are each required, and explain limits of financial authority as an escalation ladder.",
+    "I can contrast decision gates in a linear life cycle with end-of-iteration reviews in an iterative one, including what each one tests, and explain why a project must stay linked to organisational objectives."
+  ],
+  "source_confidence": [
+    {
+      "claim": "Product owner definition and responsibilities — represents the user, prioritises what is built next, accepts outputs on the user's behalf.",
+      "sub_outcome": "2b",
+      "level": "inferred",
+      "basis": "Named explicitly in the PMQ 2024 syllabus for 2b, but BoK 8e mentions the role only twice in passing (p159 transition acceptance, p246 quality sign-off) and never defines it. Definition written from standard iterative practice.",
+      "risk": "A candidate could be examined on a definition the permitted sources do not supply. REVIEWED 2026-08-02: Sim confirmed these are established techniques adopted by APM and published by other authors. The standard is that our explanation matches what the term and concept actually mean — not verification against a published sample paper. Content checked against that standard and accepted."
+    },
+    {
+      "claim": "Limits of financial authority modelled as a four-level escalation ladder: project manager → sponsor → governance board → corporate.",
+      "sub_outcome": "2c",
+      "level": "constructed",
+      "basis": "BoK 8e supports the components — delegated limits of authority and escalation routes (p102), sponsor secures funding and top-level contingency (p104), board determines change requests and escalates beyond its authority (p108-109). The ladder itself is our synthesis, not a BoK structure.",
+      "risk": "Defensible and standard, but presented as if sourced. Keep the components; do not let the table harden into something a learner quotes back as APM doctrine."
+    },
+    {
+      "claim": "Responsibilities listed for 'users' and 'project team members'.",
+      "sub_outcome": "2b",
+      "level": "assembled",
+      "basis": "Named in the syllabus for 2b. BoK 8e has no consolidated statement of either role; assembled from scattered references — users accepting deliverables at transition (p159), user interests represented on the governance board (p108), user feedback in iterative delivery.",
+      "risk": "Low. Uncontroversial content, but it is our composition rather than a source list."
+    },
+    {
+      "claim": "Authority gradient across functional / matrix / project structures.",
+      "sub_outcome": "2a",
+      "level": "sourced",
+      "basis": "BoK 8e Figure 5.7.1 (p285) shows line manager authority max-to-min and project manager authority min-to-max across the three structures.",
+      "risk": "None. Recorded here because it reads like interpretation and is not."
+    }
+  ]
+}

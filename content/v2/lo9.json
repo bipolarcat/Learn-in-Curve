@@ -1,0 +1,211 @@
+{
+  "lo_number": 9,
+  "lo_code": "9a, 9b",
+  "title": "Benefits management",
+  "competence_area": "B. Preparing for change",
+  "exam_coverage_note": "Area B (LOs 5-9) accounts for 15-20% of exam marks. LO9 closes the area and is the destination most of the other LOs are pointing at.",
+  "source_ref": "APM BoK 8e s2.5.4 (p98-99), s3.1 (p113), s3.1.1 (p114-115), s3.1.2 (p116-117), s3.1.3 (p118-119); APM PMQ Handbook 2024, LO9",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand benefits management as monitoring of benefits realisation throughout a project.",
+  "learning_outcomes": [
+    "9a) Understand what is meant by benefits management (including identification, definition, planning, tracking and realisation).",
+    "9b) Understand the importance of aligning benefits with strategic objectives and ways in which the benefits of a project can be communicated to stakeholders."
+  ],
+  "where_this_fits": "Benefits are the reason the project was funded, so this LO is where several others land. LO1 gave you output → outcome → benefit and the extended life cycle; LO4 made benefits half the business case; LO8 handed the outputs over so adoption could start. The organising idea is short and worth carrying everywhere: delivering the output guarantees nothing. Benefits arrive only if people adopt what was built, and only if someone measured whether they did.",
+  "key_definitions": [
+    {
+      "term": "Benefit",
+      "apm_definition": "A positive and measurable impact arising from a change initiative.",
+      "plain_english": "Something good that actually happened, and that you can show happened. If it cannot be measured, it cannot be claimed."
+    },
+    {
+      "term": "Benefits management",
+      "apm_definition": "The processes for the identification, definition, planning, tracking and realisation of benefits, which together form the overall benefits management strategy.",
+      "plain_english": "The whole journey — naming the benefits, planning how they arrive, watching whether they are on track, and confirming they landed."
+    },
+    {
+      "term": "Benefit profile",
+      "apm_definition": "The record created as each benefit is identified, quantified and agreed, covering the description, category, current baseline, future target, measurement method, link to strategic objectives, and a benefit owner.",
+      "plain_english": "One page per benefit: what it is, what it's worth now, what it should be worth, how you'll tell, and whose name is on it."
+    },
+    {
+      "term": "Benefit owner",
+      "apm_definition": "The person nominated to ensure the business is ready to accept the project's outputs, improve outcomes and ultimately realise the benefits.",
+      "plain_english": "Someone in the business — not the project — who is on the hook for this benefit actually appearing."
+    },
+    {
+      "term": "Benefits realisation plan",
+      "apm_definition": "The detailed plan forming part of the integrated project management plan, highlighting the outputs and outcomes that generate the benefits, and the granular activities and resources required to deliver and adopt them.",
+      "plain_english": "The working plan for how each benefit comes to life, including the adoption work that makes it possible."
+    },
+    {
+      "term": "Benefits tracking",
+      "apm_definition": "The process of continuously monitoring the viability of forecast benefits, and progress towards realising them.",
+      "plain_english": "Two questions asked repeatedly: are these benefits still achievable, and are we getting closer to them?"
+    },
+    {
+      "term": "Benefits realisation",
+      "apm_definition": "The process of ensuring that benefits are derived from delivered outputs and outcomes.",
+      "plain_english": "Making sure the value actually turned up, rather than assuming it did because the thing got built."
+    },
+    {
+      "term": "Baseline and target",
+      "apm_definition": "The current measured position and the future measured position for a benefit, without which it is difficult to determine whether the benefit has been achieved.",
+      "plain_english": "Where you are now and where you intend to be. No baseline means no way of proving improvement later."
+    },
+    {
+      "term": "Re-baselining a benefit",
+      "apm_definition": "Agreeing a revised benefit target where benefits are not being realised as planned, as an alternative to increasing adoption.",
+      "plain_english": "Honestly resetting the number when the original one is no longer achievable — rather than quietly missing it."
+    },
+    {
+      "term": "Benefits management framework",
+      "apm_definition": "A portfolio-level structure for categorising benefits, giving visibility of their contribution to organisational strategy and helping inform prioritisation and investment decisions.",
+      "plain_english": "How the organisation compares benefits across all its projects, so it can choose between them."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "9a",
+      "outcome_title": "What benefits management is: identification, definition, planning, tracking, realisation",
+      "key_takeaway": "Benefits do not appear on their own. Each is identified, quantified, given a profile with a baseline, target, measurement method and named owner, planned into the integrated plan, tracked continuously, and realised only through adoption.",
+      "source_ref": "BoK 8e 3.1 (p113), 3.1.1 (p114-115), 3.1.2 (p116-117), 3.1.3 (p118-119), 2.5.4 (p98-99)",
+      "body_markdown": "## The premise\n\nA benefit is a good thing a change initiative causes, and one you can put a number or an evidenced judgement against. Both halves matter: **positive**, and **measurable**. A claimed improvement nobody can evidence is not a benefit in this sense.\n\nAnd the organising fact for the whole LO: **all projects should deliver benefits, but benefits do not happen on their own.** Project professionals have to manage them deliberately, making sure the right outputs and outcomes get delivered so the investment is justified.\n\n## The five processes\n\nThe syllabus names these explicitly, so learn them as a sequence with distinct jobs.\n\n| Process | What happens |\n|---|---|\n| **Identification** | Each candidate benefit is found, sized, and signed up to by the sponsor and the expert stakeholders. It gets written down: what it is, the target, how you will see improvement |\n| **Definition** | Each benefit is described precisely enough to be measured — captured in a benefit profile |\n| **Planning** | A benefits realisation plan sets out how benefits will be generated, and the detailed activities and resources needed to build the outputs beneath it and get them adopted |\n| **Tracking** | Confirm continuously that expected benefits are still viable, and track progress towards them. Material impacts get escalated to sponsoring stakeholders |\n| **Realisation** | Outputs and outcomes do not automatically create benefits. Business users need support to adopt the deliverables. As adoption rises, benefits are measured against the original targets |\n\nTogether these form the **benefits management strategy**.\n\n## Where it starts, and why that matters\n\nWorking out the benefits and planning them is **built into how a project is shaped in the first place**. It forms **the foundation of the business case** and helps define **success criteria, scope and requirements**.\n\nSo benefits work is not something that begins near handover. It shapes what gets built. That is why LO4 and LO9 keep pointing at each other.\n\n**Who is involved:** the sponsor usually arrives with a view of what the benefits are. The project professional's job is to pull in **enough subject-matter expertise to reach an agreed, shared picture** of what is genuinely on offer. One person's assumption is not a benefit profile.\n\n## Financial and non-financial benefits\n\n| Type | Examples | Difficulty |\n|---|---|---|\n| **Financial** | Revenue increases, expense savings | Easier to define |\n| **Non-financial** | Regulatory compliance, customer satisfaction | Harder to quantify — **and equally important** |\n\nThe examinable point: non-financial benefits are harder to measure and **should not be overlooked because of it**. A project justified partly on compliance or staff wellbeing has real benefits that need the same profile treatment.\n\n## The benefit profile\n\nSeven items, and this list is directly examinable:\n\n1. the benefit's **description**\n2. the benefit **category** — financial or non-financial\n3. the **current baseline** — the revenue today\n4. the **future target** — the revenue intended\n5. **how it will be measured**\n6. **how it links to the organisation's strategic objectives**\n7. a **benefit owner**\n\n**Baseline, target and measurement are the critical three.** Without them it is difficult to determine whether the benefit was achieved at all, or whether it moved the organisation's objectives.\n\n**Accountability versus ownership**, which mirrors LO2's pattern: overall accountability for benefits arriving sits with the **sponsor**, while **named benefit owners** in the business make sure it is ready to take the outputs, lift the outcomes and turn those into realised benefits.\n\n## Two levels of plan\n\n| Level | Plan | Contains |\n|---|---|---|\n| **Organisational / portfolio** | High-level benefits management plan | Which project or programme delivers it, the timeline, level of risk, key stakeholders |\n| **Project / programme** | Detailed benefits realisation plan, **part of the integrated project management plan** | The outputs and outcomes generating the benefits, plus the granular activities and resources to deliver and adopt them |\n\n## Tracking: what disturbs a benefit forecast\n\n**It is highly unlikely that benefits will materialise exactly as planned.** Four named events that can push the forecast either way:\n\n| Event | Effect |\n|---|---|\n| **Economic instability** | Changes the cost of resources or materials |\n| **Business performance** | Market share or brand loyalty rises or falls |\n| **Organisational restructuring** | Creates additional risk and uncertainty |\n| **Timeline changes** | Delays or brings forward output and outcome delivery |\n\nNote that these are **positive or negative** — a benefit forecast can improve as well as deteriorate.\n\n**What to do:** put a number on what it does to the benefit target, and plan the response. **If it hits the business case materially, tell the sponsor straight away.** The sponsor may then need to update the business case or seek renewed approval from decision makers — which is the same escalation route as LO4.\n\n**Where tracking lives:** it should form **a core part of the initiative's reporting cycle**, and many organisations run a consistent approach such as a **benefit dashboard**. Good practice is to run a benefit **'health check' at existing governance points such as a stage gate** — reusing existing control points rather than adding new ones, exactly as LO6 recommends for the business case.\n\nThe health check logic in one line: assess the impact on benefits → is the project still viable? → if yes, plan action and re-baseline; if no, escalate to the sponsor.\n\n## Realisation: adoption is the mechanism\n\nThe chain, which you should be able to write out with an example:\n\n> A new software tool is delivered (**output**) → customer usage increases (**outcome**) → service delivery costs fall (**benefit**).\n\n**Adoption is what converts one link into the next**, so the organisation has to invest real **effort, control and measurement in getting the business to adopt** what was delivered.\n\nThe groundwork was laid in planning: testing schedules, acceptance criteria and quality assurance thresholds were already agreed. **Benefit owners and change managers are active for the whole project**, readying the business through training, communications and readiness work.\n\n**Measurement differs by benefit type:**\n\n| Benefit type | Technique |\n|---|---|\n| Operational improvements and financial benefits | **Quantitative** |\n| Non-financial benefits | **Qualitative** — user feedback, for example |\n\n**The sponsor is ultimately accountable for the measurement process being robust**, often through formal **benefits realisation reviews** that discuss measurements, align on progress and judge whether benefits are moving the organisation's objectives.\n\n**Where benefits are not landing**, there are exactly two honest moves: **drive adoption harder**, or **reset the target**. Knowing both is worth a mark; knowing only one is a half answer.\n\n## Timing differs by life cycle\n\n| Life cycle | When benefits arrive |\n|---|---|\n| **Linear** | Usually at the end, once all outputs are delivered |\n| **Iterative** | **Incrementally, as the project progresses** |\n\n## The extended life cycle decision\n\nMost projects end at transition. A project using an **extended life cycle** keeps project professionals actively supporting adoption and benefits realisation.\n\n| For | Against |\n|---|---|\n| Higher adoption rates | Additional cost for project professionals' time |\n| Greater chance benefits are realised — often what determines whether stakeholders judge the project a success | Operational teams could manage those activities instead |\n| The project professional **learns how their work lands in the wider organisation** | |\n\nProgrammes usually include adoption and benefits realisation as standard. For a standalone project it is a genuine decision — and if taken, it **must be planned in the early phases**, covering the requirements, work, resources and risks of the extra phases.",
+      "diagrams": [
+        {
+          "id": "lo9-benefits-health-check",
+          "figure_number": "9.1",
+          "caption": "A benefit health check at a governance point",
+          "placement": "after_heading",
+          "heading": "Tracking: what disturbs a benefit forecast",
+          "file": null,
+          "spec": "Four disturbance inputs on the left — economic instability, business performance, organisational changes, timeline changes — feeding into a single 'assess impact to benefits' box, then a decision diamond 'is the project still viable?'. Yes branch leads to 'plan action and re-baseline'; No branch leads to 'escalate to sponsor'. The decision diamond is the point of the diagram: tracking is not reporting, it is a repeated viability test.",
+          "alt": "Four disturbance events feeding into an assessment of impact on benefits, leading to a viability decision that either results in re-baselining or escalation to the sponsor."
+        },
+        {
+          "id": "lo9-output-outcome-benefit",
+          "figure_number": "9.2",
+          "caption": "Output, outcome, benefit — and adoption as the mechanism between them",
+          "placement": "after_heading",
+          "heading": "Realisation: adoption is the mechanism",
+          "file": null,
+          "spec": "Three linked stages left to right — output (new software tool), outcome (customer usage increases), benefit (service delivery costs fall) — with the connectors between them explicitly labelled 'adoption' and 'measurement' rather than left as plain arrows. The teaching point is that the arrows are the work: nothing moves from one box to the next automatically.",
+          "alt": "Output leading to outcome leading to benefit, with adoption and measurement labelled on the connecting arrows to show these transitions require deliberate work."
+        }
+      ]
+    },
+    {
+      "outcome_code": "9b",
+      "outcome_title": "Aligning benefits with strategy, and communicating them",
+      "key_takeaway": "Every benefit profile links explicitly to a strategic objective, because that link is what justifies the investment and lets the portfolio compare initiatives. Communication runs through the reporting cycle, benefit dashboards, gate health checks and formal benefits realisation reviews.",
+      "source_ref": "BoK 8e 3.1 (p113), 3.1.1 (p114-115), 3.1.2 (p116), 3.1.3 (p118)",
+      "body_markdown": "## Why alignment is structural, not decorative\n\n**Link to strategic objectives is one of the seven items in every benefit profile.** It is not a framing sentence added at the top of a report — it is recorded per benefit, alongside the baseline and the target.\n\nThe reason is the chain the source draws: an **initiative** produces an **outcome (capability)**, which enables a **business change**, which yields a **project benefit**, which contributes to a **strategic objective**. Several initiatives can feed the same objective, and one initiative can feed more than one.\n\nRead that chain backwards and you get the justification argument: this project exists because these benefits serve that objective.\n\n## What alignment makes possible\n\n| Consequence | Why it matters |\n|---|---|\n| **Justifies the investment** | Benefits are the foundation of the business case — no credible link, no credible case |\n| **Enables portfolio prioritisation** | Portfolio-level stakeholders align change initiatives with strategic objectives before project teams take over the benefits journey. A benefits management framework categorises benefits and shows their contribution to strategy, informing **prioritisation and investment decisions** |\n| **Gives the governance board something to review** | Reviewing alignment with strategy is a standing board duty (LO2). Without per-benefit links there is nothing concrete to review |\n| **Defines success criteria, scope and requirements** | Benefits shape what gets built, not just how it is judged |\n| **Provides a decision rule under pressure** | When scope or cost must be traded, the benefit-to-objective link says which parts are load-bearing |\n\n## The measurement consequence of alignment\n\nThe baseline, the target and the measurement method exist so you can say **whether the organisation's objectives actually moved** — not merely whether some number did.\n\nThat is why **benefits realisation reviews** ask specifically whether the benefits are **impacting the organisation's objectives**, rather than only whether targets were hit. A target achieved that moves no objective was the wrong target.\n\n## Communicating benefits to stakeholders\n\nThe second half of 9b. Communication is not one activity — it happens through several established channels, and naming them specifically is what earns the marks.\n\n| Channel | What it does | When |\n|---|---|---|\n| **The benefit profile** | The shared, agreed record of what each benefit is, what it's worth, who owns it | Created at identification; the reference point throughout |\n| **The reporting cycle** | Benefits tracking should form **a core part of the initiative's reporting cycle** | Continuous |\n| **A benefit dashboard** | One reporting format every project or programme uses, so initiatives can be compared side by side | Continuous |\n| **Benefit health checks at governance points** | Run at stage-gate reviews; **an opportunity to give stakeholders confidence in the broader benefits management plan** | At each gate |\n| **Immediate escalation to the sponsor** | Where a change has a material impact on the business case | As it happens |\n| **Formal benefits realisation reviews** | Discuss measurements, align on progress, determine whether benefits are impacting objectives | During realisation |\n\n## Communicating well\n\nThree things that make benefits communication actually work, drawn from how the source describes the process:\n\n- **Agree a common understanding first.** Benefits are identified, quantified and **agreed with the sponsor and expert stakeholders**. Communicating a benefit nobody agreed to produces argument, not confidence.\n- **Be honest about variance.** It is **highly unlikely benefits will materialise exactly as planned**. Reporting that treats every forecast as intact destroys credibility the first time reality intervenes. The available honest responses — increase adoption, or re-baseline the target — are both legitimate.\n- **Report against the baseline and target, in the agreed measure.** Quantitative for operational and financial benefits, qualitative such as user feedback for non-financial ones. Using the measurement method agreed at planning is what makes the claim checkable.\n\n## Why this matters more than it sounds\n\nBenefits realisation is often **what determines whether stakeholders judge the project a success** — more than schedule or budget performance. A project delivered on time and under budget whose benefits never arrived, and were never honestly reported, will be remembered as a failure.\n\nWhich is the case for **the whole team thinking about benefits proactively**: assessing progress, risks and issues through a benefits lens rather than only a delivery lens increases the chances of success."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Delivering the outputs delivers the benefits.",
+      "right": "Outputs do not automatically create benefits. Adoption and use of outputs create improved outcomes, and those outcomes generate the benefit. Each step needs deliberate effort, control and measurement."
+    },
+    {
+      "wrong": "Benefits management starts once the project is delivering.",
+      "right": "Identifying and planning benefits is part of the project's early shaping. It forms the foundation of the business case and helps define success criteria, scope and requirements."
+    },
+    {
+      "wrong": "The project manager is accountable for benefits being delivered.",
+      "right": "The sponsor takes overall accountability for benefits and for the measurement process being robust. Benefit owners are nominated in the business to get it ready to accept outputs and realise benefits."
+    },
+    {
+      "wrong": "Non-financial benefits matter less because they are hard to quantify.",
+      "right": "They are equally important and should not be overlooked. They just need a different measurement approach — qualitative techniques such as user feedback rather than quantitative ones."
+    },
+    {
+      "wrong": "A benefit is defined once you have stated the target.",
+      "right": "A benefit profile needs the current baseline as well as the future target, plus the measurement method. Without a baseline there is no way to demonstrate improvement later."
+    },
+    {
+      "wrong": "If benefits are not being realised, the project has failed.",
+      "right": "Two legitimate responses exist: increase adoption, or re-baseline the benefit target. Forecasts rarely materialise exactly as planned, and changes can push benefits up as well as down."
+    },
+    {
+      "wrong": "Benefits are realised at the end of every project.",
+      "right": "Linear projects usually realise benefits at the end, once every output has been delivered. Iterative projects tend to realise them incrementally, cycle by cycle."
+    },
+    {
+      "wrong": "Aligning benefits to strategy means writing a sentence about strategy in the business case.",
+      "right": "The link to strategic objectives is recorded per benefit in the benefit profile, alongside baseline and target, so that portfolio prioritisation and governance review have something concrete to work from."
+    },
+    {
+      "wrong": "Benefits reporting needs its own separate governance process.",
+      "right": "Benefits tracking should form a core part of the existing reporting cycle, and good practice is to run benefit health checks at governance points such as stage-gate reviews."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Identify, define, plan, track, realise",
+      "expansion": "The five benefits management processes in order, exactly as the syllabus names them for 9a."
+    },
+    {
+      "type": "cue",
+      "acronym": "Baseline, target, measure",
+      "expansion": "The three items in a benefit profile that make a benefit provable. Miss the baseline and you can never demonstrate the improvement."
+    },
+    {
+      "type": "cue",
+      "acronym": "Adoption is the verb",
+      "expansion": "Output, outcome and benefit are the nouns; adoption is what moves between them. Nothing advances along that chain on its own."
+    },
+    {
+      "type": "cue",
+      "acronym": "Adopt more, or re-baseline",
+      "expansion": "The only two honest responses when benefits are not being realised as planned. Quietly missing the target is not one of them."
+    },
+    {
+      "type": "cue",
+      "acronym": "Linear at the end, iterative as you go",
+      "expansion": "Benefits timing by life cycle. Linear realises once all outputs are delivered; iterative realises incrementally throughout."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define a benefit and name the five processes of benefits management in order.",
+    "I can list what a benefit profile contains and explain why baseline, target and measurement method are the critical items.",
+    "I can distinguish the sponsor's accountability from the benefit owner's role, and say what benefit owners do during the project.",
+    "I can explain the difference between financial and non-financial benefits and how each is measured.",
+    "I can name events that disturb a benefit forecast, describe the health-check logic, and say when to escalate to the sponsor.",
+    "I can write out the output-outcome-benefit chain with an example and explain why adoption is the mechanism between the steps.",
+    "I can state the two responses available when benefits are not being realised, and explain how benefits timing differs between linear and iterative life cycles.",
+    "I can explain why benefits are linked to strategic objectives in the profile itself, and name the channels through which benefits are communicated to stakeholders."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All substantive content for 9a — the five processes, benefit profile contents, planning levels, tracking disturbances and health check, adoption and realisation, measurement techniques, and life cycle timing.",
+      "sub_outcome": "9a",
+      "level": "sourced",
+      "basis": "BoK 8e 3.1 (p113), 3.1.1 (p114-115), 3.1.2 (p116-117), 3.1.3 (p118-119) and 2.5.4 (p98-99). Coverage maps closely onto the syllabus wording, including the five named processes.",
+      "risk": "None."
+    },
+    {
+      "claim": "The consolidated list of channels through which benefits are communicated to stakeholders.",
+      "sub_outcome": "9b",
+      "level": "assembled",
+      "basis": "Every channel is sourced — reporting cycle and benefit dashboard at 3.1.2 (p116), benefit health checks at governance points at 3.1.2 (p116), immediate escalation to sponsor at 3.1.2 (p116), formal benefits realisation reviews at 3.1.3 (p118), benefit profile agreement at 3.1.1 (p114). BoK does not present them as a communication list, which is what the syllabus asks for in 9b.",
+      "risk": "Low. Substance sourced throughout; only the framing as communication channels is ours, and that framing follows the syllabus wording."
+    },
+    {
+      "claim": "The initiative → outcome (capability) → business change → project benefit → strategic objective chain.",
+      "sub_outcome": "9b",
+      "level": "sourced",
+      "basis": "BoK 8e Figure 3.1.1 (p115), which shows multiple initiatives feeding project benefits that map to strategic objectives A and B.",
+      "risk": "None on substance. Recorded because LO9 deliberately carries no diagram of this chain — it duplicates content better placed in LO1, and the figure's arrangement should not be reproduced."
+    },
+    {
+      "claim": "Guidance that benefits realisation is often what determines whether stakeholders judge a project successful.",
+      "sub_outcome": "9b",
+      "level": "sourced",
+      "basis": "BoK 8e 2.5.4 (p98) states that higher adoption rates and greater chance of realising benefits are often the key elements determining stakeholders' views on whether the project has been a success.",
+      "risk": "None. Recorded because the content extends it into a claim about time and budget performance mattering less, which is our emphasis rather than a source statement."
+    }
+  ]
+}

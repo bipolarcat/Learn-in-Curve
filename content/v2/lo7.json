@@ -1,0 +1,196 @@
+{
+  "lo_number": 7,
+  "lo_code": "7a",
+  "title": "Assurance",
+  "competence_area": "B. Preparing for change",
+  "exam_coverage_note": "Area B (LOs 5-9) accounts for 15-20% of exam marks. LO7 has a single sub-outcome and is the smallest learning objective in the course — but it is also the one most easily confused with LO6, so the marks available are real.",
+  "source_ref": "APM BoK 8e s3.4 (p139), s3.4.1 (p140-141), s3.4.2 (p142-143), s3.4.3 (p144-145); APM PMQ Handbook 2024, LO7",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand assurance as the ability to provide confidence to the governance board that a project is on track to deliver objectives.",
+  "learning_outcomes": [
+    "7a) Know the purpose of assurance within a project, including awareness of the scope, priorities and strategic aims of assurance activities."
+  ],
+  "where_this_fits": "Assurance is the independent counterpart to LO6's internal reviews, and the reason a governance board can trust what a project tells it. It sits in a triangle with governance (LO2) and risk (LO23) — the source is explicit that weakness in any one compromises the other two. Small LO, but it is where the exam tests whether you understand the difference between a project checking itself and someone independent checking the project.",
+  "key_definitions": [
+    {
+      "term": "Assurance",
+      "apm_definition": "A process supporting delivery of successful change initiatives with a peer review of the team's approach, giving the governance board and stakeholders confidence that the initiative is on track to deliver its intended value. Effective assurance is objective and independent, and comes from outside the change initiative.",
+      "plain_english": "An independent check that gives the board grounds to believe the project — rather than simply taking its word."
+    },
+    {
+      "term": "Integrated assurance",
+      "apm_definition": "The coordination and streamlining of the different layers of assurance activity carried out by different teams at different tiers.",
+      "plain_english": "Joining up the separate checks so they cover everything once, rather than overlapping in places and missing others."
+    },
+    {
+      "term": "Three lines of defence",
+      "apm_definition": "A model organising assurance into three tiers — controls within the initiative, independent compliance and effectiveness review, and independent audit of governance and delivery — each reporting to a different level of management.",
+      "plain_english": "Three checks at increasing distance from the work, each answering to someone further up."
+    },
+    {
+      "term": "Audit",
+      "apm_definition": "A tool in the third line of defence providing an objective evaluation of compliance with governance practices, organisational process, project controls and standards, leading to insights on the likelihood that initiatives will realise their expected benefits.",
+      "plain_english": "The most independent check of all — evidence-based, and answerable to the organisation rather than the project."
+    },
+    {
+      "term": "Auditee",
+      "apm_definition": "The person responsible for responding to audit findings.",
+      "plain_english": "Whoever has to answer the audit, within an agreed timescale. Named in advance, so findings do not land on nobody."
+    },
+    {
+      "term": "Uninsightful assurance",
+      "apm_definition": "A failure mode in which poor process and under-resourcing cause assurance to miss important findings.",
+      "plain_english": "Assurance that happened, produced a report, and spotted nothing that mattered."
+    },
+    {
+      "term": "Assurance plan",
+      "apm_definition": "The plan developed by an assurance team from the sponsor's agreed approach, demonstrating independence, objectivity and proportionality, targeted at the greatest significance and risk.",
+      "plain_english": "What will be checked, by whom, when, and how the findings get reported."
+    },
+    {
+      "term": "Proportionality",
+      "apm_definition": "The principle that assurance activity should be scaled to stakeholders' needs and to the value and risk potential of the initiative.",
+      "plain_english": "Match the depth of checking to what is actually at stake. Over-assuring a small project wastes the capacity a big one needs."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "7a",
+      "outcome_title": "The purpose, scope, priorities and strategic aims of assurance",
+      "key_takeaway": "Assurance gives the governance board confidence that a project will meet its objectives and realise its benefits, and identifies weaknesses and remedial actions. It is independent of the initiative, owned by the sponsor, targeted by risk, and organised into three lines of defence.",
+      "source_ref": "BoK 8e 3.4 (p139), 3.4.1 (p140-141), 3.4.2 (p142-143), 3.4.3 (p144-145)",
+      "body_markdown": "## The purpose, in one paragraph\n\nAssurance exists so that a governance board, and the stakeholders behind it, can feel **confident** about the work. It earns that confidence two ways: by judging **how likely this initiative really is to hit its objectives and land its benefits**, and by **naming the weaknesses and the fixes** that would shorten the odds.\n\nThat is a two-part purpose and both halves earn marks. Assurance is not only a verdict; it produces recommendations that make success more likely.\n\n## The distinction that carries the LO\n\n| | Review (LO6) | Assurance (LO7) |\n|---|---|---|\n| **Position** | Internal to the change initiative | **Independent of it** |\n| **Who runs it** | The initiative's own governance tiers, plus stakeholders | People from outside the initiative |\n| **Owned by** | The project | **The sponsor sets it up** |\n\nBoth should be welcomed as **supportive rather than adversarial**. Neither is an inspection designed to catch people out.\n\nA decision gate can be part of either, depending on whether the review team is drawn from inside the project or beyond it — which is why the two LOs interlock.\n\n## Governance, assurance and risk: a triangle\n\nThe source states the relationship plainly, and it is the most quotable idea in the LO:\n\n- **Governance leans on assurance** to make its decisions and its oversight sound.\n- **Risk analysis points assurance** at wherever the initiative is most exposed.\n- **What assurance finds sharpens the risk picture**, and feeds the decision-gate process.\n\nAnd the consequence: **weakness in any one of the three compromises the others.** A project with strong governance but no assurance is a board deciding on unverified information.\n\n## Who owns it\n\n**Setting assurance up is the sponsor's job.** They settle an approach with the stakeholders and the team — sometimes as part of a formal assurance strategy spanning a programme, portfolio or the whole organisation.\n\nWhere a project stands alone, the sponsor builds the approach from first principles, agreeing with principal stakeholders what will deliver the necessary objectivity and confidence. The assurance team then develops its plan from that approach.\n\nWhere several providers operate, **the sponsor coordinates them so there are no gaps in coverage**, and leans on the project leader to get the team cooperating with it.\n\n## Scope — the seven questions that shape an assurance approach\n\nThe syllabus asks for awareness of scope, so know what gets considered when the approach is designed:\n\n| Question | Why it shapes the approach |\n|---|---|\n| **Who are the stakeholders, and what do they need from assurance?** | Different stakeholders need confidence about different things |\n| **How risky, how valuable, how critical is this?** | Sets how much assurance is warranted |\n| **Are there current concerns or critical delivery issues?** | Live problems pull assurance towards them |\n| **What are the characteristics of the initiative and its life cycle model?** | Iterative work is assured differently — observation matters more than documentation |\n| **What are the governance arrangements?** | Assurance must fit the organisation's wider governance principles |\n| **What specialist skills and capacity are available?** | Assurance can only be as good as the expertise behind it |\n| **How will the process ensure appropriate independence?** | Without independence it is a review, not assurance |\n\n## Priorities — what makes an assurance plan effective\n\nFive criteria. This is the most directly examinable list in the LO:\n\n1. Stakeholders can see it is **independent, objective and proportionate** to what they need.\n2. It aims at **whatever matters most and carries most risk** — assurance is risk-led, never spread evenly.\n3. Someone **owns** the arrangements, the activities and the outputs, and is accountable for them.\n4. The activities are **planned, joined up, and paid for**.\n5. There is an **agreed route through governance** for reporting what it finds and settling the issues raised.\n\nItem 2 is the priority principle in a single line: **assurance goes where the risk is.** Item 4 is the one candidates skip — unfunded assurance does not happen.\n\n## The three lines of defence\n\nBorrowed from operational risk management in financial services, and adapted to project work. Each line sits further from the delivery team and reports higher.\n\n| Line | What it does | Who does it | Reports to |\n|---|---|---|---|\n| **First** | Controls inside the project managing delivery and its risks. Assurance **within** the initiative | The project, programme or portfolio manager | The project manager and sponsor |\n| **Second** | Checks the **compliance and effectiveness** of those systems. May cover health and safety, quality, procurement, environmental performance | Independent of the initiative — a PMO, or the organisation's compliance or risk functions | Sponsor and governance board |\n| **Third** | **Independent audit** of governance as well as delivery, judging how effective the first two lines are | Internal audit or assurance function, or an external body. In the UK public sector, bodies such as the National Audit Office | Organisational leadership team and board, and sometimes external stakeholders |\n\n**When integrated assurance is working, the third line should be confirming what the first two already said.** If it does not, the earlier lines are the problem.\n\n**The model is not prescriptive.** Organisations adapt it to their own risks, tolerances, context and culture. Good practice is to **write down the main risks and map each one against the line of defence that covers it** — which makes gaps visible.\n\n### Its four core principles\n\n- answerable to the sponsoring organisation and the stakeholders behind it\n- third-line work stays independent and objective\n- **whatever failings turn up actually get fixed**\n- the three lines work as one, not in isolation\n\n## Audit: the third line in practice\n\nAudit provides an objective evaluation of compliance with governance practice, organisational process, project controls and standards. An audit should be **independent, objective and answerable for itself; backed by the organisational board; scheduled alongside governance processes rather than bolted on; sized to the value and risk at stake; aimed by an independent evaluation of risk; and reported in full** — the point being to help the organisation fix what is wrong.\n\nTeams come from a **PMO**, an **internal audit function**, or a **third-party provider** such as a consultancy, auditor or accreditation body.\n\n**Agree purpose and scope with stakeholders before work starts**, and identify the **auditee** who will respond to findings.\n\n### The four stages\n\n| Stage | What happens |\n|---|---|\n| **Planning** | Gather contextual information, set terms of reference, assemble the team |\n| **Fieldwork** | Test how well governance works; how the main management controls were designed, put in place and are actually run; and how the initiative handles its stakeholders inside and out |\n| **Evaluation and reporting** | Develop and document insights and recommendations into a final report |\n| **Implementation** | Follow up to confirm the sponsor and team have taken the agreed actions |\n\nFindings might flag **systems that are not adequate, drift away from the plan, or procedures not being followed properly**, plus any observations that would help the auditee perform better. Severity is typically graded — **traffic-light reporting** is common, with red for major concerns, amber for intermediate, green for minor and sometimes blue for observations.\n\n**Findings need a response within an agreed timescale**, and the actions that follow might mean **replanning, building new controls, or changing the team**. A **follow-up audit confirms completion before the audit is closed out**.\n\n### The limit of assurance's authority\n\nOne precise and highly examinable point: **assurance and audit are not decision-making functions.** They inform; the governance tiers decide. An assurance report cannot stop a project — it gives the board the basis to.\n\n## Forward-looking versus backward-looking\n\n| | Focus |\n|---|---|\n| **First and second lines** | Forward-looking — what is in place now to make success likely |\n| **Third line (audit)** | More weight on **examining past decisions and actions**, in order to find improvements for the future |\n\n## How assurance fails\n\nWorth knowing, because it produces sharp scenario answers. Assurance can only ever be as good as the **support, capacity and expertise** the organisation gives it. It fails for two reasons:\n\n| Failure | Cause |\n|---|---|\n| **Uninsightful assurance** | Poor process and under-resourcing mean important findings are missed |\n| **Findings not acted on** | The 'voice of assurance' is not powerful enough — or the organisation simply chooses not to listen |\n\nThe second is the more uncomfortable one, and the more common in scenarios: the assurance worked, the report was accurate, and nobody did anything. That is why 'taking action to correct failings' is one of the core principles, and why **whether assurance works comes down largely to how well it is backed and how seriously it is taken** in that organisation.\n\nAnd the honest caveat the source itself makes: assurance is **not an instant solution to project failure**, and applying the three lines model **guarantees nothing**. It reduces risk; it does not remove it.",
+      "diagrams": [
+        {
+          "id": "lo7-three-lines",
+          "figure_number": "7.1",
+          "caption": "The three lines of defence",
+          "placement": "after_heading",
+          "heading": "The three lines of defence",
+          "file": null,
+          "spec": "Three vertical columns side by side, each getting further from the delivery work. First line: controls inside the project — policies, procedures, processes, standards — outcome 'risks controlled', reports to project manager and sponsor. Second line: management assurance — monitoring, checks and audits by risk management, quality assurance, PMO — outcome 'control of risks verified', reports to sponsor and governance board. Third line: independent review by internal or external audit — outcome 'strategic overview of the control system', reports to organisational board. Show reporting level rising across the three. Note BoK Figure 3.4.2 is used with permission of a named individual, so ours must be an original depiction of the same factual model.",
+          "alt": "Three columns showing the three lines of defence, from controls inside the project through management assurance to independent audit, each reporting to a progressively higher level of the organisation."
+        },
+        {
+          "id": "lo7-effective-assurance",
+          "figure_number": "7.2",
+          "caption": "What assurance examines, and what makes it effective",
+          "placement": "after_heading",
+          "heading": "Priorities — what makes an assurance plan effective",
+          "file": null,
+          "spec": "Two facing lists either side of a central 'effective assurance' node. Left — what the assurance process examines: stakeholders, risks, value, concerns, life cycle, governance, resources. Right — the characteristics of effective assurance: independence, objectivity, proportionality, targeting, planning, funding, escalation route. The pairing is the teaching point: inputs on one side, qualities on the other.",
+          "alt": "Two lists either side of a central node, one showing what assurance examines and the other showing the characteristics that make assurance effective."
+        },
+        {
+          "id": "lo7-audit-stages",
+          "figure_number": "7.3",
+          "caption": "The four stages of an audit",
+          "placement": "after_heading",
+          "heading": "The four stages",
+          "file": null,
+          "spec": "Four stages left to right — planning, fieldwork, evaluation and reporting, implementation — with a return arrow from implementation back to a follow-up check, showing that an audit is not closed until agreed actions are confirmed complete. That closing loop is the point most learners miss.",
+          "alt": "The four audit stages in sequence — planning, fieldwork, evaluation and reporting, implementation — with a follow-up loop confirming agreed actions before closure."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Assurance and reviews are the same thing.",
+      "right": "Reviews are internal to the change initiative. Assurance is independent of it and comes from outside. Both should be treated as supportive rather than adversarial, but only assurance provides independent confidence to the board."
+    },
+    {
+      "wrong": "The project manager sets up assurance for their project.",
+      "right": "Setting assurance up is the sponsor's job. They settle the approach with stakeholders and the team, and where several providers are involved they coordinate them so nothing falls between the gaps."
+    },
+    {
+      "wrong": "Assurance can stop a project.",
+      "right": "Assurance and audit are not decision-making functions. They provide findings; the governance tiers make decisions based on them."
+    },
+    {
+      "wrong": "Every part of a project should receive the same level of assurance.",
+      "right": "An effective assurance plan is proportionate and targeted towards the greatest significance and risk. Risk analysis guides assurance towards the greatest vulnerabilities."
+    },
+    {
+      "wrong": "If assurance is carried out, weaknesses will be found.",
+      "right": "Poor process and under-resourcing produce uninsightful assurance that misses important findings. Assurance can only be as good as the support, capacity and expertise the organisation gives it."
+    },
+    {
+      "wrong": "An accurate assurance report means the problem gets fixed.",
+      "right": "The second common failure is the organisation not acting on findings, either because the voice of assurance is too weak or because the organisation chooses not to listen. Taking action on failings is a core principle of integrated assurance."
+    },
+    {
+      "wrong": "The three lines of defence model must be applied as specified.",
+      "right": "It is not prescriptive. Organisations adapt it to their own risks, tolerances, context and culture, and good practice is to tabulate which line addresses each principal risk."
+    },
+    {
+      "wrong": "Applying three lines of defence guarantees the project will succeed.",
+      "right": "It guarantees nothing. It clarifies how effective project processes and controls are and helps improve them, contributing to good governance and risk management."
+    },
+    {
+      "wrong": "An audit is finished when the report is issued.",
+      "right": "Implementation is the fourth stage. Auditors follow up to confirm the sponsor and team have taken the agreed actions, and a follow-up audit confirms completion before the audit is closed out."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Reviews look in, assurance looks on",
+      "expansion": "Reviews sit inside the initiative; assurance stands outside it. The same cue appears in LO6 because the same distinction decides both."
+    },
+    {
+      "type": "cue",
+      "acronym": "Inside, checking, independent",
+      "expansion": "The three lines of defence in order. First line inside the project, second line checking that the controls work, third line independent audit of both."
+    },
+    {
+      "type": "cue",
+      "acronym": "Governance decides, assurance informs",
+      "expansion": "Assurance and audit are not decision-making functions. They supply the evidence; the governance tiers take the decision."
+    },
+    {
+      "type": "cue",
+      "acronym": "Missed it, or ignored it",
+      "expansion": "The two ways assurance fails. Uninsightful assurance misses the finding; the second failure is a real finding nobody acts on."
+    },
+    {
+      "type": "cue",
+      "acronym": "Assurance goes where the risk is",
+      "expansion": "Risk analysis guides assurance towards the greatest vulnerabilities, and an effective plan is targeted at the greatest significance and risk — not spread evenly."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can state the two-part purpose of assurance — confidence that objectives and benefits will be achieved, plus identifying weaknesses and remedial actions.",
+    "I can distinguish assurance from reviews by independence, and explain why a decision gate can belong to either.",
+    "I can explain how governance, assurance and risk management depend on each other, and what happens when one is weak.",
+    "I can say who is responsible for setting up assurance and what they do when several providers are involved.",
+    "I can name the questions that shape an assurance approach and the five criteria for an effective assurance plan.",
+    "I can describe each of the three lines of defence — who performs it and who it reports to — and explain what integrated assurance coordinates.",
+    "I can list the four stages of an audit, explain what a follow-up audit confirms, and state why assurance is not a decision-making function.",
+    "I can explain the two ways assurance fails and why its effectiveness depends on its standing and resourcing within the organisation."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All substantive content in 7a — purpose, independence, sponsor ownership, the seven scoping questions, the five effectiveness criteria, three lines of defence, audit stages and failure modes.",
+      "sub_outcome": "7a",
+      "level": "sourced",
+      "basis": "BoK 8e 3.4 (p139), 3.4.1 (p140-141), 3.4.2 (p142-143), 3.4.3 (p144-145). LO7 has a single sub-outcome and BoK covers it thoroughly, so this is the best-sourced LO authored so far — no gap-filling was required.",
+      "risk": "None."
+    },
+    {
+      "claim": "The forward-looking versus backward-looking contrast between the first two lines and audit.",
+      "sub_outcome": "7a",
+      "level": "sourced",
+      "basis": "BoK 8e 3.4.3 (p145) states that assurance tends to be forward-looking, that the first and second lines focus on what is in place, and that audit places more emphasis on examining past decisions and actions to find future improvements.",
+      "risk": "None. Recorded because it reads like interpretation and is directly stated."
+    },
+    {
+      "claim": "Traffic-light severity grading with red, amber, green and blue.",
+      "sub_outcome": "7a",
+      "level": "sourced",
+      "basis": "BoK 8e 3.4.3 (p145) gives this as an example of how organisations typically grade concerns, explicitly hedged as 'for example' and 'sometimes' for blue.",
+      "risk": "Low. Content preserves the hedge — it is presented as a common convention, not a required scheme."
+    }
+  ]
+}

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { AlertTriangle } from "lucide-react";
 import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
 import { createClient } from "@/lib/supabase/client";
 import { getCanonicalOrigin } from "@/lib/site-url";
@@ -18,6 +20,7 @@ import {
   formActionSecondary,
 } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
+import { showToast } from "@/components/ui/toast";
 import styles from "@/components/AuthForm.module.css";
 
 type AuthFormProps = {
@@ -104,16 +107,30 @@ export function AuthForm({
 
   useEffect(() => {
     setGoogleHint(readLastGoogleEmail());
-  }, []);
+    if (initialError) {
+      showAuthToast(initialError, "error");
+    }
+  }, [initialError]);
+
+  /** Fire the same short LIC toast used by quiz Generate hints. */
+  function showAuthToast(msg: string, kind: "warning" | "error") {
+    showToast({
+      message: msg,
+      variant: kind,
+      duration: 3500,
+      position: "top-center",
+    });
+  }
 
   function requireTermsAcceptance(): boolean {
     if (mode !== "sign-up" || agreed) {
       return true;
     }
 
+    const msg = "Please agree to the Terms and Privacy Policy to continue.";
     setTermsError(true);
     setIsError(true);
-    setMessage("Please agree to the Terms and Privacy Policy to continue.");
+    setMessage(msg);
     requestAnimationFrame(() => termsCheckboxRef.current?.focus());
     return false;
   }
@@ -165,6 +182,7 @@ export function AuthForm({
       setIsError(true);
       setMessage(error.message);
       setLoading(false);
+      showAuthToast(error.message, "error");
       return;
     }
 
@@ -220,6 +238,7 @@ export function AuthForm({
       setIsError(true);
       setMessage(error.message);
       setLoading(false);
+      showAuthToast(error.message, "error");
     }
   }
 
@@ -323,7 +342,7 @@ export function AuthForm({
 
           {message && !termsError && (
             <p
-              className={`text-[12.5px] font-medium ${isError ? "text-ink/55" : "text-olive"}`}
+              className={`text-[12.5px] font-semibold ${isError ? "text-rust" : "text-olive"}`}
               role="alert"
             >
               {message}
@@ -378,15 +397,24 @@ export function AuthForm({
                 .
               </span>
             </label>
-            {termsError && (
-              <p
-                id="terms-error"
-                className="mt-2 text-[12.5px] font-medium text-ink/55"
-                role="alert"
-              >
-                {message}
-              </p>
-            )}
+            <AnimatePresence>
+              {termsError && (
+                <motion.div
+                  initial={{ opacity: 0, y: 4, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 3, scale: 0.98 }}
+                  transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                  id="terms-error"
+                  role="alert"
+                  className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
+                >
+                  <AlertTriangle className="size-3.5 shrink-0 self-center text-orange" strokeWidth={2.25} aria-hidden />
+                  <p className="font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
+                    {message}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         )}
 
@@ -440,15 +468,24 @@ export function AuthForm({
               .
             </span>
           </label>
-          {termsError && (
-            <p
-              id="terms-error"
-              className="mt-2 font-body text-[12.5px] font-medium text-ink/55"
-              role="alert"
-            >
-              {message}
-            </p>
-          )}
+          <AnimatePresence>
+            {termsError && (
+              <motion.div
+                initial={{ opacity: 0, y: 4, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 3, scale: 0.98 }}
+                transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                id="terms-error"
+                role="alert"
+                className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
+              >
+                <AlertTriangle className="size-3.5 shrink-0 self-center text-orange" strokeWidth={2.25} aria-hidden />
+                <p className="font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
+                  {message}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       )}
 
@@ -533,7 +570,7 @@ export function AuthForm({
 
         {message && !termsError && (
           <p
-            className={`font-body text-[12.5px] font-medium ${isError ? "text-ink/55" : "text-olive"}`}
+            className={`font-body text-[12.5px] font-semibold ${isError ? "text-rust" : "text-olive"}`}
             role="alert"
           >
             {message}

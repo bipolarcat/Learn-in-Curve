@@ -1,0 +1,235 @@
+{
+  "lo_number": 11,
+  "lo_code": "11a, 11b, 11c",
+  "title": "Conflict resolution",
+  "competence_area": "C. People and behaviours",
+  "exam_coverage_note": "Area C (LOs 10-15) accounts for 20-25% of exam marks — the largest single area.",
+  "source_ref": "APM BoK 8e s4.2 (p181), s4.2.1 (p182-183), s4.2.2 (p184-185), s4.2.3 (p186-187); APM PMQ Handbook 2024, LO11",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand conflict resolution as the ability to identify and address differences between individuals and/or interest groups.",
+  "learning_outcomes": [
+    "11a) Know the sources of conflict within a project.",
+    "11b) Understand that conflict can have both positive and negative impacts within a project.",
+    "11c) Know ways in which conflict can be addressed in different situations (such as Thomas Kilmann Conflict Mode Instrument)."
+  ],
+  "where_this_fits": "The counterintuitive LO. Most people arrive believing conflict is a problem to eliminate; the syllabus wants you to understand that too little conflict is more dangerous than too much. It shares content directly with LO5 — negotiation, BATNA and ZOPA sit in this chapter of the source — and picks up where LO10's engagement stops working. The distinction everything rests on: it is not conflict that is negative or positive, it is how the conflict is conducted.",
+  "key_definitions": [
+    {
+      "term": "Conflict",
+      "apm_definition": "A difference in ideas, interests, priorities or perceptions. In project-based working it can arise over what to do and how to do it.",
+      "plain_english": "People wanting different things, or seeing the same thing differently. Normal, and not automatically a problem."
+    },
+    {
+      "term": "Positive conflict",
+      "apm_definition": "Respectful disagreement — considered, respectful and well facilitated. Necessary to find optimal solutions and make robust decisions.",
+      "plain_english": "Argument about the issue, conducted properly. The thing that stops a bad idea getting through unchallenged."
+    },
+    {
+      "term": "Negative conflict",
+      "apm_definition": "Conflict that is acrimonious, disrespectful and poorly managed, arising when emotions overcome reason.",
+      "plain_english": "Argument that has stopped being about the issue and started being about the people."
+    },
+    {
+      "term": "Groupthink",
+      "apm_definition": "What happens when people find disagreement uncomfortable, so the group seeks consensus before it should — rejecting dissenting voices, or prompting people to self-censor contrary views.",
+      "plain_english": "Agreement reached too early because disagreeing felt awkward. Decisions then rest on 'what we all know'."
+    },
+    {
+      "term": "Risky shift",
+      "apm_definition": "The phenomenon whereby groups endorse higher-risk decisions than individuals would, resulting from the confidence produced by a lack of dissent.",
+      "plain_english": "A group talks itself into a bolder decision than any of its members would have made alone, because nobody objected."
+    },
+    {
+      "term": "Conflict escalation",
+      "apm_definition": "A series of rising steps moving from accord to disagreement, then irritation, anger, abuse and even violence.",
+      "plain_english": "The ladder conflict climbs when nobody intervenes. The point is that it has recognisable rungs, so it can be caught early."
+    },
+    {
+      "term": "Assertiveness (conflict dimension)",
+      "apm_definition": "The desire to achieve our own objectives. A more assertive strategy arises from giving high priority to the outcome.",
+      "plain_english": "How hard you push for what you want. High when the result matters more than the relationship."
+    },
+    {
+      "term": "Cooperativeness (conflict dimension)",
+      "apm_definition": "The desire to support others' objectives. A more cooperative strategy arises from giving high priority to the relationship.",
+      "plain_english": "How much you accommodate what they want. High when the relationship matters more than this particular result."
+    },
+    {
+      "term": "Mediator",
+      "apm_definition": "Someone who helps protagonists to communicate.",
+      "plain_english": "A third party who improves the conversation. They do not decide the outcome."
+    },
+    {
+      "term": "Arbitrator",
+      "apm_definition": "Someone who judges the situation and makes a decision.",
+      "plain_english": "A third party who does decide. The difference from a mediator is the whole point."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "11a",
+      "outcome_title": "Sources of conflict within a project",
+      "key_takeaway": "Conflict is a difference in ideas, interests, priorities or perceptions. In projects it arises over what to do, the processes to follow, or relationships — and negative conflict specifically arises when emotions overcome reason and the issue becomes personal.",
+      "source_ref": "BoK 8e 4.2 (p181), 4.2.1 (p182-183), 4.2.2 (p184)",
+      "body_markdown": "## The definition, which contains the sources\n\nConflict is what happens when **ideas, interests, priorities or perceptions diverge**. Those four are worth learning as a set, because they are already a list of sources: people disagree about what they think, what they want, what they consider most important, and what they believe they are seeing.\n\nInside a project it shows up in two places: **the what, and the how**.\n\n## The three areas conflict comes from\n\n| Source | What it looks like |\n|---|---|\n| **What to do** | Differing opinions about the right course of action — scope, priorities, solutions |\n| **Processes to follow** | Disagreement about method, governance, ways of working |\n| **Relationships** | Conflict between people rather than about the work |\n\nThe source adds that conflict often comes from **opinions that differ, or interests that genuinely oppose each other — held by people who care, and not easily reconciled**. Both halves are load-bearing: people only fight about things they care about, and genuinely competing interests do not dissolve just because everyone is being reasonable.\n\n## Why project work generates it structurally\n\nWorth knowing for scenario questions, drawing on LO10:\n\n- Project professionals **rarely hold positional power** over the people they need things from.\n- Project-based work spans **multiple organisations, conflicting priorities and different cultural norms**.\n- Behaviour itself adds complexity — **power struggles, misaligned communication and conflict** are named as sources of complexity in their own right.\n- **Organisational politics mixes personal and project objectives**, creating explicit and hidden agendas, alliances and conflicts.\n- Temporary structures sit inside permanent ones, producing **competing direction from different managers** — the matrix problem from LO2.\n\n## How ordinary conflict turns negative\n\nThis is the most useful mechanism in 11a. **Negative conflict arises when emotions overcome reason.**\n\nThe source is careful about why that happens: often it is **precisely because the people involved care**. Strength of feeling is not the fault. The failure point is specific — **things go wrong once the argument stops being between positions and becomes between people. The moment it gets personal, acrimony follows.**\n\nSo the diagnostic question in any scenario is not 'how heated is this?' but **'is this still about the issue, or is it now about the person?'**\n\n## Spotting escalation early\n\n**Conflict escalation is a series of rising steps**: accord → disagreement → irritation → anger → abuse → and even violence.\n\nBecause it has steps, it can be caught. The signs show in body language and voice:\n\n| Signal | What to watch |\n|---|---|\n| **Posture** | Which way the body angles — forward is aggressive, away is aversive |\n| **Gesture** | Either aggressive, or self-soothing |\n| **Face** | The mouth, the nostrils, the eyes, the brow |\n| **Physiology** | Changes in breathing, flushing of the skin, pupils widening |\n| **Voice** | Its tone |\n| **Language** | The words being reached for |\n\nThe point of the list is not observation for its own sake. Project professionals need **the skills to spot the signs of rising negative conflict and defuse it**, while keeping the important issues under respectful discussion.\n\n## Preventing it: environment before technique\n\nAvoiding negative conflict **begins by building somewhere people can challenge each other and stay respectful** — an inclusive culture in which:\n\n- **people respect one another**\n- **landing on the best solution counts for more than personally being right**\n- **turning out to be wrong is not treated as failing**\n\nThat second and third point are the real safeguards. Where being wrong carries a cost, people defend positions instead of examining them, and disagreement becomes personal because status is at stake."
+    },
+    {
+      "outcome_code": "11b",
+      "outcome_title": "Positive and negative impacts of conflict",
+      "key_takeaway": "Positive conflict drives performance up; negative conflict drives it down. But no conflict is its own failure state — fake comfort, groupthink, risky shift and suppressed ideas, creating additional risk.",
+      "source_ref": "BoK 8e 4.2 (p181), 4.2.1 (p182-183), 4.2.2 (p184)",
+      "body_markdown": "## Three states, not two\n\nThe most examinable idea in LO11, and the one that catches people out. The comparison is **not** conflict versus harmony. It is three states:\n\n| State | Character | Effect |\n|---|---|---|\n| **Negative conflict** | Acrimonious, disrespectful, poorly managed. Elevated emotional effect | **Drives performance down** |\n| **Positive conflict** | Considered, respectful, well facilitated. Measured responses | **Drives performance up** |\n| **No conflict** | Comfort that is not real. Consensus reached too early, appetite for risk quietly rising, ideas and feelings going unsaid | **Creates additional risk** |\n\n**The instinct that conflict is bad and harmony is good is simply wrong.** When somebody puts forward a weak or mistaken idea, hearing an alternative is a gain, not an inconvenience. **Conflict becomes disruptive through how it is conducted** — never through the mere fact of it.\n\n## Why positive conflict is necessary\n\nNot merely tolerable — **necessary**. It is how project professionals **find optimal solutions and make robust decisions**. A respectfully conducted disagreement is the mechanism that **challenges thinking, finds better solutions and produces good decisions**.\n\nWithout it, the cost is stated plainly: **the mildest consequence is a better outcome going unfound; the worst is real risk being manufactured** across projects, programmes and portfolios.\n\n## What happens when conflict is absent\n\n### Groupthink\n\n**Disagreeing feels uncomfortable, so agreement gets reached earlier than the evidence justifies.** As the group closes on consensus it starts **pushing back on anyone dissenting**, or people simply **keep contrary views to themselves**.\n\nThe consequence: **decisions are based on 'what we all know'.** Nobody feels able to push against the settled view, so **new information and ideas that bear on it never get properly examined**. The group is not deciding on the evidence; it is deciding on the portion of the evidence that felt comfortable to raise.\n\n### Risky shift\n\nThe second-order effect, and a term worth knowing precisely: **a group will back a riskier decision than any of its members would have taken alone**. The cause is **the false confidence that silence manufactures**.\n\nRead that carefully — silence is being interpreted as agreement, agreement is being read as confidence, and confidence is licensing more risk than any individual would have accepted alone. That is why **lack of conflict is dangerous**.\n\n## The impacts of negative conflict\n\nWhen conflict is not conducted constructively:\n\n- Performance **drops**.\n- If it becomes acrimonious, **relationship damage must be attended to**, otherwise it **contaminates morale, motivation and trust** across the project team and the stakeholder group.\n- Leaving it alone **exposes the project, programme or portfolio** — morale suffers, relationships turn poisonous, and confidence drains away.\n\nThe word 'contaminate' is well chosen: unaddressed relationship damage does not stay where it started.\n\n## Getting the benefit without the cost\n\nCreating positive conflict rather than either of the failure states needs facilitation skill. Project professionals should allow:\n\n- **everyone a turn, so the loudest personalities do not take the room**\n- **all the evidence and every idea to be weighed by the group**\n- **ideas and evidence to be challenged constructively**\n- **dissent to be treated with respect**\n- **enough time to reach outcomes people can act on**\n\nThe first and fourth are the direct antidotes to groupthink. A dominant personality and an unwelcome dissenter produce the same outcome — a decision made on partial information.\n\n**And the honest caveat:** a respectful culture and skilled facilitation still will not prevent **negative conflict arising anyway**. Prevention reduces it; it does not remove the need to handle it.",
+      "diagrams": [
+        {
+          "id": "lo11-three-states",
+          "figure_number": "11.1",
+          "caption": "Negative conflict, positive conflict and no conflict",
+          "placement": "after_heading",
+          "heading": "Three states, not two",
+          "file": null,
+          "spec": "Three panels side by side, with an implied performance axis. Negative conflict: acrimonious, disrespectful, poorly managed, elevated emotional effect — arrow pointing down, 'drives performance down'. Positive conflict: considered, respectful, well facilitated, measured responses — arrow pointing up, 'drives performance up'. No conflict: fake comfort, groupthink, risky shift, suppressed ideas and feelings — 'creates additional risk'. The crucial design point is that 'no conflict' must not look like the safe middle option; it needs to read as its own failure state.",
+          "alt": "Three states compared — negative conflict driving performance down, positive conflict driving it up, and no conflict producing fake comfort, groupthink and risky shift that create additional risk."
+        }
+      ]
+    },
+    {
+      "outcome_code": "11c",
+      "outcome_title": "Addressing conflict in different situations",
+      "key_takeaway": "Five strategies sit on two dimensions — assertiveness (priority on outcome) and cooperativeness (priority on relationship). Which one fits depends on how much each matters here. Resolution runs engage, build rapport, share, agree criteria, explore options, and escalation routes must exist before they are needed.",
+      "source_ref": "BoK 8e 4.2.2 (p184-185), 4.2.3 (p186-187)",
+      "body_markdown": "## Two objectives when intervening\n\nThe job is to **make room for positive conflict** — but once conflict turns negative, **stepping in is an obligation, not an option**. Managing it has two objectives, and both are needed:\n\n| Objective | Note |\n|---|---|\n| **Reach an outcome that is fair and serves the stakeholders** | **One party may well end up less happy.** Fair and mutually satisfying are not the same thing |\n| **Address relationship damage to the conflicting parties** | Skip this and the damage contaminates morale, motivation and trust |\n\nAn answer giving only the first objective is half an answer. Resolving the issue while leaving the relationship broken stores up the next conflict.\n\n## The resolution sequence\n\nResolution can begin when **a third party intervenes**, or when **a participant becomes aware of a damaging dynamic**.\n\n| Step | What happens |\n|---|---|\n| **1. Choose to engage positively** | Demonstrating **respect to everyone involved**. Resolution starts as a decision |\n| **2. Build rapport** | **Without it, the parties will not listen to or understand each other.** This step cannot be skipped to save time |\n| **3. Share** | Facts, definitions, perspectives, concerns and feelings — only possible once rapport exists |\n| **4. Agree criteria for a satisfactory resolution** | Each party sets out requirements and preferred outcomes |\n| **5. Explore options** | Continue until agreement is reached |\n\nThe ordering is the lesson: **criteria for a good outcome are agreed before options are explored.** Reversing those two turns resolution into a negotiation over positions rather than needs.\n\n## The five conflict strategies\n\nThe syllabus names the Thomas-Kilmann Conflict Mode Instrument. The model describes conflict on two dimensions:\n\n| Dimension | What it measures | High when |\n|---|---|---|\n| **Assertiveness** | Desire to achieve **our own** objectives | The **outcome** is the priority |\n| **Cooperativeness** | Desire to support **others'** objectives | The **relationship** is the priority |\n\nThat mapping — assertiveness to outcome, cooperativeness to relationship — is what makes the model usable in a scenario. Decide which of the two matters more here, and the strategy follows.\n\n| Strategy | Assertive | Cooperative | Use when |\n|---|---|---|---|\n| **Compete** | High | Low | The outcome dominates and the relationship is secondary |\n| **Accommodate** | Low | High | The relationship dominates and the outcome is secondary |\n| **Avoid** | Low | Low | **Neither outcome nor relationship is important** — some conflicts are **not worth pursuing** |\n| **Compromise** | Medium | Medium | **The easier strategy.** Both give up something to create a fair balance |\n| **Collaborate** | High | High | Both matter. Both parties **put more into the discussion**, creating mutual benefit and enhancing the relationship — a **win-win** |\n\n**Two points the source makes that most summaries drop:**\n\n- **Avoiding is a legitimate strategy**, not a failure of nerve, where neither the outcome nor the relationship is worth the cost.\n- **Collaboration takes a lot of work** and **needs a lot of facilitation skill**. Crucially, **the investment is not always appropriate.** Win-win is the best outcome, not the default answer — recommending collaboration for a trivial dispute is the wrong call.\n\n## Other skills conflict management needs\n\n| Skill | What it is |\n|---|---|\n| **Assertiveness** | Holding a line — for your principles, the project, your team, yourself |\n| **Listening** | And genuinely understanding what you heard |\n| **Communicating** | Not just ideas, but emotions and perceptions too |\n| **Resilience** | Staying resourceful when under pressure |\n\n## When someone else has to resolve it\n\nSometimes someone outside has to step in — the **sponsor, a stakeholder, or a mediator or arbitrator brought in from outside**. The distinction is directly examinable:\n\n| Role | What they do |\n|---|---|\n| **Mediator** | **Helps the protagonists communicate.** Does not decide |\n| **Arbitrator** | **Weighs it up and rules on it** |\n\n**Set the escalation protocol in advance** — up to project governance, then onward to programme or portfolio level. Where the dispute is contractual, the organisation may end up in **litigation, or using alternative dispute resolution**.\n\nAnd the balanced position to take in an answer: **a resolution the parties agree to, meeting stakeholders' requirements where that is achievable, always beats an imposed one** — but it is **worth naming a final arbiter up front** in case a final decision becomes necessary. Naming the arbiter before the dispute is exactly the same principle as LO2's escalation routes — you design the route before you need it.\n\n## Negotiation is a form of conflict\n\nWorth connecting explicitly, because the source treats it as part of this chapter and LO5 examines it. **Negotiation follows a process and is conducted with respect** — which fits the definition of positive conflict. **The five conflict strategies apply to the bargaining step**, where 'driving a hard bargain' is the **competing** mode and does not build sustainable relationships.\n\nSo the same two-dimensional judgement applies: how much does this outcome matter, and how much does this relationship matter afterwards?\n\n## When to call for specialists\n\nWhere the stakes are high, **specialist training in conflict and negotiation exists**, and the right move may be to bring in **a trained mediator or arbitrator, a procurement specialist, or a lawyer**. Recognising the limit of your own competence is part of managing conflict well.",
+      "diagrams": [
+        {
+          "id": "lo11-conflict-strategies",
+          "figure_number": "11.2",
+          "caption": "Five conflict strategies on two dimensions",
+          "placement": "after_heading",
+          "heading": "The five conflict strategies",
+          "file": null,
+          "spec": "A grid with assertiveness / desire to meet personal needs on the vertical axis (low to high) and cooperativeness / desire to meet others' needs on the horizontal (low to high). Place compete top-left, collaborate top-right, avoid bottom-left, accommodate bottom-right, compromise in the centre. Label each axis with what it actually means — outcome priority vertically, relationship priority horizontally — because that translation is what makes the model usable. Note BoK Figure 4.2.2 is adapted from the TKI Conflict Model, Kilmann Diagnostics LLC, so ours must be an original depiction of the same two factual axes and five named modes.",
+          "alt": "A grid plotting five conflict strategies by assertiveness against cooperativeness, with compete, collaborate, avoid, accommodate and compromise positioned according to whether the outcome or the relationship takes priority."
+        },
+        {
+          "id": "lo11-resolution-sequence",
+          "figure_number": "11.3",
+          "caption": "The conflict resolution sequence",
+          "placement": "after_heading",
+          "heading": "The resolution sequence",
+          "file": null,
+          "spec": "Five steps in sequence: choose to engage positively, build rapport, share facts and feelings, agree criteria for resolution, explore options — with a loop on the final step showing exploration continues until agreement. Mark the rapport step as a gate that cannot be bypassed, since without it the later steps do not work.",
+          "alt": "Five conflict resolution steps in sequence from choosing to engage positively through building rapport, sharing, agreeing criteria and exploring options until agreement is reached."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Conflict on a project is a problem to be eliminated.",
+      "right": "Positive conflict is necessary to find optimal solutions and make robust decisions. What makes conflict disruptive is how it happens, not that it happened."
+    },
+    {
+      "wrong": "A team with no conflict is a healthy team.",
+      "right": "No conflict is its own failure state — fake comfort, groupthink, risky shift and suppressed ideas, all of which create additional risk. Lack of conflict is dangerous."
+    },
+    {
+      "wrong": "Groupthink means everyone genuinely agrees.",
+      "right": "It means the group sought consensus before it should, because disagreement felt uncomfortable. Dissenting voices get rejected or people self-censor, so relevant information is never explored."
+    },
+    {
+      "wrong": "Groups make more cautious decisions than individuals.",
+      "right": "Risky shift describes the opposite. A group will back a riskier decision than any member would alone, because silence gets misread as confidence."
+    },
+    {
+      "wrong": "Conflict turns negative when people get emotional.",
+      "right": "Emotion often reflects that people care about the issue. It turns negative when it escalates from being about issues to being about people — as soon as it is personalised, acrimony starts."
+    },
+    {
+      "wrong": "Collaboration and win-win is always the right strategy.",
+      "right": "Collaboration takes a lot of work and facilitation skill, and the investment is not always appropriate. Where neither outcome nor relationship matters much, avoiding is legitimate."
+    },
+    {
+      "wrong": "Avoiding a conflict is always weakness.",
+      "right": "Some conflicts, where neither the outcome nor the relationship is important, are not worth pursuing. Avoiding is one of the five recognised strategies."
+    },
+    {
+      "wrong": "Resolving the issue resolves the conflict.",
+      "right": "Managing negative conflict has two objectives: finding a fair outcome, and addressing relationship damage. Unaddressed damage contaminates morale, motivation and trust across the team and stakeholder group."
+    },
+    {
+      "wrong": "A mediator decides who is right.",
+      "right": "A mediator helps the protagonists communicate. An arbitrator weighs it up and rules on it. Only one of the two actually decides anything."
+    },
+    {
+      "wrong": "A fair resolution leaves both parties content.",
+      "right": "A fair outcome serves the stakeholders, and this may mean one party is less content. Fairness is measured against the stakeholders' interests, not against equal satisfaction."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Negative down, positive up, none risky",
+      "expansion": "The three states and their effects. Negative conflict drives performance down, positive conflict drives it up, and no conflict creates additional risk through groupthink and risky shift."
+    },
+    {
+      "type": "cue",
+      "acronym": "Issue or person?",
+      "expansion": "The diagnostic question for whether conflict has turned negative. Emotion is fine; personalisation is the failure point, because acrimony starts the moment it stops being about the issue."
+    },
+    {
+      "type": "cue",
+      "acronym": "Assertive is my outcome, cooperative is your relationship",
+      "expansion": "The two axes of the five-strategy model. Decide which of outcome and relationship matters more here, and the strategy follows from that."
+    },
+    {
+      "type": "cue",
+      "acronym": "Rapport before options",
+      "expansion": "The resolution sequence: engage, build rapport, share, agree criteria, explore options. Without rapport the parties will not listen, so the later steps cannot work."
+    },
+    {
+      "type": "cue",
+      "acronym": "Mediators talk, arbitrators decide",
+      "expansion": "A mediator helps the protagonists communicate. An arbitrator judges and makes the decision."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define conflict, name the four things it is a difference in, and give the three areas within a project it arises from.",
+    "I can explain how conflict turns negative, and identify personalisation rather than emotion as the failure point.",
+    "I can describe conflict escalation as a series of steps and name the signals that indicate it is rising.",
+    "I can compare negative conflict, positive conflict and no conflict, and state the effect each has on performance.",
+    "I can explain groupthink and risky shift, and say why a lack of conflict creates additional risk.",
+    "I can name the two objectives of managing negative conflict and explain why addressing relationship damage is not optional.",
+    "I can give the resolution sequence in order and explain why rapport must come before exploring options.",
+    "I can name the five conflict strategies, place them on assertiveness and cooperativeness, say when each applies, and distinguish a mediator from an arbitrator."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All substantive content for 11a, 11b and 11c — definition and sources of conflict, escalation signals, the three states, groupthink and risky shift, the two intervention objectives, the resolution sequence, the five strategies and their dimensions, mediator versus arbitrator, and escalation protocols.",
+      "sub_outcome": "11a",
+      "level": "sourced",
+      "basis": "BoK 8e 4.2 (p181), 4.2.1 (p182-183), 4.2.2 (p184-185), 4.2.3 (p186-187). SOURCE_MAP noted Thomas-Kilmann is present with four references, and that is confirmed — the five modes and both dimensions are covered directly.",
+      "risk": "None. LO11 is the second-best-sourced LO authored so far after LO7."
+    },
+    {
+      "claim": "The five conflict strategies and the assertiveness / cooperativeness axes.",
+      "sub_outcome": "11c",
+      "level": "sourced",
+      "basis": "BoK 8e 4.2.2 (p184-185) and Figure 4.2.2, which is credited 'adapted from TKI Conflict Model, Kilmann Diagnostics LLC'.",
+      "risk": "None on substance. Recorded because the source figure is third-party attributed to a commercial instrument, so our diagram must be an original depiction of the same two factual axes and five named modes, and must not reproduce that figure's arrangement or branding."
+    },
+    {
+      "claim": "The 'why project work generates conflict structurally' section in 11a.",
+      "sub_outcome": "11a",
+      "level": "assembled",
+      "basis": "Every element is sourced but from outside the conflict chapter — no positional power and organisational politics at 4.1.2 (p174), multiple organisations and conflicting priorities at 4.1.2 (p174), competing direction from different managers at 2.6.3 (p106). The conflict chapter itself gives only 'what to do, processes to follow, or relationships'.",
+      "risk": "Low. The syllabus asks for sources of conflict and BoK's direct answer is brief, so drawing the structural causes from elsewhere in the source strengthens the answer without inventing anything."
+    },
+    {
+      "claim": "The explicit connection between LO11's conflict strategies and LO5's negotiation content.",
+      "sub_outcome": "11c",
+      "level": "sourced",
+      "basis": "BoK 8e 4.2 (p181) frames negotiation as a form of positive conflict, and 4.2.3 (p186) states the five conflict strategies apply to the bargaining step, naming hard bargaining as the competing mode.",
+      "risk": "None. Recorded because negotiation is examined under LO5 but sourced from this chapter — the two LOs must stay consistent if either is later revised."
+    }
+  ]
+}

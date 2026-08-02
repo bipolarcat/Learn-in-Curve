@@ -1,0 +1,697 @@
+[
+  {
+    "order_index": 1,
+    "lo_code": "1a, 1b, 1c, 1d",
+    "title": "Life cycles",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Life cycles",
+        "lesson_type": "content",
+        "body_bytes": 11252,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 2,
+    "lo_code": "2a, 2b, 2c, 2d",
+    "title": "Governance Arrangements",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Governance Arrangements",
+        "lesson_type": "content",
+        "body_bytes": 16202,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 3,
+    "lo_code": "3a, 3b",
+    "title": "Sustainability",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Sustainability",
+        "lesson_type": "content",
+        "body_bytes": 9853,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 4,
+    "lo_code": "4a, 4b",
+    "title": "Business Case",
+    "day": 1,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Business Case",
+        "lesson_type": "content",
+        "body_bytes": 12039,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 5,
+    "lo_code": "5a, 5b, 5c",
+    "title": "Procurement",
+    "day": 1,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Procurement",
+        "lesson_type": "content",
+        "body_bytes": 13157,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 6,
+    "lo_code": "6a, 6b, 6c, 6d",
+    "title": "Reviews",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Reviews",
+        "lesson_type": "content",
+        "body_bytes": 11404,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 7,
+    "lo_code": "7a",
+    "title": "Assurance",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Assurance",
+        "lesson_type": "content",
+        "body_bytes": 11518,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 8,
+    "lo_code": "8a, 8b, 8c",
+    "title": "Transition Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Transition Management",
+        "lesson_type": "content",
+        "body_bytes": 11430,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 9,
+    "lo_code": "9a, 9b",
+    "title": "Benefits Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Benefits Management",
+        "lesson_type": "content",
+        "body_bytes": 14265,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 10,
+    "lo_code": "10a, 10b, 10c, 10d, 10e, 10f",
+    "title": "Stakeholder Engagement and Communications Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Stakeholder Engagement and Communications Management",
+        "lesson_type": "content",
+        "body_bytes": 12730,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 11,
+    "lo_code": "11a, 11b, 11c",
+    "title": "Conflict Resolution",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Conflict Resolution",
+        "lesson_type": "content",
+        "body_bytes": 11734,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 12,
+    "lo_code": "12a, 12b, 12c",
+    "title": "Leadership",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Leadership",
+        "lesson_type": "content",
+        "body_bytes": 14072,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 13,
+    "lo_code": "13a, 13b, 13c",
+    "title": "Team Management",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Team Management",
+        "lesson_type": "content",
+        "body_bytes": 11107,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 14,
+    "lo_code": "14a, 14b, 14c",
+    "title": "Diversity and Inclusion",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Diversity and Inclusion",
+        "lesson_type": "content",
+        "body_bytes": 12609,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 15,
+    "lo_code": "15a, 15b, 15c",
+    "title": "Ethics, Compliance and Professionalism",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Ethics, Compliance and Professionalism",
+        "lesson_type": "content",
+        "body_bytes": 12387,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 16,
+    "lo_code": "16a, 16b",
+    "title": "Requirements Management",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Requirements Management",
+        "lesson_type": "content",
+        "body_bytes": 11256,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 17,
+    "lo_code": "17a",
+    "title": "Solutions Development",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Solutions Development",
+        "lesson_type": "content",
+        "body_bytes": 9476,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 18,
+    "lo_code": "18a, 18b",
+    "title": "Quality Management",
+    "day": 4,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Quality Management",
+        "lesson_type": "content",
+        "body_bytes": 10031,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 19,
+    "lo_code": "19a, 19b",
+    "title": "Integrated Planning",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Integrated Planning",
+        "lesson_type": "content",
+        "body_bytes": 10273,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 20,
+    "lo_code": "20a, 20b, 20c",
+    "title": "Schedule Management",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Schedule Management",
+        "lesson_type": "content",
+        "body_bytes": 13075,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 21,
+    "lo_code": "21a, 21b, 21c, 21d",
+    "title": "Resource Management",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Resource Management",
+        "lesson_type": "content",
+        "body_bytes": 11241,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 22,
+    "lo_code": "22a, 22b, 22c, 22d",
+    "title": "Budgeting and Cost Control",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Budgeting and Cost Control",
+        "lesson_type": "content",
+        "body_bytes": 17674,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 23,
+    "lo_code": "23a, 23b, 23c, 23d",
+    "title": "Risk and Issue Management",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Risk and Issue Management",
+        "lesson_type": "content",
+        "body_bytes": 13847,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 24,
+    "lo_code": "24a, 24b, 24c, 24d, 24e",
+    "title": "Change Control",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Change Control",
+        "lesson_type": "content",
+        "body_bytes": 13978,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "exam_technique",
+          "further_reading",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "quick_recap",
+          "quiz_total_marks",
+          "where_this_fits",
+          "worked_example"
+        ]
+      }
+    ]
+  }
+]

@@ -70,6 +70,11 @@ const config: Config = {
         border: "rgb(var(--ink-rgb) / 0.15)",
         input: "rgb(var(--ink-rgb) / 0.2)",
         ring: "#D9A441",
+        success: "var(--geist-success)",
+        error: "var(--geist-error)",
+        warning: "var(--geist-warning)",
+        violet: "var(--geist-violet)",
+        "background-100": "var(--ds-background-100)",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],

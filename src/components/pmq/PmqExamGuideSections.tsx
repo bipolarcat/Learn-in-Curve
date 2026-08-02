@@ -17,22 +17,22 @@ const MARKS_BREAKDOWN = [
 
 const SYLLABUS_WEIGHT = [
   {
-    area: "A — Setting up for success",
+    area: "A - Setting up for success",
     los: "1–4",
     share: "15–20%",
   },
   {
-    area: "B — Preparing for change",
+    area: "B - Preparing for change",
     los: "5–9",
     share: "15–20%",
   },
   {
-    area: "C — People and behaviours",
+    area: "C - People and behaviours",
     los: "10–15",
     share: "25–35%",
   },
   {
-    area: "D — Planning and managing deployment",
+    area: "D - Planning and managing deployment",
     los: "16–24",
     share: "30–40%",
   },

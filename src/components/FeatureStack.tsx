@@ -56,7 +56,7 @@ export function FeatureStack() {
     <section
       id="home-features"
       aria-labelledby="home-features-title"
-      className="relative overflow-x-clip py-[clamp(3rem,7vw,5rem)]"
+      className="relative overflow-x-clip pt-2 pb-[clamp(3rem,7vw,5rem)] sm:pt-3"
     >
       <div className="wrap relative z-[1]">
         <h2

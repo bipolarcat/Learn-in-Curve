@@ -1,0 +1,263 @@
+{
+  "lo_number": 5,
+  "lo_code": "5a, 5b, 5c",
+  "title": "Procurement",
+  "competence_area": "B. Preparing for change",
+  "exam_coverage_note": "Area B (LOs 5-9) accounts for 15-20% of exam marks.",
+  "source_ref": "APM BoK 8e s3.3 (p131), s3.3.1 (p132-133), s3.3.2 (p134-135), s3.3.3 (p136-137), s4.2.3 (p186-187), s5.9.1 (p302-303), s5.9.2 (p304-305), s5.9.3 (p306-307); APM PMQ Handbook 2024, LO5",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand procurement as securing the provision of resources, choosing strategies for obtaining best value from supply chains.",
+  "learning_outcomes": [
+    "5a) Understand the purpose and importance of a procurement strategy, and know the typical contents of a procurement strategy.",
+    "5b) Know the stages of a supplier selection process, including how to plan the procurement process and conduct negotiations (for example ZOPA, BATNA and 'Win Win').",
+    "5c) Know the features of different contractual relationships, and understand why different methods of supplier reimbursement are used and when it is appropriate to use them (including fixed price, cost plus fee, per unit quantity and target cost)."
+  ],
+  "where_this_fits": "Procurement is where the project stops being something you control directly and becomes something you control through a contract. That single shift explains most of the content: strategy exists because you must decide what to buy before you buy it, contract type exists because it decides who carries the risk, and supplier management exists because a signed contract delivers nothing on its own. It connects to LO23 risk (contracts move risk, they never delete it), LO24 change control (contract changes need their own route) and LO11 conflict (negotiation is shared content between the two).",
+  "key_definitions": [
+    {
+      "term": "Procurement",
+      "apm_definition": "The process by which goods and services are acquired from an external provider.",
+      "plain_english": "Buying in what the project cannot produce itself — and managing whoever provides it."
+    },
+    {
+      "term": "Procurement strategy",
+      "apm_definition": "The high-level approach for securing the goods and services required from external suppliers to meet the project, programme or portfolio needs. It leads to the procurement element of the integrated project management plan.",
+      "plain_english": "The plan for what gets bought, from what kind of supplier, on what kind of contract — decided before anyone talks to the market."
+    },
+    {
+      "term": "Package breakdown structure (PaBS)",
+      "apm_definition": "A breakdown defining which parts of the project scope may require procurement from external suppliers, grouped so that economies of scale can be achieved.",
+      "plain_english": "The project scope carved into buyable chunks. Group them well and you buy in bulk; group them badly and you buy the same thing five times."
+    },
+    {
+      "term": "Make-or-buy criteria",
+      "apm_definition": "The common set of criteria used to determine the procurement strategy for each package, covering business circumstances, knowledge, delivery, service and risk.",
+      "plain_english": "Five tests for whether to do it in-house or pay someone else."
+    },
+    {
+      "term": "Strategic sourcing",
+      "apm_definition": "Analysis of the buying strengths and weaknesses of the organisation and the project, weighing the financial impact potential of each package against the risk of supply chain disruption, to determine how best to work with suppliers.",
+      "plain_english": "Deciding how close a relationship each supplier needs — an over-the-counter purchase at one end, a long-term partnership at the other."
+    },
+    {
+      "term": "Lifetime cost of ownership",
+      "apm_definition": "A basis for early procurement decisions considering cost across the whole life alongside fitness for purpose, durability, availability, reliability, maintainability and efficiency, rather than functional requirements alone.",
+      "plain_english": "What it costs to own, not what it costs to buy. Often a higher purchase price and a better long-term outcome."
+    },
+    {
+      "term": "Invitation to tender (ITT)",
+      "apm_definition": "The formal document issued to shortlisted suppliers, who submit their best offers against a common scope of requirements.",
+      "plain_english": "The same question put to every shortlisted supplier, so their answers can be compared fairly."
+    },
+    {
+      "term": "BATNA",
+      "apm_definition": "Best alternative to a negotiated agreement — what you will do if no deal is reached. Any deal less favourable than your BATNA represents a loss.",
+      "plain_english": "Your walk-away option. Knowing it tells you the worst deal you should ever accept."
+    },
+    {
+      "term": "ZOPA",
+      "apm_definition": "Zone of possible agreement — the range defined by the BATNAs of each party, within which a deal can be struck.",
+      "plain_english": "The overlap between the worst deal you'd take and the worst deal they'd take. No overlap, no deal."
+    },
+    {
+      "term": "Fixed price",
+      "apm_definition": "A contract where parties agree a set price for a defined scope of work, with changes managed via change requests.",
+      "plain_english": "Agreed price for agreed scope. Certainty for the buyer; the supplier carries the risk and prices it in."
+    },
+    {
+      "term": "Cost plus",
+      "apm_definition": "A contract similar to time and materials, but with supplier profit charged separately, typically as an agreed percentage of the project's total cost.",
+      "plain_english": "You pay actual costs, plus an agreed fee on top. Flexible, and the buyer carries most of the risk."
+    },
+    {
+      "term": "Contract manager",
+      "apm_definition": "The role appointed on the project side to lead the supplier relationship and report on progress. In many instances this is the project manager.",
+      "plain_english": "The named person who owns the supplier relationship, so it does not become everyone's job and therefore nobody's."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "5a",
+      "outcome_title": "Procurement strategy: purpose, importance and contents",
+      "key_takeaway": "The procurement strategy decides what gets bought and how, before the market is approached. It is built from a package breakdown structure, market consultation and make-or-buy criteria, and becomes part of the integrated project management plan, signed off by the sponsor.",
+      "source_ref": "BoK 8e 3.3 (p131), 3.3.1 (p132-133), 3.3.2 (p134-135), 3.3.3 (p136-137)",
+      "body_markdown": "## Why a strategy comes first\n\nProcurement is how a project gets hold of goods and services it cannot produce itself. Most organisations already run a procurement function with its own governance, policies and processes, so the project usually has to **align to an existing process rather than invent one**.\n\nThe strategy exists because the expensive mistakes in procurement are made before anyone signs anything — buying the wrong packages, from the wrong kind of supplier, on the wrong kind of contract. The source makes a specific warning here: it is easy to slip into specifying **functional requirements** alone. The early strategic focus should instead weigh:\n\n- what it costs to own across its whole life\n- whether it is fit for the purpose\n- how long it lasts\n- whether it can be got hold of\n- how dependably it performs\n- how easily it is maintained\n- how efficiently it runs\n\nSelecting on **lifetime cost of ownership often means a higher purchase price and a better long-term outcome** — a strong point to make in any scenario where a cheaper bid is on the table.\n\n## The three steps that build the strategy\n\nWorking from the project's **business case**:\n\n| Step | What happens |\n|---|---|\n| **1. Create a PaBS** | Break the scope into packages that may need external supply. An iterative exercise with subject-matter experts. Group packages so **economies of scale** are achievable |\n| **2. Initial market consultation** | A high-level check that suitable goods and services actually exist and are viable to buy. Must be done **without prejudicing or unfairly advantaging any supplier** ahead of the tender |\n| **3. Make-or-buy criteria** | Apply a common set of tests to each package to decide in-house versus external |\n\n### The five make-or-buy criteria\n\n| Criterion | The question |\n|---|---|\n| **Business circumstances** | Are there financial restrictions? |\n| **Knowledge** | Does the organisation have the knowledge required? |\n| **Delivery** | Does it have the capability to deliver? |\n| **Service** | Once implemented, can it meet the required service level? |\n| **Risk** | Does contracting create risk that cannot be managed? |\n\nThat last one is the one candidates forget. **Buying something in can create more risk than doing it yourself**, and that is a legitimate reason to make rather than buy.\n\n## What the strategy produces\n\nFor each significant package, the team defines a procurement strategy and creates a **procurement management plan**. In line with the rest of project governance, the sponsor reviews that plan and **signs it off** before anything else happens — which ties straight back to LO2.\n\nThe procurement element then forms part of the **integrated project management plan**.\n\n## Strategic sourcing: how close a relationship?\n\nWith the strategy set but before approaching the market, a second analysis decides *how* to work with suppliers. Two factors:\n\n- the **financial impact potential** of each package\n- the **risk of supply chain disruption** for each package\n\nBalancing the upside of suppliers who drive profitability against the downside of those who introduce risk. The **Kraljic matrix** is the widely adopted tool for plotting this.\n\n| Position | Character | Approach |\n|---|---|---|\n| **Leverage** — high profit impact, low supply risk | Plenty of suppliers, meaningful spend | Exploit buying power; invoke competition |\n| **Strategic** — high profit impact, high supply risk | Critical and hard to replace | Partnership and mutual commitment; balance or diversify |\n| **Non-critical** — low profit impact, low supply risk | Routine commodities | Efficient processing; rationalise or tier the supply |\n| **Bottleneck** — low profit impact, high supply risk | Cheap but you cannot do without it | Volume insurance; secure supply or find alternatives |\n\nThe outcome sets the sourcing approach along a spectrum from a simple transactional, over-the-counter arrangement for routine commodities, through to **long-term partnering or alliancing** where the item carries real risk — specialist design work, or technology only a handful of firms supply.\n\n## The judgement calls inside sourcing\n\nFour trade-offs the source raises, each of which makes a good scenario answer:\n\n| Trade-off | The tension |\n|---|---|\n| **Frequent tendering vs long-term relationships** | Shaving a little off the price counts for less than a supplier who already understands how the organisation works and what it actually needs |\n| **Lead supplier vs managing many** | Engaging a principal contractor or lead supplier who manages second- and third-tier suppliers reduces the internal management burden — but reduces the organisation's own capability growth |\n| **Cost advantage vs supply chain sustainability** | The supply chain has to be able to support operations after the project ends, particularly where requirements change often |\n| **Commercial freedom vs policy and law** | Existing corporate frameworks and preferred supplier lists may help or constrain. **Public bodies** carry extra legal and ethical duties around how they tender |\n\nThat last row matters for exam scenarios set in the public sector, where 'we'll just use the supplier we know' is not available.",
+      "diagrams": [
+        {
+          "id": "lo5-procurement-process",
+          "figure_number": "5.1",
+          "caption": "The seven stages of the procurement process",
+          "placement": "after_heading",
+          "heading": "Why a strategy comes first",
+          "file": null,
+          "spec": "Seven stages in sequence: set procurement strategy, define strategic sourcing approach, agree contract type and contents, complete competitive tender, award contract, manage the supplier, contract closure and handover. Show the first three shaded as 'strategic' and the last four as 'tactical' — the shift from strategic to tactical partway through is the teaching point.",
+          "alt": "The seven stages of the procurement process in sequence, with the first three marked as strategic and the remaining four as tactical."
+        },
+        {
+          "id": "lo5-kraljic",
+          "figure_number": "5.2",
+          "caption": "Segmenting suppliers by profit impact and supply risk",
+          "placement": "after_heading",
+          "heading": "Strategic sourcing: how close a relationship?",
+          "file": null,
+          "spec": "Two-by-two grid, x-axis supply risk low to high, y-axis profit impact low to high. Quadrants: non-critical (low/low), bottleneck (low profit, high risk), leverage (high profit, low risk), strategic (high/high). Add the response to each quadrant, not just the label. Note BoK Figure 3.3.3 is credited 'based on the Kraljic Matrix (1983)', so ours must be an original depiction of the same factual axes.",
+          "alt": "A two-by-two grid plotting procurement packages by profit impact against supply risk, giving the non-critical, bottleneck, leverage and strategic quadrants with the sourcing response for each."
+        }
+      ]
+    },
+    {
+      "outcome_code": "5b",
+      "outcome_title": "Supplier selection and negotiation",
+      "key_takeaway": "Selection runs prequalification, invitation to tender, objective evaluation against agreed weighted criteria, shortlisting, negotiation and award — with a back-up supplier retained. Negotiation has four steps, and preparation means knowing your BATNA before you start.",
+      "source_ref": "BoK 8e 3.3.1 (p132), 4.2.3 (p186-187), 5.9.2 (p304-305)",
+      "body_markdown": "## The supplier selection sequence\n\n| Stage | What happens |\n|---|---|\n| **Prequalification** | A broad selection of suppliers is invited to apply, then narrowed to a shortlist. Occasionally this leaves only one suitable supplier, in which case the project goes straight to negotiation |\n| **Invitation to tender** | Shortlisted suppliers receive a formal ITT and bid their best offer, all answering **one identical statement of requirements** |\n| **Evaluation** | Submissions assessed against criteria agreed in advance |\n| **Shortlist and negotiate** | Usually a further shortlist, then invitation to negotiate |\n| **Award** | Final negotiations completed and the contract signed |\n\nThe simplified five-step version worth memorising: **requirements → criteria → bids → evaluation → winner.**\n\n**Retain a back-up supplier** in case negotiations with the preferred bidder break down. Easy mark, frequently missed.\n\n## Fairness is a process requirement, not a courtesy\n\nThree rules the source states directly:\n\n- **Late bids are disqualified.**\n- **Any answer given to one bidder goes to every bidder** — no private clarifications.\n- **Confidentiality between suppliers is maintained**, for competitive and ethical reasons.\n\nThese exist because a tender that is not demonstrably fair is open to legal challenge, and because the comparison is meaningless if suppliers answered different questions.\n\n## The four evaluation questions\n\nAgreed by procurement professionals and project stakeholders **before** submissions arrive:\n\n| Question | Why it matters |\n|---|---|\n| **What weighting do time, cost and quality get?** | The cheapest bid is not automatically the best one. Weightings are set in a scoring system, and that system is **published to bidders** |\n| **Who sits on the panel?** | Technical and commercial specialists, the sponsor, and stakeholders speaking for the organisation putting up the money |\n| **How is confidentiality held?** | Keeps the competition genuine, and meets the ethical duty owed to bidders |\n| **Is there specific legislation governing the award?** | Non-compliance risks penalties or legal challenge later |\n\n## Negotiation: four steps\n\nNegotiation is the hunt for terms everyone can live with. **More formal than influencing, more structured than an argument** — and the source frames it memorably as conflict run through a process, with respect intact.\n\n| Step | What it involves |\n|---|---|\n| **1. Preparation** | Know your goal and your bottom line. Understand your **BATNA**, and think about what the other party's objectives and BATNA might be |\n| **2. Opening** | Build rapport, agree the basis and ground rules, establish **each person's authority to agree**, state each party's objectives |\n| **3. Bargaining** | Concessions and extra value are the currency here |\n| **4. Closing** | One party states the terms seem to satisfy both and tries to close. If not agreed, explore the outstanding issues |\n\n**Preparation is the step that decides the outcome.** Everything else is execution.\n\n## BATNA, ZOPA and win-win\n\n- **BATNA** — your best alternative if no agreement is reached. **Any deal less favourable than your BATNA is a loss**, which makes it the true floor of the negotiation rather than whatever you hoped to achieve.\n- **ZOPA** — the two parties' BATNAs together define a **zone of possible agreement**. If the buyer's maximum sits below the seller's minimum there is no zone, and no deal is available at any level of skill.\n- **Win-win** — driving a hard bargain and pressuring the other side to 'beat the opposition' is the **competing** conflict mode, and it does not build sustainable relationships. Compromise, or outright win-win collaboration, is the more usual route. Keen pricing still counts — but it gets weighed against **the value actually obtained**.\n\n## Value for money is not price\n\nMany organisations have an obligation to achieve value for money or 'best value'. That means working out what genuinely creates value in this situation, which is **almost never price by itself**. Where a deal reaches beyond the project into the programme or portfolio, a project professional may have to **turn down something that looks good locally and causes damage elsewhere**.\n\n## Close it properly\n\n**Write the agreement down** — it is the cheapest way to prevent the next argument — and chase the actions that came out of it. Once two legal entities are involved a contract results, so bring in **procurement and legal specialists** to make it sound in law as well as good value.",
+      "diagrams": [
+        {
+          "id": "lo5-zopa-batna",
+          "figure_number": "5.3",
+          "caption": "BATNA and the zone of possible agreement",
+          "placement": "after_heading",
+          "heading": "BATNA, ZOPA and win-win",
+          "file": null,
+          "spec": "A horizontal cost axis. Buyer's preference at the low end with their BATNA marked as a ceiling; seller's preference at the high end with their BATNA marked as a floor. The overlap between the two BATNAs shaded and labelled ZOPA. Show clearly that if the two BATNAs cross the other way, the shaded zone disappears and no deal exists — that is the concept learners miss.",
+          "alt": "A cost axis showing the buyer's and seller's preferences at opposite ends, each with a BATNA marked, and the zone of possible agreement shaded where the two ranges overlap."
+        },
+        {
+          "id": "lo5-contract-award",
+          "figure_number": "5.4",
+          "caption": "The five essential steps in contract award",
+          "placement": "after_heading",
+          "heading": "The supplier selection sequence",
+          "file": null,
+          "spec": "Five steps left to right: define requirements, establish criteria, solicit bids, evaluate proposals, select winner. Simple and linear — this one is a memorisation aid, so keep it visually plain and unambiguous.",
+          "alt": "Five sequential steps in contract award: define requirements, establish criteria, solicit bids, evaluate proposals, select winner."
+        }
+      ]
+    },
+    {
+      "outcome_code": "5c",
+      "outcome_title": "Contractual relationships and reimbursement methods",
+      "key_takeaway": "Contract structure answers 'how many suppliers'; reimbursement answers 'who carries the risk'. How well the work can be specified up front is what decides the reimbursement method — well-defined suits fixed price, ill-defined needs flexibility.",
+      "source_ref": "BoK 8e 3.3.2 (p135), 5.9.1 (p302-303), 5.9.3 (p306-307)",
+      "body_markdown": "## Two separate questions\n\nContract type turns on two questions, and candidates lose marks by merging them:\n\n1. **How many suppliers does this need?** → the contractual *relationship*\n2. **Which cost and delivery approach** is best for both parties? → the *reimbursement* method\n\n## Five contractual relationships\n\n| Type | Structure | Typical use |\n|---|---|---|\n| **Comprehensive** | One supplier responsible for all contract requirements | Simplest to manage; one throat to choke, and one point of failure |\n| **Sequential** | Two or more suppliers take sequential parts — one designs, another builds | Where phases need genuinely different capabilities |\n| **Parallel** | Several suppliers split the contract and work simultaneously — one takes the ground floor, another the first | Where work divides cleanly and speed matters |\n| **Subcontract** | The project contracts one supplier, who contracts delivery to another | Common, and the point at which visibility of the actual deliverer drops |\n| **Partnership** | Two or more suppliers form a joint venture to share all requirements | Large or complex work needing combined capability |\n\nSize, scale and complexity depend on the project's requirements as well as **country and industry norms**. A one-off materials purchase is simple; a year-long outsourcing of a software team is not.\n\n## Reimbursement: who carries the risk\n\nThe three approaches BoK 8e sets out, each specifying how work is completed, when money is paid, and how change is managed:\n\n| Method | How it works | Risk sits with | Suits |\n|---|---|---|---|\n| **Fixed price** | Set price for a defined scope; changes go through change requests | Mostly the **supplier**, who prices that risk into the quote | Simple, well-defined work |\n| **Time and materials** | Agreed unit price for materials and labour; cost rises as work is done, often with a **not-to-exceed limit** | Mostly the **buyer**, who must control the work tightly | Work that is ill-defined or expected to develop |\n| **Cost plus** | As time and materials, but supplier profit charged separately — typically an agreed percentage of total cost | Mostly the **buyer** | Work where scope genuinely cannot be fixed up front |\n\n**The deciding factor: how precisely the work can be pinned down before it starts.** Well-specified work favours fixed price. Ill-defined or evolving work needs the flexibility of time and materials or cost plus. Risk appetite of both parties also plays in.\n\n**The point that earns marks:** the buyer **never completely transfers risk to the supplier**. A supplier may walk away, or become insolvent and be unable to continue. A fixed-price contract moves risk; it does not delete it.\n\n## Two further methods the syllabus names\n\nThe syllabus lists reimbursement methods as fixed price, cost plus fee, **per unit quantity** and **target cost**. The first two map onto the above. The other two:\n\n| Method | How it works | Suits |\n|---|---|---|\n| **Per unit quantity** | A rate agreed per unit of work — per cubic metre excavated, per licence, per day. Total cost depends on quantity delivered | Work where the *rate* is knowable but the *volume* is not. Closely related to a bill of quantities or schedule of rates |\n| **Target cost** | Parties agree a target cost and a mechanism for sharing the difference — if delivery comes in under target both share the saving, if over, both share the pain | Work where buyer and supplier both influence the outcome and the aim is aligned incentives rather than transferred risk |\n\n**Target cost is the one to understand properly**, because it is the only method that deliberately makes both parties share the outcome. Fixed price puts risk on the supplier, cost plus puts it on the buyer, target cost splits it — which is why it appears in the source's contracting-strategy chart alongside longer-term, more collaborative arrangements.\n\n## Managing the contract once signed\n\nContract management is **a people-focused activity**, and the source is explicit that it starts with people, not paperwork.\n\n1. **Agree roles and responsibilities.** Appoint a **contract manager** on the project side to lead the relationship and report progress — often the project manager. Ensure there is an agreed point of contact on the supplier side.\n2. **Agree performance management.** Two components: the **KPIs** the supplier works to, and the **governance structure** for reporting progress and performance. Most indicators relate to time, cost or quality.\n3. **Agree processes for change and for disputes.** Changes need a route for requesting, evaluating and agreeing them, including impacts on scope, time, quality and cost. Disputes need a clear escalation mechanism and an understanding of the legal ramifications.\n4. **Close it properly.** Once all contracted work is delivered, both parties agree closure, completing handovers and financial settlements.\n\nRegular performance review meetings report on progress, budget, risks and issues, and plan the next period. How they are structured and how often they happen follows the project's size, its complexity and how much risk the parties will tolerate.",
+      "diagrams": [
+        {
+          "id": "lo5-reimbursement-risk",
+          "figure_number": "5.5",
+          "caption": "Where risk sits under each reimbursement method",
+          "placement": "after_heading",
+          "heading": "Reimbursement: who carries the risk",
+          "file": null,
+          "spec": "A horizontal spectrum with 'risk on supplier' at one end and 'risk on buyer' at the other. Place fixed price at the supplier end, cost plus and time and materials at the buyer end, per unit quantity between, and target cost in the middle marked as shared. Add a note that the buyer never fully transfers risk — supplier insolvency or walk-away remains. The spectrum is the teaching point, not the individual labels.",
+          "alt": "A spectrum showing where risk sits under each reimbursement method, from fixed price at the supplier end through target cost as shared risk to cost plus at the buyer end."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "A fixed-price contract transfers the risk to the supplier.",
+      "right": "It transfers some risk, and the supplier prices that into the quote. The buyer never completely transfers risk — a supplier can walk away or become insolvent, and the project still has to be delivered."
+    },
+    {
+      "wrong": "Best value means the lowest price.",
+      "right": "The cheapest bid is not automatically the best one. A weighted scoring system balances time, cost and quality, and buying on whole-life cost often means paying more up front for a better outcome later."
+    },
+    {
+      "wrong": "The procurement strategy is written once the project knows which suppliers are available.",
+      "right": "The strategy comes first, working from the business case — package breakdown, market consultation, make-or-buy criteria — and is signed off by the sponsor before the market is formally approached."
+    },
+    {
+      "wrong": "Buying something in always reduces risk.",
+      "right": "Risk is one of the five make-or-buy criteria, and contracting can create risk that cannot be managed. That is a legitimate reason to make rather than buy."
+    },
+    {
+      "wrong": "Your negotiating floor is the target you set yourself.",
+      "right": "It is your BATNA — the best alternative if no agreement is reached. Any deal less favourable than the BATNA is a loss, however good it looks against your target."
+    },
+    {
+      "wrong": "A skilled negotiator can always reach a deal.",
+      "right": "If the parties' BATNAs do not overlap there is no zone of possible agreement, and no deal exists at any level of skill. Recognising that is the useful outcome of preparation."
+    },
+    {
+      "wrong": "Driving the hardest possible bargain is good procurement.",
+      "right": "That is the competing conflict mode, and it does not build sustainable relationships. Compromise or win-win collaboration is more usual, balancing price against the value achieved."
+    },
+    {
+      "wrong": "Once the contract is signed, procurement is finished.",
+      "right": "Managing the supplier and contract closure are stages of the procurement process. Contract management is people-focused work — roles, KPIs, governance, change and dispute routes — running until closure and financial settlement."
+    },
+    {
+      "wrong": "If one supplier asks a clarification question, you answer that supplier.",
+      "right": "Any answer given to one bidder goes to every bidder, and late bids are disqualified. Fairness is a process requirement that protects the tender from legal challenge."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Strategy, source, contract, tender, award, manage, close",
+      "expansion": "The seven procurement stages in order. The first three are strategic decisions; the last four are tactical execution."
+    },
+    {
+      "type": "cue",
+      "acronym": "Business, knowledge, delivery, service, risk",
+      "expansion": "The five make-or-buy criteria. Can we afford it, do we know how, can we build it, can we run it afterwards, does buying create unmanageable risk?"
+    },
+    {
+      "type": "cue",
+      "acronym": "BATNA is the floor, ZOPA is the room",
+      "expansion": "Your BATNA sets the worst deal worth accepting. The two parties' BATNAs together define how much room there is to agree — and if they do not overlap, there is none."
+    },
+    {
+      "type": "cue",
+      "acronym": "Fixed on them, cost plus on you, target shared",
+      "expansion": "Where the risk sits. Fixed price loads the supplier, cost plus and time and materials load the buyer, target cost deliberately splits it between both."
+    },
+    {
+      "type": "cue",
+      "acronym": "Can you specify it?",
+      "expansion": "The single question deciding reimbursement method. Well-specified work suits fixed price; ill-defined or evolving work needs time and materials or cost plus."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can explain why a procurement strategy is set before approaching the market, and why early decisions consider lifetime cost of ownership rather than functional requirements alone.",
+    "I can describe the three steps that build a procurement strategy — PaBS, market consultation, make-or-buy criteria — and name the five make-or-buy criteria.",
+    "I can explain what strategic sourcing analyses, and use profit impact against supply risk to recommend a sourcing approach for a package.",
+    "I can list the stages of supplier selection from prequalification to award, including retaining a back-up supplier.",
+    "I can state the fairness rules governing a tender and the four questions agreed before submissions are evaluated.",
+    "I can give the four steps of negotiation and explain BATNA, ZOPA and win-win, including when no deal is possible.",
+    "I can name the five contractual relationships and describe when each is appropriate.",
+    "I can compare fixed price, cost plus fee, per unit quantity and target cost, say where the risk sits in each, and explain why the buyer never fully transfers risk."
+  ],
+  "source_confidence": [
+    {
+      "claim": "Reimbursement methods 'per unit quantity' and 'target cost' — how each works and when each is appropriate.",
+      "sub_outcome": "5c",
+      "level": "inferred",
+      "basis": "The PMQ 2024 syllabus names four methods for 5c: fixed price, cost plus fee, per unit quantity, target cost. BoK 8e 5.9.1 (p302) gives a different set of three — fixed price, time and materials, cost plus. 'Target cost contract' appears only as a label in the contracting-strategy chart at Figure 3.3.2 (p135), with no explanation. 'Per unit quantity' does not appear at all, though 'bill of quantities' and 'schedule of rates' appear as labels in that same figure.",
+      "risk": "Moderate to high, and the main risk in this LO. Two of four examinable reimbursement methods are effectively undefined in the permitted source. Content maps per unit quantity onto the schedule-of-rates concept and explains target cost as a pain/gain share, both standard commercial practice. Content also teaches BoK's time-and-materials method, since it is sourced and closely related to per unit quantity. REVIEWED 2026-08-02: Sim confirmed these are established techniques adopted by APM and published by other authors. The standard is that our explanation matches what the term and concept actually mean — not verification against a published sample paper. Content checked against that standard and accepted."
+    },
+    {
+      "claim": "The Kraljic matrix quadrant names (leverage, strategic, non-critical, bottleneck) and their associated responses.",
+      "sub_outcome": "5a",
+      "level": "sourced",
+      "basis": "BoK 8e Figure 3.3.3 (p137) gives all four quadrants with their responses, credited 'based on the Kraljic Matrix (1983)'.",
+      "risk": "None on substance. Recorded because the figure is third-party attributed, so our diagram must depict the same factual axes in an original arrangement."
+    },
+    {
+      "claim": "The seven-stage procurement process, presented as three strategic stages followed by four tactical ones.",
+      "sub_outcome": "5a",
+      "level": "assembled",
+      "basis": "The seven stages are listed at BoK 8e 3.3.1 (p132). The same section states that early stages are strategic and that the process becomes more tactical as it progresses, but does not draw the dividing line at a specific stage. Placing the split after 'agreeing contract type' is ours.",
+      "risk": "Low. The strategic-to-tactical shift is sourced; only the exact boundary is our reading."
+    },
+    {
+      "claim": "The five-step contract award sequence — define requirements, establish criteria, solicit bids, evaluate proposals, select winner.",
+      "sub_outcome": "5b",
+      "level": "sourced",
+      "basis": "BoK 8e Figure 5.9.2 (p305).",
+      "risk": "None."
+    }
+  ]
+}

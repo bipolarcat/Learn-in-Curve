@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --ds-background-100: hsla(0, 0%, 100%, 1);
+    --geist-success: #5f7a3d;
+    --geist-error: #b3341c;
+    --geist-warning: #d9a441;
+    --geist-violet: #1b6560;
+    --geist-foreground: #241a12;
+  }
+
+  .dark {
+    --ds-background-100: hsla(0, 0%, 4%, 1);
+    --geist-error: #d5501f;
+    --geist-foreground: #f4e9d6;
+  }
+}
+
 :root {
   --ink-rgb: 36 26 18;
   --ink-soft-rgb: 92 74 54;
