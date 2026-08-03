@@ -58,7 +58,7 @@ function renderIllustration(list: NotifyList): string {
     src="${escapeHtml(list.illustrationUrl)}"
     alt="${escapeHtml(list.illustrationAlt)}"
     height="${ILLUSTRATION_HEIGHT}"
-    style="display:block;margin:0 auto;height:${ILLUSTRATION_HEIGHT}px;max-width:100%;border:0;outline:none;text-decoration:none;"
+    style="display:block;margin:0 auto;height:${ILLUSTRATION_HEIGHT}px;max-width:100%;border:0;outline:none;text-decoration:none;border-radius:12px;"
   />`;
 }
 
