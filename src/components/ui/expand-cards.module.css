@@ -127,6 +127,10 @@
   opacity: 0;
 }
 
+.collapsedArrow {
+  display: none;
+}
+
 .slideNumber {
   position: absolute;
   right: 0.55rem;
@@ -280,6 +284,14 @@
     padding-inline: 1rem;
     font-size: 0.875rem;
     text-align: left;
+  }
+
+  .collapsedArrow {
+    display: block;
+    width: 0.65rem;
+    height: 0.4rem;
+    flex-shrink: 0;
+    opacity: 0.8;
   }
 }
 

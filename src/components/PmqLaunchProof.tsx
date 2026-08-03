@@ -72,8 +72,8 @@ export function PmqLaunchProof({ isSignedIn }: PmqLaunchProofProps) {
             in <span className="text-orange">5 Days</span> is live.
           </h2>
           <p className="m-0 mt-4 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/70 sm:text-[17px]">
-            The full APM PMQ course is open. Create a free account and start
-            revising today.
+            Get free access to the complete Association for Project Management
+            (APM) - PMQ revision course and start studying today.
           </p>
           <div className="mt-8">
             <PmqStartLink

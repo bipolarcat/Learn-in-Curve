@@ -1,127 +1,84 @@
 # Terms of Service - Learn in Curve
-
-*Last updated: 30 July 2026 · Effective from: 10 July 2026*
+*Last updated: 3 August 2026*
 
 ## 1. Acceptance
+By creating an account or using learnincurve.com (the "Service"), you agree to be bound by these terms. If you do not agree to these terms, please do not use the Service.
 
-By creating an account or using learnincurve.com, you agree to these terms. If
-you don't agree, don't use the service.
+## 2. What the Service Is
+Learn in Curve is a self-directed, AI-assisted revision platform for professional certifications. Currently, our core offering is "PMQ in 5 days", which provides revision content, quizzes, and mock exams for the APM Project Management Qualification.
 
-## 2. What the service is
-
-Learn in Curve is a self-directed revision platform for professional
-certifications. Currently: "PMQ in 5 days" (APM Project Management Qualification
-revision content, quizzes, and a mock exam), free to access, plus an optional
-paid AI tutor add-on. Additional paid courses are also planned.
-
-**We are not affiliated with, endorsed by, or acting on behalf of APM (the
-Association for Project Management) or any other awarding body.** Course content
-is our own original revision material aimed at their published syllabus, not
-official APM material.
+**Disclaimer of Affiliation:** We are an independent educational platform. We are not affiliated with, endorsed by, or acting on behalf of APM (the Association for Project Management) or any other official awarding body. Our course content is original revision material aimed at published syllabuses, not official examining body material.
 
 ## 3. Eligibility
+You must be at least 18 years old to create an account and make purchases on Learn in Curve.
 
-You must be at least 18 to create an account.
+## 4. Your Account
+You are responsible for keeping your login credentials secure and for all activities that occur under your account. You may not share your account login with others. Please notify us immediately at support@learnincurve.com if you suspect your account has been compromised.
 
-## 4. Your account
+## 5. Access, Paid Features, and Payments
+Learn in Curve operates on a one-time purchase model for premium features, rather than recurring subscriptions.
 
-You're responsible for keeping your login credentials secure and for anything
-that happens under your account. Tell us immediately (support@learnincurve.com) if
-you think your account's been compromised.
+- **Free Access:** Core course content, standard quizzes, and Mock Exam 1 for "PMQ in 5 days" are free. This is a permanent product decision, not a temporary introductory offer.
+- **Pro Bundle:** A one-time paid unlock that grants access to premium features, including extra quiz sets and additional mock exams.
+- **AI Pro Version (Coming Soon):** A premium unlock that will include everything in the Pro Bundle, plus full access to our AI tutor (Sly) and AI-graded mock exams.
+- **Future Courses:** Additional courses added to the platform may be offered as separate, one-time paid unlocks.
+- **Price Changes:** We reserve the right to adjust the pricing of our products, bundles, and AI features in the future. Any price changes will apply only to new purchases and will not retroactively affect users who have already unlocked a product.
+- **Payments:** All transactions are securely processed by Stripe. We do not process or store your credit card details on our servers.
 
-## 5. Free access, paid features, and payment
+## 6. Fair Usage Policy
+To ensure platform stability and manage AI computing costs, we enforce a fair usage policy on our AI tutor (Sly):
 
-- Course content, quizzes, and Mock Exam 1 for "PMQ in 5 days" are free - this
-  is a deliberate, permanent product decision, not an introductory offer.
-- The Premium bundle for PMQ in 5 days is a one-time paid unlock (currently
-  £8.00). It includes the AI tutor (Sly), extra quiz sets, and the AI-graded
-  Mock Exams 2–4. Once unlocked on your account, it stays unlocked - it's not
-  a subscription.
-- Future courses may be paid, one-time-purchase (not subscription), per course.
-- Payments are processed by Stripe. We don't store your card details.
+- **Guest Demo:** Unregistered visitors can try Sly live on the homepage, limited strictly to 3 messages per network/IP address.
+- **Free Accounts:** Registered free users are provided a limited trial allowance of messages to test the AI tutor before upgrading.
+- **Paid Accounts:** Users who purchase the AI Pro version receive a generous message allowance calibrated for normal, individual exam revision across the entire syllabus.
 
-### Fair usage
+If usage on a paid account falls clearly outside of normal human study patterns (for example, near-continuous usage, account sharing, or automated/scripted API requests), we reserve the right to temporarily pause access and require you to contact support to restore it. This policy exists solely to prevent abuse, not to restrict genuine studying.
 
-Visitors can try Sly live on the homepage without an account — limited to 3
-messages per network (IP). After that, you need a free account to continue.
+## 7. Refunds and Digital Content Waiver
+The Pro and AI Pro bundles unlock digital content and features immediately upon payment.
 
-Free accounts get 3 messages with the AI tutor per course, so you can try it
-before buying. Paid (unlocked) accounts get a generous message allowance per
-course, calibrated to normal exam-revision use - enough for regular study
-sessions across the whole syllabus. If usage on a paid account is clearly
-outside normal individual study (for example, near-continuous use, or
-automated or scripted requests), we may pause access and ask you to get in
-touch before restoring it. This exists to catch abuse, not to limit genuine
-revision.
+Under the UK Consumer Contracts Regulations 2013, the standard 14-day cancellation right for distance contracts does not apply to digital content once you have started downloading, streaming, or using it. You will be asked to expressly acknowledge this waiver at checkout.
 
-### Refunds
+### Our 14-Day Unused Guarantee:
+We want you to be happy with your purchase. If you purchase a premium tier but do not use any of the paid features within 14 days of purchase (i.e., you do not send a message to the paid AI tutor, open a paid extra quiz set, or start Mock Exams 2–4), email support@learnincurve.com and we will issue a full refund, no questions asked.
 
-The AI tutor unlocks digital content and features (chat-based tutoring and
-progress summaries) immediately on payment. Under the UK Consumer Contracts
-Regulations 2013, the 14-day cancellation right for distance contracts doesn't
-apply to digital content once you've started using it and have expressly
-agreed to that at checkout - you'll be asked to confirm this before paying.
+If you have used a paid feature and encounter a genuine technical fault that we cannot promptly fix, we will review refund requests on a case-by-case basis. We reserve the right to decline refunds if we reasonably suspect abuse (e.g., heavily utilizing the platform to study, then requesting a refund).
 
-That said: if you haven't sent the tutor a message, opened a paid extra quiz
-set, or started Mock Exam 2, 3 or 4 within 14 days of purchase, email
-support@learnincurve.com and we'll refund you in full, no questions asked. If
-you've used a paid feature and hit a genuine technical fault we can't fix
-promptly, we'll refund on a case-by-case basis. We may decline a refund where
-we reasonably suspect abuse (for example, substantially using the paid
-features, then requesting a refund).
+## 8. Acceptable Use
+When using Learn in Curve, you agree not to:
 
-## 6. Acceptable use
+- Share your account credentials with other individuals.
+- Scrape, spider, or bulk-download course content, code, or data.
+- Attempt to reverse-engineer our quiz banks or AI marking rubrics.
+- Use the Service to build a competing educational product or train a competing AI model.
+- Prompt or use the AI tutor for non-educational purposes outside of its intended exam-prep scope.
 
-Don't: share your account with others, scrape or bulk-download course content,
-attempt to reverse-engineer the quiz bank, use the service to build a competing
-product, or use the AI tutor for anything outside its intended exam-prep purpose.
+## 9. Intellectual Property
+All original course content, quiz questions, explanations, marking rubrics, software code, and the Learn in Curve brand are the intellectual property of Learn in Curve (or licensed to us). They are provided strictly for your personal, non-commercial revision use.
 
-## 7. Intellectual property
+Your own quiz answers and progress data remain yours. However, by using the platform, you grant us the right to use aggregated, de-identified performance data (e.g., "60% of users get this specific question wrong") to improve our products and educational materials.
 
-All course content, quiz questions, explanations, and the Learn in Curve brand
-are our property (or licensed to us) and are provided for your personal,
-non-commercial revision use only. Your own quiz answers and progress data remain
-yours, but we may use aggregated, de-identified performance data (e.g. "60% of
-users get this question wrong") to improve the product.
+## 10. AI Limitations & No Guarantee of Exam Success
+- **No Guarantee:** Using Learn in Curve does not guarantee that you will pass the APM PMQ or any other exam. While we strive for high content quality and strict syllabus alignment, exam outcomes depend on individual effort and external factors outside of our control.
+- **AI Marking:** Mock Exam 1 requires self-assessment against a model rubric. Mock Exams 2–4 (available in premium tiers) utilize AI to apply our marking rubrics to your written answers. AI marking is designed to provide immediate revision feedback; it can make mistakes and is not an official APM assessment. You can report any grading discrepancies to support@learnincurve.com for review.
 
-## 8. No guarantee of exam success
+## 11. Limitation of Liability
+To the maximum extent permitted by law, Learn in Curve is provided on an "as is" and "as available" basis. Our total cumulative liability to you arising from these terms or your use of the service—regardless of the cause of action—is limited to the amount you have paid us in the 12 months immediately preceding the claim. If you have only used the free tier, our liability is limited to £0.
 
-Using Learn in Curve does not guarantee you will pass any exam. We aim for high
-content quality and exam alignment, but exam outcomes depend on many factors
-outside our control.
+This section does not limit liability that cannot legally be excluded under UK law, such as liability for death or personal injury caused by our negligence, or for fraud.
 
-Mock Exam 1 asks you to award your own marks by comparing written responses
-with our model answer and marking guide; those self-awarded marks are revision
-feedback, not an official assessment. Mock Exams 2–4 use AI to apply our
-marking rubrics. AI marking can make mistakes and is also revision feedback,
-not an official APM result or a substitute for an awarding-body assessment.
-You can report a grading problem to support@learnincurve.com for review.
+## 12. Account Suspension & Termination
+We reserve the right to suspend or terminate accounts that violate these Terms, specifically the Acceptable Use (Section 8) or Fair Usage (Section 6) policies, without prior notice or refund. You may terminate your agreement with us at any time by requesting account deletion via support@learnincurve.com.
 
-## 9. Limitation of liability
+## 13. Changes to These Terms
+We may update these terms periodically to reflect new features, product changes, or legal requirements. We will update the "Last updated" date at the top of this page and will notify registered users via email of any material changes. Continued use of the platform after changes take effect constitutes your acceptance of the revised terms.
 
-To the extent permitted by law, Learn in Curve is provided "as is." Our total
-liability to you arising from these terms or your use of the service -
-however it arises - is limited to the amount you've paid us in the 12 months
-before the claim (for most users this is £0, since course access is free; if
-you've purchased the AI tutor, the cap is the amount you paid for it). This
-doesn't limit liability that can't legally be excluded, such as for death or
-personal injury caused by our negligence, or fraud.
+## 14. General Provisions
+- **Force Majeure:** We shall not be liable for any failure or delay in providing the Service due to circumstances beyond our reasonable control (e.g., natural disasters, server outages, third-party API downtime, or government actions).
+- **Severability:** If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.
 
-## 10. Termination
+## 15. Governing Law
+These Terms, and any disputes arising out of or related to them, are governed by the laws of England and Wales.
 
-We can suspend or terminate accounts that violate section 6. You can delete your
-account at any time by emailing support@learnincurve.com (see the Privacy Policy
-for what happens to your data).
-
-## 11. Changes to these terms
-
-We'll update the date at the top when these change, and email registered users
-about material changes.
-
-## 12. Governing law
-
-These terms are governed by the law of England and Wales.
-
-## 13. Contact
-
-support@learnincurve.com
+## 16. Contact
+For any questions regarding these Terms, please contact us at support@learnincurve.com.

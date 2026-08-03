@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import styles from "./AboutPage.module.css";
@@ -227,9 +226,6 @@ export default function AboutPage() {
                     <LinkedInIcon className="shrink-0" />
                     Connect with Sim on LinkedIn
                   </a>
-                  <Link href="/contact" className={styles.quietLink}>
-                    Get in touch
-                  </Link>
                 </div>
               </div>
             </div>

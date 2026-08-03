@@ -71,6 +71,14 @@ export default function ExpandCards({
             */}
             <span className={styles.collapsedLabel} aria-hidden>
               <span>{image.label}</span>
+              <svg
+                className={styles.collapsedArrow}
+                viewBox="0 0 10 6"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M5 6L0 0H10L5 6Z" />
+              </svg>
             </span>
             <span className={styles.slideNumber} aria-hidden>
               {index + 1}/{images.length}

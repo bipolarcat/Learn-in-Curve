@@ -1,165 +1,69 @@
 # Privacy Policy - Learn in Curve
+Last updated: 3 August 2026
 
-Grounded in what the app actually does today, checked directly against the
-Supabase schema and codebase rather than a generic template.
+## 1. Who We Are
+Learn in Curve, operated by Sim Samaar Shened ("we", "us"), operates learnincurve.com, an AI-assisted revision platform for professional certifications designed to help users pass their exams, along with our associated newsletter and blog.
 
-*Last updated: 30 July 2026 · Effective from: 10 July 2026*
-
-## 1. Who we are
-
-Learn in Curve, operated by Sim Samaar Shened ("**we**", "**us**"), operates
-learnincurve.com, an AI-assisted revision platform for professional
-certifications, currently focused on the APM PMQ exam.
-
-Learn in Curve is not yet an incorporated company - "Sim Samaar Shened" is
-named here as the individual data controller, per UK GDPR's identification
-requirement.
+For the purposes of the UK General Data Protection Regulation (UK GDPR), Sim Samaar Shened is the individual data controller.
 
 Contact: support@learnincurve.com
 
-## 2. What we collect, and why
+## 2. What We Collect, and Why
+We collect only what is necessary to run the platform, process your purchases, and improve your studying experience. Where data collection is necessary for the contract (such as providing your email address to set up an account or receiving payment confirmation), failing to provide this data means we cannot deliver the Learn in Curve service to you.
 
-| Data | Where it comes from | Why we collect it | Legal basis (UK GDPR) |
-|---|---|---|---|
-| Email address, password (hashed) | You, on sign-up | To create and secure your account | Necessary for the contract (providing the service) |
-| Profile details (first name, last name, age, profession, a life achievement, target exam deadline) and chosen animal avatar icon | You, on the dashboard Profile menu / course card (optional) | To personalise greetings / chat labels, show your avatar in the AI tutor, and track your exam deadline; never shown to other learners. Avatar is an illustrative icon only, not a photo of you. | Necessary for the contract (personalised account experience) / legitimate interest for optional profile fields |
-| Name, profile info | Google, if you sign in with Google | To create your account without a password; may soft-seed first/last name into your profile form until you save your own | Necessary for the contract |
-| Course enrollment, entitlements | Automatic, on sign-up / purchase | To know which courses and features (e.g. AI tutor) you can access | Necessary for the contract |
-| Quiz answers, correctness, marks | Automatic, as you use the product | To track your progress and show you results | Necessary for the contract |
-| XP, streaks, completion status | Automatic, derived from your quiz activity | To power the progress features (XP bar, streak, completion %) | Legitimate interest (running the core product experience you signed up for) |
-| Mock exam number, sessions, submitted answers, self-assessed or AI scores, AI marking feedback and grading cost metadata | Automatic, when you sit a mock exam | To resume the selected paper, enforce timing, calculate results, explain AI-marked written-answer scores and issue a certificate on passing | Necessary for the contract |
-| Payment confirmation (not card details) | Stripe, after a successful payment | To unlock the AI tutor (or future paid courses) on your account | Necessary for the contract |
-| Newsletter email (if you subscribe) | You, opt-in only — course “Notify me” always emails you about that course launch; a separate unticked checkbox covers optional PM & AI newsletters / blogs / marketing | To send the course launch notice you asked for, and (only if ticked) broader product updates | Consent - you can withdraw any time |
-| Job application details (CV, cover note) | You, if you apply to a role via the Careers section | To assess your application | Legitimate interest / steps prior to a contract - see the separate Recruitment Privacy Notice |
-| AI tutor conversation messages (your messages and the tutor's replies) | You, when you chat with the AI tutor while signed in | To let the tutor remember your conversation across the course, and to generate a personalised summary once you complete all 24 topics | Necessary for the contract (this is a feature of the paid AI tutor unlock) |
-| Hashed IP address (not the raw IP) | Automatic, when you use the homepage guest Sly trial without an account | To enforce a hard limit of 3 free live tutor messages per network before asking you to sign up | Legitimate interest (preventing abuse and unbounded AI cost on a public page) |
-| Guest trial chat content | You, when you message Sly on the homepage trial | Sent to our AI provider to generate a reply for that session only — **we do not store guest trial messages in our database** | Legitimate interest (providing the trial you requested) |
-
-**AI tutor conversation storage:** the AI tutor stores your conversation with
-it when you are signed in - both what you send and what it replies. We do this so the tutor can
-remember your conversation across the whole course rather than starting from
-zero every time you open it, and so it can give you one proper summary of
-your strengths and weaknesses once you finish all 24 topics, grounded in what
-you've actually discussed and got right or wrong - not a generic template.
-See section 6 for how long this is kept, and section 4 for which third party
-helps generate the tutor's replies.
-
-**Homepage guest trial:** if you use “Try Sly for free” without signing up, we
-hash your IP address (SHA-256 with a server salt) and count messages against that
-hash. We do not keep the raw IP or the guest chat transcript in our database.
-Guest messages and replies are still processed by Google’s Gemini API to generate
-answers for that live session.
+- **Account & Profile Details:** When you sign up, we collect your email address and a hashed password (or receive your name and email from Google if you use Google Sign-In). You may also choose to provide optional profile details (such as your target exam date). This is necessary to secure your account and personalize your dashboard experience.
+- **Course Progress & Entitlements:** We track your course enrollments, quiz answers, correctness, marks, mock exam submissions, and self-assessment scores. This data is essential to deliver core platform functionality and accurately track your exam readiness.
+- **Purchases & Payments:** When you make a purchase on the platform (such as our £8 unlock), payment is securely processed by Stripe. We receive only a payment confirmation and transaction reference. We never see or store your raw credit card details.
+- **Newsletter & Blog Subscriptions:** If you opt in, we collect your email address to send you course launch notices, product updates, and blog articles. You can withdraw your consent and unsubscribe at any time via the link in any email.
+- **Homepage Guest Trial:** If you use the free trial on the homepage without an account, we hash your IP address (SHA-256 with a server salt) to enforce our free usage limits. We do not keep raw IP addresses or guest chat transcripts in our database. Guest messages are processed by our AI provider strictly to generate a live reply for that session.
+- **Job Applications:** If you apply for a role via our Careers section, we process your submitted CV and cover note to assess your application.
 
 ## 3. Cookies
+We currently use only strictly necessary cookies. This includes Supabase's authentication session cookie, which securely keeps you signed in. Because this active cookie is strictly necessary for the service to function, UK/EU guidance does not require a prior consent choice for it alone. We do not use advertising or product-analytics cookies.
 
-We currently use only strictly-necessary cookies: Supabase's authentication
-session cookie, which keeps you signed in. Intercom Messenger is integrated in
-the codebase but dormant until an App ID is configured - no Intercom script or
-cookies load without that. We do not currently use advertising or
-product-analytics cookies. Because the only active cookie is strictly
-necessary for the service to function, UK/EU guidance does not require a
-consent *choice* for it alone. We still show an on-site cookie notice so you
-can open the Cookie Notice and acknowledge you've seen it (stored in local
-storage, not as a tracking cookie).
+We display an on-site cookie notice so you can acknowledge you have seen it (stored in your browser's local storage, not as a tracking cookie).
 
-If that changes (product analytics, or Intercom going live), this policy -
-and the banner - will be updated before any non-essential cookie is set,
-including real accept / reject choices where required.
+## 4. Who We Share Data With
+We do not sell your personal data to anyone, under any circumstances. We share data strictly with trusted infrastructure providers necessary to operate the service:
 
-## 4. Who we share data with
+- **Supabase:** Our database and authentication provider (hosted in the EU - Ireland), which securely stores your account, progress, and mock exam data.
+- **Google (OAuth):** Used only if you choose "Continue with Google" for account creation and sign-in.
+- **Stripe:** Our payment processor, which directly handles your card details when you make a purchase.
+- **Google (Gemini API):** Our AI service provider, used exclusively for the homepage guest trial and AI grading of written answers in mock exams. Relevant text from your written mock exam answers and the marking rubric are sent to Gemini to generate grading feedback. We use Google's Enterprise Gemini API; your messages and mock exam answers are used strictly to generate real-time feedback and are not used by Google to train their foundational AI models.
 
-- **Supabase** (database and authentication provider, hosted in the EU -
-  eu-west-1/Ireland) - stores all the data in the table above.
-- **Google** - only if you choose "Continue with Google" to sign in.
-- **Stripe** (payment processor) - the AI tutor isn't open for public
-  purchase yet, so no customer payment data is processed today. Once
-  purchases open, Stripe will handle your card details directly; we'll never
-  see or store your card number, only a payment confirmation and reference.
-- **Google (Gemini API)** (AI provider) - in use for the signed-in AI tutor,
-  homepage guest Sly trial (unsigned visitors, 3 messages per hashed IP), and
-  AI grading of written answers in paid Mock Exams 2–4. Messages or written mock
-  answers you submit in those flows, together with the relevant question and
-  marking rubric, are sent to Gemini to generate tutoring or grading responses.
-  We store signed-in tutor replies and Pro-exam scores/feedback. Exam 1 written
-  answers and self-awarded marks stay in Learn in Curve and are not sent to
-  Gemini for marking. We built this so the underlying AI provider
-  could change in future without a change
-  in what data is collected - if that happens, we'll update this section and
-  the date above before switching, not after.
-- **Intercom** (in-app messenger / feedback) - wired in code but not live
-  until an App ID is set in production. Once live, Intercom may process
-  contact/message data you choose to send via the messenger, and may set its
-  own cookies (see Cookie Notice).
+## 5. International Transfers
+Your core personal data and learning progress are stored in our primary database hosted in the EU (Ireland). When utilizing the Gemini API for exam marking or guest trials, data may be processed securely outside the UK/EU. We ensure our third-party providers rely on appropriate legal safeguards—such as Standard Contractual Clauses or certified data protection frameworks—before any processing takes place.
 
-We do not sell your data to anyone, for any reason.
+## 6. How Long We Keep Your Data
+- **Account, Progress, and Exam Data:** Kept securely for as long as your account remains active so you can review previous attempts and track your learning.
+- **Guest Trial IP Hashes:** Kept for 30 days from last use, then automatically deleted. These exist solely to prevent abuse of the free public trial.
+- **Newsletters:** Kept until you unsubscribe.
+- **Account Deletion:** At present, automated self-serve deletion is not built into the dashboard. You can request full deletion of your personal data at any time by emailing support@learnincurve.com. We will manually process your request and securely wipe your data within 30 days, except where UK tax law requires us to retain specific payment records.
 
-## 5. International transfers
+## 7. Your Rights
+Under UK GDPR, you have the following rights regarding your data:
+- **Access:** The right to request copies of the personal data we hold about you.
+- **Correction:** The right to request that we correct any inaccurate or incomplete data.
+- **Deletion:** The right to ask us to erase your personal data ("right to be forgotten").
+- **Restriction:** The right to ask us to restrict how we process your data.
+- **Portability:** The right to receive your data in a portable, standard digital format.
+- **Objection:** The right to object to processing based on legitimate interests.
+- **Automated Decision Rights:** The right to request a human review or explanation regarding automated AI feedback (for example, if you believe a mock exam written answer was graded inaccurately by the AI system).
+- **Complaint:** The right to complain to the UK Information Commissioner's Office ([ico.org.uk](https://ico.org.uk)) if you believe your data has been mishandled.
 
-Our database is hosted in the EU (Ireland), and that's where your personal
-data lives. We don't currently send customer data to Stripe - the AI tutor
-isn't open for public purchase yet. Our own early testing of the AI tutor
-does send test conversation data to Google's Gemini API; before the AI tutor
-opens to real users, this section will name the specific transfer safeguard
-each provider uses (e.g. Standard Contractual Clauses, or the EU-US Data
-Privacy Framework if certified under it), and we'll accept Google's data
-processing terms for the Gemini API in full before any real user's
-conversation data is sent to it.
+To exercise any of these rights, contact us at support@learnincurve.com.
 
-## 6. How long we keep your data
+## 8. Links to Other Websites
+Our platform, blog, or newsletter may contain links to external third-party websites or services that are not owned or controlled by Learn in Curve. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services. We encourage you to review the privacy policy of every site you visit.
 
-- **Account and progress data:** kept for as long as your account is active.
-- **Mock exam answers, scores and AI feedback:** kept as account progress data
-  for as long as your account is active, so you can review previous attempts.
-- **AI tutor conversation messages:** kept for 12 months from your most
-  recent message, then automatically deleted. Because the window resets each
-  time you message the tutor, an ongoing conversation stays available for as
-  long as you're actively using it; a conversation you never return to is
-  deleted 12 months after your last message in it.
-- **Guest trial IP hashes (`guest_tutor_usage`):** kept for 30 days from last
-  use, then deleted (or overwritten when the row is cleared). They exist only
-  to enforce the 3-message homepage trial limit.
-- **If you delete your account:** we'll delete your personal data within
-  30 days, except where we're required to keep records for tax/accounting
-  purposes (e.g. payment records) for longer, per UK tax law.
-- **Newsletter:** kept until you unsubscribe.
+## 9. Children's Privacy
+This service is intended for working professionals studying for professional certifications. It is not directed at, or intended for, children under 16, and we do not knowingly collect personal data from anyone under that age.
 
-Deletion today is a manual step on request to the contact email below; an
-automated self-serve deletion flow may replace this later.
+## 10. Security
+We rely on the enterprise-grade infrastructure security of Supabase and Stripe (both holding industry certifications such as SOC 2 and PCI-DSS compliance) rather than storing sensitive financial data ourselves. Row-Level Security (RLS) is enabled on every database table holding personal information, ensuring that users can access only their own individual data rows.
 
-## 7. Your rights
+## 11. Changes to This Policy
+We will update the "Last updated" date at the top of this page whenever updates occur. For material changes (such as adding a new third-party processor or collecting a new category of data), we will actively notify registered users via email.
 
-Under UK GDPR, you have the right to:
-
-- Access the personal data we hold about you
-- Correct inaccurate data
-- Ask us to delete your data ("right to be forgotten")
-- Ask us to restrict how we use your data
-- Receive your data in a portable format
-- Object to processing based on legitimate interest
-- Complain to the UK Information Commissioner's Office (ico.org.uk) if you think
-  we've mishandled your data
-
-To exercise any of these, email support@learnincurve.com.
-
-## 8. Children
-
-This service is intended for working professionals studying for a professional
-certification. It isn't directed at, or intended for, children under 16, and we
-don't knowingly collect data from anyone under that age.
-
-## 9. Security
-
-We rely on Supabase's and Stripe's infrastructure security (both are SOC 2 /
-PCI-DSS compliant respectively) rather than storing sensitive data ourselves -
-notably, we never touch raw card numbers. Row-level security is enabled on every
-table holding personal data, so a user can only ever read their own rows.
-
-## 10. Changes to this policy
-
-We'll update the "last updated" date at the top whenever this changes, and for
-material changes (e.g. a new third-party processor, a new data type collected),
-we'll email registered users rather than relying on them checking this page.
-
-## 11. Contact
-
-support@learnincurve.com
+## 12. Contact Us
+If you have any questions, concerns, or data rights requests regarding this Privacy Policy, please email: support@learnincurve.com

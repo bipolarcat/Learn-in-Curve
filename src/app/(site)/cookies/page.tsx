@@ -3,7 +3,7 @@ import { join } from "path";
 import { LegalPage } from "@/components/LegalPage";
 
 export const metadata = {
-  title: "Cookie Notice - Learn in Curve",
+  title: "Cookie Policy - Learn in Curve",
 };
 
 export default function CookiesPage() {
