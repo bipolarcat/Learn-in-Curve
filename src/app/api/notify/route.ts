@@ -8,6 +8,7 @@ import {
   NEWSLETTER_LIST_KEY,
   type NotifyList,
 } from "@/lib/notify/lists";
+import { sendAdminNotification } from "@/lib/admin/send-admin-notification";
 
 export const runtime = "nodejs";
 
@@ -253,6 +254,25 @@ export async function POST(request: Request) {
       subscribed_at: now,
       updated_at: now,
     });
+
+    // Notify admin of every genuinely new subscription — fire-and-forget.
+    if (!alreadySubscribed) {
+      const londonTime = new Date().toLocaleString("en-GB", {
+        timeZone: "Europe/London",
+        dateStyle: "medium",
+        timeStyle: "short",
+      });
+      void sendAdminNotification({
+        subject: `📬 New subscriber: ${primary.label}`,
+        title: `📬 New subscriber`,
+        rows: [
+          { label: "Email", value: email },
+          { label: "List", value: primary.label },
+          { label: "Marketing consent", value: marketingConsent ? "Yes" : "No" },
+          { label: "Signed up", value: `${londonTime} (London)` },
+        ],
+      });
+    }
 
     // Only on a genuinely new join, and only for the list they actually asked
     // about — a marketing tick shouldn't trigger a second email. Fire-and-forget
