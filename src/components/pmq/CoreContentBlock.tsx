@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
+import { DiagramFigure } from "@/components/content/DiagramFigure";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -45,33 +46,22 @@ function mapHeadingChildren(children: ReactNode): ReactNode {
   return children;
 }
 
-function DiagramFigure({
+function LegacyDiagramFigure({
   file,
   caption,
   id,
-  figureNumber,
-  alt,
   loNumber,
 }: {
   file: string;
   caption: string;
   id: string;
-  figureNumber?: string;
-  alt?: string;
   loNumber: number | null;
 }) {
   const displayCaption = stripLeadingCode(caption);
-  // v2 diagrams always carry `alt`; v1 diagrams never do — use that to
-  // decide which base path serves the file.
-  const isV2Diagram = Boolean(alt);
   const src =
-    isV2Diagram && loNumber !== null
-      ? `/diagrams/lo${loNumber}/${file}`
+    loNumber !== null
+      ? `${LEGACY_DIAGRAM_BASE}/${file}`
       : `${LEGACY_DIAGRAM_BASE}/${file}`;
-  const imgAlt = alt ?? displayCaption;
-  const captionText = figureNumber
-    ? `Figure ${figureNumber} — ${displayCaption}`
-    : displayCaption;
 
   return (
     <figure
@@ -81,7 +71,7 @@ function DiagramFigure({
       <div className="flex w-full max-w-full min-w-0 flex-col items-center overflow-hidden rounded-xl border border-black/[0.08] bg-paper px-3 pb-3 pt-3 dark:border-white/[0.12] sm:px-4 sm:pb-3.5 sm:pt-4">
         <Image
           src={src}
-          alt={imgAlt}
+          alt={displayCaption}
           width={1200}
           height={800}
           sizes="(max-width: 768px) calc(100vw - 2.5rem), min(1040px, 100vw)"
@@ -89,10 +79,41 @@ function DiagramFigure({
           loading="lazy"
         />
         <figcaption className="mt-2.5 w-full text-center font-body text-xs italic leading-snug text-pretty text-ink/60">
-          {captionText}
+          {displayCaption}
         </figcaption>
       </div>
     </figure>
+  );
+}
+
+function renderDiagram(
+  d: NonNullable<CoreContentBlockType["diagrams"]>[number],
+  loNumber: number | null,
+) {
+  // v2 diagrams carry `alt` and `figure_number`; file is null → skip entirely
+  if (!d.file) return null;
+
+  const isV2 = Boolean(d.alt) && Boolean(d.figure_number);
+  if (isV2) {
+    return (
+      <DiagramFigure
+        key={d.id}
+        src={`/diagrams/v2/${d.file}`}
+        alt={d.alt!}
+        caption={stripLeadingCode(d.caption)}
+        figureNumber={d.figure_number!}
+      />
+    );
+  }
+
+  return (
+    <LegacyDiagramFigure
+      key={d.id}
+      id={d.id}
+      file={d.file}
+      caption={d.caption}
+      loNumber={loNumber}
+    />
   );
 }
 
@@ -128,17 +149,7 @@ export function CoreContentBlock({ block }: CoreContentBlockProps) {
     return (
       <div className="not-prose min-w-0 max-w-full">
         <Tag className={className}>{mapHeadingChildren(children)}</Tag>
-        {matched.map((d) => (
-          <DiagramFigure
-            key={d.id}
-            id={d.id}
-            file={d.file}
-            caption={d.caption}
-            figureNumber={d.figure_number}
-            alt={d.alt}
-            loNumber={loNumber}
-          />
-        ))}
+        {matched.map((d) => renderDiagram(d, loNumber))}
       </div>
     );
   }

@@ -83,9 +83,11 @@
           "caption": "Analysing stakeholders by power, interest and attitude",
           "placement": "after_heading",
           "heading": "What analysis looks at",
-          "file": null,
+          "file": "lo10-power-interest.svg",
           "spec": "A power (vertical, low to high) against interest (horizontal, low to high) grid — but split into two halves, 'against the project' on the left and 'for the project' on the right, so attitude is a visible third dimension rather than an afterthought. Plot a few example stakeholders across both halves. The teaching point is that a high-power, high-interest opponent and a high-power, high-interest supporter occupy the same grid square on a conventional power-interest matrix but need opposite strategies.",
-          "alt": "A power against interest grid divided into stakeholders opposed to and in favour of the project, showing attitude alongside power and interest."
+          "alt": "A power against interest grid divided into stakeholders opposed to and in favour of the project, showing attitude alongside power and interest.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo10-engagement-cycle",
@@ -150,9 +152,11 @@
           "caption": "What each communication channel carries — and what it strips out",
           "placement": "after_heading",
           "heading": "The range of methods",
-          "file": null,
+          "file": "lo10-media-clues.svg",
           "spec": "Three nested or stepped columns — face to face, voice only, words only — showing the clue sets each carries. Face to face: appearance, expression, posture, movement, touch (tactile); pitch, pace, tone, volume (auditory); syntax, words, symbols (written). Voice only: auditory and written clue sets. Words only: written clue set. Show the stripping visually, so the reader sees clue layers disappearing as you move away from face to face. That loss is the whole argument.",
-          "alt": "Three communication channels compared — face to face, voice only and words only — showing which tactile, auditory and written interpretation clues each one carries."
+          "alt": "Three communication channels compared — face to face, voice only and words only — showing which tactile, auditory and written interpretation clues each one carries.",
+          "width": 1024,
+          "height": 705
         }
       ]
     }

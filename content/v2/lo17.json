@@ -103,9 +103,11 @@
           "caption": "How the breakdown structures relate",
           "placement": "after_heading",
           "heading": "The four breakdown structures",
-          "file": null,
+          "file": "lo17-breakdown-structures.svg",
           "spec": "Show the WBS descending from the project into elements and work packages, the OBS descending from project director through project managers, and the two meeting to form the responsibility assignment matrix. Add PBS and CBS as related structures with a note on what each defines. The intersection producing the RAM is the relationship the diagram exists to show.",
-          "alt": "A work breakdown structure and an organisation breakdown structure intersecting to form a responsibility assignment matrix, with product and cost breakdown structures shown alongside."
+          "alt": "A work breakdown structure and an organisation breakdown structure intersecting to form a responsibility assignment matrix, with product and cost breakdown structures shown alongside.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo17-mvp-mmp",

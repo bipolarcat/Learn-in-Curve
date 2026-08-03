@@ -116,9 +116,11 @@
           "caption": "The conflict resolution sequence",
           "placement": "after_heading",
           "heading": "The resolution sequence",
-          "file": null,
+          "file": "lo11-resolution-sequence.svg",
           "spec": "Five steps in sequence: choose to engage positively, build rapport, share facts and feelings, agree criteria for resolution, explore options — with a loop on the final step showing exploration continues until agreement. Mark the rapport step as a gate that cannot be bypassed, since without it the later steps do not work.",
-          "alt": "Five conflict resolution steps in sequence from choosing to engage positively through building rapport, sharing, agreeing criteria and exploring options until agreement is reached."
+          "alt": "Five conflict resolution steps in sequence from choosing to engage positively through building rapport, sharing, agreeing criteria and exploring options until agreement is reached.",
+          "width": 1024,
+          "height": 705
         }
       ]
     }

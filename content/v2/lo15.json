@@ -75,9 +75,11 @@
           "caption": "The continuing professional development cycle",
           "placement": "after_heading",
           "heading": "The CPD cycle",
-          "file": null,
+          "file": "lo15-cpd-cycle.svg",
           "spec": "A four-stage closed loop: reflection on practice ('what do I need to know or be able to do?'), planning ('how can I learn?'), action (learning and implementation), evaluation ('what have I learned, and how is it benefiting my practice?'), returning to reflection. Include the question under each stage — the questions are what make the cycle usable. Note BoK Figure 4.6.1 is credited 'adapted from Friedman (2012)', so ours must be an original depiction.",
-          "alt": "A four-stage CPD cycle running from reflection on practice through planning and action to evaluation, then back to reflection."
+          "alt": "A four-stage CPD cycle running from reflection on practice through planning and action to evaluation, then back to reflection.",
+          "width": 1024,
+          "height": 705
         }
       ]
     },
@@ -101,9 +103,11 @@
           "caption": "The hierarchy of legal and regulatory influences",
           "placement": "after_heading",
           "heading": "The hierarchy of standards",
-          "file": null,
+          "file": "lo15-regulatory-hierarchy.svg",
           "spec": "A layered stack, most binding at the top descending to most local: laws, regulations, international directives, government or industry guidance, discretionary standards, organisational policy and procedure. Mark clearly which layers are binding and which are adopted by choice — that boundary is the teaching point. If drawn as a pyramid, check it does not duplicate the existing v1 `compliance-pyramid.svg`.",
-          "alt": "A layered hierarchy of legal and regulatory influences from laws and regulations at the top through international directives and guidance to discretionary standards and organisational policy."
+          "alt": "A layered hierarchy of legal and regulatory influences from laws and regulations at the top through international directives and guidance to discretionary standards and organisational policy.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo15-scope-of-ethics",
@@ -111,9 +115,11 @@
           "caption": "What sits inside the scope of ethics",
           "placement": "after_heading",
           "heading": "The duty to speak up",
-          "file": null,
+          "file": "lo15-scope-of-ethics.svg",
           "spec": "Ethics at the centre with its components arranged around it: moral principles, values, rules and policies, codes of practice, ethical practices, rules of conduct — with society as the outer context. The argument: ethics is broader than compliance, and rules are only one part of it. A v1 asset exists covering the scope of ethics; check it before drawing new.",
-          "alt": "Ethics shown at the centre of moral principles, values, rules and policies, codes of practice and rules of conduct, set within the wider context of society."
+          "alt": "Ethics shown at the centre of moral principles, values, rules and policies, codes of practice and rules of conduct, set within the wider context of society.",
+          "width": 1024,
+          "height": 705
         }
       ]
     }

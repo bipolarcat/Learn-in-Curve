@@ -89,9 +89,11 @@
           "caption": "SWOT: internal capability against external conditions",
           "placement": "after_heading",
           "heading": "SWOT — internal capability against external conditions",
-          "file": null,
+          "file": "lo4-swot.svg",
           "spec": "Two-by-two grid. Rows internal / external, columns helpful / harmful. Cells: strengths (internal-helpful), weaknesses (internal-harmful), opportunities (external-helpful), threats (external-harmful). Label both axes explicitly — the axis pair is the teaching point, because learners misfile competitors as weaknesses rather than threats. A v1 asset exists at `PMQ in 5 days/public/diagrams/swot.svg`.",
-          "alt": "A two-by-two grid with internal and external rows against helpful and harmful columns, placing strengths, weaknesses, opportunities and threats in the four cells."
+          "alt": "A two-by-two grid with internal and external rows against helpful and harmful columns, placing strengths, weaknesses, opportunities and threats in the four cells.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo4-vuca",
@@ -99,9 +101,11 @@
           "caption": "VUCA conditions and what each one demands",
           "placement": "after_heading",
           "heading": "VUCA — naming the conditions you are planning under",
-          "file": null,
+          "file": "lo4-vuca.svg",
           "spec": "Four panels — volatility, uncertainty, complexity, ambiguity — each paired with the planning consequence rather than a generic definition: flexible plans, iterations and prototyping, options evaluation, scenario planning. The argument: VUCA is not a description to memorise, it is a reason to write the business case differently. A v1 asset exists at `PMQ in 5 days/public/diagrams/vuca.svg` — check whether it uses the vision/understanding/clarity/agility response pairing, which is a common framing but is not in BoK 8e and should not be presented as APM content.",
-          "alt": "The four VUCA conditions — volatility, uncertainty, complexity and ambiguity — each paired with the planning response it calls for."
+          "alt": "The four VUCA conditions — volatility, uncertainty, complexity and ambiguity — each paired with the planning response it calls for.",
+          "width": 1024,
+          "height": 705
         }
       ]
     },
@@ -118,9 +122,11 @@
           "caption": "The business case verified at each stage gate across the life cycle",
           "placement": "after_heading",
           "heading": "When to review it — use the control points you already have",
-          "file": null,
+          "file": "lo4-business-case-gates.svg",
           "spec": "Life cycle phases left to right — Concept, Definition, Deployment, Transition, Adoption — with verification points marked between them: outline business case verified after concept, detailed business case verified after definition, updated business case verified later. The argument: the same document is re-tested repeatedly at points that already exist, rather than reviewed continuously. Note BoK Figure 2.4.3 is adapted from a third-party PRINCE2 wiki source, so our version must be original.",
-          "alt": "The life cycle phases in sequence with business case verification points between them, showing the outline case verified after concept, the detailed case after definition, and updated cases verified later."
+          "alt": "The life cycle phases in sequence with business case verification points between them, showing the outline case verified after concept, the detailed case after definition, and updated cases verified later.",
+          "width": 1024,
+          "height": 705
         }
       ]
     }

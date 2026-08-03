@@ -81,9 +81,11 @@
           "caption": "Decision gates and reviews across the extended life cycle",
           "placement": "after_heading",
           "heading": "Reviews across the extended life cycle",
-          "file": null,
+          "file": "lo6-decision-gates.svg",
           "spec": "The extended life cycle as a horizontal timeline: Concept, Definition, Deployment (subdivided into tranches), Transition, Adoption, Benefits realisation. Mark decision gates between the early phases, stage reviews within deployment, a post-project review after transition, and a benefits review during benefits realisation. Mark 'output' at transition and 'outcome' at the end. The argument: different review types belong at different points, and reviewing does not stop when delivery does.",
-          "alt": "The extended life cycle shown as a timeline with decision gates between early phases, stage reviews during deployment, a post-project review after transition and a benefits review during benefits realisation."
+          "alt": "The extended life cycle shown as a timeline with decision gates between early phases, stage reviews during deployment, a post-project review after transition and a benefits review during benefits realisation.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo6-gate-questions",

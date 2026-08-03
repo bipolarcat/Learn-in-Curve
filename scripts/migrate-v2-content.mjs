@@ -113,7 +113,7 @@ async function loadLo(loNumber) {
         theme: section.theme,
         source_ref: lo.source_ref,
         authored_on: lo.authored_on,
-        review_status: lo.review_status ?? "draft",
+        review_status: lo.review_status === "reviewed" ? "approved" : (lo.review_status ?? "draft"),
       },
       { onConflict: "course_id,order_index" },
     )

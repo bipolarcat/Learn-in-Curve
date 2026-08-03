@@ -81,8 +81,10 @@
           "caption": "Iterative life cycle: repeatable cycles building incremental value",
           "placement": "after_heading",
           "heading": "Iterative: how it actually works",
-          "file": "lo1-iterative-life-cycle.svg",
-          "alt": "Iterative life cycle showing repeating development cycles that build an initial output into further increments of value."
+          "file": "lo1-iterative.svg",
+          "alt": "Iterative life cycle showing repeating development cycles that build an initial output into further increments of value.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo1-hybrid",
@@ -90,8 +92,10 @@
           "caption": "Hybrid life cycle: iterative early to resolve uncertainty, linear later for control",
           "placement": "after_heading",
           "heading": "Hybrid: blending the two",
-          "file": "lo1-hybrid-life-cycle.svg",
-          "alt": "Hybrid life cycle combining an iterative approach in the early phases with a linear approach for deployment and transition."
+          "file": "lo1-hybrid.svg",
+          "alt": "Hybrid life cycle combining an iterative approach in the early phases with a linear approach for deployment and transition.",
+          "width": 1024,
+          "height": 705
         }
       ]
     },
@@ -100,7 +104,7 @@
       "outcome_title": "Project life cycle vs extended life cycle",
       "key_takeaway": "A standard life cycle ends at transition. An extended one adds adoption and benefits realisation, which run in parallel, and keeps the project team accountable until benefits appear.",
       "source_ref": "BoK 8e 2.5.4 (p98-99), 3.1.3 (p118)",
-      "body_markdown": "## Where each one stops\n\nA standard project life cycle ends once the agreed outputs are deployed and handed over. An **extended** life cycle adds two phases on the end.\n\n| Added phase | What it covers |\n|---|---|\n| **Adoption** | Communications, training, knowledge sharing and change management, so operational teams actually use the outputs correctly. |\n| **Benefits realisation** | Measuring business performance to confirm adoption is producing the intended outcomes and the anticipated benefits. |\n\nThey typically **run in parallel**, not one after the other. As adoption rises, outcomes improve, and benefits follow.\n\n## The chain that makes it make sense\n\n> A new software tool is delivered (**output**) → customer usage increases (**outcome**) → service delivery costs fall (**benefit**).\n\nDelivering the output guarantees none of the rest. That is the entire argument for extending.\n\n## How benefits actually get measured\n\nWorth knowing, because it is what the extra phases *do*:\n\n- The groundwork is laid in **benefits planning**, not at the end — activities and resources for transition into use, testing schedules, acceptance criteria, quality assurance thresholds.\n- **Benefit owners and change managers** work throughout the project to get the business ready to accept the outputs.\n- Measurement varies by benefit type: **quantitative** for operational and financial benefits, **qualitative** (such as user feedback) for non-financial ones.\n- The **project sponsor is ultimately accountable** for the measurement process being robust, usually through formal benefits realisation reviews.\n- If benefits are not landing, the response is to **increase adoption or re-baseline the benefit target**.\n\n## Timing differs by life cycle\n\nThis one is directly examinable and easy to miss:\n\n- **Linear** — benefits are usually realised at the end, once all outputs are delivered.\n- **Iterative** — benefits are realised incrementally, as the project progresses.\n\n## When to extend\n\nProgrammes normally include adoption and benefits realisation as standard. For a **standalone project** it is a real trade-off:\n\n| For extending | Against extending |\n|---|---|\n| Higher adoption rates | The organisation pays for project professionals' time on those activities |\n| Better chance the benefits are realised — often what stakeholders judge success on | Operational teams could manage it instead |\n| The project team learns how their work actually lands in the business | |\n\nA project inside a larger programme may only need to deliver outputs, because the programme handles adoption and benefits.\n\n**Timing matters.** If you are going to extend, plan for it in the **early phases** — the requirements, work, resources and risks of the extra phases all belong in the project management plan from the start.",
+      "body_markdown": "## Where each one stops\n\nA standard project life cycle ends once the agreed outputs are deployed and handed over. An **extended** life cycle adds two phases on the end.\n\n| Added phase | What it covers |\n|---|---|\n| **Adoption** | Communications, training, knowledge sharing and change management, so operational teams actually use the outputs correctly. |\n| **Benefits realisation** | Measuring business performance to confirm adoption is producing the intended outcomes and the anticipated benefits. |\n\nThey typically **run in parallel**, not one after the other. As adoption rises, outcomes improve, and benefits follow.\n\n## The chain that makes it make sense\n\n> A new software tool is delivered (**output**) → customer usage increases (**outcome**) → service delivery costs fall (**benefit**).\n\nDelivering the output guarantees none of the rest. That is the entire argument for extending.\n\n## How benefits actually get measured\n\nWorth knowing, because it is what the extra phases *do*:\n\n- The groundwork is laid in **benefits planning**, not at the end — activities and resources for transition into use, testing schedules, acceptance criteria, quality assurance thresholds.\n- **Benefit owners and change managers** stay active for the project's whole duration, readying the business to take the outputs.\n- Measurement varies by benefit type: **quantitative** for operational and financial benefits, **qualitative** (such as user feedback) for non-financial ones.\n- The **project sponsor is ultimately accountable** for the measurement process being robust, usually through formal benefits realisation reviews.\n- If benefits are not landing, there are two honest moves: **drive adoption harder, or reset the target**.\n\n## Timing differs by life cycle\n\nThis one is directly examinable and easy to miss:\n\n- **Linear** — benefits are usually realised at the end, once all outputs are delivered.\n- **Iterative** — benefits are realised incrementally, as the project progresses.\n\n## When to extend\n\nProgrammes normally include adoption and benefits realisation as standard. For a **standalone project** it is a real trade-off:\n\n| For extending | Against extending |\n|---|---|\n| Higher adoption rates | The organisation pays for project professionals' time on those activities |\n| Better chance the benefits are realised — often what stakeholders judge success on | Operational teams could manage it instead |\n| The project team learns how their work actually lands in the business | |\n\nA project inside a larger programme may only need to deliver outputs, because the programme handles adoption and benefits.\n\n**Timing matters.** If you are going to extend, plan for it in the **early phases** — the requirements, work, resources and risks of the extra phases all belong in the project management plan from the start.",
       "diagrams": [
         {
           "id": "lo1-extended",
@@ -108,8 +112,10 @@
           "caption": "Extended life cycle: adoption and benefits realisation follow transition",
           "placement": "after_heading",
           "heading": "Where each one stops",
-          "file": "lo1-extended-life-cycle.svg",
-          "alt": "Extended life cycle adding adoption and benefits realisation phases after transition, showing the progression from output to outcome to benefit."
+          "file": "lo1-extended.svg",
+          "alt": "Extended life cycle adding adoption and benefits realisation phases after transition, showing the progression from output to outcome to benefit.",
+          "width": 1024,
+          "height": 705
         }
       ]
     },

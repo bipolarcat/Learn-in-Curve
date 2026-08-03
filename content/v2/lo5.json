@@ -90,9 +90,11 @@
           "caption": "The seven stages of the procurement process",
           "placement": "after_heading",
           "heading": "Why a strategy comes first",
-          "file": null,
+          "file": "lo5-procurement-process.svg",
           "spec": "Seven stages in sequence: set procurement strategy, define strategic sourcing approach, agree contract type and contents, complete competitive tender, award contract, manage the supplier, contract closure and handover. Show the first three shaded as 'strategic' and the last four as 'tactical' — the shift from strategic to tactical partway through is the teaching point.",
-          "alt": "The seven stages of the procurement process in sequence, with the first three marked as strategic and the remaining four as tactical."
+          "alt": "The seven stages of the procurement process in sequence, with the first three marked as strategic and the remaining four as tactical.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo5-kraljic",

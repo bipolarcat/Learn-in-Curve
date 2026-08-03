@@ -1,0 +1,245 @@
+{
+  "lo_number": 21,
+  "lo_code": "21a, 21b, 21c, 21d",
+  "title": "Resource management",
+  "competence_area": "D. Planning and managing deployment",
+  "exam_coverage_note": "Area D (LOs 16-24) accounts for 30-40% of exam marks — the heaviest weighted area in the course.",
+  "source_ref": "APM BoK 8e s5.6 (p275), s5.6.1 (p276-277), s5.6.2 (p278-279), s5.6.3 (p280-281), s5.7 (p283), s5.7.1 (p284-285), s5.7.2 (p286-287), s5.7.3 (p288-289); APM PMQ Handbook 2024, LO21",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand resource management as the ability to identify and schedule the required internal and external resources.",
+  "learning_outcomes": [
+    "21a) Know how to determine the resources required and their availability to deliver activities within a project.",
+    "21b) Understand how an organisational breakdown structure is used to create a responsibility assignment matrix (RACI).",
+    "21c) Understand how resources are categorised and allocated to both linear and iterative life cycle schedules.",
+    "21d) Know the differences between resource smoothing and resource levelling."
+  ],
+  "where_this_fits": "Resources are the constraint the schedule collides with. LO20's critical path deliberately ignores them; critical chain and this LO are what put them back. The distinction the exam tests hardest is levelling versus smoothing — and BoK 8e frames it slightly differently from the way it is commonly taught elsewhere, so learn the source's two questions rather than a half-remembered rule of thumb.",
+  "key_definitions": [
+    {
+      "term": "Resource management",
+      "apm_definition": "The acquisition and deployment of the internal and external resources required to deliver the project, programme or portfolio.",
+      "plain_english": "Getting hold of what the project needs — mostly people — and putting it where the work is."
+    },
+    {
+      "term": "Resource",
+      "apm_definition": "Anything that is needed to complete a project, though the emphasis falls on people resources and how best to leverage their skills and experience.",
+      "plain_english": "Anything the work consumes. In practice, usually people."
+    },
+    {
+      "term": "Organisational breakdown structure (OBS)",
+      "apm_definition": "The structure created by the choice of organisational structure, visualising the project hierarchy and enabling identification of resource requirements.",
+      "plain_english": "The project's people, broken down into a hierarchy. One half of what makes a RAM."
+    },
+    {
+      "term": "Responsibility assignment matrix (RAM)",
+      "apm_definition": "A matrix formed by combining the work breakdown structure and the organisational breakdown structure, clearly showing individual work items, the resources assigned to each and the role each resource holds.",
+      "plain_english": "Work down one axis, people across the other, roles in the cells. The grid that stops 'I thought you were doing that'."
+    },
+    {
+      "term": "RACI",
+      "apm_definition": "The coding used within a RAM to define who is Responsible for conducting each piece of work, Accountable for owning and approving it, Consulted during decision-making, and Informed about progress.",
+      "plain_english": "Four letters, four relationships to a task. Only one person should be accountable for any one item."
+    },
+    {
+      "term": "Resource levelling",
+      "apm_definition": "A technique that optimises the timeline when resource constraints are fixed, answering the question: with the resources available, when can the work be finished?",
+      "plain_english": "Resources are what they are — so the end date moves to fit them."
+    },
+    {
+      "term": "Resource smoothing",
+      "apm_definition": "A technique that ensures scope, quality and time are achieved while accepting an impact on cost, answering the question: what resources are required to deliver the expectations?",
+      "plain_english": "The date holds — so you find the resource to make it happen, and pay for it."
+    },
+    {
+      "term": "Resource histogram",
+      "apm_definition": "A visualisation of resource utilisation over time, used to show performance, availability and utilisation against the project's expectations.",
+      "plain_english": "A bar chart of demand over time. Peaks and troughs are what levelling and smoothing attack."
+    },
+    {
+      "term": "Resource capacity planning",
+      "apm_definition": "The process, typically managed at programme, portfolio or organisational level, of establishing resource requirements, assessing total capacity, and optimising capacity to create maximum benefit.",
+      "plain_english": "Working out what all the projects need against what the organisation actually has."
+    },
+    {
+      "term": "Utilisation",
+      "apm_definition": "The proportion of a resource's available capacity actually used on project work, tracked to provide transparency on actual utilisation against the project's forecast.",
+      "plain_english": "How much of someone's time the project is really getting, against how much it planned for."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "21a",
+      "outcome_title": "Determining resource requirements and availability",
+      "key_takeaway": "Requirements identification starts once high-level scope exists, and covers skills, seniority, domain expertise and qualifications. Capacity is then estimated as full-time or part-time effort, and the chosen life cycle changes when those resources are needed.",
+      "source_ref": "BoK 8e 5.6 (p275), 5.6.1 (p276-277), 5.6.2 (p278-279), 5.7 (p283), 5.7.1 (p284-285)",
+      "body_markdown": "## What resource management covers\n\n**Getting hold of the resources a project needs — internal and external — and putting them to work.** Both halves matter — getting hold of resource, and putting it to work.\n\n**Why it matters:** **get the processes and controls wrong and you invite schedule delay, weaker quality, higher cost and thinner benefits.** All four of the things the project is judged on.\n\n**A resource is anything needed to complete a project**, but the emphasis falls on **people resources and how best to leverage their skills and experience.**\n\n## When requirement identification starts\n\n**Normally once the high-level scope exists**, because that is what makes **the work to be done visible.** You cannot say who you need before you know what is being built — which is why LO17 comes first.\n\n**And no two projects are the same.** Scope, requirements and stakeholder needs all differ, so **the particular skills, experience and competences each project needs differ with them.**\n\n## The four things to identify\n\n| Requirement | Detail |\n|---|---|\n| **Skills** | **Hard skills** — coding languages, for example — and **soft skills** such as communication |\n| **Seniority** | Junior, mid-level or senior, matched to **the project's demands and complexity** |\n| **Domain expertise** | Whether previous experience in a particular sector is needed — financial services, construction |\n| **Qualifications** | Whether **industry-specific qualifications** are required — CEng, ChPP |\n\n**How to work them out:** ask **subject-matter experts**; look at **what comparable projects resourced and what they learned**; or run **a skills analysis such as job role mapping.**\n\nThat middle route is the LO6 link — lessons learned from a comparable project is the cheapest source of a realistic resource profile.\n\n## Estimating capacity\n\nOnce skills and competences are established, **estimate the capacity required from each resource**:\n\n- **full-time or part-time requirement**\n- **how much effort, in hours or days each week**\n\n**Past data and expert judgement both help here**, together with **top-down and bottom-up estimating used in combination** — the LO19 methods applied to people rather than money.\n\n## Constraints that shape the answer\n\n**As the picture sharpens, weigh what cost, time and quality will each permit.** The factors named:\n\n| Factor | Effect |\n|---|---|\n| **Resource availability** | What actually exists to be had |\n| **Budget** | What can be afforded |\n| **Seniority** | Senior people cost more and are scarcer |\n| **Hiring lead times** | How long it takes to get someone who is not already there |\n| **Location** | **A key consideration in a hybrid working world** |\n\nTogether they settle **whether the resource comes from inside or is brought in** — the make-or-buy question from LO5, applied to people.\n\n## Life cycle changes when resources are needed\n\nA specific and examinable point:\n\n| Life cycle | Resource profile |\n|---|---|\n| **Linear** | Design and planning specialisms tend to be **concentrated at the front** |\n| **Iterative** | **A similar project may require those skills throughout the entire life cycle** |\n\nSame project, same skills, entirely different demand curve. That is the answer to any scenario asking how life cycle choice affects resourcing.\n\n## Working with HR\n\n**Work with human resources experts to understand how resource requirements align with established job roles in the organisation.** This **standardises resource profiles** and gives a foundation for the rest of capacity planning.\n\n## Availability: the wider picture\n\nResource capacity planning is **typically managed at programme, portfolio or organisational level** and runs in three parts:\n\n1. **Identifying resource requirements** — per project\n2. **Assessing total capacity** — setting demand against capacity across programmes and portfolios\n3. **Capacity optimisation** — squeezing the most benefit out of what exists\n\n**And the honest constraint:** **demand sometimes exceeds capacity, and something has to give.** What you do then is **lay out clearly what each initiative is worth, how it ranks and what it depends on**, so **stakeholders can choose between them on the facts.**\n\nThat is the correct scenario answer when a project cannot get the people it needs: not to escalate for more, but to give decision-makers what they need to choose between initiatives.\n\n**Get resource requests in early — late ones cost you time** — and **go to the resource managers** to start the allocation conversation."
+    },
+    {
+      "outcome_code": "21b",
+      "outcome_title": "From organisational breakdown structure to responsibility assignment matrix",
+      "key_takeaway": "The OBS says who is on the project; the WBS says what work exists. Combine them and you get a RAM, coded with RACI so every work item has exactly one accountable owner.",
+      "source_ref": "BoK 8e 5.7 (p283), 5.7.1 (p284-285), 5.7.2 (p286-287)",
+      "body_markdown": "## The two inputs\n\n| Structure | What it defines |\n|---|---|\n| **OBS** — organisation breakdown structure | The **people** — created by the choice of organisational structure, visualising the project hierarchy |\n| **WBS** — work breakdown structure | The **work** — scope broken down into **work packages representing the lowest level of work you intend to manage** |\n\n**The OBS comes from the structural decision.** Choosing functional, matrix or project (LO2) **creates the project's organisational breakdown structure**, which then **enables the identification of resource requirements**.\n\n**The WBS needs enough granularity.** By the end of the breakdown, **every item needs to be defined finely enough that it can be estimated and put on a schedule.** Too coarse and you cannot allocate; too fine and you are managing minutiae.\n\n## Combining them\n\n**Put the WBS and the OBS together and you get a responsibility assignment matrix.** Work down one axis, people across the other.\n\nWhat it shows: **each separate item of work, who has been put on it, and what part they play.**\n\n## RACI coding\n\nThe roles are shown using **RACI coding**:\n\n| Letter | Role | Definition |\n|---|---|---|\n| **R** | **Responsible** | **Conducting** each piece of work |\n| **A** | **Accountable** | **Owns it, and signs it off once done** |\n| **C** | **Consulted** | **Brought into the decisions, and supports the work along the way** |\n| **I** | **Informed** | **About the work's progress** |\n\n**The distinction that carries the marks: R does it, A owns it and signs it off.** They can be the same person, but the accountability does not move even when the work is delegated — the same principle as sponsor and project manager in LO2, applied at task level.\n\n**One accountable per work item.** Two people accountable for the same thing means nobody is.\n\n## What the RAM is actually for\n\nThree uses, all named in the source:\n\n1. **Allocating resources at the correct times**, in line with the project's schedule.\n2. **Setting resources' expectations of what is required** of them.\n3. **Tying each person and their piece of work back to what the project is for** — which is the LO12 motivation point: people work better when they can see why their piece matters.\n\n## It is not fixed\n\n**Structure and allocation both shift as the project moves and new information lands.** So **continue to regularly engage with resource managers** to ensure **new or updated allocations are agreed and actioned** — a process that **starts during resource identification** and does not stop there.\n\n**And where a change to resource requirements is needed:** **weigh what it does to things like quality and cost**, then **put a formal change request against the baseline** through **the organisation's change control process**, so that **change requests and impact assessments are reviewed with proper transparency and control** (LO24).",
+      "diagrams": [
+        {
+          "id": "lo21-wbs-obs-ram",
+          "figure_number": "21.1",
+          "caption": "WBS plus OBS makes a responsibility assignment matrix",
+          "placement": "after_heading",
+          "heading": "Combining them",
+          "file": null,
+          "spec": "A work breakdown structure descending on the vertical axis and an organisation breakdown structure running across the horizontal, meeting to form a grid. Populate the cells with R, A, C and I codes, with a legend defining each. Show exactly one A per row — the single-accountability rule is the point the diagram should make visually, so a reader scanning a row sees one A and possibly several Rs and Cs.",
+          "alt": "A work breakdown structure on the vertical axis meeting an organisation breakdown structure on the horizontal to form a responsibility assignment matrix, with RACI codes in the cells and exactly one accountable person per work item."
+        }
+      ]
+    },
+    {
+      "outcome_code": "21c",
+      "outcome_title": "Categorising and allocating resources across linear and iterative schedules",
+      "key_takeaway": "Resources are categorised by type, by skill and seniority, and by whether they are internal or external. Linear schedules allocate against a fixed plan with front-loaded specialisms; iterative schedules commit resource per timebox and need capabilities available throughout.",
+      "source_ref": "BoK 8e 5.6.1 (p276-277), 5.7.2 (p286-287), 5.7.3 (p288-289), 5.5.1 (p267)",
+      "body_markdown": "## How resources get categorised\n\nPulling the categorisations together from across the source:\n\n| Basis | Categories |\n|---|---|\n| **Type** | **Labour** — your own people or contracted in; **services** bought in, such as development work or legal advice; **materials and consumables**, whether finished or raw; **assets** like equipment, vehicles and infrastructure, purchased, leased or rented |\n| **Skills** | **Hard skills** and **soft skills** |\n| **Seniority** | Junior, mid-level, senior |\n| **Domain and qualification** | Sector expertise; industry-specific qualifications |\n| **Source** | **Internal or external** |\n| **Commitment** | **Full-time or part-time**, estimated in hours or days per week |\n\n**A scheduling consequence worth knowing:** **some organisations put every resource into the schedule** — materials and procurement phasing included — while **others schedule labour alone** — with **non-labour costs appearing only in the budget** (LO22). Both are legitimate; the scenario tells you which is in play.\n\n## Allocating in a linear schedule\n\n1. **Define the work** through the WBS into work packages.\n2. **Pin down as precisely as you can the start and end of every work package.**\n3. **Build the RAM** and use it to **allocate resources at the correct times, in line with the schedule.**\n4. **Request allocation** from resource managers, as early as possible.\n\n**The demand profile is front-loaded for specialisms** — design and planning skills concentrated early. Resource conflicts are resolved by levelling or smoothing (21d) before the deployment baseline is set.\n\n**Because the plan is fixed at approval**, a change in resource requirement is a change to the baseline and goes through change control.\n\n## Allocating in an iterative schedule\n\n**Iterative projects commit resources over limited periods — timeboxes.** Within a timebox, **a fixed period with determined resources is agreed**, and the work is completed as efficiently as possible.\n\n| | Linear | Iterative |\n|---|---|---|\n| **Commitment horizon** | The whole plan, fixed at approval | **One timebox at a time** |\n| **Skill demand curve** | **Front-loaded** design and planning specialisms | **Those skills needed throughout the entire life cycle** |\n| **What flexes** | Time and cost flex against fixed scope and quality | **Time and cost are fixed; scope and quality flex** |\n| **Team shape** | Specialists arrive and leave as their phase runs | Stable cross-functional team held across iterations |\n| **Adjusting resource** | Change request against the baseline | Adjust what enters the next timebox |\n\n**The practical consequence:** an iterative project needs its capabilities available continuously, so a specialist who can only be released for four weeks is a genuine constraint on the approach — not merely a scheduling inconvenience.\n\n## Managing resources once allocated\n\n**Resources directly contribute to the deliverables**, so they need managing closely. **Four common monitoring methods:**\n\n| Method | What it tells you |\n|---|---|\n| **Timesheets** | How many hours each person actually put into project work |\n| **Monitoring tasks** | Whether **work is completed on time and to quality** |\n| **Stakeholder feedback** | How the resource is actually performing |\n| **Resource histogram or demand profile** | **Utilisation, visualised** |\n\nData gets collated into a **resource management report**, setting **performance, availability and utilisation against what the project expected.**\n\n## Resource management governance\n\n**Establish it as early as possible**, so there is a route to **report progress, raise issues, and keep expectations aligned with the resource managers.** It should:\n\n- **report how resources are performing**, with **escalation routes and fallback plans ready for underperformance**\n- **monitor constraints affecting resource availability**, feeding into **organisational capacity planning and risk management**\n- **track resource utilisation**, giving **transparency on actual utilisation against the project's forecast**\n\n**And the standing reality:** you are **permanently in competition with other projects and programmes for the same people.** That is why levelling and smoothing exist — they are what you do **when constraints cannot be overcome.**",
+      "diagrams": [
+        {
+          "id": "lo21-resource-profiles",
+          "figure_number": "21.2",
+          "caption": "Resource demand over time: linear against iterative",
+          "placement": "after_heading",
+          "heading": "Allocating in an iterative schedule",
+          "file": null,
+          "spec": "Two resource histograms side by side, resource demand on the vertical axis and time horizontal. Left — linear: design and planning specialisms spiking early, build resource peaking mid-project, testing late; an uneven profile with distinct humps. Right — iterative: a flatter, sustained profile with the same skill mix present across every timebox, marked with timebox boundaries. The contrast in shape is the argument for why life cycle choice changes resourcing.",
+          "alt": "Two resource histograms comparing a linear project with distinct early design, mid build and late test peaks against an iterative project with a flatter sustained profile carrying the same skill mix through every timebox."
+        }
+      ]
+    },
+    {
+      "outcome_code": "21d",
+      "outcome_title": "Resource levelling and resource smoothing",
+      "key_takeaway": "Levelling holds resources fixed and lets the timeline move: with what we have, when can this finish? Smoothing holds scope, quality and time and accepts a cost impact: what resource do we need to hit the date?",
+      "source_ref": "BoK 8e 5.6.3 (p280-281), 5.7.3 (p289)",
+      "body_markdown": "## The two techniques\n\nBoth are ways of **making project-level resource capacity go further once the constraint itself cannot be shifted.** They are **the two most common** examples.\n\nThe cleanest way to hold them is by the question each one answers — the source frames them exactly this way, and the questions are more reliable than any rule of thumb.\n\n| | **Resource levelling** | **Resource smoothing** |\n|---|---|---|\n| **The question it answers** | Given the people we actually have, **when does this finish?** | To hit what we promised, **what resource do we need?** |\n| **What is held fixed** | **Resource constraints** | **Scope, quality and time** |\n| **What is allowed to move** | **The timeline** | **Cost** |\n| **Use when** | You cannot get more resource | The date cannot move |\n\n**Levelling: resources are fixed, so the end date flexes.** You work out what the available people can actually deliver and when that finishes.\n\n**Smoothing: the date is fixed, so cost flexes.** You work out what resource is needed to hit the commitments and accept the bill.\n\n**A memory hook worth carrying:** **levelling moves the level of the finish line; smoothing smooths the peaks and troughs and pays for it.**\n\n## What each involves in practice\n\n**Levelling** leans on **critical path or critical chain** to rework the tasks and the schedule, wringing the most out of whoever is available right now. It is scheduling beneath a resource ceiling.\n\n**Smoothing** is more than simply adding people. It is **not simply a matter of hiring more people** — it also means **finding ways to get more out of existing capacity, or rearranging work so the peaks and troughs flatten.**\n\nThat second half is the more interesting one for a scenario answer. Reshaping *when* work happens, so demand sits flatter across the same period, is smoothing without buying anything.\n\n## The output\n\n**What project-level optimisation produces is a curve: how resource — and so how spend — is planned to be deployed over time to finish the scope at the quality required.**\n\nThat curve is what feeds LO22, because costing works from the resourced schedule. Levelling and smoothing happen before the budget is finalised, not after.\n\n## Optimisation above project level\n\nAt **programme, portfolio or organisational level**, optimisation works differently:\n\n- **resequencing or phasing initiatives so their resource demands stop colliding**\n- **identifying synergies between initiatives**\n- **project and programme phasing** more strategically\n\nSo a resource conflict a project cannot solve internally may be solvable by the portfolio deciding which initiative goes first. That is the escalation route, and it connects to LO2 — the decision sits above the project's authority.\n\n## When neither works\n\n**Demand outstrips capacity sometimes, and a trade-off becomes unavoidable.** The answer is not more optimisation: it is **setting out plainly what each initiative is worth, where it ranks and what it depends on, so stakeholders can make the priority call on the facts.**\n\nAnd where the project's own resource requirement must change, **work out what that does to quality and cost**, then **take a formal change request to the baseline** through **change control**.",
+      "diagrams": [
+        {
+          "id": "lo21-levelling-smoothing",
+          "figure_number": "21.3",
+          "caption": "Resource levelling and resource smoothing compared",
+          "placement": "after_heading",
+          "heading": "The two techniques",
+          "file": null,
+          "spec": "Three resource histograms in a row. First — the unoptimised profile, with sharp peaks above a marked resource ceiling and troughs below it. Second — levelled: peaks cut to sit under the ceiling, with the end date visibly extended to the right and that extension labelled. Third — smoothed: the end date held at the original position with a vertical marker, peaks flattened by adding resource, and the added resource shaded to show the cost impact. Each panel labelled with its question: 'when can it finish?' for levelling, 'what do we need?' for smoothing.",
+          "alt": "Three resource histograms showing an unoptimised profile with peaks above the resource ceiling, a levelled version with peaks removed and the end date extended, and a smoothed version with the end date held and extra resource added at additional cost."
+        }
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Resource management means managing people.",
+      "right": "A resource is anything needed to complete a project — labour, services, materials and consumables, and assets. The emphasis falls on people, but the category is wider."
+    },
+    {
+      "wrong": "Resource requirements are identified at the start of the project.",
+      "right": "They are identified once the high-level scope is established, because scope is what provides clarity on the work to be completed. And allocation continues to change as the project progresses."
+    },
+    {
+      "wrong": "In a RAM, responsible and accountable are the same thing.",
+      "right": "Responsible means conducting the work. Accountable means owning it and approving it when complete. They can be the same person, but accountability does not transfer when work is delegated."
+    },
+    {
+      "wrong": "A work item can have several accountable people if it spans teams.",
+      "right": "Accountability shared is accountability absent. One A per work item — the same principle that separates sponsor from project manager, applied at task level."
+    },
+    {
+      "wrong": "Linear and iterative projects need the same resources at the same times.",
+      "right": "Linear work tends to concentrate design and planning specialisms at the front; comparable iterative work needs them present in every iteration. Same skills, different demand curve."
+    },
+    {
+      "wrong": "Resource levelling and smoothing are two names for flattening the resource histogram.",
+      "right": "Levelling optimises the timeline when resources are fixed — with what we have, when can it finish. Smoothing achieves scope, quality and time while accepting an impact on cost — what resource is needed to hit the date."
+    },
+    {
+      "wrong": "Resource smoothing means adding more people.",
+      "right": "It does not necessarily mean just adding resources. It also identifies ways to increase current capacity, or to better manage the work to avoid peaks and troughs — reshaping when work happens rather than buying more."
+    },
+    {
+      "wrong": "If the project cannot get the resource it needs, escalate for more.",
+      "right": "Demand outstrips capacity sometimes and a trade-off becomes unavoidable. What you do is set out what each initiative is worth, where it ranks and what it depends on, so stakeholders can make the call on the facts."
+    },
+    {
+      "wrong": "Resource optimisation happens after the budget is set.",
+      "right": "Costing works from the resourced schedule. Levelling and smoothing produce the deployment curve the budget is then built on."
+    },
+    {
+      "wrong": "Changing the project's resource requirement is an internal adjustment.",
+      "right": "Impacts should be assessed against factors such as quality and cost, then a change to the baseline formally requested through the organisation's change control process."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Levelling asks when, smoothing asks what",
+      "expansion": "Levelling asks when the work finishes given the people you actually have. Smoothing asks what resource is needed to hit what was promised. The two questions are the whole distinction."
+    },
+    {
+      "type": "cue",
+      "acronym": "Levelling moves the date, smoothing moves the money",
+      "expansion": "Levelling holds resource constraints fixed and lets the timeline extend. Smoothing holds scope, quality and time and accepts an impact on cost."
+    },
+    {
+      "type": "cue",
+      "acronym": "R does it, A owns it",
+      "expansion": "Responsible conducts the work; Accountable owns it and approves it when complete. Consulted feeds in during decisions; Informed just hears about progress."
+    },
+    {
+      "type": "cue",
+      "acronym": "Work down, people across",
+      "expansion": "The WBS supplies the rows, the OBS supplies the columns, and the RAM is what they make where they meet."
+    },
+    {
+      "type": "cue",
+      "acronym": "Linear front-loads, iterative sustains",
+      "expansion": "The same specialist skills a linear project concentrates early are needed across every iteration in an iterative one. Life cycle choice changes the demand curve, not just the dates."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define resource management, say what counts as a resource, and explain what poor resource management costs the project.",
+    "I can name the four things resource requirement identification covers, and say when in the life cycle it starts and why.",
+    "I can explain how capacity is estimated and name the constraints that shape whether resource is internal or external.",
+    "I can explain how the OBS and WBS combine to form a RAM, and define each of the four RACI codes.",
+    "I can explain why only one person should be accountable for a work item, and what a RAM is used for beyond allocation.",
+    "I can describe how resources are categorised, and compare linear and iterative allocation including the demand curve difference.",
+    "I can name the four ways allocated resources are monitored and say what resource management governance should do.",
+    "I can state the question each of levelling and smoothing answers, say what each holds fixed and what it allows to move, and explain what happens when neither resolves the constraint."
+  ],
+  "source_confidence": [
+    {
+      "claim": "The definitions of resource levelling and resource smoothing, and the question each answers.",
+      "sub_outcome": "21d",
+      "level": "sourced",
+      "basis": "BoK 8e 5.6.3 (p280) states both directly: levelling 'works to optimise the timeline when resource constraints are fixed, answering the question: with the resources available, when can the work be finished?'; smoothing 'works to ensure scope, quality and time are achieved while accepting an impact on cost, answering the question: what resources are required to deliver the expectations?'",
+      "risk": "**Worth a deliberate note, because BoK 8e's framing differs from how these terms are commonly taught elsewhere.** Many texts define smoothing as working within existing float with the end date fixed, and levelling as extending the schedule to respect resource limits. BoK's levelling matches that convention; its smoothing is framed around accepting a **cost** impact rather than around float. The content teaches BoK's version as primary, using the two questions verbatim, because that is what the syllabus examines. A learner who has met the float-based definition elsewhere should not be confused into thinking one is wrong — they emphasise different constraints."
+    },
+    {
+      "claim": "All other content across 21a, 21b, 21c — requirement identification, capacity estimation, constraints, the OBS-to-RAM construction, RACI codes, monitoring methods, and resource management governance.",
+      "sub_outcome": "21a",
+      "level": "sourced",
+      "basis": "BoK 8e 5.6 (p275), 5.6.1 (p276-277), 5.6.3 (p280-281), 5.7 (p283), 5.7.1 (p284-285), 5.7.2 (p286-287), 5.7.3 (p288-289). RACI is defined explicitly at 5.7.2 (p286), and the linear front-loading versus iterative throughout point at 5.6.1 (p277).",
+      "risk": "None."
+    },
+    {
+      "claim": "The consolidated resource categorisation table in 21c.",
+      "sub_outcome": "21c",
+      "level": "assembled",
+      "basis": "Each basis is sourced but from different places — resource types from 5.8.1 (p292) in the budgeting chapter, skills and seniority and domain and qualification from 5.6.1 (p276), internal versus external and full-time versus part-time from 5.6.1 (p276-277). The syllabus asks how resources are 'categorised', and BoK gives no single categorisation.",
+      "risk": "Low. Every category is sourced; only the consolidation into one table is ours."
+    },
+    {
+      "claim": "The one-accountable-per-work-item rule.",
+      "sub_outcome": "21b",
+      "level": "inferred",
+      "basis": "BoK 8e 5.7.2 (p286) defines the RACI codes but does not state that only one person should be accountable per item. The rule is standard RACI practice and consistent with BoK's own treatment of accountability elsewhere — notably 2.6 (p104), where accountability for governance rests with a single named sponsor.",
+      "risk": "Low. Uncontroversial and universally applied, but it is a practice convention rather than a BoK statement, so it should not be quoted as APM doctrine."
+    }
+  ]
+}

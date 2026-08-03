@@ -123,9 +123,11 @@
           "caption": "The configuration management cycle",
           "placement": "after_heading",
           "heading": "The five steps",
-          "file": null,
+          "file": "lo16-configuration-cycle.svg",
           "spec": "Five stages as a closed cycle: plan the configuration management processes and activities; identify configuration items and dependencies; apply change control to configuration item changes; create records and reports demonstrating traceability; verify integrity of the configuration before use. Draw the change control step as an input arriving from outside the cycle, since approval happens in the change control process rather than inside configuration management — that boundary is the teaching point.",
-          "alt": "A five-stage configuration management cycle from planning through identification, change control application, status reporting and verification of integrity before use."
+          "alt": "A five-stage configuration management cycle from planning through identification, change control application, status reporting and verification of integrity before use.",
+          "width": 1024,
+          "height": 705
         }
       ]
     }

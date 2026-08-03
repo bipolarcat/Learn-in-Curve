@@ -84,9 +84,11 @@
           "caption": "The triple bottom line: people, planet, profit",
           "placement": "after_heading",
           "heading": "The frameworks the exam expects you to name",
-          "file": null,
+          "file": "lo3-triple-bottom-line.svg",
           "spec": "Three overlapping circles labelled economic (profit), social (people) and environmental (planet), with the centre overlap marked as sustainable. A v1 asset exists at `PMQ in 5 days/public/diagrams/sustainability-venn.svg` — note it is a four-circle Venn, so it will need reducing to three or the fourth dimension explaining, since BoK 8e frames the triple bottom line as three.",
-          "alt": "Three overlapping circles representing economic, social and environmental dimensions, with sustainability at the point where all three meet."
+          "alt": "Three overlapping circles representing economic, social and environmental dimensions, with sustainability at the point where all three meet.",
+          "width": 1024,
+          "height": 705
         },
         {
           "id": "lo3-lifecycle-embedding",

@@ -1,0 +1,219 @@
+{
+  "lo_number": 24,
+  "lo_code": "24a, 24b, 24c, 24d, 24e",
+  "title": "Change control",
+  "competence_area": "D. Planning and managing deployment",
+  "exam_coverage_note": "Area D (LOs 16-24) accounts for 30-40% of exam marks — the heaviest weighted area in the course. LO24 closes both the area and the syllabus.",
+  "source_ref": "APM BoK 8e s5.11 (p319), s5.11.1 (p320-321), s5.11.2 (p322-323), s5.11.3 (p324-325), s3.5.3 (p152-153); APM PMQ Handbook 2024, LO24",
+  "authored_on": "2026-08-02",
+  "review_status": "reviewed",
+  "apm_learning_objective": "Understand change control as the ability to manage variations and change requests in a controlled way.",
+  "learning_outcomes": [
+    "24a) Understand the purpose and importance of each stage of a typical change control process (such as request, initial evaluation, detailed evaluation, recommendation, update plans and implement), and understand where these stages are different for linear and iterative life cycles.",
+    "24b) Know what should be captured and recorded in change requests.",
+    "24c) Know ways to assess options related to a proposed change and the high-level impact of the proposed change.",
+    "24d) Understand how to justify recommendations about whether to approve, reject or defer changes.",
+    "24e) Understand the importance of updating plans and schedules to reflect approved changes."
+  ],
+  "where_this_fits": "The last LO, and the one that protects every baseline the other twenty-three produced. Scope, schedule, budget, quality, requirements and configuration are all baselined somewhere in this course; change control is the single mechanism that lets any of them move deliberately rather than by drift. The distinction worth fixing immediately: change control manages changes to a project's baseline, while change management is organisational transformation. They are not the same discipline.",
+  "key_definitions": [
+    {
+      "term": "Change control",
+      "apm_definition": "The governance, process and controls that identify, evaluate and action changes to a project's baseline.",
+      "plain_english": "The route by which a baseline is allowed to move — deliberately, with the impact understood."
+    },
+    {
+      "term": "Change management",
+      "apm_definition": "A holistic approach to organisational transformation, distinct from change control, which is a process to manage changes to an individual project's baseline.",
+      "plain_english": "A different discipline entirely. Change control is about the plan; change management is about the organisation."
+    },
+    {
+      "term": "Change register / change log",
+      "apm_definition": "The record used to log all requested changes.",
+      "plain_english": "Every request goes in, including the ones that get rejected. That record is what stops the same idea coming back unexamined."
+    },
+    {
+      "term": "Initial evaluation",
+      "apm_definition": "The stage at which a change is reviewed to consider whether it is worth evaluating in detail. If not, it is rejected at this stage.",
+      "plain_english": "A cheap filter before an expensive assessment. Rejecting here is a legitimate outcome, not a shortcut."
+    },
+    {
+      "term": "Impact assessment",
+      "apm_definition": "A structured approach to assessing the implications of a change on the project's baseline, underpinning the detailed evaluation so the sponsor has the information needed for an informed decision.",
+      "plain_english": "The work of finding out what this change would actually do to scope, time, cost, quality, benefits, resource and risk."
+    },
+    {
+      "term": "Change freeze",
+      "apm_definition": "A period in which no change requests are considered, usually implemented around exceptional events in the project's environment so as not to create unnecessary risks or issues.",
+      "plain_english": "A deliberate window where the baseline is locked — around a go-live, a holiday period, a critical delivery."
+    },
+    {
+      "term": "Defer",
+      "apm_definition": "One of the three decisions available to the sponsor, alongside approve and reject.",
+      "plain_english": "Not now. The change may be right but the timing is wrong, so it waits rather than being lost."
+    },
+    {
+      "term": "Configuration management",
+      "apm_definition": "The technical and administrative activities that manage the creation, maintenance, controlled change and quality control of the project's technical configuration, ensuring approved changes are reflected in the latest configuration version.",
+      "plain_english": "Where an approved change lands in the record of what is actually being built."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "24a",
+      "outcome_title": "The change control process, stage by stage",
+      "key_takeaway": "Six stages: log, initial evaluation, detailed evaluation, decision, update plans, implement. Each exists to make sure the sponsor understands the impact before deciding — and the sponsor, not the project manager, is accountable for that decision being made.",
+      "source_ref": "BoK 8e 5.11 (p319), 5.11.1 (p320-321)",
+      "body_markdown": "## What change control is\n\n**The governance around a project's baseline, plus the process and controls for spotting a change, weighing it and acting on it.**\n\n**Why it exists:** **every project will change, and handling that badly produces plans that no longer agree, people who no longer know what is true, and consequences nobody intended.** The point is not to prevent change — it is to prevent *uncontrolled* change.\n\n**And the purpose in one line:** with a defined process, **a sponsor knows what a requested change would actually do before deciding — which is what makes the decision a real one.**\n\n## The distinction to get right immediately\n\n| | Change control | Change management |\n|---|---|---|\n| **What it is** | The process governing changes to one project's baseline | A whole-organisation approach to transformation |\n| **Scope** | This project's plan | The organisation and its people |\n\nThe source flags this explicitly, which means it is examinable. They share a word and nothing else.\n\n## Where change requests come from\n\nThey arrive from all over:\n\n- **issues that surface while delivering** — the LO23 link\n- **new stakeholder requirements** — the LO16 link\n- **changes in the project's external environment** — PESTLE factors from LO4\n\n**The project manager is usually where a request first lands**, and they then run the process.\n\n## The six stages\n\n| Stage | What happens | Why it matters |\n|---|---|---|\n| **1. Log change request** | **A change register or log records all requested changes** | Nothing gets assessed informally, and rejected requests stay on record |\n| **2. Initial evaluation** | A first look at whether this even merits a full assessment. If it does not, it is rejected here | A cheap filter. Detailed evaluation is expensive, so not everything earns one |\n| **3. Detailed evaluation** | **An impact assessment**, covering **how it may alter benefits, scope, quality, schedule and costs.** It takes real analysis and input from a spread of stakeholders | This is where the real work is, and 24c covers it |\n| **4. Decision** | The sponsor gets the options, a recommendation, or both. **Making sure a decision actually gets taken — approve, reject or defer — is the sponsor's accountability.** The team is then told what was decided | Three outcomes, not two. And accountability sits with the sponsor |\n| **5. Update plans** | **Plans are updated to reflect the change** — and because the project's plans are integrated, that update has to carry through into **scope definition, solutions development and configuration management** too | 24e covers why this cannot be partial |\n| **6. Implement** | **Necessary actions are taken, and the impacts are monitored through to completion** | Approval is not implementation, and implementation is not the end |\n\n**Two stages carry more weight than candidates expect.**\n\n**Initial evaluation** exists so that not every idea consumes an impact assessment. Rejecting at this gate is a proper outcome.\n\n**Monitoring after implementation** is stage six's second half. The impact assessment was a forecast; monitoring checks whether it was right.\n\n## What the process enables\n\nRun this way, the sponsor and stakeholders can see **what a change would do to the outcomes the project is forecasting**. Specifically it should:\n\n- keep decisions **consistent with strategic objectives and with how much risk the organisation will carry**\n- **handle the knock-on effects on other projects, programmes, portfolios and BAU**\n\nThat second point is easy to miss: a change to this project can break another one's plan.\n\n## Two situations worth knowing\n\n**Change implemented without formal approval.** **Run the process after the event.** You do not pretend it did not happen — you run it through the process after the fact so the impact is understood and recorded.\n\nAnd the framing to carry: this is not red tape for its own sake — it is **the most reliable way to be sure everyone understands what the change actually did.**\n\n**Change freeze.** Sometimes a project **stops considering change requests altogether for a period.** Typically **around exceptional points in its environment** — Christmas, the summer holidays — **so that avoidable risks and issues are not manufactured at the worst moment.**\n\n## Where the stages differ by life cycle\n\nThe syllabus asks specifically. **Whatever approach or life cycle a project uses, it needs a defined process** — but how that process operates differs.\n\n| | Linear | Iterative |\n|---|---|---|\n| **What is baselined** | **Scope is fixed at the deployment baseline**, so **any change identified in deployment must go through change control** | Scope is held in a **product backlog** and fixed only for the current timebox |\n| **What counts as a change** | Any variation from the approved scope | Changing what is **already committed to the current iteration**; new items simply enter the backlog |\n| **Frequency and ceremony** | Less frequent, more formal | Frequent, lighter — much of what would be a change request in linear is absorbed by re-prioritising the backlog |\n| **Where decisions are made** | Sponsor and governance board, often at gates | **The team may have authority to prioritise and act on new knowledge** within the timebox |\n| **What flexes** | Scope and quality drive; **cost and time are calculated from the scope** | **Time and cost are fixed; scope and quality flex** |\n| **Unfinished work** | Becomes a variance requiring action | Anything the timebox did not deliver goes back into the backlog |\n\n**The structural reason:** a linear project fixed its scope at approval, so every deviation is an exception. An iterative project only ever fixed the current timebox, so most change is normal operation. **The formal change control process still exists** in iterative work — it applies to the things that were genuinely committed.",
+      "diagrams": [
+        {
+          "id": "lo24-change-process",
+          "figure_number": "24.1",
+          "caption": "The six stages of the change control process",
+          "placement": "after_heading",
+          "heading": "The six stages",
+          "file": null,
+          "spec": "A left-to-right flow: raise change request → log in change register → initial evaluation → detailed evaluation (impact assessment) → decision → update plans → implement and monitor. Show two exit routes off the main line: rejection at initial evaluation, and approve/reject/defer at the decision point, with defer looping back to the register rather than terminating. Mark the sponsor as the decision owner. The two exits and the defer loop are what the diagram must convey — most change requests do not travel the full path.",
+          "alt": "The change control process from raising and logging a request through initial evaluation, detailed impact assessment, sponsor decision, plan updates and implementation, with rejection possible at initial evaluation and approve, reject or defer at the decision point."
+        }
+      ]
+    },
+    {
+      "outcome_code": "24b",
+      "outcome_title": "What a change request should capture",
+      "key_takeaway": "A change request records what is being asked for, who asked, why, and what it would do to the baseline — enough for someone else to evaluate it without going back to the requester.",
+      "source_ref": "BoK 8e 5.11.1 (p320-321), 5.11.2 (p322-323)",
+      "body_markdown": "## Why the record matters\n\n**Every requested change goes into a change register, or log.** All of them — including those rejected at initial evaluation. That record is what stops a rejected idea returning six months later as though it were new, and what lets anyone see how much change pressure the project is under.\n\n## What gets captured\n\nDrawing together what the process needs at each stage:\n\n| Field | Why it is needed |\n|---|---|\n| **Unique identifier** | So the request can be tracked through the register to closure |\n| **Date raised and requester** | Source matters — a change from a regulator is not a change from a preference |\n| **Description of the change** | What is actually being asked for |\n| **Reason or justification** | Why it is being requested. **Requests arise from issues discovered in delivery, new stakeholder requirements, or changes in the external environment** |\n| **Priority or urgency** | Whether it must be decided now or can wait |\n| **Initial evaluation outcome** | Whether it is **worth evaluating in detail**, and the rejection reason if not |\n| **Impact assessment** | The quantified effect on **scope, objectives and success criteria, benefits, time, cost, resource, quality and risks** |\n| **Options considered** | Usually more than one, each carrying a different level of impact |\n| **Recommendation** | What the project professional advises, and why |\n| **Decision** | Approve, reject or defer — with the sponsor recorded as decision maker |\n| **Date of decision and communication** | **The decision is communicated to the project team** |\n| **Implementation status** | Tracked, with **impacts monitored through to completion** |\n\n**The test of a good change request:** could someone who was not in the conversation evaluate it from the record alone? If they would have to go back to the requester to understand what is being asked or why, it is incomplete.\n\n## The three characteristics assessed before evaluating\n\nBefore committing effort to a detailed assessment, **determine the effort required** by considering three characteristics of the requested change:\n\n| Characteristic | The question |\n|---|---|\n| **Size and scale** | How large is it, and does it reach across the whole project or only part of the scope? |\n| **Complexity** | Will this be technically hard, or is the solution straightforward? |\n| **Feasibility** | Given what the project and the organisation can actually do, can this be done at all? |\n\nThese are worth capturing on the request itself, because they justify how much assessment effort was applied — and a change judged infeasible at this point can be rejected without further cost."
+    },
+    {
+      "outcome_code": "24c",
+      "outcome_title": "Assessing options and the impact of a proposed change",
+      "key_takeaway": "Impact assessment gathers information, works out the effort required, then quantifies the effect across eight named areas of the baseline. Usually several options are assessed, each with a different level of impact.",
+      "source_ref": "BoK 8e 5.11 (p319), 5.11.2 (p322-323)",
+      "body_markdown": "## What an impact assessment is\n\n**A structured way of working out what a change would mean for the baseline.** It is what **the detailed evaluation rests on**, so that **nothing the sponsor needs in order to decide properly is missing.**\n\n**Speed matters:** **quickly and effectively completing a detailed evaluation is crucial for success.** A change held in assessment is a change the project is planning around without a decision.\n\n## The sequence\n\n| Step | What happens |\n|---|---|\n| **1. Size the effort** | Assess the change's **size and scale, complexity and feasibility** to determine how much assessment work is warranted |\n| **2. Gather information** | Draw on **subject-matter experts and on data from inside and outside the organisation** to pin down the specifics — the worked example being which technology best suits a software solution |\n| **3. Assess work and effort** | Nobody has designed the solution in detail yet, so the experts **work to stated assumptions about how it would be built** |\n| **4. Quantify the impact** | Against each area of the baseline |\n| **5. Present options** | Usually more than one, each with a different level of impact on the baseline |\n\n**Step 3 is worth noticing.** You are assessing something not yet designed, so the assessment rests on assumptions — which should be recorded, exactly as estimating assumptions are in LO19.\n\n## The eight impact areas\n\nThis is the directly examinable list, and each is phrased as a question:\n\n| Area | The question |\n|---|---|\n| **Scope** | Does this fundamentally alter what the project is delivering? |\n| **Objectives and success criteria** | Do the outcomes shift, or does what counts as success? |\n| **Benefits** | Does it add new benefits, or disturb the ones already promised? |\n| **Time** | Does the schedule move — out, or in? |\n| **Cost** | Does it push costs up, or take them out somewhere else? |\n| **Resource** | Does this need people we do not have, or can the current profile absorb it? |\n| **Quality** | Do the deliverables get better or worse? |\n| **Risks** | Does it introduce risk, or retire some? |\n\n**Note how many are two-directional.** Time can shorten. Cost can fall. Quality can improve. Risk can reduce. A change is not automatically a degradation, and an assessment that only looks for damage will miss the case for approving it.\n\n**And note what the list covers:** it is essentially the contents of the integrated PMP from LO19. That is the point — **put numbers on the impact, and look specifically at the rest of the integrated PMP when you do.**\n\n## Assessing options\n\n**Most requests get more than one option worked up**, each landing differently on the baseline.\n\nWays to frame the options, drawing on the wider course:\n\n| Option type | What it tests |\n|---|---|\n| **Do nothing** | Always an option (LO17) — what happens if the change is not made? |\n| **Full implementation** | The change as requested |\n| **Partial or minimum implementation** | The smallest version delivering the essential benefit |\n| **Defer to a later phase or iteration** | Same change, different timing |\n| **Alternative solution** | A different way of achieving the same outcome |\n\nEach is then assessed against the same eight areas, so the sponsor can compare like with like.\n\n## Presenting it\n\n**Put real effort into presenting the options so the sponsor can follow them — summarised enough to be digestible, detailed enough that the decision is a sound one.**\n\nThat balance is the skill. Too much detail and the decision stalls; too little and the sponsor is deciding on a summary that hid the difficulty. It is the same principle as the integrated PMP in LO19 — succinct enough to be used, complete enough to be trusted."
+    },
+    {
+      "outcome_code": "24d",
+      "outcome_title": "Justifying a recommendation to approve, reject or defer",
+      "key_takeaway": "Three outcomes, and the recommendation must be justified against the impact assessment, the business case and the organisation's risk appetite. The sponsor is accountable for the decision being made.",
+      "source_ref": "BoK 8e 5.11.1 (p320-321), 5.11.2 (p323), 3.5.3 (p152-153)",
+      "body_markdown": "## Three outcomes, not two\n\n**Making sure a decision gets taken — approve, reject or defer — is the sponsor's accountability.**\n\n**Defer is the one candidates forget.** It is not indecision — it means the change may be right but this is the wrong moment: too close to a gate, inside a change freeze, or better handled in a later phase or iteration. Deferring keeps the request alive in the register rather than losing it.\n\n**Accountability sits with the sponsor** for ensuring the decision is made. The project professional's job is the recommendation and the evidence behind it.\n\n## What justifies a recommendation\n\n| Basis | The argument |\n|---|---|\n| **The impact assessment** | The quantified effect across all eight areas. This is the evidence, and no recommendation is justified without it |\n| **Strategic alignment** | Decisions should **be made in line with the strategic objectives** — the LO4 and LO9 link |\n| **Risk appetite** | And in line with **the appetite for risk** — LO23 |\n| **Effect on the business case** | Does the change strengthen or undermine the justification for the project continuing? |\n| **Effect on benefits** | **Would it create new benefits, or impact existing ones?** |\n| **Impact beyond this project** | What it does to other projects, programmes, portfolios or to BAU |\n| **Feasibility** | Given what the project and the organisation can actually do, is this achievable? |\n| **Options comparison** | Why this option rather than the others assessed |\n\n## Shaping the argument\n\n**For approval:** the change delivers benefit or avoids harm that justifies its cost in time, money, quality and risk; it aligns with strategy and sits within risk appetite; the project and organisation can actually do it; and it is better than the alternatives assessed, including doing nothing.\n\n**For rejection:** the impact outweighs the benefit; it takes the project outside risk appetite or away from strategic objectives; it is not feasible with current capability; or the same outcome is available more cheaply another way. Rejection can also happen at **initial evaluation** if the change is **not worth evaluating in detail**.\n\n**For deferral:** the change is sound but the timing is wrong — a change freeze is in force, a gate is imminent, dependencies are unresolved, or the assessment itself is not yet complete enough to decide on.\n\n## Communicating the decision\n\n**Whatever was decided, the project team gets told.** All three outcomes, not only the approvals. A team that never hears what happened to a rejected request stops raising them.\n\n## The connection to decision gates\n\nChange decisions and gate decisions work the same way. A **decision gate** asks whether the business case **is still viable** — whether benefits remain achievable **for an acceptable level of cost and risk** (LO6). A change decision asks the same question about a specific proposed variation.\n\nAnd the governance board's own remit from LO2 includes **reviewing and determining change requests, escalating them to a higher authority where necessary** — so a change exceeding the sponsor's delegated authority goes up, exactly like any other decision beyond a limit."
+    },
+    {
+      "outcome_code": "24e",
+      "outcome_title": "Updating plans and schedules to reflect approved changes",
+      "key_takeaway": "An approved change that only lands in one plan creates the misalignment change control exists to prevent. Because the PMP is integrated, updates must propagate — into scope, schedule, budget, resources, risk and configuration — and then be monitored.",
+      "source_ref": "BoK 8e 5.11 (p319), 5.11.1 (p320-321), 5.11.3 (p324-325), 5.5.4 (p273)",
+      "body_markdown": "## Why partial updating fails\n\n**Approve a change and the plans get rewritten to match it — and because a project's plans are integrated, that rewrite has to carry through into other processes too.** The source names **scope definition, solutions development and configuration management.**\n\nThat phrase — *the integrated nature of projects* — is the whole argument for 24e. LO19 established that the constituent plans constrain each other, so moving one of them moves another whether you meant it to or not. Update the schedule but not the budget and you have two plans making different claims about the same project. That is precisely the **misalignment, confusion and unwanted consequences** change control exists to avoid.\n\n## What has to be updated\n\n| Plan or artefact | What changes |\n|---|---|\n| **Scope definition** | The PBS and WBS, and the in-scope / out-of-scope statement (LO17) |\n| **Solutions development** | The specification of the chosen solution (LO17) |\n| **Schedule** | Activities, durations, dependencies — and the critical path may move (LO20) |\n| **Budget and cash flow forecast** | Cost baseline and drawdown profile (LO22) |\n| **Resource plan** | New resources, or reallocation of the existing profile (LO21) |\n| **Risk register** | Risks created or reduced by the change (LO23) |\n| **Quality plan** | Acceptance criteria affected by altered deliverables (LO18) |\n| **Benefits** | New or altered benefits, and the benefit profiles behind them (LO9) |\n| **Configuration** | **Approved changes reflected in the latest configuration version**, with **interrelationships between configuration items updated** (LO16) |\n| **Business case** | Where the impact is material, reapproval may be needed (LO4) |\n| **Deployment baseline** | The amended baseline that delivery is now measured against (LO19) |\n\n**The configuration point is specific and examinable:** **an agreed change has to show up in the configuration itself — whatever it does to how the deliverables function or what they physically are gets written down and passed to everyone on the team.**\n\nWithout that step, a change is approved and half the team keeps building to the old specification.\n\n## Implementation is not the end\n\n**Then it gets implemented, and its impacts are watched right through to completion.**\n\nWith **controls established to do that watching.** The impact assessment was a forecast made on working assumptions about a solution that was not yet designed — monitoring is how you find out whether it held.\n\n**Communicate it too:** approved changes must be **communicated to stakeholders** (LO17), and **the decision is communicated to the project team** (LO24a). A change nobody was told about is an uncontrolled change with paperwork.\n\n## Why the updated baseline matters\n\nThe updated plan becomes **the starting point for progress monitoring**. Everything downstream depends on it:\n\n- **Progress monitoring** needs **a baseline to measure against** (LO20). Measuring against a superseded baseline produces variances that are artefacts of the paperwork rather than the work.\n- **Earned value** compares actual and earned against **planned value** — which comes from the cost baseline (LO22).\n- **Change control itself** assesses future requests **against the baseline**. An out-of-date baseline corrupts every subsequent impact assessment.\n\nSo failing to update plans does not just leave one document stale. It degrades the control system that every remaining decision depends on.\n\n## And where it cannot be recovered\n\nFrom LO20: **when monitoring surfaces something the project cannot recover from, you replan and set an amended baseline.** Change control is the ordinary route for a variation; replanning is what happens when the accumulated position no longer works at all.\n\nThat is the honest closing note for the syllabus. Control does not mean the plan survives — it means the plan only ever moves for a reason, with the impact understood and someone accountable for the decision."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Change control and change management are the same thing.",
+      "right": "Change control is the process governing changes to one project's baseline. Change management is a whole-organisation approach to transformation. The source distinguishes them explicitly."
+    },
+    {
+      "wrong": "The purpose of change control is to minimise change.",
+      "right": "Change is an inevitable part of any project. The purpose is to ensure sponsors understand the impacts of a requested change so they can make an effective decision — controlling change, not preventing it."
+    },
+    {
+      "wrong": "Every change request gets a full impact assessment.",
+      "right": "Initial evaluation exists to consider whether a change is worth evaluating in detail. If not, it is rejected at that stage, before the expensive assessment is done."
+    },
+    {
+      "wrong": "The sponsor either approves or rejects a change.",
+      "right": "There are three outcomes — approve, reject or defer. Deferral keeps a sound change alive in the register when the timing is wrong."
+    },
+    {
+      "wrong": "The project manager decides whether a change goes ahead.",
+      "right": "The project professional presents options and a recommendation. The sponsor is accountable for ensuring the decision is made, and changes beyond their authority escalate to the governance board."
+    },
+    {
+      "wrong": "An impact assessment looks for the damage a change would do.",
+      "right": "Most of the eight impact areas are two-directional. Time can shorten, cost can fall, quality can improve and risk can reduce. An assessment looking only for harm will miss the case for approval."
+    },
+    {
+      "wrong": "If a change was implemented without approval, the process has been bypassed.",
+      "right": "The project professional should manage the process retrospectively, so the impacts are still fully understood and recorded."
+    },
+    {
+      "wrong": "Iterative projects do not need change control.",
+      "right": "A clear process is needed regardless of approach or life cycle. What differs is what counts as a change — new items entering a backlog are normal operation, while altering what is already committed to a timebox is not."
+    },
+    {
+      "wrong": "Once a change is approved, the schedule is updated.",
+      "right": "Because projects are integrated, updates must propagate — scope, solution, schedule, budget, resources, risk, quality, benefits, configuration and possibly the business case. Updating one plan creates the misalignment change control exists to prevent."
+    },
+    {
+      "wrong": "Implementing an approved change completes the process.",
+      "right": "Impacts are monitored through to completion, with controls put in place. The impact assessment was a forecast built on working assumptions; monitoring is how you learn whether it was right."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "cue",
+      "acronym": "Log, filter, assess, decide, update, implement",
+      "expansion": "The six stages. The filter is initial evaluation — deciding whether a change even deserves a detailed assessment."
+    },
+    {
+      "type": "cue",
+      "acronym": "Approve, reject, defer",
+      "expansion": "Three outcomes, not two. Defer means the change may be right and the timing wrong, so it stays in the register rather than being lost."
+    },
+    {
+      "type": "cue",
+      "acronym": "Control the project, manage the organisation",
+      "expansion": "Change control governs a project's baseline. Change management is organisational transformation. Same word, different discipline."
+    },
+    {
+      "type": "cue",
+      "acronym": "Both directions",
+      "expansion": "Time can shorten, cost can fall, quality can improve, risk can reduce. Assess a change for what it gives as well as what it takes."
+    },
+    {
+      "type": "cue",
+      "acronym": "One change, many plans",
+      "expansion": "An approved change propagates into scope, schedule, budget, resources, risk, quality, benefits and configuration. Update one and you have created the misalignment you were trying to avoid."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define change control, distinguish it from change management, and say where change requests come from.",
+    "I can name the six stages of the change control process and explain the purpose of each, including why initial evaluation exists.",
+    "I can explain what a change freeze is and what to do when a change has been implemented without approval.",
+    "I can explain how change control differs between linear and iterative life cycles, and why.",
+    "I can list what a change request should capture, and name the three characteristics assessed before committing to a detailed evaluation.",
+    "I can give the eight impact areas as questions, and explain why several are two-directional.",
+    "I can describe ways of framing options for a change, and justify a recommendation to approve, reject or defer.",
+    "I can explain why approved changes must propagate across all the plans, and what depends on the baseline being current."
+  ],
+  "source_confidence": [
+    {
+      "claim": "All content for 24a, 24c and 24e — the six process stages, the change control versus change management distinction, sources of change requests, retrospective management, change freeze, the impact assessment sequence, the three sizing characteristics, the eight impact areas, options presentation, and plan propagation including configuration.",
+      "sub_outcome": "24a",
+      "level": "sourced",
+      "basis": "BoK 8e 5.11 (p319), 5.11.1 (p320-321), 5.11.2 (p322-323), 5.11.3 (p324-325). The eight impact areas are stated as questions verbatim at 5.11.2 (p322), and the change control versus change management distinction at 5.11.1 (p321).",
+      "risk": "None."
+    },
+    {
+      "claim": "The change request contents list in 24b.",
+      "sub_outcome": "24b",
+      "level": "assembled",
+      "basis": "The syllabus asks what should be captured and recorded in change requests. **BoK 8e does not give a change request contents list** — it states that a change register records all requested changes (5.11.1, p320) and describes what each process stage produces. The fields are derived from what the six stages and the impact assessment demonstrably require.",
+      "risk": "Moderate, and the main flag in this LO. Every field traces to a documented process need rather than being invented, and the list is consistent with standard practice, but it is our composition. If an APM-published change request template becomes available, check the field set against it."
+    },
+    {
+      "claim": "The linear versus iterative comparison for where change control stages differ.",
+      "sub_outcome": "24a",
+      "level": "assembled",
+      "basis": "The syllabus asks where stages differ by life cycle. BoK 8e 5.11.1 (p320) states only that a clear process is needed 'regardless of the project's approach or chosen life cycle'. The comparison is built from sourced life cycle characteristics elsewhere — scope fixed at the deployment baseline and changes going through change control at 5.5.3 (p270), timeboxes and returned backlog work at 5.5.3 (p270), team authority to reprioritise at 5.5.3 (p270), and the product backlog at 5.2.1 (p237).",
+      "risk": "Moderate. Same pattern as the LO23 life cycle comparison — every element is sourced but BoK does not draw the comparison the syllabus asks for. The content deliberately closes by stating that formal change control still exists in iterative work, to prevent it being read as 'iterative means no change control'."
+    },
+    {
+      "claim": "The option types for framing a change (do nothing, full, partial, defer, alternative solution) and the justification framings for approve, reject and defer.",
+      "sub_outcome": "24c",
+      "level": "constructed",
+      "basis": "BoK 8e 5.11.2 (p323) states that several options may be evaluated each with its own level of impact, and 5.11.1 (p320) gives the three decision outcomes — but neither enumerates option types nor sets out how to justify each decision. 'Do nothing' as a standing option is sourced from 5.2.2 (p238). The rest is our synthesis from the assessment criteria the source does give.",
+      "risk": "Moderate. Defensible and directly useful for 24c and 24d, both of which ask for something BoK does not lay out. Every criterion used in the justifications is sourced — strategic alignment, risk appetite, feasibility, benefits, cross-project impact — only the arrangement into approve/reject/defer arguments is ours."
+    }
+  ]
+}
