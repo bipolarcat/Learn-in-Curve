@@ -8,11 +8,9 @@
  * user knows to retry / email directly) but must not crash the route.
  */
 
+import { feedbackFrom } from "@/lib/notify/senders";
+
 const FEEDBACK_TO = "simsamaarshened@gmail.com";
-// Resend's shared test/onboarding sender — no domain setup needed. Fine for
-// a single internal recipient; swap to a verified domain sender if this
-// starts fanning out to more than one inbox.
-const FEEDBACK_FROM = "Learn in Curve feedback <onboarding@resend.dev>";
 
 export type FeedbackEmailInput = {
   message: string;
@@ -42,7 +40,7 @@ export async function sendFeedbackEmail(
   }
 
   const body = {
-    from: FEEDBACK_FROM,
+    from: feedbackFrom(),
     to: [FEEDBACK_TO],
     // Reply-to the submitter directly so replying from Gmail just works.
     reply_to: input.email,

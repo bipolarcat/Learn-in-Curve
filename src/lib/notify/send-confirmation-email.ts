@@ -10,8 +10,7 @@
  */
 
 import { getNotifyList, type NotifyList } from "@/lib/notify/lists";
-
-const DEFAULT_FROM = "Learn in Curve <onboarding@resend.dev>";
+import { notifyFrom } from "@/lib/notify/senders";
 
 type SendNotifyConfirmationInput = {
   email: string;
@@ -95,7 +94,7 @@ function renderHtml(input: SendNotifyConfirmationInput, list: NotifyList): strin
                 <div style="margin:12px 0 0 0;">
                   ${bodyHtml}
                 </div>
-                <p style="margin:18px 0 0 0;font-size:14px;line-height:1.6;color:#241A12cc;font-style:italic;">
+                <p style="margin:18px 0 0 0;font-size:15px;line-height:1.6;color:#241A12cc;">
                   All the best,<br />Sim Samaar Shened
                 </p>
               </td>
@@ -122,7 +121,7 @@ export async function sendNotifyConfirmationEmail(
   input: SendNotifyConfirmationInput,
 ): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.NOTIFY_EMAIL_FROM ?? DEFAULT_FROM;
+  const from = notifyFrom();
 
   const list = getNotifyList(input.listKey);
   if (!list) {

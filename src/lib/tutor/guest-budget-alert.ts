@@ -10,11 +10,9 @@
  * chat reply that's already been generated and billed for.
  */
 
+import { alertFrom } from "@/lib/notify/senders";
+
 const ALERT_TO = "simsamaarshened@gmail.com";
-// Resend's shared test/onboarding sender — works with zero domain setup,
-// fine for a single internal alert recipient. Swap to a verified domain
-// sender later if this needs to go to more than one inbox.
-const ALERT_FROM = "Learn in Curve alerts <onboarding@resend.dev>";
 
 export async function sendGuestBudgetAlertEmail(
   totalGbpCents: number,
@@ -36,7 +34,7 @@ export async function sendGuestBudgetAlertEmail(
   }
 
   const body = {
-    from: ALERT_FROM,
+    from: alertFrom(),
     to: [ALERT_TO],
     subject: `Guest Sly budget cap hit — £${totalGbp} spent`,
     text: [

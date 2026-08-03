@@ -5,8 +5,9 @@
  * dependency, just RESEND_API_KEY. Never throws.
  */
 
+import { contactFrom } from "@/lib/notify/senders";
+
 const CONTACT_TO = "simsamaarshened@gmail.com";
-const CONTACT_FROM = "Learn in Curve contact <onboarding@resend.dev>";
 
 export type ContactEmailInput = {
   firstName: string;
@@ -32,7 +33,7 @@ export async function sendContactEmail(
   const fullName = [input.firstName, input.lastName].filter(Boolean).join(" ");
 
   const body = {
-    from: CONTACT_FROM,
+    from: contactFrom(),
     to: [CONTACT_TO],
     // Reply-to the submitter directly so replying from Gmail just works.
     reply_to: input.email,

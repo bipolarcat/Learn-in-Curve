@@ -74,7 +74,8 @@ export const NOTIFY_LISTS: NotifyList[] = [
       "You'll be the first to know when the AI Pro Bundle launches.",
       "One email when it's ready. Nothing else.",
     ],
-    illustrationUrl: "https://learnincurve.com/brand/email/notify-illustration.jpg",
+    illustrationUrl:
+      "https://dbjoimidfbftammchnql.supabase.co/storage/v1/object/public/email-assets/notify-illustration.jpg",
     illustrationAlt: "A cheerful dog character throwing a paper plane into a mailbox",
   },
   {
@@ -88,7 +89,8 @@ export const NOTIFY_LISTS: NotifyList[] = [
       "We'll let you know as soon as PFQ in 2 Days launches.",
       "One email when it's ready. Nothing else.",
     ],
-    illustrationUrl: "https://learnincurve.com/brand/email/notify-illustration.jpg",
+    illustrationUrl:
+      "https://dbjoimidfbftammchnql.supabase.co/storage/v1/object/public/email-assets/notify-illustration.jpg",
     illustrationAlt: "A cheerful dog character throwing a paper plane into a mailbox",
   },
   {
@@ -102,7 +104,8 @@ export const NOTIFY_LISTS: NotifyList[] = [
       "You'll get new project management resources, AI insights, and course launches as they land.",
       "You can leave any time from the link at the bottom of any email.",
     ],
-    illustrationUrl: "https://learnincurve.com/brand/email/notify-illustration.jpg",
+    illustrationUrl:
+      "https://dbjoimidfbftammchnql.supabase.co/storage/v1/object/public/email-assets/notify-illustration.jpg",
     illustrationAlt: "A cheerful dog character throwing a paper plane into a mailbox",
   },
 ];
