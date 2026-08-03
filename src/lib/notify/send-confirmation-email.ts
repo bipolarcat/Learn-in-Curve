@@ -64,7 +64,6 @@ function renderIllustration(list: NotifyList): string {
 
 function renderHtml(input: SendNotifyConfirmationInput, list: NotifyList): string {
   const unsubscribeUrl = `${input.origin}/unsubscribe?token=${input.unsubscribeToken}`;
-  const logoUrl = `${input.origin}/brand/logo/fox-logo-png.png`;
 
   const bodyHtml = list.body
     .map(
@@ -83,25 +82,10 @@ function renderHtml(input: SendNotifyConfirmationInput, list: NotifyList): strin
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FBF3E1;padding:32px 16px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" style="max-width:480px;background-color:#ffffff;border-radius:16px;border:1px solid rgba(36,26,18,0.08);overflow:hidden;">
-            <tr>
-              <td style="padding:24px 32px 8px 32px;text-align:center;">
-                <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
-                  <tr>
-                    <td style="padding-right:8px;">
-                      <img src="${logoUrl}" width="28" height="28" alt="" style="display:block;border-radius:6px;" />
-                    </td>
-                    <td style="text-align:left;">
-                      <p style="margin:0;font-family:${DISPLAY_FONT_STACK};font-size:12px;font-weight:700;line-height:1;letter-spacing:-0.02em;color:#241A12;">Learn in</p>
-                      <p style="margin:1px 0 0 0;font-family:${DISPLAY_FONT_STACK};font-size:17px;font-weight:700;line-height:1;letter-spacing:-0.03em;color:#D5501F;">Curve</p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+          <table role="presentation" width="100%" style="max-width:480px;background-color:#FBF3E1;border-radius:16px;border:1px solid rgba(36,26,18,0.08);overflow:hidden;">
             <!-- ILLUSTRATION SLOT — artwork per list, from lists.ts -->
             <tr>
-              <td style="padding:8px 32px 0 32px;text-align:center;">
+              <td style="padding:24px 32px 0 32px;text-align:center;">
                 ${renderIllustration(list)}
               </td>
             </tr>

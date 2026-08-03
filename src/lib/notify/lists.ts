@@ -71,7 +71,7 @@ export const NOTIFY_LISTS: NotifyList[] = [
     subject: "You're on the list for the AI Pro Bundle",
     heading: "You're on the list",
     body: [
-      "You'll be the first to know when the AI Pro Bundle opens up — Sly, your AI tutor, plus your end-of-course report.",
+      "You'll be the first to know when the AI Pro Bundle launches.",
       "One email when it's ready. Nothing else.",
     ],
     illustrationUrl: "https://learnincurve.com/brand/email/notify-illustration.jpg",
@@ -100,7 +100,7 @@ export const NOTIFY_LISTS: NotifyList[] = [
     heading: "Welcome aboard",
     body: [
       "You'll get new project management resources, AI insights, and course launches as they land.",
-      "No spam — just things worth reading. You can leave any time from the link at the bottom of any email.",
+      "You can leave any time from the link at the bottom of any email.",
     ],
     illustrationUrl: "https://learnincurve.com/brand/email/notify-illustration.jpg",
     illustrationAlt: "A cheerful dog character throwing a paper plane into a mailbox",
