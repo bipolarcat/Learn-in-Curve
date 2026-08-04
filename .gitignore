@@ -36,3 +36,4 @@ scripts/captions/.tmp/
 *.mp4
 !public/brand/hero/hero-animals-2.mp4
 node_modules/
+.claude/skills/

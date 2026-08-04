@@ -1,6 +1,6 @@
 {
   "name": "learn-in-curve",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -36,6 +36,7 @@
     "lucide-react": "^1.27.0",
     "next": "^15.3.3",
     "playwright": "^1.61.1",
+    "posthog-js": "^1.379.0",
     "react": "^19.1.0",
     "react-day-picker": "^9.14.0",
     "react-dom": "^19.1.0",
