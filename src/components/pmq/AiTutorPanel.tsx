@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 import { AI_TUTOR_LAUNCHED } from "@/lib/pmq/constants";
 import { LockedFeature } from "@/components/LockedFeature";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
@@ -313,6 +314,11 @@ export function AiTutorPanel({
     const trimmed = (messageOverride ?? input).trim();
     if (!trimmed || sending || chatLocked) return;
 
+    posthog.capture("tutor_message_sent", {
+      course_id: courseId,
+      learning_objective: loNumber,
+      is_entitled: hasEntitlement,
+    });
     setSending(true);
     setError("");
     setFailedSend(null);

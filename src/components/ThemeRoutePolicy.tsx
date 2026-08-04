@@ -2,6 +2,8 @@
 
 import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
+import posthog from "posthog-js";
+import { createClient } from "@/lib/supabase/client";
 import {
   allowsDarkMode,
   applyDocumentTheme,
@@ -17,6 +19,34 @@ import {
  */
 export function ThemeRoutePolicy() {
   const pathname = usePathname();
+
+  useEffect(() => {
+    const supabase = createClient();
+    let identifiedUserId: string | null = null;
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT") {
+        posthog.reset();
+        identifiedUserId = null;
+        return;
+      }
+
+      if (!session?.user || (event !== "INITIAL_SESSION" && event !== "SIGNED_IN")) {
+        return;
+      }
+
+      if (identifiedUserId && identifiedUserId !== session.user.id) {
+        posthog.reset();
+      }
+      posthog.identify(session.user.id, {
+        email: session.user.email,
+      });
+      identifiedUserId = session.user.id;
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   // Before paint on route change — no hydration impact (runs after hydrate).
   useLayoutEffect(() => {

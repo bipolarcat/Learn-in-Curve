@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { createAiTutorCheckout } from "@/lib/pmq/actions";
 import { authHrefWithNext } from "@/lib/auth-next";
 import { PMQ_PRICING_PRO_INTENT_HREF } from "@/lib/pmq/plans";
@@ -64,6 +65,10 @@ export function PmqProCheckoutButton({
         return;
       }
       if ("url" in result && result.url) {
+        posthog.capture("checkout_started", {
+          product: "pmq_pro_bundle",
+          entry_point: returnPath ?? "pricing_page",
+        });
         window.location.href = result.url;
         return;
       }

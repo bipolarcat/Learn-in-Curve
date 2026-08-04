@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import {
   useCallback,
   useEffect,
@@ -387,6 +388,11 @@ export function MockExamRunner({
       const nextDeadline =
         result.deadlineAt ??
         new Date(Date.now() + partMinutes * 60_000).toISOString();
+      posthog.capture("mock_exam_started", {
+        exam_set: examSet,
+        exam_tier: tier,
+        is_demo: isDemo,
+      });
       setSessionId(id);
       setCurrentPart(1);
       setDeadlineAt(nextDeadline);

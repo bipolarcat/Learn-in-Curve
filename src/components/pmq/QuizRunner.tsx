@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import {
   useCallback,
   useRef,
@@ -246,6 +247,12 @@ function McqQuestion({
     lockRef.current = true;
 
     const isCorrect = selected === correctLetter;
+    posthog.capture("quiz_answer_checked", {
+      learning_objective: loNumber,
+      question_type: question.question_type,
+      is_correct: isCorrect,
+      attempt_context: attemptContext ?? "practice_quiz",
+    });
     setSubmitted(true);
     setFeedback(
       isCorrect
@@ -445,6 +452,12 @@ function DropdownQuestion({
 
     lockRef.current = true;
     const isCorrect = dropdownIsCorrect(nextValues, correct);
+    posthog.capture("quiz_answer_checked", {
+      learning_objective: loNumber,
+      question_type: question.question_type,
+      is_correct: isCorrect,
+      attempt_context: attemptContext ?? "practice_quiz",
+    });
     setSubmitted(true);
     setFeedback(dropdownFeedbackMessage(question, nextValues, correct));
     onAnswered({ submittedAnswer: nextValues, isCorrect });
@@ -622,6 +635,12 @@ function RevealAnswerQuestion({
   const handleReveal = useCallback(
     (btn: HTMLButtonElement) => {
       if (revealed) return;
+      posthog.capture("quiz_answer_checked", {
+        learning_objective: loNumber,
+        question_type: question.question_type,
+        is_correct: null,
+        attempt_context: attemptContext ?? "practice_quiz",
+      });
       setRevealed(true);
       onAnswered({ submittedAnswer: "revealed", isCorrect: null });
       startTransition(async () => {

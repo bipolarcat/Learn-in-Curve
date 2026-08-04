@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 import { CtaArrow, stampCtaPrimaryCompact } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
@@ -58,6 +59,10 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
         return;
       }
 
+      posthog.capture("newsletter_subscription_completed", {
+        signup_variant: variant,
+        list: NEWSLETTER_LIST_KEY,
+      });
       setStatus("ready");
     } catch {
       setStatus("error");

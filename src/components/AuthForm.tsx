@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import posthog from "posthog-js";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
@@ -205,6 +206,10 @@ export function AuthForm({
       /* non-fatal: worst case they land light and can toggle */
     });
 
+    posthog.capture("auth_successful", {
+      auth_method: "password",
+      auth_mode: mode,
+    });
     router.push(safeNextPath);
     router.refresh();
   }
