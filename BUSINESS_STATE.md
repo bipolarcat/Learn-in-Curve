@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Status page secondary CTA always reads **Go back** (error no longer shows Try again); navigates with `router.back()` (`SiteStatusPage.tsx`).
+
 - **2026-08-06** — About: Vision/Goal/Values/Founder titles orange, larger, and bold (`AboutPage.module.css`).
 
 - **2026-08-06** — About: Vision/Goal/Values/Founder titles larger + gold; founder intro unbolded; shared 48rem rail so founder panel matches hero/story width (`AboutPage.module.css`).

@@ -15,7 +15,7 @@ export type SiteStatusVariant = "not-found" | "error";
 
 type SiteStatusPageProps = {
   variant: SiteStatusVariant;
-  /** error.tsx reset callback */
+  /** Kept for callers (`error.tsx`); secondary CTA is always Go back. */
   onRetry?: () => void;
 };
 
@@ -37,7 +37,7 @@ const COPY: Record<
         Something went <span className="text-orange">wrong</span>
       </>
     ),
-    body: "We hit an unexpected snag loading this page. Try again, or head home and pick up from there.",
+    body: "We hit an unexpected snag loading this page. Go back or head home and pick up from there.",
   },
 };
 
@@ -46,12 +46,11 @@ const COPY: Record<
  * Cream paper, Fraunces headline, body CTAs, soft colour wipe
  * (LIC rewrite of the black/stick-figure demo).
  */
-export function SiteStatusPage({ variant, onRetry }: SiteStatusPageProps) {
+export function SiteStatusPage({ variant }: SiteStatusPageProps) {
   const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [homePending, startHome] = useTransition();
   const [backPending, startBack] = useTransition();
-  const [retryPending, startRetry] = useTransition();
 
   const copy = COPY[variant];
 
@@ -104,57 +103,32 @@ export function SiteStatusPage({ variant, onRetry }: SiteStatusPageProps) {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {variant === "error" && onRetry ? (
-            <button
-              type="button"
-              disabled={retryPending}
-              aria-busy={retryPending}
-              className={`${formActionSecondary} !min-h-10 !px-4 !text-[13px] disabled:cursor-wait disabled:opacity-80`}
-              onClick={() => {
-                startRetry(() => {
-                  onRetry();
-                });
-              }}
-            >
-              {retryPending ? (
-                <Spinner
-                  variant="ellipsis"
-                  size={14}
-                  className="text-current"
-                  aria-hidden
-                />
-              ) : (
-                "Try again"
-              )}
-            </button>
-          ) : (
-            <button
-              type="button"
-              disabled={backPending}
-              aria-busy={backPending}
-              className={`${formActionSecondary} !min-h-10 !px-4 !text-[13px] disabled:cursor-wait disabled:opacity-80`}
-              onClick={() => {
-                startBack(() => {
-                  if (window.history.length > 1) {
-                    router.back();
-                  } else {
-                    router.push("/");
-                  }
-                });
-              }}
-            >
-              {backPending ? (
-                <Spinner
-                  variant="ellipsis"
-                  size={14}
-                  className="text-current"
-                  aria-hidden
-                />
-              ) : (
-                "Go back"
-              )}
-            </button>
-          )}
+          <button
+            type="button"
+            disabled={backPending}
+            aria-busy={backPending}
+            className={`${formActionSecondary} !min-h-10 !px-4 !text-[13px] disabled:cursor-wait disabled:opacity-80`}
+            onClick={() => {
+              startBack(() => {
+                if (window.history.length > 1) {
+                  router.back();
+                } else {
+                  router.push("/");
+                }
+              });
+            }}
+          >
+            {backPending ? (
+              <Spinner
+                variant="ellipsis"
+                size={14}
+                className="text-current"
+                aria-hidden
+              />
+            ) : (
+              "Go back"
+            )}
+          </button>
 
           <button
             type="button"
