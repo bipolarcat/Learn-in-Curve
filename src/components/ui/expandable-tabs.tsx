@@ -4,7 +4,6 @@ import * as React from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
 import { cn } from "@/lib/utils";
-import { Tooltip } from "@/components/ui/tooltip";
 import type { LucideIcon } from "lucide-react";
 
 interface Tab {
@@ -48,7 +47,7 @@ interface ExpandableTabsProps {
    */
   onDisabledActivate?: (index: number) => void;
   /**
-   * Cream no-delay tooltip above a disabled tab (21st Tooltip, `delay={false}`).
+   * Cream tip above a disabled tab on click — auto-hides after a couple seconds.
    */
   disabledHint?: string;
 }
@@ -93,6 +92,9 @@ const labelEnter = {
   exit: { opacity: 0, transition: { duration: 0 } },
 };
 
+/** Pathway tip — visible briefly, then self-dismisses. */
+const DISABLED_HINT_MS = 2500;
+
 export function ExpandableTabs({
   tabs,
   className,
@@ -111,18 +113,47 @@ export function ExpandableTabs({
     defaultValue,
   );
   const selected = isControlled ? value! : uncontrolled;
+  const [hintIndex, setHintIndex] = React.useState<number | null>(null);
+  const hintTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const outsideClickRef = React.useRef<HTMLDivElement>(null);
   const reduceMotionPref = useReducedMotion();
   const [motionReady, setMotionReady] = React.useState(false);
   React.useEffect(() => {
     setMotionReady(true);
   }, []);
+  React.useEffect(() => {
+    return () => {
+      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
+    };
+  }, []);
   // SSR + first client paint both treat as “motion on” so Framer style attrs match.
   const reduceMotion = motionReady && Boolean(reduceMotionPref);
   const enterTransition = reduceMotion ? { duration: 0 } : LABEL_ENTER;
   const compact = size === "compact";
 
+  const clearHint = React.useCallback(() => {
+    if (hintTimerRef.current) {
+      clearTimeout(hintTimerRef.current);
+      hintTimerRef.current = null;
+    }
+    setHintIndex(null);
+  }, []);
+
+  const showDisabledHint = React.useCallback(
+    (index: number) => {
+      if (!disabledHint) return;
+      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
+      setHintIndex(index);
+      hintTimerRef.current = setTimeout(() => {
+        setHintIndex(null);
+        hintTimerRef.current = null;
+      }, DISABLED_HINT_MS);
+    },
+    [disabledHint],
+  );
+
   useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
+    clearHint();
     if (!clearOnOutsideClick) return;
     if (!isControlled) setUncontrolled(null);
     onChange?.(null);
@@ -132,9 +163,11 @@ export function ExpandableTabs({
     const item = tabs[index];
     if (!item || item.type === "separator") return;
     if (item.disabled) {
+      showDisabledHint(index);
       onDisabledActivate?.(index);
       return;
     }
+    clearHint();
     if (!isControlled) setUncontrolled(index);
     onChange?.(index);
   };
@@ -150,7 +183,7 @@ export function ExpandableTabs({
     <div
       ref={outsideClickRef}
       className={cn(
-        "relative flex items-center rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
+        "relative flex items-center overflow-visible rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
         compact ? "flex-nowrap gap-0" : "flex-wrap gap-1",
         className,
       )}
@@ -164,10 +197,11 @@ export function ExpandableTabs({
         const isSelected = selected === index;
         const isDisabled = Boolean(tab.disabled);
         const showLabel = expandSelectedLabel && isSelected;
-        const showHint = Boolean(isDisabled && disabledHint);
+        const showHint = Boolean(disabledHint && hintIndex === index);
 
-        const button = (
+        return (
           <button
+            key={tab.title}
             type="button"
             onClick={() => handleSelect(index)}
             aria-current={isSelected ? "true" : undefined}
@@ -177,7 +211,7 @@ export function ExpandableTabs({
             }
             title={isDisabled ? undefined : tab.title}
             className={cn(
-              "relative inline-flex w-full items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
+              "relative inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
               compact
                 ? "h-7 min-w-0 rounded-md text-[11px]"
                 : "rounded-lg py-1.5 text-[12px]",
@@ -190,8 +224,8 @@ export function ExpandableTabs({
                 : showLabel
                   ? "gap-2 px-3"
                   : "gap-0 px-2",
-              !showHint && compact && !showLabel && "flex-1 px-0",
-              !showHint && compact && showLabel && "shrink-0",
+              compact && !showLabel && "flex-1 px-0",
+              compact && showLabel && "shrink-0",
               isSelected
                 ? cn(
                     "bg-ink/[0.05]",
@@ -204,6 +238,34 @@ export function ExpandableTabs({
               !isSelected && !isDisabled && "hover:bg-ink/[0.04]",
             )}
           >
+            <AnimatePresence>
+              {showHint ? (
+                <motion.span
+                  role="tooltip"
+                  initial={
+                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }
+                  }
+                  animate={
+                    reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
+                  }
+                  exit={
+                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: -4 }
+                  }
+                  transition={{
+                    duration: 0.14,
+                    delay: 0,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="pointer-events-none absolute bottom-[calc(100%+0.35rem)] left-1/2 z-[60] w-max max-w-[11rem] -translate-x-1/2 rounded-md border border-ink/10 bg-cream px-2 py-1 text-center font-body text-[10px] font-medium leading-snug tracking-tight text-ink/60 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.05),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/12 dark:bg-paper dark:text-ink/70"
+                >
+                  {disabledHint}
+                  <span
+                    className="absolute left-1/2 top-full -mt-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-b border-r border-ink/10 bg-cream dark:border-white/12 dark:bg-paper"
+                    aria-hidden
+                  />
+                </motion.span>
+              ) : null}
+            </AnimatePresence>
             <span className="relative inline-flex shrink-0 items-center justify-center">
               <Icon
                 size={compact ? 15 : 18}
@@ -244,32 +306,6 @@ export function ExpandableTabs({
               ) : null}
             </AnimatePresence>
           </button>
-        );
-
-        if (showHint) {
-          return (
-            <Tooltip
-              key={tab.title}
-              text={disabledHint}
-              position="top"
-              delay={false}
-              type="cream"
-              openOnClick
-              tip
-              center
-              inline
-              wrapperClassName={cn(
-                compact && !showLabel && "min-w-0 flex-1",
-                compact && showLabel && "shrink-0",
-              )}
-            >
-              {button}
-            </Tooltip>
-          );
-        }
-
-        return (
-          <React.Fragment key={tab.title}>{button}</React.Fragment>
         );
       })}
     </div>
