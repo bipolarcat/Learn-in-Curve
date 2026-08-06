@@ -8,10 +8,9 @@ import styles from "./AboutPage.module.css";
 export const metadata: Metadata = {
   title: "About - Learn in Curve",
   description:
-    "Why Learn in Curve exists — clear, practical learning for project management professionals.",
+    "An AI-powered education platform helping project managers stay ahead of the curve.",
 };
 
-const COMPANY_LINKEDIN = "https://www.linkedin.com/company/learn-in-curve/";
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/simsamaarshened";
 
 function LinkedInIcon({ className = "" }: { className?: string }) {
@@ -45,7 +44,7 @@ function ArtFrame({
         alt={alt}
         fill
         priority={priority}
-        sizes="(max-width: 640px) 100vw, 280px"
+        sizes="(max-width: 640px) 100vw, 240px"
         className="object-cover"
       />
     </div>
@@ -59,7 +58,6 @@ type BlockProps = {
   alt: string;
   lead: string;
   body: ReactNode;
-  /** Art on the right. Default: art left. */
   artEnd?: boolean;
   priority?: boolean;
 };
@@ -76,42 +74,36 @@ function AboutBlock({
 }: BlockProps) {
   return (
     <section className={styles.block} aria-labelledby={id}>
-      <div className="wrap">
-        <ScrollReveal>
-          <div
-            className={`${styles.row} ${artEnd ? styles.rowReverse : ""}`}
-          >
-            <ArtFrame src={src} alt={alt} priority={priority} />
-            <div className={styles.copy}>
-              <h2 id={id} className={styles.sectionTitle}>
-                {title}
-              </h2>
-              <p className={styles.lead}>{lead}</p>
-              <div className={styles.body}>{body}</div>
-            </div>
-          </div>
-        </ScrollReveal>
+      <div className={`${styles.row} ${artEnd ? styles.rowReverse : ""}`}>
+        <ArtFrame src={src} alt={alt} priority={priority} />
+        <div className={styles.copy}>
+          <h2 id={id} className={styles.sectionTitle}>
+            {title}
+          </h2>
+          <p className={styles.lead}>{lead}</p>
+          <div className={styles.body}>{body}</div>
+        </div>
       </div>
     </section>
   );
 }
 
 /**
- * About — cream paper scroll; larger framed art + lead/body hierarchy.
+ * About — one continuous cream-paper stack (hero → story → founder).
  * Copy from Notion “About section content update” (2026-08-06).
  */
 export default function AboutPage() {
   return (
-    <div className="relative text-ink">
-      <section
-        className={styles.hero}
-        aria-labelledby="about-hero-title"
-      >
-        <div className="wrap relative z-[1]">
+    <div className={`relative text-ink ${styles.page}`}>
+      <div className={`wrap ${styles.stack}`}>
+        <section
+          className={styles.hero}
+          aria-labelledby="about-hero-title"
+        >
           <div className={styles.heroInner}>
             <h1
               id="about-hero-title"
-              className="hero-enter font-display text-[clamp(2.4rem,5.5vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-ink"
+              className={`hero-enter ${styles.heroTitle}`}
               style={{ "--hero-i": 0 } as CSSProperties}
             >
               About{" "}
@@ -120,92 +112,100 @@ export default function AboutPage() {
               </span>
             </h1>
             <p
-              className="hero-enter mt-4 max-w-[34rem] text-pretty font-body text-[16px] leading-relaxed text-ink/70 sm:text-[18px]"
+              className={`hero-enter ${styles.heroSupport}`}
               style={{ "--hero-i": 1 } as CSSProperties}
             >
-              Clear, practical learning for project management professionals —
-              built to fit around real work and real life.
+              An AI-powered education platform helping project managers stay
+              ahead of the curve
             </p>
           </div>
+        </section>
+
+        <div className={styles.story}>
+          <ScrollReveal>
+            <AboutBlock
+              id="about-vision"
+              title="Vision"
+              src="/brand/inspo/about-vision.jpg"
+              alt="Flat poster illustration of a person studying with a ticket-shaped booklet"
+              priority
+              lead="Professional learning shouldn't feel overwhelming, expensive, or impossible to fit into a busy life."
+              body={
+                <>
+                  <p>
+                    We believe anyone with the ambition to grow their career
+                    should have access to clear, practical, and effective
+                    learning tools.
+                  </p>
+                  <p>
+                    Learn in Curve exists to transform the way professionals
+                    prepare for qualifications by turning complex material into
+                    structured learning journeys that fit around real work, real
+                    commitments, and real life.
+                  </p>
+                </>
+              }
+            />
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <AboutBlock
+              id="about-goal"
+              title="Goal"
+              src="/brand/inspo/about-goal.jpg"
+              alt="Flat poster illustration of a figure before a bold orange arch"
+              artEnd
+              lead="Our goal is simple: help you walk into your exam with confidence, not uncertainty."
+              body={
+                <>
+                  <p>
+                    Every part of Learn in Curve is designed around one outcome:
+                    helping you understand the material, build your knowledge,
+                    test your progress, and achieve your qualification.
+                  </p>
+                  <p>
+                    No endless slides. No overwhelming textbooks. Just focused
+                    learning that moves you closer to passing.
+                  </p>
+                </>
+              }
+            />
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <AboutBlock
+              id="about-values"
+              title="Values"
+              src="/brand/inspo/about-values.jpg"
+              alt="Flat poster illustration of an orange stamp seal beside paper"
+              lead="We believe learning should be honest, useful, and built around the learner, not the business model."
+              body={
+                <>
+                  <p>
+                    That means creating genuinely valuable free resources, being
+                    transparent about what is included, and building features
+                    that solve real problems rather than adding unnecessary
+                    complexity.
+                  </p>
+                  <p>
+                    We don&apos;t chase hype. We focus on building tools that
+                    genuinely help people learn, grow, and succeed.
+                  </p>
+                </>
+              }
+            />
+          </ScrollReveal>
         </div>
-      </section>
 
-      <AboutBlock
-        id="about-vision"
-        title="Vision"
-        src="/brand/inspo/about-vision.jpg"
-        alt="Flat poster illustration of a person studying with a ticket-shaped booklet"
-        priority
-        lead="Professional learning shouldn't feel overwhelming, expensive, or impossible to fit into a busy life."
-        body={
-          <>
-            <p>
-              We believe anyone with the ambition to grow their career should
-              have access to clear, practical, and effective learning tools.
-            </p>
-            <p>
-              Learn in Curve exists to transform the way professionals prepare
-              for qualifications by turning complex material into structured
-              learning journeys that fit around real work, real commitments, and
-              real life.
-            </p>
-          </>
-        }
-      />
-
-      <AboutBlock
-        id="about-goal"
-        title="Goal"
-        src="/brand/inspo/about-goal.jpg"
-        alt="Flat poster illustration of a figure before a bold orange arch"
-        artEnd
-        lead="Our goal is simple: help you walk into your exam with confidence, not uncertainty."
-        body={
-          <>
-            <p>
-              Every part of Learn in Curve is designed around one outcome —
-              helping you understand the material, build your knowledge, test
-              your progress, and achieve your qualification.
-            </p>
-            <p>
-              No endless slides. No overwhelming textbooks. Just focused
-              learning that moves you closer to passing.
-            </p>
-          </>
-        }
-      />
-
-      <AboutBlock
-        id="about-values"
-        title="Values"
-        src="/brand/inspo/about-values.jpg"
-        alt="Flat poster illustration of an orange stamp seal beside paper"
-        lead="We believe learning should be honest, useful, and built around the learner — not the business model."
-        body={
-          <>
-            <p>
-              That means creating genuinely valuable free resources, being
-              transparent about what is included, and building features that
-              solve real problems rather than adding unnecessary complexity.
-            </p>
-            <p>
-              We don&apos;t chase hype. We focus on building tools that
-              genuinely help people learn, grow, and succeed.
-            </p>
-          </>
-        }
-      />
-
-      <section className={styles.founder} aria-labelledby="about-founder">
-        <div className="wrap">
+        <section className={styles.founder} aria-labelledby="about-founder">
           <ScrollReveal>
             <div className={styles.founderPanel}>
               <div className={styles.founderPhoto}>
                 <Image
                   src="/brand/sim-profile.jpg"
-                  alt="Sim, founder of Learn in Curve"
+                  alt="Sim Samaar Shened, founder of Learn in Curve"
                   fill
-                  sizes="(max-width: 640px) 100vw, 200px"
+                  sizes="(max-width: 640px) 100vw, 180px"
                   className="object-cover object-top"
                 />
               </div>
@@ -215,9 +215,10 @@ export default function AboutPage() {
                   Founder
                 </h2>
                 <p className={styles.lead}>
-                  Learn in Curve was founded by Sim, a project management
-                  professional who experienced first-hand how expensive,
-                  time-consuming, and inaccessible professional learning can be.
+                  Learn in Curve was founded by Sim Samaar Shened, a project
+                  management professional who experienced first-hand how
+                  expensive, time-consuming, and inaccessible professional
+                  learning can be.
                 </p>
                 <div className={styles.body}>
                   <p>
@@ -247,20 +248,12 @@ export default function AboutPage() {
                     <LinkedInIcon className="shrink-0" />
                     Connect with Sim
                   </a>
-                  <a
-                    href={COMPANY_LINKEDIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.companyLink}
-                  >
-                    Learn in Curve on LinkedIn
-                  </a>
                 </div>
               </div>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

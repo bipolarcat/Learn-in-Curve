@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — About polish: drop company LinkedIn text link; hero tagline from LinkedIn company line; orange section titles; leads stay bold, other copy regular; no em dashes / section rules; one wrap stack with founder panel matching hero rail width; tighter type scale; founder named Sim Samaar Shened (`(site)/about/*`, `ABOUT_PAGE_COPY.md`).
+
 - **2026-08-06** — Footer LinkedIn → company page (`https://www.linkedin.com/company/learn-in-curve/`). About restaged to match Home cream-paper language: larger framed art, lead/body hierarchy, founder paper panel; copy swapped from Notion “About section content update” (`SiteFooter.tsx`, `(site)/about/page.tsx`, `AboutPage.module.css`, `ABOUT_PAGE_COPY.md`).
 
 - **2026-08-06** — Quiz empty-answer tip + pathway locked-stage tip: stop using CSS `transform` for centering (Framer’s `y` was overwriting it and shoving tips off the right on mobile). Tips now use measured width + fixed `left`/`bottom` clamped to the quiz card / viewport (`CheckAnswerHint`, `ExpandableTabs`).

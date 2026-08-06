@@ -1,111 +1,163 @@
+/**
+ * About layout — one wrap stack so hero, story, and founder share the same
+ * horizontal rail. Tight grouping inside blocks; generous space only between
+ * the three page groups (hero / story / founder).
+ */
+
+.page {
+  --about-rail: min(40rem, 100%);
+  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem);
+}
+
+.stack {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 3.5rem);
+}
+
 .hero {
-  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2rem, 4vw, 3rem);
+  padding: 0;
 }
 
 .heroInner {
+  width: var(--about-rail);
   margin-inline: auto;
-  max-width: 40rem;
   text-align: center;
 }
 
-.block {
-  padding-block: clamp(2.75rem, 6vw, 4.75rem);
+/* Mobile-first: clearly large; clamp ceiling stays modest so desktop doesn’t shout. */
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-size: clamp(2.75rem, 10vw, 3.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+  color: rgb(var(--ink-rgb));
 }
 
-.block + .block {
-  border-top: 1px solid rgb(var(--ink-rgb) / 0.08);
+.heroSupport {
+  margin: 0.85rem auto 0;
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: rgb(var(--ink-rgb) / 0.7);
+}
+
+@media (min-width: 40rem) {
+  .heroSupport {
+    font-size: 1.0625rem;
+  }
+}
+
+.story {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+  width: min(48rem, 100%);
+  margin-inline: auto;
+}
+
+.block {
+  padding: 0;
 }
 
 .row {
   display: grid;
   align-items: start;
-  gap: clamp(1.5rem, 4vw, 2.75rem);
+  gap: 1.25rem;
 }
 
 .artFrame {
   position: relative;
   aspect-ratio: 1;
   width: 100%;
-  max-width: 17.5rem;
+  max-width: 12.5rem;
   overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid rgb(var(--ink-rgb) / 0.18);
+  border-radius: 0.9rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.16);
   background: rgb(var(--paper-rgb));
   box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 0.04),
-    0 10px 28px rgb(var(--ink-rgb) / 0.08);
+    0 8px 22px rgb(var(--ink-rgb) / 0.07);
 }
 
 .copy {
   min-width: 0;
-  max-width: 36rem;
+  max-width: 34rem;
 }
 
 .sectionTitle {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-fraunces), ui-serif, Georgia, serif;
-  font-size: clamp(1.65rem, 3.2vw, 2.15rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   text-wrap: balance;
-  color: rgb(var(--ink-rgb));
+  color: var(--orange);
 }
 
 .lead {
-  margin: 0 0 1rem;
-  max-width: 38ch;
-  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.35;
+  margin: 0 0 0.7rem;
+  max-width: 40ch;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
   text-wrap: pretty;
   color: rgb(var(--ink-rgb));
 }
 
 .body {
   display: grid;
-  gap: 0.85rem;
-  max-width: 52ch;
+  gap: 0.65rem;
+  max-width: 54ch;
 }
 
 .body p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.6;
   text-wrap: pretty;
   color: rgb(var(--ink-rgb) / 0.72);
+  font-weight: 400;
 }
 
 @media (min-width: 40rem) {
+  .lead {
+    font-size: 1rem;
+  }
+
   .body p {
-    font-size: 1.0625rem;
+    font-size: 0.9375rem;
   }
 }
 
 .founder {
-  padding-block: clamp(3rem, 7vw, 5.5rem);
+  padding: 0;
+  width: var(--about-rail);
+  margin-inline: auto;
 }
 
 .founderPanel {
   display: grid;
-  gap: clamp(1.5rem, 4vw, 2.5rem);
-  max-width: 52rem;
-  margin-inline: auto;
-  padding: clamp(1.35rem, 3.5vw, 2rem);
+  gap: 1.25rem;
+  width: 100%;
+  padding: clamp(1.15rem, 3vw, 1.5rem);
   border: 1px solid rgb(var(--ink-rgb) / 0.14);
-  border-radius: 1.25rem;
+  border-radius: 1.1rem;
   background: rgb(var(--paper-rgb));
   box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 0.04),
-    0 12px 32px rgb(var(--ink-rgb) / 0.07);
+    0 10px 28px rgb(var(--ink-rgb) / 0.07);
 }
 
 .founderPhoto {
   position: relative;
   aspect-ratio: 1;
-  width: min(100%, 11.5rem);
+  width: min(100%, 9.5rem);
   overflow: hidden;
-  border-radius: 0.9rem;
+  border-radius: 0.8rem;
   border: 1px solid rgb(var(--ink-rgb) / 0.2);
   background: rgb(var(--sand-rgb));
 }
@@ -115,56 +167,34 @@
 }
 
 .belief {
-  margin: 1.35rem 0 0;
-  max-width: 40ch;
-  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.35;
+  margin: 1rem 0 0;
+  max-width: 42ch;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.55;
   text-wrap: pretty;
-  color: rgb(var(--ink-rgb));
+  color: rgb(var(--ink-rgb) / 0.72);
 }
 
 .founderActions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.85rem 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.companyLink {
-  display: inline-flex;
-  min-height: 2.5rem;
-  align-items: center;
-  font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: rgb(var(--ink-rgb) / 0.55);
-  text-decoration: none;
-  transition: color 150ms var(--ease-out-quint);
-}
-
-.companyLink:hover {
-  color: var(--orange);
-}
-
-.companyLink:focus-visible {
-  outline: none;
-  border-radius: 0.35rem;
-  box-shadow: 0 0 0 2px rgb(var(--cream-rgb)), 0 0 0 4px var(--orange);
+  gap: 0.75rem;
+  margin-top: 1.15rem;
 }
 
 @media (min-width: 48rem) {
   .row {
-    grid-template-columns: minmax(0, 17.5rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 12.5rem) minmax(0, 1fr);
     align-items: center;
+    gap: 1.75rem;
   }
 
   .rowReverse {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 17.5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 12.5rem);
   }
 
   .rowReverse .artFrame {
@@ -179,13 +209,8 @@
   }
 
   .founderPanel {
-    grid-template-columns: 11.5rem minmax(0, 1fr);
+    grid-template-columns: 9.5rem minmax(0, 1fr);
     align-items: start;
-  }
-}
-
-@media (max-width: 47.99rem) {
-  .artFrame {
-    max-width: 14rem;
+    gap: 1.5rem;
   }
 }
