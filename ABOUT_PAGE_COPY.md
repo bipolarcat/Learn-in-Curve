@@ -61,5 +61,5 @@ Built by one founder. Driven by one belief: exceptional learning should be acces
 
 - Footer social LinkedIn chip points at the company page: https://www.linkedin.com/company/learn-in-curve/
 - No em dashes on this page.
-- Section titles (Vision / Goal / Values / Founder) are gold and larger; Vision/Goal/Values lead lines stay bold; founder intro is regular weight.
+- Section titles (Vision / Goal / Values / Founder) are orange, larger, and bold; Vision/Goal/Values lead lines stay bold; founder intro is regular weight.
 - No claim that Sim personally holds the PMQ certification.

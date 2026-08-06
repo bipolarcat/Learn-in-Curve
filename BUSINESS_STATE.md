@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — About: Vision/Goal/Values/Founder titles orange, larger, and bold (`AboutPage.module.css`).
+
 - **2026-08-06** — About: Vision/Goal/Values/Founder titles larger + gold; founder intro unbolded; shared 48rem rail so founder panel matches hero/story width (`AboutPage.module.css`).
 
 - **2026-08-06** — About polish: drop company LinkedIn text link; hero tagline from LinkedIn company line; orange section titles; leads stay bold, other copy regular; no em dashes / section rules; one wrap stack with founder panel matching hero rail width; tighter type scale; founder named Sim Samaar Shened (`(site)/about/*`, `ABOUT_PAGE_COPY.md`).
