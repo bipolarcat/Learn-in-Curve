@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Silent ship: pushed `master` `a488be2..d91407d` to GitHub (`bipolarcat/Learn-in-Curve`) to trigger Railway production deploy. Batch includes About restage, tip positioning fixes, footer company LinkedIn, status-page Go back copy, and related polish — no user announcement (Level 0 changelog ladder).
+
 - **2026-08-06** — Status page secondary CTA always reads **Go back** (error no longer shows Try again); navigates with `router.back()` (`SiteStatusPage.tsx`).
 
 - **2026-08-06** — About: Vision/Goal/Values/Founder titles orange, larger, and bold (`AboutPage.module.css`).
