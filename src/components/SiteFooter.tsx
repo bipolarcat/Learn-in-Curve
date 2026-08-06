@@ -87,11 +87,11 @@ export function SiteFooter({
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.linkedin.com/in/simsamaarshened"
+                href="https://www.linkedin.com/company/learn-in-curve/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={socialChipClass}
-                aria-label="Sim Saae (founder) on LinkedIn"
+                aria-label="Learn in Curve on LinkedIn"
               >
                 <LinkedInIcon />
               </a>

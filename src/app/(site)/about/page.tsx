@@ -8,8 +8,11 @@ import styles from "./AboutPage.module.css";
 export const metadata: Metadata = {
   title: "About - Learn in Curve",
   description:
-    "Why Learn in Curve exists — simple, honest revision for project management exams.",
+    "Why Learn in Curve exists — clear, practical learning for project management professionals.",
 };
+
+const COMPANY_LINKEDIN = "https://www.linkedin.com/company/learn-in-curve/";
+const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/simsamaarshened";
 
 function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
@@ -26,7 +29,6 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   );
 }
 
-/** Small straight stamp — fixed size so Next `fill` never collapses. */
 function ArtFrame({
   src,
   alt,
@@ -37,33 +39,16 @@ function ArtFrame({
   priority?: boolean;
 }) {
   return (
-    <div className="relative h-[128px] w-[128px] shrink-0 overflow-hidden rounded-lg border border-ink/30 bg-paper shadow-[2px_2px_0_var(--shadow-ink)] sm:h-[144px] sm:w-[144px]">
+    <div className={styles.artFrame}>
       <Image
         src={src}
         alt={alt}
         fill
         priority={priority}
-        sizes="144px"
+        sizes="(max-width: 640px) 100vw, 280px"
         className="object-cover"
       />
     </div>
-  );
-}
-
-function SectionHeading({
-  id,
-  children,
-}: {
-  id: string;
-  children: ReactNode;
-}) {
-  return (
-    <h2
-      id={id}
-      className="mb-3 font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] text-balance text-ink"
-    >
-      {children}
-    </h2>
   );
 }
 
@@ -72,8 +57,9 @@ type BlockProps = {
   title: string;
   src: string;
   alt: string;
+  lead: string;
   body: ReactNode;
-  /** Art on the right (Goal). Default: art left. */
+  /** Art on the right. Default: art left. */
   artEnd?: boolean;
   priority?: boolean;
 };
@@ -83,28 +69,25 @@ function AboutBlock({
   title,
   src,
   alt,
+  lead,
   body,
   artEnd = false,
   priority = false,
 }: BlockProps) {
   return (
-    <section
-      className={`${styles.block} relative overflow-hidden`}
-      aria-labelledby={id}
-    >
+    <section className={styles.block} aria-labelledby={id}>
       <div className="wrap">
         <ScrollReveal>
           <div
-            className={`flex max-w-[52rem] items-start gap-5 sm:gap-6 ${
-              artEnd ? "flex-row-reverse" : ""
-            }`}
+            className={`${styles.row} ${artEnd ? styles.rowReverse : ""}`}
           >
             <ArtFrame src={src} alt={alt} priority={priority} />
-            <div className="min-w-0 flex-1 pt-0.5">
-              <SectionHeading id={id}>{title}</SectionHeading>
-              <p className="max-w-[48ch] text-base leading-relaxed text-pretty text-ink/80 sm:text-[17px]">
-                {body}
-              </p>
+            <div className={styles.copy}>
+              <h2 id={id} className={styles.sectionTitle}>
+                {title}
+              </h2>
+              <p className={styles.lead}>{lead}</p>
+              <div className={styles.body}>{body}</div>
             </div>
           </div>
         </ScrollReveal>
@@ -114,29 +97,36 @@ function AboutBlock({
 }
 
 /**
- * About — continuous dotted paper; tiny stamp art inline with copy.
+ * About — cream paper scroll; larger framed art + lead/body hierarchy.
+ * Copy from Notion “About section content update” (2026-08-06).
  */
 export default function AboutPage() {
   return (
     <div className="relative text-ink">
       <section
-        className={`${styles.hero} relative overflow-hidden`}
+        className={styles.hero}
         aria-labelledby="about-hero-title"
       >
-        <div className="wrap relative z-[1] text-left">
-          <h1
-            id="about-hero-title"
-            className="hero-enter mb-4 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.94] tracking-[-0.035em] text-ink"
-            style={{ "--hero-i": 0 } as CSSProperties}
-          >
-            About Us
-          </h1>
-          <p
-            className="hero-enter max-w-[28ch] font-display text-[clamp(1.35rem,2.8vw,1.9rem)] font-semibold leading-[1.15] tracking-[-0.025em] text-pretty text-ink"
-            style={{ "--hero-i": 1 } as CSSProperties}
-          >
-            Why Learn in <span className="text-orange">Curve</span> exists
-          </p>
+        <div className="wrap relative z-[1]">
+          <div className={styles.heroInner}>
+            <h1
+              id="about-hero-title"
+              className="hero-enter font-display text-[clamp(2.4rem,5.5vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-ink"
+              style={{ "--hero-i": 0 } as CSSProperties}
+            >
+              About{" "}
+              <span className="whitespace-nowrap">
+                Learn in <span className="text-orange">Curve</span>
+              </span>
+            </h1>
+            <p
+              className="hero-enter mt-4 max-w-[34rem] text-pretty font-body text-[16px] leading-relaxed text-ink/70 sm:text-[18px]"
+              style={{ "--hero-i": 1 } as CSSProperties}
+            >
+              Clear, practical learning for project management professionals —
+              built to fit around real work and real life.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -146,12 +136,19 @@ export default function AboutPage() {
         src="/brand/inspo/about-vision.jpg"
         alt="Flat poster illustration of a person studying with a ticket-shaped booklet"
         priority
+        lead="Professional learning shouldn't feel overwhelming, expensive, or impossible to fit into a busy life."
         body={
           <>
-            Studying for a project management exam shouldn&apos;t feel like a
-            chore. We want revision to feel simple, honest, and actually
-            doable — something you can fit into a lunch break or a commute and
-            still feel like it&apos;s working.
+            <p>
+              We believe anyone with the ambition to grow their career should
+              have access to clear, practical, and effective learning tools.
+            </p>
+            <p>
+              Learn in Curve exists to transform the way professionals prepare
+              for qualifications by turning complex material into structured
+              learning journeys that fit around real work, real commitments, and
+              real life.
+            </p>
           </>
         }
       />
@@ -162,12 +159,18 @@ export default function AboutPage() {
         src="/brand/inspo/about-goal.jpg"
         alt="Flat poster illustration of a figure before a bold orange arch"
         artEnd
+        lead="Our goal is simple: help you walk into your exam with confidence, not uncertainty."
         body={
           <>
-            Our goal is simple: help you walk into your PMQ exam feeling
-            properly ready, not just like you&apos;ve scrolled through a lot of
-            slides. Everything here is built around one thing — getting you to
-            pass.
+            <p>
+              Every part of Learn in Curve is designed around one outcome —
+              helping you understand the material, build your knowledge, test
+              your progress, and achieve your qualification.
+            </p>
+            <p>
+              No endless slides. No overwhelming textbooks. Just focused
+              learning that moves you closer to passing.
+            </p>
           </>
         }
       />
@@ -177,54 +180,80 @@ export default function AboutPage() {
         title="Values"
         src="/brand/inspo/about-values.jpg"
         alt="Flat poster illustration of an orange stamp seal beside paper"
+        lead="We believe learning should be honest, useful, and built around the learner — not the business model."
         body={
           <>
-            We value honesty over polish, usefulness over fluff, and care over
-            scale. That means saying plainly what&apos;s free and what
-            isn&apos;t, building the thing that actually helps you pass, and
-            never dressing up a weak product with hype — even when the flashy
-            version would be easier to ship.
+            <p>
+              That means creating genuinely valuable free resources, being
+              transparent about what is included, and building features that
+              solve real problems rather than adding unnecessary complexity.
+            </p>
+            <p>
+              We don&apos;t chase hype. We focus on building tools that
+              genuinely help people learn, grow, and succeed.
+            </p>
           </>
         }
       />
 
-      <section
-        className={`${styles.founder} relative overflow-hidden`}
-        aria-labelledby="about-founder"
-      >
+      <section className={styles.founder} aria-labelledby="about-founder">
         <div className="wrap">
           <ScrollReveal>
-            <div className={`${styles.aboutRow} flex max-w-[52rem] items-start gap-5 border-t border-ink/20 pt-10 sm:gap-6 sm:pt-12`}>
-              <div className="relative h-[128px] w-[128px] shrink-0 overflow-hidden rounded-lg border border-ink/30 bg-sand shadow-[2px_2px_0_var(--shadow-ink)] sm:h-[144px] sm:w-[144px]">
+            <div className={styles.founderPanel}>
+              <div className={styles.founderPhoto}>
                 <Image
                   src="/brand/sim-profile.jpg"
                   alt="Sim, founder of Learn in Curve"
                   fill
-                  sizes="144px"
+                  sizes="(max-width: 640px) 100vw, 200px"
                   className="object-cover object-top"
                 />
               </div>
 
-              <div className="min-w-0 flex-1 pt-0.5">
-                <SectionHeading id="about-founder">Founder</SectionHeading>
-                <p className="max-w-[48ch] text-base leading-relaxed text-pretty text-ink/80 sm:text-[17px]">
-                  Learn in Curve was built by one person — a working project
-                  manager named Sim, who&apos;s spent years managing real projects
-                  and real deadlines, and who got curious about what AI could do
-                  to make studying less painful. This isn&apos;t a big company.
-                  It&apos;s a genuine attempt to build the thing he wished someone
-                  had built for him — made with a lot of care, and a bit of
-                  stubbornness.
+              <div className={styles.founderCopy}>
+                <h2 id="about-founder" className={styles.sectionTitle}>
+                  Founder
+                </h2>
+                <p className={styles.lead}>
+                  Learn in Curve was founded by Sim, a project management
+                  professional who experienced first-hand how expensive,
+                  time-consuming, and inaccessible professional learning can be.
                 </p>
-                <div className="mt-6 flex flex-wrap items-center gap-3">
+                <div className={styles.body}>
+                  <p>
+                    While managing complex projects and working towards industry
+                    certifications, Sim recognised an opportunity to use AI to
+                    transform how professionals learn by making study more
+                    personalised, practical, and genuinely effective.
+                  </p>
+                  <p>
+                    What began as a tool to solve his own challenges has evolved
+                    into Learn in Curve: an AI-first learning platform built to
+                    help professionals master new skills, earn certifications,
+                    and accelerate their careers.
+                  </p>
+                </div>
+                <p className={styles.belief}>
+                  Built by one founder. Driven by one belief: exceptional
+                  learning should be accessible to everyone.
+                </p>
+                <div className={styles.founderActions}>
                   <a
-                    href="https://www.linkedin.com/in/simsamaarshened"
+                    href={FOUNDER_LINKEDIN}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={stampCtaPrimary}
                   >
                     <LinkedInIcon className="shrink-0" />
-                    Connect with Sim on LinkedIn
+                    Connect with Sim
+                  </a>
+                  <a
+                    href={COMPANY_LINKEDIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.companyLink}
+                  >
+                    Learn in Curve on LinkedIn
                   </a>
                 </div>
               </div>
