@@ -100,8 +100,17 @@ const DISABLED_HINT_MS = 2500;
 /** Gap between icon bottom and tip top (keeps clear of the pathway row). */
 const HINT_GAP_PX = 8;
 
+/** Viewport edge padding — tip never paints past this. */
+const HINT_VIEWPORT_PAD_PX = 12;
+
 type HintAnchor = { left: number; top: number };
 
+/**
+ * Tip sits directly under the icon. Fixed `left` is the tip’s left edge
+ * (icon-centered, then clamped to the viewport). Never use CSS `transform`
+ * for X placement — Framer’s `y` animation would overwrite it and shove
+ * right-side tips off-screen on mobile.
+ */
 function PathwayDisabledHint({
   text,
   anchor,
@@ -111,24 +120,26 @@ function PathwayDisabledHint({
   anchor: HintAnchor;
   reduceMotion: boolean;
 }) {
-  const pad = 12;
-  const tipMax = 168; // matches max-w-[10.5rem]
-  const vw = typeof window !== "undefined" ? window.innerWidth : tipMax;
+  const tipRef = React.useRef<HTMLDivElement>(null);
+  const [tipWidth, setTipWidth] = React.useState(140);
 
-  // Prefer centering on the icon; when that would overflow, pin to the edge
-  // (no translateX(-50%)) so the last Checkpoint tip stays on-screen on mobile.
-  let left = anchor.left;
-  let transform = "translateX(-50%)";
-  if (anchor.left + tipMax / 2 > vw - pad) {
-    left = vw - pad;
-    transform = "translateX(-100%)";
-  } else if (anchor.left - tipMax / 2 < pad) {
-    left = pad;
-    transform = "translateX(0)";
-  }
+  React.useLayoutEffect(() => {
+    if (!tipRef.current) return;
+    const w = tipRef.current.offsetWidth;
+    if (w > 0 && w !== tipWidth) setTipWidth(w);
+  }, [text, anchor.left, tipWidth]);
+
+  const vw =
+    typeof window !== "undefined" ? window.innerWidth : tipWidth + 24;
+  let left = anchor.left - tipWidth / 2;
+  left = Math.max(
+    HINT_VIEWPORT_PAD_PX,
+    Math.min(left, vw - HINT_VIEWPORT_PAD_PX - tipWidth),
+  );
 
   return createPortal(
     <motion.div
+      ref={tipRef}
       key="pathway-disabled-hint"
       role="tooltip"
       initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4 }}
@@ -139,7 +150,6 @@ function PathwayDisabledHint({
         position: "fixed",
         left,
         top: anchor.top,
-        transform,
         zIndex: 100,
       }}
       className="pointer-events-none flex w-max max-w-[min(10.5rem,calc(100vw-1.5rem))] items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10 dark:bg-paper dark:text-ink/55"

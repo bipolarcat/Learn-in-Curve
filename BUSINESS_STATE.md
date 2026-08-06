@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Quiz empty-answer tip + pathway locked-stage tip: stop using CSS `transform` for centering (Framer’s `y` was overwriting it and shoving tips off the right on mobile). Tips now use measured width + fixed `left`/`bottom` clamped to the quiz card / viewport (`CheckAnswerHint`, `ExpandableTabs`).
+
 - **2026-08-06** — Removed the “What’s included” dropdown from free-tier locked Video/Audio (`ProMediaLockedPreview`); upsell is heading + Get Pro Bundle only.
 
 - **2026-08-06** — Pathway tip: no caret; edge-pins on mobile so the last Checkpoint tip stays on-screen. Check-answer empty tip now anchors to the quiz card bottom (animates up from the card, not the viewport) via `CheckAnswerHintHost` (`ExpandableTabs`, `CheckAnswerHint`).
