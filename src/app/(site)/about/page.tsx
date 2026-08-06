@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { stampCtaPrimary } from "@/components/stamp-chip";
+import { stampCtaPrimaryCompact } from "@/components/stamp-chip";
 import styles from "./AboutPage.module.css";
 
 export const metadata: Metadata = {
@@ -17,8 +17,8 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="18"
-      height="18"
+      width="14"
+      height="14"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden
@@ -243,7 +243,7 @@ export default function AboutPage() {
                     href={FOUNDER_LINKEDIN}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={stampCtaPrimary}
+                    className={stampCtaPrimaryCompact}
                   >
                     <LinkedInIcon className="shrink-0" />
                     Connect with Sim

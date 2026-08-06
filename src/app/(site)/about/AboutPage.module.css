@@ -187,14 +187,21 @@
 
 .belief {
   margin: 1rem 0 0;
-  max-width: 42ch;
+  max-width: none;
+  width: 100%;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: -0.01em;
-  line-height: 1.55;
+  line-height: 1.6;
   text-wrap: pretty;
   color: rgb(var(--ink-rgb) / 0.72);
+}
+
+@media (min-width: 40rem) {
+  .belief {
+    font-size: 0.9375rem;
+  }
 }
 
 .founderActions {
