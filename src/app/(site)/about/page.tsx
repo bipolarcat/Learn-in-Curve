@@ -17,8 +17,8 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="14"
-      height="14"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden
@@ -243,7 +243,7 @@ export default function AboutPage() {
                     href={FOUNDER_LINKEDIN}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={stampCtaPrimaryCompact}
+                    className={`${stampCtaPrimaryCompact} [&_svg]:!size-4`}
                   >
                     <LinkedInIcon className="shrink-0" />
                     Connect with Sim
