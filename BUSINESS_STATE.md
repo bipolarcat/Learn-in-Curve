@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Warning toasts use an opaque light-teal fill (not translucent outline); pathway `disabledHint` is a cream small-text tooltip with no-delay top entrance (`ui/toast`, `ExpandableTabs`).
+
 - **2026-08-06** — Guidance toasts use light teal chips (`warning` in `ui/toast`); LO unreached pathway stages show a teal tooltip above the icon (`ExpandableTabs` `disabledHint`) instead of a page toast; Check-answer empty hints keep the shared teal toast.
 
 - **2026-08-06** — Signup terms alert copy set to “Please agree to the Terms and Privacy Policy to continue.” (`AuthForm` `TERMS_REQUIRED_COPY`).

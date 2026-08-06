@@ -65,8 +65,8 @@ const toastShell: Record<Variant, string> = {
   default: `${toastShellBase} border border-ink/10 bg-paper dark:border-white/10`,
   success: `${toastShellBase} border border-olive/35 bg-olive/[0.1] dark:border-olive/40 dark:bg-olive/[0.16]`,
   error: `${toastShellBase} border border-rust/35 bg-rust/[0.1] dark:border-rust/40 dark:bg-rust/[0.16]`,
-  /* Light teal — stands out on cream without shouting (gate / guidance tips). */
-  warning: `${toastShellBase} border border-teal/40 bg-teal/[0.1] dark:border-teal/45 dark:bg-teal/[0.18]`,
+  /* Opaque light teal wash — readable on cream, not a translucent outline chip. */
+  warning: `${toastShellBase} border border-teal/25 bg-[color-mix(in_srgb,var(--teal)_16%,rgb(var(--paper-rgb)))] dark:border-teal/35 dark:bg-[color-mix(in_srgb,var(--teal)_28%,rgb(var(--paper-rgb)))]`,
 };
 
 const variantIconClass: Record<Variant, string> = {

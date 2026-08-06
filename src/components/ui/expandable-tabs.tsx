@@ -244,24 +244,28 @@ export function ExpandableTabs({
                   initial={
                     reduceMotion
                       ? { opacity: 0 }
-                      : { opacity: 0, y: 4, scale: 0.96 }
+                      : { opacity: 0, y: -6 }
                   }
                   animate={
                     reduceMotion
                       ? { opacity: 1 }
-                      : { opacity: 1, y: 0, scale: 1 }
+                      : { opacity: 1, y: 0 }
                   }
                   exit={
                     reduceMotion
                       ? { opacity: 0 }
-                      : { opacity: 0, y: 3, scale: 0.96 }
+                      : { opacity: 0, y: -4 }
                   }
-                  transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-[60] w-max max-w-[11.5rem] -translate-x-1/2 rounded-md border border-teal/40 bg-teal/[0.12] px-2 py-1 text-center font-body text-[10px] font-semibold leading-snug tracking-tight text-teal-deep shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_6px_16px_rgb(var(--ink-rgb)_/_0.1)] dark:border-teal/45 dark:bg-teal/[0.2]"
+                  transition={{
+                    duration: 0.14,
+                    delay: 0,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="pointer-events-none absolute bottom-[calc(100%+0.35rem)] left-1/2 z-[60] w-max max-w-[11rem] -translate-x-1/2 rounded-md border border-ink/10 bg-cream px-2 py-1 text-center font-body text-[10px] font-medium leading-snug tracking-tight text-ink/60 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.05),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/12 dark:bg-paper dark:text-ink/70"
                 >
                   {disabledHint}
                   <span
-                    className="absolute left-1/2 top-full -mt-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-b border-r border-teal/40 bg-teal/[0.12] dark:border-teal/45 dark:bg-teal/[0.2]"
+                    className="absolute left-1/2 top-full -mt-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-b border-r border-ink/10 bg-cream dark:border-white/12 dark:bg-paper"
                     aria-hidden
                   />
                 </motion.span>
