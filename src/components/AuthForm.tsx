@@ -24,7 +24,7 @@ import { showToast } from "@/components/ui/toast";
 import styles from "@/components/AuthForm.module.css";
 
 const TERMS_REQUIRED_COPY =
-  "Tick the box to agree to the Terms and Privacy Policy — then you can continue.";
+  "Please agree to the Terms and Privacy Policy to continue.";
 
 /** Signup terms gate — full-width paper alert with a short attention pulse. */
 function TermsAgreementAlert({ message }: { message: string }) {

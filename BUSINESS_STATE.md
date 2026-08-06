@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Signup terms alert copy set to “Please agree to the Terms and Privacy Policy to continue.” (`AuthForm` `TERMS_REQUIRED_COPY`).
+
 - **2026-08-06** — Signup/LO/quiz clarity UX: redesigned terms-acceptance alert in `AuthForm` (full-width orange paper chip + pulse + toast); unreached LO pathway tabs in `ExpandableTabs`/`LoPageHeader` now show a “Use Next…” toast via `PathwayStageHint` instead of a silent no-op; practise `Check answer` with no selection toasts via `CheckAnswerHint` (`QuizRunner`, `TrialQuiz`); slightly brighter `--olive`/`--rust` + stronger correct/incorrect fills in `QuestionResponseFields` and quiz/mock rails so right/wrong read clearly on cream.
 
 - **2026-07-31** — Corrected oversized mobile “Try Sly now” portrait in `SlyShowcase`: 48px with a lighter 1.2× crop below 640px; desktop remains 64px / 1.28×. The Mac title icon remains 20px.
