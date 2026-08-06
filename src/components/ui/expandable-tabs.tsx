@@ -3,8 +3,8 @@
 import * as React from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
+import { AlertTriangle, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
 
 interface Tab {
   title: string;
@@ -243,26 +243,33 @@ export function ExpandableTabs({
                 <motion.span
                   role="tooltip"
                   initial={
-                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }
+                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4 }
                   }
                   animate={
                     reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
                   }
                   exit={
-                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: -4 }
+                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: 3 }
                   }
                   transition={{
-                    duration: 0.14,
+                    duration: 0.12,
                     delay: 0,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="pointer-events-none absolute bottom-[calc(100%+0.35rem)] left-1/2 z-[60] w-max max-w-[11rem] -translate-x-1/2 rounded-md border border-ink/10 bg-cream px-2 py-1 text-center font-body text-[10px] font-medium leading-snug tracking-tight text-ink/60 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.05),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/12 dark:bg-paper dark:text-ink/70"
+                  className="pointer-events-none absolute left-1/2 top-[calc(100%+0.3rem)] z-[80] flex w-max max-w-[10.5rem] -translate-x-1/2 items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/10 dark:bg-paper dark:text-ink/55"
                 >
-                  {disabledHint}
                   <span
-                    className="absolute left-1/2 top-full -mt-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-b border-r border-ink/10 bg-cream dark:border-white/12 dark:bg-paper"
+                    className="absolute bottom-full left-1/2 mb-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-l border-t border-ink/[0.08] bg-paper dark:border-white/10 dark:bg-paper"
                     aria-hidden
                   />
+                  <AlertTriangle
+                    className="size-2.5 shrink-0 text-ink/40"
+                    strokeWidth={2.25}
+                    aria-hidden
+                  />
+                  <span className="min-w-0 text-left text-pretty">
+                    {disabledHint}
+                  </span>
                 </motion.span>
               ) : null}
             </AnimatePresence>

@@ -237,7 +237,7 @@ export function LoPageHeader({
   };
 
   return (
-    <div className="pmq-course-chrome relative z-10 scroll-mt-2">
+    <div className="pmq-course-chrome relative z-30 scroll-mt-2">
       <div className="flex justify-center px-3 pb-2 pt-2 sm:px-5 sm:pb-2.5 sm:pt-2">
         <section className={chromeShell} aria-label="Learning objective">
           {/* Mobile — title + transport Continue; expanding stage labels */}
