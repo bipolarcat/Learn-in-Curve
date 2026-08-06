@@ -191,7 +191,6 @@ export function AuthForm({
     setTermsError(true);
     setIsError(true);
     setMessage(msg);
-    showAuthToast(msg, "warning");
     requestAnimationFrame(() => termsCheckboxRef.current?.focus());
     return false;
   }

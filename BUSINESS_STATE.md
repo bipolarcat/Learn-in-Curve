@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Signup terms gate: keep the inline warning only; removed the duplicate short toast on missing agreement (`AuthForm` `requireTermsAcceptance`).
+
 - **2026-08-06** — Integrated 21st Tooltip into `src/components/ui/tooltip.tsx` (LIC tokens + `cream` type, `delay={false}` / `openOnClick`); pathway unreached stages use that no-delay cream tooltip (`ExpandableTabs`). Did not replace existing Button/Spinner/Badge with demo shugar copies. Geist CSS aliases already present in `globals.css` / `tailwind.config.ts`.
 
 - **2026-08-06** — Warning toasts use an opaque light-teal fill (not translucent outline); pathway `disabledHint` is a cream small-text tooltip with no-delay top entrance (`ui/toast`, `ExpandableTabs`).
