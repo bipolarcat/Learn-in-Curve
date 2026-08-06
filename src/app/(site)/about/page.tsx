@@ -214,7 +214,7 @@ export default function AboutPage() {
                 <h2 id="about-founder" className={styles.sectionTitle}>
                   Founder
                 </h2>
-                <p className={styles.lead}>
+                <p className={styles.founderLead}>
                   Learn in Curve was founded by Sim Samaar Shened, a project
                   management professional who experienced first-hand how
                   expensive, time-consuming, and inaccessible professional
