@@ -7,8 +7,7 @@ import {
   stampCtaPrimaryCompact,
   stampCtaSecondaryCompact,
 } from "@/components/stamp-chip";
-
-const STORAGE_KEY = "lic_cookie_notice_v1";
+import { readConsent, writeConsent } from "@/lib/analytics/consent";
 
 /** Flat cookie mark — same stamp vocabulary as Notify mailbox / course chrome. */
 function CookieMark({ className = "" }: { className?: string }) {
@@ -37,9 +36,16 @@ function CookieMark({ className = "" }: { className?: string }) {
 }
 
 /**
- * Sitewide cookie notice — paper card matching Notify / courses chrome.
- * Acknowledgement only while we ship strictly-necessary cookies (session).
- * Local preference stored; does not gate analytics (none live yet).
+ * Sitewide cookie consent — paper card matching Notify / courses chrome.
+ *
+ * This is a real consent gate, not an acknowledgement. PostHog analytics and
+ * session replay are non-essential cookies, so under UK PECR reg 6 they cannot
+ * load until the visitor actively accepts. Reject must be as prominent and as
+ * easy as Accept — that is why both are buttons of equal weight here, and why
+ * dismissing the banner without choosing does NOT count as consent.
+ *
+ * The choice is read by src/lib/analytics/consent.ts, which PostHogProvider
+ * watches. Until "granted", no analytics script is even downloaded.
  */
 export function CookieBanner() {
   const pathname = usePathname();
@@ -47,26 +53,19 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      if (window.localStorage.getItem(STORAGE_KEY) === "1") {
-        setVisible(false);
-        return;
-      }
-    } catch {
-      /* private mode — still show */
-    }
-    setVisible(true);
+    setVisible(readConsent() === "unset");
   }, []);
 
   // Don't stack the notice on the cookies legal page itself.
   if (!visible || pathname === "/cookies") return null;
 
-  function acknowledge() {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      /* ignore */
-    }
+  function accept() {
+    writeConsent("granted");
+    setVisible(false);
+  }
+
+  function reject() {
+    writeConsent("denied");
     setVisible(false);
   }
 
@@ -104,8 +103,9 @@ export function CookieBanner() {
               Cookies
             </p>
             <p className="mt-1.5 text-[13px] leading-relaxed text-pretty text-ink/75">
-              We use a strictly necessary session cookie to keep you signed in.
-              No ads or analytics cookies today.{" "}
+              We use a strictly necessary cookie to keep you signed in. We’d
+              also like to use analytics cookies to see which lessons work and
+              where people get stuck. No ads, ever.{" "}
               <Link
                 href="/cookies"
                 className="font-semibold text-teal underline decoration-teal/35 underline-offset-2 transition-colors hover:text-teal-deep hover:decoration-teal"
@@ -117,18 +117,32 @@ export function CookieBanner() {
         </div>
 
         <div className="mt-3.5 flex flex-wrap items-center gap-2">
+          {/*
+            Accept and Reject are deliberately the same size and weight. A
+            Reject that is smaller, greyer or hidden behind "Manage options" is
+            the pattern the ICO has repeatedly called out as invalid consent —
+            if refusing is harder than agreeing, the agreement isn't freely
+            given and the consent doesn't count.
+          */}
           <button
             type="button"
-            onClick={acknowledge}
+            onClick={accept}
             className={`${stampCtaPrimaryCompact} justify-center`}
           >
-            Got it
+            Accept
+          </button>
+          <button
+            type="button"
+            onClick={reject}
+            className={`${stampCtaSecondaryCompact} justify-center`}
+          >
+            Reject
           </button>
           <Link
             href="/cookies"
-            className={`${stampCtaSecondaryCompact} justify-center`}
+            className="self-center text-[12px] font-semibold text-ink/55 underline underline-offset-2 transition-colors hover:text-ink"
           >
-            Learn more
+            Details
           </Link>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { IntercomProvider } from "@/components/IntercomProvider";
 import { ThemeRoutePolicy } from "@/components/ThemeRoutePolicy";
 import { CookieBanner } from "@/components/CookieBanner";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { AppToaster } from "@/components/ui/toast";
 
 const fraunces = Fraunces({
@@ -109,7 +110,11 @@ export default function RootLayout({
       */}
       <body className="min-h-screen" suppressHydrationWarning>
         <ThemeRoutePolicy />
-        {children}
+        {/*
+          PostHog wraps children so route changes are visible to it, but it
+          loads nothing until cookie consent is granted — see PostHogProvider.
+        */}
+        <PostHogProvider>{children}</PostHogProvider>
         <CookieBanner />
         <GrainOverlay />
         <AppToaster />
