@@ -36,9 +36,12 @@
 export type ProIncludedIcon = "sly" | "video" | "report" | "questions" | "mock";
 
 /**
- * Shown in the "What's included" panel under the Get Pro Bundle button
- * (`ProMediaLockedPreview`). Mirrors `PMQ_PLANS.pro.features` exactly — if you
- * change one, change the other, or /pricing and the buy button disagree.
+ * Shown next to Pro buy CTAs when a “What’s included” panel is needed.
+ * Mirrors `PMQ_PLANS.pro.features` exactly — if you change one, change the
+ * other, or /pricing and the buy button disagree.
+ *
+ * Note: the free-tier Video/Audio lock card (`ProMediaLockedPreview`) no longer
+ * renders this dropdown (removed 2026-08-06) — keep the list for other surfaces.
  */
 export const PRO_INCLUDED: {
   title: string;

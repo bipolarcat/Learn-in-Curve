@@ -15,7 +15,7 @@ import {
   InlineDropdownResponseFields,
   McqResponseFields,
 } from "@/components/pmq/QuestionResponseFields";
-import { showCheckAnswerHint } from "@/components/pmq/CheckAnswerHint";
+import { showCheckAnswerHint, CheckAnswerHintHost } from "@/components/pmq/CheckAnswerHint";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 import type { PmqQuestion } from "@/types/pmq";
 
@@ -177,7 +177,7 @@ function CheckAnswerBar({
         disabled={pending}
         onClick={(e) => {
           if (!canCheck) {
-            showCheckAnswerHint(emptyHint);
+            showCheckAnswerHint(emptyHint, e.currentTarget);
             return;
           }
           onCheck(e.currentTarget);
@@ -912,6 +912,7 @@ export function QuizRunner({
   /** Single compact row — scrolls horizontally if the set is long. */
   return (
     <div
+      data-quiz-card=""
       className={
         embedded
           ? styles.runner
@@ -919,6 +920,7 @@ export function QuizRunner({
       }
       aria-label={setLabel}
     >
+      <CheckAnswerHintHost />
       <div className={styles.qRail}>
         <div
           className={styles.qGrid}

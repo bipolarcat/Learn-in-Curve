@@ -1,8 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
 import { GetProBundleButton } from "@/components/pmq/GetProBundleButton";
-import { PRO_INCLUDED } from "@/lib/pmq/pro-included";
 
 type ProMediaLockedPreviewProps = {
   kind: "video" | "audio";
@@ -29,8 +27,6 @@ export function ProMediaLockedPreview({
   priceCents,
 }: ProMediaLockedPreviewProps) {
   const isVideo = kind === "video";
-  const [includedOpen, setIncludedOpen] = useState(false);
-  const panelId = useId();
   const overviewHeading = isVideo
     ? `Watch the overview for LO ${loNumber}`
     : `Listen to the overview for LO ${loNumber}`;
@@ -95,57 +91,14 @@ export function ProMediaLockedPreview({
           </div>
         )}
 
-        {/*
-          The card scrolls rather than the overlay growing: "What's included"
-          expands to six items and the poster it sits on is only ~200px tall on
-          a phone, so an unconstrained panel would spill past the artwork.
-        */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-y-auto bg-ink/25 p-3 sm:p-4">
-          <div className="my-auto w-full max-w-[20rem] rounded-xl border border-black/[0.08] bg-paper px-3.5 py-3.5 text-center shadow-[0_8px_24px_rgb(var(--ink-rgb)_/_0.12)] dark:border-white/[0.12] sm:px-4 sm:py-4">
+        <div className="absolute inset-0 flex items-center justify-center bg-ink/25 p-3 sm:p-4">
+          <div className="w-full max-w-[20rem] rounded-xl border border-black/[0.08] bg-paper px-3.5 py-3.5 text-center shadow-[0_8px_24px_rgb(var(--ink-rgb)_/_0.12)] dark:border-white/[0.12] sm:px-4 sm:py-4">
             <h3 className="font-body text-[15px] font-semibold leading-snug tracking-tight text-balance text-ink">
               {overviewHeading}
             </h3>
 
             <div className="mt-3 flex justify-center">
               <GetProBundleButton priceCents={priceCents} loNumber={loNumber} />
-            </div>
-
-            <div className="mt-2 flex flex-col items-center">
-              <button
-                type="button"
-                onClick={() => setIncludedOpen((v) => !v)}
-                className="inline-flex min-h-9 items-center gap-1.5 px-1 font-body text-[12px] font-semibold text-ink/50 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-ink/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1"
-                aria-expanded={includedOpen}
-                aria-controls={panelId}
-              >
-                What&apos;s included
-                <span
-                  aria-hidden
-                  className={`text-[10px] transition-transform duration-150 ease-[var(--ease-out-quint)] motion-reduce:transition-none ${
-                    includedOpen ? "rotate-180" : ""
-                  }`}
-                >
-                  ▾
-                </span>
-              </button>
-
-              {includedOpen ? (
-                <ul
-                  id={panelId}
-                  className="mt-1.5 grid w-full list-none gap-2 rounded-lg border border-black/[0.06] bg-ink/[0.02] px-3 py-2.5 text-left dark:border-white/[0.1] dark:bg-white/[0.03] sm:px-3.5 sm:py-3"
-                >
-                  {PRO_INCLUDED.map((item) => (
-                    <li key={item.title} className="min-w-0">
-                      <p className="font-body text-[13px] font-semibold tracking-tight text-ink">
-                        {item.title}
-                      </p>
-                      <p className="mt-0.5 font-body text-[12px] leading-snug text-pretty text-ink/65">
-                        {item.body}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
             </div>
           </div>
         </div>

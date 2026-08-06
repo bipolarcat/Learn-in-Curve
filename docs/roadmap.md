@@ -64,7 +64,7 @@ Not a general PM learning platform — a gamified, interactive, exam-focused rev
 - [x] LO Learn quieter redesign — separate opaque cards at wrap width; quiet definitions; caption-in-diagram — 2026-07-29
 - [x] LO Learn core markdown tables — continuous thin ink outline (`markdown-table-shell` + internal grid) — 2026-07-30
 - [x] LO Learn audit fix-all — heading demotion, AA contrast, flatten nested cards, next/image diagrams — 2026-07-16
-- [x] Free-tier Video/Audio locked preview — blurred media chrome + quiet dashboard-matched Pro CTA (`ProMediaLockedPreview.tsx`), overview sub-header omits LO title (shows “Learning Objective N” only; placeholder in `LoMediaPlaceholder.tsx`) — 2026-07-16
+- [x] Free-tier Video/Audio locked preview — blurred media chrome + quiet dashboard-matched Pro CTA (`ProMediaLockedPreview.tsx`), overview sub-header omits LO title (shows “Learning Objective N” only; placeholder in `LoMediaPlaceholder.tsx`) — 2026-07-16; **2026-08-06:** removed “What’s included” dropdown (heading + Get Pro only)
 - [x] Sly AI tutor launcher polish — full teal background, no Pro/lock pill on the launcher (`AiTutorPanel.tsx`) — 2026-07-16
 - [x] LO Video stage a11y/perf (posters, no locked MP4, heading hierarchy, LO-specific titles, captions track scaffold + Learn alternative) — 2026-07-16; **2026-07-18:** machine WebVTT drafts generated for all 24 videos (3,439 cues; zero structural errors) with manifest/QA pipeline
 - [ ] Human playback QA and approve all 24 timed-caption drafts before wiring `captionsSrc` — 1,130 automated warnings remain; draft files deliberately stay unpublished

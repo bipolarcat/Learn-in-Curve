@@ -181,6 +181,7 @@ export function PracticeQuizSection({
       <section
         className={styles.card}
         aria-labelledby="lo-practise-sets-title"
+        data-quiz-card=""
       >
         <div className={styles.header}>
           <div className={styles.titleRow}>

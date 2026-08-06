@@ -3,7 +3,7 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 
 import { McqResponseFields } from "@/components/pmq/QuestionResponseFields";
-import { showCheckAnswerHint } from "@/components/pmq/CheckAnswerHint";
+import { showCheckAnswerHint, CheckAnswerHintHost } from "@/components/pmq/CheckAnswerHint";
 import { PmqStartLink } from "@/components/PmqStartLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
@@ -136,7 +136,12 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
     : "";
 
   return (
-    <section className={styles.card} aria-labelledby="trial-quiz-title">
+    <section
+      className={styles.card}
+      aria-labelledby="trial-quiz-title"
+      data-quiz-card=""
+    >
+      <CheckAnswerHintHost />
       <div className="mb-1 text-left">
         <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
           Practice questions
@@ -236,9 +241,9 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
               <div className={styles.checkRow}>
                 <button
                   type="button"
-                  onClick={() => {
+                  onClick={(e) => {
                     if (!selected) {
-                      showCheckAnswerHint("mcq");
+                      showCheckAnswerHint("mcq", e.currentTarget);
                       return;
                     }
                     handleCheck();

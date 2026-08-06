@@ -111,16 +111,21 @@ function PathwayDisabledHint({
   anchor: HintAnchor;
   reduceMotion: boolean;
 }) {
-  // Keep tip on-screen: clamp horizontal center within a small inset.
-  const tipMax = 168;
-  const pad = 10;
+  const pad = 12;
+  const tipMax = 168; // matches max-w-[10.5rem]
   const vw = typeof window !== "undefined" ? window.innerWidth : tipMax;
-  const clampedLeft = Math.min(
-    Math.max(anchor.left, pad + tipMax / 2),
-    vw - pad - tipMax / 2,
-  );
-  // Arrow stays aimed at the real icon even if the chip shifts to stay in view.
-  const arrowOffset = anchor.left - clampedLeft;
+
+  // Prefer centering on the icon; when that would overflow, pin to the edge
+  // (no translateX(-50%)) so the last Checkpoint tip stays on-screen on mobile.
+  let left = anchor.left;
+  let transform = "translateX(-50%)";
+  if (anchor.left + tipMax / 2 > vw - pad) {
+    left = vw - pad;
+    transform = "translateX(-100%)";
+  } else if (anchor.left - tipMax / 2 < pad) {
+    left = pad;
+    transform = "translateX(0)";
+  }
 
   return createPortal(
     <motion.div
@@ -132,30 +137,13 @@ function PathwayDisabledHint({
       transition={{ duration: 0.12, delay: 0, ease: [0.22, 1, 0.36, 1] }}
       style={{
         position: "fixed",
-        left: clampedLeft,
+        left,
         top: anchor.top,
-        transform: "translateX(-50%)",
+        transform,
         zIndex: 100,
       }}
-      className="pointer-events-none flex w-max max-w-[10.5rem] items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10 dark:bg-paper dark:text-ink/55"
+      className="pointer-events-none flex w-max max-w-[min(10.5rem,calc(100vw-1.5rem))] items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10 dark:bg-paper dark:text-ink/55"
     >
-      {/* Dual-triangle caret: border ring + fill, aimed at the tapped icon */}
-      <span
-        aria-hidden
-        className="absolute -top-[6px] h-0 w-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-ink/[0.08] dark:border-b-white/10"
-        style={{
-          left: `calc(50% + ${arrowOffset}px)`,
-          transform: "translateX(-50%)",
-        }}
-      />
-      <span
-        aria-hidden
-        className="absolute -top-[5px] h-0 w-0 border-x-[5px] border-x-transparent border-b-[5px] border-b-paper dark:border-b-paper"
-        style={{
-          left: `calc(50% + ${arrowOffset}px)`,
-          transform: "translateX(-50%)",
-        }}
-      />
       <AlertTriangle
         className="size-2.5 shrink-0 text-ink/40"
         strokeWidth={2.25}
