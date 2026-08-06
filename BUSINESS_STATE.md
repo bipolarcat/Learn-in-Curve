@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Guidance toasts use light teal chips (`warning` in `ui/toast`); LO unreached pathway stages show a teal tooltip above the icon (`ExpandableTabs` `disabledHint`) instead of a page toast; Check-answer empty hints keep the shared teal toast.
+
 - **2026-08-06** — Signup terms alert copy set to “Please agree to the Terms and Privacy Policy to continue.” (`AuthForm` `TERMS_REQUIRED_COPY`).
 
 - **2026-08-06** — Signup/LO/quiz clarity UX: redesigned terms-acceptance alert in `AuthForm` (full-width orange paper chip + pulse + toast); unreached LO pathway tabs in `ExpandableTabs`/`LoPageHeader` now show a “Use Next…” toast via `PathwayStageHint` instead of a silent no-op; practise `Check answer` with no selection toasts via `CheckAnswerHint` (`QuizRunner`, `TrialQuiz`); slightly brighter `--olive`/`--rust` + stronger correct/incorrect fills in `QuestionResponseFields` and quiz/mock rails so right/wrong read clearly on cream.

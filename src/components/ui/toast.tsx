@@ -58,21 +58,36 @@ export interface ToasterRef {
 }
 
 /** LIC short toast — paper chip sized to its copy, quiet border, snappy motion. */
-const toastShell =
-  "inline-flex w-fit max-w-[min(16rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10";
+const toastShellBase =
+  "inline-flex w-fit max-w-[min(16rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)]";
+
+const toastShell: Record<Variant, string> = {
+  default: `${toastShellBase} border border-ink/10 bg-paper dark:border-white/10`,
+  success: `${toastShellBase} border border-olive/35 bg-olive/[0.1] dark:border-olive/40 dark:bg-olive/[0.16]`,
+  error: `${toastShellBase} border border-rust/35 bg-rust/[0.1] dark:border-rust/40 dark:bg-rust/[0.16]`,
+  /* Light teal — stands out on cream without shouting (gate / guidance tips). */
+  warning: `${toastShellBase} border border-teal/40 bg-teal/[0.1] dark:border-teal/45 dark:bg-teal/[0.18]`,
+};
 
 const variantIconClass: Record<Variant, string> = {
   default: "text-ink/45",
   success: "text-olive",
   error: "text-rust",
-  warning: "text-orange",
+  warning: "text-teal",
 };
 
 const titleClass: Record<Variant, string> = {
   default: "text-ink",
   success: "text-olive",
   error: "text-rust",
-  warning: "text-orange",
+  warning: "text-teal-deep",
+};
+
+const messageClass: Record<Variant, string> = {
+  default: "text-ink/65",
+  success: "text-ink/70",
+  error: "text-ink/70",
+  warning: "text-teal-deep",
 };
 
 const variantIcons: Record<
@@ -119,7 +134,7 @@ function ToastCard({
       animate="animate"
       exit="exit"
       transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-      className={toastShell}
+      className={toastShell[variant]}
     >
       {leading != null ? (
         <div className="shrink-0 self-center" aria-hidden>
@@ -146,7 +161,12 @@ function ToastCard({
             {title}
           </h3>
         ) : null}
-        <p className="font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
+        <p
+          className={cn(
+            "font-body text-[11px] font-medium leading-snug tracking-tight text-pretty",
+            messageClass[variant],
+          )}
+        >
           {message}
         </p>
         {actions?.label ? (

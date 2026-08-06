@@ -46,6 +46,11 @@ interface ExpandableTabsProps {
    * (native `disabled` would swallow the event).
    */
   onDisabledActivate?: (index: number) => void;
+  /**
+   * Sleek tooltip shown above a disabled tab when activated.
+   * Preferred over a page-level toast for pathway-stage hints.
+   */
+  disabledHint?: string;
 }
 
 /*
@@ -99,24 +104,54 @@ export function ExpandableTabs({
   size = "default",
   onChange,
   onDisabledActivate,
+  disabledHint,
 }: ExpandableTabsProps) {
   const isControlled = value !== undefined;
   const [uncontrolled, setUncontrolled] = React.useState<number | null>(
     defaultValue,
   );
   const selected = isControlled ? value! : uncontrolled;
+  const [hintIndex, setHintIndex] = React.useState<number | null>(null);
+  const hintTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const outsideClickRef = React.useRef<HTMLDivElement>(null);
   const reduceMotionPref = useReducedMotion();
   const [motionReady, setMotionReady] = React.useState(false);
   React.useEffect(() => {
     setMotionReady(true);
   }, []);
+  React.useEffect(() => {
+    return () => {
+      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
+    };
+  }, []);
   // SSR + first client paint both treat as “motion on” so Framer style attrs match.
   const reduceMotion = motionReady && Boolean(reduceMotionPref);
   const enterTransition = reduceMotion ? { duration: 0 } : LABEL_ENTER;
   const compact = size === "compact";
 
+  const clearHint = React.useCallback(() => {
+    if (hintTimerRef.current) {
+      clearTimeout(hintTimerRef.current);
+      hintTimerRef.current = null;
+    }
+    setHintIndex(null);
+  }, []);
+
+  const showDisabledHint = React.useCallback(
+    (index: number) => {
+      if (!disabledHint) return;
+      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
+      setHintIndex(index);
+      hintTimerRef.current = setTimeout(() => {
+        setHintIndex(null);
+        hintTimerRef.current = null;
+      }, 3200);
+    },
+    [disabledHint],
+  );
+
   useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
+    clearHint();
     if (!clearOnOutsideClick) return;
     if (!isControlled) setUncontrolled(null);
     onChange?.(null);
@@ -126,9 +161,11 @@ export function ExpandableTabs({
     const item = tabs[index];
     if (!item || item.type === "separator") return;
     if (item.disabled) {
+      showDisabledHint(index);
       onDisabledActivate?.(index);
       return;
     }
+    clearHint();
     if (!isControlled) setUncontrolled(index);
     onChange?.(index);
   };
@@ -144,7 +181,7 @@ export function ExpandableTabs({
     <div
       ref={outsideClickRef}
       className={cn(
-        "flex items-center rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
+        "relative flex items-center rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
         compact ? "flex-nowrap gap-0" : "flex-wrap gap-1",
         className,
       )}
@@ -200,6 +237,36 @@ export function ExpandableTabs({
               !isSelected && !isDisabled && "hover:bg-ink/[0.04]",
             )}
           >
+            <AnimatePresence>
+              {disabledHint && hintIndex === index ? (
+                <motion.span
+                  role="tooltip"
+                  initial={
+                    reduceMotion
+                      ? { opacity: 0 }
+                      : { opacity: 0, y: 4, scale: 0.96 }
+                  }
+                  animate={
+                    reduceMotion
+                      ? { opacity: 1 }
+                      : { opacity: 1, y: 0, scale: 1 }
+                  }
+                  exit={
+                    reduceMotion
+                      ? { opacity: 0 }
+                      : { opacity: 0, y: 3, scale: 0.96 }
+                  }
+                  transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                  className="pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-[60] w-max max-w-[11.5rem] -translate-x-1/2 rounded-md border border-teal/40 bg-teal/[0.12] px-2 py-1 text-center font-body text-[10px] font-semibold leading-snug tracking-tight text-teal-deep shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_6px_16px_rgb(var(--ink-rgb)_/_0.1)] dark:border-teal/45 dark:bg-teal/[0.2]"
+                >
+                  {disabledHint}
+                  <span
+                    className="absolute left-1/2 top-full -mt-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-b border-r border-teal/40 bg-teal/[0.12] dark:border-teal/45 dark:bg-teal/[0.2]"
+                    aria-hidden
+                  />
+                </motion.span>
+              ) : null}
+            </AnimatePresence>
             <span className="relative inline-flex shrink-0 items-center justify-center">
               <Icon
                 size={compact ? 15 : 18}

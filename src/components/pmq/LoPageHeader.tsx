@@ -18,7 +18,7 @@ import {
   CHECKPOINT_GATE_COPY,
   showCheckpointGateHint,
 } from "@/components/pmq/CheckpointGateHint";
-import { showPathwayStageHint } from "@/components/pmq/PathwayStageHint";
+import { PATHWAY_STAGE_HINT_COPY } from "@/components/pmq/PathwayStageHint";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { Progress } from "@/components/ui/interfaces-progress";
 import { Spinner } from "@/components/ui/spinner";
@@ -47,7 +47,7 @@ type LoPageHeaderProps = {
 const MOBILE_NEXT_ADVANCE_MS = 420;
 
 const chromeShell =
-  "w-full max-w-wrap rounded-xl border border-black/[0.08] bg-paper/90 px-2 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-3 sm:py-1.5 dark:border-white/[0.12]";
+  "w-full max-w-wrap overflow-visible rounded-xl border border-black/[0.08] bg-paper/90 px-2 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-3 sm:py-1.5 dark:border-white/[0.12]";
 
 /** Flat “Next ▶▶” — same control on mobile and desktop. */
 const continueNextClass =
@@ -285,14 +285,14 @@ export function LoPageHeader({
               expandSelectedLabel
               size="compact"
               activeColor="text-orange"
-              className="w-full border-0 bg-transparent p-0 shadow-none"
+              className="w-full overflow-visible border-0 bg-transparent p-0 shadow-none"
               onChange={onTabChange}
-              onDisabledActivate={() => showPathwayStageHint("top-right")}
+              disabledHint={PATHWAY_STAGE_HINT_COPY}
             />
           </div>
 
           {/* Desktop */}
-          <div className="hidden h-8 items-center gap-3 sm:flex">
+          <div className="hidden min-h-8 items-center gap-3 overflow-visible sm:flex">
             <nav
               className="flex min-w-0 max-w-[15rem] shrink-0 items-center gap-1.5 text-[13px] leading-none lg:max-w-[17rem]"
               aria-label="Location"
@@ -310,15 +310,15 @@ export function LoPageHeader({
               </span>
             </nav>
 
-            <div className="flex min-w-0 flex-1 items-center justify-center">
+            <div className="flex min-w-0 flex-1 items-center justify-center overflow-visible">
               <ExpandableTabs
                 tabs={tabs}
                 value={currentIndex >= 0 ? currentIndex : null}
                 clearOnOutsideClick={false}
                 activeColor="text-orange"
-                className="justify-center gap-0.5 border-0 bg-transparent p-0 shadow-none"
+                className="justify-center gap-0.5 border-0 bg-transparent p-0 shadow-none overflow-visible"
                 onChange={onTabChange}
-                onDisabledActivate={() => showPathwayStageHint("top-right")}
+                disabledHint={PATHWAY_STAGE_HINT_COPY}
               />
             </div>
 
