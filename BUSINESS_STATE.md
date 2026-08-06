@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-06** — Pathway disabled tip: portals below the tapped icon (`position: fixed`) so it no longer covers the mobile pathway row; upward caret tracks the icon; still auto-dismisses at 2.5s (`ExpandableTabs`).
+
 - **2026-08-06** — Pathway disabled-stage tip: bottom placement (clears site header), subtler paper chip, tiny warning icon, compact 9px type; LO chrome raised to `z-30` so the tip stacks above stage cards (`ExpandableTabs`, `LoPageHeader`).
 
 - **2026-08-06** — Pathway bar layout restored: removed Tooltip wrappers that broke compact flex; cream hint is again an absolute tip on the tab and auto-dismisses after 2.5s (`ExpandableTabs`).

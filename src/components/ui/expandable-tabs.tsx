@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
 import { AlertTriangle, type LucideIcon } from "lucide-react";
@@ -47,7 +48,8 @@ interface ExpandableTabsProps {
    */
   onDisabledActivate?: (index: number) => void;
   /**
-   * Cream tip above a disabled tab on click — auto-hides after a couple seconds.
+   * Compact tip below a disabled tab on click — portals so it never covers
+   * the pathway row; auto-hides after a couple seconds.
    */
   disabledHint?: string;
 }
@@ -95,6 +97,76 @@ const labelEnter = {
 /** Pathway tip — visible briefly, then self-dismisses. */
 const DISABLED_HINT_MS = 2500;
 
+/** Gap between icon bottom and tip top (keeps clear of the pathway row). */
+const HINT_GAP_PX = 8;
+
+type HintAnchor = { left: number; top: number };
+
+function PathwayDisabledHint({
+  text,
+  anchor,
+  reduceMotion,
+}: {
+  text: string;
+  anchor: HintAnchor;
+  reduceMotion: boolean;
+}) {
+  // Keep tip on-screen: clamp horizontal center within a small inset.
+  const tipMax = 168;
+  const pad = 10;
+  const vw = typeof window !== "undefined" ? window.innerWidth : tipMax;
+  const clampedLeft = Math.min(
+    Math.max(anchor.left, pad + tipMax / 2),
+    vw - pad - tipMax / 2,
+  );
+  // Arrow stays aimed at the real icon even if the chip shifts to stay in view.
+  const arrowOffset = anchor.left - clampedLeft;
+
+  return createPortal(
+    <motion.div
+      key="pathway-disabled-hint"
+      role="tooltip"
+      initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4 }}
+      animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 3 }}
+      transition={{ duration: 0.12, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        position: "fixed",
+        left: clampedLeft,
+        top: anchor.top,
+        transform: "translateX(-50%)",
+        zIndex: 100,
+      }}
+      className="pointer-events-none flex w-max max-w-[10.5rem] items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06),0_4px_12px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10 dark:bg-paper dark:text-ink/55"
+    >
+      {/* Dual-triangle caret: border ring + fill, aimed at the tapped icon */}
+      <span
+        aria-hidden
+        className="absolute -top-[6px] h-0 w-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-ink/[0.08] dark:border-b-white/10"
+        style={{
+          left: `calc(50% + ${arrowOffset}px)`,
+          transform: "translateX(-50%)",
+        }}
+      />
+      <span
+        aria-hidden
+        className="absolute -top-[5px] h-0 w-0 border-x-[5px] border-x-transparent border-b-[5px] border-b-paper dark:border-b-paper"
+        style={{
+          left: `calc(50% + ${arrowOffset}px)`,
+          transform: "translateX(-50%)",
+        }}
+      />
+      <AlertTriangle
+        className="size-2.5 shrink-0 text-ink/40"
+        strokeWidth={2.25}
+        aria-hidden
+      />
+      <span className="min-w-0 text-left text-pretty">{text}</span>
+    </motion.div>,
+    document.body,
+  );
+}
+
 export function ExpandableTabs({
   tabs,
   className,
@@ -114,12 +186,16 @@ export function ExpandableTabs({
   );
   const selected = isControlled ? value! : uncontrolled;
   const [hintIndex, setHintIndex] = React.useState<number | null>(null);
+  const [hintAnchor, setHintAnchor] = React.useState<HintAnchor | null>(null);
   const hintTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const outsideClickRef = React.useRef<HTMLDivElement>(null);
+  const tabRefs = React.useRef<Array<HTMLButtonElement | null>>([]);
   const reduceMotionPref = useReducedMotion();
   const [motionReady, setMotionReady] = React.useState(false);
+  const [portalReady, setPortalReady] = React.useState(false);
   React.useEffect(() => {
     setMotionReady(true);
+    setPortalReady(true);
   }, []);
   React.useEffect(() => {
     return () => {
@@ -137,20 +213,50 @@ export function ExpandableTabs({
       hintTimerRef.current = null;
     }
     setHintIndex(null);
+    setHintAnchor(null);
   }, []);
 
   const showDisabledHint = React.useCallback(
     (index: number) => {
       if (!disabledHint) return;
+      const el = tabRefs.current[index];
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        setHintAnchor({
+          left: rect.left + rect.width / 2,
+          top: rect.bottom + HINT_GAP_PX,
+        });
+      }
       if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
       setHintIndex(index);
       hintTimerRef.current = setTimeout(() => {
         setHintIndex(null);
+        setHintAnchor(null);
         hintTimerRef.current = null;
       }, DISABLED_HINT_MS);
     },
     [disabledHint],
   );
+
+  // Re-anchor on scroll/resize so a fixed tip stays under the icon.
+  React.useEffect(() => {
+    if (hintIndex == null) return;
+    const sync = () => {
+      const el = tabRefs.current[hintIndex];
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      setHintAnchor({
+        left: rect.left + rect.width / 2,
+        top: rect.bottom + HINT_GAP_PX,
+      });
+    };
+    window.addEventListener("scroll", sync, true);
+    window.addEventListener("resize", sync);
+    return () => {
+      window.removeEventListener("scroll", sync, true);
+      window.removeEventListener("resize", sync);
+    };
+  }, [hintIndex]);
 
   useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
     clearHint();
@@ -183,7 +289,7 @@ export function ExpandableTabs({
     <div
       ref={outsideClickRef}
       className={cn(
-        "relative flex items-center overflow-visible rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
+        "relative flex items-center rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
         compact ? "flex-nowrap gap-0" : "flex-wrap gap-1",
         className,
       )}
@@ -197,12 +303,14 @@ export function ExpandableTabs({
         const isSelected = selected === index;
         const isDisabled = Boolean(tab.disabled);
         const showLabel = expandSelectedLabel && isSelected;
-        const showHint = Boolean(disabledHint && hintIndex === index);
 
         return (
           <button
             key={tab.title}
             type="button"
+            ref={(el) => {
+              tabRefs.current[index] = el;
+            }}
             onClick={() => handleSelect(index)}
             aria-current={isSelected ? "true" : undefined}
             aria-disabled={isDisabled || undefined}
@@ -238,41 +346,6 @@ export function ExpandableTabs({
               !isSelected && !isDisabled && "hover:bg-ink/[0.04]",
             )}
           >
-            <AnimatePresence>
-              {showHint ? (
-                <motion.span
-                  role="tooltip"
-                  initial={
-                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4 }
-                  }
-                  animate={
-                    reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
-                  }
-                  exit={
-                    reduceMotion ? { opacity: 0 } : { opacity: 0, y: 3 }
-                  }
-                  transition={{
-                    duration: 0.12,
-                    delay: 0,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="pointer-events-none absolute left-1/2 top-[calc(100%+0.3rem)] z-[80] flex w-max max-w-[10.5rem] -translate-x-1/2 items-center gap-1 rounded border border-ink/[0.08] bg-paper px-1.5 py-0.5 font-body text-[9px] font-medium leading-tight tracking-tight text-ink/50 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/10 dark:bg-paper dark:text-ink/55"
-                >
-                  <span
-                    className="absolute bottom-full left-1/2 mb-px h-1.5 w-1.5 -translate-x-1/2 rotate-45 border-l border-t border-ink/[0.08] bg-paper dark:border-white/10 dark:bg-paper"
-                    aria-hidden
-                  />
-                  <AlertTriangle
-                    className="size-2.5 shrink-0 text-ink/40"
-                    strokeWidth={2.25}
-                    aria-hidden
-                  />
-                  <span className="min-w-0 text-left text-pretty">
-                    {disabledHint}
-                  </span>
-                </motion.span>
-              ) : null}
-            </AnimatePresence>
             <span className="relative inline-flex shrink-0 items-center justify-center">
               <Icon
                 size={compact ? 15 : 18}
@@ -315,6 +388,17 @@ export function ExpandableTabs({
           </button>
         );
       })}
+
+      {portalReady &&
+      disabledHint &&
+      hintIndex != null &&
+      hintAnchor ? (
+        <PathwayDisabledHint
+          text={disabledHint}
+          anchor={hintAnchor}
+          reduceMotion={reduceMotion}
+        />
+      ) : null}
     </div>
   );
 }
