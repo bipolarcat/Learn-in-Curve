@@ -17,8 +17,8 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="18"
-      height="18"
+      width="13"
+      height="13"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden

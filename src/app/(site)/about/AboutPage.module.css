@@ -212,10 +212,10 @@
   margin-top: 1.15rem;
 }
 
-/* Compact CTA shrinks child SVGs to 0.85em — force a readable LinkedIn mark. */
+/* Compact CTA shrinks child SVGs to 0.85em — keep LinkedIn readable but not oversized. */
 .founderLinkedIn :global(svg) {
-  width: 1.125rem !important;
-  height: 1.125rem !important;
+  width: 0.8125rem !important;
+  height: 0.8125rem !important;
 }
 
 @media (min-width: 48rem) {
