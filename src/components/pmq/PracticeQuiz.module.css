@@ -370,13 +370,15 @@
 }
 
 .qCellCorrect {
-  background: color-mix(in srgb, var(--olive) 12%, transparent);
+  background: color-mix(in srgb, var(--olive) 22%, transparent);
   color: var(--olive);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--olive) 45%, transparent);
 }
 
 .qCellIncorrect {
-  background: color-mix(in srgb, var(--rust) 10%, transparent);
+  background: color-mix(in srgb, var(--rust) 18%, transparent);
   color: var(--rust);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rust) 40%, transparent);
 }
 
 .qCellDone {

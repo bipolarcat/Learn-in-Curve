@@ -13,16 +13,16 @@ const MCQ_STYLES: Record<ResponseVisualState, string> = {
   default:
     "border-ink/15 bg-paper text-ink hover:border-ink/25 hover:bg-ink/[0.03]",
   selected: "border-ink/30 bg-ink/[0.05] text-ink",
-  correct: "border-olive/35 bg-olive/10 text-ink",
-  incorrect: "border-rust/30 bg-rust/10 text-ink",
+  correct: "border-olive/60 bg-olive/20 text-ink ring-1 ring-olive/25",
+  incorrect: "border-rust/55 bg-rust/18 text-ink ring-1 ring-rust/20",
   muted: "border-ink/10 bg-transparent text-ink/40",
 };
 
 const DROPDOWN_STYLES: Record<ResponseVisualState, string> = {
   default: "border-ink/15 bg-paper text-ink hover:border-ink/25",
   selected: "border-ink/25 bg-ink/[0.04] text-ink",
-  correct: "border-olive/35 bg-olive/10 text-ink",
-  incorrect: "border-rust/30 bg-rust/10 text-ink",
+  correct: "border-olive/60 bg-olive/20 text-ink ring-1 ring-olive/25",
+  incorrect: "border-rust/55 bg-rust/18 text-ink ring-1 ring-rust/20",
   muted: "border-ink/10 bg-paper text-ink/40",
 };
 

@@ -40,6 +40,12 @@ interface ExpandableTabsProps {
   /** Compact hit targets for tight chrome (e.g. mobile LO header). */
   size?: "default" | "compact";
   onChange?: (index: number | null) => void;
+  /**
+   * Fired when a disabled tab is activated (click / Enter / Space).
+   * Keeps the control focusable so we can explain why navigation is blocked
+   * (native `disabled` would swallow the event).
+   */
+  onDisabledActivate?: (index: number) => void;
 }
 
 /*
@@ -92,6 +98,7 @@ export function ExpandableTabs({
   expandSelectedLabel = true,
   size = "default",
   onChange,
+  onDisabledActivate,
 }: ExpandableTabsProps) {
   const isControlled = value !== undefined;
   const [uncontrolled, setUncontrolled] = React.useState<number | null>(
@@ -117,7 +124,11 @@ export function ExpandableTabs({
 
   const handleSelect = (index: number) => {
     const item = tabs[index];
-    if (!item || item.type === "separator" || item.disabled) return;
+    if (!item || item.type === "separator") return;
+    if (item.disabled) {
+      onDisabledActivate?.(index);
+      return;
+    }
     if (!isControlled) setUncontrolled(index);
     onChange?.(index);
   };
@@ -153,11 +164,14 @@ export function ExpandableTabs({
             key={tab.title}
             type="button"
             onClick={() => handleSelect(index)}
-            disabled={isDisabled}
             aria-current={isSelected ? "true" : undefined}
             aria-disabled={isDisabled || undefined}
-            aria-label={tab.title}
-            title={tab.title}
+            aria-label={
+              isDisabled
+                ? `${tab.title} — not available yet`
+                : tab.title
+            }
+            title={isDisabled ? undefined : tab.title}
             className={cn(
               "relative inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
               compact
@@ -181,7 +195,7 @@ export function ExpandableTabs({
                     activeColor,
                   )
                 : isDisabled
-                  ? "cursor-not-allowed text-ink/30"
+                  ? "cursor-help text-ink/30 hover:bg-ink/[0.03] hover:text-ink/40"
                   : "text-ink hover:text-ink/80",
               !isSelected && !isDisabled && "hover:bg-ink/[0.04]",
             )}

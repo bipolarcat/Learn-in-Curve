@@ -746,7 +746,7 @@
 }
 
 .railCellAnswered {
-  background: color-mix(in srgb, var(--olive) 14%, transparent);
+  background: color-mix(in srgb, var(--olive) 22%, transparent);
   color: var(--olive);
 }
 

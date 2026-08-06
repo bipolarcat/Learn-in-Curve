@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
 import { createClient } from "@/lib/supabase/client";
@@ -22,6 +22,66 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { showToast } from "@/components/ui/toast";
 import styles from "@/components/AuthForm.module.css";
+
+const TERMS_REQUIRED_COPY =
+  "Tick the box to agree to the Terms and Privacy Policy — then you can continue.";
+
+/** Signup terms gate — full-width paper alert with a short attention pulse. */
+function TermsAgreementAlert({ message }: { message: string }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      initial={reduceMotion ? false : { opacity: 0, y: 6, scale: 0.97 }}
+      animate={
+        reduceMotion
+          ? { opacity: 1 }
+          : {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              boxShadow: [
+                "0 1px 2px rgb(var(--ink-rgb) / 0.06), 0 0 0 0 rgb(var(--orange-rgb) / 0)",
+                "0 1px 2px rgb(var(--ink-rgb) / 0.06), 0 0 0 4px rgb(var(--orange-rgb) / 0.22)",
+                "0 1px 2px rgb(var(--ink-rgb) / 0.06), 0 8px 22px rgb(var(--ink-rgb) / 0.1), 0 0 0 0 rgb(var(--orange-rgb) / 0)",
+              ],
+            }
+      }
+      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4, scale: 0.98 }}
+      transition={{
+        duration: reduceMotion ? 0.12 : 0.28,
+        ease: [0.22, 1, 0.36, 1],
+        boxShadow: reduceMotion
+          ? undefined
+          : {
+              duration: 0.9,
+              ease: [0.22, 1, 0.36, 1],
+              times: [0, 0.35, 1],
+            },
+      }}
+      id="terms-error"
+      role="alert"
+      className="mt-2.5 flex w-full items-start gap-2.5 rounded-xl border border-orange/45 bg-orange/[0.09] px-3 py-2.5 dark:border-orange/40 dark:bg-orange/[0.14]"
+    >
+      <span className="relative mt-0.5 inline-flex size-5 shrink-0 items-center justify-center">
+        {!reduceMotion ? (
+          <span
+            className="absolute inset-0 rounded-full bg-orange/25 animate-ping"
+            aria-hidden
+          />
+        ) : null}
+        <AlertTriangle
+          className="relative size-4 text-orange"
+          strokeWidth={2.5}
+          aria-hidden
+        />
+      </span>
+      <p className="min-w-0 flex-1 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink text-pretty">
+        {message}
+      </p>
+    </motion.div>
+  );
+}
 
 type AuthFormProps = {
   mode: "sign-in" | "sign-up";
@@ -127,10 +187,11 @@ export function AuthForm({
       return true;
     }
 
-    const msg = "Please agree to the Terms and Privacy Policy to continue.";
+    const msg = TERMS_REQUIRED_COPY;
     setTermsError(true);
     setIsError(true);
     setMessage(msg);
+    showAuthToast(msg, "warning");
     requestAnimationFrame(() => termsCheckboxRef.current?.focus());
     return false;
   }
@@ -383,7 +444,11 @@ export function AuthForm({
                 required
                 aria-invalid={termsError}
                 aria-describedby={termsError ? "terms-error" : undefined}
-                className="mt-0.5 h-4 w-4 shrink-0 rounded border-ink/25 accent-orange"
+                className={`mt-0.5 h-4 w-4 shrink-0 rounded border-ink/25 accent-orange transition-[box-shadow] duration-200 ${
+                  termsError
+                    ? "ring-2 ring-orange/55 ring-offset-2 ring-offset-cream"
+                    : ""
+                }`}
               />
               <span>
                 I agree to the{" "}
@@ -398,22 +463,9 @@ export function AuthForm({
               </span>
             </label>
             <AnimatePresence>
-              {termsError && (
-                <motion.div
-                  initial={{ opacity: 0, y: 4, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 3, scale: 0.98 }}
-                  transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                  id="terms-error"
-                  role="alert"
-                  className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
-                >
-                  <AlertTriangle className="size-3.5 shrink-0 self-center text-orange" strokeWidth={2.25} aria-hidden />
-                  <p className="font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
-                    {message}
-                  </p>
-                </motion.div>
-              )}
+              {termsError && message ? (
+                <TermsAgreementAlert key="terms-error" message={message} />
+              ) : null}
             </AnimatePresence>
           </div>
         )}
@@ -454,7 +506,11 @@ export function AuthForm({
               required
               aria-invalid={termsError}
               aria-describedby={termsError ? "terms-error" : undefined}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-orange"
+              className={`mt-0.5 h-4 w-4 shrink-0 accent-orange transition-[box-shadow] duration-200 ${
+                termsError
+                  ? "ring-2 ring-orange/55 ring-offset-2 ring-offset-cream"
+                  : ""
+              }`}
             />
             <span>
               I agree to the{" "}
@@ -469,22 +525,9 @@ export function AuthForm({
             </span>
           </label>
           <AnimatePresence>
-            {termsError && (
-              <motion.div
-                initial={{ opacity: 0, y: 4, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 3, scale: 0.98 }}
-                transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                id="terms-error"
-                role="alert"
-                className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
-              >
-                <AlertTriangle className="size-3.5 shrink-0 self-center text-orange" strokeWidth={2.25} aria-hidden />
-                <p className="font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
-                  {message}
-                </p>
-              </motion.div>
-            )}
+            {termsError && message ? (
+              <TermsAgreementAlert key="terms-error" message={message} />
+            ) : null}
           </AnimatePresence>
         </div>
       )}

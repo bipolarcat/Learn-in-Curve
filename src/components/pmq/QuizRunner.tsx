@@ -15,6 +15,7 @@ import {
   InlineDropdownResponseFields,
   McqResponseFields,
 } from "@/components/pmq/QuestionResponseFields";
+import { showCheckAnswerHint } from "@/components/pmq/CheckAnswerHint";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 import type { PmqQuestion } from "@/types/pmq";
 
@@ -162,17 +163,25 @@ function CheckAnswerBar({
   canCheck,
   pending,
   onCheck,
+  emptyHint,
 }: {
   canCheck: boolean;
   pending: boolean;
   onCheck: (el: HTMLElement) => void;
+  emptyHint: "mcq" | "dropdown";
 }) {
   return (
     <div className={styles.checkRow}>
       <button
         type="button"
-        disabled={!canCheck || pending}
-        onClick={(e) => onCheck(e.currentTarget)}
+        disabled={pending}
+        onClick={(e) => {
+          if (!canCheck) {
+            showCheckAnswerHint(emptyHint);
+            return;
+          }
+          onCheck(e.currentTarget);
+        }}
         aria-busy={pending}
         aria-label={pending ? "Checking answer" : "Check answer"}
         className={styles.checkBtn}
@@ -320,6 +329,7 @@ function McqQuestion({
           canCheck={Boolean(selected)}
           pending={pending}
           onCheck={handleCheck}
+          emptyHint="mcq"
         />
       ) : null}
       {saveError ? (
@@ -519,6 +529,7 @@ function DropdownQuestion({
           canCheck={isComplete(values)}
           pending={pending}
           onCheck={(el) => revealAnswer(values, el)}
+          emptyHint="dropdown"
         />
       ) : null}
       {saveError ? (

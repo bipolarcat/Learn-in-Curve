@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --ds-background-100: hsla(0, 0%, 100%, 1);
-    --geist-success: #5f7a3d;
-    --geist-error: #b3341c;
+    --geist-success: #4f8f2e;
+    --geist-error: #d03a1f;
     --geist-warning: #d9a441;
     --geist-violet: #1b6560;
     --geist-foreground: #241a12;
@@ -38,11 +38,11 @@
   --auth-muted: #5f5a55;
   --auth-placeholder: #68625c;
   --gold: #d9a441;
-  --olive: #5f7a3d;
+  --olive: #4f8f2e;
   --teal: #1b6560;
   --teal-deep: #123f3c;
   --teal-rgb: 27 101 96;
-  --rust: #b3341c;
+  --rust: #d03a1f;
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

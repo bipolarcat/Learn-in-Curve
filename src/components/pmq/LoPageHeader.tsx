@@ -18,6 +18,7 @@ import {
   CHECKPOINT_GATE_COPY,
   showCheckpointGateHint,
 } from "@/components/pmq/CheckpointGateHint";
+import { showPathwayStageHint } from "@/components/pmq/PathwayStageHint";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { Progress } from "@/components/ui/interfaces-progress";
 import { Spinner } from "@/components/ui/spinner";
@@ -286,6 +287,7 @@ export function LoPageHeader({
               activeColor="text-orange"
               className="w-full border-0 bg-transparent p-0 shadow-none"
               onChange={onTabChange}
+              onDisabledActivate={() => showPathwayStageHint("top-right")}
             />
           </div>
 
@@ -316,6 +318,7 @@ export function LoPageHeader({
                 activeColor="text-orange"
                 className="justify-center gap-0.5 border-0 bg-transparent p-0 shadow-none"
                 onChange={onTabChange}
+                onDisabledActivate={() => showPathwayStageHint("top-right")}
               />
             </div>
 

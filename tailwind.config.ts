@@ -30,12 +30,12 @@ const config: Config = {
           hover: "var(--orange-action-hover)",
         },
         gold: "#D9A441",
-        olive: "#5F7A3D",
+        olive: "#4F8F2E",
         teal: {
           DEFAULT: "#1B6560",
           deep: "#123F3C",
         },
-        rust: "#B3341C",
+        rust: "#D03A1F",
         maroon: "#7A2E2E",
         line: "rgb(var(--line-rgb) / <alpha-value>)",
         bg: {
