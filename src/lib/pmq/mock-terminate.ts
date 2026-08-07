@@ -25,6 +25,8 @@ type TerminableSession = {
   passed?: boolean | null;
   submitted_at?: string | null;
   finalized_at?: string | null;
+  justExpired?: boolean;
+  justAbandoned?: boolean;
   config_snapshot?:
     | (MockExamConfig & {
         exam_set?: number;
@@ -190,6 +192,8 @@ export async function expireSession<T extends TerminableSession>(
     passed: data.passed as boolean | null,
     finalized_at: data.finalized_at as string | null,
     submitted_at: data.submitted_at as string | null,
+    justExpired: terminalStatus === "expired",
+    justAbandoned: terminalStatus === "abandoned",
   };
 }
 

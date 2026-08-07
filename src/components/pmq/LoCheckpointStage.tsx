@@ -14,6 +14,7 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { CtaArrow, CtaArrowLeft } from "@/components/stamp-chip";
 import { markSectionComplete } from "@/lib/pmq/actions";
+import { trackSectionCompleted } from "@/lib/analytics/events";
 import { pmqLoHref, PMQ_SLUG } from "@/lib/pmq/constants";
 import motion from "@/components/pmq/PmqMotion.module.css";
 import type { PmqSection } from "@/types/pmq";
@@ -214,12 +215,18 @@ export function LoCheckpointStage({
       if (emptySealTried.current) return;
       emptySealTried.current = true;
       void (async () => {
-        await markSectionComplete({
+        const result = await markSectionComplete({
           sectionId,
           courseId,
           loNumber,
           checkpointTotal: 0,
         });
+        if (result && "ok" in result && result.ok) {
+          trackSectionCompleted({
+            lo_number: loNumber,
+            section_id: sectionId,
+          });
+        }
         startCelebration();
         router.refresh();
       })();
@@ -232,12 +239,18 @@ export function LoCheckpointStage({
     ) {
       emptySealTried.current = true;
       void (async () => {
-        await markSectionComplete({
+        const result = await markSectionComplete({
           sectionId,
           courseId,
           loNumber,
           checkpointTotal: checklistItems.length,
         });
+        if (result && "ok" in result && result.ok) {
+          trackSectionCompleted({
+            lo_number: loNumber,
+            section_id: sectionId,
+          });
+        }
         router.refresh();
       })();
     }

@@ -121,3 +121,13 @@ export function identify(
 ): void {
   posthogInstance?.identify(userId, properties);
 }
+
+/**
+ * Update person properties without changing distinct_id. Use when the layout
+ * already has the value (e.g. dashboard tier) — do not fetch just to set this.
+ */
+export function setPersonProperties(
+  properties: Record<string, string | number | boolean | null>,
+): void {
+  posthogInstance?.setPersonProperties(properties);
+}

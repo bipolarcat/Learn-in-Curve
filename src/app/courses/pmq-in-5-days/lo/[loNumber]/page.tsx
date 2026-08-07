@@ -18,10 +18,12 @@ import {
 } from "@/lib/pmq/queries";
 import { canAccessMedia, canAccessSly } from "@/lib/pmq/tiers";
 import { LoStudyJourney } from "@/components/pmq/LoStudyJourney";
+import { LoAnalytics } from "@/components/pmq/LoAnalytics";
 import type { LoStageId } from "@/lib/pmq/lo-stages";
 import { AiTutorPanel } from "@/components/pmq/AiTutorPanel";
 import { DemoBanner } from "@/components/pmq/DemoBanner";
 import {
+  PMQ_COURSE_ID,
   PMQ_LO_AUDIO_OVERVIEWS,
   PMQ_LO_EXPLAINER_VIDEOS,
   PMQ_SLUG,
@@ -141,10 +143,20 @@ export default async function PmqLoPage({ params }: LoPageProps) {
   ].filter((id): id is LoStageId => id !== null);
   const explainerVideo = PMQ_LO_EXPLAINER_VIDEOS[loNumber];
   const audioOverview = PMQ_LO_AUDIO_OVERVIEWS[loNumber];
+  // Zero pathway stages across the course = first real LO visit.
+  const isFirstLoVisit = (completion?.percentExact ?? 0) === 0;
+  const courseJustCompleted = (completion?.completedCount ?? 0) >= 24;
 
   return (
     <>
       <DemoBanner isSignedIn={!!user} />
+
+      <LoAnalytics
+        loNumber={loNumber}
+        courseId={course.id ?? PMQ_COURSE_ID}
+        isFirstLoVisit={isFirstLoVisit}
+        courseJustCompleted={courseJustCompleted}
+      />
 
       <LoStudyJourney
         loNumber={loNumber}

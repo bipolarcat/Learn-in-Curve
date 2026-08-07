@@ -191,6 +191,10 @@ export type ExamSession = {
   part_2_started_at: string | null;
   part_2_deadline_at: string | null;
   part_2_submitted_at: string | null;
+  /** Set when expireSession just wrote `expired` on this read (client analytics). */
+  justExpired?: boolean;
+  /** Set when expireSession just wrote `abandoned` on this read (client analytics). */
+  justAbandoned?: boolean;
 };
 
 export type MockExamSetSummary = {

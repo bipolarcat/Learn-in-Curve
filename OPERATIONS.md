@@ -97,6 +97,27 @@ Irreversible — this deletes real scored attempt data (submitted answers, marks
 
 ## Data-model gotchas
 
+### Timed-out sittings now keep their marks (`expired` vs `abandoned`)
+
+**Changed 2026-08-07.** Before this date, any expiry — break window, part deadline, or the 180-minute backstop — wrote `status = 'abandoned'` with `total_score = 0`, discarding real submitted work. Two live sessions were found scored zero despite substantial answers, one of them a real learner (20 of 20 Part 1 questions answered).
+
+**The status vocabulary now means:**
+
+- `finalized` — completed normally through `finalizeMockExam`. The **only** path that can set `passed = true` or create a `certificates` row.
+- `expired` — a clock ran out. Scored on whatever was submitted, `passed` always false.
+- `abandoned` — the learner pressed abandon. Also scored, `passed` always false.
+
+**Invariants to check before trusting any fix in this area:**
+
+- A session with `part_2_submitted_at IS NULL` must never have `passed = true`. Enforced in `expireSession` (`mock-terminate.ts`) as `bothPartsSubmitted && total >= passMark`.
+- No `expired` or `abandoned` session may have a `certificates` row. Certificate insertion lives **only** in `finalizeMockExam`.
+- `finalized_at IS NOT NULL` now means "scoring has run", not "completed the exam". It is set on expiry too. **Don't use it to mean "finished properly"** — check `status` for that. Using it as the readiness gate is exactly what hid the results (`getFinalizedMockReview` required `status = 'finalized'`, which an expired session can never reach).
+- Readable statuses are `finalized | expired | abandoned` via `isReadableMockStatus` in `mock-domain.ts`. Add any future terminal status there or the review page will silently stop working for it.
+
+**Repairing historic rows:** `scripts/backfill-abandoned-mock-scores.mjs`, run with `npx tsx` (not `node` — it imports TS). Always `--dry-run` first: the dry run calls the same read-only `previewSessionScore` the writer uses, so preview and result cannot diverge. The script asserts the certificate count is unchanged and aborts if not. It selects on `status = 'abandoned' AND finalized_at IS NULL`, so it is idempotent — repaired rows become `expired` and won't be picked up again.
+
+**Gotcha in the dry run's numbers:** the preview is read-only, so it does **not** run AI grading. Any ungraded written answer previews as 0 and shows in `ungradedWritten`. The real run grades them first, so the written total will be **higher** than the dry run predicted. A preview total lower than the final total is expected, not a bug.
+
 ### `section_progress` has two independent completion signals
 
 **The trap:** it looks like completion is one thing (`completed_at` is set, or it isn't). It's actually two unrelated fields that both have to agree, or the UI looks half-reset:
@@ -194,6 +215,8 @@ Found and fixed 2026-07-29. Fix: `expireBreakIfNeeded()` in `src/lib/pmq/mock-do
 - `startMockPartTwo` (`mock-actions.ts`) — the actual resume action; now rejects with "Break time ran out" instead of granting a fresh window.
 - `getActiveExamSession` (`queries.ts`) — the exam runner page load.
 - `getMockExamSetSummaries` (`queries.ts`) — the exam selector list (this is what was showing "On break" indefinitely).
+
+**Superseded in part, 2026-08-07 — see "Timed-out sittings now keep their marks" below.** The enforcement points described here are still correct; what changed is the terminal state they write.
 
 **Rule going forward:** any deadline/window field on `exam_sessions` (or a future timed feature) needs an enforcement point, not just a stored timestamp. Storing `X_ends_at` and never checking `isDeadlineExpired(X_ends_at)` anywhere is the same shape of bug as this one — grep for the field's write site and confirm there's a matching read-and-enforce site before shipping.
 

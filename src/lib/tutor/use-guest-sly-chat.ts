@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
+import {
+  trackTutorLimitHit,
+  trackTutorMessageSent,
+} from "@/lib/analytics/events";
 
 export type GuestChatMessage = {
   id: string;
@@ -102,6 +106,11 @@ export function useGuestSlyChat({ active }: UseGuestSlyChatOptions) {
       const trimmed = (messageOverride ?? input).trim();
       if (!trimmed || sending || locked || unavailable) return;
 
+      trackTutorMessageSent({
+        surface: "guest",
+        message_length: trimmed.length,
+      });
+
       setSending(true);
       setError("");
       setFailedSend(null);
@@ -165,6 +174,10 @@ export function useGuestSlyChat({ active }: UseGuestSlyChatOptions) {
             if (data.error === "guest_cap_exceeded" || data.locked) {
               setLocked(true);
               setMessagesRemaining(0);
+              trackTutorLimitHit({
+                surface: "guest",
+                limit_type: "guest_cap",
+              });
               failSend(
                 `You've used your ${GUEST_TIER_MESSAGE_CAP} free trial messages.`,
               );
@@ -239,7 +252,13 @@ export function useGuestSlyChat({ active }: UseGuestSlyChatOptions) {
                 if (typeof event.messagesRemaining === "number") {
                   setMessagesRemaining(event.messagesRemaining);
                 }
-                if (event.locked) setLocked(true);
+                if (event.locked) {
+                  setLocked(true);
+                  trackTutorLimitHit({
+                    surface: "guest",
+                    limit_type: "guest_cap",
+                  });
+                }
                 if (liveRegionRef.current) {
                   liveRegionRef.current.textContent = "Sly replied";
                 }

@@ -22,6 +22,11 @@ import {
   type AvatarId,
 } from "@/lib/avatars";
 import { AvatarImage } from "@/components/AvatarImage";
+import {
+  trackTutorLimitHit,
+  trackTutorMessageSent,
+  trackTutorOpened,
+} from "@/lib/analytics/events";
 
 type AiTutorPanelProps = {
   isUnlocked: boolean;
@@ -131,7 +136,11 @@ export function AiTutorPanel({
         ? document.activeElement
         : null;
     setExpanded(true);
-  }, []);
+    trackTutorOpened({
+      surface: "course",
+      ...(loNumber != null ? { lo_number: loNumber } : {}),
+    });
+  }, [loNumber]);
 
   const closePanel = useCallback(() => {
     setExpanded(false);
@@ -313,6 +322,11 @@ export function AiTutorPanel({
     const trimmed = (messageOverride ?? input).trim();
     if (!trimmed || sending || chatLocked) return;
 
+    trackTutorMessageSent({
+      surface: "course",
+      message_length: trimmed.length,
+    });
+
     setSending(true);
     setError("");
     setFailedSend(null);
@@ -367,6 +381,10 @@ export function AiTutorPanel({
           if (data.capReason) {
             setCapReason(data.capReason);
             setMessagesRemaining(0);
+            trackTutorLimitHit({
+              surface: "course",
+              limit_type: data.capReason,
+            });
           }
           failSend(
             data.capReason === "free"
@@ -396,6 +414,12 @@ export function AiTutorPanel({
         });
         setMessagesRemaining(data.messagesRemaining ?? null);
         setCapReason(data.capReason ?? null);
+        if (data.capReason) {
+          trackTutorLimitHit({
+            surface: "course",
+            limit_type: data.capReason,
+          });
+        }
         setFairUsage(data.fairUsage ?? null);
         if (liveRegionRef.current) {
           liveRegionRef.current.textContent = "Sly replied";
@@ -468,6 +492,12 @@ export function AiTutorPanel({
               );
               setMessagesRemaining(event.messagesRemaining ?? null);
               setCapReason(event.capReason ?? null);
+              if (event.capReason) {
+                trackTutorLimitHit({
+                  surface: "course",
+                  limit_type: event.capReason,
+                });
+              }
               setFairUsage((prev) => event.fairUsage ?? prev);
               if (liveRegionRef.current) {
                 liveRegionRef.current.textContent = "Sly replied";

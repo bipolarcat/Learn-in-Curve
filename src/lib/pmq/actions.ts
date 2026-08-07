@@ -73,6 +73,8 @@ async function awardXpAndUpdateStreak(
   totalXp: number;
   currentStreak: number;
   streakIncremented: boolean;
+  streakBroken: boolean;
+  previousStreak: number;
 }> {
   const xpAwarded = computeXpAwarded(questionType, isCorrect);
   const today = utcDateString();
@@ -96,11 +98,15 @@ async function awardXpAndUpdateStreak(
   let currentStreak = prev.current_streak;
   let longestStreak = prev.longest_streak;
   let lastActivityDate = prev.last_activity_date;
+  let streakBroken = false;
 
   if (prev.last_activity_date !== today) {
     if (prev.last_activity_date === yesterday) {
       currentStreak = prev.current_streak + 1;
     } else {
+      // Gap longer than one day — streak resets to 1. Only count as
+      // "broken" when there was a real streak to lose (previous > 1).
+      streakBroken = prev.current_streak > 1;
       currentStreak = 1;
     }
     longestStreak = Math.max(prev.longest_streak, currentStreak);
@@ -129,7 +135,14 @@ async function awardXpAndUpdateStreak(
     await supabase.from("user_course_stats").insert(row);
   }
 
-  return { xpAwarded, totalXp, currentStreak, streakIncremented };
+  return {
+    xpAwarded,
+    totalXp,
+    currentStreak,
+    streakIncremented,
+    streakBroken,
+    previousStreak: prev.current_streak,
+  };
 }
 
 export async function submitQuizAttempt(input: {
@@ -210,6 +223,8 @@ export async function submitQuizAttempt(input: {
     totalXp: 0,
     currentStreak: 0,
     streakIncremented: false,
+    streakBroken: false,
+    previousStreak: 0,
   };
   if (question?.question_type) {
     gamification = await awardXpAndUpdateStreak(
@@ -246,6 +261,8 @@ export async function submitQuizAttempt(input: {
     // Analytics only — lets the client fire the right event without re-deriving
     // state it can't see. Both default false so existing callers are unaffected.
     streakIncremented: gamification.streakIncremented,
+    streakBroken: gamification.streakBroken,
+    previousStreak: gamification.previousStreak,
     loCompleted,
     questionType: question?.question_type ?? null,
   };
@@ -272,7 +289,7 @@ export async function getQuizSet(input: {
         }
       >;
     }
-  | { error: "locked" | "not_signed_in" | "not_found" | string }
+  | { error: "locked" | "locked_ai_pro" | "not_signed_in" | "not_found" | string }
 > {
   const supabase = await createClient();
   const {

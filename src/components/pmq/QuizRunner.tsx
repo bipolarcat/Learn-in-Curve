@@ -11,9 +11,12 @@ import {
 } from "react";
 import { submitQuizAttempt } from "@/lib/pmq/actions";
 import {
+  trackHintViewed,
   trackLoCompleted,
   trackQuizAttemptSubmitted,
+  trackStreakBroken,
   trackStreakIncremented,
+  trackXpAwarded,
 } from "@/lib/analytics/events";
 import { Spinner } from "@/components/ui/spinner";
 import {
@@ -30,6 +33,8 @@ type QuizSubmitSuccess = {
   totalXp: number;
   currentStreak: number;
   streakIncremented: boolean;
+  streakBroken: boolean;
+  previousStreak: number;
   loCompleted: boolean;
   questionType: string | null;
 };
@@ -59,8 +64,18 @@ function trackAttempt(
     xp_awarded: result.xpAwarded ?? 0,
     context,
   });
+  if ((result.xpAwarded ?? 0) > 0) {
+    trackXpAwarded({
+      amount: result.xpAwarded ?? 0,
+      total_xp: result.totalXp ?? 0,
+      source: "quiz",
+    });
+  }
   if (result.streakIncremented) {
     trackStreakIncremented({ new_streak: result.currentStreak ?? 0 });
+  }
+  if (result.streakBroken) {
+    trackStreakBroken({ previous_streak: result.previousStreak ?? 0 });
   }
   if (result.loCompleted) {
     trackLoCompleted({ lo_number: loNumber });
@@ -199,11 +214,13 @@ function CheckAnswerBar({
   pending,
   onCheck,
   emptyHint,
+  loNumber,
 }: {
   canCheck: boolean;
   pending: boolean;
   onCheck: (el: HTMLElement) => void;
   emptyHint: "mcq" | "dropdown";
+  loNumber: number;
 }) {
   return (
     <div className={styles.checkRow}>
@@ -213,6 +230,10 @@ function CheckAnswerBar({
         onClick={(e) => {
           if (!canCheck) {
             showCheckAnswerHint(emptyHint, e.currentTarget);
+            trackHintViewed({
+              lo_number: loNumber,
+              question_type: emptyHint,
+            });
             return;
           }
           onCheck(e.currentTarget);
@@ -366,6 +387,7 @@ function McqQuestion({
           pending={pending}
           onCheck={handleCheck}
           emptyHint="mcq"
+          loNumber={loNumber}
         />
       ) : null}
       {saveError ? (
@@ -575,6 +597,7 @@ function DropdownQuestion({
           pending={pending}
           onCheck={(el) => revealAnswer(values, el)}
           emptyHint="dropdown"
+          loNumber={loNumber}
         />
       ) : null}
       {saveError ? (

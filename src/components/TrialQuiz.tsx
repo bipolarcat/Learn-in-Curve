@@ -8,6 +8,7 @@ import { PmqStartLink } from "@/components/PmqStartLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 import {
+  trackHintViewed,
   trackQuizDemoCompleted,
   trackQuizDemoQuestionAnswered,
 } from "@/lib/analytics/events";
@@ -261,6 +262,11 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
                   onClick={(e) => {
                     if (!selected) {
                       showCheckAnswerHint("mcq", e.currentTarget);
+                      const loMatch = /^LO(\d+)$/i.exec(question.lo);
+                      trackHintViewed({
+                        lo_number: loMatch ? Number(loMatch[1]) : 0,
+                        question_type: "mcq",
+                      });
                       return;
                     }
                     handleCheck();

@@ -23,6 +23,12 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-07** — PostHog analytics v2 complete (A–G): auth fail/success + password reset; Google `signed_in` via `auth_ok` beacon; course/LO/stage/section; quiz lock/hint/XP/streak_broken; mock lifecycle + expire flag; tutor/checkout; exam_date_set; dashboard person props (`DashboardAnalyticsPerson`). All via `events.ts` only. **Next for Claude/Sim:** set PostHog `signup_event` = `signed_up`, then funnel + starter dashboard.
+
+- **2026-08-07** — PostHog Groups D+E+F(partial): mock expire flag (`justExpired`/`justAbandoned` from `expireSession` → client `trackMockExamExpired`); mock runner lifecycle events; tutor open/send/limit (course + guest); checkout started/completed + top-up click; `exam_date_set` on dashboard deadline save. All via `@/lib/analytics/events` only.
+
+- **2026-08-07** — PostHog Groups B+C wired (course/LO progression + practice quizzes): new `LoAnalytics` on LO page (`lo_opened` / `course_started` when `percentExact===0` / `course_completed` when 24 LOs sealed); `trackLoStageReached` after `markLoStageReached` in `LoStudyJourney`; `trackSectionCompleted` after seal in `LoCheckpointStage`; `trackQuizSetOpened` / `trackQuizSetLockedHit` in `PracticeQuizSection`; `trackHintViewed` from `QuizRunner` + `TrialQuiz`; `submitQuizAttempt` returns `streakBroken`/`previousStreak` and `trackAttempt` fires `xp_awarded` + `streak_broken`. All via `@/lib/analytics/events` only.
+
 - **2026-08-07** — Password reset hardening (LIC-120 follow-up): `/auth/reset-password` gates on `getUser()` and shows an expired/used-link state (no form) with link to `/auth/forgot-password`; `ResetPasswordForm` maps `updateUser` errors via `getPasswordUpdateErrorMessage` + `console.error`; `ForgotPasswordForm` uses `getCanonicalOrigin()` for unused `redirectTo`. Google OAuth `redirectTo` → `/auth/callback` audited — correct code-exchange flow, left unchanged.
 
 - **2026-08-07** — Site version jumped to **2.38** (`site-version.ts` / `package.json`) so the next deploy recovers the missed 2.37 bump from the prior checkpoint ship that left production on 2.36.

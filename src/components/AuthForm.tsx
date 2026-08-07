@@ -14,6 +14,13 @@ import {
   readLastGoogleEmail,
 } from "@/lib/auth-hints";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
+import { getAuthFailureReason } from "@/lib/auth-errors";
+import {
+  trackSignInFailed,
+  trackSignUpFailed,
+  trackSignedIn,
+  trackSignedUp,
+} from "@/lib/analytics/events";
 import { AuthCheckInbox } from "@/components/AuthCheckInbox";
 import {
   formActionPrimary,
@@ -243,6 +250,12 @@ export function AuthForm({
       setMessage(error.message);
       setLoading(false);
       showAuthToast(error.message, "error");
+      const reason = getAuthFailureReason(error);
+      if (mode === "sign-up") {
+        trackSignUpFailed({ method: "email", reason });
+      } else {
+        trackSignInFailed({ method: "email", reason });
+      }
       return;
     }
 
@@ -253,6 +266,7 @@ export function AuthForm({
     // is off (or already-confirmed edge cases), signUp() returns a live
     // session immediately — treat that the same as a normal sign-in.
     if (mode === "sign-up" && !data.session) {
+      trackSignedUp({ method: "email" });
       setAwaitingConfirmEmail(email.trim());
       setLoading(false);
       return;
@@ -264,6 +278,12 @@ export function AuthForm({
     await syncThemeCookieFromProfile().catch(() => {
       /* non-fatal: worst case they land light and can toggle */
     });
+
+    if (mode === "sign-up") {
+      trackSignedUp({ method: "email" });
+    } else {
+      trackSignedIn({ method: "email" });
+    }
 
     router.push(safeNextPath);
     router.refresh();
@@ -299,6 +319,12 @@ export function AuthForm({
       setMessage(error.message);
       setLoading(false);
       showAuthToast(error.message, "error");
+      const reason = getAuthFailureReason(error);
+      if (mode === "sign-up") {
+        trackSignUpFailed({ method: "google", reason });
+      } else {
+        trackSignInFailed({ method: "google", reason });
+      }
     }
   }
 

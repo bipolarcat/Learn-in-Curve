@@ -34,6 +34,7 @@ import {
   type LoStageId,
 } from "@/lib/pmq/lo-stages";
 import { markLoStageReached } from "@/lib/pmq/actions";
+import { trackLoStageReached } from "@/lib/analytics/events";
 
 /** Hold ∞ long enough for the bars spinner to read before a sync stage swap. */
 const STAGE_CONTINUE_ADVANCE_MS = 420;
@@ -313,11 +314,15 @@ export function LoStudyJourney({
       : [currentId];
     for (const stageId of newlyDone) {
       if (!STAGE_REACHED_COLUMN[stageId]) continue;
-      void markLoStageReached({ sectionId, courseId, loNumber, stageId }).catch(
-        (err) => {
+      void markLoStageReached({ sectionId, courseId, loNumber, stageId })
+        .then((result) => {
+          if (result && "ok" in result && result.ok) {
+            trackLoStageReached({ lo_number: loNumber, stage_id: stageId });
+          }
+        })
+        .catch((err) => {
           console.error("[LoStudyJourney] markLoStageReached failed:", err);
-        },
-      );
+        });
     }
 
     // Bottom Continue leaves the viewport near the footer — jump back to the pathway.

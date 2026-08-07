@@ -51,7 +51,12 @@ export async function GET(request: Request) {
       // renders, so a dark-mode user signing in on a new device lands dark
       // instead of light-then-dark. See syncThemeCookieFromProfile.
       await syncThemeCookieFromProfile();
-      const response = NextResponse.redirect(new URL(nextPath, origin));
+      const redirectUrl = new URL(nextPath, origin);
+      if (data?.user?.app_metadata?.provider === "google") {
+        // Client beacon fires signed_in — server routes cannot capture().
+        redirectUrl.searchParams.set("auth_ok", "google");
+      }
+      const response = NextResponse.redirect(redirectUrl);
       rememberGoogleAccount(response, data?.user, origin);
       return response;
     }

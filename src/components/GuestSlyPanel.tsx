@@ -19,6 +19,7 @@ import {
 } from "@/components/pmq/JoinWaitlistButton";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
+import { trackTutorOpened } from "@/lib/analytics/events";
 
 type GuestSlyPanelProps = {
   open: boolean;
@@ -63,6 +64,8 @@ export function GuestSlyPanel({ open, onClose }: GuestSlyPanelProps) {
       document.activeElement instanceof HTMLElement
         ? document.activeElement
         : null;
+
+    trackTutorOpened({ surface: "guest" });
 
     const t = window.setTimeout(() => textareaRef.current?.focus(), 80);
     return () => {

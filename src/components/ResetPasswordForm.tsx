@@ -2,7 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { getPasswordUpdateErrorMessage } from "@/lib/auth-errors";
+import {
+  getAuthFailureReason,
+  getPasswordUpdateErrorMessage,
+} from "@/lib/auth-errors";
+import {
+  trackPasswordResetCompleted,
+  trackPasswordResetFailed,
+} from "@/lib/analytics/events";
 import { createClient } from "@/lib/supabase/client";
 import { formActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
@@ -36,11 +43,13 @@ export function ResetPasswordForm() {
         code: error.code,
         message: error.message,
       });
+      trackPasswordResetFailed({ reason: getAuthFailureReason(error) });
       setMessage(getPasswordUpdateErrorMessage(error));
       setLoading(false);
       return;
     }
 
+    trackPasswordResetCompleted();
     router.push(COURSE_PATH);
     router.refresh();
   }

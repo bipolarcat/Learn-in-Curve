@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { getCanonicalOrigin } from "@/lib/site-url";
+import { trackPasswordResetRequested } from "@/lib/analytics/events";
 import { formActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
 import styles from "@/components/AuthForm.module.css";
@@ -33,6 +34,7 @@ export function ForgotPasswordForm() {
       })
       .catch(() => {});
 
+    trackPasswordResetRequested();
     setLoading(false);
     setSubmitted(true);
   }

@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import { SiteHeaderWithAuth } from "@/components/SiteHeaderWithAuth";
 import { ConditionalSiteFooter } from "@/components/ConditionalSiteFooter";
 import { SkipLink } from "@/components/SkipLink";
 import { AnalyticsIdentify } from "@/components/analytics/AnalyticsIdentify";
+import { OAuthSignedInBeacon } from "@/components/analytics/OAuthSignedInBeacon";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function SiteLayout({
@@ -18,6 +20,9 @@ export default async function SiteLayout({
     <div className="flex min-h-screen flex-col">
       <SkipLink />
       {user ? <AnalyticsIdentify userId={user.id} /> : null}
+      <Suspense fallback={null}>
+        <OAuthSignedInBeacon />
+      </Suspense>
       <SiteHeaderWithAuth />
       <main id="main-content" className="flex-1">
         {children}

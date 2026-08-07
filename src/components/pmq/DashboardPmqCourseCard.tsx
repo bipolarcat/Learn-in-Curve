@@ -19,6 +19,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Spinner } from "@/components/ui/spinner";
 import { CtaArrow } from "@/components/stamp-chip";
 import { saveExamDeadline } from "@/lib/profile-actions";
+import { trackExamDateSet } from "@/lib/analytics/events";
 import { PMQ_PLANS, type PmqPlanFeature } from "@/lib/pmq/plans";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import { tierAtLeast } from "@/lib/pmq/tiers";
@@ -340,6 +341,14 @@ export function DashboardPmqCourseCard({
       if (!result.ok) {
         setDeadlineMsg(result.error);
         return;
+      }
+      if (next) {
+        const [y, m, d] = next.split("-").map(Number);
+        const picked = new Date(y, m - 1, d);
+        const daysUntilExam = Math.round(
+          (picked.getTime() - Date.now()) / 86_400_000,
+        );
+        trackExamDateSet({ days_until_exam: daysUntilExam });
       }
       setDeadlineMsg("Saved");
       window.setTimeout(() => setDeadlineMsg(null), 1800);

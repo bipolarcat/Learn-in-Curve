@@ -13,6 +13,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
+import { trackTutorOpened } from "@/lib/analytics/events";
 
 const WALLPAPER_SRC = "/brand/inspo/AItutor-window-wallpaper.webp";
 
@@ -36,6 +37,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   const [inView, setInView] = useState(false);
+  const openedTracked = useRef(false);
 
   const chat = useGuestSlyChat({ active: inView && !isSignedIn });
   const {
@@ -70,6 +72,12 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!inView || isSignedIn || openedTracked.current) return;
+    openedTracked.current = true;
+    trackTutorOpened({ surface: "guest" });
+  }, [inView, isSignedIn]);
 
   const composerLocked = locked || unavailable;
 

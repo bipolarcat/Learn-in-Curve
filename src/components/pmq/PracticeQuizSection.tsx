@@ -16,6 +16,10 @@ import {
   tierForQuizSet,
   type PmqTier,
 } from "@/lib/pmq/tiers";
+import {
+  trackQuizSetLockedHit,
+  trackQuizSetOpened,
+} from "@/lib/analytics/events";
 import { QuizRunner } from "@/components/pmq/QuizRunner";
 import { showPracticeGenerateHint } from "@/components/pmq/PracticeGenerateHint";
 import { Spinner } from "@/components/ui/spinner";
@@ -108,6 +112,12 @@ export function PracticeQuizSection({
     const setNumber = nextSetNumber;
     if (!canAccessQuizSet(userTier, setNumber)) {
       const need = tierForQuizSet(setNumber);
+      trackQuizSetLockedHit({
+        lo_number: loNumber,
+        quiz_set: setNumber,
+        lock_reason: need === "ai_pro" ? "locked_ai_pro" : "locked",
+        current_tier: userTier,
+      });
       showPracticeGenerateHint(need === "ai_pro" ? "ai_pro" : "pro");
       return;
     }
@@ -116,6 +126,12 @@ export function PracticeQuizSection({
       const result = await getQuizSet({ loNumber, setNumber });
       if ("error" in result) {
         if (result.error === "locked" || result.error === "locked_ai_pro") {
+          trackQuizSetLockedHit({
+            lo_number: loNumber,
+            quiz_set: setNumber,
+            lock_reason: result.error,
+            current_tier: userTier,
+          });
           showPracticeGenerateHint(
             result.error === "locked_ai_pro" ? "ai_pro" : "pro",
           );
@@ -132,6 +148,11 @@ export function PracticeQuizSection({
         setError("This set isn’t ready yet. Try again shortly.");
         return;
       }
+      trackQuizSetOpened({
+        lo_number: loNumber,
+        quiz_set: setNumber,
+        tier_required: tierForQuizSet(setNumber),
+      });
       setPaidSets((prev) => ({ ...prev, [setNumber]: result.questions }));
       setExtraPriorAttempts((prev) => ({
         ...prev,

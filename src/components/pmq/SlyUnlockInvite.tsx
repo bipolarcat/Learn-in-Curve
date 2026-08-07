@@ -6,7 +6,7 @@ import { createAiTutorCheckout } from "@/lib/pmq/actions";
 import { AI_TUTOR_LAUNCHED, formatGbp } from "@/lib/pmq/constants";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
-import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 
 type SlyUnlockInviteProps = {
@@ -46,6 +46,10 @@ export function SlyUnlockInvite({
     trackAiTutorUnlockClicked({
       location: variant === "compact" ? "sly_unlock_compact" : "sly_unlock_invite",
       price_cents: SLY_UNLOCK_PRICE_CENTS,
+    });
+    trackCheckoutStarted({
+      product: "pro",
+      price_cents: priceCents,
     });
     startTransition(async () => {
       const result = await createAiTutorCheckout({

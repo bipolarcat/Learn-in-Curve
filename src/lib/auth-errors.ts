@@ -41,6 +41,26 @@ export function getPasswordUpdateErrorMessage(error: {
   message?: string;
   code?: string;
 }): string {
+  const reason = getAuthFailureReason(error);
+  if (reason === "same_password") {
+    return "Choose a password you haven't used before.";
+  }
+  if (reason === "weak_password") {
+    return "That password is too short or too weak. Try a longer one.";
+  }
+  if (reason === "session_expired") {
+    return "This reset link has expired or has already been used. Request a new one.";
+  }
+  return PASSWORD_UPDATE_FALLBACK;
+}
+
+/**
+ * Coarse failure codes for analytics — never the raw Supabase message.
+ */
+export function getAuthFailureReason(error: {
+  message?: string;
+  code?: string;
+}): string {
   const code = (error.code ?? "").toLowerCase();
   const message = (error.message ?? "").toLowerCase();
 
@@ -49,26 +69,43 @@ export function getPasswordUpdateErrorMessage(error: {
     message.includes("different from the old password") ||
     message.includes("should be different")
   ) {
-    return "Choose a password you haven't used before.";
+    return "same_password";
   }
-
   if (
     code === "weak_password" ||
     message.includes("at least") ||
     message.includes("too short") ||
     message.includes("weak")
   ) {
-    return "That password is too short or too weak. Try a longer one.";
+    return "weak_password";
   }
-
   if (
     code === "session_not_found" ||
     message.includes("session") ||
     message.includes("not authenticated") ||
     message.includes("jwt")
   ) {
-    return "This reset link has expired or has already been used. Request a new one.";
+    return "session_expired";
   }
-
-  return PASSWORD_UPDATE_FALLBACK;
+  if (
+    code === "invalid_credentials" ||
+    message.includes("invalid login") ||
+    message.includes("invalid credentials")
+  ) {
+    return "invalid_credentials";
+  }
+  if (
+    code === "user_already_exists" ||
+    message.includes("already registered") ||
+    message.includes("already been registered")
+  ) {
+    return "already_registered";
+  }
+  if (message.includes("rate") || code.includes("rate")) {
+    return "rate_limited";
+  }
+  if (message.includes("confirm") || message.includes("email not confirmed")) {
+    return "email_unconfirmed";
+  }
+  return "unknown";
 }

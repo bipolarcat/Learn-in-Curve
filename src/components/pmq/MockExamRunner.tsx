@@ -27,6 +27,15 @@ import {
 } from "@/lib/pmq/mock-domain";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import {
+  trackMockBreakStarted,
+  trackMockExamFinalized,
+  trackMockExamExpired,
+  trackMockExamStarted,
+  trackMockPartSubmitted,
+  trackMockPartTwoStarted,
+  trackMockReviewOpened,
+} from "@/lib/analytics/events";
+import {
   InlineDropdownResponseFields,
   McqResponseFields,
 } from "@/components/pmq/QuestionResponseFields";
@@ -188,6 +197,7 @@ export function MockExamRunner({
   const errorRef = useRef<HTMLDivElement>(null);
   const expiryHandled = useRef(false);
   const breakHandled = useRef(false);
+  const expiredTracked = useRef(false);
   const writtenSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const title = `Mock Exam ${examSet}`;
@@ -206,6 +216,17 @@ export function MockExamRunner({
   useEffect(() => {
     onTimerMeta?.({ phase, overallRemaining, currentPart });
   }, [onTimerMeta, phase, overallRemaining, currentPart]);
+
+  useEffect(() => {
+    if (!activeSession?.justExpired || expiredTracked.current) return;
+    expiredTracked.current = true;
+    trackMockExamExpired({
+      exam_set: examSet,
+      total_score: activeSession.total_score ?? 0,
+      part_1_submitted: !!activeSession.part_1_submitted_at,
+      part_2_submitted: !!activeSession.part_2_submitted_at,
+    });
+  }, [activeSession, examSet]);
 
   const reportError = useCallback((message: string) => {
     setError(message);
@@ -253,9 +274,17 @@ export function MockExamRunner({
     setPhase("grading");
     startTransition(async () => {
       const result = await finalizeMockExam({ sessionId });
+      if (!("error" in result && result.error) && "totalScore" in result) {
+        trackMockExamFinalized({
+          exam_set: examSet,
+          total_score: result.totalScore ?? 0,
+          max_score: mockConfig.total_marks,
+          passed: result.passed ?? false,
+        });
+      }
       await handleFinalizationResult(result);
     });
-  }, [handleFinalizationResult, sessionId]);
+  }, [examSet, handleFinalizationResult, mockConfig.total_marks, sessionId]);
 
   useEffect(() => {
     if (!deadlineAt || phase !== "exam") return;
@@ -280,6 +309,10 @@ export function MockExamRunner({
       setSubmittingPart(true);
       void (async () => {
         try {
+          const partQs = questions.filter((question) => question.part === part);
+          const answeredCount = partQs.filter((question) =>
+            answerIsComplete(question, answers.get(question.id)),
+          ).length;
           const result =
             isDemo && sessionId === "demo"
               ? part === 1
@@ -296,12 +329,27 @@ export function MockExamRunner({
             return;
           }
           setConfirmPart(null);
+          trackMockPartSubmitted({
+            exam_set: examSet,
+            part,
+            answered_count: answeredCount,
+            question_count: partQs.length,
+          });
           if (part === 1 && "breakEndsAt" in result) {
+            trackMockBreakStarted({ exam_set: examSet });
             setBreakEndsAt(result.breakEndsAt ?? null);
             setBreakRemaining(secondsUntil(result.breakEndsAt ?? null));
             setPhase("break");
             setAnnouncement("Part 1 submitted. Your optional break has started.");
             return;
+          }
+          if ("totalScore" in result) {
+            trackMockExamFinalized({
+              exam_set: examSet,
+              total_score: result.totalScore ?? 0,
+              max_score: mockConfig.total_marks,
+              passed: result.passed ?? false,
+            });
           }
           setPhase("grading");
           await handleFinalizationResult(result);
@@ -311,9 +359,13 @@ export function MockExamRunner({
       })();
     },
     [
+      answers,
+      examSet,
       handleFinalizationResult,
       isDemo,
       mockConfig.break_duration_minutes,
+      mockConfig.total_marks,
+      questions,
       reportError,
       sessionId,
       submittingPart,
@@ -356,6 +408,7 @@ export function MockExamRunner({
         const firstPartTwoIndex = questions.findIndex(
           (question) => question.part === 2,
         );
+        trackMockPartTwoStarted({ exam_set: examSet });
         setCurrentPart(2);
         setQuestionIndex(Math.max(0, firstPartTwoIndex));
         setDeadlineAt(nextDeadline);
@@ -368,6 +421,7 @@ export function MockExamRunner({
       }
     })();
   }, [
+    examSet,
     isDemo,
     partMinutes,
     questions,
@@ -416,6 +470,7 @@ export function MockExamRunner({
         window.location.reload();
         return;
       }
+      trackMockExamStarted({ exam_set: examSet, tier });
       const id = result.demo ? "demo" : (result.sessionId ?? null);
       const nextDeadline =
         result.deadlineAt ??
@@ -549,6 +604,10 @@ export function MockExamRunner({
 
   const loadReview = () => {
     if (!sessionId) return;
+    trackMockReviewOpened({
+      exam_set: examSet,
+      status: sessionStatus ?? "finalized",
+    });
     if (reviews) {
       setShowReview(true);
       return;

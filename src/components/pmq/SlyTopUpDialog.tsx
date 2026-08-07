@@ -10,6 +10,10 @@ import {
   SLY_TOPUP_PRESETS_CENTS,
   topUpCreditGbpCents,
 } from "@/lib/tutor/constants";
+import {
+  trackCheckoutStarted,
+  trackTopupClicked,
+} from "@/lib/analytics/events";
 
 type SlyTopUpDialogProps = {
   open: boolean;
@@ -85,6 +89,11 @@ export function SlyTopUpDialog({
       setError("Choose an amount");
       return;
     }
+    trackTopupClicked({ amount_cents: amountCents });
+    trackCheckoutStarted({
+      product: "sly_topup",
+      price_cents: amountCents,
+    });
     startTransition(async () => {
       const result = await createSlyTopUpCheckout({
         amountCents,

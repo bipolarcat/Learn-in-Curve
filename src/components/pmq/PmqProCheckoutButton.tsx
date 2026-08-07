@@ -7,7 +7,7 @@ import { authHrefWithNext } from "@/lib/auth-next";
 import { PMQ_PRICING_PRO_INTENT_HREF } from "@/lib/pmq/plans";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
-import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 
 type PmqProCheckoutButtonProps = {
@@ -60,6 +60,10 @@ export function PmqProCheckoutButton({
     setError("");
     trackAiTutorUnlockClicked({
       location: "pro_checkout_button",
+      price_cents: SLY_UNLOCK_PRICE_CENTS,
+    });
+    trackCheckoutStarted({
+      product: "pro",
       price_cents: SLY_UNLOCK_PRICE_CENTS,
     });
     startTransition(async () => {

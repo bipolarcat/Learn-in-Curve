@@ -18,6 +18,8 @@ import { summarizeFairUsage } from "@/lib/tutor/fair-usage";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 import { PMQ_SLUG, pmqLoHref } from "@/lib/pmq/constants";
 import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard";
+import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
+import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
 import { CourseReportCard } from "@/components/pmq/CourseReportCard";
 import { DashboardProfileMenu } from "@/components/DashboardProfileMenu";
 import { getUserProfile } from "@/lib/profile";
@@ -50,6 +52,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   }
 
   const topUpSuccess = params.sly_topup === "1";
+  const tutorUnlockSuccess = params.tutor_unlocked === "1";
 
   const [courses, profile] = await Promise.all([
     getUserCourses(user.id, supabase),
@@ -122,8 +125,33 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     hasCompletedLo: completedSectionIds.length > 0,
   });
 
+  const examDate = profile.target_exam_date
+    ? new Date(`${profile.target_exam_date}T12:00:00`)
+    : null;
+  const daysUntilExam =
+    examDate && !Number.isNaN(examDate.getTime())
+      ? Math.round((examDate.getTime() - Date.now()) / 86_400_000)
+      : null;
+
   return (
     <section className="relative z-0 min-h-[calc(100dvh-4.25rem-7.5rem)] px-3 py-8 sm:min-h-[calc(100dvh-4.75rem-7.5rem)] sm:px-5 sm:py-10">
+      <DashboardAnalyticsPerson
+        tier={userTier}
+        hasExamDate={Boolean(profile.target_exam_date)}
+        daysUntilExam={daysUntilExam}
+        currentStreak={stats?.current_streak ?? 0}
+        totalXp={stats?.total_xp ?? 0}
+        losCompleted={completedSectionIds.length}
+      />
+      {topUpSuccess ? (
+        <CheckoutCompletedBeacon product="sly_topup" priceCents={0} />
+      ) : null}
+      {tutorUnlockSuccess ? (
+        <CheckoutCompletedBeacon
+          product="pro"
+          priceCents={tutorPriceCents}
+        />
+      ) : null}
       <div className="relative z-20 mx-auto max-w-wrap">
         <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <h1
