@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { CtaArrowUpRight } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { withSoftNavFrom } from "@/lib/soft-nav-back";
+import { trackCtaClicked } from "@/lib/analytics/events";
 
 type ExploreCoursesLinkProps = {
   className?: string;
@@ -23,6 +24,10 @@ export function ExploreCoursesLink({ className }: ExploreCoursesLinkProps) {
       aria-label={pending ? "Opening courses" : "Explore Courses"}
       className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
       onClick={() => {
+        trackCtaClicked({
+          variant: "Explore Courses",
+          location: "hero",
+        });
         startTransition(() => {
           router.push(withSoftNavFrom("/courses", "home"));
         });

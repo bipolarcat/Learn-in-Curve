@@ -6,6 +6,8 @@ import { formatGbp, AI_TUTOR_LAUNCHED } from "@/lib/pmq/constants";
 import { SlyUnlockInvite } from "@/components/pmq/SlyUnlockInvite";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
+import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 
 type AiTutorUpgradeCtaProps = {
   priceCents: number;
@@ -64,6 +66,10 @@ export function AiTutorUpgradeCta({
 
   const handleUnlock = () => {
     setError("");
+    trackAiTutorUnlockClicked({
+      location: "ai_tutor_upgrade_cta_compact",
+      price_cents: SLY_UNLOCK_PRICE_CENTS,
+    });
     startTransition(async () => {
       const result = await createAiTutorCheckout({
         loNumber,

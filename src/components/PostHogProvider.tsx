@@ -105,3 +105,19 @@ export function capture(
 ): void {
   posthogInstance?.capture(event, properties);
 }
+
+/**
+ * Associates subsequent events with a stable user. Required for retention,
+ * cohorts and any per-user funnel — with `person_profiles: "identified_only"`
+ * PostHog creates no profile at all until this fires.
+ *
+ * Pass the Supabase user UUID only. Never email, never name: ANALYTICS_SPEC.md
+ * §5 forbids PII in PostHog, and a UUID is enough to join back to Supabase
+ * when we need the human behind a number.
+ */
+export function identify(
+  userId: string,
+  properties?: Record<string, unknown>,
+): void {
+  posthogInstance?.identify(userId, properties);
+}

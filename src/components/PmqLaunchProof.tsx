@@ -80,6 +80,8 @@ export function PmqLaunchProof({ isSignedIn }: PmqLaunchProofProps) {
               isSignedIn={isSignedIn}
               from="home"
               className={stampCtaPrimary}
+              analyticsLocation="hero"
+              analyticsVariant="Start free with APM PMQ"
             >
               Start free with APM PMQ
             </PmqStartLink>

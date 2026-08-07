@@ -1,9 +1,14 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stampCtaPrimary, CtaArrow } from "@/components/stamp-chip";
+import {
+  trackCtaClicked,
+  trackQuizDemoCompleted,
+  trackQuizDemoQuestionAnswered,
+} from "@/lib/analytics/events";
 
 type Question = {
   q: string;
@@ -66,11 +71,21 @@ export function QuizDemo({ enrolHref }: QuizDemoProps) {
   const [flyXp, setFlyXp] = useState<{ id: number; left: number; top: number } | null>(
     null,
   );
+  const completedTracked = useRef(false);
 
   const q = QUESTIONS[qi];
   const completedCount = completed.filter(Boolean).length;
   const allDone = completedCount === QUESTIONS.length;
   const isLastQuestion = qi === QUESTIONS.length - 1;
+
+  useEffect(() => {
+    if (!allDone || completedTracked.current) return;
+    completedTracked.current = true;
+    trackQuizDemoCompleted({
+      correct_count: Math.floor(xp / 10),
+      total: QUESTIONS.length,
+    });
+  }, [allDone, xp]);
 
   const spawnFlyXP = useCallback((btn: HTMLButtonElement) => {
     const card = cardRef.current;
@@ -104,6 +119,10 @@ export function QuizDemo({ enrolHref }: QuizDemoProps) {
       } else {
         setFeedback(`Not quite — ${q.explain}`);
       }
+      trackQuizDemoQuestionAnswered({
+        question_index: qi,
+        correct: i === q.correct,
+      });
       setShowNext(!isLastQuestion);
     },
     [locked, q, spawnFlyXP, qi, isLastQuestion],
@@ -212,7 +231,16 @@ export function QuizDemo({ enrolHref }: QuizDemoProps) {
                   </button>
                 ) : null}
                 {allDone ? (
-                  <Link href={enrolHref} className={stampCtaPrimary}>
+                  <Link
+                    href={enrolHref}
+                    className={stampCtaPrimary}
+                    onClick={() =>
+                      trackCtaClicked({
+                        variant: "enrol",
+                        location: "quiz_demo",
+                      })
+                    }
+                  >
                     Enrol to PMQ for free
                     <CtaArrow />
                   </Link>

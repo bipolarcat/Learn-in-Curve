@@ -10,6 +10,11 @@ import {
   type ReactNode,
 } from "react";
 import { submitQuizAttempt } from "@/lib/pmq/actions";
+import {
+  trackLoCompleted,
+  trackQuizAttemptSubmitted,
+  trackStreakIncremented,
+} from "@/lib/analytics/events";
 import { Spinner } from "@/components/ui/spinner";
 import {
   InlineDropdownResponseFields,
@@ -24,12 +29,42 @@ type QuizSubmitSuccess = {
   xpAwarded: number;
   totalXp: number;
   currentStreak: number;
+  streakIncremented: boolean;
+  loCompleted: boolean;
+  questionType: string | null;
 };
 
 function isGamifiedResult(
   result: Awaited<ReturnType<typeof submitQuizAttempt>>,
 ): result is QuizSubmitSuccess {
   return result.ok === true && "totalXp" in result;
+}
+
+/**
+ * Shared PostHog wiring for every submitQuizAttempt call site in this file.
+ * Keep event firing here — do not paste capture blocks at each await.
+ */
+function trackAttempt(
+  result: Awaited<ReturnType<typeof submitQuizAttempt>>,
+  loNumber: number,
+  context: string,
+  isCorrect: boolean | null,
+) {
+  if (!("ok" in result) || !result.ok) return;
+  if (!("xpAwarded" in result)) return;
+  trackQuizAttemptSubmitted({
+    lo_number: loNumber,
+    question_type: result.questionType ?? "unknown",
+    is_correct: isCorrect,
+    xp_awarded: result.xpAwarded ?? 0,
+    context,
+  });
+  if (result.streakIncremented) {
+    trackStreakIncremented({ new_streak: result.currentStreak ?? 0 });
+  }
+  if (result.loCompleted) {
+    trackLoCompleted({ lo_number: loNumber });
+  }
 }
 
 type AttemptContext = string;
@@ -289,6 +324,7 @@ function McqQuestion({
         setSaveError("Your answer is shown, but it wasn’t saved.");
         return;
       }
+      trackAttempt(result, loNumber, attemptContext ?? "practice_quiz", isCorrect);
       if (isGamifiedResult(result)) {
         onXpAwarded(
           {
@@ -350,12 +386,13 @@ function McqQuestion({
               if (!answer) return;
               setSaveError("");
               startTransition(async () => {
+                const isCorrect = answer === correctLetter;
                 const result = await submitQuizAttempt({
                   questionId: question.id,
                   courseId: question.course_id,
                   learningObjective: loCode,
                   submittedAnswer: answer,
-                  isCorrect: answer === correctLetter,
+                  isCorrect,
                   loNumber,
                   checkpointTotal,
                   context: attemptContext,
@@ -367,6 +404,13 @@ function McqQuestion({
                   );
                 } else if (result && "error" in result && result.error !== "already_attempted") {
                   setSaveError("Still couldn’t save. Check your connection and retry.");
+                } else if (!("error" in result)) {
+                  trackAttempt(
+                    result,
+                    loNumber,
+                    attemptContext ?? "practice_quiz",
+                    isCorrect,
+                  );
                 }
               });
             }}
@@ -485,6 +529,7 @@ function DropdownQuestion({
         setSaveError("Your answer is shown, but it wasn’t saved.");
         return;
       }
+      trackAttempt(result, loNumber, attemptContext ?? "practice_quiz", isCorrect);
       if (isGamifiedResult(result)) {
         onXpAwarded(
           {
@@ -568,6 +613,12 @@ function DropdownQuestion({
                 } else if (result && "error" in result && result.error !== "already_attempted") {
                   setSaveError("Still couldn’t save. Check your connection and retry.");
                 } else if (isGamifiedResult(result)) {
+                  trackAttempt(
+                    result,
+                    loNumber,
+                    attemptContext ?? "practice_quiz",
+                    isCorrect,
+                  );
                   onXpAwarded(
                     {
                       xpAwarded: result.xpAwarded,
@@ -649,6 +700,7 @@ function RevealAnswerQuestion({
         if (result && "error" in result && result.error === "already_attempted") {
           return;
         }
+        trackAttempt(result, loNumber, attemptContext ?? "practice_quiz", null);
         if (isGamifiedResult(result)) {
           onXpAwarded(
             {

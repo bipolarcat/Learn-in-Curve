@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-07** — PostHog custom events wired: `identify()` + `AnalyticsIdentify` in site/courses layouts (UUID only — **tier omitted** to avoid `getPmqTier` round-trip on every page); central `src/lib/analytics/events.ts`; `submitQuizAttempt` returns `streakIncremented` / `loCompleted` / `questionType`; shared `trackAttempt` in `QuizRunner`; homepage CTA + TrialQuiz/QuizDemo demo events; AI unlock click intent on Sly/Pro checkout CTAs. Consent gating untouched.
+
 - **2026-08-06** — Silent ship: pushed `master` `a488be2..d91407d` to GitHub (`bipolarcat/Learn-in-Curve`) to trigger Railway production deploy. Batch includes About restage, tip positioning fixes, footer company LinkedIn, status-page Go back copy, and related polish — no user announcement (Level 0 changelog ladder).
 
 - **2026-08-06** — Status page secondary CTA always reads **Go back** (error no longer shows Try again); navigates with `router.back()` (`SiteStatusPage.tsx`).

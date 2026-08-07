@@ -6,6 +6,8 @@ import { createAiTutorCheckout } from "@/lib/pmq/actions";
 import { AI_TUTOR_LAUNCHED, formatGbp } from "@/lib/pmq/constants";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
+import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 
 type SlyUnlockInviteProps = {
   priceCents: number;
@@ -41,6 +43,10 @@ export function SlyUnlockInvite({
 
   const handleUnlock = () => {
     setError("");
+    trackAiTutorUnlockClicked({
+      location: variant === "compact" ? "sly_unlock_compact" : "sly_unlock_invite",
+      price_cents: SLY_UNLOCK_PRICE_CENTS,
+    });
     startTransition(async () => {
       const result = await createAiTutorCheckout({
         loNumber,

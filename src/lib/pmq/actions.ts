@@ -68,7 +68,12 @@ async function awardXpAndUpdateStreak(
   courseId: string,
   questionType: string,
   isCorrect: boolean | null,
-): Promise<{ xpAwarded: number; totalXp: number; currentStreak: number }> {
+): Promise<{
+  xpAwarded: number;
+  totalXp: number;
+  currentStreak: number;
+  streakIncremented: boolean;
+}> {
   const xpAwarded = computeXpAwarded(questionType, isCorrect);
   const today = utcDateString();
   const yesterday = utcYesterdayString();
@@ -102,6 +107,8 @@ async function awardXpAndUpdateStreak(
     lastActivityDate = today;
   }
 
+  const streakIncremented = currentStreak > prev.current_streak;
+
   const row = {
     user_id: userId,
     course_id: courseId,
@@ -122,7 +129,7 @@ async function awardXpAndUpdateStreak(
     await supabase.from("user_course_stats").insert(row);
   }
 
-  return { xpAwarded, totalXp, currentStreak };
+  return { xpAwarded, totalXp, currentStreak, streakIncremented };
 }
 
 export async function submitQuizAttempt(input: {
@@ -198,7 +205,12 @@ export async function submitQuizAttempt(input: {
     );
   }
 
-  let gamification = { xpAwarded: 0, totalXp: 0, currentStreak: 0 };
+  let gamification = {
+    xpAwarded: 0,
+    totalXp: 0,
+    currentStreak: 0,
+    streakIncremented: false,
+  };
   if (question?.question_type) {
     gamification = await awardXpAndUpdateStreak(
       supabase,
@@ -209,12 +221,13 @@ export async function submitQuizAttempt(input: {
     );
   }
 
+  let loCompleted = false;
   if (
     question?.section_id &&
     input.checkpointTotal != null &&
     attemptContext === "practice_quiz"
   ) {
-    await tryMarkSectionCompleteIfReady(
+    loCompleted = await tryMarkSectionCompleteIfReady(
       supabase,
       user.id,
       question.section_id,
@@ -230,6 +243,11 @@ export async function submitQuizAttempt(input: {
     xpAwarded: gamification.xpAwarded,
     totalXp: gamification.totalXp,
     currentStreak: gamification.currentStreak,
+    // Analytics only — lets the client fire the right event without re-deriving
+    // state it can't see. Both default false so existing callers are unaffected.
+    streakIncremented: gamification.streakIncremented,
+    loCompleted,
+    questionType: question?.question_type ?? null,
   };
 }
 
@@ -427,7 +445,7 @@ async function tryMarkSectionCompleteIfReady(
   courseId: string,
   loNumber: number,
   checkpointTotal: number,
-) {
+): Promise<boolean> {
   const { data: progress } = await supabase
     .from("section_progress")
     .select("checklist_state, completed_at")
@@ -435,12 +453,13 @@ async function tryMarkSectionCompleteIfReady(
     .eq("section_id", sectionId)
     .maybeSingle();
 
-  if (progress?.completed_at) return;
+  // Already sealed — this call did not newly complete the LO.
+  if (progress?.completed_at) return false;
 
   const checkedCount = Array.isArray(progress?.checklist_state)
     ? progress.checklist_state.length
     : 0;
-  if (checkpointTotal > 0 && checkedCount < checkpointTotal) return;
+  if (checkpointTotal > 0 && checkedCount < checkpointTotal) return false;
 
   const now = new Date().toISOString();
   const { data: existing } = await supabase
@@ -467,6 +486,7 @@ async function tryMarkSectionCompleteIfReady(
   }
 
   revalidatePmqPaths(loNumber);
+  return true;
 }
 
 /**

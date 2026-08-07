@@ -15,6 +15,7 @@ import {
   type SoftNavFrom,
   withSoftNavFrom,
 } from "@/lib/soft-nav-back";
+import { trackCtaClicked } from "@/lib/analytics/events";
 
 type PmqStartLinkProps = {
   isSignedIn: boolean;
@@ -27,6 +28,10 @@ type PmqStartLinkProps = {
    * Omitted → no back control on the destination.
    */
   from?: SoftNavFrom;
+  /** PostHog `cta_clicked.location` — omit to skip tracking. */
+  analyticsLocation?: string;
+  /** PostHog `cta_clicked.variant` — defaults to a stringified children label. */
+  analyticsVariant?: string;
 };
 
 const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;
@@ -43,6 +48,8 @@ export function PmqStartLink({
   children,
   showArrow = true,
   from,
+  analyticsLocation,
+  analyticsVariant,
 }: PmqStartLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -69,6 +76,12 @@ export function PmqStartLink({
       aria-label={pending ? "Opening course" : undefined}
       className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
       onClick={() => {
+        if (analyticsLocation) {
+          const variant =
+            analyticsVariant ??
+            (typeof children === "string" ? children : "pmq_start");
+          trackCtaClicked({ variant, location: analyticsLocation });
+        }
         startTransition(() => {
           router.push(href);
         });

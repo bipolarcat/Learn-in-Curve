@@ -1,12 +1,16 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 
 import { McqResponseFields } from "@/components/pmq/QuestionResponseFields";
 import { showCheckAnswerHint, CheckAnswerHintHost } from "@/components/pmq/CheckAnswerHint";
 import { PmqStartLink } from "@/components/PmqStartLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
+import {
+  trackQuizDemoCompleted,
+  trackQuizDemoQuestionAnswered,
+} from "@/lib/analytics/events";
 
 /**
  * Three real questions from the live bank, verified 2026-07-31. Copied here on
@@ -76,6 +80,7 @@ type Attempt = { letter: string; isCorrect: boolean };
  */
 export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const completedTracked = useRef(false);
   const [qi, setQi] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
@@ -85,6 +90,13 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
   const attempt = attempts[question.id];
   const answeredCount = Object.keys(attempts).length;
   const allDone = answeredCount === total;
+
+  useEffect(() => {
+    if (!allDone || completedTracked.current) return;
+    completedTracked.current = true;
+    const correctCount = Object.values(attempts).filter((a) => a.isCorrect).length;
+    trackQuizDemoCompleted({ correct_count: correctCount, total });
+  }, [allDone, attempts, total]);
 
   /** Never skip ahead: the frontier is the first unanswered question. */
   const maxReachable = TRIAL_QUESTIONS.findIndex((q) => !attempts[q.id]);
@@ -100,13 +112,18 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
 
   const handleCheck = () => {
     if (!selected || attempt) return;
+    const isCorrect = selected === question.correct;
     setAttempts((prev) => ({
       ...prev,
       [question.id]: {
         letter: selected,
-        isCorrect: selected === question.correct,
+        isCorrect,
       },
     }));
+    trackQuizDemoQuestionAnswered({
+      question_index: qi,
+      correct: isCorrect,
+    });
   };
 
   const handleTabKeyDown = (
@@ -271,6 +288,8 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
                     isSignedIn={isSignedIn}
                     from="home"
                     className={stampCtaPrimary}
+                    analyticsLocation="quiz_demo"
+                    analyticsVariant="enrol"
                   >
                     Start free with APM PMQ
                   </PmqStartLink>

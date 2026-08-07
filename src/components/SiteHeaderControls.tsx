@@ -20,6 +20,7 @@ import { allowsDarkMode } from "@/lib/theme-routes";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
+import { trackCtaClicked } from "@/lib/analytics/events";
 import {
   headerIconPrimary,
   headerIconQuiet,
@@ -97,6 +98,8 @@ function HeaderNavButton({
   title,
   busyLabel,
   spinnerClassName = "text-current",
+  analyticsLocation,
+  analyticsVariant,
 }: {
   href: string;
   className: string;
@@ -105,6 +108,8 @@ function HeaderNavButton({
   title?: string;
   busyLabel: string;
   spinnerClassName?: string;
+  analyticsLocation?: string;
+  analyticsVariant?: string;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -118,6 +123,12 @@ function HeaderNavButton({
       title={title ?? ariaLabel}
       className={`${className} disabled:cursor-wait disabled:opacity-90`}
       onClick={() => {
+        if (analyticsLocation) {
+          trackCtaClicked({
+            variant: analyticsVariant ?? ariaLabel,
+            location: analyticsLocation,
+          });
+        }
         startTransition(() => {
           router.push(href);
         });
@@ -491,6 +502,8 @@ export function SiteHeaderControls({
                   className={headerPillSecondary}
                   ariaLabel="Courses"
                   busyLabel="Opening courses"
+                  analyticsLocation="header"
+                  analyticsVariant="Courses"
                 >
                   <CoursesIcon />
                   <span>Courses</span>
@@ -531,6 +544,8 @@ export function SiteHeaderControls({
                   : "Opening sign up"
               }
               spinnerClassName="text-paper"
+              analyticsLocation="header"
+              analyticsVariant={guestCta.label}
             >
               <AuthIcon />
               <span>{guestCta.label}</span>
