@@ -1,5 +1,5 @@
 # Privacy Policy - Learn in Curve
-Last updated: 4 August 2026
+Last updated: 7 August 2026
 
 ## 1. Who We Are
 Learn in Curve, operated by Sim Samaar Shened ("we", "us"), operates learnincurve.com, an AI-assisted revision platform for professional certifications designed to help users pass their exams, along with our associated newsletter and blog.
@@ -46,7 +46,8 @@ Your core personal data and learning progress are stored in our primary database
 ## 6. How Long We Keep Your Data
 - **Account, Progress, and Exam Data:** Kept securely for as long as your account remains active so you can review previous attempts and track your learning.
 - **Guest Trial IP Hashes:** Kept for 30 days from last use, then automatically deleted. These exist solely to prevent abuse of the free public trial.
-- **Analytics Events and Session Replays (PostHog):** Only collected if you consented. Retained in line with PostHog's standard retention for our plan; replays are kept for a shorter window than events. Deleted on request.
+- **Analytics Events (PostHog):** Only collected if you consented. Your IP address is discarded at the point of collection and never stored. Events are currently retained for up to 7 years under our PostHog plan. Deleted sooner on request.
+- **Session Replays (PostHog):** Only collected if you consented. Kept for 30 days, then automatically deleted. Replays are masked in your browser before they are sent, so they never contain text you typed. Deleted sooner on request.
 - **Newsletters:** Kept until you unsubscribe.
 - **Account Deletion:** At present, automated self-serve deletion is not built into the dashboard. You can request full deletion of your personal data at any time by emailing support@learnincurve.com. We will manually process your request and securely wipe your data within 30 days, except where UK tax law requires us to retain specific payment records.
 

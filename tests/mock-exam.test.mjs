@@ -141,6 +141,43 @@ test("deadline and finalization guards cover expiry and idempotency", () => {
   assert.equal(finalizationDisposition("grading"), "run");
   assert.equal(finalizationDisposition("finalized"), "idempotent");
   assert.equal(finalizationDisposition("abandoned"), "blocked");
+  assert.equal(finalizationDisposition("expired"), "blocked");
+});
+
+test("selector labels distinguish expired vs abandoned", () => {
+  const ready = {
+    examSet: 2,
+    questionCount: 40,
+    totalMarks: 90,
+    ready: true,
+    activeSessionId: null,
+    latestResult: null,
+    hasPassed: false,
+  };
+  assert.equal(
+    mockExamSelectorState(
+      { ...ready, latestStatus: "expired" },
+      true,
+      null,
+    ).status,
+    "Time expired",
+  );
+  assert.equal(
+    mockExamSelectorState(
+      { ...ready, latestStatus: "abandoned" },
+      true,
+      null,
+    ).status,
+    "Ended early",
+  );
+  assert.equal(
+    mockExamSelectorState(
+      { ...ready, latestStatus: "expired" },
+      true,
+      3,
+    ).action,
+    "View Exam 2 result →",
+  );
 });
 
 test("two-part timing is fixed, readable, and excludes the break", () => {
@@ -193,7 +230,7 @@ test("part lifecycle migration persists flags and enforces one lifetime paper", 
 });
 
 test("server and selector expose set guards, readiness and AI grading", async () => {
-  const [actions, selector] = await Promise.all([
+  const [actions, selector, grading] = await Promise.all([
     readFile(
       new URL("../src/lib/pmq/mock-actions.ts", import.meta.url),
       "utf8",
@@ -205,6 +242,10 @@ test("server and selector expose set guards, readiness and AI grading", async ()
       ),
       "utf8",
     ),
+    readFile(
+      new URL("../src/lib/pmq/mock-written-grading.ts", import.meta.url),
+      "utf8",
+    ),
   ]);
   assert.match(actions, /\.eq\("exam_set", session\.exam_set\)/);
   assert.match(
@@ -212,7 +253,9 @@ test("server and selector expose set guards, readiness and AI grading", async ()
     /isMockExamReady\(questions\.length, totalMarks\)/,
   );
   assert.match(actions, /finalizeMockExam/);
-  assert.match(actions, /callExamGrader/);
+  assert.match(actions, /scoreMockSession/);
+  assert.match(actions, /isReadableMockStatus/);
+  assert.match(grading, /callExamGrader/);
   assert.match(selector, /mockExamSelectorState/);
 });
 
@@ -229,5 +272,50 @@ test("failure UX exposes alert, retry, busy, and focus states", async () => {
   assert.match(source, /Flag question/);
   assert.match(source, /Submit Part/);
   assert.match(source, /overallRemaining/);
-  assert.match(source, /Review all 40 answers/);
+  assert.match(source, /Review answers/);
+  assert.doesNotMatch(source, /Review all 40 answers/);
+});
+
+test("expired status migration adds constraint value", async () => {
+  const source = await readFile(
+    new URL(
+      "../supabase/migrations/20260807180000_exam_sessions_expired_status.sql",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  assert.match(source, /'expired'/);
+  assert.match(source, /exam_sessions_status_check/);
+});
+
+test("scoreMockSession awards objective marks and written ai_score", async () => {
+  const { scoreMockSession } = await import("../src/lib/pmq/mock-scoring.ts");
+  const breakdown = scoreMockSession(
+    [
+      { id: "a", marks: 1, question_type: "multiple_choice", part: 1 },
+      { id: "b", marks: 2, question_type: "short_answer", part: 1 },
+      { id: "c", marks: 1, question_type: "multiple_choice", part: 2 },
+    ],
+    [
+      {
+        question_id: "a",
+        is_correct: true,
+        ai_score: null,
+        grading_status: "not_required",
+      },
+      {
+        question_id: "b",
+        is_correct: null,
+        ai_score: 1,
+        grading_status: "graded",
+      },
+    ],
+    90,
+  );
+  assert.equal(breakdown.totalScore, 2);
+  assert.equal(breakdown.maxScore, 90);
+  assert.equal(breakdown.partOne.answered, 2);
+  assert.equal(breakdown.partOne.earned, 2);
+  assert.equal(breakdown.partTwo.answered, 0);
+  assert.equal(breakdown.ungradedWritten, 0);
 });

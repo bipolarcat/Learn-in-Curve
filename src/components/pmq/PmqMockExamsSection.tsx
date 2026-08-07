@@ -53,6 +53,7 @@ function statusTone(status: string): "done" | "open" | "plain" {
   ) {
     return "open";
   }
+  // Time expired / Ended early / Ready / Coming soon → plain
   return "plain";
 }
 

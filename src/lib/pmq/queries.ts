@@ -39,11 +39,11 @@ import {
   totalSetsFromContexts,
 } from "./quiz-sets";
 import {
-  expireBreakIfNeeded,
   isMockExamReady,
   liteMockExamConfig,
   questionsForTier,
 } from "./mock-domain";
+import { expireBreakIfNeeded } from "./mock-terminate";
 
 export async function getPmqCourse(supabase: SupabaseClient): Promise<Course | null> {
   const { data } = await supabase
@@ -664,7 +664,7 @@ export async function getActiveExamSession(
   if (!data) return null;
 
   // Self-heals a session left stuck in "break" past its 30-minute window
-  // (lazy, on-read — see expireBreakIfNeeded in mock-domain.ts).
+  // (lazy, on-read — see expireBreakIfNeeded in mock-terminate.ts).
   const reconciled = await expireBreakIfNeeded(
     supabase,
     userId,
@@ -730,7 +730,7 @@ export async function getMockExamSetSummaries(
   // Self-heal any session stuck past a deadline (unattended Part 1, expired
   // break, unattended Part 2, or the 180-minute hard cap) before it's used
   // to compute what the exam selector shows (see expireBreakIfNeeded in
-  // mock-domain.ts — same lazy on-read reconciliation as
+  // mock-terminate.ts — same lazy on-read reconciliation as
   // getActiveExamSession).
   const reconcilableStatuses = ["active", "break", "self_assessing", "grading"];
   const reconciledSessions = await Promise.all(

@@ -1,8 +1,18 @@
 #!/bin/sh
 # Auto-bump site version +0.1 on each commit after launch (SITE_VERSION_AUTO_BUMP).
-# Skip:    LIC_SKIP_VERSION=1 git commit ...
-# Jump:    LIC_VERSION=3.0 git commit ...
-# Manual:  already staging src/lib/site-version.ts also skips (avoids double bump).
+# Skip version:    LIC_SKIP_VERSION=1 git commit ...
+# Skip legal date: LIC_SKIP_LEGAL_DATE=1 git commit ...
+# Jump:            LIC_VERSION=3.0 git commit ...
+# Manual:          already staging src/lib/site-version.ts also skips version bump.
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT" || exit 1
+
+# Legal "Last updated" enforcement — before version early-exit so a version-skip
+# commit that still touches legal/ still gets a date bump.
+if [ "$LIC_SKIP_LEGAL_DATE" != "1" ]; then
+  node scripts/bump-legal-dates.mjs || exit 1
+fi
 
 if [ "$LIC_SKIP_VERSION" = "1" ]; then
   exit 0
@@ -11,9 +21,6 @@ fi
 if git diff --cached --name-only | grep -q '^src/lib/site-version\.ts$'; then
   exit 0
 fi
-
-ROOT="$(git rev-parse --show-toplevel)"
-cd "$ROOT" || exit 1
 
 if [ -n "$LIC_VERSION" ]; then
   node scripts/bump-version.mjs --set "$LIC_VERSION" || exit 1

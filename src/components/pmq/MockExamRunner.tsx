@@ -12,6 +12,7 @@ import {
 import {
   finalizeMockExam,
   getFinalizedMockReview,
+  getMockExamResultSummary,
   setMockCurrentQuestion,
   startMockExamSession,
   startMockPartTwo,
@@ -35,8 +36,10 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { Flag } from "lucide-react";
 import styles from "@/components/pmq/MockExamRunner.module.css";
+import type { MockScoreBreakdown } from "@/lib/pmq/mock-scoring";
 import type {
   ExamSession,
+  ExamSessionStatus,
   MockAttempt,
   MockExamConfig,
   MockExamReview,
@@ -96,12 +99,12 @@ function initialPhase(session: ExamSession | null): Phase {
   // just resumes into the grading phase (finalize is idempotent).
   if (session.status === "self_assessing") return "grading";
   if (session.status === "grading") return "grading";
-  // "abandoned" covers both a manual abandon and a break that timed out
-  // (see expireBreakIfNeeded in mock-domain.ts) — either way there's no
-  // submission to continue, so route into the same read-only Results view
-  // used for finalized exams rather than falling through to "exam" and
-  // letting the user keep answering a closed-out session.
-  if (session.status === "finalized" || session.status === "abandoned")
+  // Terminal scored sittings (full finalize, clock expiry, or manual abandon).
+  if (
+    session.status === "finalized" ||
+    session.status === "expired" ||
+    session.status === "abandoned"
+  )
     return "results";
   return "exam";
 }
@@ -169,6 +172,11 @@ export function MockExamRunner({
     activeSession?.total_score ?? null,
   );
   const [passed, setPassed] = useState(activeSession?.passed ?? null);
+  const [sessionStatus, setSessionStatus] = useState<ExamSessionStatus | null>(
+    activeSession?.status ?? null,
+  );
+  const [scoreBreakdown, setScoreBreakdown] =
+    useState<MockScoreBreakdown | null>(null);
   const [reviews, setReviews] = useState<MockExamReview[] | null>(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [showReview, setShowReview] = useState(false);
@@ -205,9 +213,18 @@ export function MockExamRunner({
   }, []);
 
   const applyFinalResult = useCallback(
-    (result: { totalScore?: number; passed?: boolean }) => {
+    (result: {
+      totalScore?: number;
+      passed?: boolean;
+      status?: string;
+      breakdown?: MockScoreBreakdown;
+    }) => {
       setFinalScore(result.totalScore ?? 0);
       setPassed(result.passed ?? false);
+      if (result.status) {
+        setSessionStatus(result.status as ExamSessionStatus);
+      }
+      if (result.breakdown) setScoreBreakdown(result.breakdown);
       setPhase("results");
       setAnnouncement("Exam finalized. Results are ready.");
     },
@@ -371,6 +388,18 @@ export function MockExamRunner({
     }
   }, [breakEndsAt, breakRemaining, continueAfterBreak, phase]);
 
+  useEffect(() => {
+    if (phase !== "results" || !sessionId || isDemo) return;
+    if (scoreBreakdown) return;
+    void getMockExamResultSummary(sessionId).then((result) => {
+      if (result.error || !result.breakdown) return;
+      setScoreBreakdown(result.breakdown);
+      if (result.totalScore != null) setFinalScore(result.totalScore);
+      if (result.passed != null) setPassed(result.passed);
+      if (result.status) setSessionStatus(result.status as ExamSessionStatus);
+    });
+  }, [phase, sessionId, isDemo, scoreBreakdown]);
+
   const begin = () => {
     setError(null);
     startTransition(async () => {
@@ -379,7 +408,11 @@ export function MockExamRunner({
         reportError(result.error);
         return;
       }
-      if (result.status === "finalized") {
+      if (
+        result.status === "finalized" ||
+        result.status === "expired" ||
+        result.status === "abandoned"
+      ) {
         window.location.reload();
         return;
       }
@@ -526,6 +559,8 @@ export function MockExamRunner({
         reportError(result.error ?? "Could not load answer review.");
         return;
       }
+      if (result.breakdown) setScoreBreakdown(result.breakdown);
+      if (result.status) setSessionStatus(result.status as ExamSessionStatus);
       const ordered = [...result.reviews].sort(
         (a, b) => a.part - b.part || a.position - b.position,
       );
@@ -706,6 +741,8 @@ export function MockExamRunner({
           title={title}
           score={finalScore ?? 0}
           passed={passed ?? false}
+          status={sessionStatus ?? "finalized"}
+          breakdown={scoreBreakdown}
           config={mockConfig}
           reviews={reviews}
           reviewIndex={reviewIndex}
@@ -1114,10 +1151,23 @@ function BreakScreen({
   );
 }
 
+function formatPartBreakdownLine(
+  part: 1 | 2,
+  stats: { earned: number; available: number; answered: number } | undefined,
+  partQuestions: number,
+): string {
+  if (!stats || stats.answered === 0) {
+    return `Part ${part}: not attempted`;
+  }
+  return `Part ${part}: ${stats.earned} / ${stats.available} (${stats.answered} of ${partQuestions} answered)`;
+}
+
 function Results({
   title,
   score,
   passed,
+  status,
+  breakdown,
   config,
   reviews,
   reviewIndex,
@@ -1130,6 +1180,8 @@ function Results({
   title: string;
   score: number;
   passed: boolean;
+  status: ExamSessionStatus;
+  breakdown: MockScoreBreakdown | null;
   config: MockExamConfig;
   reviews: MockExamReview[] | null;
   reviewIndex: number;
@@ -1155,6 +1207,21 @@ function Results({
         : [[review.questionId, review.submittedAnswer]],
     ),
   );
+  const incomplete = status === "expired" || status === "abandoned";
+  const headerMeta =
+    status === "expired"
+      ? "Incomplete · time expired"
+      : status === "abandoned"
+        ? "Incomplete · ended early"
+        : "Final result · attempt complete";
+  const breakdownLine =
+    incomplete && breakdown
+      ? [
+          formatPartBreakdownLine(1, breakdown.partOne, 20),
+          formatPartBreakdownLine(2, breakdown.partTwo, 20),
+        ].join(" · ")
+      : null;
+
   return (
     <div className={styles.resultWrap}>
       <section
@@ -1164,7 +1231,7 @@ function Results({
         <h1 id="mock-result-title" className={styles.resultTitle}>
           {title}
         </h1>
-        <p className={styles.resultMeta}>Final result · attempt complete</p>
+        <p className={styles.resultMeta}>{headerMeta}</p>
         <p className={styles.resultScore}>
           {score} / {config.total_marks}
           <span className={styles.resultPctSep} aria-hidden>
@@ -1172,17 +1239,37 @@ function Results({
           </span>
           <span className={styles.resultPct}>{percentage}%</span>
         </p>
+        {breakdownLine ? (
+          <p className={styles.resultMeta}>{breakdownLine}</p>
+        ) : null}
+        {breakdown && breakdown.ungradedWritten > 0 ? (
+          <p className={styles.resultMeta}>
+            {breakdown.ungradedWritten} written answer
+            {breakdown.ungradedWritten === 1 ? "" : "s"} couldn&apos;t be marked
+            and scored 0.
+          </p>
+        ) : null}
         <p
           className={`${styles.resultVerdict} ${
-            passed ? styles.resultVerdictPass : styles.resultVerdictRefer
+            incomplete
+              ? styles.resultVerdictRefer
+              : passed
+                ? styles.resultVerdictPass
+                : styles.resultVerdictRefer
           }`}
         >
-          {passed ? "Pass — well done." : "Refer - keep going."}
+          {incomplete
+            ? "Not assessed — this sitting wasn't completed."
+            : passed
+              ? "Pass — well done."
+              : "Refer - keep going."}
         </p>
-        <p className={styles.resultMeta}>
-          Measured against our practice threshold. The real exam&apos;s pass
-          mark varies by paper.
-        </p>
+        {!incomplete ? (
+          <p className={styles.resultMeta}>
+            Measured against our practice threshold. The real exam&apos;s pass
+            mark varies by paper.
+          </p>
+        ) : null}
         <button
           type="button"
           onClick={showReview ? onCloseReview : onLoadReview}
@@ -1193,7 +1280,7 @@ function Results({
               ? "Loading review"
               : showReview
                 ? "Hide answer review"
-                : "Review all 40 answers"
+                : "Review answers"
           }
           className={styles.resultBtnSecondary}
         >
@@ -1210,7 +1297,7 @@ function Results({
           ) : showReview ? (
             "Hide answer review"
           ) : (
-            "Review all 40 answers"
+            "Review answers"
           )}
         </button>
       </section>
@@ -1303,7 +1390,7 @@ function ReviewAnswer({
   options: string[] | Record<string, string[]> | null;
   positive?: boolean;
 }) {
-  let display = "No answer submitted";
+  let display = "Not answered";
   if (typeof answer === "string") {
     if (Array.isArray(options) && /^[A-Z]$/.test(answer)) {
       const index = answer.charCodeAt(0) - 65;

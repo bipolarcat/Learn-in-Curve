@@ -3,18 +3,23 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { isDemoSkipAuth } from "@/lib/demo";
-import { callExamGrader } from "@/lib/pmq/callExamGrader";
 import {
   deadlineFromStart,
-  expireBreakIfNeeded,
   finalizationDisposition,
   isMockExamReady,
   isDeadlineExpired,
+  isReadableMockStatus,
   isValidMockExamSelection,
   mockPartForQuestion,
   partDurationMinutes,
 } from "@/lib/pmq/mock-domain";
-import { scoreAutoMarkedQuestion } from "@/lib/pmq/mock-scoring";
+import { expireBreakIfNeeded, expireSession } from "@/lib/pmq/mock-terminate";
+import {
+  scoreAutoMarkedQuestion,
+  scoreMockSession,
+  type MockScoreBreakdown,
+} from "@/lib/pmq/mock-scoring";
+import { gradeWrittenAttempts } from "@/lib/pmq/mock-written-grading";
 import {
   getAiTutorEntitlement,
   getAiTutorPriceCents,
@@ -29,10 +34,6 @@ import {
   type PmqMockExamSet,
 } from "@/lib/pmq/tiers";
 import { PMQ_COURSE_ID, pmqMockHref } from "@/lib/pmq/constants";
-import {
-  PAID_MOCK_GRADING_BUDGET_GBP_CENTS,
-  STARTER_MOCK_GRADING_BUDGET_GBP_CENTS,
-} from "@/lib/tutor/constants";
 import type {
   MockExamConfig,
   MockExamReview,
@@ -97,7 +98,7 @@ async function ownedSession(
   // Self-heal a session left stuck past a deadline before any action reads
   // or mutates it — same lazy on-read reconciliation getActiveExamSession
   // and getMockExamSetSummaries already apply (see expireBreakIfNeeded in
-  // mock-domain.ts). Every server action in this file goes through
+  // mock-terminate.ts). Every server action in this file goes through
   // ownedSession, so this covers all of them in one place.
   return expireBreakIfNeeded(supabase, userId, PMQ_COURSE_ID, session);
 }
@@ -470,7 +471,7 @@ export async function startMockPartTwo(sessionId: string) {
     session.status !== "break" ||
     !session.part_1_submitted_at
   ) {
-    return session?.status === "abandoned"
+    return session?.status === "abandoned" || session?.status === "expired"
       ? { error: "Break time ran out — this exam is now complete." }
       : { error: "Break unavailable." };
   }
@@ -521,160 +522,6 @@ export async function beginMockBreak(sessionId: string) {
 
 export async function endMockBreak(sessionId: string) {
   return startMockPartTwo(sessionId);
-}
-
-async function gradeWrittenAttempts(
-  supabase: Awaited<ReturnType<typeof createClient>>,
-  userId: string,
-  session: SessionRow,
-) {
-  // Starter (exam_set 1) is AI-graded too (2026-07-28 — no more self-assessment),
-  // on a small flat, session-scoped budget instead of the Pro fair-usage credit.
-  const isStarterExam = session.exam_set === 1;
-
-  let budgetGbpCents: number;
-  let spentGbpCents: number;
-  const exhaustedMessage = isStarterExam
-    ? "The free grading budget for this exam has been used up."
-    : "Your Pro fair-usage credit is exhausted.";
-
-  if (isStarterExam) {
-    budgetGbpCents = STARTER_MOCK_GRADING_BUDGET_GBP_CENTS;
-    const { data: priorGrading } = await supabase
-      .from("attempts")
-      .select("ai_cost_gbp_cents")
-      .eq("exam_session_id", session.id)
-      .eq("user_id", userId);
-    spentGbpCents = (priorGrading ?? []).reduce(
-      (sum, row) => sum + ((row.ai_cost_gbp_cents as number | null) ?? 0),
-      0,
-    );
-  } else {
-    if (session.tier !== "full") return { ok: true as const };
-
-    const userTier = await getPmqTier(supabase, userId, PMQ_COURSE_ID);
-    if (!canAccessMockExam(userTier, session.exam_set as PmqMockExamSet)) {
-      return { error: "Your plan doesn't include this mock exam." };
-    }
-
-    // Flat per-paper grading budget, NOT a fair-usage credit ledger.
-    //
-    // The credit model was removed on 2026-07-30: grading is now a plain
-    // operating cost priced into the tier. The spend cap is structural rather
-    // than accounted — a tier unlocks a fixed number of papers (Pro 3, AI Pro 4)
-    // and each paper gets one budget, so worst-case exposure is bounded by the
-    // gate above at roughly 3 × 50p against an £8 price. Scoping the budget to
-    // the session (not the user) also means a retake can't be starved by an
-    // earlier paper's spend.
-    budgetGbpCents = PAID_MOCK_GRADING_BUDGET_GBP_CENTS;
-    const { data: priorGrading } = await supabase
-      .from("attempts")
-      .select("ai_cost_gbp_cents")
-      .eq("exam_session_id", session.id)
-      .eq("user_id", userId);
-    spentGbpCents = (priorGrading ?? []).reduce(
-      (sum, row) => sum + ((row.ai_cost_gbp_cents as number | null) ?? 0),
-      0,
-    );
-  }
-
-  if (spentGbpCents >= budgetGbpCents) {
-    return { error: exhaustedMessage };
-  }
-
-  const { data: attempts, error } = await supabase
-    .from("attempts")
-    .select("id, question_id, submitted_answer, grading_status, grading_attempts")
-    .eq("exam_session_id", session.id)
-    .eq("user_id", userId)
-    .in("grading_status", ["pending", "error"]);
-  if (error) return { error: error.message };
-
-  const failures: string[] = [];
-  for (const attempt of attempts ?? []) {
-    if (spentGbpCents >= budgetGbpCents) {
-      failures.push(attempt.question_id);
-      await supabase
-        .from("attempts")
-        .update({
-          grading_status: "error",
-          grading_error: exhaustedMessage,
-        })
-        .eq("id", attempt.id);
-      continue;
-    }
-    const question = await loadSessionQuestion(
-      supabase,
-      session,
-      attempt.question_id,
-    );
-    if (
-      !question ||
-      typeof attempt.submitted_answer !== "string" ||
-      !question.marking_guide ||
-      !question.model_answer
-    ) {
-      failures.push(attempt.question_id);
-      await supabase
-        .from("attempts")
-        .update({
-          grading_status: "error",
-          grading_error: "This question has no complete marking rubric.",
-        })
-        .eq("id", attempt.id);
-      continue;
-    }
-
-    await supabase
-      .from("attempts")
-      .update({
-        grading_status: "grading",
-        grading_error: null,
-        grading_attempts: (attempt.grading_attempts ?? 0) + 1,
-      })
-      .eq("id", attempt.id);
-    try {
-      const grade = await callExamGrader({
-        prompt: question.prompt,
-        submittedAnswer: attempt.submitted_answer,
-        markingGuide: question.marking_guide,
-        modelAnswer: question.model_answer,
-        maxMarks: question.marks,
-      });
-      await supabase
-        .from("attempts")
-        .update({
-          ai_score: grade.score,
-          ai_feedback: grade.feedback,
-          ai_rubric_evidence: grade.rubricEvidence,
-          ai_model: grade.model,
-          ai_input_tokens: grade.inputTokens,
-          ai_output_tokens: grade.outputTokens,
-          ai_cost_gbp_cents: grade.costGbpCents,
-          is_correct: grade.score >= question.marks * 0.5,
-          grading_status: "graded",
-          grading_error: null,
-          graded_at: new Date().toISOString(),
-        })
-        .eq("id", attempt.id);
-      spentGbpCents += grade.costGbpCents;
-    } catch (gradingError) {
-      failures.push(attempt.question_id);
-      await supabase
-        .from("attempts")
-        .update({
-          grading_status: "error",
-          grading_error:
-            gradingError instanceof Error
-              ? gradingError.message
-              : "Marking failed. Please retry.",
-        })
-        .eq("id", attempt.id);
-    }
-  }
-  return failures.length
-    ? { error: "Some written answers could not be marked.", failures }
-    : { ok: true as const };
 }
 
 export async function finalizeMockExam(input: { sessionId: string }) {
@@ -731,38 +578,41 @@ export async function finalizeMockExam(input: { sessionId: string }) {
       };
     }
   }
-  const grading = await gradeWrittenAttempts(supabase, user.id, {
-    ...session,
-    status: "grading",
-  });
+  const grading = await gradeWrittenAttempts(supabase, user.id, session);
   if ("error" in grading) return { ...grading, gradingPending: true as const };
 
   const { data: attempts, error: attemptsError } = await supabase
     .from("attempts")
-    .select("question_id, is_correct, ai_score, questions(marks, question_type)")
+    .select("question_id, is_correct, ai_score, grading_status")
     .eq("exam_session_id", session.id)
     .eq("user_id", user.id)
     .eq("context", "mock_exam");
   if (attemptsError) return { error: attemptsError.message };
 
-  let totalScore = 0;
-  for (const attempt of attempts ?? []) {
-    const raw = attempt.questions as
-      | { marks: number; question_type: string }
-      | { marks: number; question_type: string }[]
-      | null;
-    const question = Array.isArray(raw) ? raw[0] : raw;
-    if (!question) continue;
-    totalScore +=
-      question.question_type === "long_answer" ||
-      question.question_type === "short_answer"
-        ? attempt.ai_score ?? 0
-        : attempt.is_correct
-          ? question.marks
-          : 0;
-  }
+  const questionIds = session.config_snapshot.question_ids ?? [];
+  const { data: questions, error: questionsError } = await supabase
+    .from("questions")
+    .select("id, marks, question_type, part")
+    .in("id", questionIds);
+  if (questionsError) return { error: questionsError.message };
 
   const config = session.config_snapshot;
+  const breakdown = scoreMockSession(
+    (questions ?? []).map((q) => ({
+      id: q.id as string,
+      marks: q.marks as number,
+      question_type: q.question_type as string,
+      part: (q.part as number | null) ?? null,
+    })),
+    (attempts ?? []).map((a) => ({
+      question_id: a.question_id as string,
+      is_correct: (a.is_correct as boolean | null) ?? null,
+      ai_score: (a.ai_score as number | null) ?? null,
+      grading_status: (a.grading_status as string | null) ?? null,
+    })),
+    config.total_marks,
+  );
+  const totalScore = breakdown.totalScore;
   const passed = totalScore >= config.pass_mark;
   const now = new Date().toISOString();
   const { error: updateError } = await supabase
@@ -795,17 +645,22 @@ export async function finalizeMockExam(input: { sessionId: string }) {
     }
   }
   revalidatePath(pmqMockHref(session.tier, session.exam_set));
-  return { ok: true as const, totalScore, passed };
+  return { ok: true as const, totalScore, passed, breakdown };
 }
 
 export async function getFinalizedMockReview(
   sessionId: string,
-): Promise<{ reviews?: MockExamReview[]; error?: string }> {
+): Promise<{
+  reviews?: MockExamReview[];
+  breakdown?: MockScoreBreakdown;
+  status?: string;
+  error?: string;
+}> {
   const { supabase, user } = await authenticatedUser();
   if (!user) return { error: "Not signed in." };
   const session = await ownedSession(supabase, user.id, sessionId);
-  if (!session || session.status !== "finalized") {
-    return { error: "Answers are available only after finalization." };
+  if (!session || !isReadableMockStatus(session.status)) {
+    return { error: "Results aren't ready for this exam yet." };
   }
   const questionIds = session.config_snapshot.question_ids ?? [];
   const [{ data: questions, error: questionsError }, { data: attempts, error: attemptsError }] =
@@ -824,7 +679,7 @@ export async function getFinalizedMockReview(
       supabase
         .from("attempts")
         .select(
-          "question_id, submitted_answer, is_correct, ai_score, ai_feedback",
+          "question_id, submitted_answer, is_correct, ai_score, ai_feedback, grading_status",
         )
         .eq("exam_session_id", session.id)
         .eq("user_id", user.id),
@@ -834,7 +689,24 @@ export async function getFinalizedMockReview(
   const attemptByQuestion = new Map(
     (attempts ?? []).map((attempt) => [attempt.question_id, attempt]),
   );
+  const breakdown = scoreMockSession(
+    (questions ?? []).map((q) => ({
+      id: q.id as string,
+      marks: (q.marks as number) ?? 0,
+      question_type: q.question_type as string,
+      part: (q.part as number | null) ?? null,
+    })),
+    (attempts ?? []).map((a) => ({
+      question_id: a.question_id as string,
+      is_correct: (a.is_correct as boolean | null) ?? null,
+      ai_score: (a.ai_score as number | null) ?? null,
+      grading_status: (a.grading_status as string | null) ?? null,
+    })),
+    session.config_snapshot.total_marks,
+  );
   return {
+    status: session.status,
+    breakdown,
     reviews: (questions ?? []).map((question) => {
       const attempt = attemptByQuestion.get(question.id);
       return {
@@ -866,21 +738,83 @@ export async function getFinalizedMockReview(
   };
 }
 
+export async function getMockExamResultSummary(sessionId: string): Promise<{
+  status?: string;
+  totalScore?: number;
+  maxScore?: number;
+  passed?: boolean;
+  breakdown?: MockScoreBreakdown;
+  error?: string;
+}> {
+  const { supabase, user } = await authenticatedUser();
+  if (!user) return { error: "Not signed in." };
+  const session = await ownedSession(supabase, user.id, sessionId);
+  if (!session || !isReadableMockStatus(session.status)) {
+    return { error: "Results aren't ready for this exam yet." };
+  }
+  const questionIds = session.config_snapshot.question_ids ?? [];
+  const [{ data: questions }, { data: attempts }] = await Promise.all([
+    supabase
+      .from("questions")
+      .select("id, marks, question_type, part")
+      .in("id", questionIds),
+    supabase
+      .from("attempts")
+      .select("question_id, is_correct, ai_score, grading_status")
+      .eq("exam_session_id", session.id)
+      .eq("user_id", user.id),
+  ]);
+  const breakdown = scoreMockSession(
+    (questions ?? []).map((q) => ({
+      id: q.id as string,
+      marks: q.marks as number,
+      question_type: q.question_type as string,
+      part: (q.part as number | null) ?? null,
+    })),
+    (attempts ?? []).map((a) => ({
+      question_id: a.question_id as string,
+      is_correct: (a.is_correct as boolean | null) ?? null,
+      ai_score: (a.ai_score as number | null) ?? null,
+      grading_status: (a.grading_status as string | null) ?? null,
+    })),
+    session.config_snapshot.total_marks,
+  );
+  return {
+    status: session.status,
+    totalScore: session.total_score ?? breakdown.totalScore,
+    maxScore: session.max_score ?? breakdown.maxScore,
+    passed: session.passed ?? false,
+    breakdown,
+  };
+}
+
 export async function abandonMockExamSession(sessionId: string) {
   const { supabase, user } = await authenticatedUser();
   if (!user) return { ok: true as const };
-  await supabase
-    .from("exam_sessions")
-    .update({
-      status: "abandoned",
-      submitted_at: new Date().toISOString(),
-      passed: false,
-      total_score: 0,
-    })
-    .eq("id", sessionId)
-    .eq("user_id", user.id)
-    .eq("course_id", PMQ_COURSE_ID)
-    .in("status", ["active", "break", "self_assessing", "grading"]);
+  const session = await ownedSession(supabase, user.id, sessionId);
+  if (!session) return { ok: true as const };
+  const openStatuses = ["active", "break", "self_assessing", "grading"];
+  if (!openStatuses.includes(session.status)) {
+    return {
+      ok: true as const,
+      totalScore: session.total_score ?? 0,
+      passed: session.passed ?? false,
+      status: session.status,
+    };
+  }
+  const updated = await expireSession(
+    supabase,
+    user.id,
+    PMQ_COURSE_ID,
+    session,
+    openStatuses,
+    "abandoned",
+  );
   revalidatePath(pmqMockHref());
-  return { ok: true as const };
+  return {
+    ok: true as const,
+    totalScore: updated.total_score ?? 0,
+    passed: updated.passed ?? false,
+    status: updated.status,
+  };
 }

@@ -197,13 +197,9 @@ Found and fixed 2026-07-29. Fix: `expireBreakIfNeeded()` in `src/lib/pmq/mock-do
 
 **Rule going forward:** any deadline/window field on `exam_sessions` (or a future timed feature) needs an enforcement point, not just a stored timestamp. Storing `X_ends_at` and never checking `isDeadlineExpired(X_ends_at)` anywhere is the same shape of bug as this one — grep for the field's write site and confirm there's a matching read-and-enforce site before shipping.
 
-**If you find another account stuck like this:** check `exam_sessions` for `status = 'break'` with `break_ends_at` in the past, or `status = 'active'` with a suspiciously distant `part_2_started_at` relative to `break_ends_at` (meaning they resumed after this fix should have blocked it, or before this fix shipped). If no Part 2 attempts exist yet (`select count(*) from attempts join questions on questions.id = attempts.question_id where attempts.exam_session_id = '<id>' and questions.part = 2`), it's safe to force-abandon:
-```sql
-update public.exam_sessions
-set status = 'abandoned', submitted_at = now(), passed = false, total_score = 0
-where id = '<session_id>' and user_id = '<user_id>';
-```
-If Part 2 attempts already exist, stop and ask before touching it — that's real answer data, not a clean bug case.
+**If you find another account stuck like this:** check `exam_sessions` for `status = 'break'` with `break_ends_at` in the past, or `status = 'active'` with a suspiciously distant `part_2_started_at` relative to `break_ends_at` (meaning they resumed after this fix should have blocked it, or before this fix shipped). Prefer letting the app self-heal on next read (`expireBreakIfNeeded` in `mock-terminate.ts`) so scoring matches runtime. For abandoned rows with null `finalized_at` (pre-2026-08-07 bug), run `scripts/backfill-abandoned-mock-scores.mjs` after the `expired` migration is applied — do **not** hand-write `total_score`.
+
+**2026-08-07:** clock expiry writes `status = 'expired'` (not `abandoned`), scores out of the full paper, sets `finalized_at`, and opens answer review. `abandoned` = explicit user quit. Neither issues a certificate. If Part 2 attempts already exist on a stuck session, stop and ask before deleting — that's real answer data, not a clean bug case.
 
 **Follow-up found the same day:** setting `status = 'abandoned'` wasn't enough on its own — `MockExamRunner.tsx`'s `initialPhase()` maps DB status to UI phase and had no branch for `"abandoned"`, so it fell through to the default `"exam"` phase and the user could still answer Part 2 on a session the selector correctly labeled "Time expired." Fixed by routing `abandoned` into the same read-only `"results"` phase used for `finalized` (score/passed are already 0/false on abandon, so it renders sensibly). Also updated `mockExamSelectorState`'s action label so `abandoned` shows "View result →" instead of "Start Exam →". **Lesson:** a status value isn't actually enforced until every place that branches on status has a case for it — the DB write, the list/selector label, *and* the detail-page phase router are three separate switch statements over the same field, and this bug shipped with only two of the three updated.
 
@@ -211,7 +207,7 @@ If Part 2 attempts already exist, stop and ask before touching it — that's rea
 
 **The trap:** the block that stops a user opening a *second* Pro exam while one is already in progress checked only "is a different exam set active" — not "is *this* exam set already finished." Result: a finalized (or abandoned) exam set showed "Finish Exam N first" instead of "View Exam N result" any time another exam set had an open session, because the check ran before the terminal-status branch that would've produced the correct label.
 
-Found and fixed 2026-07-29 (`simsamaarshened@gmail.com`: Exam 2 finalized, Exam 3 active mid-session — Exam 2's row showed "Finish Exam 3 first"). Fix: `mockExamSelectorState` (`mock-domain.ts`) now checks `latestStatus === "finalized" || "abandoned"` first and skips the block entirely for terminal exam sets, since a finished exam can't be "started" or "resumed" and so can never legitimately be blocked by another exam being active.
+Found and fixed 2026-07-29 (`simsamaarshened@gmail.com`: Exam 2 finalized, Exam 3 active mid-session — Exam 2's row showed "Finish Exam 3 first"). Fix: `mockExamSelectorState` (`mock-domain.ts`) now checks `latestStatus === "finalized" || "expired" || "abandoned"` first and skips the block entirely for terminal exam sets, since a finished exam can't be "started" or "resumed" and so can never legitimately be blocked by another exam being active.
 
 **Rule going forward:** any "block action X while Y is in progress" guard needs to ask "is X itself even attemptable right now?" before asking "is something else blocking it?" — order of these two checks matters, and this is the same status-enforcement-per-branch pattern as the entries above.
 
@@ -219,8 +215,8 @@ Found and fixed 2026-07-29 (`simsamaarshened@gmail.com`: Exam 2 finalized, Exam 
 
 **Fixed 2026-07-30.** The 30-minute *break* window was already enforced server-side (`expireBreakIfNeeded`), but the 75-minute *active part* window (Part 1 or Part 2) was only enforced client-side — `MockExamRunner.tsx` only submits the part automatically when its on-screen timer hits zero, which never runs if the tab is closed or the user never returns. Reported live 2026-07-30 (`simsamaarshened@gmail.com`): left mid-Part-1, came back later, and reopening triggered the client's timer-zero handler at *click time* — anchoring `break_started_at`/`break_ends_at` to the moment they clicked instead of the deadline that had actually passed, silently granting extra time and defeating the intended 75+30+75 = 180-minute budget.
 
-Fix: `expireBreakIfNeeded` in `src/lib/pmq/mock-domain.ts` now does three things, checked in order, any time a session is read (same three call sites as before, plus `ownedSession` in `mock-actions.ts` — so every server action self-heals first, not just page loads):
-1. **Hard 180-minute backstop** from `started_at`, across every open status (`active`, `break`, `self_assessing`, `grading`) — abandons unconditionally, no matter what state the session is stuck in.
+Fix: `expireBreakIfNeeded` in `src/lib/pmq/mock-terminate.ts` now does three things, checked in order, any time a session is read (same three call sites as before, plus `ownedSession` in `mock-actions.ts` — so every server action self-heals first, not just page loads):
+1. **Hard 180-minute backstop** from `started_at`, across every open status (`active`, `break`, `self_assessing`, `grading`) — expires with a scored result, no matter what state the session is stuck in.
 2. **Part 1 left unattended past its own 75-minute deadline** — transitions to `"break"` anchored to the true `part_1_deadline_at`, not read-time, so the break timer is always correct even if nobody opens the exam again for hours.
 3. **Part 2 left unattended past its own 75-minute deadline** — abandons (0 score) rather than lazily triggering real, billed AI grading from a passive page load. This resolves the product decision this section previously flagged as open: option (b), zero-score/abandon, not (a) lazy real grading.
 

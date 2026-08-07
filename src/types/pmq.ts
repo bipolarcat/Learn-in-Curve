@@ -150,7 +150,8 @@ export type ExamSessionStatus =
   | "self_assessing"
   | "grading"
   | "finalized"
-  | "abandoned";
+  | "abandoned"
+  | "expired";
 
 export type CaseStudyPersona = {
   name: string;
