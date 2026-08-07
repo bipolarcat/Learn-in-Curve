@@ -37,7 +37,7 @@ We do not sell your personal data to anyone, under any circumstances. We share d
 - **Supabase:** Our database and authentication provider (hosted in the EU - Ireland), which securely stores your account, progress, and mock exam data.
 - **Google (OAuth):** Used only if you choose "Continue with Google" for account creation and sign-in.
 - **Stripe:** Our payment processor, which directly handles your card details when you make a purchase.
-- **PostHog:** Our product analytics provider (EU Cloud), used only if you consent to analytics cookies. Receives page views, in-app interactions, and masked session replays.
+- **PostHog:** Our product analytics provider (EU Cloud), used only if you consent to analytics cookies. Receives page views, in-app interactions, masked session replays, and technical error diagnostics when something on the site fails.
 - **Google (Gemini API):** Our AI service provider, used exclusively for the homepage guest trial and AI grading of written answers in mock exams. Relevant text from your written mock exam answers and the marking rubric are sent to Gemini to generate grading feedback. We use Google's Enterprise Gemini API; your messages and mock exam answers are used strictly to generate real-time feedback and are not used by Google to train their foundational AI models.
 
 ## 5. International Transfers
