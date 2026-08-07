@@ -6,7 +6,10 @@ import {
   deadlineFromStart,
   isDeadlineExpired,
 } from "@/lib/pmq/mock-domain";
-import { scoreMockSession } from "@/lib/pmq/mock-scoring";
+import {
+  scoreMockSession,
+  type MockScoreBreakdown,
+} from "@/lib/pmq/mock-scoring";
 
 const TERMINATE_GRADING_TIMEOUT_MS = 20_000;
 
@@ -30,6 +33,72 @@ type TerminableSession = {
     | null;
 };
 
+export type SessionScorePreview = {
+  breakdown: MockScoreBreakdown;
+  passed: boolean;
+};
+
+/**
+ * Read attempts/questions and compute the score expireSession would write.
+ * No DB writes and no AI grading — ungradedWritten reflects current rows.
+ */
+export async function previewSessionScore(
+  supabase: SupabaseClient,
+  userId: string,
+  _courseId: string,
+  session: TerminableSession,
+): Promise<SessionScorePreview> {
+  const config = session.config_snapshot;
+  const questionIds = config?.question_ids ?? [];
+  const maxScore = config?.total_marks ?? MOCK_EXAM_TOTAL_MARKS;
+  const passMark = config?.pass_mark ?? Math.round(maxScore * 0.6);
+
+  const [{ data: questions }, { data: attempts }] = await Promise.all([
+    questionIds.length
+      ? supabase
+          .from("questions")
+          .select("id, marks, question_type, part")
+          .in("id", questionIds)
+      : Promise.resolve({
+          data: [] as Array<{
+            id: string;
+            marks: number;
+            question_type: string;
+            part: number | null;
+          }>,
+        }),
+    supabase
+      .from("attempts")
+      .select("question_id, is_correct, ai_score, grading_status")
+      .eq("exam_session_id", session.id)
+      .eq("user_id", userId),
+  ]);
+
+  const breakdown = scoreMockSession(
+    (questions ?? []).map((q) => ({
+      id: q.id as string,
+      marks: q.marks as number,
+      question_type: q.question_type as string,
+      part: (q.part as number | null) ?? null,
+    })),
+    (attempts ?? []).map((a) => ({
+      question_id: a.question_id as string,
+      is_correct: (a.is_correct as boolean | null) ?? null,
+      ai_score: (a.ai_score as number | null) ?? null,
+      grading_status: (a.grading_status as string | null) ?? null,
+    })),
+    maxScore,
+  );
+
+  // D4: incomplete sittings never pass, regardless of marks earned.
+  const bothPartsSubmitted = Boolean(
+    session.part_1_submitted_at && session.part_2_submitted_at,
+  );
+  const passed = bothPartsSubmitted && breakdown.totalScore >= passMark;
+
+  return { breakdown, passed };
+}
+
 /**
  * Score an incomplete sitting and write a terminal status (`expired` or
  * `abandoned`). Never issues a certificate. Grades pending written answers
@@ -47,8 +116,6 @@ export async function expireSession<T extends TerminableSession>(
   const questionIds = config?.question_ids ?? [];
   const examSet = session.exam_set ?? config?.exam_set ?? 1;
   const tier = session.tier ?? (examSet === 1 ? "lite" : "full");
-  const maxScore = config?.total_marks ?? MOCK_EXAM_TOTAL_MARKS;
-  const passMark = config?.pass_mark ?? Math.round(maxScore * 0.6);
 
   if (questionIds.length > 0) {
     try {
@@ -87,47 +154,12 @@ export async function expireSession<T extends TerminableSession>(
     }
   }
 
-  const [{ data: questions }, { data: attempts }] = await Promise.all([
-    questionIds.length
-      ? supabase
-          .from("questions")
-          .select("id, marks, question_type, part")
-          .in("id", questionIds)
-      : Promise.resolve({ data: [] as Array<{
-          id: string;
-          marks: number;
-          question_type: string;
-          part: number | null;
-        }> }),
-    supabase
-      .from("attempts")
-      .select("question_id, is_correct, ai_score, grading_status")
-      .eq("exam_session_id", session.id)
-      .eq("user_id", userId),
-  ]);
-
-  const breakdown = scoreMockSession(
-    (questions ?? []).map((q) => ({
-      id: q.id as string,
-      marks: q.marks as number,
-      question_type: q.question_type as string,
-      part: (q.part as number | null) ?? null,
-    })),
-    (attempts ?? []).map((a) => ({
-      question_id: a.question_id as string,
-      is_correct: (a.is_correct as boolean | null) ?? null,
-      ai_score: (a.ai_score as number | null) ?? null,
-      grading_status: (a.grading_status as string | null) ?? null,
-    })),
-    maxScore,
+  const { breakdown, passed } = await previewSessionScore(
+    supabase,
+    userId,
+    courseId,
+    session,
   );
-
-  // D4: incomplete sittings never pass, regardless of marks earned.
-  const bothPartsSubmitted = Boolean(
-    session.part_1_submitted_at && session.part_2_submitted_at,
-  );
-  const passed =
-    bothPartsSubmitted && breakdown.totalScore >= passMark;
 
   const now = new Date().toISOString();
   const { data } = await supabase

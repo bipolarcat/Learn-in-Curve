@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-07** — Backfill dry-run now previews real scores: `previewSessionScore` extracted from `expireSession` in `mock-terminate.ts` (read+score only, no write/AI); `backfill-abandoned-mock-scores.mjs` prints part breakdown + asserts `certificates` count unchanged across the write loop.
+
 - **2026-08-07** — Mock exam incomplete sittings now score and open review: new `expired` status (migration `20260807180000_exam_sessions_expired_status.sql`); shared `scoreMockSession` in `mock-scoring.ts`; `expireSession` / `expireBreakIfNeeded` in server-only `mock-terminate.ts` (grade written best-effort with timeout, then score out of 90, set `finalized_at`, never certificates); review gate accepts `finalized|expired|abandoned`; Results UI shows status-aware header, part breakdown, incomplete verdict, ungraded-written notice, and "Review answers"; legal pre-commit auto-bumps `Last updated` via `scripts/bump-legal-dates.mjs` (`LIC_SKIP_LEGAL_DATE=1` escape). One-off repair: `scripts/backfill-abandoned-mock-scores.mjs` (run after deploy + migration, scoped by email first). Fixes prod `sim.samaar@yahoo.in` sessions that abandoned at 0 with review blocked.
 
 - **2026-08-07** — PostHog custom events wired: `identify()` + `AnalyticsIdentify` in site/courses layouts (UUID only — **tier omitted** to avoid `getPmqTier` round-trip on every page); central `src/lib/analytics/events.ts`; `submitQuizAttempt` returns `streakIncremented` / `loCompleted` / `questionType`; shared `trackAttempt` in `QuizRunner`; homepage CTA + TrialQuiz/QuizDemo demo events; AI unlock click intent on Sly/Pro checkout CTAs. Consent gating untouched.

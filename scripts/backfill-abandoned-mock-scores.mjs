@@ -1,17 +1,18 @@
 /**
  * One-off backfill: re-score abandoned mock sessions that never got finalized_at
- * (pre-expired-status bug). Uses the same expireSession path as runtime.
+ * (pre-expired-status bug). Uses the same expireSession / previewSessionScore
+ * path as runtime.
  *
  * ONLY run after Tasks 1–5 are deployed and the `expired` migration is applied.
  *
  * First run (scoped):
- *   node scripts/backfill-abandoned-mock-scores.mjs --email sim.samaar@yahoo.in
+ *   npx tsx scripts/backfill-abandoned-mock-scores.mjs --email sim.samaar@yahoo.in
  *
- * Dry run:
- *   node scripts/backfill-abandoned-mock-scores.mjs --email sim.samaar@yahoo.in --dry-run
+ * Dry run (scores without writing):
+ *   npx tsx scripts/backfill-abandoned-mock-scores.mjs --email sim.samaar@yahoo.in --dry-run
  *
  * Widen later (all users with abandoned + null finalized_at):
- *   node scripts/backfill-abandoned-mock-scores.mjs --all
+ *   npx tsx scripts/backfill-abandoned-mock-scores.mjs --all
  *
  * Requires NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env.local
  */
@@ -52,18 +53,24 @@ const supabase = createClient(url, serviceKey, {
 
 const PMQ_COURSE_ID = "3b6e12c0-321f-41b2-8536-db39f5678301";
 
-// Dynamic import of compiled-ish TS via tsx isn't available; reimplement the
-// score + write using the same SQL shape as expireSession by loading the
-// Next-built domain through a thin duplicate of the scoring contract.
-// Prefer calling expireSession from a tsx runner when available.
-async function loadExpireSession() {
+async function loadTerminateFns() {
   try {
-    // When run under `npx tsx`, this resolves.
     const mod = await import("../src/lib/pmq/mock-terminate.ts");
-    return mod.expireSession;
+    return {
+      expireSession: mod.expireSession,
+      previewSessionScore: mod.previewSessionScore,
+    };
   } catch {
     return null;
   }
+}
+
+async function certificateCount() {
+  const { count, error } = await supabase
+    .from("certificates")
+    .select("id", { count: "exact", head: true });
+  if (error) throw error;
+  return count ?? 0;
 }
 
 async function resolveUserIds() {
@@ -92,14 +99,31 @@ async function resolveUserIds() {
   return matches.map((u) => u.id);
 }
 
+function printPreview(session, terminalStatus, preview, tag = "") {
+  const { breakdown, passed } = preview;
+  console.log(
+    `\n${session.id} exam_set=${session.exam_set} → ${terminalStatus}${tag}`,
+  );
+  console.log(
+    `  total=${breakdown.totalScore}/${breakdown.maxScore} passed=${passed} ungradedWritten=${breakdown.ungradedWritten}`,
+  );
+  console.log(
+    `  part1: ${breakdown.partOne.earned}/${breakdown.partOne.available} earned, ${breakdown.partOne.answered} answered`,
+  );
+  console.log(
+    `  part2: ${breakdown.partTwo.earned}/${breakdown.partTwo.available} earned, ${breakdown.partTwo.answered} answered`,
+  );
+}
+
 async function main() {
-  const expireSession = await loadExpireSession();
-  if (!expireSession) {
+  const fns = await loadTerminateFns();
+  if (!fns) {
     console.error(
-      "Could not import expireSession. Run with: npx tsx scripts/backfill-abandoned-mock-scores.mjs ...",
+      "Could not import mock-terminate. Run with: npx tsx scripts/backfill-abandoned-mock-scores.mjs ...",
     );
     process.exit(1);
   }
+  const { expireSession, previewSessionScore } = fns;
 
   const userIds = await resolveUserIds();
 
@@ -122,6 +146,9 @@ async function main() {
   console.log(`Found ${sessions?.length ?? 0} abandoned session(s) to repair.`);
   if (!sessions?.length) return;
 
+  const certsBefore = await certificateCount();
+  console.log(`certificates count before: ${certsBefore}`);
+
   for (const session of sessions) {
     const clockExpired =
       (session.break_ends_at &&
@@ -132,16 +159,18 @@ async function main() {
         new Date(session.submitted_at) > new Date(session.deadline_at));
 
     const terminalStatus = clockExpired ? "expired" : "abandoned";
-    console.log(
-      `\n${session.id} exam_set=${session.exam_set} → ${terminalStatus}` +
-        (dryRun ? " (dry-run)" : ""),
-    );
 
-    if (dryRun) continue;
+    if (dryRun) {
+      const preview = await previewSessionScore(
+        supabase,
+        session.user_id,
+        PMQ_COURSE_ID,
+        session,
+      );
+      printPreview(session, terminalStatus, preview, " (dry-run)");
+      continue;
+    }
 
-    // Session is already abandoned — expireSession gates on fromStatuses.
-    // Flip briefly is unsafe; instead force-update status back to a writable
-    // open status only for the update filter by including 'abandoned'.
     const updated = await expireSession(
       supabase,
       session.user_id,
@@ -151,12 +180,28 @@ async function main() {
       terminalStatus,
     );
 
+    const preview = await previewSessionScore(
+      supabase,
+      session.user_id,
+      PMQ_COURSE_ID,
+      session,
+    );
+    printPreview(session, updated.status, preview);
     console.log(
-      `  total_score=${updated.total_score} max_score=${updated.max_score} passed=${updated.passed} status=${updated.status} finalized_at=${updated.finalized_at}`,
+      `  wrote total_score=${updated.total_score} max_score=${updated.max_score} passed=${updated.passed} finalized_at=${updated.finalized_at}`,
     );
   }
 
-  console.log("\nDone. Verify certificates were NOT created for these sessions.");
+  const certsAfter = await certificateCount();
+  console.log(`\ncertificates count after: ${certsAfter}`);
+  if (certsAfter !== certsBefore) {
+    console.error(
+      `CERTIFICATE INVARIANT FAILED: count changed ${certsBefore} → ${certsAfter}. Abort.`,
+    );
+    process.exit(1);
+  }
+
+  console.log("Done. Certificate count unchanged.");
   console.log(
     "Expected (sim.samaar@yahoo.in): exam1 → 0/90 expired; exam2 → ≥1/90 expired, Part1 14/20 answered.",
   );
