@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-07** — Password reset hardening (LIC-120 follow-up): `/auth/reset-password` gates on `getUser()` and shows an expired/used-link state (no form) with link to `/auth/forgot-password`; `ResetPasswordForm` maps `updateUser` errors via `getPasswordUpdateErrorMessage` + `console.error`; `ForgotPasswordForm` uses `getCanonicalOrigin()` for unused `redirectTo`. Google OAuth `redirectTo` → `/auth/callback` audited — correct code-exchange flow, left unchanged.
+
 - **2026-08-07** — Site version jumped to **2.38** (`site-version.ts` / `package.json`) so the next deploy recovers the missed 2.37 bump from the prior checkpoint ship that left production on 2.36.
 
 - **2026-08-07** — Backfill dry-run now previews real scores: `previewSessionScore` extracted from `expireSession` in `mock-terminate.ts` (read+score only, no write/AI); `backfill-abandoned-mock-scores.mjs` prints part breakdown + asserts `certificates` count unchanged across the write loop.

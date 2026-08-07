@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { getPasswordUpdateErrorMessage } from "@/lib/auth-errors";
 import { createClient } from "@/lib/supabase/client";
 import { formActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
@@ -31,7 +32,11 @@ export function ResetPasswordForm() {
     const { error } = await supabase.auth.updateUser({ password });
 
     if (error) {
-      setMessage(error.message);
+      console.error("[auth/reset-password] updateUser failed", {
+        code: error.code,
+        message: error.message,
+      });
+      setMessage(getPasswordUpdateErrorMessage(error));
       setLoading(false);
       return;
     }

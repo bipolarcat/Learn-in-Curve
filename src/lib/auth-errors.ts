@@ -19,6 +19,9 @@ export const AUTH_ERROR_MESSAGES: Record<string, string> = {
     "That link has expired. Sign up again and we'll send you a fresh one.",
 };
 
+const PASSWORD_UPDATE_FALLBACK =
+  "We couldn't update your password. Please try again, or request a new reset link.";
+
 /**
  * Maps a raw `?error=` value to display copy. Unknown values return null so a
  * user pasting `?error=<anything>` can't inject arbitrary text into the page.
@@ -28,4 +31,44 @@ export function getAuthErrorMessage(
 ): string | null {
   if (typeof value !== "string") return null;
   return AUTH_ERROR_MESSAGES[value] ?? null;
+}
+
+/**
+ * Maps Supabase `updateUser({ password })` failures to safe UI copy.
+ * Never surface raw provider strings — they vary and can confuse users.
+ */
+export function getPasswordUpdateErrorMessage(error: {
+  message?: string;
+  code?: string;
+}): string {
+  const code = (error.code ?? "").toLowerCase();
+  const message = (error.message ?? "").toLowerCase();
+
+  if (
+    code === "same_password" ||
+    message.includes("different from the old password") ||
+    message.includes("should be different")
+  ) {
+    return "Choose a password you haven't used before.";
+  }
+
+  if (
+    code === "weak_password" ||
+    message.includes("at least") ||
+    message.includes("too short") ||
+    message.includes("weak")
+  ) {
+    return "That password is too short or too weak. Try a longer one.";
+  }
+
+  if (
+    code === "session_not_found" ||
+    message.includes("session") ||
+    message.includes("not authenticated") ||
+    message.includes("jwt")
+  ) {
+    return "This reset link has expired or has already been used. Request a new one.";
+  }
+
+  return PASSWORD_UPDATE_FALLBACK;
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { getCanonicalOrigin } from "@/lib/site-url";
 import { formActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
 import styles from "@/components/AuthForm.module.css";
@@ -23,9 +24,12 @@ export function ForgotPasswordForm() {
     // Always show the same neutral confirmation, whether or not the address
     // has an account — resetPasswordForEmail must never be used to enumerate
     // registered emails.
+    // redirectTo is unused while the Supabase Reset Password template uses
+    // the PKCE /auth/confirm?token_hash=… path, but keep a canonical origin
+    // so a template revert doesn't inherit a localhost/preview host.
     await supabase.auth
       .resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth/reset-password`,
+        redirectTo: `${getCanonicalOrigin()}/auth/reset-password`,
       })
       .catch(() => {});
 
