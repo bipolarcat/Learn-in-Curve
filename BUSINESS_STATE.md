@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Free mock exam UX polish: hero CTA "Free PMQ mock exam"; header drops Library chip and scroll-reveals Free mock like Courses on home; `/free-mock-exam` copy/FAQ accordion (`FaqAccordion`), no mid-quiz green/red (rail uses `qCellDone`), Continue/Previous layout + bars spinner on nav/results buttons (`FreeMockExamClient`).
+
 - **2026-08-08** — Renamed public content hub `/learn` → `/library` (dirs, symbols, nav/sitemap URLs; brand "Learn in Curve" and paid `LoLearnStage` untouched). Library FAQs now use shared `FaqAccordion` (SSR answers stay in DOM; first item open by default).
 
 - **2026-08-08** — Growth Pass 2 (traffic layer): public `/library` hub + `/library/[slug]` for content pages (`src/content/library/`). Machine + prose; FAQ/Article/Breadcrumb JSON-LD; sitemap published-only. Paid LO/mock routes untouched.

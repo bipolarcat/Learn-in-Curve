@@ -8,6 +8,7 @@ import {
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
 import { stampCtaPrimary, stampCtaSecondaryFlat } from "@/components/stamp-chip";
+import { Spinner } from "@/components/ui/spinner";
 import {
   FREE_MOCK_MAX_SCORE,
   FREE_MOCK_QUESTIONS,
@@ -35,6 +36,10 @@ type ResultsPayload = {
   weakest: LoBreakdownRow[];
 };
 
+type NavAction = "prev" | "next";
+
+const NAV_SPINNER_MS = 280;
+
 function emptyDropdownValues(question: FreeMockQuestion): Record<string, string> {
   if (question.type !== "dropdown") return {};
   return Object.fromEntries(Object.keys(question.dropdowns).map((k) => [k, ""]));
@@ -61,6 +66,7 @@ export function FreeMockExamClient() {
   const [email, setEmail] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [navPending, setNavPending] = useState<NavAction | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<ResultsPayload | null>(null);
 
@@ -88,28 +94,55 @@ export function FreeMockExamClient() {
     }
   };
 
-  const goTo = (index: number) => {
+  const goTo = (index: number, nextAnswers = answers) => {
     if (index < 0 || index >= total) return;
-    // Only allow navigating to answered questions or the frontier
-    const firstUnanswered = FREE_MOCK_QUESTIONS.findIndex((q) => !answers[q.id]);
+    const firstUnanswered = FREE_MOCK_QUESTIONS.findIndex((q) => !nextAnswers[q.id]);
     const frontier = firstUnanswered === -1 ? total - 1 : firstUnanswered;
     if (index > frontier) return;
     setQi(index);
-    syncDraftForIndex(index, answers);
+    syncDraftForIndex(index, nextAnswers);
   };
 
-  const handleCheck = () => {
-    if (locked || !answerComplete(question, draft) || !draft) return;
-    const next = { ...answers, [question.id]: draft };
-    setAnswers(next);
+  const withNavPending = (kind: NavAction, action: () => void) => {
+    if (navPending) return;
+    setNavPending(kind);
+    window.setTimeout(() => {
+      action();
+      setNavPending(null);
+    }, NAV_SPINNER_MS);
+  };
 
-    if (qi < total - 1) {
-      const nextIndex = qi + 1;
-      setQi(nextIndex);
-      syncDraftForIndex(nextIndex, next);
+  const handlePrevious = () => {
+    if (qi <= 0 || navPending) return;
+    withNavPending("prev", () => goTo(qi - 1));
+  };
+
+  const handleContinue = () => {
+    if (navPending) return;
+
+    if (locked) {
+      if (qi < total - 1) {
+        withNavPending("next", () => goTo(qi + 1));
+        return;
+      }
+      withNavPending("next", () => setPhase("gate"));
       return;
     }
-    setPhase("gate");
+
+    if (!answerComplete(question, draft) || !draft) return;
+
+    withNavPending("next", () => {
+      const next = { ...answers, [question.id]: draft };
+      setAnswers(next);
+
+      if (qi < total - 1) {
+        const nextIndex = qi + 1;
+        setQi(nextIndex);
+        syncDraftForIndex(nextIndex, next);
+        return;
+      }
+      setPhase("gate");
+    });
   };
 
   const handleGateSubmit = async (event: FormEvent) => {
@@ -175,8 +208,8 @@ export function FreeMockExamClient() {
           You scored {localScore}/{FREE_MOCK_MAX_SCORE}.
         </h2>
         <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
-          Enter your email to see which learning objectives you&apos;re weakest
-          on and what to revise first.
+          Enter your email to get your test summary and identify your weakest
+          learning objectives, so you know exactly what to revise first.
         </p>
         <form onSubmit={handleGateSubmit} className="mt-6 flex max-w-md flex-col gap-4">
           <label className="flex flex-col gap-1.5">
@@ -218,9 +251,15 @@ export function FreeMockExamClient() {
           <button
             type="submit"
             disabled={submitting}
-            className={`${stampCtaPrimary} self-start disabled:opacity-60`}
+            aria-busy={submitting}
+            aria-label={submitting ? "Saving results" : "Show my results"}
+            className={`${stampCtaPrimary} self-start disabled:cursor-wait disabled:opacity-60`}
           >
-            {submitting ? "Saving…" : "Show my results"}
+            {submitting ? (
+              <Spinner variant="bars" size={16} className="text-current" aria-hidden />
+            ) : (
+              "Show my results"
+            )}
           </button>
         </form>
       </section>
@@ -254,7 +293,8 @@ export function FreeMockExamClient() {
           <ol className="mt-3 list-decimal space-y-2 pl-5 font-body text-[14.5px] text-ink/85">
             {results.weakest.map((row) => (
               <li key={row.lo_code}>
-                <span className="font-semibold">{row.lo_code}</span> —{" "}
+                <span className="font-semibold">{row.lo_code}</span>
+                {": "}
                 {row.lo_title} ({row.correct}/{row.total})
               </li>
             ))}
@@ -289,7 +329,7 @@ export function FreeMockExamClient() {
             href="/courses/pmq-in-5-days"
             className={stampCtaPrimary}
           >
-            The 5-day plan covers {weakestName} in depth — start free →
+            The 5-day plan covers {weakestName} in depth. Start free →
           </Link>
           <Link href="/courses" className={stampCtaSecondaryFlat}>
             Browse courses
@@ -314,6 +354,10 @@ export function FreeMockExamClient() {
         ? lockedAnswer.values
         : emptyDropdownValues(question);
 
+  const canContinue =
+    locked || answerComplete(question, draft);
+  const continueLabel = qi < total - 1 ? "Continue" : "Finish";
+
   return (
     <section
       className={styles.card}
@@ -321,18 +365,12 @@ export function FreeMockExamClient() {
       data-quiz-card=""
     >
       <div className="mb-1 text-left">
-        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-          Free readiness check
-        </p>
         <h2
           id="free-mock-quiz-title"
-          className="m-0 mt-1.5 text-balance font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[1.75rem]"
+          className="m-0 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
         >
           Question {qi + 1} of {total}
         </h2>
-        <p className="mt-1 font-body text-[13px] text-ink/55">
-          {question.lo_code}: {question.lo_title}
-        </p>
       </div>
 
       <div className={styles.body}>
@@ -350,12 +388,7 @@ export function FreeMockExamClient() {
                 const cellClass = [
                   styles.qCell,
                   current ? styles.qCellCurrent : "",
-                  !current && done && isQuestionCorrect(q, done)
-                    ? styles.qCellCorrect
-                    : "",
-                  !current && done && !isQuestionCorrect(q, done)
-                    ? styles.qCellIncorrect
-                    : "",
+                  !current && done ? styles.qCellDone : "",
                 ]
                   .filter(Boolean)
                   .join(" ");
@@ -366,6 +399,7 @@ export function FreeMockExamClient() {
                     role="tab"
                     aria-selected={current}
                     className={cellClass}
+                    disabled={Boolean(navPending)}
                     onClick={() => goTo(index)}
                   >
                     {index + 1}
@@ -381,7 +415,7 @@ export function FreeMockExamClient() {
                 prompt={question.prompt}
                 options={question.dropdowns}
                 values={dropdownValues}
-                disabled={locked}
+                disabled={locked || Boolean(navPending)}
                 questionNumber={qi + 1}
                 questionTotal={total}
                 onChange={(key, value) => {
@@ -397,14 +431,7 @@ export function FreeMockExamClient() {
                   });
                 }}
                 getState={(key): ResponseVisualState => {
-                  if (!locked) {
-                    return dropdownValues[key] ? "selected" : "default";
-                  }
-                  const correct = question.correct_answers[key];
-                  const chosen = dropdownValues[key];
-                  if (chosen === correct) return "correct";
-                  if (chosen) return "incorrect";
-                  return "muted";
+                  return dropdownValues[key] ? "selected" : "default";
                 }}
               />
             ) : (
@@ -415,42 +442,58 @@ export function FreeMockExamClient() {
                 <McqResponseFields
                   options={question.options}
                   value={mcqValue}
-                  disabled={locked}
+                  disabled={locked || Boolean(navPending)}
                   ariaLabel={`Question ${qi + 1} options`}
                   onChange={(letter) =>
                     setDraft({ kind: "mcq", letter })
                   }
                   getState={(letter): ResponseVisualState => {
-                    if (!locked) {
-                      return letter === mcqValue ? "selected" : "default";
-                    }
-                    if (letter === question.correct_answer) return "correct";
-                    if (letter === mcqValue) return "incorrect";
-                    return "muted";
+                    return letter === mcqValue ? "selected" : "default";
                   }}
                 />
               </>
             )}
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              className={stampCtaPrimary}
-              disabled={locked || !answerComplete(question, draft)}
-              onClick={handleCheck}
-            >
-              {qi < total - 1 ? "Check & continue" : "Finish"}
-            </button>
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             {qi > 0 ? (
               <button
                 type="button"
-                className={stampCtaSecondaryFlat}
-                onClick={() => goTo(qi - 1)}
+                className={`${stampCtaSecondaryFlat} disabled:cursor-wait disabled:opacity-60`}
+                disabled={Boolean(navPending)}
+                aria-busy={navPending === "prev"}
+                aria-label={navPending === "prev" ? "Going back" : "Previous"}
+                onClick={handlePrevious}
               >
-                Previous
+                {navPending === "prev" ? (
+                  <Spinner variant="bars" size={14} className="text-current" aria-hidden />
+                ) : (
+                  "Previous"
+                )}
               </button>
-            ) : null}
+            ) : (
+              <span aria-hidden className="min-w-0" />
+            )}
+            <button
+              type="button"
+              className={`${stampCtaPrimary} disabled:cursor-wait disabled:opacity-60`}
+              disabled={!canContinue || Boolean(navPending)}
+              aria-busy={navPending === "next"}
+              aria-label={
+                navPending === "next"
+                  ? continueLabel === "Finish"
+                    ? "Finishing"
+                    : "Continuing"
+                  : continueLabel
+              }
+              onClick={handleContinue}
+            >
+              {navPending === "next" ? (
+                <Spinner variant="bars" size={14} className="text-current" aria-hidden />
+              ) : (
+                continueLabel
+              )}
+            </button>
           </div>
         </div>
       </div>

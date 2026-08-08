@@ -78,7 +78,7 @@ export default async function HomePage() {
               style={{ "--hero-i": 3 } as CSSProperties}
             >
               <Link href="/free-mock-exam" className={stampCtaPrimaryFlat}>
-                Free mock exam
+                Free PMQ mock exam
               </Link>
               <ExploreCoursesLink className={stampCtaSecondaryFlat} />
             </div>
