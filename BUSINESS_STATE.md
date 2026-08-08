@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Free mock quiz-card eyebrow (“Free readiness check”) reduced to 9px / 10px sm.
+
 - **2026-08-08** — Free mock intro copy uses full section width on mobile (`w-full`; forced line breaks from `sm` up only).
 
 - **2026-08-08** — Free mock polish: answered rail cells use subtle grey `qCellDone` (not teal/green); FAQ + disclaimer widened to `max-w-[46rem]`; nav CTAs compact; intro copy one block on three lines (“Complete it within 10 minutes”).
