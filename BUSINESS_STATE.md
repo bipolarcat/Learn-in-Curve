@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Library article free-mock CTA: “Start free PMQ mock exam” + right arrow (`showArrow` on `FreeMockExamLink`).
+
 - **2026-08-08** — Library article free-mock CTA label → “Start free PMQ mock exam”.
 
 - **2026-08-08** — Library layout: article reading card stops above FAQ; FAQ + free-mock CTA are separate full-width cards; Related + APM disclaimer uncarded. Hub opaque card removed. Soft-nav: ring on breadcrumbs/topics/related; ellipsis on free-mock CTAs (`LibrarySoftNavLink`, `FreeMockExamLink`).

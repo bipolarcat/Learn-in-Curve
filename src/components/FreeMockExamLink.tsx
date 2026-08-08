@@ -2,6 +2,7 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
 
@@ -10,6 +11,8 @@ type FreeMockExamLinkProps = {
   label?: string;
   /** Analytics `location` — defaults to hero. */
   location?: string;
+  /** Right arrow after the label (library / page CTAs). */
+  showArrow?: boolean;
 };
 
 /** Soft-nav to `/free-mock-exam` with ellipsis pending state. */
@@ -17,6 +20,7 @@ export function FreeMockExamLink({
   className,
   label = "Free PMQ mock exam",
   location = "hero",
+  showArrow = false,
 }: FreeMockExamLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -46,7 +50,10 @@ export function FreeMockExamLink({
           aria-hidden
         />
       ) : (
-        label
+        <>
+          {label}
+          {showArrow ? <CtaArrow /> : null}
+        </>
       )}
     </button>
   );
