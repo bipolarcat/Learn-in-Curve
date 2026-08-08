@@ -111,13 +111,18 @@
 }
 
 .answer {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 0 0.35rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.01em;
   color: rgb(var(--ink-rgb) / 0.68);
-  text-wrap: pretty;
+  /* Mobile: fill the card — pretty wrap leaves unused width on the right. */
+  text-wrap: wrap;
+  overflow-wrap: break-word;
   opacity: 0;
   transform: translateY(-4px);
   transition:
@@ -171,6 +176,8 @@
     font-size: 0.8125rem;
     line-height: 1.5;
     color: rgb(var(--ink-rgb) / 0.72);
+    text-wrap: pretty;
+    overflow-wrap: break-word;
   }
 }
 
