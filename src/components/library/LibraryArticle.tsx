@@ -192,7 +192,7 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
           </p>
           <FreeMockExamLink
             className={`${stampCtaPrimary} mt-5`}
-            label="Free PMQ mock exam"
+            label="Start free PMQ mock exam"
             location="library_article"
           />
         </div>
