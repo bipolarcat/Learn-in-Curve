@@ -3,6 +3,7 @@ import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import { LibrarySampleQuestions } from "@/components/library/LibrarySampleQuestions";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { stampCtaPrimary } from "@/components/stamp-chip";
+import { productSurfaceOpaque } from "@/components/ui/semantic";
 import {
   getLibraryPage,
   pageHasTodoCopy,
@@ -108,7 +109,7 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
       <div className="wrap">
         <nav
           aria-label="Breadcrumb"
-          className="mx-auto mb-6 max-w-[42rem] font-body text-[13px] text-ink/55"
+          className="mx-auto mb-6 max-w-[46rem] font-body text-[13px] text-ink/55"
         >
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
@@ -127,87 +128,88 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
           </ol>
         </nav>
 
-        <header className="mx-auto max-w-[42rem]">
-          <h1 className="text-balance font-display text-[clamp(1.75rem,3.8vw,2.6rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-ink">
-            {page.title}
-          </h1>
-          <p className="mt-5 rounded-xl border border-orange/25 bg-orange/[0.06] px-4 py-3.5 font-body text-[16px] leading-relaxed text-ink sm:text-[17px]">
-            {page.answerFirst}
-          </p>
-          {showPlaceholderBanner ? (
-            <p className="mt-3 font-body text-[12px] text-ink/45">
-              Draft / placeholder copy — not for indexing.
+        <div
+          className={`mx-auto max-w-[46rem] ${productSurfaceOpaque} px-5 py-7 sm:px-8 sm:py-9`}
+        >
+          <header>
+            <h1 className="text-balance font-display text-[clamp(1.75rem,3.8vw,2.6rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-ink">
+              {page.title}
+            </h1>
+            <p className="mt-5 rounded-xl border border-orange/25 bg-orange/[0.06] px-4 py-3.5 font-body text-[16px] leading-relaxed text-ink sm:text-[17px]">
+              {page.answerFirst}
             </p>
-          ) : null}
-        </header>
+            {showPlaceholderBanner ? (
+              <p className="mt-3 font-body text-[12px] text-ink/45">
+                Draft / placeholder copy — not for indexing.
+              </p>
+            ) : null}
+          </header>
 
-        <div className="mx-auto mt-8 max-w-[42rem]">
-          <MarkdownBlock
-            content={page.body}
-            className="pmq-markdown--library-core"
-          />
-        </div>
-
-        {samples.length > 0 ? (
-          <div className="mx-auto mt-12 max-w-[42rem]">
-            <LibrarySampleQuestions questions={samples} />
+          <div className="mt-8">
+            <MarkdownBlock
+              content={page.body}
+              className="pmq-markdown--library-core"
+            />
           </div>
-        ) : null}
 
-        <div className="mx-auto mt-12 max-w-[42rem]">
-          <FaqAccordion
-            items={faqItems}
-            headingId="library-faq-heading"
-            title="Frequently asked questions"
-            defaultOpenIndex={0}
-            idPrefix="library-faq"
-          />
-        </div>
+          {samples.length > 0 ? (
+            <div className="mt-12">
+              <LibrarySampleQuestions questions={samples} />
+            </div>
+          ) : null}
 
-        <div className="mx-auto mt-12 max-w-[42rem] rounded-xl border border-ink/10 bg-paper px-5 py-6 text-center sm:px-7">
-          <p className="m-0 font-display text-xl font-semibold text-ink">
-            Ready to check where you stand?
-          </p>
-          <p className="mx-auto mt-2 max-w-[28rem] font-body text-[14.5px] text-ink/70">
-            Fifteen questions in real APM PMQ format. No account required.
-          </p>
-          <Link
-            href="/free-mock-exam"
-            className={`${stampCtaPrimary} mt-5 inline-flex`}
-          >
-            Test yourself: free 15-question APM PMQ check →
-          </Link>
-        </div>
+          <div className="mt-12">
+            <FaqAccordion
+              items={faqItems}
+              headingId="library-faq-heading"
+              title="Frequently asked questions"
+              defaultOpenIndex={0}
+              idPrefix="library-faq"
+            />
+          </div>
 
-        {related.length > 0 ? (
-          <section
-            className="mx-auto mt-12 max-w-[42rem]"
-            aria-labelledby="library-related-heading"
-          >
-            <h2
-              id="library-related-heading"
-              className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
+          <div className="mt-12 rounded-xl border border-ink/10 bg-cream/60 px-5 py-6 text-center sm:px-7">
+            <p className="m-0 font-display text-xl font-semibold text-ink">
+              Ready to check where you stand?
+            </p>
+            <p className="mx-auto mt-2 max-w-[28rem] font-body text-[14.5px] text-ink/70">
+              Fifteen questions in real APM PMQ format. No account required.
+            </p>
+            <Link
+              href="/free-mock-exam"
+              className={`${stampCtaPrimary} mt-5 inline-flex`}
             >
-              Related
-            </h2>
-            <ul className="mt-4 space-y-2 font-body text-[15px]">
-              {related.map((r) => (
-                <li key={r.slug}>
-                  <Link
-                    href={`/library/${r.slug}`}
-                    className="font-semibold text-orange underline-offset-2 hover:underline"
-                  >
-                    {r.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
+              Test yourself: free 15-question APM PMQ check →
+            </Link>
+          </div>
 
-        <p className="mx-auto mt-12 max-w-[42rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
-          {LIBRARY_HUB_APM_DISCLAIMER}
-        </p>
+          {related.length > 0 ? (
+            <section className="mt-12" aria-labelledby="library-related-heading">
+              <h2
+                id="library-related-heading"
+                className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
+              >
+                Related
+              </h2>
+              <ul className="mt-4 space-y-2 font-body text-[15px]">
+                {related.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/library/${r.slug}`}
+                      className="font-semibold text-orange underline-offset-2 hover:underline"
+                    >
+                      {r.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          <p className="mt-12 border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
+            {LIBRARY_HUB_APM_DISCLAIMER}
+          </p>
+        </div>
       </div>
     </article>
   );
