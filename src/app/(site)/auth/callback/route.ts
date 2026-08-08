@@ -53,8 +53,17 @@ export async function GET(request: Request) {
       await syncThemeCookieFromProfile();
       const redirectUrl = new URL(nextPath, origin);
       if (data?.user?.app_metadata?.provider === "google") {
-        // Client beacon fires signed_in — server routes cannot capture().
-        redirectUrl.searchParams.set("auth_ok", "google");
+        // Client beacon: new Google accounts → signup_completed; returning → signed_in.
+        // created_at within ~60s of now ≈ just provisioned by this OAuth exchange.
+        const createdAtMs = data.user.created_at
+          ? Date.parse(data.user.created_at)
+          : NaN;
+        const isNew =
+          Number.isFinite(createdAtMs) && Date.now() - createdAtMs < 60_000;
+        redirectUrl.searchParams.set(
+          "auth_ok",
+          isNew ? "google_signup" : "google",
+        );
       }
       const response = NextResponse.redirect(redirectUrl);
       rememberGoogleAccount(response, data?.user, origin);

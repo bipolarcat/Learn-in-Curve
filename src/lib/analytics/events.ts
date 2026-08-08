@@ -2,6 +2,7 @@ import {
   capture,
   setPersonProperties,
 } from "@/components/PostHogProvider";
+import { getAttribution } from "@/lib/analytics/attribution";
 
 /**
  * Every custom PostHog event the app fires. Centralised on purpose: a typo in a
@@ -19,10 +20,28 @@ function bucketMessageLength(length: number): "short" | "medium" | "long" {
   return "long";
 }
 
+function attributionProps() {
+  const a = getAttribution();
+  return {
+    source: a.source,
+    utm_source: a.utm_source,
+    utm_medium: a.utm_medium,
+    utm_campaign: a.utm_campaign,
+    utm_content: a.utm_content,
+    utm_term: a.utm_term,
+    referrer_category: a.referrer_category,
+  };
+}
+
 // —— Group A: Auth ————————————————————————————————————————————————
 
-export function trackSignedUp(props: { method: "email" | "google" }): void {
-  capture("signed_up", props);
+export function trackSignedUp(props: {
+  signup_method: "email" | "google";
+}): void {
+  capture("signup_completed", {
+    ...attributionProps(),
+    signup_method: props.signup_method,
+  });
 }
 
 export function trackSignedIn(props: { method: "email" | "google" }): void {
@@ -275,6 +294,36 @@ export function trackXpAwarded(props: {
 
 export function trackExamDateSet(props: { days_until_exam: number }): void {
   capture("exam_date_set", props);
+}
+
+// —— Growth: free mock / leads ——————————————————————————————————————
+
+export function trackFreeMockCompleted(props: {
+  score: number;
+  max_score: number;
+  marketing_consent: boolean;
+}): void {
+  capture("free_mock_completed", {
+    ...attributionProps(),
+    score: props.score,
+    max_score: props.max_score,
+    marketing_consent: props.marketing_consent,
+  });
+}
+
+export function trackLeadCaptured(props: {
+  score: number;
+  max_score: number;
+  marketing_consent: boolean;
+  lead_source: "free_mock_exam";
+}): void {
+  capture("lead_captured", {
+    ...attributionProps(),
+    score: props.score,
+    max_score: props.max_score,
+    marketing_consent: props.marketing_consent,
+    lead_source: props.lead_source,
+  });
 }
 
 // —— Group G: Person properties ——————————————————————————————————————

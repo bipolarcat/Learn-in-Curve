@@ -2,10 +2,12 @@
 
 import { useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { trackSignedIn } from "@/lib/analytics/events";
+import { trackSignedIn, trackSignedUp } from "@/lib/analytics/events";
 
 /**
- * Fires after Google OAuth returns via /auth/callback?auth_ok=google.
+ * Fires after Google OAuth returns via /auth/callback.
+ * - auth_ok=google_signup → signup_completed (new account)
+ * - auth_ok=google → signed_in only (returning)
  * Server routes cannot capture(); the query flag is the hand-off.
  */
 export function OAuthSignedInBeacon() {
@@ -14,8 +16,15 @@ export function OAuthSignedInBeacon() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (searchParams.get("auth_ok") !== "google") return;
-    trackSignedIn({ method: "google" });
+    const flag = searchParams.get("auth_ok");
+    if (flag !== "google" && flag !== "google_signup") return;
+
+    if (flag === "google_signup") {
+      trackSignedUp({ signup_method: "google" });
+    } else {
+      trackSignedIn({ method: "google" });
+    }
+
     const next = new URLSearchParams(searchParams.toString());
     next.delete("auth_ok");
     const qs = next.toString();

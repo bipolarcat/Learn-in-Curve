@@ -59,6 +59,12 @@ decision below are independent of the payment question.
       (2026-07-03: Sim Samaar Shened / simsamaarshened@gmail.com).
       International-transfer safeguards and retention window resolved
       2026-07-06 (see above).
+      **2026-08-08 Growth Pass 1:** `/free-mock-exam` stores emails in `public.leads`
+      (score + optional marketing). Results email = requested service; marketing
+      is a separate unticked checkbox + `consent_timestamp`. Confirm Privacy Policy
+      § retention / marketing lists mentions this lead path before pushing paid
+      traffic at the page (same PECR rule as the newsletter waitlist). No new
+      third-party processor — Supabase only.
 - [x] `TERMS_OF_SERVICE.md` — real refund policy drafted 2026-07-10 (14-day
       no-questions-asked window if unused, case-by-case for genuine faults,
       abuse carve-out) replacing the earlier "not purchasable yet" deferral.

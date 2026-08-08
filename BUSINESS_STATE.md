@@ -23,7 +23,9 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
-- **2026-08-07** — PostHog analytics v2 complete (A–G): auth fail/success + password reset; Google `signed_in` via `auth_ok` beacon; course/LO/stage/section; quiz lock/hint/XP/streak_broken; mock lifecycle + expire flag; tutor/checkout; exam_date_set; dashboard person props (`DashboardAnalyticsPerson`). All via `events.ts` only. **Next for Claude/Sim:** set PostHog `signup_event` = `signed_up`, then funnel + starter dashboard.
+- **2026-08-08** — Growth Pass 1: consent-gated signup attribution (`referrer.ts`, `attribution.ts`, `AttributionCapture` in root layout) + `signup_completed` (replaces `signed_up`; Google new-user via `auth_ok=google_signup` when `created_at` within ~60s). Public `/free-mock-exam` lead magnet: static 15-Q bank (`src/content/free-mock-exam.ts`, practice inventory not in Exam 1), `FreeMockExamClient`, `leads` migration + `submitFreeMockLead`, sitemap/robots, FAQ JSON-LD, entry points on home/header/footer/PMQ overview. Paid `/courses/pmq-in-5-days/mock` untouched. Events: `free_mock_completed`, `lead_captured` (no PII).
+
+- **2026-08-07** — PostHog analytics v2 complete (A–G): auth fail/success + password reset; Google `signed_in` via `auth_ok` beacon; course/LO/stage/section; quiz lock/hint/XP/streak_broken; mock lifecycle + expire flag; tutor/checkout; exam_date_set; dashboard person props (`DashboardAnalyticsPerson`). All via `events.ts` only. **Next for Claude/Sim:** set PostHog `signup_event` = `signup_completed` (renamed 2026-08-08), then funnel + starter dashboard.
 
 - **2026-08-07** — PostHog Groups D+E+F(partial): mock expire flag (`justExpired`/`justAbandoned` from `expireSession` → client `trackMockExamExpired`); mock runner lifecycle events; tutor open/send/limit (course + guest); checkout started/completed + top-up click; `exam_date_set` on dashboard deadline save. All via `@/lib/analytics/events` only.
 

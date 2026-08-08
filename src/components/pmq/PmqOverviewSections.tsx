@@ -103,6 +103,15 @@ export function PmqHeroStats() {
         ·
       </span>
       <Link
+        href="/free-mock-exam"
+        className="hover:text-orange transition-colors"
+      >
+        Free readiness check
+      </Link>
+      <span className="text-ink/30" aria-hidden>
+        ·
+      </span>
+      <Link
         href={pmqMockHref()}
         className="hover:text-orange transition-colors"
       >

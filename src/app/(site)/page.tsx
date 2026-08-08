@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { NotifyBand } from "@/components/NotifyBand";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -6,7 +7,10 @@ import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 import { FeatureStack } from "@/components/FeatureStack";
-import { stampCtaSecondaryFlat } from "@/components/stamp-chip";
+import {
+  stampCtaPrimaryFlat,
+  stampCtaSecondaryFlat,
+} from "@/components/stamp-chip";
 import type { CSSProperties } from "react";
 
 /**
@@ -73,6 +77,9 @@ export default async function HomePage() {
               className="hero-enter hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
               style={{ "--hero-i": 3 } as CSSProperties}
             >
+              <Link href="/free-mock-exam" className={stampCtaPrimaryFlat}>
+                Free mock exam
+              </Link>
               <ExploreCoursesLink className={stampCtaSecondaryFlat} />
             </div>
           </div>

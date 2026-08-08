@@ -340,13 +340,15 @@ export function SiteHeaderControls({
 
   const onDashboard = pathname === "/dashboard";
   const onHome = pathname === "/";
+  const onFreeMock = pathname === "/free-mock-exam";
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const showGuestCoursesPill =
     onPmqPreview ||
     pathname === "/about" ||
     pathname === "/careers" ||
     pathname === "/privacy" ||
-    pathname === "/terms";
+    pathname === "/terms" ||
+    onFreeMock;
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
@@ -401,6 +403,20 @@ export function SiteHeaderControls({
           {!onDashboard ? (
             <HeaderChip style={{ "--i": 1 } as CSSProperties}>
               <DashboardNavButton />
+            </HeaderChip>
+          ) : null}
+
+          {!onFreeMock ? (
+            <HeaderChip style={{ "--i": 1.5 } as CSSProperties}>
+              <HeaderNavButton
+                href="/free-mock-exam"
+                className={headerPillSecondary}
+                ariaLabel="Free mock exam"
+                title="Free mock exam"
+                busyLabel="Opening free mock"
+              >
+                <span>Free mock</span>
+              </HeaderNavButton>
             </HeaderChip>
           ) : null}
 
@@ -490,6 +506,26 @@ export function SiteHeaderControls({
               >
                 <CoursesIcon />
                 <span>Courses</span>
+              </HeaderNavButton>
+            </HeaderChip>
+          ) : null}
+
+          {!onFreeMock ? (
+            <HeaderChip
+              style={
+                {
+                  "--i": showGuestCoursesPill ? 1.5 : 1,
+                } as CSSProperties
+              }
+            >
+              <HeaderNavButton
+                href="/free-mock-exam"
+                className={headerPillSecondary}
+                ariaLabel="Free mock exam"
+                title="Free mock exam"
+                busyLabel="Opening free mock"
+              >
+                <span>Free mock</span>
               </HeaderNavButton>
             </HeaderChip>
           ) : null}

@@ -266,7 +266,7 @@ export function AuthForm({
     // is off (or already-confirmed edge cases), signUp() returns a live
     // session immediately — treat that the same as a normal sign-in.
     if (mode === "sign-up" && !data.session) {
-      trackSignedUp({ method: "email" });
+      trackSignedUp({ signup_method: "email" });
       setAwaitingConfirmEmail(email.trim());
       setLoading(false);
       return;
@@ -280,7 +280,7 @@ export function AuthForm({
     });
 
     if (mode === "sign-up") {
-      trackSignedUp({ method: "email" });
+      trackSignedUp({ signup_method: "email" });
     } else {
       trackSignedIn({ method: "email" });
     }
