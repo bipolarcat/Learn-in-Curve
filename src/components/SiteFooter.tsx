@@ -108,6 +108,9 @@ export function SiteFooter({
             <Link href="/free-mock-exam" className={footerLinkClass}>
               Free mock exam
             </Link>
+            <Link href="/learn" className={footerLinkClass}>
+              Learn
+            </Link>
             <Link href="/contact" className={footerLinkClass}>
               Get in touch
             </Link>

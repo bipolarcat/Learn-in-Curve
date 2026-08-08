@@ -341,6 +341,8 @@ export function SiteHeaderControls({
   const onDashboard = pathname === "/dashboard";
   const onHome = pathname === "/";
   const onFreeMock = pathname === "/free-mock-exam";
+  const onLearn =
+    pathname === "/learn" || (pathname?.startsWith("/learn/") ?? false);
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const showGuestCoursesPill =
     onPmqPreview ||
@@ -348,7 +350,8 @@ export function SiteHeaderControls({
     pathname === "/careers" ||
     pathname === "/privacy" ||
     pathname === "/terms" ||
-    onFreeMock;
+    onFreeMock ||
+    onLearn;
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
@@ -416,6 +419,20 @@ export function SiteHeaderControls({
                 busyLabel="Opening free mock"
               >
                 <span>Free mock</span>
+              </HeaderNavButton>
+            </HeaderChip>
+          ) : null}
+
+          {!onLearn ? (
+            <HeaderChip style={{ "--i": 1.6 } as CSSProperties}>
+              <HeaderNavButton
+                href="/learn"
+                className={headerPillSecondary}
+                ariaLabel="Learn"
+                title="Learn"
+                busyLabel="Opening learn"
+              >
+                <span>Learn</span>
               </HeaderNavButton>
             </HeaderChip>
           ) : null}
@@ -526,6 +543,26 @@ export function SiteHeaderControls({
                 busyLabel="Opening free mock"
               >
                 <span>Free mock</span>
+              </HeaderNavButton>
+            </HeaderChip>
+          ) : null}
+
+          {!onLearn ? (
+            <HeaderChip
+              style={
+                {
+                  "--i": showGuestCoursesPill ? 1.6 : 1.2,
+                } as CSSProperties
+              }
+            >
+              <HeaderNavButton
+                href="/learn"
+                className={headerPillSecondary}
+                ariaLabel="Learn"
+                title="Learn"
+                busyLabel="Opening learn"
+              >
+                <span>Learn</span>
               </HeaderNavButton>
             </HeaderChip>
           ) : null}
