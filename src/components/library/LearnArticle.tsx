@@ -76,7 +76,14 @@ export function buildLearnJsonLd(page: LearnPage) {
 }
 
 export function LearnArticle({ page }: { page: LearnPage }) {
-  const samples = pickLearnSamples(page.sampleQuestionLos, 3);
+  // Sample questions belong only on syllabus-topic pages, where they teach a
+  // specific learning objective. Exam-prep and choosing pages end on the free
+  // mock CTA instead: they answer a decision, not a topic, and drawing samples
+  // across many pages from a shallow pool caused repeats between pages.
+  const samples =
+    page.group === "syllabus"
+      ? pickLearnSamples(page.sampleQuestionLos, 3, page.slug)
+      : [];
   const related = page.related
     .map((slug) => getLearnPage(slug))
     .filter((p): p is LearnPage => Boolean(p));
@@ -132,9 +139,11 @@ export function LearnArticle({ page }: { page: LearnPage }) {
           <MarkdownBlock content={page.body} className="pmq-markdown--learn-core" />
         </div>
 
-        <div className="mx-auto mt-12 max-w-[42rem]">
-          <LearnSampleQuestions questions={samples} />
-        </div>
+        {samples.length > 0 ? (
+          <div className="mx-auto mt-12 max-w-[42rem]">
+            <LearnSampleQuestions questions={samples} />
+          </div>
+        ) : null}
 
         <section
           className="mx-auto mt-12 max-w-[42rem]"

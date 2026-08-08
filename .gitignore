@@ -39,3 +39,10 @@ node_modules/
 .claude/skills/
 
 .vercel
+
+# Wispr Flow dictation DB — temporary local copy for voice-guide analysis only.
+# ~2GB, contains personal dictation history. Never commit. Delete after use.
+_wispr/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

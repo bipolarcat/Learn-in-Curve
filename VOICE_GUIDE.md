@@ -1,204 +1,225 @@
-# Sim's Voice Guide — Real Voice (v1)
+# Sim's Voice Guide — Real Voice (v2)
 
 **Written:** 2026-08-08
-**Status:** v1, built from ~1,900 words of raw Wispr dictation. Upgrade to v2 once Wispr Cloud Sync is enabled and the full ~168K-word corpus is readable.
-**Purpose:** Write `/learn` pages, articles, and long-form in Sim's *actual* voice — not the LinkedIn performance register.
-**Companion doc:** *Sim's Voice & Style Guide* in Notion. That one is for LinkedIn posts and stays valid there. This one supersedes it for long-form.
+**Corpus:** Wispr Flow dictation history — 4,660 entries, **171,008 words**, 25 Apr – 8 Aug 2026. Deep analysis on the 679 entries over 300 characters (**101,621 words**), which is where sustained voice appears.
+**Supersedes:** v1 (built on ~1,900 words of Notion brain dumps). Several v1 claims were wrong — see §8.
+**Companion:** *Sim's Voice & Style Guide* in Notion — still correct for LinkedIn. This doc governs long-form.
 
 ---
 
-## 0. Why this exists
+## 0. The single most important finding: there are three registers, not one
 
-The Notion guide was reverse-engineered from LinkedIn posts. LinkedIn is a performance venue — it rewards short lines, staccato rhythm, and a calm, understated register. That guide describes the voice accurately *for that venue*.
+v1 assumed one "real voice" hiding behind the LinkedIn performance. Wrong. The corpus shows three distinct modes, and **only one of them is right for `/learn` pages.**
 
-It is not how Sim actually talks. The raw dictation is warmer, funnier, more argumentative, and far more distinctive. It reaches for analogies from outside the subject, names things specifically, and is willing to call a product bad.
-
-**Why it matters commercially:** the `/learn` pages compete against auto-generated exam-dump content farms. Sounding like a real person who took the exam is the entire differentiator. A polished, neutral register throws that away — it's the one thing the competition can also produce.
-
----
-
-## 1. The seven moves that make it sound like Sim
-
-Each one has evidence from the raw dictation.
-
-### 1.1 Open by staking a position, often mildly provocative
-
-He doesn't warm up. He starts with the opinion.
-
-> "With project management I think it's boring — the way people think about it is boring, the way it's been used in the industry is boring, especially in my field of construction."
-
-> "I think in the coming years a new trend is going to be that people are just going to want things to be clean, simple, and separated from each other."
-
-**Use it:** first sentence of a `/learn` page states the view or the answer. Never "In today's fast-moving project environment…".
-
-### 1.2 Reach for an analogy from outside the subject
-
-This is his most distinctive habit and it's **completely absent from the LinkedIn guide.**
-
-> "It's similar to how it is in fashion, isn't it? People find retro things much more appealing these days… You've got the retro classic bikes."
-
-> "…myself coming from an architectural background, I've got a taste for design. I like design, it brings in a character for things."
-
-Design → project management. Fashion → technology cycles. Architecture → building software.
-
-**Use it:** at least one cross-domain analogy per long-form piece. This is the thing an LLM-generated competitor page will never produce.
-
-### 1.3 Name things. Never "various tools"
-
-> "You've got Notion, you've got Jira, you've got Monday.com…"
-
-> "You've got Claude, it's connected to Cursor, and that's connected to Supabase, that's connected to Notion."
-
-> "You've got the Whoop… digital cameras are coming back, the AirPods are coming back, wired headphones are coming back."
-
-Specificity is his credibility mechanism. He never gestures vaguely.
-
-**Use it:** every claim gets a named example. In `/learn` pages that means real learning objectives, real mark counts, real question types.
-
-### 1.4 Concede the other side before arguing against it
-
-He steelmans, consistently and unprompted.
-
-> "It could be various reasons — probably having that shift done could be time consuming, or it could be the cost impact… for a larger scale, changing an existing system could mean a lot more work, time and cost."
-
-> "Obviously you've got the whole question of privacy coming into place, and yes, that's something that needs to be considered at an organisational level."
-
-**Use it:** on any comparison page (`PMQ vs PRINCE2`, `is PMQ worth it`), give the honest case for the other option before landing your view. Reads as trustworthy; the dump farms never do it.
-
-### 1.5 Be blunt about things that are bad
-
-> "…you're just forced to use that. For example, organisations have the Microsoft suite and then you've just got to use the Copilot within it, which is crap compared to the other models out there."
-
-The formal guide would sand this off. Don't. Measured bluntness is what makes the praise mean anything.
-
-**Use it:** say plainly when a study method wastes time, when a resource is poor, when advice is wrong. Keep it about the thing, never a named person.
-
-### 1.6 Talk about how work *feels*
-
-Recurring axis: boring → exciting. He is unembarrassed about enjoying the work.
-
-> "It makes it work so much quicker. It makes it more exciting. It's more fun."
-
-> "It's been amazing, it's been very rewarding, it's been fun."
-
-Rare in project-management writing, which is relentlessly dry. It's an asset.
-
-**Use it:** allow enthusiasm and allow frustration. A revision page can say the syllabus wording is dense and annoying, because it is.
-
-### 1.7 Build to the thesis, don't open with it
-
-Both brain dumps arrive at the point at the end:
-
-> "…and I think that's where Learn in Curve comes in."
-
-> "…that's what I think the world is leading to."
-
-Inductive: examples first, conclusion last.
-
-**Careful — this one needs modifying for web.** See §3.
-
----
-
-## 2. Sentence-level fingerprint
-
-| Trait | In the dictation | Keep in writing? |
+| Register | Where it appears | Character |
 |---|---|---|
-| "I think" hedging | Constant — 20+ instances | **Trim hard.** Keep 1–2 per piece where the uncertainty is real. The underlying stance is confident; the verbal tic isn't. |
-| Long clause-chains joined by "and" | Dominant rhythm | **Partially.** Break most into 2–3 sentences, but keep occasional accumulation — it's his cadence. |
-| Direct address ("you've got…", "you know") | Very frequent | **Keep "you've got".** Drop "you know" — filler in text. |
-| Rhetorical question mid-flow | "It's similar to how it is in fashion, isn't it?" | **Keep.** Sparingly — one or two per piece. |
-| British English | Throughout | **Always.** organisation, realise, programme, whilst-free but colour/favour. |
-| Informal intensifiers | "brilliant", "amazing", "so much better" | **Keep sparingly.** One per piece. Overused they read as hype. |
-| Self-correction mid-sentence | Heavy (artefact of dictation) | **Drop entirely.** Speech artefact, not voice. |
+| **Directive** | Dictating to Claude / Cursor (~62% of corpus) | "I want you to…" ×225. Imperative, sequential, precise. Not a writing voice. |
+| **Professional** | CV work, interview prep, describing past projects | Passive, process-heavy, report-like. *"A sign-off process was put in place which was implemented by the supplier."* Dull. |
+| **Enthusiast** | Brain dumps, explaining why something matters, product philosophy | Opinionated, analogical, specific, warm. **This is the one.** |
+
+**The trap:** the Professional register is his default when writing about project management — the exact subject `/learn` pages cover. Construction-industry report habits are deeply grooved. Writing PMQ content will *pull* toward passive, process-heavy prose unless actively resisted.
+
+**The rule: write about project management in the register he uses to talk about tools he's excited by.**
 
 ---
 
-## 3. Translating speech to a `/learn` page
+## 1. Signature moves, with frequency
 
-Dictation is inductive and digressive. Web readers and AI assistants both need the answer first. So the structure inverts while the texture stays.
+Measured per 10,000 words across the 101K-word corpus.
 
-**The rule: answer first, then talk like yourself.**
+### 1.1 The "however" pivot — 13.1/10k ⭐ his most distinctive move
 
-```
-[Direct answer to the page's question — first 40 words.
- Flat, factual, no throat-clearing. This is what
- Google and ChatGPT extract.]
+Unusually high for speech. It's not a filler — it's how he signals *the thing that actually matters*, after establishing context.
 
-[Now the real voice: why it matters, the analogy,
- the named specifics, the honest concession,
- what you'd actually do.]
+> "…these packages depending on the project's requirement used to be quite varied in size, so it was anywhere between £50,000 to £1.1 to 1.5 million. **However, the key point here is that** I was managing around 25 different packages at the same time."
 
-[Sample questions from the bank]
+> "The PMQ in five days is still free, **however** there's a premium bundle which includes the AI tutor…"
 
-[FAQ]
+**Use it:** build context, then pivot with "However" to the insight. Roughly once per `/learn` page. It's the closest thing he has to a rhetorical fingerprint.
 
-[CTA to the free mock]
-```
+### 1.2 Numbers, always — the credibility engine
 
-The first paragraph is a machine-readable concession. Everything after it is where you sound like you.
+He never estimates vaguely. From the corpus: `£50,000 to £1.1–1.5 million`, `25 different packages`, `six to eight projects in the design phase`, `200+ reports`, `£5 one-off`, `40 questions`, `90 marks`.
+
+Named organisations too: Morgan Sindall, Mott MacDonald, Balfour Beatty, McLaren, TfL. Named tools: Nano Banana, Canva, Notion, Cursor, Supabase.
+
+**Use it:** every claim carries a figure or a name. On `/learn` pages that means real mark counts, real timings, real LO numbers — never "a significant portion of the exam."
+
+### 1.3 Additive accumulation — "also" 51.7/10k, "and then" 40.6/10k
+
+The two highest-frequency connectors in the entire corpus. He builds by adding, and narrates process as a chain.
+
+> "take the prompt you gave, put it to Nano Banana, download the image, go to Canva, use magic layers to separate all the objects, **and then** work on the design…"
+
+**Use it:** step-by-step revision advice should read as a sequence, not a bulleted abstraction. But cap it — in text, three "also"s in a paragraph reads as padding. Keep the *shape*, halve the frequency.
+
+### 1.4 Teach through one worked instance
+
+He never explains a concept abstractly. He gives an example that actually happened and walks it through.
+
+> "One instance from my experience which stands out is on my project a risk was logged in that the supplier may not get the submission done on time… as we got closer to the deadline the risk had materialised and had become an issue. Because this was anticipated we already had a fall back plan…"
+
+Risk → materialised → became an issue → fallback. That's the PMQ syllabus taught through a real project.
+
+**Use it:** every syllabus page gets one concrete worked example. This is the thing dump-farm content structurally cannot produce.
+
+### 1.5 "Essentially" as the summariser — 4.9/10k
+
+His verbal "so what this means is". Appears at the point he compresses to the takeaway.
+
+**Use it:** sparingly, at the paragraph where the point lands.
+
+### 1.6 Radical transparency about money and limits
+
+Distinctive and commercially useful — he volunteers cost breakdowns unprompted.
+
+> "the platform is quite open about how much percentage of it is being used for what… only £5 that goes into this platform, £5 one-off payment that goes into the platform fee for all the hardware… and this includes a fair usage of AI tutor as well."
+
+**Use it:** on pricing and comparison pages, state exactly what's free, what's paid, and why. Never hedge on cost.
+
+### 1.7 The brand line, in his own words
+
+Straight from the corpus, unprompted — worth treating as the positioning statement:
+
+> "The whole philosophy of Learn in Curve is just a fellow project manager who's been exploring AI tools and wants to help other professionals out there who are giving exams to achieve their certifications."
+
+**"Just a fellow project manager."** That's the register in five words. Not an authority, not a training provider — a peer who went first.
 
 ---
 
-## 4. Same content, three registers
+## 2. Frequency table — what to keep, cut, or add
 
-**The question:** how hard is the APM PMQ?
+| Marker | Per 10k | Verdict for written long-form |
+|---|---|---|
+| `also` | 51.7 | **Halve it.** Signature shape, but padding in text. |
+| `and then` | 40.6 | Keep for process; cut elsewhere. |
+| `just` | 29.4 | **Cut hard.** Minimiser; weakens claims in writing. |
+| `I want to` | 22.1 | Artefact of instructing AI. Not applicable to articles. |
+| `but` | 20.5 | Keep. |
+| `however` | 13.1 | **Keep — this is the signature.** ~1 per page. |
+| `really` | 12.6 | Cut ~70%. |
+| `you know` | 6.7 | **Cut entirely.** Pure speech filler. |
+| `I need` | 6.0 | Directive artefact. |
+| `make sure` | 5.4 | Keep for advice sections. |
+| `I think` | 5.2 | **Lower than v1 claimed.** Keep 1–2 per piece. |
+| `essentially` | 4.9 | Keep — his summariser. |
+| `you've got` | 4.3 | **Keep.** Direct address, characteristic. |
+| `kind of / sort of` | 4.2 | Cut. |
+| `right now` | 4.1 | Keep occasionally. |
+| `actually` | 3.0 | Cut most. |
+| `for example` | 1.9 | **Increase.** Matches his worked-example habit. |
+| `obviously` | 1.7 | Cut — condescending in writing. |
+| `basically` | 1.7 | Cut. |
+| `amazing` | 0.6 | Rare. v1 overstated. |
+| `brilliant` | 0.5 | Rare. v1 overstated. |
+| `genuinely` | 0.4 | Rare. The Notion guide overstates this badly. |
 
-**Formal / LinkedIn register** (what the Notion guide produces):
-> The APM PMQ is a demanding qualification. Success requires structured preparation and consistent revision. Most candidates underestimate the time commitment.
+**Sentence length:** mean 47.6 words, median 20, p90 113. Enormous variance — mostly ~20-word sentences with occasional very long accumulating ones. In writing: keep the variance, compress the outliers. Target median ~18, occasional 40-word sentence for rhythm, nothing over 60.
 
-Fine. Also indistinguishable from every dump-farm page on the internet.
+---
 
-**Raw dictation register** (unusable as-is):
-> I think the PMQ is, you know, it's not that it's hard as such, it's more that I think people go into it thinking it's going to be like a memory test and it's not really, it's more about how you apply it and I think that's where people, that's where a lot of people struggle with it…
+## 3. Speech → page
 
-**Target register for `/learn`:**
-> The APM PMQ isn't hard because the content is difficult. It's hard because people prepare for the wrong exam.
+He is inductive and sequential. Web readers and AI assistants need the answer first. Structure inverts; texture stays.
+
+```
+[Direct answer — first 40 words. Flat, factual, no warm-up.
+ This is what Google and ChatGPT extract.]
+
+[Context — the situation, with real numbers.]
+
+[However — the pivot to what actually matters.]
+
+[One worked example. Something that really happened.]
+
+[Essentially — the compression to the takeaway.]
+
+[Sample questions] [FAQ] [CTA]
+```
+
+---
+
+## 4. Same content, four registers
+
+**Question:** how hard is the APM PMQ?
+
+**LinkedIn register** (Notion guide) — fine for LinkedIn, generic here:
+> The APM PMQ is a demanding qualification. Success requires structured preparation.
+
+**Professional register** (his default, and the one to avoid):
+> A structured revision approach should be implemented, whereby the syllabus is reviewed and application-based practice is undertaken across all learning objectives.
+
+Passive, agentless, dull. This is what construction reporting does to prose.
+
+**Raw dictation** (unusable as-is):
+> I think the PMQ is, you know, it's not that it's hard as such, it's more that people go into it thinking it's a memory test and it's not really…
+
+**Target — Enthusiast register, written:**
+> The APM PMQ isn't hard because the content is difficult. It's hard because most people prepare for the wrong exam.
 >
-> Most candidates revise like it's a memory test — learn the definitions, recite them back. Then they sit down and find 90 marks of questions asking them to *apply* the thing to a scenario they've never seen.
+> The syllabus looks like a list of definitions, so that's how people revise it — learn what a business case contains, recite it back. However, the paper is 40 questions and 90 marks, and almost none of them ask you what something is. They give you a scenario and ask what you'd do.
 >
-> It's the difference between knowing what a business case contains and being able to argue why this particular project needs one. You've got maybe three weeks. Spend them on application, not recall.
+> On one of my projects a supplier submission risk was logged months early. It materialised anyway — but because we'd anticipated it, the fallback was already agreed and we split the submission. That's the level the exam is testing: not what a risk register is, but what you do when the thing on it actually happens.
+>
+> Essentially, you've got maybe three weeks. Spend them on application, not recall.
 
-Answer first. Analogy. Named specifics. Direct. Recognisably a person.
+Answer first. Real numbers. "However" pivot. Worked example. "Essentially" landing. Recognisably a person.
 
 ---
 
 ## 5. Never write
 
-Inherits the Notion guide's list, plus these from analysing the dictation gap:
-
-| ❌ Don't | Why |
+| ❌ | Why |
 |---|---|
-| "In today's fast-paced project environment…" | He never warms up. Ever. |
-| "It is important to note that…" | Passive throat-clearing. He says "you've got to". |
-| Vague plurals — "many tools", "various methods" | Directly against his naming habit. |
+| Passive/agentless — "a process was implemented" | His Professional register. Kills the page. Name who did what. |
+| "In today's fast-paced project environment…" | He never warms up. Zero instances in 171K words. |
+| Vague quantities — "a significant portion", "many organisations" | Directly against his numeric habit. |
+| "It is important to note that…" | Throat-clearing. |
 | Balanced non-opinions | He always lands somewhere. |
-| Three-item lists purely for rhythm | Tell of AI writing. He lists when there are that many things. |
-| Em-dash pile-ups | Speech has pauses; text shouldn't fake them this way. |
-| "Pass first time" / any pass-rate claim | No outcome data. CAP Code exposure — see `MARKETING_STRATEGY.md` §8.4. |
+| Rhetorical tricolons for rhythm alone | Tell of AI writing. |
+| "Pass first time" / any pass-rate claim | No outcome data. CAP Code — `MARKETING_STRATEGY.md` §8.4. |
+| APM syllabus wording reproduced verbatim | Copyright exposure. Explanations must be original. |
 
 ---
 
-## 6. Where each guide applies
+## 6. Register by surface
 
 | Surface | Guide |
 |---|---|
-| LinkedIn posts | Notion guide (unchanged) |
-| Instagram | Notion guide |
-| `/learn` pages, articles | **This doc** |
-| Newsletter | **This doc**, slightly looser |
-| Landing/product copy | Notion guide — shorter, punchier |
-| In-app + Sly tutor | **This doc**, warmest end |
+| LinkedIn / Instagram | Notion guide |
+| `/learn` pages, articles | **This doc — Enthusiast register** |
+| Newsletter | This doc, looser |
+| Landing / product copy | Notion guide, shorter |
+| Sly (AI tutor) | This doc, warmest |
+| CV, formal docs | Professional register is *correct* there |
 
 ---
 
-## 7. Confidence and limits
+## 7. Corpus caveats
 
-Built on two Brain Dump entries — one about project management and AI, one about product design trends. Roughly 1,900 words.
+- **62% of the corpus is dictation to Claude** — a directive register that doesn't map to article writing. Deliberately down-weighted; `I want to` at 22.1/10k is an artefact of that, not a writing habit.
+- **`asrText` used throughout** (raw speech-to-text), not `formattedText` — the latter is Wispr's LLM cleanup, i.e. Wispr's voice, not his.
+- **3.5 months, Apr–Aug 2026.** No earlier baseline, so no view on whether the voice is drifting.
+- **Not observed:** how he writes when wrong or apologising; humour (near-absent in this corpus — may be a dictation-context artefact rather than a real absence); how he writes about people rather than tools or process.
 
-**High confidence** (both samples, repeatedly): cross-domain analogies; naming specifics; conceding the other side; opening with a position; the boring/exciting axis; long accumulating sentences; British English.
+---
 
-**Medium confidence** (once or twice each): bluntness about bad products; rhetorical questions; ending on thesis.
+## 8. What v1 got wrong
 
-**Not yet observed** — needs the full corpus: how he handles being wrong; humour and whether he uses it; how he writes about people vs tools; whether register shifts by topic; whether the informal voice holds under stress or deadline.
+Recorded so the method improves, not just the output.
 
-**To upgrade to v2:** enable Wispr Flow → Settings → Cloud Sync, then ask for a re-analysis. With 168K words I can quantify frequency rather than infer from two samples — which turns "he seems to do this" into "he does this every ~400 words."
+| v1 claim | v2 finding |
+|---|---|
+| "'I think' hedging — constant, 20+ instances" | **5.2/10k. Rare.** v1 read reflective brain dumps as representative; his working voice is far more decisive. |
+| "'brilliant', 'amazing' — keep sparingly" | 0.5–0.6/10k. Barely present. v1 over-fitted two samples. |
+| "Cross-domain analogies — his most distinctive move" | Real, but **rarer than claimed**, and concentrated in reflective mode. The **"however" pivot** is the actual highest-frequency signature. |
+| "Long clause-chains are the dominant rhythm" | Median sentence is 20 words. Long chains are outliers, not the default. |
+| Two registers assumed | **Three.** The Professional register was invisible in the brain dumps and is the main risk for PMQ content. |
+
+**Method lesson:** 1,900 words of one genre produced confident and partly wrong conclusions. Frequency across genres beats close reading of a small sample.
+
+---
+
+## 9. Maintenance
+
+Corpus grows ~1,500 words/day. Re-run the analysis quarterly, or after any deliberate shift in how he writes. The extraction is a single SQLite query against `History.asrText` — takes minutes.
