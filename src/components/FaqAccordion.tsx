@@ -31,7 +31,7 @@ export function FaqAccordion({
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
 
   return (
-    <section aria-labelledby={headingId}>
+    <section aria-labelledby={headingId} className="w-full min-w-0">
       <div className={styles.panel} data-faqs="">
         <div className={styles.titleBar}>
           <h2 id={headingId} className={styles.title}>
