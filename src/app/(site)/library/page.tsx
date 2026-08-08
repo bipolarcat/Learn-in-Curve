@@ -4,6 +4,7 @@ import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
+import { withSoftNavFrom } from "@/lib/soft-nav-back";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -59,6 +60,7 @@ export default function LibraryIndexPage() {
                 className={`${stampCtaPrimary} mt-5`}
                 label="Free PMQ mock exam"
                 location="library_hub_empty"
+                from="library"
               />
             </div>
           ) : (
@@ -95,7 +97,7 @@ export default function LibraryIndexPage() {
 
         <div className="mx-auto mt-12 max-w-[46rem] text-center">
           <LibrarySoftNavLink
-            href="/free-mock-exam"
+            href={withSoftNavFrom("/free-mock-exam", "library")}
             busyLabel="Opening free mock exam"
             spinner="ellipsis"
             spinnerClassName="text-orange"

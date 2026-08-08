@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import type { LibrarySampleQuestion } from "@/content/library/sample-pool";
+import { withSoftNavFrom } from "@/lib/soft-nav-back";
 
 function formatDropdownPrompt(prompt: string): string {
   return prompt.replace(/__\(([a-z])\)__/gi, "[($1)]");
@@ -79,12 +80,13 @@ export function LibrarySampleQuestions({
         <h2 className="m-0 font-display text-xl font-semibold tracking-[-0.02em] text-ink">
           Sample questions
         </h2>
-        <Link
-          href="/free-mock-exam"
+        <LibrarySoftNavLink
+          href={withSoftNavFrom("/free-mock-exam", "library")}
+          busyLabel="Opening free mock exam"
           className="font-body text-[13px] font-semibold text-orange underline-offset-2 hover:underline"
         >
           Try the free mock →
-        </Link>
+        </LibrarySoftNavLink>
       </div>
       {questions.map((q) => (
         <SampleCard key={q.id} question={q} />

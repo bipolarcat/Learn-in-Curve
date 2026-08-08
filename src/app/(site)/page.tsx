@@ -77,7 +77,7 @@ export default async function HomePage() {
               className="hero-enter hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
               style={{ "--hero-i": 3 } as CSSProperties}
             >
-              <FreeMockExamLink className={stampCtaTealFlat} />
+              <FreeMockExamLink className={stampCtaTealFlat} from="home" />
               <ExploreCoursesLink className={stampCtaSecondaryFlat} />
             </div>
           </div>

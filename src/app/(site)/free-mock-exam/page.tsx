@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamClient } from "@/components/free-mock/FreeMockExamClient";
+import { SoftNavBackLink } from "@/components/SoftNavBackLink";
+import {
+  FREE_MOCK_SOFT_NAV_BACK,
+  parseFreeMockSoftNavFrom,
+} from "@/lib/soft-nav-back";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -59,7 +64,16 @@ const faqItems = FAQS.map((item) => ({
   answer: item.a,
 }));
 
-export default function FreeMockExamPage() {
+type FreeMockExamPageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function FreeMockExamPage({
+  searchParams,
+}: FreeMockExamPageProps) {
+  const from = parseFreeMockSoftNavFrom((await searchParams)?.from);
+  const back = from ? FREE_MOCK_SOFT_NAV_BACK[from] : null;
+
   return (
     <div className="pb-16 pt-8 sm:pb-20 sm:pt-10">
       <script
@@ -68,6 +82,15 @@ export default function FreeMockExamPage() {
       />
 
       <div className="wrap">
+        {back ? (
+          <SoftNavBackLink
+            href={back.href}
+            label={back.label}
+            busyLabel={back.busyLabel}
+            className="mb-5"
+          />
+        ) : null}
+
         <header className="mx-auto max-w-[42rem] text-center">
           <h1 className="text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             Free APM <span className="text-orange">PMQ</span> mock exam

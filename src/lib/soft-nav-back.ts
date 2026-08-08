@@ -2,7 +2,7 @@
  * Soft-nav `?from=` targets — used so marketing CTAs can show a contextual
  * back control on the destination page (same language as PricingBackLink).
  */
-export type SoftNavFrom = "home" | "courses" | "pricing";
+export type SoftNavFrom = "home" | "courses" | "pricing" | "library";
 
 export type SoftNavBackTarget = {
   href: string;
@@ -26,13 +26,52 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
     label: "Back to plans",
     busyLabel: "Opening plans",
   },
+  library: {
+    href: "/library",
+    label: "Back to library",
+    busyLabel: "Opening library",
+  },
+};
+
+/** Free mock exam page — “Go back to …” wording. */
+export type FreeMockSoftNavFrom = "home" | "library";
+
+export const FREE_MOCK_SOFT_NAV_BACK: Record<
+  FreeMockSoftNavFrom,
+  SoftNavBackTarget
+> = {
+  home: {
+    href: "/",
+    label: "Go back to home",
+    busyLabel: "Opening home",
+  },
+  library: {
+    href: "/library",
+    label: "Go back to library",
+    busyLabel: "Opening library",
+  },
 };
 
 export function parseSoftNavFrom(
   value: string | string[] | undefined,
 ): SoftNavFrom | null {
   const raw = Array.isArray(value) ? value[0] : value;
-  if (raw === "home" || raw === "courses" || raw === "pricing") return raw;
+  if (
+    raw === "home" ||
+    raw === "courses" ||
+    raw === "pricing" ||
+    raw === "library"
+  ) {
+    return raw;
+  }
+  return null;
+}
+
+export function parseFreeMockSoftNavFrom(
+  value: string | string[] | undefined,
+): FreeMockSoftNavFrom | null {
+  const raw = Array.isArray(value) ? value[0] : value;
+  if (raw === "home" || raw === "library") return raw;
   return null;
 }
 

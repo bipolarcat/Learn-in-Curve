@@ -195,6 +195,7 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
             label="Start free PMQ mock exam"
             location="library_article"
             showArrow
+            from="library"
           />
         </div>
 
