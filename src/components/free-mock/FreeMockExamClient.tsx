@@ -7,7 +7,11 @@ import {
   McqResponseFields,
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
-import { stampCtaPrimary, stampCtaSecondaryFlat } from "@/components/stamp-chip";
+import {
+  stampCtaCompact,
+  stampCtaPrimary,
+  stampCtaSecondaryFlat,
+} from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import {
   FREE_MOCK_MAX_SCORE,
@@ -465,7 +469,7 @@ export function FreeMockExamClient() {
             {qi > 0 ? (
               <button
                 type="button"
-                className={`${stampCtaSecondaryFlat}${
+                className={`${stampCtaSecondaryFlat} ${stampCtaCompact}${
                   navPending === "prev" ? " cursor-wait opacity-60" : ""
                 }`}
                 disabled={Boolean(navPending)}
@@ -484,7 +488,7 @@ export function FreeMockExamClient() {
             )}
             <button
               type="button"
-              className={`${stampCtaPrimary}${
+              className={`${stampCtaPrimary} ${stampCtaCompact}${
                 navPending === "next"
                   ? " cursor-wait opacity-60"
                   : !canContinue

@@ -76,11 +76,11 @@ export default function FreeMockExamPage() {
             Free APM <span className="text-orange">PMQ</span> mock exam
           </h1>
           <p className="mx-auto mt-4 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">
-            Test yourself with real APM PMQ-style questions covering multiple
-            choice, scenario-based, and select-from-list formats.
-          </p>
-          <p className="mx-auto mt-2 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">
-            Complete it in within 5 minutes.
+            Test yourself with real APM PMQ-style questions covering
+            <br />
+            multiple choice, scenario-based, and select-from-list formats.
+            <br />
+            Complete it within 10 minutes.
           </p>
           <p className="mx-auto mt-3 max-w-[36rem] text-pretty font-body text-[15px] leading-relaxed text-ink/70">
             When you finish, we show your score and which learning objectives to
@@ -93,7 +93,7 @@ export default function FreeMockExamPage() {
           <FreeMockExamClient />
         </div>
 
-        <div className="mx-auto mt-14 max-w-[42rem]">
+        <div className="mx-auto mt-14 w-full max-w-[46rem]">
           <FaqAccordion
             items={faqItems}
             headingId="free-mock-faq-heading"
@@ -103,7 +103,7 @@ export default function FreeMockExamPage() {
           />
         </div>
 
-        <p className="mx-auto mt-12 max-w-[42rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
+        <p className="mx-auto mt-12 w-full max-w-[46rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
           {FREE_MOCK_APM_DISCLAIMER}
         </p>
       </div>
