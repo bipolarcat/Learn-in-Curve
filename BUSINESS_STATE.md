@@ -23,7 +23,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
-- **2026-08-08** — Site version set to **2.40** (`site-version.ts` / `package.json`) and pushed to production.
+- **2026-08-08** — Site version set to **2.40** and pushed to `origin/master` (`2b41953`) for Railway production. Live www still showed **v2.39** at check time (library/free-mock 404) — Railway deploy not confirmed from this session (CLI unauthorized; not Vercel).
 
 - **2026-08-08** — Library hub: removed intro subhead under “APM PMQ guides”.
 
