@@ -40,10 +40,6 @@ export default function LibraryIndexPage() {
           <h1 className="mt-2 text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             APM PMQ guides
           </h1>
-          <p className="mx-auto mt-4 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80">
-            Direct answers to the questions candidates actually ask — then a free
-            readiness check when you want to test yourself.
-          </p>
         </header>
 
         <div className="mx-auto mt-10 max-w-[46rem] space-y-10">
