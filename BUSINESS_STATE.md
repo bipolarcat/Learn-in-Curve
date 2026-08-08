@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Site version set to **2.40** (`site-version.ts` / `package.json`) and pushed to production.
+
 - **2026-08-08** — Library hub: removed intro subhead under “APM PMQ guides”.
 
 - **2026-08-08** — Free mock soft-nav back: `?from=home|library` → “Go back to home/library” with ring spinner (`FREE_MOCK_SOFT_NAV_BACK`); hero + library entry points set `from` via `withSoftNavFrom` / `FreeMockExamLink`.
