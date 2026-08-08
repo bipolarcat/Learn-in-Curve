@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Reverted home hero subhead to prior copy (“Sharpen your project management skills…”).
+
 - **2026-08-08** — Home hero subhead copy → “Exam revision that works… Free to start.” (`page.tsx`).
 
 - **2026-08-08** — Hero Free PMQ CTA: removed arrow icon from `FreeMockExamLink`.

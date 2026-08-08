@@ -70,9 +70,8 @@ export default async function HomePage() {
               className="hero-enter mx-auto mb-8 max-w-[36rem] text-pretty text-[17px] leading-relaxed text-ink/80 sm:text-[19px]"
               style={{ "--hero-i": 2 } as CSSProperties}
             >
-              Exam revision that works: thousands of practice questions, full
-              timed mock exams, and an AI tutor that knows your syllabus. Free to
-              start.
+              Sharpen your project management skills and stay ahead in the rapidly
+              evolving AI landscape.
             </p>
             <div
               className="hero-enter hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
