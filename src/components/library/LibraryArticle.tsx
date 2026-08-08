@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import { LibrarySampleQuestions } from "@/components/library/LibrarySampleQuestions";
+import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import {
@@ -113,21 +114,30 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
         >
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <Link href="/" className="hover:text-orange">
+              <LibrarySoftNavLink
+                href="/"
+                busyLabel="Opening home"
+                className="hover:text-orange"
+              >
                 Home
-              </Link>
+              </LibrarySoftNavLink>
             </li>
             <li aria-hidden>/</li>
             <li>
-              <Link href="/library" className="hover:text-orange">
+              <LibrarySoftNavLink
+                href="/library"
+                busyLabel="Opening library"
+                className="hover:text-orange"
+              >
                 Library
-              </Link>
+              </LibrarySoftNavLink>
             </li>
             <li aria-hidden>/</li>
             <li className="text-ink/80">{page.title}</li>
           </ol>
         </nav>
 
+        {/* Reading card — title, answer-first, body, samples only */}
         <div
           className={`mx-auto max-w-[46rem] ${productSurfaceOpaque} px-5 py-7 sm:px-8 sm:py-9`}
         >
@@ -157,59 +167,66 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
               <LibrarySampleQuestions questions={samples} />
             </div>
           ) : null}
-
-          <div className="mt-12">
-            <FaqAccordion
-              items={faqItems}
-              headingId="library-faq-heading"
-              title="Frequently asked questions"
-              defaultOpenIndex={0}
-              idPrefix="library-faq"
-            />
-          </div>
-
-          <div className="mt-12 rounded-xl border border-ink/10 bg-cream/60 px-5 py-6 text-center sm:px-7">
-            <p className="m-0 font-display text-xl font-semibold text-ink">
-              Ready to check where you stand?
-            </p>
-            <p className="mx-auto mt-2 max-w-[28rem] font-body text-[14.5px] text-ink/70">
-              Fifteen questions in real APM PMQ format. No account required.
-            </p>
-            <Link
-              href="/free-mock-exam"
-              className={`${stampCtaPrimary} mt-5 inline-flex`}
-            >
-              Test yourself: free 15-question APM PMQ check →
-            </Link>
-          </div>
-
-          {related.length > 0 ? (
-            <section className="mt-12" aria-labelledby="library-related-heading">
-              <h2
-                id="library-related-heading"
-                className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
-              >
-                Related
-              </h2>
-              <ul className="mt-4 space-y-2 font-body text-[15px]">
-                {related.map((r) => (
-                  <li key={r.slug}>
-                    <Link
-                      href={`/library/${r.slug}`}
-                      className="font-semibold text-orange underline-offset-2 hover:underline"
-                    >
-                      {r.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          <p className="mt-12 border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
-            {LIBRARY_HUB_APM_DISCLAIMER}
-          </p>
         </div>
+
+        {/* FAQ — own accordion card, full section width */}
+        <div className="mx-auto mt-12 w-full max-w-[46rem]">
+          <FaqAccordion
+            items={faqItems}
+            headingId="library-faq-heading"
+            title="Frequently asked questions"
+            defaultOpenIndex={0}
+            idPrefix="library-faq"
+          />
+        </div>
+
+        {/* Free mock CTA — own card */}
+        <div
+          className={`mx-auto mt-12 w-full max-w-[46rem] ${productSurfaceOpaque} px-5 py-6 text-center sm:px-7`}
+        >
+          <p className="m-0 font-display text-xl font-semibold text-ink">
+            Ready to check where you stand?
+          </p>
+          <p className="mx-auto mt-2 max-w-[28rem] font-body text-[14.5px] text-ink/70">
+            Fifteen questions in real APM PMQ format. No account required.
+          </p>
+          <FreeMockExamLink
+            className={`${stampCtaPrimary} mt-5`}
+            label="Free PMQ mock exam"
+            location="library_article"
+          />
+        </div>
+
+        {related.length > 0 ? (
+          <section
+            className="mx-auto mt-12 max-w-[46rem]"
+            aria-labelledby="library-related-heading"
+          >
+            <h2
+              id="library-related-heading"
+              className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
+            >
+              Related
+            </h2>
+            <ul className="mt-4 space-y-2 font-body text-[15px]">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <LibrarySoftNavLink
+                    href={`/library/${r.slug}`}
+                    busyLabel={`Opening ${r.title}`}
+                    className="font-semibold text-orange underline-offset-2 hover:underline"
+                  >
+                    {r.title}
+                  </LibrarySoftNavLink>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        <p className="mx-auto mt-12 max-w-[46rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
+          {LIBRARY_HUB_APM_DISCLAIMER}
+        </p>
       </div>
     </article>
   );

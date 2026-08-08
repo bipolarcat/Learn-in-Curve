@@ -7,10 +7,17 @@ import { trackCtaClicked } from "@/lib/analytics/events";
 
 type FreeMockExamLinkProps = {
   className?: string;
+  label?: string;
+  /** Analytics `location` — defaults to hero. */
+  location?: string;
 };
 
-/** Hero soft-nav to `/free-mock-exam` — same pending pattern as Explore Courses. */
-export function FreeMockExamLink({ className }: FreeMockExamLinkProps) {
+/** Soft-nav to `/free-mock-exam` with ellipsis pending state. */
+export function FreeMockExamLink({
+  className,
+  label = "Free PMQ mock exam",
+  location = "hero",
+}: FreeMockExamLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
@@ -19,12 +26,12 @@ export function FreeMockExamLink({ className }: FreeMockExamLinkProps) {
       type="button"
       disabled={pending}
       aria-busy={pending}
-      aria-label={pending ? "Opening free mock exam" : "Free PMQ mock exam"}
+      aria-label={pending ? "Opening free mock exam" : label}
       className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
       onClick={() => {
         trackCtaClicked({
-          variant: "Free PMQ mock exam",
-          location: "hero",
+          variant: label,
+          location,
         });
         startTransition(() => {
           router.push("/free-mock-exam");
@@ -39,7 +46,7 @@ export function FreeMockExamLink({ className }: FreeMockExamLinkProps) {
           aria-hidden
         />
       ) : (
-        "Free PMQ mock exam"
+        label
       )}
     </button>
   );
