@@ -94,7 +94,11 @@ export default function FreeMockExamPage() {
           <FaqAccordion
             items={faqItems}
             headingId="free-mock-faq-heading"
-            title="Frequently asked questions"
+            title={
+              <>
+                Frequently <span className="text-orange">asked</span> questions
+              </>
+            }
             defaultOpenIndex={0}
             idPrefix="free-mock-faq"
           />
