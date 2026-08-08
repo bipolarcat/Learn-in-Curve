@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Free mock intro copy uses full section width on mobile (`w-full`; forced line breaks from `sm` up only).
+
 - **2026-08-08** — Free mock polish: answered rail cells use subtle grey `qCellDone` (not teal/green); FAQ + disclaimer widened to `max-w-[46rem]`; nav CTAs compact; intro copy one block on three lines (“Complete it within 10 minutes”).
 
 - **2026-08-08** — Free mock polish follow-up: hero Free PMQ CTA uses Explore-style soft-nav + teal fill (`FreeMockExamLink`); header Free mock chip removed; free-mock eyebrow restored, orange “PMQ” in H1, 5-minute line on its own row; quiz Continue bars only while clicking (not hover/disabled wait); answered rail cells use stronger teal `qCellDone`.
