@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "how-long-to-revise-for-apm-pmq",
   title: "How long should I revise for the APM PMQ?",
   metaTitle: "How Long to Revise for the APM PMQ | Learn in Curve",

@@ -1,11 +1,11 @@
 import {
-  LEARN_SAMPLE_POOL,
-  type LearnSampleQuestion,
-} from "@/content/learn/sample-pool";
-import { LEARN_PAGES } from "@/content/learn";
+  LIBRARY_SAMPLE_POOL,
+  type LibrarySampleQuestion,
+} from "@/content/library/sample-pool";
+import { LIBRARY_PAGES } from "@/content/library";
 
 /**
- * Deterministic sample picks for a /learn page.
+ * Deterministic sample picks for a /library page.
  *
  * Why the slug matters: picking `candidates[0]` per LO meant any two pages
  * sharing a learning objective rendered the *same* question. At one point LO23
@@ -18,11 +18,11 @@ import { LEARN_PAGES } from "@/content/learn";
  * deterministic (no randomness, identical output every build) and collision-free
  * as long as the pool for that LO is at least as deep as the number of pages
  * using it. Beyond that it wraps, which is a graceful degradation rather than a
- * crash — `learnSampleCollisions()` reports when that is about to happen.
+ * crash — `librarySampleCollisions()` reports when that is about to happen.
  */
 function pageOffsetForLo(loNumber: number, pageSlug: string | undefined): number {
   if (!pageSlug) return 0;
-  const claimants = LEARN_PAGES.filter((p) =>
+  const claimants = LIBRARY_PAGES.filter((p) =>
     p.sampleQuestionLos.includes(loNumber),
   )
     .map((p) => p.slug)
@@ -31,20 +31,20 @@ function pageOffsetForLo(loNumber: number, pageSlug: string | undefined): number
   return index < 0 ? 0 : index;
 }
 
-export function pickLearnSamples(
+export function pickLibrarySamples(
   loNumbers: number[],
   limit = 3,
   pageSlug?: string,
-): LearnSampleQuestion[] {
-  const picked: LearnSampleQuestion[] = [];
+): LibrarySampleQuestion[] {
+  const picked: LibrarySampleQuestion[] = [];
   const used = new Set<string>();
 
   const candidatesFor = (lo: number) =>
-    LEARN_SAMPLE_POOL.filter((q) => q.lo_number === lo).sort((a, b) =>
+    LIBRARY_SAMPLE_POOL.filter((q) => q.lo_number === lo).sort((a, b) =>
       a.id.localeCompare(b.id),
     );
 
-  const takeNext = (lo: number): LearnSampleQuestion | undefined => {
+  const takeNext = (lo: number): LibrarySampleQuestion | undefined => {
     const candidates = candidatesFor(lo);
     if (candidates.length === 0) return undefined;
     const offset = pageOffsetForLo(lo, pageSlug);
@@ -85,7 +85,7 @@ export function pickLearnSamples(
 
 /** Eligible count per LO after ring-fence exclusions (for reporting). */
 export function eligibleCountForLo(loNumber: number): number {
-  return LEARN_SAMPLE_POOL.filter((q) => q.lo_number === loNumber).length;
+  return LIBRARY_SAMPLE_POOL.filter((q) => q.lo_number === loNumber).length;
 }
 
 /**
@@ -93,13 +93,13 @@ export function eligibleCountForLo(loNumber: number): number {
  * Empty array means no page shares a sample question with another page.
  * Use after adding a page or regenerating the pool.
  */
-export function learnSampleCollisions(): {
+export function librarySampleCollisions(): {
   loNumber: number;
   pages: number;
   available: number;
 }[] {
   const counts = new Map<number, number>();
-  for (const p of LEARN_PAGES) {
+  for (const p of LIBRARY_PAGES) {
     for (const lo of p.sampleQuestionLos) {
       counts.set(lo, (counts.get(lo) ?? 0) + 1);
     }

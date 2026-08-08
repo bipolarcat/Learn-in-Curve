@@ -1,11 +1,11 @@
 import Link from "next/link";
-import type { LearnSampleQuestion } from "@/content/learn/sample-pool";
+import type { LibrarySampleQuestion } from "@/content/library/sample-pool";
 
 function formatDropdownPrompt(prompt: string): string {
   return prompt.replace(/__\(([a-z])\)__/gi, "[($1)]");
 }
 
-function SampleCard({ question }: { question: LearnSampleQuestion }) {
+function SampleCard({ question }: { question: LibrarySampleQuestion }) {
   return (
     <article className="rounded-xl border border-ink/10 bg-paper px-4 py-4 sm:px-5 sm:py-5">
       <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.12em] text-orange">
@@ -60,10 +60,10 @@ function SampleCard({ question }: { question: LearnSampleQuestion }) {
   );
 }
 
-export function LearnSampleQuestions({
+export function LibrarySampleQuestions({
   questions,
 }: {
-  questions: LearnSampleQuestion[];
+  questions: LibrarySampleQuestion[];
 }) {
   if (questions.length === 0) {
     return (

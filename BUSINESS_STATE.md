@@ -23,7 +23,9 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
-- **2026-08-08** — Growth Pass 2 (traffic layer): public `/learn` hub + `/learn/[slug]` for 10 draft content pages (`src/content/learn/`). Machine only — body/answerFirst/FAQ/meta stay `TODO_COPY` (`VOICE_GUIDE.md`); drafts are `noindex` and excluded from sitemap until published without placeholders. Ring-fenced sample questions via `sample-pool.ts` (excludes mock.json + free-mock bank). FAQPage + Article + BreadcrumbList JSON-LD. Nav/footer Learn links. Paid LO/mock routes untouched.
+- **2026-08-08** — Renamed public content hub `/learn` → `/library` (dirs, symbols, nav/sitemap URLs; brand "Learn in Curve" and paid `LoLearnStage` untouched). Library FAQs now use shared `FaqAccordion` (SSR answers stay in DOM; first item open by default).
+
+- **2026-08-08** — Growth Pass 2 (traffic layer): public `/library` hub + `/library/[slug]` for content pages (`src/content/library/`). Machine + prose; FAQ/Article/Breadcrumb JSON-LD; sitemap published-only. Paid LO/mock routes untouched.
 
 - **2026-08-08** — Growth Pass 1: consent-gated signup attribution (`referrer.ts`, `attribution.ts`, `AttributionCapture` in root layout) + `signup_completed` (replaces `signed_up`; Google new-user via `auth_ok=google_signup` when `created_at` within ~60s). Public `/free-mock-exam` lead magnet: static 15-Q bank (`src/content/free-mock-exam.ts`, practice inventory not in Exam 1), `FreeMockExamClient`, `leads` migration + `submitFreeMockLead`, sitemap/robots, FAQ JSON-LD, entry points on home/header/footer/PMQ overview. Paid `/courses/pmq-in-5-days/mock` untouched. Events: `free_mock_completed`, `lead_captured` (no PII).
 

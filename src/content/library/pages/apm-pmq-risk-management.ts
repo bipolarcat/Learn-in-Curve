@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "apm-pmq-risk-management",
   title: "APM PMQ risk management: what you need to know",
   metaTitle: "APM PMQ Risk Management: What the Exam Actually Tests | Learn in Curve",

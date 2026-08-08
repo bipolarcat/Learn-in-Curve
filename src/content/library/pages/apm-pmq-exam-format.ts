@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "apm-pmq-exam-format",
   title: "What's the APM PMQ exam format?",
   metaTitle: "APM PMQ Exam Format: 40 Questions, 90 Marks, 2.5 Hours | Learn in Curve",

@@ -28,10 +28,10 @@ export const APM_DISCLAIMER_SHORT =
   "Not affiliated with or endorsed by APM.";
 
 /**
- * Learn hub wording (Growth Pass 2). Slightly different from `APM_DISCLAIMER`
+ * Library hub wording (Growth Pass 2). Slightly different from `APM_DISCLAIMER`
  * ("accredited by") — keep both; Terms §2 remains the legal source of truth
  * for the site-wide footer string.
  */
-export const LEARN_HUB_APM_DISCLAIMER =
+export const LIBRARY_HUB_APM_DISCLAIMER =
   "Learn in Curve is not affiliated with, endorsed by, or accredited by the Association for Project Management.";
 

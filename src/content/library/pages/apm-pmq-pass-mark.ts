@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "apm-pmq-pass-mark",
   title: "What's the APM PMQ pass mark?",
   metaTitle: "APM PMQ Pass Mark: Why There Isn't a Fixed Number | Learn in Curve",

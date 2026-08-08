@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLearnPagesByGroup, LEARN_PAGES } from "@/content/learn";
-import { LEARN_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
+import { getLibraryPagesByGroup, LIBRARY_PAGES } from "@/content/library";
+import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 
 const SITE_URL =
@@ -9,31 +9,31 @@ const SITE_URL =
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "Learn APM PMQ — guides and exam prep | Learn in Curve",
+  title: "Library APM PMQ — guides and exam prep | Learn in Curve",
   description:
     "Plain-English guides to the APM PMQ exam: format, pass mark, revision, and syllabus topics. Then test yourself with a free 15-question readiness check.",
-  alternates: { canonical: `${SITE_URL}/learn` },
+  alternates: { canonical: `${SITE_URL}/library` },
   openGraph: {
-    title: "Learn APM PMQ — guides and exam prep",
+    title: "Library APM PMQ — guides and exam prep",
     description:
       "Plain-English guides to the APM PMQ exam, then a free 15-question readiness check.",
-    url: `${SITE_URL}/learn`,
+    url: `${SITE_URL}/library`,
     type: "website",
   },
 };
 
-export default function LearnIndexPage() {
-  const groups = getLearnPagesByGroup();
+export default function LibraryIndexPage() {
+  const groups = getLibraryPagesByGroup();
   const publishedCount = groups.reduce((n, g) => n + g.pages.length, 0);
   // Drafts are reachable by URL for copy work but not listed until published.
-  const draftCount = LEARN_PAGES.length - publishedCount;
+  const draftCount = LIBRARY_PAGES.length - publishedCount;
 
   return (
     <div className="pb-16 pt-8 sm:pb-20 sm:pt-10">
       <div className="wrap">
         <header className="mx-auto max-w-[42rem] text-center">
           <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-            Learn
+            Library
           </p>
           <h1 className="mt-2 text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             APM PMQ guides
@@ -64,9 +64,12 @@ export default function LearnIndexPage() {
           ) : (
             groups.map((group) =>
               group.pages.length === 0 ? null : (
-                <section key={group.group} aria-labelledby={`learn-${group.group}`}>
+                <section
+                  key={group.group}
+                  aria-labelledby={`library-${group.group}`}
+                >
                   <h2
-                    id={`learn-${group.group}`}
+                    id={`library-${group.group}`}
                     className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
                   >
                     {group.label}
@@ -75,7 +78,7 @@ export default function LearnIndexPage() {
                     {group.pages.map((page) => (
                       <li key={page.slug}>
                         <Link
-                          href={`/learn/${page.slug}`}
+                          href={`/library/${page.slug}`}
                           className="font-body text-[16px] font-semibold text-orange underline-offset-2 hover:underline"
                         >
                           {page.title}
@@ -99,7 +102,7 @@ export default function LearnIndexPage() {
         </div>
 
         <p className="mx-auto mt-12 max-w-[42rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
-          {LEARN_HUB_APM_DISCLAIMER}
+          {LIBRARY_HUB_APM_DISCLAIMER}
         </p>
       </div>
     </div>

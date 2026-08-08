@@ -1,5 +1,5 @@
-import type { LearnGroup, LearnPage } from "./types";
-import { isLearnPageIndexable, LEARN_GROUP_LABELS } from "./types";
+import type { LibraryGroup, LibraryPage } from "./types";
+import { isLibraryPageIndexable, LIBRARY_GROUP_LABELS } from "./types";
 import { page as apmPmqPassMark } from "./pages/apm-pmq-pass-mark";
 import { page as howHardIsApmPmq } from "./pages/how-hard-is-apm-pmq";
 import { page as apmPmqExamFormat } from "./pages/apm-pmq-exam-format";
@@ -15,7 +15,7 @@ import { page as apmPmqStakeholderManagement } from "./pages/apm-pmq-stakeholder
 /**
  * Register new pages here. Adding page #40 = one import + one array entry.
  */
-export const LEARN_PAGES: LearnPage[] = [
+export const LIBRARY_PAGES: LibraryPage[] = [
   apmPmqPassMark,
   howHardIsApmPmq,
   apmPmqExamFormat,
@@ -29,38 +29,38 @@ export const LEARN_PAGES: LearnPage[] = [
   apmPmqStakeholderManagement,
 ];
 
-const bySlug = new Map(LEARN_PAGES.map((p) => [p.slug, p]));
+const bySlug = new Map(LIBRARY_PAGES.map((p) => [p.slug, p]));
 
-export function getLearnPage(slug: string): LearnPage | undefined {
+export function getLibraryPage(slug: string): LibraryPage | undefined {
   return bySlug.get(slug);
 }
 
-export function getAllLearnSlugs(): string[] {
-  return LEARN_PAGES.map((p) => p.slug);
+export function getAllLibrarySlugs(): string[] {
+  return LIBRARY_PAGES.map((p) => p.slug);
 }
 
-export function getPublishedLearnPages(): LearnPage[] {
-  return LEARN_PAGES.filter(isLearnPageIndexable);
+export function getPublishedLibraryPages(): LibraryPage[] {
+  return LIBRARY_PAGES.filter(isLibraryPageIndexable);
 }
 
-export function getLearnPagesByGroup(): {
-  group: LearnGroup;
+export function getLibraryPagesByGroup(): {
+  group: LibraryGroup;
   label: string;
-  pages: LearnPage[];
+  pages: LibraryPage[];
 }[] {
-  const order: LearnGroup[] = ["exam-prep", "choosing", "syllabus"];
+  const order: LibraryGroup[] = ["exam-prep", "choosing", "syllabus"];
   return order.map((group) => ({
     group,
-    label: LEARN_GROUP_LABELS[group],
-    pages: getPublishedLearnPages().filter((p) => p.group === group),
+    label: LIBRARY_GROUP_LABELS[group],
+    pages: getPublishedLibraryPages().filter((p) => p.group === group),
   }));
 }
 
 export {
-  isLearnPageIndexable,
+  isLibraryPageIndexable,
   pageHasTodoCopy,
-  LEARN_GROUP_LABELS,
+  LIBRARY_GROUP_LABELS,
   TODO_COPY,
-  type LearnPage,
-  type LearnGroup,
+  type LibraryPage,
+  type LibraryGroup,
 } from "./types";

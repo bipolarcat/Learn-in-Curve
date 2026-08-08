@@ -341,8 +341,8 @@ export function SiteHeaderControls({
   const onDashboard = pathname === "/dashboard";
   const onHome = pathname === "/";
   const onFreeMock = pathname === "/free-mock-exam";
-  const onLearn =
-    pathname === "/learn" || (pathname?.startsWith("/learn/") ?? false);
+  const onLibrary =
+    pathname === "/library" || (pathname?.startsWith("/library/") ?? false);
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const showGuestCoursesPill =
     onPmqPreview ||
@@ -351,7 +351,7 @@ export function SiteHeaderControls({
     pathname === "/privacy" ||
     pathname === "/terms" ||
     onFreeMock ||
-    onLearn;
+    onLibrary;
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
@@ -423,16 +423,16 @@ export function SiteHeaderControls({
             </HeaderChip>
           ) : null}
 
-          {!onLearn ? (
+          {!onLibrary ? (
             <HeaderChip style={{ "--i": 1.6 } as CSSProperties}>
               <HeaderNavButton
-                href="/learn"
+                href="/library"
                 className={headerPillSecondary}
-                ariaLabel="Learn"
-                title="Learn"
-                busyLabel="Opening learn"
+                ariaLabel="Library"
+                title="Library"
+                busyLabel="Opening library"
               >
-                <span>Learn</span>
+                <span>Library</span>
               </HeaderNavButton>
             </HeaderChip>
           ) : null}
@@ -547,7 +547,7 @@ export function SiteHeaderControls({
             </HeaderChip>
           ) : null}
 
-          {!onLearn ? (
+          {!onLibrary ? (
             <HeaderChip
               style={
                 {
@@ -556,13 +556,13 @@ export function SiteHeaderControls({
               }
             >
               <HeaderNavButton
-                href="/learn"
+                href="/library"
                 className={headerPillSecondary}
-                ariaLabel="Learn"
-                title="Learn"
-                busyLabel="Opening learn"
+                ariaLabel="Library"
+                title="Library"
+                busyLabel="Opening library"
               >
-                <span>Learn</span>
+                <span>Library</span>
               </HeaderNavButton>
             </HeaderChip>
           ) : null}

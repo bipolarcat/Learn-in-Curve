@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LearnArticle } from "@/components/learn/LearnArticle";
+import { LibraryArticle } from "@/components/library/LibraryArticle";
 import {
-  getAllLearnSlugs,
-  getLearnPage,
-  isLearnPageIndexable,
+  getAllLibrarySlugs,
+  getLibraryPage,
+  isLibraryPageIndexable,
   pageHasTodoCopy,
-} from "@/content/learn";
+} from "@/content/library";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -15,7 +15,7 @@ const SITE_URL =
 type Params = { slug: string };
 
 export function generateStaticParams() {
-  return getAllLearnSlugs().map((slug) => ({ slug }));
+  return getAllLibrarySlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -24,20 +24,20 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const page = getLearnPage(slug);
+  const page = getLibraryPage(slug);
   if (!page) return {};
 
-  const indexable = isLearnPageIndexable(page);
+  const indexable = isLibraryPageIndexable(page);
   const noindex = !indexable || pageHasTodoCopy(page);
 
   return {
     title: page.metaTitle,
     description: page.metaDescription,
-    alternates: { canonical: `${SITE_URL}/learn/${page.slug}` },
+    alternates: { canonical: `${SITE_URL}/library/${page.slug}` },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `${SITE_URL}/learn/${page.slug}`,
+      url: `${SITE_URL}/library/${page.slug}`,
       type: "article",
     },
     robots: noindex
@@ -46,13 +46,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function LearnSlugPage({
+export default async function LibrarySlugPage({
   params,
 }: {
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const page = getLearnPage(slug);
+  const page = getLibraryPage(slug);
   if (!page) notFound();
-  return <LearnArticle page={page} />;
+  return <LibraryArticle page={page} />;
 }

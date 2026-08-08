@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import styles from "@/components/pmq/PmqFaqSection.module.css";
+import { FaqAccordion } from "@/components/FaqAccordion";
 
 const FAQ_ITEMS = [
   {
@@ -88,58 +87,14 @@ const FAQ_ITEMS = [
 
 /** Flat FAQ accordion — copy locked; chrome matches plan / command words consoles. */
 export function PmqFaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
-    <section aria-labelledby="pmq-faqs-heading">
-      <div className={styles.panel} data-faqs="">
-        <div className={styles.titleBar}>
-          <h2 id="pmq-faqs-heading" className={styles.title}>
-            FAQ<span className={styles.titleAccent}>s</span>
-          </h2>
-        </div>
-
-        <ul className={styles.list}>
-          {FAQ_ITEMS.map((item, index) => {
-            const isOpen = openIndex === index;
-            const panelId = `pmq-faq-panel-${index}`;
-            const triggerId = `pmq-faq-trigger-${index}`;
-
-            return (
-              <li key={item.question} className={styles.item}>
-                <button
-                  type="button"
-                  id={triggerId}
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  className={styles.trigger}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                >
-                  <span className={styles.question}>{item.question}</span>
-                  <span
-                    className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
-                    aria-hidden
-                  >
-                    ▼
-                  </span>
-                </button>
-                <div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={triggerId}
-                  aria-hidden={!isOpen}
-                  inert={!isOpen ? true : undefined}
-                  className={`${styles.panelShell} ${isOpen ? styles.panelShellOpen : ""}`}
-                >
-                  <div className={styles.panelClip}>
-                    <div className={styles.answer}>{item.answer}</div>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+    <FaqAccordion
+      items={FAQ_ITEMS}
+      headingId="pmq-faqs-heading"
+      title="FAQ"
+      titleAccent="s"
+      defaultOpenIndex={null}
+      idPrefix="pmq-faq"
+    />
   );
 }

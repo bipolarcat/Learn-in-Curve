@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "apm-pmq-vs-prince2",
   title: "APM PMQ vs PRINCE2: what's the difference?",
   metaTitle: "APM PMQ vs PRINCE2: What's the Difference? | Learn in Curve",

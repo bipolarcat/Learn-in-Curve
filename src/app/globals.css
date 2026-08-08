@@ -292,12 +292,16 @@ body[data-preview-signup-pin="1"] {
     @apply bg-cream/50;
   }
 
-  /* Learn core — quiet body rhythm; headings sized in CoreContentBlock */
-  .pmq-markdown--learn-core {
+  /* Learn core — quiet body rhythm; headings sized in CoreContentBlock.
+     library-core aliases the same rules for the public /library hub
+     without renaming the paid-course class (still used by CoreContentBlock). */
+  .pmq-markdown--learn-core,
+  .pmq-markdown--library-core {
     @apply w-full min-w-0 max-w-full overflow-x-clip text-[15px] leading-[1.65] text-ink/85;
   }
 
-  .pmq-markdown--learn-core > :first-child {
+  .pmq-markdown--learn-core > :first-child,
+  .pmq-markdown--library-core > :first-child {
     @apply mt-0;
   }
 
@@ -305,56 +309,75 @@ body[data-preview-signup-pin="1"] {
   .pmq-markdown--learn-core ul,
   .pmq-markdown--learn-core ol,
   .pmq-markdown--learn-core blockquote,
-  .pmq-markdown--learn-core .not-prose {
+  .pmq-markdown--learn-core .not-prose,
+  .pmq-markdown--library-core p,
+  .pmq-markdown--library-core ul,
+  .pmq-markdown--library-core ol,
+  .pmq-markdown--library-core blockquote,
+  .pmq-markdown--library-core .not-prose {
     @apply w-full max-w-full min-w-0;
   }
 
-  .pmq-markdown--learn-core img {
+  .pmq-markdown--learn-core img,
+  .pmq-markdown--library-core img {
     @apply h-auto max-w-full;
   }
 
-  .pmq-markdown--learn-core .markdown-wide-artifact {
+  .pmq-markdown--learn-core .markdown-wide-artifact,
+  .pmq-markdown--library-core .markdown-wide-artifact {
     @apply my-3 max-w-full min-w-0;
   }
 
   /* Outer frame — ensures a continuous thin outline even when cell borders collapse. */
-  .pmq-markdown--learn-core .markdown-table-shell {
+  .pmq-markdown--learn-core .markdown-table-shell,
+  .pmq-markdown--library-core .markdown-table-shell {
     @apply overflow-x-auto rounded-lg border border-ink/15;
   }
 
-  .pmq-markdown--learn-core .markdown-table-shell > table {
+  .pmq-markdown--learn-core .markdown-table-shell > table,
+  .pmq-markdown--library-core .markdown-table-shell > table {
     @apply my-0 w-full max-w-full border-collapse text-[15px];
   }
 
   /* Internal grid only (right + bottom) so edges don’t double up on the shell. */
   .pmq-markdown--learn-core th,
-  .pmq-markdown--learn-core td {
+  .pmq-markdown--learn-core td,
+  .pmq-markdown--library-core th,
+  .pmq-markdown--library-core td {
     @apply border-0 border-b border-r border-ink/15 px-3 py-2 align-top break-words;
   }
 
   .pmq-markdown--learn-core th:last-child,
-  .pmq-markdown--learn-core td:last-child {
+  .pmq-markdown--learn-core td:last-child,
+  .pmq-markdown--library-core th:last-child,
+  .pmq-markdown--library-core td:last-child {
     @apply border-r-0;
   }
 
   .pmq-markdown--learn-core tbody tr:last-child th,
-  .pmq-markdown--learn-core tbody tr:last-child td {
+  .pmq-markdown--learn-core tbody tr:last-child td,
+  .pmq-markdown--library-core tbody tr:last-child th,
+  .pmq-markdown--library-core tbody tr:last-child td {
     @apply border-b-0;
   }
 
-  .pmq-markdown--learn-core th {
+  .pmq-markdown--learn-core th,
+  .pmq-markdown--library-core th {
     @apply bg-ink/[0.03] text-left font-body font-semibold text-ink;
   }
 
-  .pmq-markdown--learn-core tr:nth-child(even) td {
+  .pmq-markdown--learn-core tr:nth-child(even) td,
+  .pmq-markdown--library-core tr:nth-child(even) td {
     @apply bg-ink/[0.02];
   }
 
-  .pmq-markdown--learn-core blockquote {
+  .pmq-markdown--learn-core blockquote,
+  .pmq-markdown--library-core blockquote {
     @apply my-3 max-w-full rounded-xl border border-black/[0.08] bg-ink/[0.02] px-3 py-2.5 text-[15px] text-ink/80;
   }
 
-  .pmq-markdown--learn-core pre {
+  .pmq-markdown--learn-core pre,
+  .pmq-markdown--library-core pre {
     @apply max-w-full overflow-x-auto;
   }
 }

@@ -1,6 +1,6 @@
-import { scaffoldLearnPage } from "../scaffold";
+import { scaffoldLibraryPage } from "../scaffold";
 
-export const page = scaffoldLearnPage({
+export const page = scaffoldLibraryPage({
   slug: "how-hard-is-apm-pmq",
   title: "How hard is the APM PMQ really?",
   metaTitle: "How Hard Is the APM PMQ? An Honest Answer | Learn in Curve",

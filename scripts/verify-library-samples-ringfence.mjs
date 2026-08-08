@@ -1,5 +1,5 @@
 /**
- * Prove /learn sample questions are outside mock.json + FREE_MOCK_QUESTIONS.
+ * Prove /library sample questions are outside mock.json + FREE_MOCK_QUESTIONS.
  * Run: node scripts/verify-learn-samples-ringfence.mjs
  */
 import { readFileSync } from "fs";
@@ -10,7 +10,7 @@ const require = createRequire(import.meta.url);
 
 // Dynamic import of generated TS via node --experimental or parse JSON from file
 const poolSrc = readFileSync(
-  join(process.cwd(), "src/content/learn/sample-pool.ts"),
+  join(process.cwd(), "src/content/library/sample-pool.ts"),
   "utf8",
 );
 const freeSrc = readFileSync(
@@ -40,10 +40,10 @@ for (const part of mock.parts ?? []) {
 }
 
 const poolMatch = poolSrc.match(
-  /export const LEARN_SAMPLE_POOL[^=]*=\s*(\[[\s\S]*\]);/,
+  /export const LIBRARY_SAMPLE_POOL[^=]*=\s*(\[[\s\S]*\]);/,
 );
 if (!poolMatch) {
-  console.error("Could not parse LEARN_SAMPLE_POOL");
+  console.error("Could not parse LIBRARY_SAMPLE_POOL");
   process.exit(1);
 }
 const pool = JSON.parse(poolMatch[1]);
