@@ -69,10 +69,7 @@ export default function FreeMockExamPage() {
 
       <div className="wrap">
         <header className="mx-auto max-w-[42rem] text-center">
-          <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-            Free readiness check
-          </p>
-          <h1 className="mt-2 text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
+          <h1 className="text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             Free APM <span className="text-orange">PMQ</span> mock exam
           </h1>
           <p className="mx-auto mt-4 w-full text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:max-w-[36rem] sm:text-[17px]">

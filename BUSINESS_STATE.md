@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Free mock: removed page-header “Free readiness check” eyebrow; quiz-card eyebrow copy → “Free mock exam”.
+
 - **2026-08-08** — Free mock quiz-card eyebrow (“Free readiness check”) reduced to 9px / 10px sm.
 
 - **2026-08-08** — Free mock intro copy uses full section width on mobile (`w-full`; forced line breaks from `sm` up only).
