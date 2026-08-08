@@ -409,34 +409,6 @@ export function SiteHeaderControls({
             </HeaderChip>
           ) : null}
 
-          {!onFreeMock ? (
-            onHome ? (
-              <CoursesReveal show={showLandingCourses}>
-                <HeaderNavButton
-                  href="/free-mock-exam"
-                  className={headerPillSecondary}
-                  ariaLabel="Free mock exam"
-                  title="Free mock exam"
-                  busyLabel="Opening free mock"
-                >
-                  <span>Free mock</span>
-                </HeaderNavButton>
-              </CoursesReveal>
-            ) : (
-              <HeaderChip style={{ "--i": 1.5 } as CSSProperties}>
-                <HeaderNavButton
-                  href="/free-mock-exam"
-                  className={headerPillSecondary}
-                  ariaLabel="Free mock exam"
-                  title="Free mock exam"
-                  busyLabel="Opening free mock"
-                >
-                  <span>Free mock</span>
-                </HeaderNavButton>
-              </HeaderChip>
-            )
-          ) : null}
-
           {!onDashboard && !hideHomeIconOnCourseExperience ? (
             onHome ? (
               <CoursesReveal show={showLandingCourses}>
@@ -525,40 +497,6 @@ export function SiteHeaderControls({
                 <span>Courses</span>
               </HeaderNavButton>
             </HeaderChip>
-          ) : null}
-
-          {!onFreeMock ? (
-            onHome ? (
-              <CoursesReveal show={showLandingCourses}>
-                <HeaderNavButton
-                  href="/free-mock-exam"
-                  className={headerPillSecondary}
-                  ariaLabel="Free mock exam"
-                  title="Free mock exam"
-                  busyLabel="Opening free mock"
-                >
-                  <span>Free mock</span>
-                </HeaderNavButton>
-              </CoursesReveal>
-            ) : (
-              <HeaderChip
-                style={
-                  {
-                    "--i": showGuestCoursesPill ? 1.5 : 1,
-                  } as CSSProperties
-                }
-              >
-                <HeaderNavButton
-                  href="/free-mock-exam"
-                  className={headerPillSecondary}
-                  ariaLabel="Free mock exam"
-                  title="Free mock exam"
-                  busyLabel="Opening free mock"
-                >
-                  <span>Free mock</span>
-                </HeaderNavButton>
-              </HeaderChip>
-            )
           ) : null}
 
           {!onDashboard && !hideHomeIconOnCourseExperience ? (

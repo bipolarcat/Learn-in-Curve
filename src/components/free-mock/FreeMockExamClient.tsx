@@ -106,6 +106,7 @@ export function FreeMockExamClient() {
   const withNavPending = (kind: NavAction, action: () => void) => {
     if (navPending) return;
     setNavPending(kind);
+    // Let the bars spinner paint, then run the nav — never on hover.
     window.setTimeout(() => {
       action();
       setNavPending(null);
@@ -119,6 +120,8 @@ export function FreeMockExamClient() {
 
   const handleContinue = () => {
     if (navPending) return;
+    // Incomplete answers: no click action, no spinner (button stays disabled).
+    if (!locked && !answerComplete(question, draft)) return;
 
     if (locked) {
       if (qi < total - 1) {
@@ -129,7 +132,7 @@ export function FreeMockExamClient() {
       return;
     }
 
-    if (!answerComplete(question, draft) || !draft) return;
+    if (!draft) return;
 
     withNavPending("next", () => {
       const next = { ...answers, [question.id]: draft };
@@ -365,9 +368,12 @@ export function FreeMockExamClient() {
       data-quiz-card=""
     >
       <div className="mb-1 text-left">
+        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
+          Free readiness check
+        </p>
         <h2
           id="free-mock-quiz-title"
-          className="m-0 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
+          className="m-0 mt-1.5 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
         >
           Question {qi + 1} of {total}
         </h2>
@@ -459,7 +465,9 @@ export function FreeMockExamClient() {
             {qi > 0 ? (
               <button
                 type="button"
-                className={`${stampCtaSecondaryFlat} disabled:cursor-wait disabled:opacity-60`}
+                className={`${stampCtaSecondaryFlat}${
+                  navPending === "prev" ? " cursor-wait opacity-60" : ""
+                }`}
                 disabled={Boolean(navPending)}
                 aria-busy={navPending === "prev"}
                 aria-label={navPending === "prev" ? "Going back" : "Previous"}
@@ -476,9 +484,15 @@ export function FreeMockExamClient() {
             )}
             <button
               type="button"
-              className={`${stampCtaPrimary} disabled:cursor-wait disabled:opacity-60`}
+              className={`${stampCtaPrimary}${
+                navPending === "next"
+                  ? " cursor-wait opacity-60"
+                  : !canContinue
+                    ? " opacity-50"
+                    : ""
+              }`}
               disabled={!canContinue || Boolean(navPending)}
-              aria-busy={navPending === "next"}
+              aria-busy={navPending === "next" || undefined}
               aria-label={
                 navPending === "next"
                   ? continueLabel === "Finish"

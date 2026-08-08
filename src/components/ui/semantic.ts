@@ -39,9 +39,14 @@ export const marketingActionPrimary =
 export const marketingActionSecondary =
   `group inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-xl border border-ink/20 bg-cream px-5 font-body text-[11px] font-bold uppercase tracking-[0.06em] text-ink hover:bg-cream-2 sm:min-h-12 sm:px-6 sm:text-[12px] ${actionFocus} ${actionMotion}`;
 
+/** Teal fill CTA — hero free-mock and other teal-accent actions. */
+export const marketingActionTeal =
+  `group inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-xl border border-transparent bg-teal px-5 font-body text-[11px] font-bold uppercase tracking-[0.06em] text-paper hover:bg-teal-deep sm:min-h-12 sm:px-6 sm:text-[12px] ${actionFocus} ${actionMotion}`;
+
 /** Flat aliases — same as primary/secondary (hero language is the site default). */
 export const marketingActionPrimaryFlat = marketingActionPrimary;
 export const marketingActionSecondaryFlat = marketingActionSecondary;
+export const marketingActionTealFlat = marketingActionTeal;
 
 export const productActionPrimary =
   `inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-transparent bg-action px-4 text-[13px] font-bold text-paper hover:bg-action-hover ${actionFocus} ${actionMotion}`;

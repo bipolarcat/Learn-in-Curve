@@ -69,13 +69,18 @@ export default function FreeMockExamPage() {
 
       <div className="wrap">
         <header className="mx-auto max-w-[42rem] text-center">
-          <h1 className="text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
-            Free APM PMQ mock exam
+          <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
+            Free readiness check
+          </p>
+          <h1 className="mt-2 text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
+            Free APM <span className="text-orange">PMQ</span> mock exam
           </h1>
           <p className="mx-auto mt-4 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">
             Test yourself with real APM PMQ-style questions covering multiple
-            choice, scenario-based, and select-from-list formats. Complete it in
-            within 5 minutes.
+            choice, scenario-based, and select-from-list formats.
+          </p>
+          <p className="mx-auto mt-2 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">
+            Complete it in within 5 minutes.
           </p>
           <p className="mx-auto mt-3 max-w-[36rem] text-pretty font-body text-[15px] leading-relaxed text-ink/70">
             When you finish, we show your score and which learning objectives to

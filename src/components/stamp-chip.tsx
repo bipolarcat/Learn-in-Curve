@@ -9,6 +9,8 @@ import {
   marketingActionPrimaryFlat,
   marketingActionSecondary,
   marketingActionSecondaryFlat,
+  marketingActionTeal,
+  marketingActionTealFlat,
 } from "@/components/ui/semantic";
 
 const stampMotion =
@@ -51,6 +53,8 @@ export const stampCtaSecondaryCompact = `${stampCtaSecondary} ${stampCtaCompact}
 /** Flat primary/secondary CTAs for the home brand hero (no sticker shadow). */
 export const stampCtaPrimaryFlat = marketingActionPrimaryFlat;
 export const stampCtaSecondaryFlat = marketingActionSecondaryFlat;
+export const stampCtaTeal = marketingActionTeal;
+export const stampCtaTealFlat = marketingActionTealFlat;
 
 /** Right arrow for landing / page CTAs — nudges on group hover. */
 export function CtaArrow({ className = "" }: { className?: string }) {
