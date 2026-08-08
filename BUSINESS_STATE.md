@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-08** — Hero Free PMQ CTA: removed arrow icon from `FreeMockExamLink`.
+
 - **2026-08-08** — Free mock FAQ heading: “asked” in orange (`FaqAccordion` title ReactNode).
 
 - **2026-08-08** — FAQ accordion width fix: answers always `text-wrap: wrap` (dropped `pretty`, which left unused right space above 640px); side padding aligned to titleBar; `w-full`/`min-w-0` on shell/clip/panel.

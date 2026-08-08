@@ -2,7 +2,6 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { CtaArrowUpRight } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
 
@@ -10,7 +9,7 @@ type FreeMockExamLinkProps = {
   className?: string;
 };
 
-/** Hero soft-nav to `/free-mock-exam` — same pending/arrow pattern as Explore Courses. */
+/** Hero soft-nav to `/free-mock-exam` — same pending pattern as Explore Courses. */
 export function FreeMockExamLink({ className }: FreeMockExamLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -40,10 +39,7 @@ export function FreeMockExamLink({ className }: FreeMockExamLinkProps) {
           aria-hidden
         />
       ) : (
-        <>
-          Free PMQ mock exam
-          <CtaArrowUpRight />
-        </>
+        "Free PMQ mock exam"
       )}
     </button>
   );
