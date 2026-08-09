@@ -274,7 +274,6 @@ export function FreeMockExamClient() {
   }
 
   if (phase === "results" && results) {
-    const weakestName = results.weakest[0]?.lo_title ?? "your weak areas";
     return (
       <section
         className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
@@ -336,7 +335,7 @@ export function FreeMockExamClient() {
             href="/courses/pmq-in-5-days"
             className={stampCtaPrimary}
           >
-            The 5-day plan covers {weakestName} in depth. Start free →
+            Start PMQ in 5 Days for free
           </Link>
           <Link href="/courses" className={stampCtaSecondaryFlat}>
             Browse courses
