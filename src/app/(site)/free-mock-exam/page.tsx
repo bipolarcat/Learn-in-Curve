@@ -102,11 +102,6 @@ export default async function FreeMockExamPage({
             <br className="hidden sm:block" />
             Complete it within 10 minutes.
           </p>
-          <p className="mx-auto mt-3 max-w-[36rem] text-pretty font-body text-[15px] leading-relaxed text-ink/70">
-            When you finish, we show your score and which learning objectives to
-            revise first. Pair it with our 5-day revision plan when you are ready
-            to go deeper.
-          </p>
         </header>
 
         <div className="mx-auto mt-10 w-full max-w-[46rem]">

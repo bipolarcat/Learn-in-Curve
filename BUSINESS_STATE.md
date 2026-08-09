@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-09** — Free mock page: removed header subcopy about score / 5-day plan.
+
 - **2026-08-09** — Free mock results: removed “Weakest areas” list (LO table + score remain).
 
 - **2026-08-09** — Free mock results CTA copy → “Start PMQ in 5 Days for free” (`FreeMockExamClient`).
