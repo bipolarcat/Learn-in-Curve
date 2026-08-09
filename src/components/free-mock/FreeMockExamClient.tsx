@@ -292,21 +292,6 @@ export function FreeMockExamClient() {
           Here&apos;s how you did across the learning objectives in this check.
         </p>
 
-        <div className="mt-6">
-          <h3 className="m-0 font-display text-lg font-semibold text-ink">
-            Weakest areas
-          </h3>
-          <ol className="mt-3 list-decimal space-y-2 pl-5 font-body text-[14.5px] text-ink/85">
-            {results.weakest.map((row) => (
-              <li key={row.lo_code}>
-                <span className="font-semibold">{row.lo_code}</span>
-                {": "}
-                {row.lo_title} ({row.correct}/{row.total})
-              </li>
-            ))}
-          </ol>
-        </div>
-
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
             <thead>

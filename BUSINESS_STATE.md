@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-09** — Free mock results: removed “Weakest areas” list (LO table + score remain).
+
 - **2026-08-09** — Free mock results CTA copy → “Start PMQ in 5 Days for free” (`FreeMockExamClient`).
 
 - **2026-08-08** — Site version set to **2.40** and pushed to `origin/master` (`2b41953`) for Railway production. Live www still showed **v2.39** at check time (library/free-mock 404) — Railway deploy not confirmed from this session (CLI unauthorized; not Vercel).
