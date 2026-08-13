@@ -8,14 +8,15 @@ import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
  * ─────────────────────────────────────────────────────────────────────────────
  * IMPORTANT — why Pro's price is derived, not written here
  *
- * `priceCents` for Pro is taken from `SLY_UNLOCK_PRICE_CENTS`, the same constant
+ * `priceCents` for Pro is taken from `SLY_UNLOCK_PRICE_CENTS`, which re-exports
+ * `COURSE_REGISTRY['pmq-in-5-days'].priceCents` — the same value
  * `createAiTutorCheckout` charges. That makes it structurally impossible for the
  * pricing page to advertise one price while Stripe charges another — which would
  * be a misleading price indication under the Consumer Protection from Unfair
  * Trading Regulations, not just a bug.
  *
  * So this page shows whatever Stripe will actually take. To move Pro's price:
- *   1. set `SLY_UNLOCK_PRICE_CENTS`,
+ *   1. set `priceCents` on the PMQ entry in `src/lib/courses/registry.ts`,
  *   2. add a migration so Supabase `exam_config` agrees,
  *   3. update the Stripe product/price if a fixed Price object is ever used.
  * Do all three together. Don't edit the display price here in isolation.

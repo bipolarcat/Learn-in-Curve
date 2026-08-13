@@ -1,12 +1,20 @@
 /**
  * PFQ course constants. Starter is the absence of an entitlement — never stored.
+ *
+ * Price / id / slug come from `src/lib/courses/registry.ts` — do not restate them.
  */
 
-export const PFQ_COURSE_ID = "f8a2c1e0-4d3b-4a9e-9c7f-2e1d0b9a8c7d";
-export const PFQ_SLUG = "pfq-in-2-days";
+import {
+  PFQ_COURSE_ID as REGISTRY_PFQ_COURSE_ID,
+  PFQ_PRO_PRICE_CENTS as REGISTRY_PFQ_PRO_PRICE_CENTS,
+  PFQ_SLUG as REGISTRY_PFQ_SLUG,
+} from "@/lib/courses/registry-data";
 
-/** £5.00 — single price, no tiers. Keep in sync with pricing page copy. */
-export const PFQ_PRO_PRICE_CENTS = 500;
+export const PFQ_COURSE_ID = REGISTRY_PFQ_COURSE_ID;
+export const PFQ_SLUG = REGISTRY_PFQ_SLUG;
+
+/** £5.00 — single price, no tiers. Defined once in the course registry. */
+export const PFQ_PRO_PRICE_CENTS = REGISTRY_PFQ_PRO_PRICE_CENTS;
 
 export const PFQ_PRICING_HREF = "/pfq/pricing";
 export const PFQ_LEARN_HREF = "/pfq/learn";

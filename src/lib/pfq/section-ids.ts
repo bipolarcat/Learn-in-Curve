@@ -1,4 +1,4 @@
-import { PFQ_COURSE_ID } from "./constants.ts";
+import { PFQ_COURSE_ID } from "../courses/ids.ts";
 
 /**
  * Deterministic section UUIDs for PFQ objectives 1–10.

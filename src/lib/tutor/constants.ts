@@ -30,8 +30,8 @@ export const TUTOR_OUTPUT_USD_PER_M = 3.0;
  */
 export const USD_PER_GBP = 1.27;
 
-/** One-off unlock: £8.00 → £5.00 fair-usage credit. */
-export const SLY_UNLOCK_PRICE_CENTS = 800;
+/** One-off Pro Bundle unlock price — defined once in the course registry. */
+export { PMQ_PRO_PRICE_CENTS as SLY_UNLOCK_PRICE_CENTS } from "@/lib/courses/registry-data";
 export const SLY_UNLOCK_CREDIT_GBP_CENTS = 500;
 
 /**

@@ -1,14 +1,25 @@
 import type { Course } from "@/types/database";
+import {
+  COURSE_STATIC,
+  PFQ_PRO_PRICE_CENTS,
+  PMQ_SLUG,
+  PFQ_SLUG,
+} from "@/lib/courses/registry-data";
+import { PMQ_COURSE_ID, PFQ_COURSE_ID } from "@/lib/courses/ids";
 
 /**
  * Public catalogue shown on /courses (and landing teaser references live count).
  * Planned courses are honest coming-soon stubs — not unlockable product yet.
+ *
+ * Paid-unlock prices come from the course registry. PMQ's catalogue
+ * `price_cents` stays 0 because the course itself is free (Pro unlock is
+ * separate); PFQ's catalogue price is the Paid Unlock price.
  */
 export const CATALOG_COURSES: Course[] = [
   {
-    id: "3b6e12c0-321f-41b2-8536-db39f5678301",
-    slug: "pmq-in-5-days",
-    name: "PMQ in 5 Days",
+    id: PMQ_COURSE_ID,
+    slug: PMQ_SLUG,
+    name: COURSE_STATIC["pmq-in-5-days"].displayName,
     description:
       "Everything You Need to Pass Your APM - Project Management Qualification Exam",
     price_cents: 0,
@@ -20,12 +31,12 @@ export const CATALOG_COURSES: Course[] = [
     exam_config: {},
   },
   {
-    id: "f8a2c1e0-4d3b-4a9e-9c7f-2e1d0b9a8c7d",
-    slug: "pfq-in-2-days",
-    name: "PFQ in 2 Days",
+    id: PFQ_COURSE_ID,
+    slug: PFQ_SLUG,
+    name: COURSE_STATIC["pfq-in-2-days"].displayName,
     description:
       "59 lessons, practice, a timed mock and a coverage map of every APM PFQ learning outcome.",
-    price_cents: 500,
+    price_cents: PFQ_PRO_PRICE_CENTS,
     is_free: false,
     status: "planned",
     created_at: "",

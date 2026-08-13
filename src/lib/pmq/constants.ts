@@ -1,5 +1,10 @@
-export const PMQ_COURSE_ID = "3b6e12c0-321f-41b2-8536-db39f5678301";
-export const PMQ_SLUG = "pmq-in-5-days";
+import {
+  PMQ_COURSE_ID as REGISTRY_PMQ_COURSE_ID,
+  PMQ_SLUG as REGISTRY_PMQ_SLUG,
+} from "@/lib/courses/registry-data";
+
+export const PMQ_COURSE_ID = REGISTRY_PMQ_COURSE_ID;
+export const PMQ_SLUG = REGISTRY_PMQ_SLUG;
 /**
  * @deprecated Entitlement is now a tier — see `PMQ_PAID_TIERS` in ./tiers.ts.
  * The single 'ai_tutor' row was migrated to 'ai_pro' on 2026-07-30
