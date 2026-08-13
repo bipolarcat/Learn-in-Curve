@@ -1,0 +1,1125 @@
+{
+  "meta": {
+    "product": "PFQ in 2 Days",
+    "version": "1.0.0",
+    "authored": "2026-08-13",
+    "author": "Learn in Curve (original authorship)",
+    "syllabus": "APM Project Fundamentals Qualification Handbook, APM-QS-PFQ-8 V5, April 2026",
+    "outcome_count": 59,
+    "question_count": 60,
+    "provenance": "All 60 questions written independently against the published PFQ syllabus. No stem, option or distractor is copied from APM's sample exam paper or from any third-party question set. The sample paper was used only to calibrate style, length and difficulty.",
+    "notes": [
+      "Exactly one question per learning outcome, except 10.4 which has two (Tuckman and Belbin) to fill the 60th slot.",
+      "The doubled outcome must NOT be hardcoded as 10.4 in the mock generator — see PFQ_DAY_PLAN.md.",
+      "type: 'single' = four options, one correct. type: 'multi_select' = four numbered items, options are combinations (APM's fourth presentation style).",
+      "trap flags: 'negative_stem' and 'multi_select' are used by Trap School to build targeted drills."
+    ],
+    "option_order": "Stored order is a deterministic shuffle (seed 20260813). Explanations reference option CONTENT, never letters, because the app re-shuffles options per attempt. Never reintroduce letter references."
+  },
+  "questions": [
+    {
+      "id": "PFQ-001",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following best defines a project?",
+      "options": {
+        "a": "A permanent organisational function that delivers repeatable outputs.",
+        "b": "A group of related activities managed together to make better use of shared resources.",
+        "c": "Any piece of work that is funded from a separate organisational budget.",
+        "d": "A unique, transient endeavour undertaken to bring about change and achieve planned objectives."
+      },
+      "answer": "d",
+      "explanation": "A project is unique and transient — a defined beginning and end, existing to deliver change. The permanent-function distractor is business as usual, the shared-resources one is a programme, and the separate-budget one describes a funding arrangement rather than a project."
+    },
+    {
+      "id": "PFQ-002",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following is a difference between a project and business as usual?",
+      "options": {
+        "a": "A project has a budget, whereas business as usual does not.",
+        "b": "A project has stakeholders, whereas business as usual does not.",
+        "c": "A project produces outputs, whereas business as usual produces none.",
+        "d": "A project has a defined start and end, whereas business as usual is ongoing."
+      },
+      "answer": "d",
+      "explanation": "Transience is the defining difference. Budgets, stakeholders and outputs exist in both — those distractors are true of business as usual too."
+    },
+    {
+      "id": "PFQ-003",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Project management can be defined as the application of:",
+      "options": {
+        "a": "tools that ensure a project is delivered within its original budget.",
+        "b": "processes, methods, skills, knowledge and experience to achieve specific project objectives.",
+        "c": "techniques used to keep routine operations running within agreed tolerances.",
+        "d": "governance structures that control how an organisation spends its money."
+      },
+      "answer": "b",
+      "explanation": "The APM definition centres on applying processes, methods, knowledge, skills and experience to achieve objectives. The 'ensure delivery within the original budget' distractor is a common trap — project management does not guarantee an outcome."
+    },
+    {
+      "id": "PFQ-004",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.4",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "The key purpose of project management is to:",
+      "options": {
+        "a": "remove uncertainty from change initiatives.",
+        "b": "ensure that all available resources are fully utilised at all times.",
+        "c": "keep existing services running to an agreed standard.",
+        "d": "achieve project objectives within agreed constraints, delivering beneficial change."
+      },
+      "answer": "d",
+      "explanation": "Project management exists to effect beneficial change within constraints. Uncertainty is managed, never removed; keeping existing services running is business as usual; and full resource utilisation is a resource-management aim, not the purpose of project management."
+    },
+    {
+      "id": "PFQ-005",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following describes portfolio management?",
+      "options": {
+        "a": "Selecting and prioritising projects and programmes so that they align with strategic objectives.",
+        "b": "Delivering repeatable services to an agreed standard within tolerances.",
+        "c": "Applying processes and methods to deliver one defined set of objectives.",
+        "d": "Coordinating related projects to deliver outcomes that could not be achieved by managing them individually."
+      },
+      "answer": "a",
+      "explanation": "Portfolio management is about selection and prioritisation against strategy. The 'coordinating related projects' distractor is the definition of programme management — the classic near-miss for this outcome. The other two describe project management and business as usual."
+    },
+    {
+      "id": "PFQ-006",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.6",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "stem": "A project manager would use a PESTLE analysis in order to:",
+      "options": {
+        "a": "define the acceptance criteria for the project's outputs.",
+        "b": "prioritise identified risks by probability and impact.",
+        "c": "identify factors in the external environment that could affect the project.",
+        "d": "assess the capability and skill mix of the project team."
+      },
+      "answer": "c",
+      "explanation": "PESTLE (political, economic, sociological, technological, legal, environmental) is a scan of the external operating environment. It may feed risk identification, but it is not itself a prioritisation technique."
+    },
+    {
+      "id": "PFQ-007",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following shows the phases of a typical linear project life cycle in the correct order?",
+      "options": {
+        "a": "Definition, deployment, transition, concept.",
+        "b": "Concept, deployment, definition, transition.",
+        "c": "Concept, definition, deployment, transition.",
+        "d": "Definition, concept, deployment, transition."
+      },
+      "answer": "c",
+      "explanation": "Concept, definition, deployment, transition. The sequencing questions are pure recall — learn the order as a phrase, not by reasoning it out under time pressure."
+    },
+    {
+      "id": "PFQ-008",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "Which phase appears in a typical iterative project life cycle but not in a typical linear one?",
+      "options": {
+        "a": "Transition.",
+        "b": "Development.",
+        "c": "Concept.",
+        "d": "Definition."
+      },
+      "answer": "b",
+      "explanation": "An iterative life cycle replaces a single definition-then-deployment run with repeated development iterations. Concept, definition and transition all appear in the linear life cycle too."
+    },
+    {
+      "id": "PFQ-009",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "A hybrid life cycle can be defined as one that:",
+      "options": {
+        "a": "repeats a single phase until the sponsor authorises closure.",
+        "b": "adds adoption and benefits realisation to a linear life cycle.",
+        "c": "removes the concept phase in order to shorten delivery.",
+        "d": "combines elements of linear and iterative life cycles."
+      },
+      "answer": "d",
+      "explanation": "Hybrid = linear plus iterative in one life cycle. The 'adoption and benefits realisation' distractor defines an extended life cycle — hybrid and extended are the most commonly confused pair in LO2."
+    },
+    {
+      "id": "PFQ-010",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "An extended project life cycle is one that:",
+      "options": {
+        "a": "adds adoption and benefits realisation phases to a linear life cycle.",
+        "b": "combines linear and iterative approaches within a single project.",
+        "c": "adds a feasibility study before the concept phase.",
+        "d": "lengthens the deployment phase to allow for late changes in scope."
+      },
+      "answer": "a",
+      "explanation": "'Extended' means extended past handover, into adoption and benefits realisation — the project is not finished when the output is delivered. The 'combines linear and iterative' distractor is a hybrid life cycle."
+    },
+    {
+      "id": "PFQ-011",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following is a responsibility of the project management office (PMO)?",
+      "options": {
+        "a": "Prioritising the requirements to be delivered in the next iteration.",
+        "b": "Providing standards, processes, tools and support across projects.",
+        "c": "Owning the business case and being accountable for realising the benefits.",
+        "d": "Authorising changes that fall outside the project manager's delegated authority."
+      },
+      "answer": "b",
+      "explanation": "The PMO is a supporting and standard-setting function. Owning the business case is the sponsor, prioritising requirements is the product owner, and authorising changes beyond delegated authority is the governance board. Every option here is a role named in outcome 3.1 — this single mark requires knowing all seven."
+    },
+    {
+      "id": "PFQ-012",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following defines the term 'deployment baseline'?",
+      "options": {
+        "a": "The record of every change request raised during the project.",
+        "b": "The first estimate of cost produced during the concept phase.",
+        "c": "The approved plan against which project progress is measured and controlled.",
+        "d": "The point at which project outputs are handed over to the users."
+      },
+      "answer": "c",
+      "explanation": "A baseline is the reference point for control. Note how plausible the handover distractor sounds — the word 'deployment' invites you to think about go-live. Read the whole option before choosing."
+    },
+    {
+      "id": "PFQ-013",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "How does the deployment baseline typically differ between a linear and an iterative life cycle?",
+      "options": {
+        "a": "In an iterative life cycle it is agreed only at handover.",
+        "b": "In an iterative life cycle it is fixed at the outset and cannot be changed.",
+        "c": "A linear life cycle does not use a deployment baseline at all.",
+        "d": "In a linear life cycle it is set once for the whole project; in an iterative life cycle it is set for each iteration."
+      },
+      "answer": "d",
+      "explanation": "Linear baselines the whole scope up front; iterative baselines each iteration in turn. The 'fixed at the outset and cannot be changed' distractor inverts the two."
+    },
+    {
+      "id": "PFQ-014",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.3",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Why is the project sponsor a stakeholder of the project management plan?",
+      "options": {
+        "a": "Because the sponsor approves the plan and owns the business case that it delivers.",
+        "b": "Because the sponsor supplies the goods and services the plan depends on.",
+        "c": "Because the sponsor writes the plan on the project manager's behalf.",
+        "d": "Because the sponsor carries out the day-to-day activities described in the plan."
+      },
+      "answer": "a",
+      "explanation": "The project manager produces the plan; the sponsor approves it and owns the business case behind it. The 'supplies goods and services' distractor describes suppliers, who are also stakeholders of the plan but for a different reason."
+    },
+    {
+      "id": "PFQ-015",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following would typically be found in a project business case?",
+      "options": {
+        "a": "The detailed work breakdown structure for every work package.",
+        "b": "The signed acceptance certificates for completed deliverables.",
+        "c": "The justification for the project, including its costs, benefits and risks.",
+        "d": "The daily log of issues raised by members of the project team."
+      },
+      "answer": "c",
+      "explanation": "The business case answers 'why should we do this, and is it still worth doing'. Costs, benefits, risks, options and timescales — not delivery detail."
+    },
+    {
+      "id": "PFQ-016",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.5",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "In relation to the business case, the project manager is responsible for:",
+      "options": {
+        "a": "approving the business case at each decision gate.",
+        "b": "providing the information the sponsor needs in order to develop and maintain it.",
+        "c": "realising the benefits set out in it after handover.",
+        "d": "owning the business case for the duration of the project."
+      },
+      "answer": "b",
+      "explanation": "The sponsor owns, develops and maintains the business case; the project manager supplies the information that keeps it accurate. Owning, approving and realising benefits are all sponsor responsibilities."
+    },
+    {
+      "id": "PFQ-017",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.6",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "Stakeholder analysis supports effective stakeholder engagement because it:",
+      "options": {
+        "a": "identifies stakeholders' interest and influence so that engagement can be targeted.",
+        "b": "transfers responsibility for communication to the project sponsor.",
+        "c": "guarantees that every stakeholder will support the project.",
+        "d": "removes the need for a separate communication plan."
+      },
+      "answer": "a",
+      "explanation": "Analysis tells you who matters, how much, and in what way — so effort goes where it changes the outcome. Beware absolute words like 'guarantees' and 'removes the need for'; they are almost always wrong."
+    },
+    {
+      "id": "PFQ-018",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.7",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Benefits management can be defined as the identification, definition, planning, tracking and realisation of:",
+      "options": {
+        "a": "resource costs.",
+        "b": "project risks.",
+        "c": "business benefits.",
+        "d": "project outputs."
+      },
+      "answer": "c",
+      "explanation": "Short-stem definition recall. Outputs are what the project delivers; benefits are the measurable improvement that results from using them."
+    },
+    {
+      "id": "PFQ-019",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.8",
+      "verb": "State",
+      "type": "multi_select",
+      "traps": [
+        "multi_select"
+      ],
+      "stem": "Which of the following are typical estimating methods?",
+      "items": [
+        "Analogous",
+        "Parametric",
+        "Analytical",
+        "Incremental"
+      ],
+      "options": {
+        "a": "2, 3 and 4",
+        "b": "1, 2 and 3",
+        "c": "1, 3 and 4",
+        "d": "1, 2 and 4"
+      },
+      "answer": "b",
+      "explanation": "Analytical (bottom-up), analogous (comparative) and parametric are the three named in the syllabus. 'Incremental' is a delivery approach, not an estimating method. In multi-select questions, find the one item you are certain is wrong and eliminate every option containing it."
+    },
+    {
+      "id": "PFQ-020",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.9",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of the estimating funnel is to show that:",
+      "options": {
+        "a": "contingency should be removed once the plan has been baselined.",
+        "b": "estimates become more accurate as the project progresses and more becomes known.",
+        "c": "estimates only need to be produced once, at the start of the project.",
+        "d": "project costs always reduce as the project progresses."
+      },
+      "answer": "b",
+      "explanation": "The funnel narrows: early estimates carry wide ranges, later ones narrow as uncertainty falls. It is a statement about accuracy, not about cost reduction."
+    },
+    {
+      "id": "PFQ-021",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.10",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "Establishing success criteria at the start of a project is important because they:",
+      "options": {
+        "a": "determine which supplier should be selected.",
+        "b": "fix the project budget for the whole of the life cycle.",
+        "c": "remove the need to produce a business case.",
+        "d": "provide the measures against which the project will ultimately be judged."
+      },
+      "answer": "d",
+      "explanation": "Success criteria define what 'done well' means before anyone has an incentive to redefine it. They are revisited during delivery and at handover — that is why this outcome names all three points."
+    },
+    {
+      "id": "PFQ-022",
+      "day": 1,
+      "objective": 4,
+      "learning_outcome": "4.11",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "One benefit of project progress reporting is that it:",
+      "options": {
+        "a": "gives stakeholders timely information on performance against the plan.",
+        "b": "prevents any variance from the baseline from occurring.",
+        "c": "removes the need to maintain a risk register.",
+        "d": "ensures the project will be delivered on time."
+      },
+      "answer": "a",
+      "explanation": "Reporting makes performance visible so decisions can be made early. It does not prevent variance — it reveals it."
+    },
+    {
+      "id": "PFQ-023",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Scope management can be defined as the process for:",
+      "options": {
+        "a": "assessing whether project outputs are fit for purpose.",
+        "b": "recording all costs incurred by the project.",
+        "c": "determining the sequence in which project activities are carried out.",
+        "d": "identifying, defining and controlling the work required to deliver the project's objectives."
+      },
+      "answer": "d",
+      "explanation": "Scope management covers what is in, what is out, and how that boundary is controlled. The sequencing distractor is scheduling; the fitness-for-purpose one is quality control."
+    },
+    {
+      "id": "PFQ-024",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.2",
+      "verb": "Differentiate",
+      "type": "single",
+      "traps": [],
+      "stem": "Which statement describes how scope is managed in an iterative project rather than a linear one?",
+      "options": {
+        "a": "Changes to scope are not permitted once the baseline has been agreed.",
+        "b": "The scope is fixed at the outset and altered only through formal change control.",
+        "c": "The scope of work is defined once, in the product breakdown structure.",
+        "d": "Requirements are re-prioritised within a fixed time and cost."
+      },
+      "answer": "d",
+      "explanation": "Iterative fixes time and resources and flexes scope; linear fixes scope and flexes time and cost through change control. The three distractors all describe linear scope management."
+    },
+    {
+      "id": "PFQ-025",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.3",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "stem": "What is the difference between a product breakdown structure (PBS) and a work breakdown structure (WBS)?",
+      "options": {
+        "a": "A PBS is used on iterative projects; a WBS is used on linear projects.",
+        "b": "A PBS shows costs; a WBS shows durations.",
+        "c": "A PBS lists project risks; a WBS lists project issues.",
+        "d": "A PBS shows the products to be delivered; a WBS shows the work needed to deliver them."
+      },
+      "answer": "d",
+      "explanation": "Products versus work. Both are hierarchical decompositions used to illustrate scope — the distinction is what sits in the boxes."
+    },
+    {
+      "id": "PFQ-026",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.4",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "A responsibility assignment matrix (RAM) is produced by combining the work breakdown structure with the:",
+      "options": {
+        "a": "risk breakdown structure.",
+        "b": "organisational breakdown structure.",
+        "c": "cost breakdown structure.",
+        "d": "product breakdown structure."
+      },
+      "answer": "b",
+      "explanation": "WBS (the work) × OBS (the people) = RAM (who does what). Learning that equation covers most of what this outcome can ask."
+    },
+    {
+      "id": "PFQ-027",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Change control can be defined as the process that ensures:",
+      "options": {
+        "a": "the current version of every project document is recorded and retrievable.",
+        "b": "all requested changes are identified, evaluated and then approved or rejected before implementation.",
+        "c": "issues are escalated to the sponsor within agreed tolerances.",
+        "d": "the schedule is re-baselined at the end of each phase."
+      },
+      "answer": "b",
+      "explanation": "Change control is a decision process. The 'record the current version of every document' distractor describes configuration management — the pair this outcome most often tests against each other."
+    },
+    {
+      "id": "PFQ-028",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.6",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "What is the relationship between change control and configuration management?",
+      "options": {
+        "a": "Configuration management records and tracks the items that change control authorises changes to.",
+        "b": "Configuration management approves the changes that change control identifies.",
+        "c": "Change control replaces configuration management on iterative projects.",
+        "d": "They are two names for the same process."
+      },
+      "answer": "a",
+      "explanation": "Change control decides; configuration management keeps the record straight so everyone knows which version is current. The distractor that has configuration management approving changes reverses the two responsibilities."
+    },
+    {
+      "id": "PFQ-029",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following is a stage in a typical change control process?",
+      "options": {
+        "a": "Verification audit of the configuration library.",
+        "b": "Realisation of the expected business benefits.",
+        "c": "Evaluation of the request for change.",
+        "d": "Status accounting of controlled items."
+      },
+      "answer": "c",
+      "explanation": "Request, evaluation, recommendation, decision, implementation, update. The verification audit and status accounting distractors are configuration management activities — the examiner deliberately mixes the two lists."
+    },
+    {
+      "id": "PFQ-030",
+      "day": 1,
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "type": "multi_select",
+      "traps": [
+        "multi_select"
+      ],
+      "stem": "Which of the following are activities in a typical configuration management process?",
+      "items": [
+        "Identification",
+        "Status accounting",
+        "Verification audit",
+        "Justification"
+      ],
+      "options": {
+        "a": "2, 3 and 4",
+        "b": "1, 2 and 4",
+        "c": "1, 2 and 3",
+        "d": "1, 3 and 4"
+      },
+      "answer": "c",
+      "explanation": "The five activities are planning, identification, control, status accounting and verification audit. 'Justification' belongs to the business case, not to configuration management."
+    },
+    {
+      "id": "PFQ-031",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of scheduling is to:",
+      "options": {
+        "a": "assign ownership of each identified risk.",
+        "b": "define the acceptance criteria for project deliverables.",
+        "c": "determine when activities will take place and what resources they require.",
+        "d": "record the actual cost of each completed work package."
+      },
+      "answer": "c",
+      "explanation": "Scheduling answers when, in what order, and with what. Cost recording, acceptance criteria and risk ownership belong to other processes."
+    },
+    {
+      "id": "PFQ-032",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "Critical path analysis is used to identify:",
+      "options": {
+        "a": "the resources that have been over-allocated across the schedule.",
+        "b": "the risks with the highest combined probability and impact.",
+        "c": "the activities that consume the largest share of the budget.",
+        "d": "the sequence of activities that determines the shortest possible project duration."
+      },
+      "answer": "d",
+      "explanation": "The critical path is the longest path through the network and therefore the shortest time the project can take. Activities on it have zero float — delay one, delay the project."
+    },
+    {
+      "id": "PFQ-033",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.3",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "The primary purpose of a milestone is to:",
+      "options": {
+        "a": "record the resources assigned to a work package.",
+        "b": "mark a significant event or the completion of a key deliverable.",
+        "c": "show how much float is available on an activity.",
+        "d": "identify the longest path through the schedule network."
+      },
+      "answer": "b",
+      "explanation": "A milestone has no duration and consumes no resource — it is a marker of significance used for reporting and control."
+    },
+    {
+      "id": "PFQ-034",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "In a time box, which of the following are fixed?",
+      "options": {
+        "a": "Time and scope, with resources and quality allowed to vary.",
+        "b": "Scope and quality, with time and resources allowed to vary.",
+        "c": "Quality and resources, with time and scope allowed to vary.",
+        "d": "Time and resources, with scope and quality allowed to vary."
+      },
+      "answer": "d",
+      "explanation": "A time box fixes the period and the resource, and delivers whatever can be completed to an agreed standard within it. The 'scope and quality fixed' distractor is the linear, change-controlled model — the exact inversion."
+    },
+    {
+      "id": "PFQ-035",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.5",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which resource optimisation technique is used when the project completion date must not move, and resource usage is made as even as possible within available float?",
+      "options": {
+        "a": "Resource levelling.",
+        "b": "Resource aggregation.",
+        "c": "Resource smoothing.",
+        "d": "Resource estimation."
+      },
+      "answer": "c",
+      "explanation": "Smoothing protects the end date and flexes resource usage within float. Levelling does the opposite — it respects a resource limit and lets the end date move. If the question mentions a fixed date, the answer is smoothing."
+    },
+    {
+      "id": "PFQ-036",
+      "day": 2,
+      "objective": 6,
+      "learning_outcome": "6.6",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "A procurement strategy sets out:",
+      "options": {
+        "a": "the schedule of payments due to members of the project team.",
+        "b": "the detailed contractual terms agreed with each individual supplier.",
+        "c": "the high-level approach to securing the goods and services the project requires.",
+        "d": "the criteria used to accept delivered products from suppliers."
+      },
+      "answer": "c",
+      "explanation": "Strategy is the high-level approach — make or buy, contract type, supplier relationships. Detailed contractual terms sit beneath the strategy, not in it."
+    },
+    {
+      "id": "PFQ-037",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following defines the term 'risk'?",
+      "options": {
+        "a": "A measured difference between planned and actual progress.",
+        "b": "An uncertain event that, if it occurs, would affect the achievement of objectives.",
+        "c": "An approved change to the agreed scope of work.",
+        "d": "A problem that is currently affecting delivery and requires resolution."
+      },
+      "answer": "b",
+      "explanation": "Risk is uncertain and forward-looking, and can be a threat or an opportunity. The 'problem currently affecting delivery' distractor is an issue — expect the risk and issue definitions to be used as each other's distractors."
+    },
+    {
+      "id": "PFQ-038",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.2",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of risk management is to:",
+      "options": {
+        "a": "remove all uncertainty from the delivery of the project.",
+        "b": "record every problem that occurs during delivery.",
+        "c": "minimise threats to, and maximise opportunities for, the project's objectives.",
+        "d": "transfer accountability for project outcomes to the sponsor."
+      },
+      "answer": "c",
+      "explanation": "Both halves matter — risk management is not only about threats. The 'remove all uncertainty' distractor overreaches: uncertainty is managed, never eliminated."
+    },
+    {
+      "id": "PFQ-039",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.3",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following is a stage in a typical risk management process?",
+      "options": {
+        "a": "Risk verification.",
+        "b": "Risk aggregation.",
+        "c": "Risk closure.",
+        "d": "Risk justification."
+      },
+      "answer": "c",
+      "explanation": "The four stages named in the syllabus are identification, analysis, response and closure. The three distractors borrow words from the business case, quality and resource vocabularies."
+    },
+    {
+      "id": "PFQ-040",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.4",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "stem": "A risk register is used to:",
+      "options": {
+        "a": "hold the record of all approved changes to the project baseline.",
+        "b": "record identified risks, their assessment, their owners and the planned responses.",
+        "c": "capture the lessons learned at the end of the project.",
+        "d": "list the issues that have been escalated to the project sponsor."
+      },
+      "answer": "b",
+      "explanation": "A register is a live control document, not an archive. Each entry carries an owner and a response — a list of risks with no owners is not a risk register."
+    },
+    {
+      "id": "PFQ-041",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following defines the term 'issue'?",
+      "options": {
+        "a": "A disagreement between the project team and one of its suppliers.",
+        "b": "A problem that arises only after the project has formally closed.",
+        "c": "An uncertain event that may occur at some point in the future.",
+        "d": "A problem that has occurred and now requires resolution beyond the project manager's delegated tolerances."
+      },
+      "answer": "d",
+      "explanation": "An issue has already happened and typically breaches delegated tolerance, which is why it is escalated. The 'may occur in the future' distractor is a risk."
+    },
+    {
+      "id": "PFQ-042",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.6",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of issue management is to:",
+      "options": {
+        "a": "prevent any issues from arising during delivery.",
+        "b": "record approved changes to the configuration of deliverables.",
+        "c": "ensure that issues are identified, escalated and resolved so objectives can still be met.",
+        "d": "assess the probability and impact of events that have not yet happened."
+      },
+      "answer": "c",
+      "explanation": "Issue management is about resolution, not prevention — you cannot prevent something that has already occurred. The probability-and-impact distractor describes risk analysis."
+    },
+    {
+      "id": "PFQ-043",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.7",
+      "verb": "Differentiate",
+      "type": "single",
+      "traps": [],
+      "stem": "What distinguishes an issue from a risk?",
+      "options": {
+        "a": "An issue has already occurred, whereas a risk may or may not occur.",
+        "b": "An issue affects cost, whereas a risk affects time.",
+        "c": "An issue is owned by the sponsor, whereas a risk is owned by the team.",
+        "d": "An issue must be recorded, whereas a risk need not be."
+      },
+      "answer": "a",
+      "explanation": "Certainty is the discriminator. Everything else — recording, ownership, which constraint is hit — applies to both."
+    },
+    {
+      "id": "PFQ-044",
+      "day": 2,
+      "objective": 7,
+      "learning_outcome": "7.8",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following is a stage in a typical issue resolution process?",
+      "options": {
+        "a": "Assessing the probability of the issue occurring.",
+        "b": "Re-baselining the schedule to absorb the issue.",
+        "c": "Auditing the configuration library for accuracy.",
+        "d": "Escalating the issue to the appropriate level of authority."
+      },
+      "answer": "d",
+      "explanation": "Identify, assess impact, escalate, resolve, close. The 'assess the probability' distractor is impossible by definition — an issue has already occurred, so it has no probability."
+    },
+    {
+      "id": "PFQ-045",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following defines quality?",
+      "options": {
+        "a": "The level of satisfaction stakeholders express with the project team.",
+        "b": "The fitness for purpose of outputs, and the degree to which they meet requirements.",
+        "c": "The value for money that the project achieves for its sponsor.",
+        "d": "The complete absence of defects in a delivered product."
+      },
+      "answer": "b",
+      "explanation": "Fitness for purpose, judged against agreed requirements — not perfection, and not price. Quality is relative to what was specified."
+    },
+    {
+      "id": "PFQ-046",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.2",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of quality management is to ensure that:",
+      "options": {
+        "a": "the project's outputs and the processes used to produce them meet the required standards.",
+        "b": "deliverables are produced at the lowest achievable cost.",
+        "c": "the project completes ahead of its baselined schedule.",
+        "d": "every stakeholder personally approves each deliverable."
+      },
+      "answer": "a",
+      "explanation": "Note that quality management covers both the outputs and the processes — that dual scope is what separates it from quality control alone."
+    },
+    {
+      "id": "PFQ-047",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Quality planning involves:",
+      "options": {
+        "a": "auditing the project's processes for compliance with organisational standards.",
+        "b": "recording and tracking defects identified during testing.",
+        "c": "inspecting completed deliverables against their specification.",
+        "d": "determining the standards, acceptance criteria and processes that the project will apply."
+      },
+      "answer": "d",
+      "explanation": "Planning sets the standard up front. The inspection distractor is quality control and the process-audit one is quality assurance — all three appear as each other's distractors throughout LO8."
+    },
+    {
+      "id": "PFQ-048",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Quality control is concerned with:",
+      "options": {
+        "a": "inspecting, measuring and testing outputs against their acceptance criteria.",
+        "b": "providing confidence that the correct processes are being followed.",
+        "c": "deciding whether the business case remains viable at a decision gate.",
+        "d": "setting the quality standards that the project will work to."
+      },
+      "answer": "a",
+      "explanation": "Control is done to the product, after the fact. Assurance is done to the process, during. Three words to hold apart: plan the standard, assure the process, control the product."
+    },
+    {
+      "id": "PFQ-049",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.5",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of quality assurance is to provide confidence that:",
+      "options": {
+        "a": "every individual deliverable has been separately tested.",
+        "b": "the project will be delivered within its approved budget.",
+        "c": "no defects will occur at any point during delivery.",
+        "d": "the processes being used will produce outputs that meet the requirements."
+      },
+      "answer": "d",
+      "explanation": "Assurance is confidence in the process, and it is usually provided by someone independent of the delivery team."
+    },
+    {
+      "id": "PFQ-050",
+      "day": 2,
+      "objective": 8,
+      "learning_outcome": "8.6",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "stem": "The purpose of a post-project review is to:",
+      "options": {
+        "a": "decide whether the project should be authorised to proceed to its next phase.",
+        "b": "capture lessons learned and assess how well the project was managed.",
+        "c": "verify that the project complied with the organisation's quality standards.",
+        "d": "confirm that the expected business benefits have actually been realised."
+      },
+      "answer": "b",
+      "explanation": "Every option here is an item named in outcome 8.6: authorising the next phase is a decision gate, confirming benefits is a benefits review, and verifying compliance is a project audit. This outcome asks you to hold four purposes apart — expect one of them, and know which is which."
+    },
+    {
+      "id": "PFQ-051",
+      "day": 2,
+      "objective": 9,
+      "learning_outcome": "9.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Communication can be defined as:",
+      "options": {
+        "a": "the exchange of information between parties, and confirmation that understanding is shared.",
+        "b": "the distribution of progress reports to stakeholders on a fixed schedule.",
+        "c": "the recording of decisions taken during project meetings.",
+        "d": "the process of persuading stakeholders to support the project."
+      },
+      "answer": "a",
+      "explanation": "The confirmation half is the part candidates drop. Information sent is not communication until it has been received and understood."
+    },
+    {
+      "id": "PFQ-052",
+      "day": 2,
+      "objective": 9,
+      "learning_outcome": "9.2",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "One advantage of face-to-face communication is that it:",
+      "options": {
+        "a": "allows non-verbal signals to be observed and responded to.",
+        "b": "removes the need for a communication plan.",
+        "c": "always produces a written record of what was agreed.",
+        "d": "is the least expensive option for a geographically dispersed team."
+      },
+      "answer": "a",
+      "explanation": "Body language, tone and immediate feedback are the face-to-face advantages. The 'written record' distractor is an advantage of physical (written) communication — the three methods each have their own list."
+    },
+    {
+      "id": "PFQ-053",
+      "day": 2,
+      "objective": 9,
+      "learning_outcome": "9.3",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "One disadvantage of virtual communication is that it:",
+      "options": {
+        "a": "never leaves any record of what was discussed.",
+        "b": "cannot be used with stakeholders outside the organisation.",
+        "c": "depends on technology being available and reliable for everyone involved.",
+        "d": "requires all participants to be in the same physical location."
+      },
+      "answer": "c",
+      "explanation": "Technology dependency, plus weaker non-verbal cues, are the virtual disadvantages. The other three options are simply untrue, which is typical of the weaker distractors in LO9."
+    },
+    {
+      "id": "PFQ-054",
+      "day": 2,
+      "objective": 9,
+      "learning_outcome": "9.4",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "Which of the following would typically be included in a communication plan?",
+      "options": {
+        "a": "The delegated tolerances that trigger issue escalation.",
+        "b": "The critical path through the project schedule.",
+        "c": "Who receives which information, when they receive it, and by what method.",
+        "d": "The acceptance criteria for each project deliverable."
+      },
+      "answer": "c",
+      "explanation": "Audience, content, frequency, method, and who is responsible for sending it. If an option describes an artefact from another process, it is not communication plan content."
+    },
+    {
+      "id": "PFQ-055",
+      "day": 2,
+      "objective": 9,
+      "learning_outcome": "9.5",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "One benefit of a communication plan to a project manager is that it:",
+      "options": {
+        "a": "removes the need to carry out stakeholder analysis.",
+        "b": "transfers responsibility for project reporting to the PMO.",
+        "c": "guarantees that all stakeholders will agree with the project's decisions.",
+        "d": "ensures the right stakeholders receive relevant information at the right time."
+      },
+      "answer": "d",
+      "explanation": "A plan makes communication deliberate rather than reactive. It cannot manufacture agreement — watch for 'guarantees' and 'all'."
+    },
+    {
+      "id": "PFQ-056",
+      "day": 2,
+      "objective": 10,
+      "learning_outcome": "10.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "stem": "Leadership can be defined as the ability to:",
+      "options": {
+        "a": "hold formal authority over the members of a project team.",
+        "b": "allocate tasks to team members and monitor their completion against the plan.",
+        "c": "establish vision and direction, and to influence and align others towards a common purpose.",
+        "d": "resolve disputes that arise between the project team and its suppliers."
+      },
+      "answer": "c",
+      "explanation": "Vision, direction, influence, alignment. Note that leadership is explicitly not the same as formal authority — the 'holds formal authority' distractor is the trap for anyone equating the two."
+    },
+    {
+      "id": "PFQ-057",
+      "day": 2,
+      "objective": 10,
+      "learning_outcome": "10.2",
+      "verb": "Explain",
+      "type": "single",
+      "traps": [],
+      "stem": "Which action by a project team leader is most likely to improve the performance of the team?",
+      "options": {
+        "a": "Avoiding open discussion of conflict within the team.",
+        "b": "Setting clear roles, responsibilities and objectives for each member.",
+        "c": "Restricting information to only those members who must act on it.",
+        "d": "Allocating work according to availability rather than skill."
+      },
+      "answer": "b",
+      "explanation": "Clarity of role, openness and trust are the levers named in the syllabus. The three distractors are all recognisable anti-patterns — this outcome tends to be tested by making the wrong answers plainly wrong."
+    },
+    {
+      "id": "PFQ-058",
+      "day": 2,
+      "objective": 10,
+      "learning_outcome": "10.3",
+      "verb": "Outline",
+      "type": "multi_select",
+      "traps": [
+        "multi_select"
+      ],
+      "stem": "Which of the following are challenges for a project manager developing and leading a project team?",
+      "items": [
+        "Team members reporting to more than one manager",
+        "Members joining and leaving as the project progresses",
+        "Team members being co-located for the whole project",
+        "Differences in skills, experience and working styles"
+      ],
+      "options": {
+        "a": "2, 3 and 4",
+        "b": "1, 2 and 4",
+        "c": "1, 2 and 3",
+        "d": "1, 3 and 4"
+      },
+      "answer": "b",
+      "explanation": "Co-location is a help, not a challenge — it is the dispersed team that creates difficulty. Spot the single positive item in the list and eliminate every option containing it."
+    },
+    {
+      "id": "PFQ-059",
+      "day": 2,
+      "objective": 10,
+      "learning_outcome": "10.4",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "In Tuckman's model of team development, which stage is characterised by conflict as members challenge roles and ways of working?",
+      "options": {
+        "a": "Performing.",
+        "b": "Storming.",
+        "c": "Norming.",
+        "d": "Forming."
+      },
+      "answer": "b",
+      "explanation": "Forming (polite and tentative), storming (conflict), norming (settled roles), performing (effective delivery). Match the stage to the described behaviour, not to the position in the sequence."
+    },
+    {
+      "id": "PFQ-060",
+      "day": 2,
+      "objective": 10,
+      "learning_outcome": "10.4",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "stem": "A project manager needs a team member who will generate original ideas and solve difficult problems creatively. Which of Belbin's team roles is the best fit?",
+      "options": {
+        "a": "Completer finisher.",
+        "b": "Resource investigator.",
+        "c": "Plant.",
+        "d": "Implementer."
+      },
+      "answer": "c",
+      "explanation": "The plant is the creative idea generator. Implementer turns ideas into action, completer finisher polishes and checks, resource investigator looks outside the team for contacts and opportunities."
+    }
+  ]
+}

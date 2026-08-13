@@ -15,6 +15,7 @@
     "version:print": "node scripts/bump-version.mjs --print",
     "migrate:pmq": "node scripts/migrate-pmq-content.mjs",
     "migrate:mock": "node scripts/migrate-mock-content.mjs",
+    "seed:pfq": "node scripts/seed-pfq-questions.mjs",
     "captions:generate": "node scripts/captions/generate.mjs",
     "captions:validate": "node scripts/captions/validate.mjs",
     "captions:release-check": "node scripts/captions/validate.mjs --require-approved"

@@ -167,6 +167,12 @@ decision below are independent of the payment question.
       (informal):** homepage/pricing still market PMQ material without this line
       on-page — Terms still carry it; revisit if a solicitor wants broader
       surface coverage.
+- [x] **PFQ ATP / trademark disclaimer on `/pfq` — 2026-08-13.**
+      `PFQ_ATP_DISCLAIMER` in `src/lib/legal-copy.ts` (not an Accredited Training
+      Provider; do not sell/administer/invigilate the exam; APM/PFQ trademark
+      acknowledgement). Rendered on `/pfq` and mock routes. Guarded by
+      `tests/pfq-disclaimer.test.mjs`. No pass-rate or endorsement claims.
+      Informal guidance only — solicitor before any paid PFQ product.
 
 ## 4. Payments & data compliance
 

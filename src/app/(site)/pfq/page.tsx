@@ -1,0 +1,104 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PfqCoverageMap } from "@/components/pfq/PfqCoverageMap";
+import { PfqTrapSchool } from "@/components/pfq/PfqTrapSchool";
+import { CtaArrow, stampCtaPrimary } from "@/components/stamp-chip";
+import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
+import {
+  PFQ_OBJECTIVES,
+  PFQ_OUTCOME_COUNT,
+  PFQ_OUTCOME_TITLES,
+  type PfqOutcomeCode,
+} from "@/lib/pfq/outcomes";
+import type { PfqCoverageOutcome, PfqObjectiveResult } from "@/lib/pfq/types";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+  "https://www.learnincurve.com";
+
+const PAGE_TITLE = "Free APM PFQ Mock Exam — 59-Outcome Coverage Map";
+const PAGE_DESCRIPTION =
+  "Sit a free 60-question timed PFQ mock shaped like the real Surpass paper. See which of the 59 learning outcomes you can already answer — no account required.";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/pfq` },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: `${SITE_URL}/pfq`,
+    type: "website",
+  },
+};
+
+function previewCoverage(): {
+  coverage: PfqCoverageOutcome[];
+  objectives: PfqObjectiveResult[];
+} {
+  const coverage: PfqCoverageOutcome[] = [];
+  for (const obj of PFQ_OBJECTIVES) {
+    for (const code of obj.outcomes) {
+      coverage.push({
+        code,
+        title: PFQ_OUTCOME_TITLES[code as PfqOutcomeCode],
+        objective: obj.objective,
+        day: obj.day,
+        state: "unattempted",
+        marks: 1,
+      });
+    }
+  }
+  const objectives: PfqObjectiveResult[] = PFQ_OBJECTIVES.map((obj) => ({
+    objective: obj.objective,
+    title: obj.title,
+    day: obj.day,
+    available: obj.marks,
+    scored: 0,
+  }));
+  return { coverage, objectives };
+}
+
+export default function PfqLandingPage() {
+  const { coverage, objectives } = previewCoverage();
+
+  return (
+    <div className="mx-auto flex w-full max-w-wrap flex-col gap-12 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">
+      <header className="flex max-w-2xl flex-col gap-4">
+        <p className="m-0 font-body text-[12px] font-semibold tracking-[0.04em] text-ink/45 uppercase">
+          Free PFQ practice
+        </p>
+        <h1 className="m-0 font-display text-[clamp(1.85rem,4.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-ink text-balance">
+          See which of the{" "}
+          <span className="text-orange">{PFQ_OUTCOME_COUNT}</span> learning
+          outcomes you can already answer.
+        </h1>
+        <p className="m-0 font-body text-[1.05rem] leading-relaxed text-ink/75">
+          The APM Project Fundamentals Qualification assesses every published
+          outcome, with one doubled. Sit a free 60-question, 60-minute mock —
+          then get a coverage map instead of a bare percentage.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/pfq/mock" className={stampCtaPrimary}>
+            Sit the free 60-question mock
+            <CtaArrow />
+          </Link>
+        </div>
+      </header>
+
+      <PfqCoverageMap
+        headlineCorrect={0}
+        outcomeCount={PFQ_OUTCOME_COUNT}
+        coverage={coverage}
+        objectives={objectives}
+        preview
+      />
+
+      <PfqTrapSchool />
+
+      <p className="m-0 max-w-3xl border-t border-ink/10 pt-6 font-body text-[12px] leading-relaxed text-ink/55">
+        {PFQ_ATP_DISCLAIMER}
+      </p>
+    </div>
+  );
+}

@@ -35,3 +35,11 @@ export const APM_DISCLAIMER_SHORT =
 export const LIBRARY_HUB_APM_DISCLAIMER =
   "Learn in Curve is not affiliated with, endorsed by, or accredited by the Association for Project Management.";
 
+/**
+ * PFQ free-mock / lead-magnet disclaimer (PFQ_RESEARCH.md §9).
+ * Stronger than the general APM line: explicitly not an ATP and do not sell
+ * or invigilate the exam. Keep nominative use of APM / PFQ only.
+ */
+export const PFQ_ATP_DISCLAIMER =
+  "Learn in Curve is not an APM Accredited Training Provider. We do not sell, administer or invigilate the APM PFQ exam. APM, Association for Project Management and Project Fundamentals Qualification are trademarks of the Association for Project Management.";
+

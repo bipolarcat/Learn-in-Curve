@@ -1,0 +1,107 @@
+Learn in Curve — Brand / Design Brief (live)
+One-line philosophy
+Warm paper + stamp / transit-ticket product design: cream dotted paper, Fraunces headlines, Figtree UI, orange primary action, flat illustrated props — not generic SaaS purple, not dark-mode-first, not photoreal.
+
+Voice of the system: calm study tool with personality; color lives inside tickets, stamps, and frames — not as stacked full-bleed section bands.
+
+Color tokens (use these hexes)
+Token	Hex	Role
+ink
+#241A12
+Text, borders, dark chrome
+cream
+#F4E9D6
+Page background
+cream-2
+#EEDFB8
+Soft secondary fills
+paper
+#FBF3E1
+Cards / raised surfaces (lighter than cream)
+sand
+#E8CE93
+Illustration fills
+orange
+#D5501F
+Primary brand / CTAs / highlight words
+orange-action
+#A83B14
+Stronger pressed/action orange
+gold
+#D9A441
+Accents, badges, props
+olive
+#4F8F2E
+Success / complete (live CSS; DESIGN.md still lists an older green)
+teal
+#1B6560
+Secondary accent / meta
+teal-deep
+#123F3C
+Deep panels
+rust
+#D03A1F
+Error / incorrect (live CSS)
+Rules
+
+Default surface = cream paper + soft ink.
+Orange is the hero accent (often one orange word in a Fraunces headline).
+Don’t introduce purple/indigo gradients, stark white SaaS panels, or neon glow.
+Dark mode exists only on specific product routes; marketing is light-first.
+Typography
+Role	Font	Use
+Display
+Fraunces (serif, ~600–700)
+Headlines, brand wordmark, big numbers
+Body / UI
+Figtree (sans, 400–700)
+Everything else: body, labels, buttons, stamps
+Mono
+None live
+Space Mono was retired; stamp CTAs are sentence-case Figtree
+Patterns
+
+Brand lockup: “Learn in” + orange “Curve”.
+Headlines: tight tracking (~-0.025em), display weight, balanced line length.
+UI copy: sentence case, not ALL CAPS stamp labels.
+Fallbacks: Fraunces → Georgia; Figtree → system-ui.
+Surfaces & texture
+Dot grid on cream (radial-gradient ink dots, low opacity) — default marketing/dashboard ground.
+Film grain overlay sitewide (~5%, multiply) — subtle, not grunge.
+Paper cards: paper fill, thin ink/8–12% border, soft shadow (1px + larger soft ink shadow), rounded-xl (~12–20px). Prefer soft modern elevation over heavy “sticker” offsets on product UI.
+Marketing motif still allows ticket language (perforations, dashed dividers, slight rotate) for course/marketing cards — not for every form control.
+Components / motifs to reuse
+Stamp CTAs: solid orange (or ink) pill/chip, Figtree, optional arrow — primary enrol actions.
+Floating glass header: paper + blur, thin border, soft rounded bar; brand mark + fox logo.
+Soft header pills: flat fills, 150ms press, no glow shadows.
+Quiet field errors: Figtree, muted ink (~55%), not loud red banners.
+Success = olive; wrong = rust (quiz feedback).
+Mascot: Sly the fox + flat illustrated props (plane, mailbox, paper airplane) — illustration, not photo/3D.
+Footer: ink band + cream “Keep Learning” flickering grid treatment.
+Motion principles
+Motion happens to objects, never to layout (no type sliding in from the side, no grid reflow as animation).
+Idle motion: slow and small.
+Interaction: snappy (~150ms), ease-out-quint / expo curves.
+Prefer Framer Motion; respect prefers-reduced-motion → final pose, no sticky scrub.
+One calm entrance beat > scattered micro-interactions.
+Layout / composition rules
+Continuous cream dotted paper scroll for marketing surfaces.
+Color inside frames/tickets/stamps — avoid full-bleed colored section bands.
+Section gaps generous (clamp(~5rem, 10vw, 8rem) on home).
+One primary CTA job per section.
+Cards only when they hold interaction or a distinct framed unit; don’t card everything.
+Brand must be readable without the nav: Fraunces wordmark + orange “Curve” + fox mark.
+What not to do
+Generic AI SaaS look (purple gradients, Inter/Roboto, white cards on grey).
+Photoreal / 3D replacing flat illustration.
+Pre-ticked “marketing” visual patterns that feel templatey: pill clusters, stat strips, floating badges on heroes.
+Confetti/badges as the product identity — journey + quiz feedback matter more.
+Space Mono / uppercase stamp labels (retired on live site).
+Copy / tone cues that match the visual
+Warm, direct, exam-focused. Orange for emphasis words. Quiet helper text in muted ink. No hype-bro SaaS voice.
+
+Source of truth in the LIC repo
+Tokens + philosophy: DESIGN.md (v4 Illustrated Edition)
+Live CSS vars: src/app/globals.css
+Fonts: src/app/layout.tsx (Fraunces + Figtree)
+Visual kit HTML: brand/BRAND_KIT_v4.html (wins if docs disagree)

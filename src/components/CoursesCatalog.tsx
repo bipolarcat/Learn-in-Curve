@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -213,7 +214,7 @@ function CatalogNavButton({
 }: {
   href: string;
   className?: string;
-  children: string;
+  children: ReactNode;
   busyLabel: string;
 }) {
   const router = useRouter();
@@ -224,7 +225,7 @@ function CatalogNavButton({
       type="button"
       disabled={pending}
       aria-busy={pending}
-      aria-label={pending ? busyLabel : children}
+      aria-label={pending ? busyLabel : undefined}
       className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
       onClick={() => {
         startTransition(() => {
@@ -384,6 +385,17 @@ export function CoursesCatalog({
                         >
                           View plans
                         </CatalogNavButton>
+                      </>
+                    ) : course.slug === "pfq-in-2-days" ? (
+                      <>
+                        <CatalogNavButton
+                          href="/pfq/mock"
+                          className={stampCtaPrimaryCompact}
+                          busyLabel="Opening mock"
+                        >
+                          Free mock
+                        </CatalogNavButton>
+                        <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
                       </>
                     ) : (
                       <NotifyMeButton onOpen={() => setNotifyOpen(true)} />

@@ -1,0 +1,171 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: balance;
+}
+
+.headlineNum {
+  color: var(--orange);
+}
+
+.sub {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: rgb(var(--ink-rgb) / 0.65);
+}
+
+.objectiveBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  border-radius: 0.75rem;
+  background: rgb(var(--paper-rgb));
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.barMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 0.75rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+}
+
+.barLabel {
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.barTitle {
+  margin-left: 0.4rem;
+  font-weight: 400;
+  color: rgb(var(--ink-rgb) / 0.6);
+}
+
+.barScore {
+  color: rgb(var(--ink-rgb) / 0.7);
+}
+
+.barWeight {
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.barTrack {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgb(var(--ink-rgb) / 0.08);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--olive);
+  transition: width 200ms var(--ease-out-quint);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.groupTitle {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.75rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.groupDay {
+  font-weight: 500;
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.chipGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.4rem;
+}
+
+.chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-height: 3.25rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+}
+
+.chipCode {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.chipTitle {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  color: rgb(var(--ink-rgb) / 0.72);
+}
+
+.chip_correct {
+  border-color: color-mix(in srgb, var(--olive) 45%, transparent);
+  background: color-mix(in srgb, var(--olive) 12%, rgb(var(--paper-rgb)));
+}
+
+.chip_correct .chipCode {
+  color: var(--olive);
+}
+
+.chip_incorrect {
+  border-color: color-mix(in srgb, var(--rust) 40%, transparent);
+  background: color-mix(in srgb, var(--rust) 10%, rgb(var(--paper-rgb)));
+}
+
+.chip_incorrect .chipCode {
+  color: var(--rust);
+}
+
+.chip_unattempted {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.chip_unattempted .chipCode {
+  color: rgb(var(--ink-rgb) / 0.45);
+}

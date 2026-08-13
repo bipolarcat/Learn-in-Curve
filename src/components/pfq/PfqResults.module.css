@@ -1,0 +1,197 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.scoreLine {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+.scoreNum {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: rgb(var(--ink-rgb));
+}
+
+.scoreMax {
+  font-size: 1.25rem;
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.passPill,
+.failPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.passPill {
+  background: color-mix(in srgb, var(--olive) 18%, transparent);
+  color: var(--olive);
+}
+
+.failPill {
+  background: color-mix(in srgb, var(--rust) 14%, transparent);
+  color: var(--rust);
+}
+
+.passHint {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: rgb(var(--ink-rgb) / 0.6);
+}
+
+.gaps,
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.sectionSub {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: rgb(var(--ink-rgb) / 0.6);
+}
+
+.gapList,
+.reviewList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.gapItem,
+.reviewItem {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  border-radius: 0.75rem;
+  background: rgb(var(--paper-rgb));
+}
+
+.gapHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+}
+
+.gapCode {
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.gapTitle {
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.gapMeta {
+  font-size: 0.75rem;
+  color: rgb(var(--ink-rgb) / 0.5);
+}
+
+.gapExplain,
+.explanation {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgb(var(--ink-rgb) / 0.78);
+}
+
+.reviewOk {
+  border-color: color-mix(in srgb, var(--olive) 35%, transparent);
+}
+
+.reviewBad {
+  border-color: color-mix(in srgb, var(--rust) 30%, transparent);
+}
+
+.reviewMeta {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb) / 0.5);
+}
+
+.reviewStem {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.items,
+.options {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: rgb(var(--ink-rgb) / 0.8);
+}
+
+.options {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.optCorrect {
+  color: var(--olive);
+  font-weight: 600;
+}
+
+.optSelected:not(.optCorrect) {
+  color: var(--rust);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>NotebookLM vs Claude Projects — carousel</title>
+<meta name="hz:slide-selector" content=".slide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#241A12;
+  --cream:#F4E9D6;
+  --cream-2:#EEDFB8;
+  --paper:#FBF3E1;
+  --sand:#E8CE93;
+  --orange:#D5501F;
+  --orange-action:#A83B14;
+  --gold:#D9A441;
+  --olive:#4F8F2E;
+  --teal:#1B6560;
+  --teal-deep:#123F3C;
+  --rust:#D03A1F;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#8a8378;font-family:'Figtree',system-ui,sans-serif;}
+
+.slide{
+  position:relative;
+  width:1080px;height:1350px;
+  background:var(--cream);
+  background-image:radial-gradient(rgba(36,26,18,.13) 1.6px, transparent 1.6px);
+  background-size:26px 26px;
+  overflow:hidden;
+  margin:0 auto 40px;
+  padding:96px 88px;
+  display:flex;flex-direction:column;
+  color:var(--ink);
+}
+/* film grain */
+.slide::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  mix-blend-mode:multiply;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.025em;line-height:1.04;}
+.o{color:var(--orange);}
+
+.eyebrow{font-size:26px;font-weight:600;color:var(--teal);margin-bottom:26px;}
+h1{font-size:104px;}
+h2{font-size:74px;}
+h3{font-size:44px;}
+p{font-size:34px;line-height:1.45;font-weight:400;}
+.lede{font-size:38px;line-height:1.4;}
+.muted{color:rgba(36,26,18,.55);}
+.small{font-size:26px;line-height:1.4;}
+
+.spacer{flex:1;}
+
+/* paper card */
+.card{
+  background:var(--paper);
+  border:1px solid rgba(36,26,18,.11);
+  border-radius:18px;
+  box-shadow:0 1px 0 rgba(36,26,18,.10), 0 18px 40px -22px rgba(36,26,18,.45);
+  padding:44px 46px;
+}
+
+/* two tickets with perforation */
+.tickets{display:flex;align-items:stretch;gap:0;}
+.ticket{
+  flex:1;background:var(--paper);
+  border:1px solid rgba(36,26,18,.11);
+  box-shadow:0 1px 0 rgba(36,26,18,.10), 0 18px 40px -22px rgba(36,26,18,.45);
+  padding:44px 40px;
+}
+.ticket:first-child{border-radius:18px 0 0 18px;border-right:none;}
+.ticket:last-child{border-radius:0 18px 18px 0;border-left:none;}
+.perf{
+  width:0;border-left:3px dashed rgba(36,26,18,.28);
+  position:relative;flex:0 0 auto;
+}
+.perf::before,.perf::after{
+  content:"";position:absolute;left:-19px;width:38px;height:38px;
+  background:var(--cream);border-radius:50%;
+  border:1px solid rgba(36,26,18,.11);
+}
+.perf::before{top:-19px;}
+.perf::after{bottom:-19px;}
+
+.tname{font-family:'Fraunces',serif;font-weight:700;font-size:46px;letter-spacing:-.025em;margin-bottom:8px;}
+.tmeta{font-size:25px;color:var(--teal);font-weight:600;margin-bottom:26px;}
+.tprice{font-family:'Fraunces',serif;font-size:66px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px;}
+.tsub{font-size:24px;color:rgba(36,26,18,.55);line-height:1.35;}
+
+ul{list-style:none;}
+li{font-size:30px;line-height:1.4;margin-bottom:20px;padding-left:40px;position:relative;}
+li::before{content:"";position:absolute;left:0;top:14px;width:18px;height:18px;border-radius:50%;background:var(--gold);}
+li.good::before{background:var(--olive);}
+li.bad::before{background:var(--rust);}
+
+.stamp{
+  display:inline-block;background:var(--orange);color:var(--paper);
+  font-weight:600;font-size:30px;padding:20px 38px;border-radius:999px;
+}
+.chip{
+  display:inline-block;background:var(--cream-2);border:1px solid rgba(36,26,18,.11);
+  border-radius:999px;padding:12px 26px;font-size:25px;font-weight:600;color:var(--teal-deep);
+}
+.rule{height:1px;background:rgba(36,26,18,.15);margin:34px 0;}
+.dashed{border-top:3px dashed rgba(36,26,18,.25);margin:36px 0;}
+
+.big{font-family:'Fraunces',serif;font-weight:700;font-size:150px;letter-spacing:-.04em;line-height:.95;}
+
+.foot{
+  position:absolute;left:88px;right:88px;bottom:56px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:24px;color:rgba(36,26,18,.5);font-weight:500;
+}
+.brand{font-family:'Fraunces',serif;font-weight:700;font-size:28px;color:var(--ink);letter-spacing:-.02em;}
+.num{font-variant-numeric:tabular-nums;}
+
+/* Print to PDF: Ctrl/Cmd+P → Save as PDF → margins None, background graphics ON.
+   Produces a 10-page 1080x1350 PDF ready for a LinkedIn document post. */
+@page{size:1080px 1350px;margin:0;}
+@media print{
+  body{background:none;}
+  .slide{margin:0;page-break-after:always;break-after:page;box-shadow:none;}
+  .slide:last-child{page-break-after:auto;break-after:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="slide">
+  <div class="eyebrow">AI tools for project managers · 01</div>
+  <h1>NotebookLM<br><span class="o">vs</span><br>Claude Projects</h1>
+  <div class="dashed"></div>
+  <p class="lede">I pay for both. Not because I can't decide —<br>because they do different jobs.</p>
+  <div class="spacer"></div>
+  <div><span class="stamp">Where the line actually sits →</span></div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">01 / 10</span></div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide">
+  <div class="eyebrow">The pile</div>
+  <h2>Every PM has<br>the same <span class="o">problem</span>.</h2>
+  <div class="rule"></div>
+  <p>Contracts. Specs. Minutes. Lessons-learned logs nobody reads.</p>
+  <div style="height:28px"></div>
+  <p class="muted">Both tools promise the same fix: point AI at your documents, get answers back.</p>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>The real question isn't which is smarter.</h3>
+    <div style="height:16px"></div>
+    <p>It's which one you open on a Tuesday with 20 minutes to spare.</p>
+  </div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">02 / 10</span></div>
+</section>
+
+<!-- 3 THE TWO TICKETS -->
+<section class="slide">
+  <div class="eyebrow">What you're actually buying</div>
+  <h2>Two tickets.</h2>
+  <div style="height:44px"></div>
+  <div class="tickets">
+    <div class="ticket">
+      <div class="tname">Google AI Pro</div>
+      <div class="tmeta">NotebookLM lives here</div>
+      <div class="tprice o">£18.99</div>
+      <div class="tsub">per month</div>
+      <div class="dashed" style="margin:28px 0"></div>
+      <div class="tsub">Gemini 3.1 Pro · Flow (1,000 credits) · Nano Banana · Antigravity · Gemini in Gmail &amp; Docs · YouTube Premium Lite · 5TB storage</div>
+    </div>
+    <div class="perf"></div>
+    <div class="ticket">
+      <div class="tname">Claude Pro</div>
+      <div class="tmeta">Projects lives here</div>
+      <div class="tprice o">$17</div>
+      <div class="tsub">per month, billed annually<br>($20 monthly)</div>
+      <div class="dashed" style="margin:28px 0"></div>
+      <div class="tsub">Claude chat · Claude Code · Cowork</div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="small muted">Prices checked 13 Aug 2026 · gemini.google/gb · claude.com/pricing</p>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">03 / 10</span></div>
+</section>
+
+<!-- 4 CURRENCY -->
+<section class="slide">
+  <div class="eyebrow">Notice the currencies</div>
+  <h2>One prices in <span class="o">pounds</span>.<br>One doesn't.</h2>
+  <div class="rule"></div>
+  <p>Google gives you a UK price. Anthropic doesn't publish one at all.</p>
+  <div style="height:30px"></div>
+  <div class="card">
+    <p>You're billed in dollars — so what leaves your account depends on the rate that day, plus whatever your card adds on top.</p>
+  </div>
+  <div class="spacer"></div>
+  <h3 class="o">Small thing. It compounds over a year.</h3>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">04 / 10</span></div>
+</section>
+
+<!-- 5 WHAT EACH IS FOR -->
+<section class="slide">
+  <div class="eyebrow">The actual difference</div>
+  <h2>One <span class="o">answers</span>.<br>One <span class="o">works</span>.</h2>
+  <div style="height:44px"></div>
+  <div class="card" style="margin-bottom:28px">
+    <h3>NotebookLM</h3>
+    <div style="height:14px"></div>
+    <p>Answers questions <em>about</em> your sources. Won't wander outside them.</p>
+    <div style="height:20px"></div>
+    <span class="chip">50 sources free · 300 on Pro</span>
+  </div>
+  <div class="card">
+    <h3>Claude Projects</h3>
+    <div style="height:14px"></div>
+    <p>Works <em>with</em> your documents and hands something back — a draft, a doc, a decision.</p>
+    <div style="height:20px"></div>
+    <span class="chip">200k context · ~10x via retrieval · 30MB per file</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">05 / 10</span></div>
+</section>
+
+<!-- 6 CLAUDE HURTS -->
+<section class="slide">
+  <div class="eyebrow">Where Claude hurts</div>
+  <div class="big o">~45</div>
+  <div style="height:12px"></div>
+  <h3>prompts per rolling five-hour window on Pro</h3>
+  <div class="rule"></div>
+  <p>Shared across chat, Code and desktop. One pool. Anthropic doubled these limits on 6 May 2026 and it still bites mid-flow.</p>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>The problem isn't the money.</h3>
+    <div style="height:16px"></div>
+    <p>It's that you start rationing your iterations — and iteration is the whole point.</p>
+  </div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">06 / 10</span></div>
+</section>
+
+<!-- 7 NOTEBOOKLM HURTS -->
+<section class="slide">
+  <div class="eyebrow">Where NotebookLM hurts</div>
+  <h2>It charges you<br><span class="o">upfront</span>, in effort.</h2>
+  <div class="rule"></div>
+  <p>You have to gather the sources before you get anything back.</p>
+  <div style="height:30px"></div>
+  <ul>
+    <li class="good">Real research job — fair trade.</li>
+    <li class="bad">"I just want to understand this" — it isn't.</li>
+  </ul>
+  <div class="spacer"></div>
+  <div class="card">
+    <p>I end up on YouTube, or just talking to Gemini instead. That's not a missing feature. That's setup cost beating payoff.</p>
+  </div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">07 / 10</span></div>
+</section>
+
+<!-- 8 WORKED EXAMPLE -->
+<section class="slide">
+  <div class="eyebrow">What I actually did</div>
+  <h2>24 objectives.<br><span class="o">24 notebooks.</span></h2>
+  <div class="rule"></div>
+  <p>Learn in Curve has 24 learning objectives. I needed quiz questions for each.</p>
+  <div style="height:24px"></div>
+  <p><strong>The obvious move is one notebook with everything in it. That's the wrong move.</strong></p>
+  <div style="height:24px"></div>
+  <p class="muted">NotebookLM's strength is that it stays inside its sources. So I split them — one per objective, each told: <em>this is the source of truth, do not go off topic.</em></p>
+  <div class="spacer"></div>
+  <div class="card">
+    <p>Cross-contamination between objectives never happened, because structurally it couldn't.</p>
+  </div>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">08 / 10</span></div>
+</section>
+
+<!-- 9 VERDICT -->
+<section class="slide">
+  <div class="eyebrow">The handoff</div>
+  <h2>Generated by one.<br><span class="o">Verified by the other.</span></h2>
+  <div style="height:40px"></div>
+  <div class="tickets">
+    <div class="ticket">
+      <div class="tmeta">Deadline →</div>
+      <div class="tname o">Claude</div>
+      <div style="height:20px"></div>
+      <div class="tsub" style="font-size:27px">200 pages, 20 minutes. Feed it in, state the time constraint, and tell it to ask you questions rather than assume.</div>
+    </div>
+    <div class="perf"></div>
+    <div class="ticket">
+      <div class="tmeta">Time to learn →</div>
+      <div class="tname o">NotebookLM</div>
+      <div style="height:20px"></div>
+      <div class="tsub" style="font-size:27px">Gather sources properly, constrain it hard, and it won't wander. Audio overviews are precise — and you can interrupt them to ask questions.</div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="small muted">Honest caveat: I reach for Claude because I know how to drive it. 6–8 hours in NotebookLM against daily Claude use. Some of that is merit. Some is muscle memory.</p>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">09 / 10</span></div>
+</section>
+
+<!-- 10 CLOSE -->
+<section class="slide">
+  <div class="eyebrow">The thing nobody says</div>
+  <h2>You're not choosing<br>between two tools.</h2>
+  <div style="height:26px"></div>
+  <h2 class="o">You're choosing<br>between two bundles.</h2>
+  <div class="rule"></div>
+  <p>£18.99 buys a notebook, an image model, a video tool, an agentic dev platform and 5TB of storage.<br><br>$20 buys depth on one workflow.</p>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Neither is wrong.</h3>
+    <div style="height:14px"></div>
+    <p>They're different bets — and most comparisons never mention that the unit of comparison isn't the tool.</p>
+  </div>
+  <div style="height:26px"></div>
+  <p class="small muted">Disclosure: I have both through Lenny's Product Pass, so I haven't felt the monthly cost the way a normal subscriber would.</p>
+  <div class="foot"><span class="brand">Learn in <span class="o">Curve</span></span><span class="num">10 / 10</span></div>
+</section>
+
+</body>
+</html>

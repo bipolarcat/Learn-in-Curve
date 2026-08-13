@@ -1,295 +1,226 @@
-# Content Engine — AI Tool Comparison Pipeline
+# Content Engine — AI Tool Comparisons
 
-**Written:** 2026-08-13
-**Status:** Spec. Not yet in Linear, not yet built.
-**Scope:** An editorial pipeline that turns AI-newsletter intake + Sim's point of view into three artifact types across four channels. Covers architecture, schema, build phases and dependencies. Excludes topic-level editorial decisions and paid promotion.
-
----
-
-## 1. Why this exists
-
-Two goals, both real, and they are not the same goal:
-
-1. **Sim's personal brand.** Consistent, opinionated, recognisable output. Measured in reach, follows, inbound conversations — not sign-ups.
-2. **Learn in Curve acquisition.** Measured in traffic and sign-ups.
-
-Per `MARKETING_STRATEGY.md` (2026-08-08), LIC currently has **zero search acquisition** and LinkedIn as its only referrer. That single fact sets the priority: the long-form article isn't a nice-to-have, it's the only component of this pipeline that attacks the search problem. Treat all three formats as core.
-
-### The audience
-
-Beginners who **already pay for an AI subscription and aren't getting value from it**. Interested, willing, blocked by information volume. Explicitly **not** software engineers.
-
-This is the single most important constraint in the document. It's easy to drift into generic tool-review content that competes with every AI newsletter on earth. The schema enforces the angle mechanically (see `day_one_use_case`, §4).
-
-### Why "versus" as the format
-
-A comparison is a forcing function. It makes the writer commit to a recommendation, it gives the reader a decision rather than a description, and it produces a repeatable visual template. The format does editorial work that a "here's a cool tool" post cannot.
+**Written:** 2026-08-13 · **Status:** Spec, agreed. Not built.
+**What it is:** Two separate systems. A tool library that fills itself, and a content workflow you trigger by hand.
 
 ---
 
-## 2. The core architectural decision
-
-**Content is separated from presentation.**
-
-The pipeline never generates "a LinkedIn post" or "an image". It generates one **Comparison Object** — structured JSON. Renderers are consumers of that object.
+## The whole thing on one page
 
 ```
-Newsletters ──► Tool Registry ──► Matchup Queue
-   (scheduled)                         │
-                                       ▼
-                        ┌──────────────────────────┐
-                        │  POV interview (Telegram)│ ◄── Sim
-                        │  Claude conducts         │
-                        └──────────────────────────┘
-                                       │
-                                       ▼
-                          ╔═══════════════════════╗
-                          ║  COMPARISON OBJECT    ║
-                          ║  (JSON — the contract)║
-                          ╚═══════════════════════╝
-                                       │
-        ┌─────────────┬────────────────┼────────────────┬─────────────┐
-        ▼             ▼                ▼                ▼             ▼
-   HTML→PNG      LinkedIn         LinkedIn          IG caption     Article
-   carousel      (Sim)            (LIC page)                       (blog)
-        └─────────────┴────────────────┼────────────────┴─────────────┘
-                                       ▼
-                          ┌────────────────────────┐
-                          │  VALIDATION GATE (code)│  ── fails ──► back to Telegram
-                          └────────────────────────┘
-                                       │ passes
-                                       ▼
-                          ┌────────────────────────┐
-                          │  Approve (Telegram)    │ ◄── Sim
-                          └────────────────────────┘
-                                       │
-                                       ▼
-                                   Auto-post
+SYSTEM 1 — LIBRARY (always on, no decisions)
+  Gmail newsletters ─┐
+  Readwise (later) ──┼─► Claude extracts ─► Notion "Tools" database
+  Telegram message ──┘                       (you browse it whenever)
+
+SYSTEM 2 — PRODUCTION (only when you say so)
+  You: "compare X and Y"   OR   paste long text
+        ↓
+  Interview — Claude researches for you, then grills you
+  (type or dictate via Wispr Flow)
+        ↓
+  Text draft ─► Pangram check ─► revise if it reads as AI
+        ↓
+  ┌─ GATE 1: you review the text ─┐
+        ↓ approved
+  Carousel + caption + article generated
+        ↓
+  Saved to Notion · sent to Telegram if you ask
+        ↓
+  ┌─ GATE 2: you amend, back and forth ─┐
+        ↓ approved
+  Instagram posts automatically
+  LinkedIn drafts ready — you post by hand (personal + company)
+  Article stays in Notion
 ```
 
-**Why this matters:** the design engine is undecided (HTML→PNG first, Canva and Gamma as live options). Under this architecture that's a cheap uncertainty — swapping renderer means writing one new consumer of the same JSON, not rebuilding the pipeline. The schema is the only thing that must be right up front.
+**Two gates. Text before images. Nothing posts to LinkedIn without you.**
 
 ---
 
-## 3. Two clocks
+## Why two systems, not one
 
-Sim's answer was "manual trigger via agent chat" — no publishing schedule. That splits the system in two, and the split is a feature:
+The library has value even if you never post. It's how you learn what's out there. It runs whether or not you're producing content, and it gets better on its own.
 
-| | Trigger | Runs | Why |
-|---|---|---|---|
-| **Ingest** | Scheduled, daily | Unattended | Newsletters arrive continuously. The queue must accumulate value passively, or there's nothing to draw from when Sim does sit down. |
-| **Production** | Manual, conversational | Sim-initiated | Quality depends on Sim's POV. Forcing that on a schedule produces rubber-stamped, low-conviction content — the exact failure mode that makes this indistinguishable from the newsletters it's sourced from. |
+Production draws *from* the library when you feel like it. No schedule, no queue pressure, no obligation.
 
-**Consequence:** the value of this system is the *queue depth*, not the posting rate. A well-stocked, well-researched Matchup Queue means Sim can produce on any day he has energy. Optimise ingest for queue quality, not volume.
+Keeping them separate is what stops this becoming a content treadmill.
 
 ---
 
-## 4. The Comparison Object
+## System 1 — The library
 
-The backbone. Every artifact is a projection of this.
+**Runs:** daily, unattended. Nothing to approve.
 
-```jsonc
-{
-  "matchup": {
-    "tool_a": "…",
-    "tool_b": "…",
-    "category": "LLM | video | audio | scraping | design | automation | …",
-    "hook": "the one-line reason a beginner should care about this matchup"
-  },
-  "tools": {
-    "a": {
-      "one_line": "…",
-      "what_it_actually_does": "plain English, no marketing language",
-      "best_for": "…",
-      "day_one_use_case": "REQUIRED — what a non-engineer opens it and does in the first 10 minutes",
-      "pros": ["…"],
-      "cons": ["…"],
-      "pricing": {
-        "free_tier": "…",
-        "paid_from": "…",
-        "source_url": "REQUIRED",
-        "checked_date": "REQUIRED — ISO date"
-      }
-    },
-    "b": { /* same shape */ }
-  },
-  "verdict": {
-    "who_should_pick_a": "…",
-    "who_should_pick_b": "…",
-    "sim_take": "the opinion — this is the non-commodity part"
-  },
-  "meta": {
-    "sim_used_it": { "a": "yes|no|partially", "b": "yes|no|partially" },
-    "confidence": "high|medium|low",
-    "sources": ["…"],
-    "newsletter_origin": "which newsletter surfaced this, if any"
-  }
-}
-```
+**Inputs, all three:**
+1. Gmail — the AI newsletters you already subscribe to (Superhuman, The Rundown, There's An AI For That, Flux, Every)
+2. Telegram — you message "add Perplexity" and it researches and adds it
+3. Readwise Reader — later, if you set it up
 
-### Three fields doing specific work
+**Output:** one Notion page per tool.
 
-**`day_one_use_case` — required.** This is the beginner constraint, made mechanical. If the pipeline can't fill it, the matchup isn't ready. Without it, output drifts into feature-list comparison, which is exactly what the audience is already drowning in.
+### Fields
 
-**`sim_used_it` — drives everything downstream.** It changes the interview, the copy, and the validation:
+**Core** — what does it do (one line) · category · **PM use case** · who it's for · pricing / free tier · website · source · last updated · tried-yet status
 
-| Value | Interview behaviour | Copy constraint |
-|---|---|---|
-| `yes` | Extract lived experience: what surprised you, what broke, what you'd tell a friend | First-person experience language permitted |
-| `partially` | Extract the bounded experience, research the gaps, present findings, ask for a reaction | Scope claims to what was actually used |
-| `no` | Research first, present a briefing, *then* ask what Sim thinks of it | No first-person experience language. "From the docs" / "on paper" framing only |
+**Company background** — founder · founded · funding stage · how it's doing lately
 
-Honesty here is both a brand asset and the legal safety mechanism. "I haven't used this, but here's what it claims and here's my read" is more credible than fake authority, and it is not a misleading claim.
+> `PM use case` is the field that makes this yours. Not "video tools" but "tools for writing a status report," "tools for meeting notes," "tools for risk logs." A project manager can act on that. An AI newsletter never gives them it. Every use-case cluster is also a comparison waiting to happen.
 
-**`checked_date` on pricing.** AI tool pricing changes constantly. This is by far the most likely factual error the system will make, and the one most likely to be noticed. Staleness is enforced in code (§6).
+> Company background goes stale and is the most likely thing the AI gets wrong. It's there for your learning, not for publishing. Don't put an unverified funding figure in a post.
+
+### Tried-yet status
+
+`not tried → to try → tried`
+
+When you pick a matchup and haven't used a tool, the agent doesn't work around it — **it tells you to go use it first**. That's the point. The content can't be faked, and you learn something every cycle.
+
+You can only publish as fast as you can actually use tools. That's a feature.
 
 ---
 
-## 5. Model routing — Claude everywhere content is touched
+## System 2 — Production
 
-Standing decision: **Claude is the brain for anything content-related.** In n8n this is an Anthropic Chat Model node feeding the AI Agent node. Route by job:
+### Trigger
 
-| Job | Model | Why |
-|---|---|---|
-| Newsletter extraction → Tool Registry | Haiku / Sonnet | High volume, low judgment, structured output. Cost matters here. |
-| Matchup suggestion | Sonnet | Pattern-matching over the registry |
-| **POV interview** | **Opus** | Conversational judgment, knowing which follow-up to ask, adapting to `sim_used_it`. The quality of the whole pipeline lives here. |
-| **Article generation** | **Opus** | Long-form in a specific voice from `VOICE_GUIDE.md` |
-| Caption generation | Sonnet | Short, constrained, schema-driven |
+Telegram, two ways:
+- `"compare Notion AI and ChatGPT for meeting notes"`
+- paste any long text you've written or dictated → skips to the draft stage
 
-Do not economise on the interview. Everything else is downstream of it.
+### Interview
 
----
+**Supportive first, then challenging.** In order:
 
-## 6. The validation gate
+1. Briefs you on both tools from the library + fresh research
+2. Asks open questions about your experience
+3. **Then pushes back** — no vague answers, demands a specific example or a number, asks what would make you wrong
+4. Won't close while your take is generic
 
-Sim chose fully-automatic posting after Telegram approval. That's a legitimate choice, and it makes this section non-optional.
+Answers by typing or dictation (Wispr Flow), whichever suits the moment.
 
-**Principle, already learned on Sly (see memory: LLM soft instructions unreliable):** hard behavioural constraints go in code, not prompt wording. A prompt saying "only make verifiable claims" holds most of the time. The rest goes public, unattended, under Sim's name, about named commercial companies.
+### Draft → Pangram → Gate 1
 
-An n8n **validation node sits between generation and publish** and hard-fails the post back to Telegram — never to the platform — on any of:
+Text draft only. No images yet — generating slides from a draft you don't like wastes the expensive step.
 
-1. Any pricing claim missing `source_url` or `checked_date`
-2. `checked_date` older than 30 days
-3. Copy contains denigratory phrasing about a named company (maintained regex banlist)
-4. `sim_used_it = no` but copy contains first-person experience language ("I found", "when I used", "in my testing")
-5. `day_one_use_case` empty for either tool
+Runs through **Pangram** first. If it reads as AI-written, the agent revises *before* you see it.
 
-Failure returns the *reason*, so the fix is one Telegram message, not a re-run.
+You review in Telegram or Notion. Approve or send it back.
 
-### Legal context (informal — not legal advice)
+### Generate → Gate 2
 
-Publicly comparing named commercial products is **comparative advertising**. Permitted under the UK CAP Code, but claims must be objectively verifiable, not misleading, and not denigratory. The rules tighten if affiliate links are ever added — those require clear, prominent disclosure under CAP and CMA guidance.
+Once the text is approved:
+- **Carousel** — PDF for LinkedIn, PNGs for Instagram
+- **Caption** — LinkedIn and Instagram versions
+- **Article** — long form
 
-Practical translation: *"Tool B's free tier caps at 100 credits/month" (checkable, sourced) is fine. "Tool B is a waste of money" is not.* The gate above encodes exactly that line.
+All saved to Notion. Sent to Telegram if you ask for it. You amend, it regenerates, back and forth until you're happy.
 
-**Flag:** an unattended pipeline publishing claims about named companies at volume is worth a real solicitor's review before it runs without a human in the loop. Add to `legal/PRE_LAUNCH_CHECKLIST.md`.
+### Publish
 
----
-
-## 7. Channels
-
-All four ship in v1. Same Comparison Object, four renderers.
-
-| Channel | Artifact | Voice source | Notes |
-|---|---|---|---|
-| **LinkedIn — Sim** | Caption + carousel | *Sim's Voice & Style Guide* (Notion) | Proven referrer. First person, personal brand goal. |
-| **LinkedIn — LIC page** | Caption + carousel | LIC brand voice | Reworded, not duplicated. LinkedIn suppresses identical cross-posts. |
-| **Instagram — LIC** | Carousel + caption | LIC brand voice | Awareness, not traffic — IG has near-zero link affordance. |
-| **Blog — learnincurve.com** | Long-form article | `VOICE_GUIDE.md` (Enthusiast register) | **The only channel that attacks the zero-search problem.** |
-
-### Voice guide split
-
-Two documents, both correct, different jobs:
-
-- **`VOICE_GUIDE.md`** (v2, 2026-08-08, built from 171k words of dictation) — governs long-form. Key rule: write in the **Enthusiast** register, not the Professional one. The Professional register is Sim's default when writing about project management and it is dull. Comparing AI tools is *natively* Enthusiast territory, so this pipeline should sit in the right register more easily than `/learn` pages do.
-- **Sim's Voice & Style Guide** (Notion) — governs LinkedIn / short-form.
-
-Signature moves worth encoding into the caption and article prompts: the **"however" pivot** (~1 per piece), **always a number or a name** — never a vague quantity, and **teach through one worked instance** rather than abstractly.
-
----
-
-## 8. Design renderer
-
-**v1: HTML → PNG.** Rationale: `brand/BRAND_KIT_v4.html` already exists as HTML with tokens, so the renderer inherits brand for free. Canva or Gamma would mean re-creating it.
-
-Brand tokens (from v4):
-
-| Token | Hex |
+| Where | How |
 |---|---|
-| Gold | `#D9A441` |
-| Rust | `#D5501F` |
-| Deep teal | `#123F3C` / `#1B6560` |
-| Cream | `#FBF3E1` |
-| Ink | `#241A12` |
+| Instagram | **Automatic** — already set up on the account |
+| LinkedIn personal | Draft ready in Notion, you post |
+| LinkedIn company page | Draft ready in Notion, you post |
+| Article | Stays in Notion for now |
 
-Fonts: **Figtree** (sans), **Fraunces** (serif), **Space Mono** (mono).
-
-Canva and Gamma remain live options as alternate renderers. Because they consume the same Comparison Object, switching later is a contained change. Decide after seeing v1 output side by side.
-
-**Note:** existing Mascot SVGs are raster-wrapped, not true vector (see memory). Don't assume they scale for print-size carousel slides — check before using.
+No LinkedIn API, no app reviews, no approvals to wait on.
 
 ---
 
-## 9. Build phases
+## Rating loop
 
-**Sequencing principle: build the hardest-to-get-right thing first, with the least machinery around it.** Automating an unvalidated process just produces bad output faster. The risk here is not "can n8n do this" — it obviously can. The risk is "is the content actually good."
+After each piece, three scores on Telegram (5 seconds) plus one line: *what would make this a 10?*
 
-### Phase 0 — Prove the content (no automation)
+- **Hook** — did the opening earn the scroll-stop
+- **Substance** — sharp and specific, or generic
+- **Voice** — did it sound like me
 
-Pick one matchup. Run the POV interview manually in a Claude chat. Produce all three artifacts by hand. Look at them.
+Plus a fourth: **rate the interview**. If the questions were weak, everything downstream is weak — and that's the only part with no other feedback.
 
-Exit criteria: Sim would post all three without editing. If not, fix the schema, the prompts, or the design *before* writing a single n8n node.
+**What consumes the ratings:**
+- Anything scoring **8+** becomes a few-shot example in future generation prompts — the system writes in the style of your own best work
+- A complaint that recurs **3+ times** gets promoted to a hard rule in `STYLE_RULES.md`, which sits in the prompt alongside `VOICE_GUIDE.md`
 
-### Phase 1 — Renderers + schema
-
-Lock the Comparison Object. Build the HTML→PNG template and the three copy renderers. Still manually triggered, still manually fed.
-
-### Phase 2 — Telegram production loop
-
-n8n AI Agent node (Anthropic model) + Telegram trigger. Conversational: browse queue → select matchup → POV interview → generate → review. Output goes to Notion, not to platforms.
-
-### Phase 3 — Ingest automation
-
-Scheduled Gmail → Claude extraction → Notion Tool Registry → Matchup Queue. This is the least risky part and the easiest to defer.
-
-### Phase 4 — Validation gate + auto-publish
-
-Build the gate *before* wiring the publish APIs, not after. Then LinkedIn, then IG, then blog.
+**Ship at 7, not 10.** If everything must hit 10 you'll never publish. Watch the rolling average over 20 pieces — if it's climbing, it's working.
 
 ---
 
-## 10. Dependencies and blockers
+## Design
 
-| Item | Status | Blocks |
+Follow `brand/Cursor brand brief 13.08.txt`. It wins over anything here.
+
+The comparison format and the brand motif are the same shape: **two tickets, dashed perforation down the middle.** Tool A, Tool B. The brand already contains this design — don't invent a new one.
+
+| | |
+|---|---|
+| Page | cream `#F4E9D6` with dot grid |
+| Cards | paper `#FBF3E1`, thin ink border, soft shadow, rounded 12–20px |
+| Text | ink `#241A12` |
+| Hero accent | orange `#D5501F` — usually one orange word in a Fraunces headline |
+| Good / bad | olive `#4F8F2E` / rust `#D03A1F` |
+| Type | Fraunces headlines, Figtree everything else, sentence case |
+
+**Never:** purple gradients, white cards on grey, photoreal or 3D, Space Mono, uppercase stamp labels, full-bleed colour bands.
+
+Carousels: **8–10 slides.** Ten-slide carousels get ~22% more reach than three-slide.
+
+---
+
+## Voice
+
+- **`VOICE_GUIDE.md`** → the article. Write in the **Enthusiast** register, never the Professional one.
+- **Sim's Voice & Style Guide** (Notion) → LinkedIn and Instagram captions.
+
+Signature moves to keep: the **"however" pivot** (~once per piece) · **always a number or a name**, never a vague quantity · **teach through one worked example**, not abstractly.
+
+---
+
+## Notion — two databases
+
+**Tools** — the library. Fields above.
+**Content** — every piece: type, status, the three artifacts, your four ratings, the delta line.
+
+Matchup queue is a *view* on Content, not a third database.
+
+---
+
+## Build order
+
+| # | What | Notes |
 |---|---|---|
-| Notion connector auth | **Broken** — needs re-auth | Everything. Notion is the store. |
-| Canva connector auth | **Broken** — needs re-auth | Only the Canva renderer option |
-| `/blog` route on learnincurve.com | **Does not exist** — no route under `src/app/(site)/` | The entire article channel, and therefore the whole SEO rationale |
-| LinkedIn API — personal posting | Not set up | `w_member_social` scope; requires app review |
-| LinkedIn API — company page | Not set up | `w_organization_social` scope |
-| Instagram Graph API | Not set up | Requires IG **Business/Creator** account linked to a Facebook Page |
-| n8n instance | Unverified | Phases 2-4 |
-| Solicitor review of comparative claims | Not started | Unattended auto-publish only |
+| 0 | **Hand-run one matchup** | No automation. Interview in a Claude chat, produce all three artifacts manually, look at them. If you wouldn't post them, fix the format before building anything. |
+| 1 | Notion databases | Two, as above |
+| 2 | n8n workflow A — ingest | Gmail + Telegram → Claude → Tools |
+| 3 | n8n workflow B — Telegram agent | Browse, interview, draft, generate, rate |
+| 4 | HTML → PDF/PNG renderer | Ticket template, brand brief accurate |
+| 5 | Instagram publish | Already working on the account |
 
-**The `/blog` gap is the most consequential.** The article is the only channel that addresses zero search traffic, and there is currently nowhere for it to go. Building the route is a prerequisite, not a follow-up — and it's a Cursor job.
+**Phase 0 is not optional.** Everything above is theory until one of these exists and you've looked at it.
 
 ---
 
-## 11. Open questions
+## Legal note (informal, not legal advice)
 
-1. **Matchup pairing logic** — who decides which two tools go head to head? Claude suggests from the registry and Sim confirms in Telegram, or Sim proposes freely?
-2. **Series identity** — does this run under a consistent name/hashtag? A recognisable series compounds; one-off posts don't.
-3. **Where does LIC get mentioned?** The link between "helpful AI tool comparisons" and "PMQ exam prep" is not obvious. If every post ends in a PMQ CTA it reads as bait. Needs a deliberate answer, not a default one.
-4. **Queue depth target** — how many ready matchups before the system is considered "stocked"?
-5. **Does the article get published before or after the social posts?** Publishing the article first and linking to it from social is the only sequencing that sends traffic to the site.
+Comparing named commercial products publicly is comparative advertising. Allowed under the UK CAP Code, but claims must be verifiable and not denigratory.
+
+- "Tool B's free tier caps at 100 credits/month" — fine, sourced and checkable
+- "Tool B is a waste of money" — not fine
+
+Practical rules: every pricing claim carries a source and a date; refresh anything older than 30 days; don't publish company/funding figures from the library without checking them. If affiliate links ever appear, they need clear disclosure.
+
+Instagram posts automatically, so it's the one channel with no human gate — keep the claim rules tightest there. Add comparative-advertising review to `legal/PRE_LAUNCH_CHECKLIST.md`.
 
 ---
 
-## 12. Related documents
+## To do outside the build
 
-- `VOICE_GUIDE.md` — long-form voice, Enthusiast register
-- Sim's Voice & Style Guide (Notion) — short-form / LinkedIn voice
-- `MARKETING_STRATEGY.md` — acquisition diagnosis, why the blog matters
-- `brand/BRAND_KIT_v4.html` — colour and type tokens
-- `legal/PRE_LAUNCH_CHECKLIST.md` — add comparative-advertising review
+- **Claim Pangram** — free to you, expires 28 Jan 2027
+- Claim Readwise if you want it as an ingest source — expires 28 Jan 2027
+- Decide where articles live, eventually. Deferred for now. If SEO matters later, they need to be on learnincurve.com, not a subdomain.
+
+---
+
+## Related
+
+`brand/Cursor brand brief 13.08.txt` (design, wins over this doc) · `VOICE_GUIDE.md` · Sim's Voice & Style Guide (Notion) · `MARKETING_STRATEGY.md` · Lenny's Product Pass (Notion)
