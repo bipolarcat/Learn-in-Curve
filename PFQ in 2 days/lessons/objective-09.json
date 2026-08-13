@@ -1,0 +1,152 @@
+{
+  "objective_number": 9,
+  "objective_code": "PFQ-OBJ-09",
+  "title": "Communication in the context of a project",
+  "day": 2,
+  "apm_learning_objective": "Understand communication in the context of a project.",
+  "learning_outcomes": [
+    "9.1",
+    "9.2",
+    "9.3",
+    "9.4",
+    "9.5"
+  ],
+  "exam_coverage_note": "5 of 60 marks. Note that advantages and disadvantages of communication methods are two separate outcomes, so the methods are worth two marks between them.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 3.3.1 and 8th ed. 4.1.4.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+  "where_this_fits": "Five marks, and easier than it looks provided you notice one thing: outcomes 9.2 and 9.3 ask for advantages and disadvantages of the three communication methods separately. That is two marks resting on the same three methods, so learning face to face, physical and virtual properly is the best return in the objective. The rest connects backwards to stakeholder analysis at outcome 4.6, which tells you who needs communicating with, and forwards to leadership at objective 10, which depends on being able to do it well.",
+  "key_definitions": [
+    {
+      "term": "Communication",
+      "definition": "The exchange of information between parties, and the confirmation that a shared understanding has been reached.",
+      "plain_english": "Not just sending something. Making sure it landed the way you meant it."
+    },
+    {
+      "term": "Face to face communication",
+      "definition": "Communication conducted in person, allowing verbal and non-verbal signals to be exchanged directly.",
+      "plain_english": "In the same room, reading the body language as well as the words."
+    },
+    {
+      "term": "Physical communication",
+      "definition": "Communication through tangible written or printed material, such as reports, letters and documents.",
+      "plain_english": "Something written down that exists as a record."
+    },
+    {
+      "term": "Virtual communication",
+      "definition": "Communication mediated by technology, such as video calls, email, messaging and collaboration tools.",
+      "plain_english": "Anything that needs a network and a device to happen."
+    },
+    {
+      "term": "Communication plan",
+      "definition": "A document setting out what information will be communicated to whom, when, how, and by whom.",
+      "plain_english": "Who hears what, how often, in what form, and whose job it is to send it."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "9.1",
+      "outcome_title": "Define the term 'communication'",
+      "key_takeaway": "The exchange of information and the confirmation of shared understanding. The second half is the part candidates drop.",
+      "body_markdown": "Communication is the exchange of information between parties, together with confirmation that a shared understanding has been reached.\n\nThe second half is the examinable part. Sending information is transmission. It becomes communication only when it has been received and understood as intended. A report nobody opened has been distributed, not communicated.\n\nThe word exchange matters too. Communication runs in both directions. A project manager who issues weekly reports and receives nothing back has a broadcast, and broadcasts are how projects discover late that a stakeholder has been quietly unhappy for two months.\n\nThis is why confirmation appears in the definition. Asking someone to say what they have understood, or noticing that their questions imply a different picture, is the mechanism that closes the loop.\n\nCommunication also covers more than status information. It includes building relationships, managing expectations, and reaching agreement, which is what connects this objective to stakeholder engagement at outcome 4.6 and leadership at outcome 10.1.",
+      "watch_for": "Options defining communication as distributing reports on a schedule, or as persuading stakeholders to agree. Distribution is one mechanism, persuasion is one purpose, and neither is the definition."
+    },
+    {
+      "outcome_code": "9.2",
+      "outcome_title": "Outline the advantages of different communication methods",
+      "key_takeaway": "Face to face gives non-verbal signals and immediate feedback. Physical gives a record. Virtual gives reach.",
+      "body_markdown": "The syllabus names three methods, and because they appear in a bracketed list they are examinable by name. Each has its own advantages, and the exam expects you to attach the right one to the right method.\n\nFace to face communication allows non-verbal signals to be seen and responded to. Tone, expression and hesitation carry information that words alone do not. Feedback is immediate, misunderstandings can be corrected in the moment, and it is the strongest method for building trust or handling anything sensitive or contentious.\n\nPhysical communication, meaning written or printed material, produces a durable and accurate record. The same message reaches everyone in identical form, complex detail can be conveyed precisely, and the recipient can read it at their own pace and return to it later.\n\nVirtual communication reaches people wherever they are. It makes dispersed and international teams workable, it is fast and inexpensive relative to travel, it can reach many people at once, and most forms of it leave a searchable trail.\n\nA competent communication plan uses all three, matched to the message rather than to habit.",
+      "watch_for": "Advantages attached to the wrong method, particularly a written record being offered as an advantage of face to face communication. Keep each list attached to its own method."
+    },
+    {
+      "outcome_code": "9.3",
+      "outcome_title": "Outline the disadvantages of different communication methods",
+      "key_takeaway": "Face to face costs time and leaves no record. Physical is slow and one way. Virtual depends on technology and loses signal.",
+      "body_markdown": "The same three methods, and a separate mark for their weaknesses.\n\nFace to face communication requires people to be in the same place at the same time, which costs time and money and is often impossible for a dispersed team. It normally leaves no record unless someone takes one, so what was agreed can be disputed afterwards. It also does not scale.\n\nPhysical communication is slow. There is no immediate feedback, so a misunderstanding can persist until it surfaces as a problem. It carries no tone, which makes it easy to read a neutral message as curt. It is largely one way, and volume becomes its own problem when people stop reading.\n\nVirtual communication depends on technology being available and reliable for everyone involved, which is not guaranteed. Non-verbal signals are reduced or absent, so conflict and disengagement are harder to detect. Time zones complicate scheduling, and the ease of copying people in produces noise that hides the signal.\n\nThe general principle is that every method trades something. Richness against reach, speed against permanence, immediacy against record.",
+      "watch_for": "Options claiming virtual communication never leaves a record, or cannot be used outside the organisation. Both are false. The genuine weaknesses are technology dependence and reduced non-verbal signal."
+    },
+    {
+      "outcome_code": "9.4",
+      "outcome_title": "Outline the contents of a communication plan",
+      "key_takeaway": "Who receives what information, when, how, and who is responsible for sending it.",
+      "body_markdown": "A communication plan records the decisions about project communication so that it happens deliberately rather than reactively.\n\nTypical contents are the stakeholders or audiences, drawn from the stakeholder analysis at outcome 4.6; what information each needs; why they need it; the frequency or timing; the method or channel for each; who is responsible for producing and sending it; and any feedback mechanism.\n\nThe plan follows from analysis. Stakeholder analysis identifies who matters and how much influence they hold. The communication plan turns that into a schedule of specific actions. Without the analysis the plan is guesswork, and without the plan the analysis changes nothing.\n\nIt is also a live document. Stakeholders change as the project moves through its phases, and information needs change with them. A plan written at definition and never revisited will be describing an audience that has moved on.",
+      "watch_for": "Artefacts from other processes offered as communication plan contents: the critical path, acceptance criteria, delegated tolerances, the risk register. If it belongs to another process, it is not communication plan content."
+    },
+    {
+      "outcome_code": "9.5",
+      "outcome_title": "Explain the benefits, to a project manager, of a communication plan",
+      "key_takeaway": "The right people get the right information at the right time, deliberately rather than by accident.",
+      "body_markdown": "The benefits are worth being able to list, because the outcome asks for them specifically from the project manager's point of view.\n\nCommunication becomes deliberate rather than reactive. Without a plan, communication defaults to whoever asks loudest, which means the stakeholders who chase get information and the ones who do not, and who may matter more, are neglected until they become a problem.\n\nExpectations are managed. People who are told what is happening on a predictable schedule are markedly less likely to form their own version of events in the gaps.\n\nEffort is targeted. A project manager's time is finite, and a plan directs it towards the audiences where communication changes the outcome.\n\nIt provides consistency. Everyone hears the same message rather than several versions, which matters most when the news is bad.\n\nAnd it creates accountability. Naming who sends what, and when, means communication has an owner rather than being everybody's job and therefore nobody's.\n\nWhat a plan cannot do is make people agree. It ensures the message arrives and is understood; what the recipient does with it is a separate matter.",
+      "watch_for": "Options claiming a communication plan guarantees stakeholder agreement, removes the need for stakeholder analysis, or transfers reporting responsibility to someone else."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "If the report was sent, it was communicated.",
+      "right": "Communication requires the information to be received and understood. Sending is transmission. Confirmation of shared understanding is what completes it."
+    },
+    {
+      "wrong": "Face to face is always the best method.",
+      "right": "It is the richest, and it is expensive, unscalable and leaves no record. The correct method depends on the message, the audience and the need for a record."
+    },
+    {
+      "wrong": "Virtual communication leaves no audit trail.",
+      "right": "Most forms leave a searchable one. The genuine disadvantages are technology dependence and reduced non-verbal signal."
+    },
+    {
+      "wrong": "Written communication is the safest because it cannot be misunderstood.",
+      "right": "It carries no tone and offers no immediate feedback, so misunderstandings persist longer precisely because nobody notices them."
+    },
+    {
+      "wrong": "A communication plan is a list of meetings.",
+      "right": "It records who receives what information, when, how, and who is responsible for it. Meetings are one channel among several."
+    },
+    {
+      "wrong": "A good communication plan keeps stakeholders happy.",
+      "right": "It ensures the right information reaches the right people at the right time. Some of them will still disagree, and a plan that hides that is failing."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "Who, what, when, how, by whom",
+      "expansion": "The five questions a communication plan answers. If an option does not answer one of them, it is not plan content."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Rich / Reach / Record",
+      "expansion": "Face to face is rich, virtual has reach, physical leaves a record. Three methods, three strengths, and the disadvantage of each is usually the absence of the other two."
+    },
+    {
+      "type": "test",
+      "acronym": "Sent is not understood",
+      "expansion": "The confirmation half of the definition. Any option stopping at distribution is incomplete."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define communication including the confirmation of shared understanding.",
+    "I can name the three communication methods in the syllabus.",
+    "I can give two advantages of each method, attached to the right one.",
+    "I can give two disadvantages of each method, attached to the right one.",
+    "I can list the contents of a communication plan and name two things that do not belong in it.",
+    "I can give four benefits of a communication plan and explain why it cannot guarantee stakeholder agreement."
+  ],
+  "source_confidence": [
+    {
+      "claim": "The three communication methods named in the syllabus are face to face, physical and virtual.",
+      "sub_outcome": "9.2, 9.3",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' lists in syllabus outcomes 9.2 and 9.3. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "Advantages and disadvantages are separate learning outcomes, worth a mark each.",
+      "sub_outcome": "9.2, 9.3",
+      "level": "high",
+      "basis": "PFQ Handbook §11d lists them as two distinct outcomes; §12c states one question per outcome.",
+      "risk": "None material. Candidates who revise the methods once, in one direction, are preparing for one of the two marks."
+    }
+  ]
+}

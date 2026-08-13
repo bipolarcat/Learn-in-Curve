@@ -4,16 +4,26 @@
   "title": "Project management planning",
   "day": 1,
   "apm_learning_objective": "Understand project management planning.",
-  "learning_outcomes": ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "4.10", "4.11"],
+  "learning_outcomes": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "4.6",
+    "4.7",
+    "4.8",
+    "4.9",
+    "4.10",
+    "4.11"
+  ],
   "exam_coverage_note": "11 of 60 marks. The largest objective in the syllabus, worth almost a fifth of the paper.",
   "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.3.5, 1.3.7, 2.3, 3.1, 4.1.1, 4.2, 4.2.4, 4.2.10, 4.3, 4.3.1 and 8th ed. 2.4, 3.1.3, 3.6, 4.1, 5.1.1, 5.4, 5.4.1, 5.5.3, 5.5.4.",
   "competence_area": null,
   "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
   "authored_on": "2026-08-13",
   "review_status": "draft-pending-sim",
-
   "where_this_fits": "Eleven marks, more than any other objective and nearly a fifth of the paper. If you have limited time, this is where it goes. The objective covers the documents and techniques that get a project from an idea to an agreed plan: the business case that justifies it, the baseline that measures it, the estimates that size it, the stakeholder analysis that keeps people on side, the success criteria that define done, and the progress reporting that shows whether it is working. It draws on objective 1 for the purpose of project management and on objective 2 for the life cycle, and it feeds objective 5, where scope gets controlled once the plan is agreed. Study it after objectives 1 and 2, and give it more time than its share of the syllabus text suggests.",
-
   "key_definitions": [
     {
       "term": "Deployment baseline",
@@ -51,7 +61,6 @@
       "plain_english": "What has to be true at the end for everyone to agree it went well."
     }
   ],
-
   "core_content": [
     {
       "outcome_code": "4.1",
@@ -131,7 +140,6 @@
       "watch_for": "Options claiming reporting prevents variance, guarantees delivery on time, or removes the need for a risk register. Reporting reveals; it does not control. It is also not the same as monitoring: monitoring gathers the data, reporting communicates it."
     }
   ],
-
   "misconceptions": [
     {
       "wrong": "A baseline is the date the project starts.",
@@ -170,7 +178,6 @@
       "right": "It makes deviation visible early enough for someone to act. The acting is a separate thing."
     }
   ],
-
   "memory_aids": [
     {
       "type": "acronym",
@@ -198,21 +205,14 @@
       "expansion": "The estimating funnel in three words. Accuracy improves; it says nothing about whether costs go up or down."
     }
   ],
-
   "progress_checkpoint": [
-    "I can define a deployment baseline without using the word start.",
-    "I can say how baselines differ between linear and iterative life cycles, and why.",
-    "I can name four stakeholders of the project management plan and give each a reason.",
+    "I can define a deployment baseline without using the word start, and say how baselines differ between linear and iterative life cycles.",
+    "I can name four stakeholders of the project management plan with a reason for each, and say who owns the business case and who informs it.",
     "I can list the typical contents of a business case and name two things that do not belong in it.",
-    "I can say who owns the business case, who maintains it, and who informs it.",
     "I can explain what stakeholder analysis produces and what it cannot promise.",
     "I can define benefits management and explain the difference between a benefit and an output.",
-    "I can name the three estimating methods and say when each is realistically available.",
-    "I can explain what the estimating funnel shows, and what it does not show.",
-    "I can give a different reason for success criteria at the start, during, and at handover.",
-    "I can state three benefits of progress reporting without claiming it prevents variance."
+    "I can name the three estimating methods, say what the estimating funnel shows, and give three benefits of progress reporting."
   ],
-
   "source_confidence": [
     {
       "claim": "This objective is worth 11 of 60 marks, the largest share in the syllabus.",

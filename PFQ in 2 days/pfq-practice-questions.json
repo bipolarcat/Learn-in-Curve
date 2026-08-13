@@ -1,0 +1,3043 @@
+{
+  "meta": {
+    "product": "PFQ in 2 Days",
+    "file": "practice-only question bank",
+    "version": "0.1.0",
+    "authored": "2026-08-13",
+    "author": "Learn in Curve (original authorship)",
+    "syllabus": "APM Project Fundamentals Qualification Handbook, APM-QS-PFQ-8 V5, April 2026",
+    "provenance": "All questions written independently against the published PFQ syllabus. No stem, option or distractor is copied from APM's sample exam paper or any third-party question set.",
+    "notes": [
+      "These questions are practice-only: mock_suitable false, variant 2 upwards. The 60 mock questions live in pfq-questions.json.",
+      "Both files seed into the same pfq_questions table.",
+      "Explanations reference option CONTENT, never letters, because options are re-shuffled per attempt.",
+      "No em dashes anywhere in this file.",
+      "Target counts per objective: 1=28, 2=22, 3=7, 4=56, 5=42, 6=30, 7=42, 8=30, 9=26, 10=22, including the mock question for each outcome."
+    ],
+    "status": "objectives 1 to 6 complete. Objectives 7 to 10 in progress."
+  },
+  "questions": [
+    {
+      "id": "PFQP-1-1-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "A construction firm has built forty identical warehouses and has been contracted to build a forty-first on a new site. Is the forty-first a project?",
+      "options": {
+        "a": "No, because the firm has done the same work forty times before.",
+        "b": "Yes, because the site, ground conditions and client differ, so the work is not a straight repeat.",
+        "c": "No, because the design is not new.",
+        "d": "Yes, because it has its own budget."
+      },
+      "answer": "b",
+      "explanation": "Uniqueness does not require novelty. It requires that the work cannot simply be repeated without thinking. A separate budget is not what makes something a project."
+    },
+    {
+      "id": "PFQP-1-1-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which of the following is not part of the definition of a project?",
+      "options": {
+        "a": "It is transient.",
+        "b": "It is unique.",
+        "c": "It is undertaken to bring about change.",
+        "d": "It is delivered by a dedicated full-time team."
+      },
+      "answer": "d",
+      "explanation": "The definition covers uniqueness, transience, bringing about change and achieving planned objectives. Nothing in it requires a dedicated or full-time team."
+    },
+    {
+      "id": "PFQP-1-1-4",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.1",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "Which word in the definition of a project most reliably separates it from business as usual?",
+      "options": {
+        "a": "Transient.",
+        "b": "Planned.",
+        "c": "Objectives.",
+        "d": "Endeavour."
+      },
+      "answer": "a",
+      "explanation": "Business as usual can be planned, can have objectives and is certainly an endeavour. What it never is, is transient."
+    },
+    {
+      "id": "PFQP-1-2-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Which of the following describes business as usual rather than a project?",
+      "options": {
+        "a": "Delivering a new customer database by the end of the financial year.",
+        "b": "Running the monthly payroll to an agreed service standard.",
+        "c": "Relocating the head office to a new building.",
+        "d": "Implementing a new safety procedure across three sites."
+      },
+      "answer": "b",
+      "explanation": "Payroll is ongoing and repeatable, and nobody expects it to finish. The other three each deliver change and then end."
+    },
+    {
+      "id": "PFQP-1-2-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.2",
+      "verb": "State",
+      "type": "multi_select",
+      "traps": [
+        "multi_select"
+      ],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which of the following are true of both projects and business as usual?",
+      "items": [
+        "They have stakeholders",
+        "They can have budgets",
+        "They deliver change",
+        "They produce outputs"
+      ],
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "1, 2 and 4",
+        "c": "2, 3 and 4",
+        "d": "1, 3 and 4"
+      },
+      "answer": "b",
+      "explanation": "Stakeholders, budgets and outputs exist on both sides. Delivering change is what belongs to projects; business as usual sustains rather than changes."
+    },
+    {
+      "id": "PFQP-1-2-4",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "What normally happens to a project team at the end of a project?",
+      "options": {
+        "a": "It is disbanded, because the structure was temporary.",
+        "b": "It becomes a permanent function running the output.",
+        "c": "It transfers into the governance board.",
+        "d": "It continues until the benefits have been realised in full."
+      },
+      "answer": "a",
+      "explanation": "A project team is a temporary structure that dissolves at closure. Running the output afterwards is business as usual, performed by a permanent function."
+    },
+    {
+      "id": "PFQP-1-3-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Which of the following is not, by itself, project management?",
+      "options": {
+        "a": "Applying methods and processes to achieve project objectives.",
+        "b": "Using scheduling software to track activities.",
+        "c": "Applying knowledge and experience to a project's problems.",
+        "d": "Applying skills to deliver specific objectives for change."
+      },
+      "answer": "b",
+      "explanation": "Software supports project management without being it. The definition is the application of processes, methods, knowledge, skills and experience."
+    },
+    {
+      "id": "PFQP-1-3-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.3",
+      "verb": "Define",
+      "type": "multi_select",
+      "traps": [
+        "multi_select"
+      ],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which of the following appear in the definition of project management?",
+      "items": [
+        "Processes",
+        "Authority",
+        "Knowledge",
+        "Experience"
+      ],
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "2, 3 and 4",
+        "c": "1, 3 and 4",
+        "d": "1, 2 and 4"
+      },
+      "answer": "c",
+      "explanation": "Processes, methods, knowledge, skills and experience. Authority is not part of the definition, and project managers frequently work without it."
+    },
+    {
+      "id": "PFQP-1-4-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.4",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "A project is delivered on time and within budget, but the organisation is no better off than before. In terms of the purpose of project management, what has happened?",
+      "options": {
+        "a": "The purpose was achieved, because the constraints were met.",
+        "b": "The purpose was not fully achieved, because no beneficial change resulted.",
+        "c": "The purpose was achieved, because the outputs were delivered.",
+        "d": "The purpose does not apply, because the project closed successfully."
+      },
+      "answer": "b",
+      "explanation": "The purpose has two halves: objectives within constraints, and beneficial change. Meeting the constraints while delivering no benefit satisfies only one of them."
+    },
+    {
+      "id": "PFQP-1-4-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.4",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which of the following is a project's output rather than a benefit?",
+      "options": {
+        "a": "A twenty per cent reduction in call handling time.",
+        "b": "A new customer service system.",
+        "c": "Improved customer satisfaction scores.",
+        "d": "Lower annual operating costs."
+      },
+      "answer": "b",
+      "explanation": "The system is what the project delivers. The reduction, the satisfaction scores and the lower costs are the measurable improvements that follow when someone uses it."
+    },
+    {
+      "id": "PFQP-1-5-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Which of the following describes programme management?",
+      "options": {
+        "a": "Prioritising investment across unrelated initiatives to match strategy.",
+        "b": "Coordinating related projects and business as usual to deliver benefits not available from managing them individually.",
+        "c": "Delivering a single set of objectives within agreed constraints.",
+        "d": "Managing a project that has grown beyond its original budget."
+      },
+      "answer": "b",
+      "explanation": "Programme management coordinates related work. Prioritising across unrelated initiatives is portfolio management, and size has nothing to do with the distinction."
+    },
+    {
+      "id": "PFQP-1-5-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "An organisation holds a building refurbishment, a software migration and a rebranding campaign together, deciding each year which to fund. What is being described?",
+      "options": {
+        "a": "A programme, because several initiatives are managed together.",
+        "b": "A portfolio, because unrelated initiatives are selected and prioritised against strategy.",
+        "c": "A project, because there is a defined end point.",
+        "d": "Business as usual, because the decision recurs annually."
+      },
+      "answer": "b",
+      "explanation": "The initiatives are unrelated to each other and are being prioritised for investment. That is a portfolio. A programme would require the components to be connected."
+    },
+    {
+      "id": "PFQP-1-5-4",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.5",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "Which single word best captures what distinguishes portfolio management from programme management?",
+      "options": {
+        "a": "Prioritisation.",
+        "b": "Coordination.",
+        "c": "Delivery.",
+        "d": "Governance."
+      },
+      "answer": "a",
+      "explanation": "Portfolio prioritises against strategy; programme coordinates related work. Governance and delivery apply at every level."
+    },
+    {
+      "id": "PFQP-1-6-2",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.6",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Which of the following would a PESTLE analysis be least likely to surface?",
+      "options": {
+        "a": "Forthcoming changes to data protection legislation.",
+        "b": "A shortage of skilled testers within the project team.",
+        "c": "Rising interest rates affecting the project's funding.",
+        "d": "Public opposition to the project's environmental impact."
+      },
+      "answer": "b",
+      "explanation": "PESTLE looks outwards at the external environment. A shortage inside the project team is an internal resourcing matter."
+    },
+    {
+      "id": "PFQP-1-6-3",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.6",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "What does a PESTLE analysis produce for the project manager?",
+      "options": {
+        "a": "A prioritised list of risks with probability and impact scores.",
+        "b": "An input to risk identification, covering external factors that could affect the project.",
+        "c": "A set of acceptance criteria for the project's outputs.",
+        "d": "An assessment of stakeholder power and interest."
+      },
+      "answer": "b",
+      "explanation": "PESTLE identifies what is out there. Scoring probability and impact is risk analysis, and assessing power and interest is stakeholder analysis."
+    },
+    {
+      "id": "PFQP-1-6-4",
+      "day": 1,
+      "objective": 1,
+      "learning_outcome": "1.6",
+      "verb": "Describe",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "In PESTLE, which factor would cover a new industry regulator being established?",
+      "options": {
+        "a": "Sociological.",
+        "b": "Technological.",
+        "c": "Legal.",
+        "d": "Economic."
+      },
+      "answer": "c",
+      "explanation": "A regulator and the rules it enforces are legal factors. Sociological covers attitudes and demographics, technological covers changes in capability, economic covers market and financial conditions."
+    },
+    {
+      "id": "PFQP-2-1-2",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "In which phase of a typical linear life cycle is the project management plan produced?",
+      "options": {
+        "a": "Concept.",
+        "b": "Definition.",
+        "c": "Deployment.",
+        "d": "Transition."
+      },
+      "answer": "b",
+      "explanation": "Definition works out how the project will be done and produces the plan. Concept establishes whether the idea is worth pursuing at all."
+    },
+    {
+      "id": "PFQP-2-1-3",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which of the following is not a phase of a typical linear project life cycle?",
+      "options": {
+        "a": "Feasibility.",
+        "b": "Concept.",
+        "c": "Deployment.",
+        "d": "Transition."
+      },
+      "answer": "a",
+      "explanation": "Feasibility is an activity carried out within the concept phase, not a phase in its own right. The four phases are concept, definition, deployment and transition."
+    },
+    {
+      "id": "PFQP-2-1-4",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "In which phase of a linear life cycle are the project's outputs handed over to those who will use them?",
+      "options": {
+        "a": "Deployment.",
+        "b": "Definition.",
+        "c": "Transition.",
+        "d": "Concept."
+      },
+      "answer": "c",
+      "explanation": "Transition is the handover phase, at which the temporary project structure is also dissolved. Deployment is where the work is done and the outputs produced."
+    },
+    {
+      "id": "PFQP-2-1-5",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5,
+      "stem": "What normally sits at the boundary between two phases of a linear life cycle?",
+      "options": {
+        "a": "A decision gate, at which continuation is authorised or refused.",
+        "b": "A change request, raised to move to the next phase.",
+        "c": "A configuration audit of all project documents.",
+        "d": "A benefits review confirming value has been delivered."
+      },
+      "answer": "a",
+      "explanation": "Phase boundaries are where decision gates sit, testing whether the business case still holds. Benefits reviews happen after handover, not between phases."
+    },
+    {
+      "id": "PFQP-2-2-2",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "In an iterative life cycle, when is the detail of scope settled?",
+      "options": {
+        "a": "In full, during the definition phase, before development begins.",
+        "b": "Iteration by iteration, as the work progresses.",
+        "c": "At transition, once users have seen the output.",
+        "d": "It is not settled at all, because iterative projects have no scope."
+      },
+      "answer": "b",
+      "explanation": "High-level scope, budget and objectives are still agreed up front. What is deferred is the detail, which is settled as each iteration is planned."
+    },
+    {
+      "id": "PFQP-2-2-3",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which condition most favours choosing an iterative life cycle over a linear one?",
+      "options": {
+        "a": "Requirements are well understood and unlikely to change.",
+        "b": "The cost of changing the output later is extremely high.",
+        "c": "Requirements are uncertain and user feedback will shape what is needed.",
+        "d": "The organisation requires the full scope fixed before funding is released."
+      },
+      "answer": "c",
+      "explanation": "Iterating exists to handle uncertainty about requirements. Where requirements are stable, or change is very expensive, a linear approach fits better."
+    },
+    {
+      "id": "PFQP-2-2-4",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "Which statement about planning in an iterative life cycle is correct?",
+      "options": {
+        "a": "There is no planning, because scope emerges as the work proceeds.",
+        "b": "Planning happens once, at the start, as in a linear life cycle.",
+        "c": "There is a concept and a definition phase, with detailed planning repeated for each iteration.",
+        "d": "Planning is replaced entirely by change control."
+      },
+      "answer": "c",
+      "explanation": "Iterative work is not unplanned. It plans at two levels: overall at the start, and in detail for each iteration."
+    },
+    {
+      "id": "PFQP-2-3-2",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "A project fixes its business case and budget up front, then delivers the software in two-week cycles with user feedback after each. Which life cycle is this?",
+      "options": {
+        "a": "Linear.",
+        "b": "Hybrid.",
+        "c": "Extended.",
+        "d": "Iterative only."
+      },
+      "answer": "b",
+      "explanation": "Linear at the front for governance and funding, iterative in delivery. Combining the two approaches within one project is what hybrid means."
+    },
+    {
+      "id": "PFQP-2-3-3",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.3",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Why might a project adopt a hybrid life cycle?",
+      "options": {
+        "a": "Because different parts of the work have different characteristics and suit different approaches.",
+        "b": "Because the project has run past its original completion date.",
+        "c": "Because benefits will not be realised until after handover.",
+        "d": "Because the sponsor has withdrawn support for iterative delivery."
+      },
+      "answer": "a",
+      "explanation": "Physical construction rarely suits iterations while the software controlling it may. Hybrid lets each part of the work use the approach that fits it. Benefits after handover describes an extended life cycle."
+    },
+    {
+      "id": "PFQP-2-4-2",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Which two phases does an extended life cycle add to a linear one?",
+      "options": {
+        "a": "Feasibility and concept.",
+        "b": "Adoption and benefits realisation.",
+        "c": "Development and deployment.",
+        "d": "Closure and handover."
+      },
+      "answer": "b",
+      "explanation": "Adoption is where users start using the output properly, and benefits realisation is where the expected improvement is measured and confirmed."
+    },
+    {
+      "id": "PFQP-2-4-3",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "What does an extended life cycle change about accountability?",
+      "options": {
+        "a": "It transfers accountability for delivery from the project manager to the sponsor.",
+        "b": "It keeps someone accountable until the benefits have been realised, rather than ending at handover.",
+        "c": "It removes the need for a governance board after transition.",
+        "d": "It makes end users accountable for the project's outputs."
+      },
+      "answer": "b",
+      "explanation": "Under a standard linear life cycle the project ends at transition and benefits become someone else's problem. Extending it keeps that accountability alive."
+    },
+    {
+      "id": "PFQP-2-4-4",
+      "day": 1,
+      "objective": 2,
+      "learning_outcome": "2.4",
+      "verb": "Define",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "Why can benefits rarely be confirmed at the point of handover?",
+      "options": {
+        "a": "Because benefits emerge over time, once the output is in use.",
+        "b": "Because the project team has been disbanded and cannot measure them.",
+        "c": "Because the business case is closed at handover.",
+        "d": "Because benefits are the responsibility of the governance board."
+      },
+      "answer": "a",
+      "explanation": "An output delivered on Friday produces no measurable improvement by Monday. That timing gap is precisely why the extended life cycle exists."
+    },
+    {
+      "id": "PFQP-3-1-2",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2,
+      "stem": "Who is accountable for owning the project's business case?",
+      "options": {
+        "a": "The project manager.",
+        "b": "The project sponsor.",
+        "c": "The project management office.",
+        "d": "The governance board."
+      },
+      "answer": "b",
+      "explanation": "The sponsor owns the business case and is accountable for the benefits. The project manager supplies the information that keeps it accurate."
+    },
+    {
+      "id": "PFQP-3-1-3",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3,
+      "stem": "Which role is accountable for the day-to-day management of the project?",
+      "options": {
+        "a": "The project sponsor.",
+        "b": "The governance board.",
+        "c": "The project manager.",
+        "d": "The product owner."
+      },
+      "answer": "c",
+      "explanation": "Day-to-day management and delivery within constraints belong to the project manager. The sponsor owns why the project exists, not how it runs."
+    },
+    {
+      "id": "PFQP-3-1-4",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4,
+      "stem": "A change is requested that exceeds the project manager's delegated authority. Who decides?",
+      "options": {
+        "a": "The governance board.",
+        "b": "The project team members affected.",
+        "c": "The project management office.",
+        "d": "The end users."
+      },
+      "answer": "a",
+      "explanation": "The governance board rules on matters beyond the project manager's delegated limit. The PMO supports and sets standards but does not hold that authority."
+    },
+    {
+      "id": "PFQP-3-1-5",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 5,
+      "stem": "Which of the following is not a responsibility of the project management office?",
+      "options": {
+        "a": "Providing standards and processes for projects to follow.",
+        "b": "Supporting project reporting across the organisation.",
+        "c": "Owning the business case for an individual project.",
+        "d": "Providing tools and templates to project teams."
+      },
+      "answer": "c",
+      "explanation": "The PMO supports and enables across projects. Owning an individual project's business case belongs to that project's sponsor."
+    },
+    {
+      "id": "PFQP-3-1-6",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 6,
+      "stem": "Which role decides what the team delivers next in an iterative project?",
+      "options": {
+        "a": "The product owner.",
+        "b": "The project sponsor.",
+        "c": "The governance board.",
+        "d": "The project management office."
+      },
+      "answer": "a",
+      "explanation": "The product owner prioritises requirements on behalf of those who will use the product. It is a distinct role from the project manager, not another name for it."
+    },
+    {
+      "id": "PFQP-3-1-7",
+      "day": 1,
+      "objective": 3,
+      "learning_outcome": "3.1",
+      "verb": "Outline",
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 7,
+      "stem": "What is the difference between project governance and a governance board?",
+      "options": {
+        "a": "Governance is the framework of authority and accountability; the board is the body that exercises it.",
+        "b": "Governance applies to programmes; the board applies to projects.",
+        "c": "Governance is set by the PMO; the board is appointed by the project manager.",
+        "d": "There is no difference; the terms are interchangeable."
+      },
+      "answer": "a",
+      "explanation": "One is a set of rules about who may decide what, the other is a group of people applying them."
+    },
+    {
+      "id": "PFQP-1-1-5",
+      "objective": 1,
+      "learning_outcome": "1.1",
+      "verb": "Define",
+      "stem": "An organisation runs a helpdesk that answers calls to a published service standard, with no planned end date. Why is this not a project?",
+      "options": {
+        "a": "Because it does not have a budget.",
+        "b": "Because it is ongoing rather than transient.",
+        "c": "Because it has no stakeholders.",
+        "d": "Because it does not use a life cycle."
+      },
+      "answer": "b",
+      "explanation": "Transience is the test. The helpdesk has budgets and stakeholders, and never finishes, which makes it business as usual.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-1-2-5",
+      "objective": 1,
+      "learning_outcome": "1.2",
+      "verb": "State",
+      "stem": "Which statement about the relationship between projects and business as usual is correct?",
+      "options": {
+        "a": "Projects hand their outputs over to business as usual, which then operates them.",
+        "b": "Business as usual hands its outputs over to projects at closure.",
+        "c": "They are alternatives, and an organisation runs one or the other.",
+        "d": "Business as usual is what a project becomes once it exceeds its schedule."
+      },
+      "answer": "a",
+      "explanation": "The direction is one way. A project builds the new system; business as usual then runs it. That handover is transition.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-1-3-4",
+      "objective": 1,
+      "learning_outcome": "1.3",
+      "verb": "Define",
+      "stem": "Which statement about project management is correct?",
+      "options": {
+        "a": "It guarantees the project will meet its original budget.",
+        "b": "It is the framework of authority within which a project operates.",
+        "c": "It is the application of processes, methods, knowledge, skills and experience to achieve objectives.",
+        "d": "It is the job title held by whoever runs the project."
+      },
+      "answer": "c",
+      "explanation": "The framework of authority is governance. Project management is a practice, and it manages towards objectives rather than guaranteeing them.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-1-3-5",
+      "objective": 1,
+      "learning_outcome": "1.3",
+      "verb": "Define",
+      "stem": "Two of the five ingredients in the definition of project management are commonly forgotten. Which pair is it?",
+      "options": {
+        "a": "Skills and experience.",
+        "b": "Processes and methods.",
+        "c": "Authority and budget.",
+        "d": "Governance and reporting."
+      },
+      "answer": "a",
+      "explanation": "Processes and methods are easy to remember because they sound procedural. The definition deliberately includes the human contribution of skills and experience. Authority, budget, governance and reporting are not in it at all.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-1-4-4",
+      "objective": 1,
+      "learning_outcome": "1.4",
+      "verb": "State",
+      "stem": "Which of the following is not part of the purpose of project management?",
+      "options": {
+        "a": "Achieving objectives within agreed constraints.",
+        "b": "Delivering beneficial change.",
+        "c": "Eliminating uncertainty from the work.",
+        "d": "Meeting the project's success criteria."
+      },
+      "answer": "c",
+      "explanation": "Uncertainty is inherent in doing something unique. It is managed rather than eliminated, and any option promising its removal is wrong.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-1-4-5",
+      "objective": 1,
+      "learning_outcome": "1.4",
+      "verb": "State",
+      "stem": "Who is accountable for the benefits a project is expected to deliver?",
+      "options": {
+        "a": "The project manager, because they deliver the outputs.",
+        "b": "The project sponsor.",
+        "c": "The project team, because they produce the work.",
+        "d": "The end users, because they receive the output."
+      },
+      "answer": "b",
+      "explanation": "The project manager is accountable for outputs. The sponsor is accountable for benefits, which is why the sponsor owns the business case.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-2-1-6",
+      "objective": 2,
+      "learning_outcome": "2.1",
+      "verb": "State",
+      "stem": "In which phase of a typical linear life cycle is the need established and the idea tested for whether it is worth pursuing?",
+      "options": {
+        "a": "Concept.",
+        "b": "Definition.",
+        "c": "Deployment.",
+        "d": "Transition."
+      },
+      "answer": "a",
+      "explanation": "Concept establishes the need, deliberately cheaply, because most of what is examined at concept should never proceed.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 6
+    },
+    {
+      "id": "PFQP-2-2-5",
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "stem": "What is fixed for each iteration in an iterative life cycle?",
+      "options": {
+        "a": "Scope and quality.",
+        "b": "Time and resources.",
+        "c": "Scope and cost.",
+        "d": "Nothing is fixed."
+      },
+      "answer": "b",
+      "explanation": "Time and resources are fixed for the iteration and the scope delivered within it flexes. That mechanism is time boxing.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-2-2-6",
+      "objective": 2,
+      "learning_outcome": "2.2",
+      "verb": "State",
+      "stem": "Which of the following is true of an iterative project?",
+      "options": {
+        "a": "It has no concept or definition phase.",
+        "b": "It produces no documentation.",
+        "c": "It agrees high-level scope, budget and objectives before development begins.",
+        "d": "Its scope is fixed at the outset and can only change through change control."
+      },
+      "answer": "c",
+      "explanation": "Iterative work plans at two levels: overall at the start, then in detail per iteration. Fixing scope up front and controlling change formally is the linear approach.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 6
+    },
+    {
+      "id": "PFQP-2-3-4",
+      "objective": 2,
+      "learning_outcome": "2.3",
+      "verb": "Define",
+      "stem": "Which of the following best describes a hybrid life cycle?",
+      "options": {
+        "a": "One that adds adoption and benefits realisation after handover.",
+        "b": "One that repeats a single phase until the sponsor approves closure.",
+        "c": "One that combines elements of linear and iterative approaches in a single project.",
+        "d": "One that shortens delivery by removing the concept phase."
+      },
+      "answer": "c",
+      "explanation": "Hybrid means both approaches in one project. Adding adoption and benefits realisation describes an extended life cycle.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-2-3-5",
+      "objective": 2,
+      "learning_outcome": "2.3",
+      "verb": "Define",
+      "stem": "What do hybrid and extended life cycles have in common?",
+      "options": {
+        "a": "Both are variations on the standard life cycle patterns.",
+        "b": "Both add phases after handover.",
+        "c": "Both fix time and resources and flex scope.",
+        "d": "Both remove the need for change control."
+      },
+      "answer": "a",
+      "explanation": "They are variations, and that is where the similarity stops. Only extended adds phases after handover, and only iterative work fixes time and flexes scope.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-2-4-5",
+      "objective": 2,
+      "learning_outcome": "2.4",
+      "verb": "Define",
+      "stem": "In an extended life cycle, what happens during the adoption phase?",
+      "options": {
+        "a": "The output is built and tested.",
+        "b": "Users begin using the output properly, supported by training and behaviour change.",
+        "c": "The business case is written and approved.",
+        "d": "The expected benefits are measured and confirmed."
+      },
+      "answer": "b",
+      "explanation": "Adoption is where the output actually starts being used. Measuring whether benefits arrived is the separate benefits realisation phase.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-1-2",
+      "objective": 4,
+      "learning_outcome": "4.1",
+      "verb": "Define",
+      "stem": "What is a deployment baseline used for?",
+      "options": {
+        "a": "Measuring and controlling project progress against an approved plan.",
+        "b": "Recording the date the project was authorised to begin.",
+        "c": "Listing the changes requested during the project.",
+        "d": "Confirming that outputs meet their acceptance criteria."
+      },
+      "answer": "a",
+      "explanation": "A baseline is a reference point for control. Confirming outputs against criteria is quality control.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-1-3",
+      "objective": 4,
+      "learning_outcome": "4.1",
+      "verb": "Define",
+      "stem": "Which of the following does a deployment baseline typically cover?",
+      "options": {
+        "a": "Scope, schedule and cost together.",
+        "b": "Risk and issues only.",
+        "c": "Stakeholder power and interest.",
+        "d": "Supplier contract terms."
+      },
+      "answer": "a",
+      "explanation": "Baselining scope, schedule and cost together is what makes it possible to ask whether the project is ahead or behind, over or under.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-1-4",
+      "objective": 4,
+      "learning_outcome": "4.1",
+      "verb": "Define",
+      "stem": "Why can a baseline not simply be moved when the project falls behind?",
+      "options": {
+        "a": "Because moving it invalidates every progress report made against the old one, so change control applies.",
+        "b": "Because only the sponsor is permitted to read the baseline.",
+        "c": "Because baselines are set by the PMO and cannot be altered.",
+        "d": "Because the baseline is a legal document."
+      },
+      "answer": "a",
+      "explanation": "A baseline that moves quietly destroys the meaning of past reporting. That is precisely why changing it requires formal change control.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-1-5",
+      "objective": 4,
+      "learning_outcome": "4.1",
+      "verb": "Define",
+      "stem": "At what point in a linear life cycle is the deployment baseline normally set?",
+      "options": {
+        "a": "At the start of concept.",
+        "b": "At the end of definition, once scope, schedule and cost are approved.",
+        "c": "At the end of deployment.",
+        "d": "At transition, once users accept the output."
+      },
+      "answer": "b",
+      "explanation": "The baseline is set once the plan is agreed, which is the end of definition. Before that there is nothing settled enough to measure against.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-2-2",
+      "objective": 4,
+      "learning_outcome": "4.2",
+      "verb": "State",
+      "stem": "In an iterative life cycle, how often is a deployment baseline set?",
+      "options": {
+        "a": "Once, for the whole project.",
+        "b": "For each iteration.",
+        "c": "Only at handover.",
+        "d": "Never, because iterative projects are not baselined."
+      },
+      "answer": "b",
+      "explanation": "Each iteration is baselined in turn. There is still an overall plan, but what is baselined in detail is the current cycle.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-2-3",
+      "objective": 4,
+      "learning_outcome": "4.2",
+      "verb": "State",
+      "stem": "Which statement about baselines is false?",
+      "options": {
+        "a": "A linear project baselines the whole project once.",
+        "b": "An iterative project baselines each iteration.",
+        "c": "An iterative baseline is fixed at the outset and cannot change.",
+        "d": "A baseline provides the reference for measuring progress."
+      },
+      "answer": "c",
+      "explanation": "Fixing everything at the outset inverts the point of iterating. It is the linear approach that baselines the whole scope up front.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-2-4",
+      "objective": 4,
+      "learning_outcome": "4.2",
+      "verb": "State",
+      "stem": "Why does a linear project baseline the whole scope at once?",
+      "options": {
+        "a": "Because the full scope is known before delivery begins.",
+        "b": "Because the sponsor requires it for funding.",
+        "c": "Because change control is not available in linear projects.",
+        "d": "Because iterations are not permitted."
+      },
+      "answer": "a",
+      "explanation": "Linear defines scope in full before delivery, so a single baseline covering the whole project is possible. Change control is precisely what linear projects then use to manage change.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-2-5",
+      "objective": 4,
+      "learning_outcome": "4.2",
+      "verb": "State",
+      "stem": "A project fixes time and cost per cycle and re-prioritises what is delivered within them. How is its baseline handled?",
+      "options": {
+        "a": "One baseline covers the entire project scope.",
+        "b": "A baseline is agreed for each cycle as it is planned.",
+        "c": "No baseline is used, because scope changes.",
+        "d": "The baseline is set only after the final cycle."
+      },
+      "answer": "b",
+      "explanation": "Fixing time and cost per cycle is iterative working, and iterative work baselines cycle by cycle.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-3-2",
+      "objective": 4,
+      "learning_outcome": "4.3",
+      "verb": "Outline",
+      "stem": "Why are suppliers stakeholders of the project management plan?",
+      "options": {
+        "a": "Because the plan states what will be procured and when it is needed.",
+        "b": "Because suppliers approve the plan before work begins.",
+        "c": "Because suppliers own the project's business case.",
+        "d": "Because suppliers set the project's acceptance criteria."
+      },
+      "answer": "a",
+      "explanation": "Their commitments depend on what the plan says is needed and when. Approving the plan is the sponsor's role.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-3-3",
+      "objective": 4,
+      "learning_outcome": "4.3",
+      "verb": "Outline",
+      "stem": "Which role approves the project management plan?",
+      "options": {
+        "a": "The project manager, who produces it.",
+        "b": "The project sponsor.",
+        "c": "The project team members named in it.",
+        "d": "The end users who will receive the output."
+      },
+      "answer": "b",
+      "explanation": "The project manager produces the plan and the sponsor approves it. That split mirrors the ownership of the business case.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-3-4",
+      "objective": 4,
+      "learning_outcome": "4.3",
+      "verb": "Outline",
+      "stem": "Why do project team members have a stake in the project management plan?",
+      "options": {
+        "a": "Because it contains their work packages, schedules and responsibilities.",
+        "b": "Because they approve the budget it sets out.",
+        "c": "Because they own the risks it records.",
+        "d": "Because they decide which changes are authorised."
+      },
+      "answer": "a",
+      "explanation": "The plan is where team members find the work allocated to them. Authorising changes beyond tolerance is a governance responsibility.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-3-5",
+      "objective": 4,
+      "learning_outcome": "4.3",
+      "verb": "Outline",
+      "stem": "What makes a group a stakeholder of the project management plan?",
+      "options": {
+        "a": "Having contributed to writing it.",
+        "b": "Being named within it.",
+        "c": "Having an interest in what it sets out or in what it commits them to.",
+        "d": "Holding authority to approve it."
+      },
+      "answer": "c",
+      "explanation": "Interest is the test, not authorship, mention or authority. Several groups qualify for quite different reasons.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-4-2",
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "stem": "What is the primary purpose of a business case?",
+      "options": {
+        "a": "To justify the project and keep answering whether it is still worth doing.",
+        "b": "To record how the work will be broken down and scheduled.",
+        "c": "To capture lessons for future projects.",
+        "d": "To define the acceptance criteria for each deliverable."
+      },
+      "answer": "a",
+      "explanation": "The business case answers why, not how. Lessons come from a post project review and acceptance criteria from quality planning.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-4-3",
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "stem": "Which of the following would not normally appear in a business case?",
+      "options": {
+        "a": "The options considered and why one was preferred.",
+        "b": "Expected costs and benefits.",
+        "c": "The work breakdown structure for each work package.",
+        "d": "The major risks to the project."
+      },
+      "answer": "c",
+      "explanation": "The work breakdown structure is a delivery artefact. The business case carries justification: options, costs, benefits, risks and timescales.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-4-4",
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "stem": "Why is a do-nothing option normally included in a business case?",
+      "options": {
+        "a": "To establish the baseline against which the other options are judged.",
+        "b": "To satisfy audit requirements.",
+        "c": "To give the sponsor a way of avoiding a decision.",
+        "d": "To reduce the number of options requiring analysis."
+      },
+      "answer": "a",
+      "explanation": "Without knowing the cost of changing nothing, there is no way to judge whether any of the active options is worth its price.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-4-5",
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "stem": "When is the business case reviewed?",
+      "options": {
+        "a": "Once, at the start of the project.",
+        "b": "At each decision gate, to confirm the justification still holds.",
+        "c": "Only if the project exceeds its budget.",
+        "d": "After handover, as part of the benefits review."
+      },
+      "answer": "b",
+      "explanation": "It is a live document, tested at every gate. A project whose costs have doubled and benefits halved should fail its next gate, and the business case is how that becomes visible.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-4-6",
+      "objective": 4,
+      "learning_outcome": "4.4",
+      "verb": "Outline",
+      "stem": "A project's costs have risen sharply and its expected benefits have fallen. Which document should make this visible to decision makers?",
+      "options": {
+        "a": "The risk register.",
+        "b": "The business case.",
+        "c": "The communication plan.",
+        "d": "The configuration record."
+      },
+      "answer": "b",
+      "explanation": "The business case carries costs and benefits and is retested at each gate. That is exactly the situation it exists to expose.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 6
+    },
+    {
+      "id": "PFQP-4-5-2",
+      "objective": 4,
+      "learning_outcome": "4.5",
+      "verb": "Explain",
+      "stem": "What is the project manager's role in relation to the business case?",
+      "options": {
+        "a": "Owning it throughout the project.",
+        "b": "Approving it at each decision gate.",
+        "c": "Supplying the information the sponsor needs to develop and maintain it.",
+        "d": "Realising the benefits it describes."
+      },
+      "answer": "c",
+      "explanation": "Owning, approving and realising benefits are all sponsor responsibilities. The project manager provides current cost, schedule and risk information.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-5-3",
+      "objective": 4,
+      "learning_outcome": "4.5",
+      "verb": "Explain",
+      "stem": "Why is ownership of the business case deliberately separated from responsibility for delivery?",
+      "options": {
+        "a": "So that a project which is well run but no longer worth doing can still be stopped.",
+        "b": "So that the project manager has less work to do.",
+        "c": "Because the sponsor is the project manager's line manager.",
+        "d": "Because the business case is a financial rather than a project document."
+      },
+      "answer": "a",
+      "explanation": "A project manager measured on delivery has an incentive to keep delivering. Separating the two roles is what makes cancellation possible.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-5-4",
+      "objective": 4,
+      "learning_outcome": "4.5",
+      "verb": "Explain",
+      "stem": "Which pairing is correct?",
+      "options": {
+        "a": "Sponsor owns the business case; project manager produces the project management plan.",
+        "b": "Project manager owns the business case; sponsor produces the project management plan.",
+        "c": "Sponsor owns both documents.",
+        "d": "Project manager owns both documents."
+      },
+      "answer": "a",
+      "explanation": "Why versus how, applied to two documents. The sponsor owns the justification and the project manager owns the delivery plan.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-5-5",
+      "objective": 4,
+      "learning_outcome": "4.5",
+      "verb": "Explain",
+      "stem": "Who maintains the business case through the life of the project?",
+      "options": {
+        "a": "The project sponsor.",
+        "b": "The project manager.",
+        "c": "The project management office.",
+        "d": "The governance board."
+      },
+      "answer": "a",
+      "explanation": "The sponsor develops and maintains it. The project manager feeds it with information and the board uses it at gates, but neither owns it.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-6-2",
+      "objective": 4,
+      "learning_outcome": "4.6",
+      "verb": "Explain",
+      "stem": "What does stakeholder analysis assess about each stakeholder?",
+      "options": {
+        "a": "Their interest in the project and their influence over it.",
+        "b": "Their availability to attend project meetings.",
+        "c": "Their technical competence.",
+        "d": "Their budget contribution."
+      },
+      "answer": "a",
+      "explanation": "Interest and influence are the two axes. They determine how much engagement effort each stakeholder warrants and of what kind.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-6-3",
+      "objective": 4,
+      "learning_outcome": "4.6",
+      "verb": "Explain",
+      "stem": "How should a stakeholder with high influence but low interest normally be treated?",
+      "options": {
+        "a": "Managed closely with frequent detailed involvement.",
+        "b": "Kept satisfied, so that their interest is not aroused unhelpfully.",
+        "c": "Ignored until they raise a concern.",
+        "d": "Given the same information as every other stakeholder."
+      },
+      "answer": "b",
+      "explanation": "They can affect the project but are not currently engaged. Keeping them satisfied is the standard response; close management is reserved for those high on both axes.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-6-4",
+      "objective": 4,
+      "learning_outcome": "4.6",
+      "verb": "Explain",
+      "stem": "Why is targeting engagement effort necessary?",
+      "options": {
+        "a": "Because engagement effort is finite, and spreading it evenly neglects the stakeholders who can sink the project.",
+        "b": "Because some stakeholders are not entitled to information.",
+        "c": "Because the communication plan permits only a fixed number of recipients.",
+        "d": "Because stakeholders with low interest should be excluded."
+      },
+      "answer": "a",
+      "explanation": "Analysis exists so that effort goes where it changes the outcome, not so that anyone is excluded.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-6-5",
+      "objective": 4,
+      "learning_outcome": "4.6",
+      "verb": "Explain",
+      "stem": "What does stakeholder analysis feed into directly?",
+      "options": {
+        "a": "The communication plan.",
+        "b": "The work breakdown structure.",
+        "c": "The critical path.",
+        "d": "The configuration record."
+      },
+      "answer": "a",
+      "explanation": "Analysis identifies who matters and how. The communication plan turns that into decisions about who gets what information, when and how.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-7-2",
+      "objective": 4,
+      "learning_outcome": "4.7",
+      "verb": "Define",
+      "stem": "Which of the following is a benefit rather than an output?",
+      "options": {
+        "a": "A completed training programme.",
+        "b": "A new warehouse management system.",
+        "c": "A fifteen per cent reduction in stock losses.",
+        "d": "A signed supplier contract."
+      },
+      "answer": "c",
+      "explanation": "The reduction is the measurable improvement that follows from using the outputs. Everything else listed is something the project delivered.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-7-3",
+      "objective": 4,
+      "learning_outcome": "4.7",
+      "verb": "Define",
+      "stem": "When does benefits management begin?",
+      "options": {
+        "a": "At concept, when benefits are identified in the business case.",
+        "b": "At handover, when the output is delivered.",
+        "c": "After the post project review.",
+        "d": "Only if the project overruns."
+      },
+      "answer": "a",
+      "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery and confirmed after handover. It is not an end-of-project activity.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-7-4",
+      "objective": 4,
+      "learning_outcome": "4.7",
+      "verb": "Define",
+      "stem": "A new system is delivered on time and to specification, but staff continue using the old spreadsheets. What has happened in benefits terms?",
+      "options": {
+        "a": "The benefits have been realised, because the output was delivered.",
+        "b": "The output was delivered but no benefit has been realised, because it is not being used.",
+        "c": "The project has failed its acceptance criteria.",
+        "d": "The benefits will be realised automatically over time."
+      },
+      "answer": "b",
+      "explanation": "Outputs produce benefits only when adopted. This is exactly the gap that adoption and benefits realisation phases exist to close.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-7-5",
+      "objective": 4,
+      "learning_outcome": "4.7",
+      "verb": "Define",
+      "stem": "Which activities does benefits management cover?",
+      "options": {
+        "a": "Identification, definition, planning, tracking and realisation.",
+        "b": "Identification, analysis, response and closure.",
+        "c": "Planning, identification, control, status accounting and verification.",
+        "d": "Request, evaluation, recommendation and decision."
+      },
+      "answer": "a",
+      "explanation": "The other three lists belong to risk management, configuration management and change control respectively.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-8-2",
+      "objective": 4,
+      "learning_outcome": "4.8",
+      "verb": "State",
+      "stem": "Which estimating method breaks work into small components, estimates each and adds them up?",
+      "options": {
+        "a": "Analogous.",
+        "b": "Parametric.",
+        "c": "Analytical.",
+        "d": "Comparative."
+      },
+      "answer": "c",
+      "explanation": "Analytical, sometimes called bottom-up, is the most accurate and the most expensive because the work must be understood in detail first.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-8-3",
+      "objective": 4,
+      "learning_outcome": "4.8",
+      "verb": "State",
+      "stem": "Which estimating method uses actual data from similar past work, adjusted for differences?",
+      "options": {
+        "a": "Analogous.",
+        "b": "Analytical.",
+        "c": "Parametric.",
+        "d": "Bottom-up."
+      },
+      "answer": "a",
+      "explanation": "Analogous, also called comparative, is quick and cheap and depends entirely on having genuinely comparable history.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-8-4",
+      "objective": 4,
+      "learning_outcome": "4.8",
+      "verb": "State",
+      "stem": "An estimate is produced using a measured rate of cost per square metre. Which method is this?",
+      "options": {
+        "a": "Analogous.",
+        "b": "Parametric.",
+        "c": "Analytical.",
+        "d": "Three-point."
+      },
+      "answer": "b",
+      "explanation": "Parametric estimating applies a measured relationship between a variable and cost or duration. It is reliable where the relationship genuinely holds.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-8-5",
+      "objective": 4,
+      "learning_outcome": "4.8",
+      "verb": "State",
+      "stem": "Which estimating method is least likely to be available at the concept phase?",
+      "options": {
+        "a": "Analytical.",
+        "b": "Analogous.",
+        "c": "Parametric.",
+        "d": "All three are equally available."
+      },
+      "answer": "a",
+      "explanation": "Analytical estimating requires the work to be defined in detail, which has not happened at concept. Analogous and parametric methods exist precisely because a number is needed before then.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-9-2",
+      "objective": 4,
+      "learning_outcome": "4.9",
+      "verb": "Outline",
+      "stem": "What shape does the estimating funnel describe?",
+      "options": {
+        "a": "A wide range of uncertainty at the start, narrowing as the project progresses.",
+        "b": "Costs that fall steadily as the project progresses.",
+        "c": "Resource demand that peaks in the middle of the project.",
+        "d": "Risk exposure that increases towards handover."
+      },
+      "answer": "a",
+      "explanation": "The funnel is about the range around an estimate closing as assumptions are replaced by facts. It says nothing about costs falling.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-9-3",
+      "objective": 4,
+      "learning_outcome": "4.9",
+      "verb": "Outline",
+      "stem": "A sponsor asks for a single firm cost figure during the concept phase. What does the estimating funnel suggest is the right response?",
+      "options": {
+        "a": "Provide the figure, since a commitment is needed.",
+        "b": "Provide a range and explain why the uncertainty is wide at this stage.",
+        "c": "Refuse to estimate until definition is complete.",
+        "d": "Provide the lowest credible figure to secure approval."
+      },
+      "answer": "b",
+      "explanation": "Presenting an early estimate as a confident single number is how projects acquire budgets they were never going to meet.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-9-4",
+      "objective": 4,
+      "learning_outcome": "4.9",
+      "verb": "Outline",
+      "stem": "Why does estimating accuracy improve as a project progresses?",
+      "options": {
+        "a": "Because assumptions are progressively replaced by known facts.",
+        "b": "Because estimators become more experienced during the project.",
+        "c": "Because the budget is reduced at each phase.",
+        "d": "Because contingency is removed once the baseline is set."
+      },
+      "answer": "a",
+      "explanation": "The funnel narrows because uncertainty falls, not because anyone gets better at guessing.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-9-5",
+      "objective": 4,
+      "learning_outcome": "4.9",
+      "verb": "Outline",
+      "stem": "What does the estimating funnel imply about when estimates should be produced?",
+      "options": {
+        "a": "Once, at the start, so the baseline is stable.",
+        "b": "Repeatedly, revisited at each phase as more becomes known.",
+        "c": "Only at the end, when the facts are complete.",
+        "d": "Whenever the sponsor requests a figure, with no revision afterwards."
+      },
+      "answer": "b",
+      "explanation": "An estimate is a statement about what was known when it was made, so it should be revisited as knowledge improves.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-10-2",
+      "objective": 4,
+      "learning_outcome": "4.10",
+      "verb": "Explain",
+      "stem": "Why are success criteria agreed at the start of a project?",
+      "options": {
+        "a": "To force disagreement about what success means into the open while it is still cheap to resolve.",
+        "b": "To fix the project budget for the whole life cycle.",
+        "c": "To select the preferred supplier.",
+        "d": "To remove the need for progress reporting."
+      },
+      "answer": "a",
+      "explanation": "Different stakeholders often hold different definitions of success. Surfacing that at the start avoids the far more expensive argument at handover.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-10-3",
+      "objective": 4,
+      "learning_outcome": "4.10",
+      "verb": "Explain",
+      "stem": "How are success criteria used during the project?",
+      "options": {
+        "a": "As a reference when trade-offs and changes have to be judged.",
+        "b": "As the basis for calculating float.",
+        "c": "As the record of approved changes.",
+        "d": "As the input to configuration status accounting."
+      },
+      "answer": "a",
+      "explanation": "They turn a trade-off into a question about whether the project is moving towards or away from what was agreed, rather than a contest of opinions.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-10-4",
+      "objective": 4,
+      "learning_outcome": "4.10",
+      "verb": "Explain",
+      "stem": "How are success criteria used at handover?",
+      "options": {
+        "a": "As the basis for judging whether the project succeeded.",
+        "b": "As the trigger for closing the risk register.",
+        "c": "As the means of appointing the sponsor.",
+        "d": "As the schedule for benefits realisation."
+      },
+      "answer": "a",
+      "explanation": "Acceptance is measured against criteria agreed in advance rather than against expectations formed along the way.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-10-5",
+      "objective": 4,
+      "learning_outcome": "4.10",
+      "verb": "Explain",
+      "stem": "What is the difference between success criteria and acceptance criteria?",
+      "options": {
+        "a": "Success criteria judge the project; acceptance criteria judge whether a specific deliverable is fit for purpose.",
+        "b": "They are the same thing under different names.",
+        "c": "Success criteria apply to iterative projects only.",
+        "d": "Acceptance criteria are set by the sponsor and success criteria by the supplier."
+      },
+      "answer": "a",
+      "explanation": "One is about the project as a whole, the other about individual products. Acceptance criteria are set during quality planning.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-4-11-2",
+      "objective": 4,
+      "learning_outcome": "4.11",
+      "verb": "Outline",
+      "stem": "What is the purpose of project progress reporting?",
+      "options": {
+        "a": "To communicate performance against the baseline so that decisions can be made.",
+        "b": "To prevent variance from occurring.",
+        "c": "To replace the need for a governance board.",
+        "d": "To record the configuration status of deliverables."
+      },
+      "answer": "a",
+      "explanation": "Reporting reveals variance early enough for someone to act. It does not prevent it, and acting is a separate step.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-4-11-3",
+      "objective": 4,
+      "learning_outcome": "4.11",
+      "verb": "Outline",
+      "stem": "Which of the following is a benefit of progress reporting?",
+      "options": {
+        "a": "Problems surface while they are still small enough to correct cheaply.",
+        "b": "The project is guaranteed to finish on time.",
+        "c": "The risk register becomes unnecessary.",
+        "d": "Stakeholders lose the ability to question the plan."
+      },
+      "answer": "a",
+      "explanation": "Shortening the gap between something going wrong and someone being able to act is the main value reporting delivers.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-4-11-4",
+      "objective": 4,
+      "learning_outcome": "4.11",
+      "verb": "Outline",
+      "stem": "What does progress reporting depend on to be meaningful?",
+      "options": {
+        "a": "An approved baseline to measure against.",
+        "b": "A completed benefits review.",
+        "c": "An independent quality audit.",
+        "d": "A signed supplier contract."
+      },
+      "answer": "a",
+      "explanation": "Without a baseline, reporting describes activity rather than measuring performance. There is nothing to be ahead or behind of.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-4-11-5",
+      "objective": 4,
+      "learning_outcome": "4.11",
+      "verb": "Outline",
+      "stem": "What is the difference between monitoring and reporting?",
+      "options": {
+        "a": "Monitoring gathers the data; reporting communicates it.",
+        "b": "Monitoring is done by the sponsor; reporting by the project manager.",
+        "c": "Monitoring applies to cost; reporting applies to schedule.",
+        "d": "There is no difference."
+      },
+      "answer": "a",
+      "explanation": "They are consecutive steps. Data gathered but never communicated changes nobody's decision.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-1-2",
+      "objective": 5,
+      "learning_outcome": "5.1",
+      "verb": "Define",
+      "stem": "Scope management is best described as the process for:",
+      "options": {
+        "a": "identifying, defining and controlling the work required to deliver the objectives.",
+        "b": "sequencing activities and assigning durations.",
+        "c": "testing deliverables against acceptance criteria.",
+        "d": "recording the current version of every project document."
+      },
+      "answer": "a",
+      "explanation": "Sequencing is scheduling, testing is quality control and version recording is configuration management.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-1-3",
+      "objective": 5,
+      "learning_outcome": "5.1",
+      "verb": "Define",
+      "stem": "Which of the three verbs in the definition of scope management is where most projects actually fail?",
+      "options": {
+        "a": "Identifying.",
+        "b": "Defining.",
+        "c": "Controlling.",
+        "d": "None of them; failure is always about cost."
+      },
+      "answer": "c",
+      "explanation": "Projects rarely fail through one big scope decision. They fail through an accumulation of small uncontrolled additions.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-1-4",
+      "objective": 5,
+      "learning_outcome": "5.1",
+      "verb": "Define",
+      "stem": "Why is recording what is excluded from scope worth doing?",
+      "options": {
+        "a": "Because unstated exclusions are a common source of dispute at handover.",
+        "b": "Because exclusions must be reported to the governance board monthly.",
+        "c": "Because excluded work can be added later without change control.",
+        "d": "Because exclusions determine the critical path."
+      },
+      "answer": "a",
+      "explanation": "An exclusion nobody wrote down is an assumption, and assumptions surface as arguments when the output is delivered.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-1-5",
+      "objective": 5,
+      "learning_outcome": "5.1",
+      "verb": "Define",
+      "stem": "What is scope creep?",
+      "options": {
+        "a": "Change by accumulation, unpriced and unagreed.",
+        "b": "A formal request to change the baseline.",
+        "c": "The gradual reduction of scope to meet a deadline.",
+        "d": "The process of decomposing work into packages."
+      },
+      "answer": "a",
+      "explanation": "Scope creep is what happens in the absence of change control: small additions nobody assessed, scheduled or paid for.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-2-2",
+      "objective": 5,
+      "learning_outcome": "5.2",
+      "verb": "Differentiate",
+      "stem": "In a linear project, how is a change to agreed scope handled?",
+      "options": {
+        "a": "Through formal change control.",
+        "b": "By re-prioritising the next iteration.",
+        "c": "By extending the time box.",
+        "d": "It cannot be handled; linear scope is immovable."
+      },
+      "answer": "a",
+      "explanation": "Linear fixes scope and flexes time and cost through change control. Re-prioritising within a fixed period is the iterative mechanism.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-2-3",
+      "objective": 5,
+      "learning_outcome": "5.2",
+      "verb": "Differentiate",
+      "stem": "Which statement about scope in iterative projects is correct?",
+      "options": {
+        "a": "There is no scope control at all.",
+        "b": "Scope is re-prioritised within fixed time and cost.",
+        "c": "Scope is fixed and time flexes.",
+        "d": "Scope is agreed only at handover."
+      },
+      "answer": "b",
+      "explanation": "Iterative work still controls scope. It does so by re-prioritising inside a fixed period rather than by raising change requests.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-2-4",
+      "objective": 5,
+      "learning_outcome": "5.2",
+      "verb": "Differentiate",
+      "stem": "A project has fixed its total scope before delivery began and now has a request to add a feature. Which approach is it using?",
+      "options": {
+        "a": "Linear.",
+        "b": "Iterative.",
+        "c": "Extended.",
+        "d": "Time boxed."
+      },
+      "answer": "a",
+      "explanation": "Fixing full scope before delivery is the defining property of a linear approach, which is why the request must go through change control.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-2-5",
+      "objective": 5,
+      "learning_outcome": "5.2",
+      "verb": "Differentiate",
+      "stem": "What do linear and iterative scope management have in common?",
+      "options": {
+        "a": "Both control scope; only the mechanism differs.",
+        "b": "Both fix scope before delivery starts.",
+        "c": "Neither permits change once work has begun.",
+        "d": "Both rely on formal change requests for every adjustment."
+      },
+      "answer": "a",
+      "explanation": "The presence of control is common ground. Linear uses change control, iterative uses re-prioritisation within fixed time and cost.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-3-2",
+      "objective": 5,
+      "learning_outcome": "5.3",
+      "verb": "Describe",
+      "stem": "What sits in the boxes of a product breakdown structure?",
+      "options": {
+        "a": "The products and their components.",
+        "b": "The activities needed to build the products.",
+        "c": "The costs of each element of work.",
+        "d": "The people responsible for each package."
+      },
+      "answer": "a",
+      "explanation": "Products in a PBS, work in a WBS, costs in a CBS, people in an OBS.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-3-3",
+      "objective": 5,
+      "learning_outcome": "5.3",
+      "verb": "Describe",
+      "stem": "Why is a product breakdown structure usually produced before a work breakdown structure?",
+      "options": {
+        "a": "Because deciding what to build should precede deciding how to build it.",
+        "b": "Because the WBS cannot be drawn without cost data.",
+        "c": "Because the PBS is required by the governance board.",
+        "d": "Because the WBS applies only to iterative projects."
+      },
+      "answer": "a",
+      "explanation": "Products first, then work. The alternative produces a plan full of activity that yields nothing anyone asked for.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-3-4",
+      "objective": 5,
+      "learning_outcome": "5.3",
+      "verb": "Describe",
+      "stem": "What is the lowest level of a work breakdown structure normally called?",
+      "options": {
+        "a": "A work package.",
+        "b": "A milestone.",
+        "c": "A configuration item.",
+        "d": "A deliverable."
+      },
+      "answer": "a",
+      "explanation": "Work packages are small enough to be estimated, assigned and tracked, which is the point of decomposing at all.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-3-5",
+      "objective": 5,
+      "learning_outcome": "5.3",
+      "verb": "Describe",
+      "stem": "What do the PBS and WBS have in common?",
+      "options": {
+        "a": "Both are hierarchical decompositions used to make scope manageable.",
+        "b": "Both list costs at each level.",
+        "c": "Both are used only in linear projects.",
+        "d": "Both assign responsibility for the work."
+      },
+      "answer": "a",
+      "explanation": "Both break something too large to grasp into pieces that can be estimated and tracked. Assigning responsibility needs the RAM.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-4-2",
+      "objective": 5,
+      "learning_outcome": "5.4",
+      "verb": "Outline",
+      "stem": "What does a cost breakdown structure decompose?",
+      "options": {
+        "a": "The project's costs, normally mirroring the work breakdown structure.",
+        "b": "The organisational units available to the project.",
+        "c": "The products the project will deliver.",
+        "d": "The risks recorded in the risk register."
+      },
+      "answer": "a",
+      "explanation": "Mirroring the WBS is what allows cost to be reported at any level of the work.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-4-3",
+      "objective": 5,
+      "learning_outcome": "5.4",
+      "verb": "Outline",
+      "stem": "What does an organisational breakdown structure show?",
+      "options": {
+        "a": "The people and organisational units available to the project.",
+        "b": "The sequence in which activities must run.",
+        "c": "The acceptance criteria for deliverables.",
+        "d": "The approved changes to the baseline."
+      },
+      "answer": "a",
+      "explanation": "The OBS is the people side. Combined with the WBS it produces the responsibility assignment matrix.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-4-4",
+      "objective": 5,
+      "learning_outcome": "5.4",
+      "verb": "Outline",
+      "stem": "What does a responsibility assignment matrix reveal that a work breakdown structure alone cannot?",
+      "options": {
+        "a": "Gaps where no one is assigned, and overlaps where several are.",
+        "b": "The total cost of the project.",
+        "c": "The float available on each activity.",
+        "d": "The current version of each deliverable."
+      },
+      "answer": "a",
+      "explanation": "Work with nobody against it and work with three people against it are both problems, and both stay invisible until the matrix is drawn.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-4-5",
+      "objective": 5,
+      "learning_outcome": "5.4",
+      "verb": "Outline",
+      "stem": "Which two structures combine to form a responsibility assignment matrix?",
+      "options": {
+        "a": "WBS and OBS.",
+        "b": "PBS and CBS.",
+        "c": "WBS and CBS.",
+        "d": "PBS and OBS."
+      },
+      "answer": "a",
+      "explanation": "Work multiplied by people. Substituting the PBS or CBS is the standard distractor for this outcome.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-5-2",
+      "objective": 5,
+      "learning_outcome": "5.5",
+      "verb": "Define",
+      "stem": "Configuration management can be defined as the process for:",
+      "options": {
+        "a": "identifying, recording and controlling the items that make up the project's outputs.",
+        "b": "evaluating requested changes and deciding whether to approve them.",
+        "c": "testing outputs against their acceptance criteria.",
+        "d": "assessing the probability and impact of uncertain events."
+      },
+      "answer": "a",
+      "explanation": "Deciding on changes is change control. Configuration management identifies and records, so that everyone knows which version is current.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-5-3",
+      "objective": 5,
+      "learning_outcome": "5.5",
+      "verb": "Define",
+      "stem": "Which verb best characterises change control?",
+      "options": {
+        "a": "Decides.",
+        "b": "Records.",
+        "c": "Tests.",
+        "d": "Estimates."
+      },
+      "answer": "a",
+      "explanation": "Change control decides yes or no, with reasons. Configuration management records. Testing each option against its verb resolves most questions in this pair.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-5-4",
+      "objective": 5,
+      "learning_outcome": "5.5",
+      "verb": "Define",
+      "stem": "What is a configuration item?",
+      "options": {
+        "a": "An individual element placed under configuration management and given a unique reference.",
+        "b": "A request to change the project baseline.",
+        "c": "An activity on the critical path.",
+        "d": "A risk that has been formally closed."
+      },
+      "answer": "a",
+      "explanation": "Unique referencing is what allows a specific version of a specific thing to be pointed at without ambiguity.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-5-5",
+      "objective": 5,
+      "learning_outcome": "5.5",
+      "verb": "Define",
+      "stem": "Which of the following does configuration management apply to?",
+      "options": {
+        "a": "Any item the project chooses to control, including designs, software and documents.",
+        "b": "Project documents only.",
+        "c": "Physical components only.",
+        "d": "Financial records only."
+      },
+      "answer": "a",
+      "explanation": "The boundary is decided during configuration planning. Restricting it to documents is a common misconception.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-6-2",
+      "objective": 5,
+      "learning_outcome": "5.6",
+      "verb": "Explain",
+      "stem": "An item goes through change control and the change is approved. What must configuration management then do?",
+      "options": {
+        "a": "Update the affected records so the approved version becomes the current one.",
+        "b": "Re-evaluate whether the change was justified.",
+        "c": "Assess the probability of the change recurring.",
+        "d": "Close the associated risk."
+      },
+      "answer": "a",
+      "explanation": "Updating the record is what makes the approval real. Without it the change exists in the product but not in the documentation.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-6-3",
+      "objective": 5,
+      "learning_outcome": "5.6",
+      "verb": "Explain",
+      "stem": "What happens if a project runs change control without configuration management?",
+      "options": {
+        "a": "Changes are decided properly but nobody can say what the current version is.",
+        "b": "Changes are recorded but never assessed.",
+        "c": "No changes can be approved at all.",
+        "d": "The baseline cannot be set."
+      },
+      "answer": "a",
+      "explanation": "Each process fails specifically without the other. This is the failure mode of approving changes without maintaining the record.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-6-4",
+      "objective": 5,
+      "learning_outcome": "5.6",
+      "verb": "Explain",
+      "stem": "What happens if a project runs configuration management without change control?",
+      "options": {
+        "a": "It keeps an accurate history of an uncontrolled project.",
+        "b": "It cannot record any versions.",
+        "c": "It automatically prevents scope creep.",
+        "d": "It removes the need for a baseline."
+      },
+      "answer": "a",
+      "explanation": "Recording versions faithfully does nothing to stop unassessed changes being made in the first place.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-6-5",
+      "objective": 5,
+      "learning_outcome": "5.6",
+      "verb": "Explain",
+      "stem": "Which statement about the two processes is correct?",
+      "options": {
+        "a": "Change control authorises; configuration management maintains the record of what is current.",
+        "b": "Configuration management authorises; change control maintains the record.",
+        "c": "They are alternatives, and a project uses one or the other.",
+        "d": "Change control replaces configuration management in iterative projects."
+      },
+      "answer": "a",
+      "explanation": "Reversing the responsibilities is the most common wrong answer for this outcome.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-7-2",
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "stem": "What is assessed during the detailed evaluation stage of change control?",
+      "options": {
+        "a": "The impact on scope, schedule, cost, quality, risk and benefits.",
+        "b": "The probability that the change will be requested again.",
+        "c": "The current version number of the affected item.",
+        "d": "Whether the project manager followed the correct process."
+      },
+      "answer": "a",
+      "explanation": "This is the substance of the process, and it is where the true cost of a change usually turns out to exceed the obvious one.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-7-3",
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "stem": "Who decides on a change that falls within the project manager's delegated tolerance?",
+      "options": {
+        "a": "The project manager.",
+        "b": "The governance board.",
+        "c": "The sponsor.",
+        "d": "The configuration librarian."
+      },
+      "answer": "a",
+      "explanation": "Within tolerance the project manager decides. Beyond it the decision escalates to the governance board.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-7-4",
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "stem": "What is the first stage of a typical change control process?",
+      "options": {
+        "a": "A request for change is raised and logged.",
+        "b": "The impact on cost is assessed.",
+        "c": "The baseline is updated.",
+        "d": "The change is implemented."
+      },
+      "answer": "a",
+      "explanation": "Logging the request is what turns a conversation into a record that can be tracked to a decision.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-7-5",
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "stem": "Why does an initial evaluation happen before a detailed one?",
+      "options": {
+        "a": "Because some requests are not valid or worth assessing in full, which saves the cost of doing so.",
+        "b": "Because the governance board requires two assessments.",
+        "c": "Because the detailed evaluation cannot begin until the change is implemented.",
+        "d": "Because the initial evaluation sets the new baseline."
+      },
+      "answer": "a",
+      "explanation": "Filtering early avoids spending detailed assessment effort on requests that will not proceed.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-7-6",
+      "objective": 5,
+      "learning_outcome": "5.7",
+      "verb": "Outline",
+      "stem": "Which of the following is not a stage of change control?",
+      "options": {
+        "a": "Status accounting.",
+        "b": "Evaluation.",
+        "c": "Recommendation.",
+        "d": "Implementation."
+      },
+      "answer": "a",
+      "explanation": "Status accounting belongs to configuration management. The examiner mixes the two lists deliberately.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 6
+    },
+    {
+      "id": "PFQP-5-8-2",
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "stem": "Which configuration management activity records and reports the current state of each item and its change history?",
+      "options": {
+        "a": "Status accounting.",
+        "b": "Identification.",
+        "c": "Verification audit.",
+        "d": "Planning."
+      },
+      "answer": "a",
+      "explanation": "Status accounting answers what version is current and what happened to get here.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-5-8-3",
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "stem": "Which configuration management activity checks that the records match reality?",
+      "options": {
+        "a": "Verification audit.",
+        "b": "Control.",
+        "c": "Identification.",
+        "d": "Status accounting."
+      },
+      "answer": "a",
+      "explanation": "It catches the case where documentation says version four and the thing actually built is version three.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-5-8-4",
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "stem": "Which configuration management activity decides what will be placed under control in the first place?",
+      "options": {
+        "a": "Planning.",
+        "b": "Identification.",
+        "c": "Control.",
+        "d": "Verification audit."
+      },
+      "answer": "a",
+      "explanation": "Not everything needs controlling. Planning establishes the boundary, and identification then references the individual items within it.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-5-8-5",
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "stem": "Which of the following is not a configuration management activity?",
+      "options": {
+        "a": "Justification.",
+        "b": "Identification.",
+        "c": "Control.",
+        "d": "Planning."
+      },
+      "answer": "a",
+      "explanation": "Justification belongs to the business case. The five activities are planning, identification, control, status accounting and verification audit.",
+      "day": 1,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-5-8-6",
+      "objective": 5,
+      "learning_outcome": "5.8",
+      "verb": "Outline",
+      "stem": "What single property do the five configuration management activities produce together?",
+      "options": {
+        "a": "The project can say what the current approved version of anything is, and prove it.",
+        "b": "The project cannot exceed its budget.",
+        "c": "All changes are automatically approved.",
+        "d": "The critical path remains fixed."
+      },
+      "answer": "a",
+      "explanation": "That certainty is the whole point, and it is why change control needs configuration management to make approvals real.",
+      "day": 1,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 6
+    },
+    {
+      "id": "PFQP-6-1-2",
+      "objective": 6,
+      "learning_outcome": "6.1",
+      "verb": "State",
+      "stem": "Which of the following does scheduling establish?",
+      "options": {
+        "a": "The order of activities, their durations and the resources they need.",
+        "b": "The acceptance criteria for each deliverable.",
+        "c": "The justification for undertaking the project.",
+        "d": "The current version of each configuration item."
+      },
+      "answer": "a",
+      "explanation": "Scheduling answers when and with what. Justification is the business case and criteria come from quality planning.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-1-3",
+      "objective": 6,
+      "learning_outcome": "6.1",
+      "verb": "State",
+      "stem": "What does a schedule make possible that a work breakdown structure alone does not?",
+      "options": {
+        "a": "Saying whether the project is on track at any given moment.",
+        "b": "Decomposing the work into packages.",
+        "c": "Recording which products will be delivered.",
+        "d": "Assigning responsibility for each package."
+      },
+      "answer": "a",
+      "explanation": "Without time and sequence there is nothing that says where the project should be by now.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-1-4",
+      "objective": 6,
+      "learning_outcome": "6.1",
+      "verb": "State",
+      "stem": "Which problem becomes visible in a schedule but not in a work breakdown structure?",
+      "options": {
+        "a": "Two activities needing the same specialist in the same week.",
+        "b": "A missing deliverable.",
+        "c": "An unassigned work package.",
+        "d": "An out-of-date document version."
+      },
+      "answer": "a",
+      "explanation": "Resource conflicts only appear once work is placed in time, which is why resource optimisation follows scheduling.",
+      "day": 2,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-1-5",
+      "objective": 6,
+      "learning_outcome": "6.1",
+      "verb": "State",
+      "stem": "Which of the following is not a purpose of scheduling?",
+      "options": {
+        "a": "Determining whether the project remains commercially justified.",
+        "b": "Establishing when activities will take place.",
+        "c": "Identifying what resources activities require.",
+        "d": "Providing a basis for measuring progress."
+      },
+      "answer": "a",
+      "explanation": "Commercial justification lives in the business case and is tested at decision gates.",
+      "day": 2,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-6-2-2",
+      "objective": 6,
+      "learning_outcome": "6.2",
+      "verb": "State",
+      "stem": "What is true of activities on the critical path?",
+      "options": {
+        "a": "They have no float, so any delay delays the project.",
+        "b": "They are the most expensive activities.",
+        "c": "They can be delayed without consequence.",
+        "d": "They are always performed first."
+      },
+      "answer": "a",
+      "explanation": "Zero float is the defining property. Cost and sequence position are irrelevant to whether an activity is critical.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-2-3",
+      "objective": 6,
+      "learning_outcome": "6.2",
+      "verb": "State",
+      "stem": "Which of the following is an output of critical path analysis?",
+      "options": {
+        "a": "Earliest and latest start and finish times for activities.",
+        "b": "A cost benefit analysis of the project.",
+        "c": "A stakeholder power and interest assessment.",
+        "d": "A register of approved changes."
+      },
+      "answer": "a",
+      "explanation": "Start and finish times, total and free float, and the overall project duration. Cost benefit analysis belongs to the business case.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-2-4",
+      "objective": 6,
+      "learning_outcome": "6.2",
+      "verb": "State",
+      "stem": "Why is the critical path described as the longest path through the network?",
+      "options": {
+        "a": "Because the longest chain of dependent activities sets the minimum time the project can take.",
+        "b": "Because it contains the greatest number of activities.",
+        "c": "Because it consumes the most resource.",
+        "d": "Because it is scheduled last."
+      },
+      "answer": "a",
+      "explanation": "You cannot finish faster than the longest chain of dependent work allows, which is why the longest path gives the shortest duration.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-2-5",
+      "objective": 6,
+      "learning_outcome": "6.2",
+      "verb": "State",
+      "stem": "What practical value does knowing the critical path give a project manager?",
+      "options": {
+        "a": "It shows which delays genuinely threaten the completion date.",
+        "b": "It identifies which activities matter most to the business.",
+        "c": "It removes the need to monitor other activities.",
+        "d": "It guarantees the project cannot overrun."
+      },
+      "answer": "a",
+      "explanation": "It directs attention to where delay actually costs something. A low-value activity can still sit on the critical path.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-6-3-2",
+      "objective": 6,
+      "learning_outcome": "6.3",
+      "verb": "State",
+      "stem": "Which of the following is true of a milestone?",
+      "options": {
+        "a": "It has no duration and consumes no resource.",
+        "b": "It has a short duration and a small resource allocation.",
+        "c": "It always sits on the critical path.",
+        "d": "It represents a work package."
+      },
+      "answer": "a",
+      "explanation": "A milestone is a point rather than a period, and reaching it is the result of work rather than work itself.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-3-3",
+      "objective": 6,
+      "learning_outcome": "6.3",
+      "verb": "State",
+      "stem": "Why are milestones a more honest progress measure than percentage complete?",
+      "options": {
+        "a": "Because a milestone is binary: it has been reached or it has not.",
+        "b": "Because milestones are set by the sponsor.",
+        "c": "Because percentage complete cannot be calculated.",
+        "d": "Because milestones include resource usage."
+      },
+      "answer": "a",
+      "explanation": "Percentage complete is soft and easily overstated. A milestone leaves no room for interpretation.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-3-4",
+      "objective": 6,
+      "learning_outcome": "6.3",
+      "verb": "State",
+      "stem": "Why do decision gates typically sit at milestones?",
+      "options": {
+        "a": "Because a completed key deliverable or phase boundary is the natural point to decide whether to continue.",
+        "b": "Because milestones consume no resource.",
+        "c": "Because the governance board can only meet at milestones.",
+        "d": "Because milestones remove float from the schedule."
+      },
+      "answer": "a",
+      "explanation": "A gate needs a natural decision point, and the completion of something significant provides one.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-3-5",
+      "objective": 6,
+      "learning_outcome": "6.3",
+      "verb": "State",
+      "stem": "What is the difference between a milestone and a decision gate?",
+      "options": {
+        "a": "A milestone marks that something has happened; a gate is a decision about whether to continue.",
+        "b": "They are the same thing under different names.",
+        "c": "A milestone has duration; a gate does not.",
+        "d": "A gate is set by the project manager; a milestone by the sponsor."
+      },
+      "answer": "a",
+      "explanation": "Gates often sit at milestones, but a marker and a decision are different things.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-6-4-2",
+      "objective": 6,
+      "learning_outcome": "6.4",
+      "verb": "Define",
+      "stem": "Work planned for a time box will not fit within it. What is the correct response?",
+      "options": {
+        "a": "Reduce what is delivered within the box.",
+        "b": "Extend the box by a few days.",
+        "c": "Add resources until the work fits.",
+        "d": "Abandon the time box and revert to change control."
+      },
+      "answer": "a",
+      "explanation": "Time and resources are fixed. Reducing what is delivered is the entire mechanism, and it forces prioritisation to happen continuously.",
+      "day": 2,
+      "type": "single",
+      "traps": [
+        "negative_stem"
+      ],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-4-3",
+      "objective": 6,
+      "learning_outcome": "6.4",
+      "verb": "Define",
+      "stem": "Why does time boxing force prioritisation?",
+      "options": {
+        "a": "Because a fixed deadline requires someone to decide what matters most.",
+        "b": "Because the sponsor reviews every item.",
+        "c": "Because scope cannot change once agreed.",
+        "d": "Because resources increase towards the deadline."
+      },
+      "answer": "a",
+      "explanation": "When time can stretch, low-value work stays in scope because there is always more time. When it cannot, choices have to be made.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-4-4",
+      "objective": 6,
+      "learning_outcome": "6.4",
+      "verb": "Define",
+      "stem": "Time boxing is most closely associated with which life cycle?",
+      "options": {
+        "a": "Iterative.",
+        "b": "Linear.",
+        "c": "Extended.",
+        "d": "None; it applies equally to all."
+      },
+      "answer": "a",
+      "explanation": "Fixing time and resources per cycle and flexing scope within them is how iterative delivery works.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-4-5",
+      "objective": 6,
+      "learning_outcome": "6.4",
+      "verb": "Define",
+      "stem": "How does a time box relate to the linear model of fixed scope?",
+      "options": {
+        "a": "It is the exact inversion: linear fixes scope, a time box fixes time and resources.",
+        "b": "It is the same model applied over a shorter period.",
+        "c": "It fixes all four of time, cost, scope and quality.",
+        "d": "It fixes none of them."
+      },
+      "answer": "a",
+      "explanation": "Recognising the inversion is what stops the standard distractor on this outcome from working.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-6-5-2",
+      "objective": 6,
+      "learning_outcome": "6.5",
+      "verb": "Outline",
+      "stem": "A project has only two available testers and the schedule demands four in one week. Which technique applies?",
+      "options": {
+        "a": "Resource levelling.",
+        "b": "Resource smoothing.",
+        "c": "Resource aggregation.",
+        "d": "Critical path analysis."
+      },
+      "answer": "a",
+      "explanation": "The binding constraint is resource availability, so activities are rescheduled within that limit and the completion date may move.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-5-3",
+      "objective": 6,
+      "learning_outcome": "6.5",
+      "verb": "Outline",
+      "stem": "Which technique consumes float rather than moving the completion date?",
+      "options": {
+        "a": "Resource smoothing.",
+        "b": "Resource levelling.",
+        "c": "Critical path analysis.",
+        "d": "Time boxing."
+      },
+      "answer": "a",
+      "explanation": "Smoothing protects the end date and evens out resource usage within the float that already exists.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-5-4",
+      "objective": 6,
+      "learning_outcome": "6.5",
+      "verb": "Outline",
+      "stem": "What does resource levelling trade in order to respect a resource limit?",
+      "options": {
+        "a": "The completion date.",
+        "b": "The project's scope.",
+        "c": "The quality of the outputs.",
+        "d": "The accuracy of the estimates."
+      },
+      "answer": "a",
+      "explanation": "Levelling trades the date, smoothing trades the float. Naming what each gives up is the fastest way to keep them apart.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-5-5",
+      "objective": 6,
+      "learning_outcome": "6.5",
+      "verb": "Outline",
+      "stem": "Why does an unoptimised schedule often need adjusting?",
+      "options": {
+        "a": "Because it can demand resource profiles that are impossible to staff.",
+        "b": "Because it always exceeds the budget.",
+        "c": "Because it omits the critical path.",
+        "d": "Because it cannot be baselined."
+      },
+      "answer": "a",
+      "explanation": "Four testers one week and none for a month is a common product of scheduling without regard to resource availability.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    },
+    {
+      "id": "PFQP-6-6-2",
+      "objective": 6,
+      "learning_outcome": "6.6",
+      "verb": "Define",
+      "stem": "Which of the following would a procurement strategy address?",
+      "options": {
+        "a": "Whether work is made in house or bought in.",
+        "b": "The wording of the indemnity clause in a supplier contract.",
+        "c": "The acceptance certificate for a delivered component.",
+        "d": "The payment schedule for project team salaries."
+      },
+      "answer": "a",
+      "explanation": "Make or buy is a strategy-level decision. Contract clauses and acceptance certificates implement the strategy rather than forming it.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 2
+    },
+    {
+      "id": "PFQP-6-6-3",
+      "objective": 6,
+      "learning_outcome": "6.6",
+      "verb": "Define",
+      "stem": "Why does the choice of contract type matter at strategy level?",
+      "options": {
+        "a": "Because it determines where cost risk sits and how much flexibility the project retains.",
+        "b": "Because it fixes the critical path.",
+        "c": "Because it determines the project's quality standards.",
+        "d": "Because it sets the resource limit."
+      },
+      "answer": "a",
+      "explanation": "Fixed price moves cost risk to the supplier and reduces flexibility. Reimbursable keeps flexibility and leaves cost risk with the buyer.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 3
+    },
+    {
+      "id": "PFQP-6-6-4",
+      "objective": 6,
+      "learning_outcome": "6.6",
+      "verb": "Define",
+      "stem": "Which word best characterises a procurement strategy?",
+      "options": {
+        "a": "High-level.",
+        "b": "Contractual.",
+        "c": "Detailed.",
+        "d": "Technical."
+      },
+      "answer": "a",
+      "explanation": "The definition turns on it being the high-level approach. Detail sits beneath the strategy.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 4
+    },
+    {
+      "id": "PFQP-6-6-5",
+      "objective": 6,
+      "learning_outcome": "6.6",
+      "verb": "Define",
+      "stem": "Under a fixed price arrangement, who carries the risk of a cost overrun?",
+      "options": {
+        "a": "The supplier.",
+        "b": "The buyer.",
+        "c": "It is shared equally.",
+        "d": "The governance board."
+      },
+      "answer": "a",
+      "explanation": "The supplier is paid a fixed sum for a defined scope, so an overrun comes out of their margin. That transfer is why the choice is a strategy decision.",
+      "day": 2,
+      "type": "single",
+      "traps": [],
+      "mock_suitable": false,
+      "variant": 5
+    }
+  ]
+}

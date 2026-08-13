@@ -11,6 +11,13 @@ export const PFQ_PRO_PRICE_CENTS = 500;
 export const PFQ_PRICING_HREF = "/pfq/pricing";
 export const PFQ_LEARN_HREF = "/pfq/learn";
 export const PFQ_MOCK_HREF = "/pfq/mock";
+export const PFQ_PRACTICE_HREF = "/pfq/practice";
+
+/**
+ * Practice runner feature flag. Commerce gating (Pro) is separate via
+ * requirePfqPro. Flip false to hide practice routes while the bank is empty.
+ */
+export const PFQ_PRACTICE_ENABLED = true;
 
 export const PFQ_PRO_INTENT_PARAM = "intent";
 export const PFQ_PRO_INTENT_VALUE = "pro";

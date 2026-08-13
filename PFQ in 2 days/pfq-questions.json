@@ -14,7 +14,8 @@
       "type: 'single' = four options, one correct. type: 'multi_select' = four numbered items, options are combinations (APM's fourth presentation style).",
       "trap flags: 'negative_stem' and 'multi_select' are used by Trap School to build targeted drills."
     ],
-    "option_order": "Stored order is a deterministic shuffle (seed 20260813). Explanations reference option CONTENT, never letters, because the app re-shuffles options per attempt. Never reintroduce letter references."
+    "option_order": "Stored order is a deterministic shuffle (seed 20260813). Explanations reference option CONTENT, never letters, because the app re-shuffles options per attempt. Never reintroduce letter references.",
+    "bank_note": "These 60 are the mock paper (mock_suitable true, variant 1). Practice-only questions live in pfq-practice-questions.json with mock_suitable false and variant 2 upwards. Both files seed into the same pfq_questions table."
   },
   "questions": [
     {
@@ -33,7 +34,9 @@
         "d": "A unique, transient endeavour undertaken to bring about change and achieve planned objectives."
       },
       "answer": "d",
-      "explanation": "A project is unique and transient, a defined beginning and end, existing to deliver change. The permanent-function distractor is business as usual, the shared-resources one is a programme, and the separate-budget one describes a funding arrangement rather than a project."
+      "explanation": "A project is unique and transient, a defined beginning and end, existing to deliver change. The permanent-function distractor is business as usual, the shared-resources one is a programme, and the separate-budget one describes a funding arrangement rather than a project.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-002",
@@ -51,7 +54,9 @@
         "d": "A project has a defined start and end, whereas business as usual is ongoing."
       },
       "answer": "d",
-      "explanation": "Transience is the defining difference. Budgets, stakeholders and outputs exist in both, those distractors are true of business as usual too."
+      "explanation": "Transience is the defining difference. Budgets, stakeholders and outputs exist in both, those distractors are true of business as usual too.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-003",
@@ -69,7 +74,9 @@
         "d": "governance structures that control how an organisation spends its money."
       },
       "answer": "b",
-      "explanation": "The APM definition centres on applying processes, methods, knowledge, skills and experience to achieve objectives. The 'ensure delivery within the original budget' distractor is a common trap. Project management does not guarantee an outcome."
+      "explanation": "The APM definition centres on applying processes, methods, knowledge, skills and experience to achieve objectives. The 'ensure delivery within the original budget' distractor is a common trap. Project management does not guarantee an outcome.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-004",
@@ -87,7 +94,9 @@
         "d": "achieve project objectives within agreed constraints, delivering beneficial change."
       },
       "answer": "d",
-      "explanation": "Project management exists to effect beneficial change within constraints. Uncertainty is managed, never removed; keeping existing services running is business as usual; and full resource utilisation is a resource-management aim, not the purpose of project management."
+      "explanation": "Project management exists to effect beneficial change within constraints. Uncertainty is managed, never removed; keeping existing services running is business as usual; and full resource utilisation is a resource-management aim, not the purpose of project management.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-005",
@@ -105,7 +114,9 @@
         "d": "Coordinating related projects to deliver outcomes that could not be achieved by managing them individually."
       },
       "answer": "a",
-      "explanation": "Portfolio management is about selection and prioritisation against strategy. The 'coordinating related projects' distractor is the definition of programme management, the classic near-miss for this outcome. The other two describe project management and business as usual."
+      "explanation": "Portfolio management is about selection and prioritisation against strategy. The 'coordinating related projects' distractor is the definition of programme management, the classic near-miss for this outcome. The other two describe project management and business as usual.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-006",
@@ -123,7 +134,9 @@
         "d": "assess the capability and skill mix of the project team."
       },
       "answer": "c",
-      "explanation": "PESTLE (political, economic, sociological, technological, legal, environmental) is a scan of the external operating environment. It may feed risk identification, but it is not itself a prioritisation technique."
+      "explanation": "PESTLE (political, economic, sociological, technological, legal, environmental) is a scan of the external operating environment. It may feed risk identification, but it is not itself a prioritisation technique.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-007",
@@ -141,7 +154,9 @@
         "d": "Definition, concept, deployment, transition."
       },
       "answer": "c",
-      "explanation": "Concept, definition, deployment, transition. The sequencing questions are pure recall. Learn the order as a phrase, not by reasoning it out under time pressure."
+      "explanation": "Concept, definition, deployment, transition. The sequencing questions are pure recall. Learn the order as a phrase, not by reasoning it out under time pressure.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-008",
@@ -159,7 +174,9 @@
         "d": "Definition."
       },
       "answer": "b",
-      "explanation": "An iterative life cycle replaces a single definition-then-deployment run with repeated development iterations. Concept, definition and transition all appear in the linear life cycle too."
+      "explanation": "An iterative life cycle replaces a single definition-then-deployment run with repeated development iterations. Concept, definition and transition all appear in the linear life cycle too.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-009",
@@ -177,7 +194,9 @@
         "d": "combines elements of linear and iterative life cycles."
       },
       "answer": "d",
-      "explanation": "Hybrid = linear plus iterative in one life cycle. The 'adoption and benefits realisation' distractor defines an extended life cycle, hybrid and extended are the most commonly confused pair in LO2."
+      "explanation": "Hybrid = linear plus iterative in one life cycle. The 'adoption and benefits realisation' distractor defines an extended life cycle, hybrid and extended are the most commonly confused pair in LO2.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-010",
@@ -195,7 +214,9 @@
         "d": "lengthens the deployment phase to allow for late changes in scope."
       },
       "answer": "a",
-      "explanation": "'Extended' means extended past handover, into adoption and benefits realisation. The project is not finished when the output is delivered. The 'combines linear and iterative' distractor is a hybrid life cycle."
+      "explanation": "'Extended' means extended past handover, into adoption and benefits realisation. The project is not finished when the output is delivered. The 'combines linear and iterative' distractor is a hybrid life cycle.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-011",
@@ -213,7 +234,9 @@
         "d": "Authorising changes that fall outside the project manager's delegated authority."
       },
       "answer": "b",
-      "explanation": "The PMO is a supporting and standard-setting function. Owning the business case is the sponsor, prioritising requirements is the product owner, and authorising changes beyond delegated authority is the governance board. Every option here is a role named in outcome 3.1. This single mark requires knowing all seven."
+      "explanation": "The PMO is a supporting and standard-setting function. Owning the business case is the sponsor, prioritising requirements is the product owner, and authorising changes beyond delegated authority is the governance board. Every option here is a role named in outcome 3.1. This single mark requires knowing all seven.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-012",
@@ -231,7 +254,9 @@
         "d": "The point at which project outputs are handed over to the users."
       },
       "answer": "c",
-      "explanation": "A baseline is the reference point for control. Note how plausible the handover distractor sounds. The word 'deployment' invites you to think about go-live. Read the whole option before choosing."
+      "explanation": "A baseline is the reference point for control. Note how plausible the handover distractor sounds. The word 'deployment' invites you to think about go-live. Read the whole option before choosing.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-013",
@@ -249,7 +274,9 @@
         "d": "In a linear life cycle it is set once for the whole project; in an iterative life cycle it is set for each iteration."
       },
       "answer": "d",
-      "explanation": "Linear baselines the whole scope up front; iterative baselines each iteration in turn. The 'fixed at the outset and cannot be changed' distractor inverts the two."
+      "explanation": "Linear baselines the whole scope up front; iterative baselines each iteration in turn. The 'fixed at the outset and cannot be changed' distractor inverts the two.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-014",
@@ -267,7 +294,9 @@
         "d": "Because the sponsor carries out the day-to-day activities described in the plan."
       },
       "answer": "a",
-      "explanation": "The project manager produces the plan; the sponsor approves it and owns the business case behind it. The 'supplies goods and services' distractor describes suppliers, who are also stakeholders of the plan but for a different reason."
+      "explanation": "The project manager produces the plan; the sponsor approves it and owns the business case behind it. The 'supplies goods and services' distractor describes suppliers, who are also stakeholders of the plan but for a different reason.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-015",
@@ -285,7 +314,9 @@
         "d": "The daily log of issues raised by members of the project team."
       },
       "answer": "c",
-      "explanation": "The business case answers 'why should we do this, and is it still worth doing'. Costs, benefits, risks, options and timescales, not delivery detail."
+      "explanation": "The business case answers 'why should we do this, and is it still worth doing'. Costs, benefits, risks, options and timescales, not delivery detail.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-016",
@@ -303,7 +334,9 @@
         "d": "owning the business case for the duration of the project."
       },
       "answer": "b",
-      "explanation": "The sponsor owns, develops and maintains the business case; the project manager supplies the information that keeps it accurate. Owning, approving and realising benefits are all sponsor responsibilities."
+      "explanation": "The sponsor owns, develops and maintains the business case; the project manager supplies the information that keeps it accurate. Owning, approving and realising benefits are all sponsor responsibilities.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-017",
@@ -321,7 +354,9 @@
         "d": "removes the need for a separate communication plan."
       },
       "answer": "a",
-      "explanation": "Analysis tells you who matters, how much, and in what way. So effort goes where it changes the outcome. Beware absolute words like 'guarantees' and 'removes the need for'; they are almost always wrong."
+      "explanation": "Analysis tells you who matters, how much, and in what way. So effort goes where it changes the outcome. Beware absolute words like 'guarantees' and 'removes the need for'; they are almost always wrong.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-018",
@@ -339,7 +374,9 @@
         "d": "project outputs."
       },
       "answer": "c",
-      "explanation": "Short-stem definition recall. Outputs are what the project delivers; benefits are the measurable improvement that results from using them."
+      "explanation": "Short-stem definition recall. Outputs are what the project delivers; benefits are the measurable improvement that results from using them.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-019",
@@ -365,7 +402,9 @@
         "d": "1, 2 and 4"
       },
       "answer": "b",
-      "explanation": "Analytical (bottom-up), analogous (comparative) and parametric are the three named in the syllabus. 'Incremental' is a delivery approach, not an estimating method. In multi-select questions, find the one item you are certain is wrong and eliminate every option containing it."
+      "explanation": "Analytical (bottom-up), analogous (comparative) and parametric are the three named in the syllabus. 'Incremental' is a delivery approach, not an estimating method. In multi-select questions, find the one item you are certain is wrong and eliminate every option containing it.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-020",
@@ -383,7 +422,9 @@
         "d": "project costs always reduce as the project progresses."
       },
       "answer": "b",
-      "explanation": "The funnel narrows: early estimates carry wide ranges, later ones narrow as uncertainty falls. It is a statement about accuracy, not about cost reduction."
+      "explanation": "The funnel narrows: early estimates carry wide ranges, later ones narrow as uncertainty falls. It is a statement about accuracy, not about cost reduction.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-021",
@@ -401,7 +442,9 @@
         "d": "provide the measures against which the project will ultimately be judged."
       },
       "answer": "d",
-      "explanation": "Success criteria define what 'done well' means before anyone has an incentive to redefine it. They are revisited during delivery and at handover. That is why this outcome names all three points."
+      "explanation": "Success criteria define what 'done well' means before anyone has an incentive to redefine it. They are revisited during delivery and at handover. That is why this outcome names all three points.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-022",
@@ -419,7 +462,9 @@
         "d": "ensures the project will be delivered on time."
       },
       "answer": "a",
-      "explanation": "Reporting makes performance visible so decisions can be made early. It does not prevent variance. It reveals it."
+      "explanation": "Reporting makes performance visible so decisions can be made early. It does not prevent variance. It reveals it.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-023",
@@ -437,7 +482,9 @@
         "d": "identifying, defining and controlling the work required to deliver the project's objectives."
       },
       "answer": "d",
-      "explanation": "Scope management covers what is in, what is out, and how that boundary is controlled. The sequencing distractor is scheduling; the fitness-for-purpose one is quality control."
+      "explanation": "Scope management covers what is in, what is out, and how that boundary is controlled. The sequencing distractor is scheduling; the fitness-for-purpose one is quality control.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-024",
@@ -455,7 +502,9 @@
         "d": "Requirements are re-prioritised within a fixed time and cost."
       },
       "answer": "d",
-      "explanation": "Iterative fixes time and resources and flexes scope; linear fixes scope and flexes time and cost through change control. The three distractors all describe linear scope management."
+      "explanation": "Iterative fixes time and resources and flexes scope; linear fixes scope and flexes time and cost through change control. The three distractors all describe linear scope management.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-025",
@@ -473,7 +522,9 @@
         "d": "A PBS shows the products to be delivered; a WBS shows the work needed to deliver them."
       },
       "answer": "d",
-      "explanation": "Products versus work. Both are hierarchical decompositions used to illustrate scope, the distinction is what sits in the boxes."
+      "explanation": "Products versus work. Both are hierarchical decompositions used to illustrate scope, the distinction is what sits in the boxes.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-026",
@@ -491,7 +542,9 @@
         "d": "product breakdown structure."
       },
       "answer": "b",
-      "explanation": "WBS (the work) × OBS (the people) = RAM (who does what). Learning that equation covers most of what this outcome can ask."
+      "explanation": "WBS (the work) × OBS (the people) = RAM (who does what). Learning that equation covers most of what this outcome can ask.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-027",
@@ -509,7 +562,9 @@
         "d": "the schedule is re-baselined at the end of each phase."
       },
       "answer": "b",
-      "explanation": "Change control is a decision process. The 'record the current version of every document' distractor describes configuration management, the pair this outcome most often tests against each other."
+      "explanation": "Change control is a decision process. The 'record the current version of every document' distractor describes configuration management, the pair this outcome most often tests against each other.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-028",
@@ -527,7 +582,9 @@
         "d": "They are two names for the same process."
       },
       "answer": "a",
-      "explanation": "Change control decides; configuration management keeps the record straight so everyone knows which version is current. The distractor that has configuration management approving changes reverses the two responsibilities."
+      "explanation": "Change control decides; configuration management keeps the record straight so everyone knows which version is current. The distractor that has configuration management approving changes reverses the two responsibilities.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-029",
@@ -545,7 +602,9 @@
         "d": "Status accounting of controlled items."
       },
       "answer": "c",
-      "explanation": "Request, evaluation, recommendation, decision, implementation, update. The verification audit and status accounting distractors are configuration management activities. The examiner deliberately mixes the two lists."
+      "explanation": "Request, evaluation, recommendation, decision, implementation, update. The verification audit and status accounting distractors are configuration management activities. The examiner deliberately mixes the two lists.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-030",
@@ -571,7 +630,9 @@
         "d": "1, 3 and 4"
       },
       "answer": "c",
-      "explanation": "The five activities are planning, identification, control, status accounting and verification audit. 'Justification' belongs to the business case, not to configuration management."
+      "explanation": "The five activities are planning, identification, control, status accounting and verification audit. 'Justification' belongs to the business case, not to configuration management.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-031",
@@ -589,7 +650,9 @@
         "d": "record the actual cost of each completed work package."
       },
       "answer": "c",
-      "explanation": "Scheduling answers when, in what order, and with what. Cost recording, acceptance criteria and risk ownership belong to other processes."
+      "explanation": "Scheduling answers when, in what order, and with what. Cost recording, acceptance criteria and risk ownership belong to other processes.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-032",
@@ -607,7 +670,9 @@
         "d": "the sequence of activities that determines the shortest possible project duration."
       },
       "answer": "d",
-      "explanation": "The critical path is the longest path through the network and therefore the shortest time the project can take. Activities on it have zero float. Delay one, delay the project."
+      "explanation": "The critical path is the longest path through the network and therefore the shortest time the project can take. Activities on it have zero float. Delay one, delay the project.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-033",
@@ -625,7 +690,9 @@
         "d": "identify the longest path through the schedule network."
       },
       "answer": "b",
-      "explanation": "A milestone has no duration and consumes no resource. It is a marker of significance used for reporting and control."
+      "explanation": "A milestone has no duration and consumes no resource. It is a marker of significance used for reporting and control.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-034",
@@ -643,7 +710,9 @@
         "d": "Time and resources, with scope and quality allowed to vary."
       },
       "answer": "d",
-      "explanation": "A time box fixes the period and the resource, and delivers whatever can be completed to an agreed standard within it. The 'scope and quality fixed' distractor is the linear, change-controlled model, the exact inversion."
+      "explanation": "A time box fixes the period and the resource, and delivers whatever can be completed to an agreed standard within it. The 'scope and quality fixed' distractor is the linear, change-controlled model, the exact inversion.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-035",
@@ -661,7 +730,9 @@
         "d": "Resource estimation."
       },
       "answer": "c",
-      "explanation": "Smoothing protects the end date and flexes resource usage within float. Levelling does the opposite. It respects a resource limit and lets the end date move. If the question mentions a fixed date, the answer is smoothing."
+      "explanation": "Smoothing protects the end date and flexes resource usage within float. Levelling does the opposite. It respects a resource limit and lets the end date move. If the question mentions a fixed date, the answer is smoothing.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-036",
@@ -679,7 +750,9 @@
         "d": "the criteria used to accept delivered products from suppliers."
       },
       "answer": "c",
-      "explanation": "Strategy is the high-level approach, make or buy, contract type, supplier relationships. Detailed contractual terms sit beneath the strategy, not in it."
+      "explanation": "Strategy is the high-level approach, make or buy, contract type, supplier relationships. Detailed contractual terms sit beneath the strategy, not in it.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-037",
@@ -697,7 +770,9 @@
         "d": "A problem that is currently affecting delivery and requires resolution."
       },
       "answer": "b",
-      "explanation": "Risk is uncertain and forward-looking, and can be a threat or an opportunity. The 'problem currently affecting delivery' distractor is an issue, expect the risk and issue definitions to be used as each other's distractors."
+      "explanation": "Risk is uncertain and forward-looking, and can be a threat or an opportunity. The 'problem currently affecting delivery' distractor is an issue, expect the risk and issue definitions to be used as each other's distractors.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-038",
@@ -715,7 +790,9 @@
         "d": "transfer accountability for project outcomes to the sponsor."
       },
       "answer": "c",
-      "explanation": "Both halves matter. Risk management is not only about threats. The 'remove all uncertainty' distractor overreaches: uncertainty is managed, never eliminated."
+      "explanation": "Both halves matter. Risk management is not only about threats. The 'remove all uncertainty' distractor overreaches: uncertainty is managed, never eliminated.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-039",
@@ -733,7 +810,9 @@
         "d": "Risk justification."
       },
       "answer": "c",
-      "explanation": "The four stages named in the syllabus are identification, analysis, response and closure. The three distractors borrow words from the business case, quality and resource vocabularies."
+      "explanation": "The four stages named in the syllabus are identification, analysis, response and closure. The three distractors borrow words from the business case, quality and resource vocabularies.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-040",
@@ -751,7 +830,9 @@
         "d": "list the issues that have been escalated to the project sponsor."
       },
       "answer": "b",
-      "explanation": "A register is a live control document, not an archive. Each entry carries an owner and a response, a list of risks with no owners is not a risk register."
+      "explanation": "A register is a live control document, not an archive. Each entry carries an owner and a response, a list of risks with no owners is not a risk register.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-041",
@@ -769,7 +850,9 @@
         "d": "A problem that has occurred and now requires resolution beyond the project manager's delegated tolerances."
       },
       "answer": "d",
-      "explanation": "An issue has already happened and typically breaches delegated tolerance, which is why it is escalated. The 'may occur in the future' distractor is a risk."
+      "explanation": "An issue has already happened and typically breaches delegated tolerance, which is why it is escalated. The 'may occur in the future' distractor is a risk.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-042",
@@ -787,7 +870,9 @@
         "d": "assess the probability and impact of events that have not yet happened."
       },
       "answer": "c",
-      "explanation": "Issue management is about resolution, not prevention. You cannot prevent something that has already occurred. The probability-and-impact distractor describes risk analysis."
+      "explanation": "Issue management is about resolution, not prevention. You cannot prevent something that has already occurred. The probability-and-impact distractor describes risk analysis.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-043",
@@ -805,7 +890,9 @@
         "d": "An issue must be recorded, whereas a risk need not be."
       },
       "answer": "a",
-      "explanation": "Certainty is the discriminator. Everything else, recording, ownership, which constraint is hit. Applies to both."
+      "explanation": "Certainty is the discriminator. Everything else, recording, ownership, which constraint is hit. Applies to both.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-044",
@@ -823,7 +910,9 @@
         "d": "Escalating the issue to the appropriate level of authority."
       },
       "answer": "d",
-      "explanation": "Identify, assess impact, escalate, resolve, close. The 'assess the probability' distractor is impossible by definition. An issue has already occurred, so it has no probability."
+      "explanation": "Identify, assess impact, escalate, resolve, close. The 'assess the probability' distractor is impossible by definition. An issue has already occurred, so it has no probability.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-045",
@@ -841,7 +930,9 @@
         "d": "The complete absence of defects in a delivered product."
       },
       "answer": "b",
-      "explanation": "Fitness for purpose, judged against agreed requirements, not perfection, and not price. Quality is relative to what was specified."
+      "explanation": "Fitness for purpose, judged against agreed requirements, not perfection, and not price. Quality is relative to what was specified.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-046",
@@ -859,7 +950,9 @@
         "d": "every stakeholder personally approves each deliverable."
       },
       "answer": "a",
-      "explanation": "Note that quality management covers both the outputs and the processes. That dual scope is what separates it from quality control alone."
+      "explanation": "Note that quality management covers both the outputs and the processes. That dual scope is what separates it from quality control alone.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-047",
@@ -877,7 +970,9 @@
         "d": "determining the standards, acceptance criteria and processes that the project will apply."
       },
       "answer": "d",
-      "explanation": "Planning sets the standard up front. The inspection distractor is quality control and the process-audit one is quality assurance, all three appear as each other's distractors throughout LO8."
+      "explanation": "Planning sets the standard up front. The inspection distractor is quality control and the process-audit one is quality assurance, all three appear as each other's distractors throughout LO8.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-048",
@@ -895,7 +990,9 @@
         "d": "setting the quality standards that the project will work to."
       },
       "answer": "a",
-      "explanation": "Control is done to the product, after the fact. Assurance is done to the process, during. Three words to hold apart: plan the standard, assure the process, control the product."
+      "explanation": "Control is done to the product, after the fact. Assurance is done to the process, during. Three words to hold apart: plan the standard, assure the process, control the product.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-049",
@@ -913,7 +1010,9 @@
         "d": "the processes being used will produce outputs that meet the requirements."
       },
       "answer": "d",
-      "explanation": "Assurance is confidence in the process, and it is usually provided by someone independent of the delivery team."
+      "explanation": "Assurance is confidence in the process, and it is usually provided by someone independent of the delivery team.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-050",
@@ -931,7 +1030,9 @@
         "d": "confirm that the expected business benefits have actually been realised."
       },
       "answer": "b",
-      "explanation": "Every option here is an item named in outcome 8.6: authorising the next phase is a decision gate, confirming benefits is a benefits review, and verifying compliance is a project audit. This outcome asks you to hold four purposes apart. Expect one of them, and know which is which."
+      "explanation": "Every option here is an item named in outcome 8.6: authorising the next phase is a decision gate, confirming benefits is a benefits review, and verifying compliance is a project audit. This outcome asks you to hold four purposes apart. Expect one of them, and know which is which.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-051",
@@ -949,7 +1050,9 @@
         "d": "the process of persuading stakeholders to support the project."
       },
       "answer": "a",
-      "explanation": "The confirmation half is the part candidates drop. Information sent is not communication until it has been received and understood."
+      "explanation": "The confirmation half is the part candidates drop. Information sent is not communication until it has been received and understood.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-052",
@@ -967,7 +1070,9 @@
         "d": "is the least expensive option for a geographically dispersed team."
       },
       "answer": "a",
-      "explanation": "Body language, tone and immediate feedback are the face-to-face advantages. The 'written record' distractor is an advantage of physical (written) communication. The three methods each have their own list."
+      "explanation": "Body language, tone and immediate feedback are the face-to-face advantages. The 'written record' distractor is an advantage of physical (written) communication. The three methods each have their own list.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-053",
@@ -985,7 +1090,9 @@
         "d": "requires all participants to be in the same physical location."
       },
       "answer": "c",
-      "explanation": "Technology dependency, plus weaker non-verbal cues, are the virtual disadvantages. The other three options are simply untrue, which is typical of the weaker distractors in LO9."
+      "explanation": "Technology dependency, plus weaker non-verbal cues, are the virtual disadvantages. The other three options are simply untrue, which is typical of the weaker distractors in LO9.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-054",
@@ -1003,7 +1110,9 @@
         "d": "The acceptance criteria for each project deliverable."
       },
       "answer": "c",
-      "explanation": "Audience, content, frequency, method, and who is responsible for sending it. If an option describes an artefact from another process, it is not communication plan content."
+      "explanation": "Audience, content, frequency, method, and who is responsible for sending it. If an option describes an artefact from another process, it is not communication plan content.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-055",
@@ -1021,7 +1130,9 @@
         "d": "ensures the right stakeholders receive relevant information at the right time."
       },
       "answer": "d",
-      "explanation": "A plan makes communication deliberate rather than reactive. It cannot manufacture agreement. Watch for 'guarantees' and 'all'."
+      "explanation": "A plan makes communication deliberate rather than reactive. It cannot manufacture agreement. Watch for 'guarantees' and 'all'.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-056",
@@ -1039,7 +1150,9 @@
         "d": "resolve disputes that arise between the project team and its suppliers."
       },
       "answer": "c",
-      "explanation": "Vision, direction, influence, alignment. Note that leadership is explicitly not the same as formal authority. The 'holds formal authority' distractor is the trap for anyone equating the two."
+      "explanation": "Vision, direction, influence, alignment. Note that leadership is explicitly not the same as formal authority. The 'holds formal authority' distractor is the trap for anyone equating the two.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-057",
@@ -1057,7 +1170,9 @@
         "d": "Allocating work according to availability rather than skill."
       },
       "answer": "b",
-      "explanation": "Clarity of role, openness and trust are the levers named in the syllabus. The three distractors are all recognisable anti-patterns. This outcome tends to be tested by making the wrong answers plainly wrong."
+      "explanation": "Clarity of role, openness and trust are the levers named in the syllabus. The three distractors are all recognisable anti-patterns. This outcome tends to be tested by making the wrong answers plainly wrong.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-058",
@@ -1083,7 +1198,9 @@
         "d": "1, 3 and 4"
       },
       "answer": "b",
-      "explanation": "Co-location is a help, not a challenge. It is the dispersed team that creates difficulty. Spot the single positive item in the list and eliminate every option containing it."
+      "explanation": "Co-location is a help, not a challenge. It is the dispersed team that creates difficulty. Spot the single positive item in the list and eliminate every option containing it.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-059",
@@ -1101,7 +1218,9 @@
         "d": "Forming."
       },
       "answer": "b",
-      "explanation": "Forming (polite and tentative), storming (conflict), norming (settled roles), performing (effective delivery). Match the stage to the described behaviour, not to the position in the sequence."
+      "explanation": "Forming (polite and tentative), storming (conflict), norming (settled roles), performing (effective delivery). Match the stage to the described behaviour, not to the position in the sequence.",
+      "mock_suitable": true,
+      "variant": 1
     },
     {
       "id": "PFQ-060",
@@ -1119,7 +1238,9 @@
         "d": "Implementer."
       },
       "answer": "c",
-      "explanation": "The plant is the creative idea generator. Implementer turns ideas into action, completer finisher polishes and checks, resource investigator looks outside the team for contacts and opportunities."
+      "explanation": "The plant is the creative idea generator. Implementer turns ideas into action, completer finisher polishes and checks, resource investigator looks outside the team for contacts and opportunities.",
+      "mock_suitable": true,
+      "variant": 1
     }
   ]
 }

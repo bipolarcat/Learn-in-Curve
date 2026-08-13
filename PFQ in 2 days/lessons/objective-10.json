@@ -1,0 +1,160 @@
+{
+  "objective_number": 10,
+  "objective_code": "PFQ-OBJ-10",
+  "title": "Leadership and teamwork within a project",
+  "day": 2,
+  "apm_learning_objective": "Understand leadership and teamwork within a project.",
+  "learning_outcomes": [
+    "10.1",
+    "10.2",
+    "10.3",
+    "10.4"
+  ],
+  "exam_coverage_note": "4 outcomes. Worth 4 marks normally, but 10.4 names two models, so this objective is a strong candidate for the outcome the handbook says is assessed twice.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 3.1.3, 3.2.1, 3.2.3, 3.2.4 and 8th ed. 4.1, 4.3, 4.3.1, 4.3.3, 4.4, 4.4.1, 4.4.2, 4.4.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+  "where_this_fits": "The last objective, and the one where the syllabus stops describing processes and starts describing people. Four outcomes, and the final one names two models by name, Belbin and Tuckman, which makes it the outcome most likely to appear twice on a paper. In the published sample paper it did exactly that, with one Belbin question and one Tuckman question. That is one observation rather than a rule, but it does mean both models need learning properly rather than one of them.",
+  "key_definitions": [
+    {
+      "term": "Leadership",
+      "definition": "The ability to establish vision and direction, and to influence and align others towards a common purpose.",
+      "plain_english": "Getting people to want to go somewhere, rather than instructing them to."
+    },
+    {
+      "term": "Management",
+      "definition": "The planning, organising and controlling of resources and activities to achieve defined objectives.",
+      "plain_english": "Making sure the work happens properly. Related to leadership, and not the same thing."
+    },
+    {
+      "term": "Tuckman's model",
+      "definition": "A model of team development describing the stages of forming, storming, norming and performing.",
+      "plain_english": "The predictable stages a new team goes through before it works well."
+    },
+    {
+      "term": "Belbin's team roles",
+      "definition": "A model describing the behavioural roles individuals adopt in teams, used to understand team balance.",
+      "plain_english": "The different parts people naturally play in a team, and why a team of nine identical people struggles."
+    },
+    {
+      "term": "Dispersed team",
+      "definition": "A team whose members are located in different places, working across distance and often across time zones.",
+      "plain_english": "A team that does not share a room, and often does not share a working day."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "10.1",
+      "outcome_title": "Define the term 'leadership'",
+      "key_takeaway": "Establishing vision and direction, and influencing and aligning others towards a common purpose. Not authority, not job title.",
+      "body_markdown": "Leadership is the ability to establish vision and direction, and to influence and align others towards a common purpose.\n\nFour components sit in that sentence and the exam draws on all of them: vision, direction, influence, alignment.\n\nThe critical point is what leadership is not. It is not formal authority. Authority is granted by position and can compel compliance. Leadership works through influence and produces commitment, which is a different and more durable thing. Project managers commonly have to lead people they have no authority over, particularly in matrix organisations where team members report elsewhere, and that is precisely why the distinction matters in practice rather than only in the exam.\n\nLeadership is also distinct from management, though the two are complementary. Management plans, organises and controls the work. Leadership sets direction and brings people with you. A project needs both, and a project manager is normally doing both at once.",
+      "watch_for": "Options equating leadership with holding formal authority over a team, or with allocating tasks and monitoring completion. The second describes management."
+    },
+    {
+      "outcome_code": "10.2",
+      "outcome_title": "Explain how a project team leader can influence team performance",
+      "key_takeaway": "Clear roles and objectives, trust, openness, feedback and recognition. The distractors here tend to be recognisable anti-patterns.",
+      "body_markdown": "A team leader influences performance through a small number of things that consistently matter.\n\nClarity of role and objective comes first. People who know precisely what they are responsible for, and what the team is trying to achieve, perform better than people who are working it out as they go. Ambiguity produces both gaps and duplication, which is what the responsibility assignment matrix at outcome 5.4 exists to expose.\n\nTrust and openness follow. A team that can raise bad news early is a team whose leader hears about problems while they are still small. A team that cannot will present a green status report until the week the project fails.\n\nFeedback, given routinely rather than saved up, lets people correct course while correction is still cheap.\n\nRecognition of contribution sustains effort, particularly on long projects where the end feels distant.\n\nInvolvement in decisions increases commitment to them. People support what they helped shape.\n\nAnd the leader's own behaviour sets the standard. A leader who conceals problems has a team that conceals problems, whatever the stated policy says.",
+      "watch_for": "This outcome is often tested by making the wrong options obviously poor practice: restricting information, avoiding conflict, allocating by availability rather than skill, creating an exclusive environment. Read them properly rather than assuming a trick."
+    },
+    {
+      "outcome_code": "10.3",
+      "outcome_title": "Outline the challenges to a project manager when developing and leading a project team",
+      "key_takeaway": "Temporary membership, matrix reporting, dispersal, mixed skills and conflict. Co-location is a help, not a challenge.",
+      "body_markdown": "Project teams are harder to lead than permanent ones, for reasons that follow from what a project is.\n\nMembership is temporary and changing. People join and leave as the project moves through its phases, so the team is repeatedly re-forming, which links directly to Tuckman at outcome 10.4.\n\nAuthority is often incomplete. In a matrix organisation team members report to a line manager as well as to the project, and the project manager may have responsibility without formal authority.\n\nTeams are frequently dispersed across locations and time zones, which reduces non-verbal signal and makes disengagement and conflict harder to spot. That connects to the disadvantages of virtual communication at outcome 9.3.\n\nSkills, experience and working styles vary, and a project team is usually assembled from whoever was available rather than selected for balance.\n\nConflict arises from competing priorities, personality differences and resource pressure, and has to be handled rather than avoided.\n\nAnd there is the pressure inherent in the work itself: deadlines, uncertainty and change, all of which fall on the same people.\n\nOne thing that is not a challenge is co-location. Having the team in one place removes several of the problems above, and it appears in exam options as the odd one out.",
+      "watch_for": "Multi-select questions listing four items where one is a benefit rather than a challenge, usually co-location or stable membership. Find that item and eliminate every option containing it."
+    },
+    {
+      "outcome_code": "10.4",
+      "outcome_title": "Outline how a project manager can use models to assist team development",
+      "key_takeaway": "Tuckman describes the stages a team goes through. Belbin describes the roles people play within it. Both are named in the syllabus, so both are examinable.",
+      "body_markdown": "The syllabus names two models, and because they appear in a bracketed list they are examinable by name.\n\nTuckman's model describes the stages a team passes through as it develops.\n\nForming is the polite, tentative beginning. Members are getting oriented, roles are unclear, and the leader is directive because nobody yet knows how the team works.\n\nStorming is the conflict stage. Members challenge roles, approaches and each other, and productivity often dips. This is normal and necessary rather than a sign of failure, and a leader who suppresses it usually finds the same disagreements resurfacing later and less openly.\n\nNorming is where roles settle, working practices are agreed and trust develops. The team starts operating as a unit.\n\nPerforming is the stage of effective delivery, where the team works with little intervention and the leader can step back.\n\nThe practical use is expectation setting. A project manager who knows storming is coming reads early conflict as a stage rather than as a crisis, and treats it accordingly. And because project teams change membership, a team that gains or loses people can revisit earlier stages.\n\nBelbin's model describes the behavioural roles individuals adopt within a team, grouped broadly into action-oriented, people-oriented and thinking-oriented roles. The plant generates ideas, the implementer turns them into action, the completer finisher checks the detail, the coordinator draws contributions out of others, the resource investigator looks outside the team for opportunities, and so on.\n\nThe practical use is balance. A team of nine idea generators produces no delivery, and a team with no idea generator produces nothing new. Understanding the mix helps a project manager allocate work to strengths and spot the gaps.",
+      "watch_for": "Tuckman stages attached to the wrong description, particularly norming and performing. Match the stage to the behaviour described rather than to its position in the sequence. For Belbin, match the role to what it contributes rather than to what its name sounds like."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "Leadership and management are the same thing.",
+      "right": "Management plans, organises and controls the work. Leadership sets direction and aligns people towards it. Projects need both, usually from the same person."
+    },
+    {
+      "wrong": "You need formal authority to lead.",
+      "right": "Leadership works through influence. Project managers routinely lead people who report elsewhere, which is why influence rather than authority is in the definition."
+    },
+    {
+      "wrong": "Storming means the team has gone wrong.",
+      "right": "It is a normal and necessary stage. Suppressing it tends to push the same disagreements underground, where they surface later and cost more."
+    },
+    {
+      "wrong": "Once a team reaches performing, it stays there.",
+      "right": "Project teams change membership constantly, and a team that gains or loses people can revisit earlier stages."
+    },
+    {
+      "wrong": "Belbin's model is about personality types.",
+      "right": "It describes behavioural roles people adopt in a team context. Its use is understanding balance and gaps, not labelling individuals permanently."
+    },
+    {
+      "wrong": "Co-locating the team is a challenge to be managed.",
+      "right": "Co-location removes several challenges. It is dispersal that creates difficulty, and co-location is the standard odd-one-out in exam lists."
+    },
+    {
+      "wrong": "Avoiding conflict keeps a team productive.",
+      "right": "Unaddressed conflict does not disappear. Openness and early feedback are what let a leader deal with it while it is still small."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "FSNP",
+      "expansion": "Forming, Storming, Norming, Performing. Tuckman's four stages in order. Polite, then fighting, then settled, then effective."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Stages / Roles",
+      "expansion": "Tuckman is stages a team moves through. Belbin is roles people play within it. One is time, the other is composition."
+    },
+    {
+      "type": "test",
+      "acronym": "Influence, not authority",
+      "expansion": "Any option defining leadership as formal power over a team is wrong."
+    },
+    {
+      "type": "test",
+      "acronym": "Spot the benefit",
+      "expansion": "In a list of team challenges, look for the item that is actually a help. It is usually co-location or stable membership, and it kills every option containing it."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define leadership using vision, direction, influence and alignment.",
+    "I can explain the difference between leadership and formal authority.",
+    "I can name five things a team leader does that improve team performance.",
+    "I can list five genuine challenges of leading a project team, and spot the item in a list that is actually a benefit.",
+    "I can name Tuckman's four stages in order, describe the behaviour at each, and explain why storming is normal.",
+    "I can say what Belbin's model describes and how a project manager uses it."
+  ],
+  "source_confidence": [
+    {
+      "claim": "The two named team development models are Belbin and Tuckman.",
+      "sub_outcome": "10.4",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' list in syllabus outcome 10.4. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "Outcome 10.4 is a strong candidate for the outcome assessed twice.",
+      "sub_outcome": "10.4",
+      "level": "low",
+      "basis": "In the published 2022 sample paper, 10.4 is the only outcome appearing twice, once for Belbin and once for Tuckman. All other 58 outcomes appear once.",
+      "risk": "One observation from one paper. The handbook states that one outcome is assessed twice but never says which, and it may vary between sittings. Teach both models thoroughly; do not tell learners to expect two questions here."
+    },
+    {
+      "claim": "Tuckman's model has four stages for PFQ purposes.",
+      "sub_outcome": "10.4",
+      "level": "medium",
+      "basis": "Forming, storming, norming and performing are the stages tested in the sample paper and referenced by the syllabus.",
+      "risk": "Tuckman later added a fifth stage, adjourning. It is not required at PFQ level and is omitted deliberately to keep the recall load on what is examinable."
+    }
+  ]
+}

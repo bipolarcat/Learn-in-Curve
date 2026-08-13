@@ -4,16 +4,23 @@
   "title": "Project risk and issue management",
   "day": 2,
   "apm_learning_objective": "Understand project risk and issue management in the context of a project.",
-  "learning_outcomes": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8"],
+  "learning_outcomes": [
+    "7.1",
+    "7.2",
+    "7.3",
+    "7.4",
+    "7.5",
+    "7.6",
+    "7.7",
+    "7.8"
+  ],
   "exam_coverage_note": "8 of 60 marks. Joint second largest objective, alongside scope management.",
   "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 4.2.2, 4.2.3, 4.3.3, 4.3.5 and 8th ed. 5.4.3, 5.10, 5.10.1, 5.10.2, 5.10.3.",
   "competence_area": null,
   "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
   "authored_on": "2026-08-13",
   "review_status": "draft-pending-sim",
-
   "where_this_fits": "Eight marks, and the objective with the cleanest internal structure in the syllabus. Four outcomes concern risk, three concern issues, and one asks you to tell them apart. That last one, 7.7, is the hinge: the whole objective is built on a single distinction, and the examiner uses the definition of each as the distractor for the other. Get 7.1, 7.5 and 7.7 solid and the remaining five outcomes follow, because once you know an issue has already happened and a risk has not, the purpose and process questions answer themselves.",
-
   "key_definitions": [
     {
       "term": "Risk",
@@ -51,7 +58,6 @@
       "plain_english": "Uncertainty that could work in your favour, and which should be managed rather than left to luck."
     }
   ],
-
   "core_content": [
     {
       "outcome_code": "7.1",
@@ -110,7 +116,6 @@
       "watch_for": "Assessing the probability of the issue occurring, offered as a stage. Also watch for risk process words such as response planning or risk closure appearing in this list."
     }
   ],
-
   "misconceptions": [
     {
       "wrong": "Risk means something bad that might happen.",
@@ -141,7 +146,6 @@
       "right": "It is live throughout. New risks are added, assessments change, and risks that can no longer occur are formally closed."
     }
   ],
-
   "memory_aids": [
     {
       "type": "acronym",
@@ -164,18 +168,14 @@
       "expansion": "An issue is certain. Any option assessing its likelihood is wrong by definition."
     }
   ],
-
   "progress_checkpoint": [
     "I can define risk including the words uncertain and objectives, and note that it can be positive.",
     "I can state both halves of the purpose of risk management.",
     "I can name the four stages of the risk management process in order.",
     "I can list what a risk register entry contains, including owner and response.",
-    "I can define an issue including the tolerance element, not just the fact it has happened.",
-    "I can state the purpose of issue management without using the word prevent.",
-    "I can give the single real difference between a risk and an issue, and name three false ones.",
-    "I can outline the stages of issue resolution and explain why none of them assesses probability."
+    "I can define an issue including the tolerance element, and state the purpose of issue management without using the word prevent.",
+    "I can give the one real difference between a risk and an issue, name three false ones, and say why issue resolution has no probability stage."
   ],
-
   "source_confidence": [
     {
       "claim": "The four stages of a typical risk management process are identification, analysis, response and closure.",

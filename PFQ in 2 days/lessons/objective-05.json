@@ -4,16 +4,23 @@
   "title": "Project scope management",
   "day": 1,
   "apm_learning_objective": "Understand project scope management.",
-  "learning_outcomes": ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8"],
+  "learning_outcomes": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5",
+    "5.6",
+    "5.7",
+    "5.8"
+  ],
   "exam_coverage_note": "8 of 60 marks. Joint second largest objective, alongside risk and issue management.",
   "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.3.1, 4.1.4, 4.3.6, 4.3.7 and 8th ed. 2.5.1, 2.5.2, 2.6.1, 5.2.1, 5.7, 5.11.1, 5.11.3.",
   "competence_area": null,
   "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
   "authored_on": "2026-08-13",
   "review_status": "draft-pending-sim",
-
   "where_this_fits": "Eight marks, and the objective where the syllabus stops describing documents and starts describing control. Objective 4 got the plan agreed. This objective is about holding the line on what the project will and will not deliver, and about what happens when someone wants to change it. Two of the eight outcomes are process lists that must be recited, 5.7 and 5.8, and they are the highest-value rote learning in the whole syllabus because the examiner deliberately mixes the two lists together. Four of the eight outcomes concern the breakdown structures. If you get the structures and the two process lists solid, this objective becomes seven or eight marks rather than four.",
-
   "key_definitions": [
     {
       "term": "Scope management",
@@ -56,7 +63,6 @@
       "plain_english": "Knowing which version of what is current, and keeping that record straight."
     }
   ],
-
   "core_content": [
     {
       "outcome_code": "5.1",
@@ -115,7 +121,6 @@
       "watch_for": "Change control words appearing in this list, particularly evaluation, recommendation and justification. If it decides, it belongs to change control. If it records or checks, it belongs here."
     }
   ],
-
   "misconceptions": [
     {
       "wrong": "Scope management is just writing down what the project will deliver.",
@@ -146,7 +151,6 @@
       "right": "Updating the records is part of the process. Without it, the approved change exists in the product but not in the documentation, which is how the wrong version gets built or tested."
     }
   ],
-
   "memory_aids": [
     {
       "type": "acronym",
@@ -169,19 +173,14 @@
       "expansion": "PBS decomposes products. WBS decomposes work. Decide what before deciding how."
     }
   ],
-
   "progress_checkpoint": [
     "I can define scope management using all three verbs, including control.",
     "I can say how scope is handled differently in linear and iterative projects, and why.",
-    "I can explain the difference between a PBS and a WBS in one sentence each.",
-    "I can say which two structures combine to form a RAM, and what a RAM reveals.",
+    "I can explain the difference between a PBS and a WBS, and say which two structures combine to form a RAM.",
     "I can define change control and configuration management without confusing them.",
-    "I can explain how the two processes interlock on a single change.",
     "I can list the stages of a typical change control process in order.",
-    "I can name the five configuration management activities and say what each achieves.",
-    "I can tell, for any given word, which of the two lists it belongs to."
+    "I can name the five configuration management activities and tell, for any given word, which of the two lists it belongs to."
   ],
-
   "source_confidence": [
     {
       "claim": "The five configuration management activities are planning, identification, control, status accounting and verification audit.",

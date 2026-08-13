@@ -12,6 +12,7 @@ import { buildPfqResults, isDisplayAnswerCorrect } from "@/lib/pfq/scoring";
 import { toPublicPfqQuestion } from "@/lib/pfq/public-question";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { canAccessPfqMock } from "@/lib/pfq/tiers";
+import { upsertCoverageSignals } from "@/lib/pfq/coverage-signals";
 import type {
   PfqAttemptRow,
   PfqPublicQuestion,
@@ -34,6 +35,8 @@ function asQuestionRow(raw: Record<string, unknown>): PfqQuestionRow {
     answer: String(raw.answer),
     explanation: String(raw.explanation),
     active: raw.active !== false,
+    mock_suitable: Boolean(raw.mock_suitable),
+    variant: Number(raw.variant ?? 1),
   };
 }
 
@@ -493,6 +496,32 @@ export async function submitPfqAttempt(input: {
         })
         .eq("id", row.id);
       if (stampError) throw stampError;
+
+      // Feed the combined coverage map (most recent answer wins per outcome).
+      const byOutcome = new Map<
+        string,
+        { correct: boolean; question_id: string }
+      >();
+      for (const chip of results.coverage) {
+        if (chip.state === "unattempted") continue;
+        const gap = results.gaps.find((g) => g.code === chip.code);
+        const review = results.reviews.find(
+          (r) => r.learning_outcome === chip.code,
+        );
+        byOutcome.set(chip.code, {
+          correct: chip.state === "correct",
+          question_id: gap?.questionId || review?.id || "",
+        });
+      }
+      await upsertCoverageSignals({
+        userId,
+        source: "mock",
+        outcomes: [...byOutcome.entries()].map(([learning_outcome, v]) => ({
+          learning_outcome,
+          correct: v.correct,
+          question_id: v.question_id,
+        })),
+      });
     }
 
     return { ok: true, results };

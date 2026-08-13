@@ -4,16 +4,16 @@
   "title": "Roles and responsibilities within projects",
   "day": 1,
   "apm_learning_objective": "Understand the roles and responsibilities within projects.",
-  "learning_outcomes": ["3.1"],
+  "learning_outcomes": [
+    "3.1"
+  ],
   "exam_coverage_note": "1 of 60 marks. One learning outcome, but it names seven roles and any of them can be the question.",
   "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.3.5, 1.3.8, 1.3.10, 2.2.1, 3.3.1 and 8th ed. 2.6.2, 2.6.3, 2.6.4, 3.5.4, 4.1.4, 1.1.3.",
   "competence_area": null,
   "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
   "authored_on": "2026-08-13",
   "review_status": "draft-pending-sim",
-
   "where_this_fits": "The smallest objective in the syllabus and the worst return on study time in it. One outcome, one mark, seven named roles. You should know that before you decide how long to spend here. The saving grace is that the roles do not stay in this objective. The sponsor reappears at outcome 4.5 owning the business case, the governance board reappears at outcome 8.6 running decision gates, and the product owner reappears whenever iterative work is discussed. Learning the seven properly buys you clarity in objectives 4, 5 and 8 as well as the one mark here. Learn them once, quickly, and move on to objective 4 where the marks actually are.",
-
   "key_definitions": [
     {
       "term": "Project sponsor",
@@ -56,7 +56,6 @@
       "plain_english": "The team that sets how projects are run here and helps them run that way."
     }
   ],
-
   "core_content": [
     {
       "outcome_code": "3.1",
@@ -66,7 +65,6 @@
       "watch_for": "Questions that offer four of the seven roles as options, where all four are genuine roles and only one holds the responsibility described. There is no obviously wrong answer to eliminate, so the mark goes to whoever learned all seven. Watch particularly for sponsor duties offered as project manager duties, and for the PMO being credited with authority it does not have."
     }
   ],
-
   "misconceptions": [
     {
       "wrong": "The project manager owns the business case.",
@@ -93,7 +91,6 @@
       "right": "They are separate roles with different accountabilities. The product owner decides what gets built next. The project manager is accountable for delivering it within constraints."
     }
   ],
-
   "memory_aids": [
     {
       "type": "contrast",
@@ -116,17 +113,14 @@
       "expansion": "Governance is the framework. The governance board is the body that applies it."
     }
   ],
-
   "progress_checkpoint": [
     "I can name all seven roles in this outcome without looking.",
     "I can give each role its one distinguishing duty in a single sentence.",
     "I can say who owns the business case and who produces the project management plan.",
     "I can explain the difference between project governance and a governance board.",
     "I can say what a PMO does and, more importantly, what it does not do.",
-    "I can explain why end users matter after handover and not only at it.",
     "I can say what a product owner decides and why that role belongs to iterative working."
   ],
-
   "source_confidence": [
     {
       "claim": "This objective is worth one mark despite naming seven roles.",

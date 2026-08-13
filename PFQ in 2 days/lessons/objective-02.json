@@ -4,16 +4,19 @@
   "title": "Project life cycles",
   "day": 1,
   "apm_learning_objective": "Understand project life cycles.",
-  "learning_outcomes": ["2.1", "2.2", "2.3", "2.4"],
+  "learning_outcomes": [
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.4"
+  ],
   "exam_coverage_note": "4 of 60 marks. One exam question per learning outcome.",
   "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.2.4, 1.2.5 and 8th ed. 2.5.1, 2.5.2, 2.5.3, 2.5.4.",
   "competence_area": null,
   "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
   "authored_on": "2026-08-13",
   "review_status": "draft-pending-sim",
-
   "where_this_fits": "Four marks sit here, but the objective earns its place several times over elsewhere. The life cycle is the first structural decision on a project, and other outcomes inherit from it. Outcome 4.2 asks how deployment baselines differ between linear and iterative work. Outcome 5.2 asks the same about scope. Outcome 6.4 defines time boxing, which only makes sense inside an iterative approach. If the life cycles are vague here, marks leak in objectives 4, 5 and 6 without the candidate ever realising why. Study this one until the four linear phases come out as a single phrase and the difference between hybrid and extended is automatic.",
-
   "key_definitions": [
     {
       "term": "Project life cycle",
@@ -41,7 +44,6 @@
       "plain_english": "The project is not finished when the output is handed over. It is finished when the benefits arrive."
     }
   ],
-
   "core_content": [
     {
       "outcome_code": "2.1",
@@ -72,7 +74,6 @@
       "watch_for": "Options describing an extension of the deployment phase to accommodate late changes. That is change control, not an extended life cycle. Also watch for anything combining linear and iterative, which is hybrid."
     }
   ],
-
   "misconceptions": [
     {
       "wrong": "Iterative is the modern approach and is therefore better.",
@@ -99,7 +100,6 @@
       "right": "It determines how scope, baselines, change control, governance and reviews all work. It is the first structural decision on the project and it reaches into most of the rest of the syllabus."
     }
   ],
-
   "memory_aids": [
     {
       "type": "acronym",
@@ -122,18 +122,14 @@
       "expansion": "A standard life cycle ends at handover. An extended one ends when the benefit lands."
     }
   ],
-
   "progress_checkpoint": [
     "I can recite the four phases of a linear life cycle in order, without pausing.",
     "I can say what happens in each of those four phases in one sentence.",
     "I can name the phases of an iterative life cycle and say which one repeats.",
     "I can explain what is fixed and what flexes in linear work, and in iterative work.",
     "I can define a hybrid life cycle and distinguish it from an extended one.",
-    "I can define an extended life cycle and name the two phases it adds.",
-    "I can explain why the life cycle choice affects scope, baselines and change control.",
-    "I know that feasibility is an activity inside concept, not a phase."
+    "I can define an extended life cycle and name the two phases it adds."
   ],
-
   "source_confidence": [
     {
       "claim": "The four phases of a typical linear life cycle are concept, definition, deployment, transition.",

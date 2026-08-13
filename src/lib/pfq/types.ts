@@ -14,6 +14,28 @@ export type PfqQuestionRow = {
   answer: string;
   explanation: string;
   active: boolean;
+  /** May be drawn into the timed 60-question mock. */
+  mock_suitable: boolean;
+  /** Ordinal within a learning outcome (1 = mock-eligible; 2+ practice-only). */
+  variant: number;
+};
+
+/** Coverage signal source. Lesson checkpoints land here when content ships. */
+export type PfqCoverageSource = "practice" | "mock" | "lesson";
+
+/**
+ * Per-outcome readiness for the coverage map.
+ * Resolve rule (product decision 2026-08-13): **most recent answer wins** —
+ * the latest practice submit or mock submit for an outcome overwrites prior
+ * state. "Best ever" was rejected so the headline "you can currently answer"
+ * stays honest after a later miss.
+ */
+export type PfqCoverageSignal = {
+  learning_outcome: string;
+  correct: boolean;
+  source: PfqCoverageSource;
+  question_id: string | null;
+  updated_at: string;
 };
 
 /** Served to the client during an in-progress attempt — no answer key. */

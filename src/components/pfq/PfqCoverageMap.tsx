@@ -11,6 +11,11 @@ type Props = {
   objectives: PfqObjectiveResult[];
   /** Compact preview for landing (static empty/demo chips). */
   preview?: boolean;
+  /**
+   * Combined practice + mock (+ future lessons) map.
+   * When true, subcopy explains most-recent-wins across artefacts.
+   */
+  combined?: boolean;
 };
 
 export function PfqCoverageMap({
@@ -19,6 +24,7 @@ export function PfqCoverageMap({
   coverage,
   objectives,
   preview = false,
+  combined = false,
 }: Props) {
   return (
     <div className={styles.wrap}>
@@ -29,8 +35,9 @@ export function PfqCoverageMap({
       </p>
       {!preview ? (
         <p className={styles.sub}>
-          One chip per syllabus outcome. Colour shows this sitting — not a
-          percentage.
+          {combined
+            ? "One chip per syllabus outcome. Colour is your most recent answer across practice and mocks — not a percentage."
+            : "One chip per syllabus outcome. Colour shows this sitting — not a percentage."}
         </p>
       ) : (
         <p className={styles.sub}>

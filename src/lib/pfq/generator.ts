@@ -10,7 +10,10 @@ export function drawPfqMockQuestionIds(
   bank: PfqQuestionRow[],
   random = Math.random,
 ): string[] {
-  const active = bank.filter((q) => q.active !== false);
+  // Practice-only rows (mock_suitable=false) must never enter the timed paper.
+  const active = bank.filter(
+    (q) => q.active !== false && q.mock_suitable === true,
+  );
   const byOutcome = new Map<string, PfqQuestionRow[]>();
   for (const q of active) {
     const list = byOutcome.get(q.learning_outcome) ?? [];
