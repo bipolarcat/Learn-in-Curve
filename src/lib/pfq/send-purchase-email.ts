@@ -1,6 +1,10 @@
 /**
  * Receipt + access email after a successful PFQ purchase.
  * Same Resend fetch pattern as notify confirmation — never throws.
+ *
+ * Under the Consumer Contracts Regulations, the buyer loses the 14-day
+ * cancellation right only if they consent at checkout AND receive confirmation
+ * of that acknowledgement in a durable medium. This email is that confirmation.
  */
 
 import { notifyFrom } from "@/lib/notify/senders";
@@ -12,6 +16,10 @@ type SendPfqPurchaseEmailInput = {
   paymentId: string;
   origin?: string;
 };
+
+/** Wording aligned with the checkout checkbox on /pfq/pricing. */
+export const PFQ_PURCHASE_CANCELLATION_ACK =
+  "You asked for access straight away and acknowledged that by starting the course you lose the standard 14-day cancellation right for this digital content. This email confirms that acknowledgement.";
 
 function escapeHtml(value: string): string {
   return value
@@ -56,9 +64,21 @@ export async function sendPfqPurchaseEmail(
     <h1 style="margin:0 0 12px;font-family:Fraunces,Georgia,serif;font-size:22px;">You're in</h1>
     <p style="margin:0 0 12px;font-size:15px;line-height:1.5;">Thanks for buying <strong>PFQ in 2 Days</strong> (${escapeHtml(price)}, one-off). Your Pro access is ready.</p>
     <p style="margin:0 0 16px;"><a href="${escapeHtml(learnUrl)}" style="display:inline-block;background:#D5501F;color:#FBF3E1;text-decoration:none;padding:10px 16px;border-radius:10px;font-weight:600;">Open the course</a></p>
+    <p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:rgba(36,26,18,0.75);">${escapeHtml(PFQ_PURCHASE_CANCELLATION_ACK)}</p>
     <p style="margin:0;font-size:12px;line-height:1.45;color:rgba(36,26,18,0.55);">Receipt reference: ${escapeHtml(input.paymentId)}. The APM exam is booked and paid separately with APM — this course prepares you for it.</p>
   </div>
 </body></html>`,
+        text: [
+          "You're in",
+          "",
+          `Thanks for buying PFQ in 2 Days (${price}, one-off). Your Pro access is ready.`,
+          "",
+          `Open the course: ${learnUrl}`,
+          "",
+          PFQ_PURCHASE_CANCELLATION_ACK,
+          "",
+          `Receipt reference: ${input.paymentId}. The APM exam is booked and paid separately with APM — this course prepares you for it.`,
+        ].join("\n"),
       }),
     });
 

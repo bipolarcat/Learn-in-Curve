@@ -1,50 +1,80 @@
-import styles from "@/components/pfq/PfqTrapSchool.module.css";
+import { PFQ_TRAP_SCHOOL } from "@/lib/pfq/trap-school-content";
+import styles from "./PfqTrapSchool.module.css";
 
-const TRAPS = [
-  {
-    id: "negative_stem",
-    title: "Negatively-worded stems",
-    body: "About 8% of a real PFQ paper uses not / false / except. Under a one-minute clock these are the easiest marks to throw away. Read the stem twice before you eliminate.",
-  },
-  {
-    id: "multi_select",
-    title: "Multi-select combinations",
-    body: "About 10% of the paper shows four numbered items and options like “1, 2 and 4”. Partial knowledge scores zero — find the one item you are sure is wrong and strike every option that contains it.",
-  },
-  {
-    id: "near_miss",
-    title: "Near-miss definition distractors",
-    body: "Adjacent APM terms (risk vs issue, PBS vs WBS, quality control vs assurance) often appear as each other’s distractors. The exam tests discrimination between neighbouring definitions, not comprehension of a case study.",
-  },
-  {
-    id: "guessing",
-    title: "No negative marking",
-    body: "Unanswered scores 0. APM explicitly advises guessing. Leave no blank cells on the navigator before you submit.",
-  },
-] as const;
+/**
+ * Paid Trap School module. Content from PFQ_TRAP_SCHOOL.md — figures verbatim.
+ */
+export default function PfqTrapSchool() {
+  const c = PFQ_TRAP_SCHOOL;
 
-type Props = {
-  /** Question ids currently tagged in the bank (from server or static). */
-  multiSelectCount?: number;
-};
-
-export function PfqTrapSchool({ multiSelectCount = 3 }: Props) {
   return (
-    <section id="trap-school" className={styles.wrap}>
-      <h2 className={styles.title}>Trap School</h2>
-      <p className={styles.lead}>
-        Format traps that cost marks on the real Surpass paper — taught before
-        you sit another timed mock. The bank currently tags {multiSelectCount}{" "}
-        multi-select items for targeted drills as the course grows.
-      </p>
-      <ul className={styles.grid}>
-        {TRAPS.map((trap) => (
-          <li key={trap.id} className={styles.card}>
-            <h3 className={styles.cardTitle}>{trap.title}</h3>
-            <p className={styles.cardBody}>{trap.body}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <article className={styles.root}>
+      <header className={styles.header}>
+        <p className={styles.kicker}>Trap School</p>
+        <h1 className={styles.title}>{c.why.title}</h1>
+        <p className={styles.lede}>{c.why.body}</p>
+      </header>
+
+      {c.traps.map((trap) => (
+        <section key={trap.id} className={styles.section} id={trap.id}>
+          <h2 className={styles.h2}>{trap.title}</h2>
+          {"frequency" in trap && trap.frequency ? (
+            <p className={styles.meta}>{trap.frequency}</p>
+          ) : null}
+          {"examples" in trap && trap.examples ? (
+            <ul className={styles.examples}>
+              {trap.examples.map((ex) => (
+                <li key={ex}>
+                  <em>{ex}</em>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {"exampleBlock" in trap && trap.exampleBlock ? (
+            <pre className={styles.exampleBlock}>{trap.exampleBlock}</pre>
+          ) : null}
+          <p className={styles.body}>{trap.body}</p>
+          {"body2" in trap && trap.body2 ? (
+            <p className={styles.body}>{trap.body2}</p>
+          ) : null}
+          {"pairsIntro" in trap && trap.pairsIntro ? (
+            <p className={styles.body}>{trap.pairsIntro}</p>
+          ) : null}
+          {"pairs" in trap && trap.pairs ? (
+            <ul className={styles.pairs}>
+              {trap.pairs.map((pair) => (
+                <li key={pair.confused}>
+                  <strong>{pair.confused}</strong>
+                  <span> — {pair.holdApart}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {"whatToDo" in trap && trap.whatToDo ? (
+            <p className={styles.do}>
+              <strong>What to do: </strong>
+              {trap.whatToDo}
+            </p>
+          ) : null}
+          {"extra" in trap && trap.extra ? (
+            <p className={styles.body}>{trap.extra}</p>
+          ) : null}
+        </section>
+      ))}
+
+      <section className={styles.section} id="clock">
+        <h2 className={styles.h2}>{c.clock.title}</h2>
+        <p className={styles.body}>{c.clock.intro}</p>
+        <ul className={styles.bullets}>
+          {c.clock.bullets.map((b) => (
+            <li key={b}>{b}</li>
+          ))}
+        </ul>
+        <p className={styles.body}>{c.clock.rule}</p>
+        <p className={styles.body}>{c.clock.lastFive}</p>
+      </section>
+
+      <p className={styles.oneLiner}>{c.oneLiner}</p>
+    </article>
   );
 }

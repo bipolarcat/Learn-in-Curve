@@ -92,9 +92,17 @@ Practice questions and the mock share a bank, so someone who works the full 300 
 
 `PFQ_LANDING_COPY.md` was written around a free mock — the hero CTA, the "no account, no card" line, and the entire "what you get" section assume a free entry point. All of it needs replacing now the product is paid-only. Claude to rewrite before Cursor builds `/pfq`.
 
-## 7. Open items
+## 7. Decisions and open items
 
-1. **Confirm ~300 questions** — recommended, not yet approved.
-2. **Trap School: free or paid?** It is currently public. As the only remaining candidate for a free surface it may be worth keeping open; as part of the course it belongs behind £5. Not decided.
-3. **LO1 lesson format** — approval outstanding, blocks the other 53.
-4. **Distribution.** With no free tier, nothing on PFQ is reachable without paying. Prior strategy work in this repo concluded the constraint on this business is distribution rather than product, and PFQ currently has one waitlist signup. A paid-only product with no free entry point converts traffic it does not yet have. Flagged, not a build blocker — Sim's call.
+**Settled:**
+
+1. **Question bank: 306 written**, against a ~300 target. Approved and delivered.
+2. **Trap School is gated** behind the £5 unlock (decided 13 Aug 2026). It is part of the course, not a free surface.
+3. **Lesson format approved** (13 Aug 2026), objective 1 as the pattern. All 10 objectives written to it.
+4. **Lesson checkpoints stay off the coverage map.** Checkpoints are self-assessed; the headline number stays measured from practice and mock only. Ticking a box cannot claim an outcome.
+
+**Still open:**
+
+5. **Solicitor review** of the restructured Terms and Schedule, then `PFQ_CHECKOUT_ENABLED` to true. The only thing blocking sale.
+6. **Diagrams.** Four places would justify one: life cycle phases, breakdown structures, change control, configuration management. Not decided, not blocking.
+7. **Distribution.** With Trap School gated there is now no free surface at all on PFQ. Prior strategy work in this repo concluded the binding constraint on this business is distribution rather than product, and PFQ has one waitlist signup. A paid-only product converts traffic it does not yet have. Flagged deliberately and repeatedly, because it is the risk most likely to be discovered late — Sim's call, made with eyes open.

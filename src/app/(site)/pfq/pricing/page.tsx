@@ -18,10 +18,11 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
+const PFQ_PRICE_LABEL = formatPfqPriceGbp(PFQ_PRO_PRICE_CENTS);
+
 export const metadata: Metadata = {
   title: "PFQ in 2 Days — Pricing | Learn in Curve",
-  description:
-    "Everything you need to pass the APM Project Fundamentals Qualification for £5 — lessons, practice, timed mock, coverage map. One payment, no subscription.",
+  description: `Everything you need for the APM Project Fundamentals Qualification for ${PFQ_PRICE_LABEL} — lessons, practice, timed mock, coverage map. One payment, no subscription.`,
   alternates: { canonical: `${SITE_URL}/pfq/pricing` },
 };
 

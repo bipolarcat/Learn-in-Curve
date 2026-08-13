@@ -42,8 +42,9 @@ const SUBHEADS: Partial<
     line2: "Management Qualification Exam",
   },
   "pfq-in-2-days": {
-    line1: "59 outcomes. One coverage map.",
-    line2: "Lessons, practice and a timed mock.",
+    line1:
+      "59 lessons, 306 practice questions and a full mock, mapped to every APM PFQ learning outcome",
+    line2: "",
   },
 };
 
@@ -58,8 +59,7 @@ function CourseTitle({ course }: { course: Course }) {
   if (course.slug === "pfq-in-2-days") {
     return (
       <>
-        PFQ in <span className="text-orange">2 Days</span>{" "}
-        <span className={styles.comingSoon}>(coming soon)</span>
+        PFQ in <span className="text-orange">2 Days</span>
       </>
     );
   }
@@ -330,10 +330,15 @@ export function CoursesCatalog({
                       <p className={styles.subhead}>
                         <span className={styles.subheadLine}>
                           {subhead.line1}
-                        </span>{" "}
-                        <span className={styles.subheadLine}>
-                          {subhead.line2}
                         </span>
+                        {subhead.line2 ? (
+                          <>
+                            {" "}
+                            <span className={styles.subheadLine}>
+                              {subhead.line2}
+                            </span>
+                          </>
+                        ) : null}
                       </p>
                     ) : (
                       <p className={styles.subheadMuted}>Coming soon</p>
@@ -387,16 +392,13 @@ export function CoursesCatalog({
                         </CatalogNavButton>
                       </>
                     ) : course.slug === "pfq-in-2-days" ? (
-                      <>
-                        <CatalogNavButton
-                          href="/pfq"
-                          className={stampCtaPrimaryCompact}
-                          busyLabel="Opening PFQ"
-                        >
-                          View course
-                        </CatalogNavButton>
-                        <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
-                      </>
+                      <CatalogNavButton
+                        href="/pfq"
+                        className={stampCtaPrimaryCompact}
+                        busyLabel="Opening PFQ"
+                      >
+                        View course
+                      </CatalogNavButton>
                     ) : (
                       <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
                     )}

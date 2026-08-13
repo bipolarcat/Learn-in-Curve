@@ -20,6 +20,7 @@ export const PFQ_PRICING_HREF = "/pfq/pricing";
 export const PFQ_LEARN_HREF = "/pfq/learn";
 export const PFQ_MOCK_HREF = "/pfq/mock";
 export const PFQ_PRACTICE_HREF = "/pfq/practice";
+export const PFQ_TRAP_SCHOOL_HREF = "/pfq/trap-school";
 
 /**
  * Practice runner feature flag. Commerce gating (Pro) is separate via

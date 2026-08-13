@@ -9,7 +9,7 @@ import {
 } from "@/lib/pfq/generator";
 import { PFQ_DURATION_SECONDS, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
 import { buildPfqResults, isDisplayAnswerCorrect } from "@/lib/pfq/scoring";
-import { toPublicPfqQuestion } from "@/lib/pfq/public-question";
+import { toPublicPfqQuestion, assertNoSecretsInPublicPayload } from "@/lib/pfq/public-question";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { canAccessPfqMock } from "@/lib/pfq/tiers";
 import { upsertCoverageSignals } from "@/lib/pfq/coverage-signals";
@@ -183,6 +183,8 @@ export async function startPfqAttempt(_input: {
       return toPublic(q, optionOrders[id]!);
     });
 
+    assertNoSecretsInPublicPayload({ questions });
+
     const endsAt = new Date(
       startedAt.getTime() + PFQ_DURATION_SECONDS * 1000,
     ).toISOString();
@@ -264,6 +266,8 @@ export async function loadPfqAttempt(input: {
       ];
       return toPublic(q, order);
     });
+
+    assertNoSecretsInPublicPayload({ questions });
 
     const started = new Date(row.started_at).getTime();
     const endsAt = new Date(started + PFQ_DURATION_SECONDS * 1000).toISOString();

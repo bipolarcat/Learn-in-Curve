@@ -3,14 +3,14 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/admin";
-import { getPfqTier } from "@/lib/pfq/entitlement";
-import { canAccessPfqLessons } from "@/lib/pfq/tiers";
+import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
 import {
   PFQ_LESSONS_ENABLED,
   PFQ_MOCK_HREF,
   PFQ_PRACTICE_ENABLED,
   PFQ_PRACTICE_HREF,
   PFQ_PRICING_HREF,
+  PFQ_TRAP_SCHOOL_HREF,
 } from "@/lib/pfq/constants";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
@@ -35,17 +35,13 @@ export default async function PfqLearnPage() {
     redirect(PFQ_PRICING_HREF);
   }
 
+  await requirePfqProOrRedirect();
+
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
   if (!user) {
-    redirect(`/auth/sign-in?next=${encodeURIComponent("/pfq/learn")}`);
-  }
-
-  const tier = await getPfqTier(supabase, user.id);
-  if (!canAccessPfqLessons(tier)) {
     redirect(PFQ_PRICING_HREF);
   }
 
@@ -92,6 +88,9 @@ export default async function PfqLearnPage() {
           ) : null}
           <Link href={PFQ_MOCK_HREF} className={stampCtaSecondary}>
             Sit the mock
+          </Link>
+          <Link href={PFQ_TRAP_SCHOOL_HREF} className={stampCtaSecondary}>
+            Trap School
           </Link>
         </div>
       </div>

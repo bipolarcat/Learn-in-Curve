@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { getPfqTier } from "@/lib/pfq/entitlement";
-import { canAccessPfqLessons } from "@/lib/pfq/tiers";
+import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
 import {
   PFQ_LESSONS_ENABLED,
   PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
-import { pfqLessonHref } from "@/lib/pfq/lesson-href";
 import { getPfqLesson } from "@/lib/pfq/content";
 import { pfqSectionId } from "@/lib/pfq/section-ids";
 import { pfqObjectiveDisplayTitle } from "@/lib/pfq/outcome-titles";
@@ -51,19 +49,13 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     notFound();
   }
 
+  await requirePfqProOrRedirect();
+
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
   if (!user) {
-    redirect(
-      `/auth/sign-in?next=${encodeURIComponent(pfqLessonHref(objective))}`,
-    );
-  }
-
-  const tier = await getPfqTier(supabase, user.id);
-  if (!canAccessPfqLessons(tier)) {
     redirect(PFQ_PRICING_HREF);
   }
 

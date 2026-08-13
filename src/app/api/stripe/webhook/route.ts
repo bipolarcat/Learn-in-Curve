@@ -146,22 +146,32 @@ export async function POST(request: Request) {
           session.customer_details?.email ||
           session.customer_email ||
           undefined;
-        if (email) {
-          const sent = await sendPfqPurchaseEmail({
-            email,
-            amountCents: amount,
-            paymentId,
-          });
-          if (!sent) {
-            console.error(
-              "[stripe] PFQ entitlement written but purchase email failed",
-              { userId, paymentId, email },
-            );
-          }
-        } else {
+        if (!email) {
           console.error(
-            "[stripe] PFQ entitlement written but no customer email on session",
+            "[stripe] PFQ entitlement written but no customer email on session — CCR durable-medium acknowledgement cannot be sent",
             { userId, paymentId, sessionId: session.id },
+          );
+          // 500 so Stripe retries; entitlement grant is idempotent.
+          return NextResponse.json(
+            { error: "Missing customer email for purchase confirmation" },
+            { status: 500 },
+          );
+        }
+
+        const sent = await sendPfqPurchaseEmail({
+          email,
+          amountCents: amount,
+          paymentId,
+        });
+        if (!sent) {
+          console.error(
+            "[stripe] PFQ entitlement written but purchase email failed — CCR acknowledgement not confirmed in durable medium",
+            { userId, paymentId, email },
+          );
+          // 500 so Stripe retries Resend; grantFeatureEntitlement is idempotent.
+          return NextResponse.json(
+            { error: "Purchase confirmation email failed" },
+            { status: 500 },
           );
         }
 
