@@ -9,6 +9,7 @@ import {
   type NotifyList,
 } from "@/lib/notify/lists";
 import { sendAdminNotification } from "@/lib/admin/send-admin-notification";
+import { isInternalEmail } from "@/lib/email/internal";
 
 export const runtime = "nodejs";
 
@@ -113,10 +114,12 @@ async function upsertPerson(
   email: string,
   marketingConsent: boolean,
   now: string,
+  isInternal: boolean,
 ): Promise<{ token: string | null; existed: boolean }> {
   const row: Record<string, unknown> = {
     email,
     marketing_consent: marketingConsent,
+    is_internal: isInternal,
   };
   if (marketingConsent) row.marketing_consent_at = now;
 
@@ -134,7 +137,13 @@ async function upsertPerson(
   // `marketing_consent: false` over an existing true, or an unticked box on a
   // later form would silently revoke a consent the user did give.
   if (error.code === "23505") {
-    if (marketingConsent) {
+    if (isInternal) {
+      const { error: flagError } = await supabase
+        .from("newsletter_subscribers")
+        .update({ is_internal: true })
+        .eq("email", email);
+      if (flagError) console.error("[notify] is_internal update failed", flagError);
+    } else if (marketingConsent) {
       const { error: updateError } = await supabase
         .from("newsletter_subscribers")
         .update({ marketing_consent: true, marketing_consent_at: now })
@@ -164,11 +173,16 @@ async function addMemberships(
   supabase: ReturnType<typeof createServiceClient>,
   email: string,
   listKeys: string[],
+  isInternal: boolean,
 ): Promise<string[]> {
   const { data, error } = await supabase
     .from("waitlist_signups")
     .upsert(
-      listKeys.map((list_key) => ({ email, list_key })),
+      listKeys.map((list_key) => ({
+        email,
+        list_key,
+        is_internal: isInternal,
+      })),
       { onConflict: "email,list_key", ignoreDuplicates: true },
     )
     .select("list_key");
@@ -197,6 +211,8 @@ export async function POST(request: Request) {
     course?: unknown;
     list?: unknown;
     marketingConsent?: unknown;
+    // Ignored if present — is_internal is computed server-side only.
+    is_internal?: unknown;
   };
   try {
     body = await request.json();
@@ -225,7 +241,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unknown list." }, { status: 400 });
   }
 
-  const marketingConsent = body.marketingConsent === true;
+  const isInternal = isInternalEmail(email);
+  // Newsletter form submission IS the consent act. Do not trust a missing
+  // client field (column default is false — that was the original bug).
+  // Internal/test addresses never record marketing consent.
+  const marketingConsent = isInternal
+    ? false
+    : primary.kind === "newsletter"
+      ? true
+      : body.marketingConsent === true;
   const now = new Date().toISOString();
 
   const listKeys = [primary.key];
@@ -241,9 +265,15 @@ export async function POST(request: Request) {
       email,
       marketingConsent,
       now,
+      isInternal,
     );
 
-    const newlyAdded = await addMemberships(supabase, email, listKeys);
+    const newlyAdded = await addMemberships(
+      supabase,
+      email,
+      listKeys,
+      isInternal,
+    );
     const alreadySubscribed = !newlyAdded.includes(primary.key);
 
     const stored = await writeSignupRecord(supabase, {
@@ -255,8 +285,9 @@ export async function POST(request: Request) {
       updated_at: now,
     });
 
-    // Notify admin of every genuinely new subscription — fire-and-forget.
-    if (!alreadySubscribed) {
+    // Notify admin of every genuinely new public subscription — skip internal
+    // so test/founder rows don't look like list growth.
+    if (!alreadySubscribed && !isInternal) {
       const londonTime = new Date().toLocaleString("en-GB", {
         timeZone: "Europe/London",
         dateStyle: "medium",
@@ -274,19 +305,19 @@ export async function POST(request: Request) {
       });
     }
 
-    // Only on a genuinely new join, and only for the list they actually asked
-    // about — a marketing tick shouldn't trigger a second email. Fire-and-forget
-    // so a slow send never delays this response; the rows are already saved.
-    if (!alreadySubscribed && unsubscribeToken) {
-      void sendNotifyConfirmationEmail({
+    // Double opt-in: await the send so serverless can't drop the stamp
+    // (fire-and-forget is why 1 Aug / 4 Aug rows have null confirmation_sent_at).
+    // Never email internal addresses.
+    if (!alreadySubscribed && unsubscribeToken && !isInternal) {
+      const sent = await sendNotifyConfirmationEmail({
         email,
         listKey: primary.key,
         unsubscribeToken,
         // Same proxy trap as LIC-116: request.url is https://localhost:8080 in
         // prod, which would put dead unsubscribe links in confirmation emails.
         origin: getSiteOrigin(request),
-      }).then(async (sent) => {
-        if (!sent) return;
+      });
+      if (sent) {
         const { error: stampError } = await supabase
           .from("waitlist_signups")
           .update({ confirmation_sent_at: new Date().toISOString() })
@@ -295,7 +326,7 @@ export async function POST(request: Request) {
         if (stampError) {
           console.error("[notify] confirmation_sent_at stamp failed", stampError);
         }
-      });
+      }
     }
 
     return NextResponse.json({

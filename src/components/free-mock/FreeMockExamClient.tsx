@@ -242,8 +242,8 @@ export function FreeMockExamClient() {
               className="mt-0.5 size-4 shrink-0 rounded border-ink/25"
             />
             <span>
-              Email me PMQ revision tips and updates from Learn in Curve. You
-              can unsubscribe any time. See our{" "}
+              Email me PMQ study tips and product updates. You can
+              unsubscribe any time. See our{" "}
               <Link href="/privacy" className="text-orange underline-offset-2 hover:underline">
                 Privacy Policy
               </Link>

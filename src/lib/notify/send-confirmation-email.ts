@@ -9,6 +9,7 @@
  * since the row is already saved by the time this is called.
  */
 
+import { isInternalEmail } from "@/lib/email/internal";
 import { getNotifyList, type NotifyList } from "@/lib/notify/lists";
 import { notifyFrom } from "@/lib/notify/senders";
 
@@ -122,6 +123,10 @@ export async function sendNotifyConfirmationEmail(
 ): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = notifyFrom();
+
+  if (isInternalEmail(input.email)) {
+    return false;
+  }
 
   const list = getNotifyList(input.listKey);
   if (!list) {

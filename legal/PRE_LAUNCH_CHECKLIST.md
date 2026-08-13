@@ -65,6 +65,14 @@ decision below are independent of the payment question.
       § retention / marketing lists mentions this lead path before pushing paid
       traffic at the page (same PECR rule as the newsletter waitlist). No new
       third-party processor — Supabase only.
+      **2026-08-13:** newsletter form now records `marketing_consent = true` on
+      the server (submitting "Join our newsletter" is the consent act). Five
+      existing `false` rows were **not** backfilled — those addresses may only
+      receive transactional mail until they consent through the fixed form.
+      `is_internal` excludes founder/test rows from counts and sends. Solicitor
+      still needed before the first real marketing send (this checklist item is
+      capture going forward, not a green light to broadcast). Informal /
+      educational, not legal advice.
 - [x] `TERMS_OF_SERVICE.md` — real refund policy drafted 2026-07-10 (14-day
       no-questions-asked window if unused, case-by-case for genuine faults,
       abuse carve-out) replacing the earlier "not purchasable yet" deferral.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CtaArrow, stampCtaPrimaryCompact } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
@@ -143,6 +144,19 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             Check your inbox — we&apos;ve sent a confirmation.
           </p>
         )}
+        {status !== "ready" && (
+          <p className="font-body text-[11px] leading-snug text-ink/60">
+            Learn in Curve will email you PM and AI study updates and course
+            news. Unsubscribe any time.{" "}
+            <Link
+              href="/privacy"
+              className="underline decoration-ink/25 underline-offset-2 hover:text-ink"
+            >
+              Privacy notice
+            </Link>
+            .
+          </p>
+        )}
       </form>
     );
   }
@@ -213,7 +227,19 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
       )}
       {status === "idle" && (
         <p className={`mt-3 text-sm ${isRust ? "text-cream/80" : "text-ink/75"}`}>
-          New courses and launch dates. Unsubscribe any time.
+          Learn in Curve will email you PM and AI study updates and course
+          news. Unsubscribe any time.{" "}
+          <Link
+            href="/privacy"
+            className={`underline underline-offset-2 ${
+              isRust
+                ? "decoration-cream/40 hover:text-cream"
+                : "decoration-ink/25 hover:text-ink"
+            }`}
+          >
+            Privacy notice
+          </Link>
+          .
         </p>
       )}
     </form>

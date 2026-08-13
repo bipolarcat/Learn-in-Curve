@@ -71,6 +71,33 @@ Run whichever of these matches the reset's scope in the same pass as the `sectio
 
 Irreversible, no undo. Confirm the account and scope (single LO vs. whole course) before running.
 
+### Email lists — public vs internal counts
+
+`newsletter_subscribers`, `waitlist_signups`, and `leads` have `is_internal`. Founder and `test.*` signups land as `true` (set in the server action, never from the client). **Every count, export, and send must exclude them.** In app code that means `publicAudience(query)` from `src/lib/email/audience.ts` — do not sprinkle `.eq('is_internal', false)` at each call site.
+
+```sql
+-- Apply once (Supabase SQL editor) if not already applied:
+-- supabase/migrations/20260813120000_list_hygiene_is_internal.sql
+
+-- Public list (the number that goes in a decision)
+select email, is_internal, marketing_consent
+from public.newsletter_subscribers
+where is_internal = false;
+
+-- Debug only — internal rows stay visible on purpose
+select email, is_internal, created_at
+from public.newsletter_subscribers
+where is_internal = true;
+
+-- Must stay 0: internal rows never record marketing consent
+select count(*) from public.newsletter_subscribers
+where is_internal = true and marketing_consent = true;
+```
+
+Do **not** set `marketing_consent = true` on historical rows that are currently false. Consent cannot be inferred after the fact.
+
+Waitlist (`waitlist_signups`, `kind: "launch"`) is transactional by design — one email when that product ships, not a marketing list. It has `unsubscribed_at` but no `unsubscribe_token`; the person-level token on `newsletter_subscribers` is what confirmation emails use, and `/unsubscribe` now stamps both tables.
+
 ### Reset a mock exam attempt (allow retake)
 
 The app is one-sitting-only by design — there's no self-serve retake. Doing this manually is an admin override of that rule, not a routine action; only do it on explicit request, and confirm account + exam set first (typo'd emails happen — always cross-check against `auth.users` with `ilike` before running anything).

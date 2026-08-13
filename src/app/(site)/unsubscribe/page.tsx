@@ -54,10 +54,12 @@ export default async function UnsubscribePage({
     );
   }
 
+  const now = new Date().toISOString();
+
   if (!subscriber.unsubscribed_at) {
     const { error: updateError } = await supabase
       .from("newsletter_subscribers")
-      .update({ unsubscribed_at: new Date().toISOString() })
+      .update({ unsubscribed_at: now })
       .eq("id", subscriber.id);
 
     if (updateError) {
@@ -74,6 +76,18 @@ export default async function UnsubscribePage({
         </Shell>
       );
     }
+  }
+
+  // Launch waitlists are transactional (one email when the product ships),
+  // but they reuse this person-level token in confirmation emails. Stamp
+  // membership rows too so a future send path cannot miss the opt-out.
+  const { error: waitlistError } = await supabase
+    .from("waitlist_signups")
+    .update({ unsubscribed_at: now })
+    .eq("email", subscriber.email)
+    .is("unsubscribed_at", null);
+  if (waitlistError) {
+    console.error("[unsubscribe] waitlist stamp failed", waitlistError);
   }
 
   return (

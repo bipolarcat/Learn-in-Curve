@@ -1,6 +1,7 @@
 "use server";
 
 import { createServiceClient } from "@/lib/supabase/admin";
+import { isInternalEmail } from "@/lib/email/internal";
 import {
   FREE_MOCK_MAX_SCORE,
   FREE_MOCK_QUESTIONS,
@@ -73,7 +74,8 @@ export async function submitFreeMockLead(
 
   const loBreakdown = buildLoBreakdown(FREE_MOCK_QUESTIONS, answers);
   const weakest = weakestLos(loBreakdown, 3);
-  const marketingConsent = Boolean(input.marketingConsent);
+  const isInternal = isInternalEmail(email);
+  const marketingConsent = isInternal ? false : Boolean(input.marketingConsent);
   const now = new Date().toISOString();
   const attr = input.attribution ?? {};
 
@@ -94,6 +96,7 @@ export async function submitFreeMockLead(
       utm_term: clip(attr.utm_term),
       referrer_category: clip(attr.referrer_category, 40),
       source: "free_mock_exam",
+      is_internal: isInternal,
     });
 
     if (error) {

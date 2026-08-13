@@ -92,6 +92,8 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY
 GEMINI_API_KEY
 RESEND_API_KEY
+INTERNAL_EMAIL_FOUNDERS=simsamaarshened@gmail.com,sim.samaar@yahoo.in,sim.samaar@yahoo.com
+INTERNAL_EMAIL_DOMAINS=
 STRIPE_SECRET_KEY=sk_live_…          ← from step 2.3
 STRIPE_WEBHOOK_SECRET=whsec_…        ← from step 2.4, the LIVE one
 NEXT_PUBLIC_APP_URL=https://yourdomain.com
@@ -103,6 +105,12 @@ anywhere yet. Without it, `src/lib/pmq/actions.ts` falls back to
 customer could pay successfully and get redirected to a dead localhost link
 immediately after — the charge works, the experience looks completely broken.
 This is the single highest-impact variable on this list for a paid launch.
+
+**`INTERNAL_EMAIL_FOUNDERS` / `INTERNAL_EMAIL_DOMAINS`** classify founder and
+test signups (`is_internal`) so they never enter list counts, exports, or
+marketing sends. Unset founders fall back to the seed list in
+`src/lib/email/internal.ts`. Set them on Railway the same as locally. Do not
+accept `is_internal` from the client.
 
 **Do not set** `DEMO_SKIP_AUTH`. It's inert (`src/lib/demo.ts` hard-returns
 `false`) but has no place in production.

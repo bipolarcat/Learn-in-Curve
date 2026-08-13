@@ -18,8 +18,9 @@
  *
  *   1. Asking to hear when a specific thing launches (a `launch` list). One
  *      message about one product. This is not marketing consent.
- *   2. Agreeing to ongoing marketing (the `newsletter` list). Only ever added
- *      when the user ticks the box themselves.
+ *   2. Agreeing to ongoing marketing (the `newsletter` list). Added when they
+ *      submit the dedicated newsletter form (that submission is the consent
+ *      act) or tick the optional, unticked box on a launch waitlist.
  *
  * Under UK GDPR / PECR these must be separately given and separately
  * withdrawable — a pre-ticked box, or bundling (2) into (1), is not valid
@@ -53,7 +54,7 @@ export type NotifyList = {
   illustrationAlt: string;
 };
 
-/** Marketing newsletter. Added only when the user ticks the box. */
+/** Marketing newsletter. Homepage form submit, or optional waitlist tick. */
 export const NEWSLETTER_LIST_KEY = "newsletter";
 
 /** Launch waitlist for the AI Pro Bundle (Sly + end-of-course report). */

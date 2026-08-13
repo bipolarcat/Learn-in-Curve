@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-08-13** — List hygiene + marketing-consent capture. Migration `20260813120000_list_hygiene_is_internal.sql` adds `is_internal` on `newsletter_subscribers`, `waitlist_signups`, and `leads`. Classification is server-side only via `isInternalEmail()` (`src/lib/email/internal.ts`); public reads must go through `publicAudience()` (`src/lib/email/audience.ts`). Newsletter form submit now forces `marketing_consent = true` server-side (the original bug: column defaulted false and the insert only flipped it if the client sent the flag). Confirmation email is awaited before response so `confirmation_sent_at` stamps. Free-mock marketing checkbox copy tightened; still optional and unticked. Did **not** backfill consent on the five existing false rows. Apply the migration in Supabase before relying on the new column.
+
 - **2026-08-09** — Site version **2.42**; free-mock results polish pushed to `origin/master` (CTA copy, no Weakest areas, header subcopy removed).
 
 - **2026-08-09** — Free mock page: removed header subcopy about score / 5-day plan.
