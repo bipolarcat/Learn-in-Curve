@@ -1,0 +1,177 @@
+{
+  "objective_number": 8,
+  "objective_code": "PFQ-OBJ-08",
+  "title": "Quality in the context of a project",
+  "day": 2,
+  "apm_learning_objective": "Understand quality in the context of a project.",
+  "learning_outcomes": ["8.1", "8.2", "8.3", "8.4", "8.5", "8.6"],
+  "exam_coverage_note": "6 of 60 marks. One exam question per learning outcome.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 2.2.2, 2.2.4, 2.3.5, 3.3.4, 4.1.5, 4.3.8 and 8th ed. 2.2.4, 3.3.4, 3.4.3, 4.6.2, 5.3, 5.3.1, 5.3.2, 5.3.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "Six marks, and the objective most vulnerable to sloppy reading, because four of its six outcomes use the word quality and the exam relies on you telling them apart. Quality planning sets the standard, quality assurance checks the process, quality control checks the product, and quality management is the umbrella over all three. Learn those four as a single sentence and most of the objective is secure. The sixth outcome, 8.6, is different in character: it asks you to hold four review types apart, and it is the one place in the syllabus where the exam can offer four correct-sounding purposes and expect you to pick the right owner for each.",
+
+  "key_definitions": [
+    {
+      "term": "Quality",
+      "definition": "The fitness for purpose of a project's outputs and processes, and the degree to which they meet agreed requirements.",
+      "plain_english": "Does it do what it was meant to do, to the standard that was agreed. Not perfection."
+    },
+    {
+      "term": "Quality management",
+      "definition": "The discipline of ensuring that a project's outputs and the processes used to produce them meet the required standards.",
+      "plain_english": "The umbrella term covering planning, assurance and control."
+    },
+    {
+      "term": "Quality planning",
+      "definition": "The determination of the standards, acceptance criteria and processes that a project will apply.",
+      "plain_english": "Deciding up front what good looks like and how it will be judged."
+    },
+    {
+      "term": "Quality assurance",
+      "definition": "The process of providing confidence that the project's processes are appropriate and are being followed, so that outputs will meet requirements.",
+      "plain_english": "Checking the way the work is being done, usually by someone independent of the doing."
+    },
+    {
+      "term": "Quality control",
+      "definition": "The inspection, measurement and testing of outputs against their acceptance criteria.",
+      "plain_english": "Checking the actual thing produced, after it has been produced."
+    },
+    {
+      "term": "Acceptance criteria",
+      "definition": "The measurable conditions an output must meet to be accepted by its recipients.",
+      "plain_english": "The specific tests a deliverable has to pass before anyone signs for it."
+    },
+    {
+      "term": "Decision gate",
+      "definition": "A point between phases at which the project's continuation is authorised or refused, based on whether the business case remains viable.",
+      "plain_english": "A go or no-go checkpoint at a phase boundary."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "8.1",
+      "outcome_title": "Define the term 'quality'",
+      "key_takeaway": "Fitness for purpose, judged against agreed requirements. Not perfection, not luxury, not price.",
+      "body_markdown": "Quality is the fitness for purpose of outputs and processes, and the degree to which they meet agreed requirements.\n\nThe phrase fitness for purpose does the work. Quality is measured against what was specified, not against some absolute standard of excellence. A basic component that meets its specification exactly is high quality. An expensively engineered one that does not meet the specification is not, whatever it cost.\n\nThat matters because everyday usage treats quality as a synonym for luxury or expense, and the exam tests the professional meaning. A project that gold plates its outputs beyond the agreed requirements has not delivered higher quality; it has delivered unapproved scope, which is a change control problem at outcome 5.7.\n\nNote also that the definition covers processes as well as outputs. That is what allows quality assurance at outcome 8.5 to exist as a separate idea from quality control.",
+      "watch_for": "Options defining quality as the absence of all defects, as value for money, or as stakeholder satisfaction. Each is a plausible everyday meaning and none is the definition."
+    },
+    {
+      "outcome_code": "8.2",
+      "outcome_title": "Outline the purpose of quality management",
+      "key_takeaway": "To ensure the project's outputs and its processes meet the required standards. Both, which is what makes it the umbrella term.",
+      "body_markdown": "The purpose of quality management is to ensure that the project's outputs, and the processes used to produce them, meet the required standards.\n\nThe dual scope is the examinable point. Quality management is the umbrella that covers planning the standard, assuring the process and controlling the product. If a question describes only inspection of deliverables, it is describing quality control rather than quality management.\n\nThe reason both halves matter is practical. Checking only the outputs finds defects after the money has been spent producing them. Checking only the processes assumes that a good process cannot produce a bad output, which is optimistic. Managing both catches problems at the point where they are cheapest to fix.\n\nQuality management also connects to acceptance. Handover at transition depends on outputs meeting their agreed criteria, and quality management is what makes that a check rather than an argument.",
+      "watch_for": "Options limiting quality management to inspecting deliverables, to producing outputs at lowest cost, or to obtaining stakeholder approval of each item."
+    },
+    {
+      "outcome_code": "8.3",
+      "outcome_title": "Define the term 'quality planning'",
+      "key_takeaway": "Determining the standards, acceptance criteria and processes the project will apply. It happens before the work, not after.",
+      "body_markdown": "Quality planning determines the standards a project will work to, the acceptance criteria its outputs must meet, and the processes and responsibilities that will deliver them.\n\nIt happens early, during definition, and it produces the reference that assurance and control both use later. Without it, quality control has nothing to test against and assurance has no process to audit.\n\nTypical outputs of quality planning include the quality standards to be applied, whether internal, contractual or regulatory, the acceptance criteria for each deliverable, the reviews and tests planned, and who is responsible for each.\n\nAgreeing acceptance criteria in advance is the single most valuable thing quality planning does. Criteria agreed before work starts turn handover into a check. Criteria discussed for the first time at handover turn it into a negotiation, usually under time pressure, with the project already spent.\n\nRegulatory requirements are also caught here. A project subject to external regulation inherits standards it does not get to choose, and quality planning is where that gets recognised rather than discovered later.",
+      "watch_for": "Options describing inspection of finished deliverables, which is control, or auditing compliance with processes, which is assurance. Planning sets the standard; the other two check against it."
+    },
+    {
+      "outcome_code": "8.4",
+      "outcome_title": "Define the term 'quality control'",
+      "key_takeaway": "Inspecting, measuring and testing outputs against their acceptance criteria. It looks at the product, after the fact.",
+      "body_markdown": "Quality control is the inspection, measurement and testing of outputs against their acceptance criteria.\n\nIt is applied to the thing produced, and it happens after production. Testing software, inspecting a component, reviewing a document against its criteria: all quality control.\n\nThe outcome of quality control is a verdict. The output either meets its acceptance criteria or it does not, and if it does not, it is reworked and retested. That verdict is what makes acceptance at transition possible.\n\nThe contrast with assurance at outcome 8.5 is the examinable point, and it comes down to what is being examined. Control examines the product. Assurance examines the process. A project can pass assurance and still produce a defective item, and it can produce an acceptable item through a process that will not reliably do so again. Both checks exist because neither alone is sufficient.",
+      "watch_for": "Options describing confidence in processes, which is assurance, or setting standards, which is planning. If the option mentions testing or inspecting an output, it is control."
+    },
+    {
+      "outcome_code": "8.5",
+      "outcome_title": "Outline the purpose of quality assurance",
+      "key_takeaway": "To provide confidence that the processes being used will produce outputs meeting requirements. Process, not product, and usually independent.",
+      "body_markdown": "The purpose of quality assurance is to provide confidence that the processes being used are appropriate and are being followed, so that the outputs they produce will meet requirements.\n\nTwo features distinguish it. It examines the process rather than the product. And it is normally carried out by someone independent of the team doing the work, because assurance provided by the people being assured is worth very little.\n\nAssurance answers a forward-looking question: if we carry on working this way, will the results be acceptable? Control answers a backward-looking one: is this particular item acceptable?\n\nAudits and reviews are the usual mechanisms, which is why project audits appear alongside the other review types at outcome 8.6.\n\nAssurance is also what gives a governance board grounds for confidence at a decision gate. A gate decision based only on the project manager's own report is a weaker decision than one supported by an independent view of whether the project is being run properly.",
+      "watch_for": "Options describing inspection of individual deliverables, or promising that no defects will occur. Assurance provides confidence about process, not a guarantee about outcomes."
+    },
+    {
+      "outcome_code": "8.6",
+      "outcome_title": "State the purpose of decision gates, post project reviews, benefit reviews and project audits",
+      "key_takeaway": "Four review types, four purposes. Continue or not, how did we do, did the benefits arrive, did we follow the rules.",
+      "body_markdown": "Four distinct review types, and the exam will offer all four as options for a question about one of them. Learn each by its single question.\n\nA decision gate sits between phases and asks whether the project should continue. The test is whether the business case remains viable given what is now known. Gates are why a project that has stopped being worth doing can be stopped, rather than continuing because it was started.\n\nA post project review takes place after completion and asks how the project was managed. It captures lessons for future projects, covering what worked, what did not, and what should be done differently. It is about the project's management, not about its benefits.\n\nA benefit review takes place after handover, often well after, and asks whether the expected benefits have actually been realised. Because benefits emerge over time, this cannot be answered at closure, which is why an extended life cycle at outcome 2.4 exists.\n\nA project audit asks whether the project has complied with the organisation's processes and standards. It is a compliance and assurance activity, normally independent, and it can happen at any point.\n\nThe two most confused are the post project review and the benefit review. One looks at how the project ran. The other looks at whether the results were worth having.",
+      "watch_for": "Questions where all four options describe genuine purposes and only one belongs to the review named in the stem. There is no obviously wrong answer to eliminate here, so this outcome rewards knowing all four."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "High quality means the best possible standard.",
+      "right": "Quality is fitness for purpose against agreed requirements. Exceeding the specification is unapproved scope, not superior quality."
+    },
+    {
+      "wrong": "Quality assurance and quality control are the same activity.",
+      "right": "Assurance examines the process and is usually independent. Control examines the product and produces a pass or fail against acceptance criteria."
+    },
+    {
+      "wrong": "Quality is checked at the end of the project.",
+      "right": "It is planned at the start, assured throughout, and controlled as each output is produced. Checking only at the end finds defects after the money is spent."
+    },
+    {
+      "wrong": "A decision gate is a milestone.",
+      "right": "Gates often sit at milestones, but a milestone marks that something happened and a gate is a decision about whether to continue."
+    },
+    {
+      "wrong": "A post project review tells you whether the benefits were achieved.",
+      "right": "It captures lessons about how the project was managed. Benefits are assessed at a benefit review, normally later, because benefits take time to appear."
+    },
+    {
+      "wrong": "A project audit is a way of checking whether the project is on schedule.",
+      "right": "It checks compliance with processes and standards. Schedule position comes from progress reporting at outcome 4.11."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "contrast",
+      "acronym": "Plan, Assure, Control",
+      "expansion": "Plan the standard. Assure the process. Control the product. Three words that separate the three most confused outcomes in this objective."
+    },
+    {
+      "type": "test",
+      "acronym": "Process or product?",
+      "expansion": "If the option examines how the work is done, it is assurance. If it examines the thing produced, it is control."
+    },
+    {
+      "type": "test",
+      "acronym": "Fit for purpose, not perfect",
+      "expansion": "Quality is measured against agreed requirements. Any option implying perfection or expense is wrong."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Continue, Learn, Benefit, Comply",
+      "expansion": "Decision gate asks continue. Post project review asks what we learned. Benefit review asks whether benefits landed. Audit asks whether we complied."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can define quality using fitness for purpose and agreed requirements.",
+    "I can explain why exceeding the specification is not higher quality.",
+    "I can state the purpose of quality management and say why it covers processes as well as outputs.",
+    "I can define quality planning and name two things it produces.",
+    "I can define quality control and say what its output is.",
+    "I can state the purpose of quality assurance and explain why independence matters.",
+    "I can separate planning, assurance and control in one sentence each.",
+    "I can give the distinct purpose of a decision gate, a post project review, a benefit review and a project audit."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "The four review types named in outcome 8.6 are decision gates, post project reviews, benefit reviews and project audits.",
+      "sub_outcome": "8.6",
+      "level": "high",
+      "basis": "Named explicitly in syllabus outcome 8.6.",
+      "risk": "None identified. All four are stated in the outcome text."
+    },
+    {
+      "claim": "Quality assurance is normally carried out independently of the delivery team.",
+      "sub_outcome": "8.5",
+      "level": "medium",
+      "basis": "Consistent with the APM Body of Knowledge treatment of audits and assurance referenced by this objective.",
+      "risk": "The syllabus outcome asks for the purpose of assurance rather than who performs it. Independence is taught as context that makes the distinction from control memorable, and should not be presented as the examinable point."
+    }
+  ]
+}

@@ -20,17 +20,17 @@ export const CATALOG_COURSES: Course[] = [
     exam_config: {},
   },
   {
-    id: "pfq-placeholder",
+    id: "f8a2c1e0-4d3b-4a9e-9c7f-2e1d0b9a8c7d",
     slug: "pfq-in-2-days",
     name: "PFQ in 2 Days",
     description:
-      "Build Strong Project Management Foundations and Pass Your APM PFQ Exam",
-    price_cents: 1000,
+      "59 lessons, practice, a timed mock and a coverage map of every APM PFQ learning outcome.",
+    price_cents: 500,
     is_free: false,
     status: "planned",
     created_at: "",
     has_mock_exam: true,
-    pass_mark_percent: 70,
+    pass_mark_percent: 60,
     exam_config: {},
   },
 ];

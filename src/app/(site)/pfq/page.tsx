@@ -10,15 +10,20 @@ import {
   PFQ_OUTCOME_TITLES,
   type PfqOutcomeCode,
 } from "@/lib/pfq/outcomes";
+import { formatPfqPriceGbp, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import type { PfqCoverageOutcome, PfqObjectiveResult } from "@/lib/pfq/types";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
-const PAGE_TITLE = "Free APM PFQ Mock Exam — 59-Outcome Coverage Map";
+/**
+ * Interim landing until Claude rewrites PFQ_LANDING_COPY.md for paid-only.
+ * Do not restore free-mock CTAs — the mock is Pro-gated.
+ */
+const PAGE_TITLE = "PFQ in 2 Days — APM Project Fundamentals Revision";
 const PAGE_DESCRIPTION =
-  "Sit a free 60-question timed PFQ mock shaped like the real Surpass paper. See which of the 59 learning outcomes you can already answer — no account required.";
+  "59 lessons, practice, a Surpass-alike mock and a coverage map of every APM PFQ learning outcome. One price, no subscription.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -66,7 +71,7 @@ export default function PfqLandingPage() {
     <div className="mx-auto flex w-full max-w-wrap flex-col gap-12 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">
       <header className="flex max-w-2xl flex-col gap-4">
         <p className="m-0 font-body text-[12px] font-semibold tracking-[0.04em] text-ink/45 uppercase">
-          Free PFQ practice
+          PFQ in 2 Days · {formatPfqPriceGbp()}
         </p>
         <h1 className="m-0 font-display text-[clamp(1.85rem,4.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-ink text-balance">
           See which of the{" "}
@@ -75,12 +80,12 @@ export default function PfqLandingPage() {
         </h1>
         <p className="m-0 font-body text-[1.05rem] leading-relaxed text-ink/75">
           The APM Project Fundamentals Qualification assesses every published
-          outcome, with one doubled. Sit a free 60-question, 60-minute mock —
-          then get a coverage map instead of a bare percentage.
+          outcome, with one doubled. The course includes a 60-question timed
+          mock and a coverage map — not just a percentage.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/pfq/mock" className={stampCtaPrimary}>
-            Sit the free 60-question mock
+          <Link href={PFQ_PRICING_HREF} className={stampCtaPrimary}>
+            See pricing
             <CtaArrow />
           </Link>
         </div>

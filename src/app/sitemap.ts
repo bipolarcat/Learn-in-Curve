@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/courses/pmq-in-5-days",
     "/free-mock-exam",
     "/pfq",
-    "/pfq/mock",
+    "/pfq/pricing",
     "/library",
     "/privacy",
     "/terms",
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : path === "/free-mock-exam" ||
             path === "/pfq" ||
-            path === "/pfq/mock" ||
+            path === "/pfq/pricing" ||
             path === "/library"
           ? 0.9
           : 0.6,

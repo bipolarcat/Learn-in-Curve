@@ -1,0 +1,153 @@
+{
+  "objective_number": 2,
+  "objective_code": "PFQ-OBJ-02",
+  "title": "Project life cycles",
+  "day": 1,
+  "apm_learning_objective": "Understand project life cycles.",
+  "learning_outcomes": ["2.1", "2.2", "2.3", "2.4"],
+  "exam_coverage_note": "4 of 60 marks. One exam question per learning outcome.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.2.4, 1.2.5 and 8th ed. 2.5.1, 2.5.2, 2.5.3, 2.5.4.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "Four marks sit here, but the objective earns its place several times over elsewhere. The life cycle is the first structural decision on a project, and other outcomes inherit from it. Outcome 4.2 asks how deployment baselines differ between linear and iterative work. Outcome 5.2 asks the same about scope. Outcome 6.4 defines time boxing, which only makes sense inside an iterative approach. If the life cycles are vague here, marks leak in objectives 4, 5 and 6 without the candidate ever realising why. Study this one until the four linear phases come out as a single phrase and the difference between hybrid and extended is automatic.",
+
+  "key_definitions": [
+    {
+      "term": "Project life cycle",
+      "definition": "The series of distinct phases a project passes through, from initial idea to completion, providing a structure for managing and controlling the work.",
+      "plain_english": "The stages a project moves through from start to finish. The skeleton everything else hangs on."
+    },
+    {
+      "term": "Linear life cycle",
+      "definition": "A life cycle in which the phases run once, in sequence, with scope defined before delivery begins.",
+      "plain_english": "Plan it fully, then build it. Changes afterwards go through change control."
+    },
+    {
+      "term": "Iterative life cycle",
+      "definition": "A life cycle in which development repeats in cycles, with requirements refined and re-prioritised as the work progresses.",
+      "plain_english": "Build a bit, show it, learn from it, build the next bit."
+    },
+    {
+      "term": "Hybrid life cycle",
+      "definition": "A life cycle combining elements of the linear and iterative approaches within a single project.",
+      "plain_english": "Fixed and planned at the front, iterative in delivery. Both, in one project."
+    },
+    {
+      "term": "Extended life cycle",
+      "definition": "A life cycle that adds adoption and benefits realisation phases after the phases of a linear life cycle.",
+      "plain_english": "The project is not finished when the output is handed over. It is finished when the benefits arrive."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "2.1",
+      "outcome_title": "State the phases of a typical linear project life cycle",
+      "key_takeaway": "Concept, definition, deployment, transition. Learn the four words as a phrase and recite them rather than reasoning them out under time pressure.",
+      "body_markdown": "A typical linear project life cycle has four phases: concept, definition, deployment, transition.\n\nConcept establishes the need. Is there a problem worth solving, and is this idea worth pursuing at all? Work here is deliberately cheap, because most of what gets examined at concept should never proceed.\n\nDefinition works out how the project will be done. Scope, schedule, cost, risk and quality are settled, and the project management plan is produced. At the end of definition the organisation knows what it is committing to.\n\nDeployment is where the work happens and the outputs are produced. This is normally the longest and most expensive phase, which is exactly why the two before it exist.\n\nTransition hands the outputs over to the people who will use them, and the temporary project structure is dissolved.\n\nThe word linear is doing real work. The phases run once, in order, and the full scope is agreed before delivery starts. That single property is what makes change control necessary later, at outcome 5.7: if scope was fixed up front, any change to it has to be formally requested, evaluated and approved.\n\nBetween phases sit decision gates, which appear again at outcome 8.6. A gate is where the organisation decides whether the project should continue at all, based on whether the business case still holds.",
+      "watch_for": "Sequencing questions that scramble the four phases. Also watch for feasibility offered as a phase in its own right. Feasibility is an activity carried out within concept, not a phase of the linear life cycle."
+    },
+    {
+      "outcome_code": "2.2",
+      "outcome_title": "State the phases of a typical iterative project life cycle",
+      "key_takeaway": "An iterative life cycle replaces one long build with repeated development iterations. Development is the phase that distinguishes it from linear.",
+      "body_markdown": "An iterative life cycle still begins with concept and definition, but replaces the single run through delivery with repeated development iterations, each producing something usable.\n\nThe phases you need to recognise are concept, definition, development and deployment, with development repeating.\n\nThe reason to work this way is uncertainty about requirements. If nobody can specify precisely what is needed at the outset, defining the whole scope in advance produces a confident plan for the wrong thing. Iterating builds a small piece, puts it in front of users, and lets what they say shape what comes next.\n\nWhat changes is not the amount of planning but when it happens. There is still a concept phase and still a definition phase. The high-level scope, the budget and the overall objectives are still agreed. What is deferred is the detail, which is settled iteration by iteration.\n\nTime and resources are fixed for each iteration, and scope flexes within them. That is time boxing, which outcome 6.4 defines, and it is the mechanism that stops an iterative project from running forever.",
+      "watch_for": "The assumption that iterative means no planning and no documentation. Both still exist. Watch also for feasibility appearing in a list of iterative phases, and for the claim that scope is fixed at the start of an iterative project. Fixing scope up front is the linear approach."
+    },
+    {
+      "outcome_code": "2.3",
+      "outcome_title": "Define the term 'hybrid life cycle'",
+      "key_takeaway": "A hybrid life cycle combines linear and iterative elements within one project. Hybrid is about mixing approaches, not about running past handover.",
+      "body_markdown": "A hybrid life cycle combines elements of the linear and iterative approaches within a single project.\n\nIn practice that usually means running the front of the project linearly, with a fixed concept, a defined business case and an agreed budget, and then delivering iteratively inside those boundaries. The organisation gets the financial control and governance it needs from the linear part, and the team gets the feedback loop it needs from the iterative part.\n\nHybrids also appear where parts of a project have different characteristics. Constructing a building is not sensibly done in iterations, but the software controlling it might be. One project, two approaches, chosen by what each part of the work actually needs.\n\nFor the exam, the definition is all that is required. Hybrid means both, in one project. Everything above is context to make the definition stick.",
+      "watch_for": "The definition of an extended life cycle offered as the answer. Hybrid and extended are the most commonly confused pair in this objective. Hybrid mixes approaches. Extended runs past handover into adoption and benefits."
+    },
+    {
+      "outcome_code": "2.4",
+      "outcome_title": "Define the term 'extended project life cycle'",
+      "key_takeaway": "An extended life cycle adds adoption and benefits realisation after the phases of a linear life cycle. The project is accountable for benefits, not just delivery.",
+      "body_markdown": "An extended project life cycle adds adoption and benefits realisation to the phases of a linear life cycle.\n\nThe reasoning connects directly to outcome 1.4. If the purpose of project management is beneficial change, a project that hands over its output and stops has not necessarily delivered anything of value. A new system nobody uses produces no benefit at all, however well it was built.\n\nAdoption is the period during which the people who received the output actually start using it, and using it properly. This is where training, support and behaviour change sit.\n\nBenefits realisation is the period during which the expected improvement is measured and confirmed. This links to outcome 4.7, benefits management, and to the benefits review at outcome 8.6.\n\nExtending the life cycle changes accountability. Under a standard linear life cycle the project ends at transition, and whether benefits appear becomes somebody else's problem. Under an extended life cycle someone remains answerable until they do.",
+      "watch_for": "Options describing an extension of the deployment phase to accommodate late changes. That is change control, not an extended life cycle. Also watch for anything combining linear and iterative, which is hybrid."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "Iterative is the modern approach and is therefore better.",
+      "right": "Neither is better. Each suits different conditions. Linear suits work where requirements are knowable up front and change is expensive. Iterative suits work where requirements emerge and feedback is cheap."
+    },
+    {
+      "wrong": "Iterative projects have no planning phase.",
+      "right": "They have both concept and definition. The high-level scope, budget and objectives are agreed up front. Only the detail is settled iteration by iteration."
+    },
+    {
+      "wrong": "Hybrid and extended are two names for the same thing.",
+      "right": "Hybrid combines linear and iterative approaches. Extended adds adoption and benefits realisation after handover. They answer entirely different questions."
+    },
+    {
+      "wrong": "Feasibility is a phase of the linear life cycle.",
+      "right": "Feasibility is an activity carried out within the concept phase. The four phases are concept, definition, deployment, transition."
+    },
+    {
+      "wrong": "The project is finished once the output is handed over.",
+      "right": "Under a standard linear life cycle, yes. Under an extended life cycle the project remains accountable through adoption and benefits realisation."
+    },
+    {
+      "wrong": "Choosing a life cycle is a technical decision for the delivery team.",
+      "right": "It determines how scope, baselines, change control, governance and reviews all work. It is the first structural decision on the project and it reaches into most of the rest of the syllabus."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "CDDT",
+      "expansion": "Concept, Definition, Deployment, Transition. The four linear phases, in order. If you learn one list in this objective, learn this one."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Mix / Extend",
+      "expansion": "Hybrid mixes approaches. Extended extends past handover. Two words that separate the most confused pair in the objective."
+    },
+    {
+      "type": "test",
+      "acronym": "What is fixed?",
+      "expansion": "Linear fixes scope and flexes time and cost. Iterative fixes time and cost and flexes scope. Almost every linear versus iterative question reduces to this."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Handover / Benefit",
+      "expansion": "A standard life cycle ends at handover. An extended one ends when the benefit lands."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can recite the four phases of a linear life cycle in order, without pausing.",
+    "I can say what happens in each of those four phases in one sentence.",
+    "I can name the phases of an iterative life cycle and say which one repeats.",
+    "I can explain what is fixed and what flexes in linear work, and in iterative work.",
+    "I can define a hybrid life cycle and distinguish it from an extended one.",
+    "I can define an extended life cycle and name the two phases it adds.",
+    "I can explain why the life cycle choice affects scope, baselines and change control.",
+    "I know that feasibility is an activity inside concept, not a phase."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "The four phases of a typical linear life cycle are concept, definition, deployment, transition.",
+      "sub_outcome": "2.1",
+      "level": "high",
+      "basis": "Syllabus outcome 2.1 with APM Body of Knowledge references; corroborated by the published PFQ sample paper, which tests this sequence directly.",
+      "risk": "Some training providers teach a five-phase variant that separates handover from closure. The four-phase sequence is what the PFQ syllabus and sample paper use, and that is what we teach."
+    },
+    {
+      "claim": "Development is the phase that distinguishes an iterative life cycle from a linear one.",
+      "sub_outcome": "2.2",
+      "level": "medium",
+      "basis": "Derived from the syllabus outcome and the sample paper item on iterative phases, which excludes concept and feasibility from the correct answer.",
+      "risk": "The sample paper is dated 2022 and predates Body of Knowledge 8th edition. If APM restates iterative phases in a revised syllabus, this outcome should be re-checked before relying on the distinction."
+    }
+  ]
+}

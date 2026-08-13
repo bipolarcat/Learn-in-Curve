@@ -1,0 +1,201 @@
+{
+  "objective_number": 5,
+  "objective_code": "PFQ-OBJ-05",
+  "title": "Project scope management",
+  "day": 1,
+  "apm_learning_objective": "Understand project scope management.",
+  "learning_outcomes": ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8"],
+  "exam_coverage_note": "8 of 60 marks. Joint second largest objective, alongside risk and issue management.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.3.1, 4.1.4, 4.3.6, 4.3.7 and 8th ed. 2.5.1, 2.5.2, 2.6.1, 5.2.1, 5.7, 5.11.1, 5.11.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "Eight marks, and the objective where the syllabus stops describing documents and starts describing control. Objective 4 got the plan agreed. This objective is about holding the line on what the project will and will not deliver, and about what happens when someone wants to change it. Two of the eight outcomes are process lists that must be recited, 5.7 and 5.8, and they are the highest-value rote learning in the whole syllabus because the examiner deliberately mixes the two lists together. Four of the eight outcomes concern the breakdown structures. If you get the structures and the two process lists solid, this objective becomes seven or eight marks rather than four.",
+
+  "key_definitions": [
+    {
+      "term": "Scope management",
+      "definition": "The process of identifying, defining and controlling the work required to deliver the project's objectives.",
+      "plain_english": "Deciding what is in, what is out, and defending that boundary."
+    },
+    {
+      "term": "Product breakdown structure (PBS)",
+      "definition": "A hierarchical decomposition of the products the project will deliver.",
+      "plain_english": "The things being produced, broken into their parts."
+    },
+    {
+      "term": "Work breakdown structure (WBS)",
+      "definition": "A hierarchical decomposition of the work required to produce the project's products.",
+      "plain_english": "The jobs that have to be done, broken into manageable packages."
+    },
+    {
+      "term": "Cost breakdown structure (CBS)",
+      "definition": "A hierarchical decomposition of the project's costs.",
+      "plain_english": "Where the money goes, broken down the same way the work is."
+    },
+    {
+      "term": "Organisational breakdown structure (OBS)",
+      "definition": "A hierarchical decomposition of the people and organisational units involved in the project.",
+      "plain_english": "Who is available to do the work, arranged as a structure."
+    },
+    {
+      "term": "Responsibility assignment matrix (RAM)",
+      "definition": "A matrix combining the work breakdown structure with the organisational breakdown structure to show who is responsible for each element of work.",
+      "plain_english": "Work down one side, people across the top. Who does what."
+    },
+    {
+      "term": "Change control",
+      "definition": "The process through which requested changes are identified, evaluated and then approved or rejected before implementation.",
+      "plain_english": "The way a project decides yes or no to a change, rather than drifting into one."
+    },
+    {
+      "term": "Configuration management",
+      "definition": "The process of identifying, recording and controlling the items that make up the project's outputs, and maintaining their status through the life cycle.",
+      "plain_english": "Knowing which version of what is current, and keeping that record straight."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "5.1",
+      "outcome_title": "Define the term 'scope management'",
+      "key_takeaway": "Identifying, defining and controlling the work required to deliver the project's objectives. Control is the word that separates it from planning.",
+      "body_markdown": "Scope management is the process of identifying, defining and controlling the work required to deliver the project's objectives.\n\nThree verbs, and each matters. Identifying establishes what needs to be produced. Defining pins it down precisely enough that someone can build it and someone else can accept it. Controlling keeps the boundary intact once work starts.\n\nThat third verb is where most of the syllabus content in this objective sits. A project without scope control does not usually fail through one big decision. It fails through an accumulation of small additions that nobody priced, agreed or scheduled, which is why the exam devotes two outcomes to change control and configuration management.\n\nScope covers both what is included and, explicitly, what is excluded. Recording exclusions is not pedantry: unstated exclusions are the most common source of the argument at handover.",
+      "watch_for": "Options describing sequencing of activities, which is scheduling at outcome 6.1, or checking that outputs meet their specification, which is quality control at outcome 8.4."
+    },
+    {
+      "outcome_code": "5.2",
+      "outcome_title": "Differentiate between scope management within linear projects and within iterative projects",
+      "key_takeaway": "Linear fixes scope and controls change formally. Iterative fixes time and cost and re-prioritises scope within them.",
+      "body_markdown": "In a linear project the scope is defined in full before delivery begins and baselined. Any subsequent change to it goes through formal change control. Time and cost flex to accommodate approved changes; scope does not move quietly.\n\nIn an iterative project the reverse holds. Time and resources are fixed for each iteration, and the scope delivered within that iteration is agreed and re-prioritised as the work proceeds. Requirements are expected to evolve, and the mechanism for handling that is re-prioritisation rather than a change request.\n\nThe underlying question is which constraint the project is prepared to move. That framing, from outcome 2.2, answers most linear-versus-iterative questions across the whole syllabus.\n\nNeither approach abandons control. Iterative projects still have a total budget, a deadline and a set of objectives. What differs is the level at which change is handled.",
+      "watch_for": "Options claiming iterative projects have no scope control, or that linear projects cannot change scope at all. Both are wrong. The difference is the mechanism, not the presence of control."
+    },
+    {
+      "outcome_code": "5.3",
+      "outcome_title": "Describe how product breakdown structures and work breakdown structures are used to illustrate the required scope of work",
+      "key_takeaway": "A PBS breaks down the products. A WBS breaks down the work needed to produce them. Products first, then work.",
+      "body_markdown": "Both are hierarchical decompositions used to make scope visible and manageable. What differs is what sits in the boxes.\n\nA product breakdown structure decomposes the outputs. The top box is the final product, and each level below breaks it into components, and those into sub-components. It answers what is being produced.\n\nA work breakdown structure decomposes the work. It answers what has to be done to produce those products, ending in work packages small enough to be estimated, assigned and tracked.\n\nThe usual order is products first, then work, because deciding what to build before deciding how to build it prevents the classic failure of a plan full of activity that produces nothing anyone asked for.\n\nBoth structures serve the same purpose: breaking something too big to grasp into pieces that can be estimated, allocated and reported on. That is also why the WBS underpins the RAM at outcome 5.4.",
+      "watch_for": "Options that swap the two, or that give a PBS costs, durations or risks. It contains products. Also watch for the claim that one belongs to iterative work and the other to linear; both are used in both."
+    },
+    {
+      "outcome_code": "5.4",
+      "outcome_title": "Outline how a project manager would use cost, organisational breakdown structures and the responsibility assignment matrix",
+      "key_takeaway": "CBS is money, OBS is people, RAM is WBS multiplied by OBS. Learn the equation and the outcome mostly answers itself.",
+      "body_markdown": "The cost breakdown structure decomposes the project's costs, normally mirroring the work breakdown structure so that cost can be reported at any level of the work. It supports budgeting, cost control and reporting against the baseline.\n\nThe organisational breakdown structure decomposes the people and organisational units available to the project, showing which teams, departments or suppliers exist and how they relate.\n\nThe responsibility assignment matrix combines the two hierarchies that matter for accountability: work down one axis from the WBS, people across the other from the OBS. Each intersection records who is responsible for that element of work.\n\nThe equation is worth memorising: WBS multiplied by OBS produces the RAM. Questions on this outcome usually test whether you know which two structures combine, and swapping in the CBS or PBS is the standard distractor.\n\nThe practical value of a RAM is that it exposes both gaps and overlaps. Work with nobody against it, and work with three people against it, are both problems, and both are invisible until the matrix is drawn.",
+      "watch_for": "The RAM being formed from the PBS or CBS rather than the WBS and OBS. Also watch for the CBS being described as a schedule tool."
+    },
+    {
+      "outcome_code": "5.5",
+      "outcome_title": "Define 'configuration management' and 'change control' in the context of scope management",
+      "key_takeaway": "Change control decides. Configuration management records. Two processes, one pair of definitions, endlessly used as each other's distractors.",
+      "body_markdown": "Change control is the process through which requested changes are identified, evaluated, and then approved or rejected before implementation. It is a decision process. Its output is a yes or a no, with reasons.\n\nConfiguration management is the process of identifying, recording and controlling the items that make up the project's outputs, and maintaining their status through the life cycle. It is a record-keeping and integrity process. Its output is the certainty that everyone knows which version of what is current.\n\nThe pairing exists because each is useless alone. Approving changes without recording them produces a project where nobody can say what the current design is. Recording versions without controlling changes produces an accurate history of an uncontrolled project.\n\nDefinitions for these two are frequently offered as each other's answers, so learn them by their verbs: change control evaluates and decides, configuration management identifies and records.",
+      "watch_for": "The configuration management definition offered as the answer to a change control question, and the reverse. Test each option against the verb: does it decide, or does it record?"
+    },
+    {
+      "outcome_code": "5.6",
+      "outcome_title": "Explain the relationship between change control and configuration management",
+      "key_takeaway": "Change control authorises the change. Configuration management updates the record so the authorised version becomes the current one.",
+      "body_markdown": "The two processes interlock. Change control determines whether a change should happen. Configuration management ensures that once it has happened, the records reflect it and everyone is working from the current version.\n\nRun through a single change. A request is raised. Change control evaluates its impact on scope, time, cost, quality and risk, and a decision is taken. If approved, the work is done, and configuration management updates the affected items, increments their version, and records the new status. Anyone asking what the current specification is now gets the right answer.\n\nRemove either half and the failure is specific. Without change control, changes get made without anyone assessing their impact. Without configuration management, approved changes get made but the documentation still describes the old version, and someone eventually builds or tests against the wrong one.\n\nThat is why a robust configuration management process requires documents to be updated whenever change control approves something. The update is not administrative tidying; it is what makes the approval real.",
+      "watch_for": "Options reversing the responsibilities, so that configuration management approves and change control records. Also watch for options treating them as alternatives, or claiming one replaces the other in iterative projects."
+    },
+    {
+      "outcome_code": "5.7",
+      "outcome_title": "Outline the stages in a typical change control process",
+      "key_takeaway": "Request, evaluate, recommend, decide, implement, update. Learn the sequence, and learn that it is not the configuration management list.",
+      "body_markdown": "A typical change control process runs through the following stages.\n\nA request for change is raised and logged, so that it exists as a record rather than a conversation.\n\nAn initial evaluation establishes whether the request is valid and worth assessing in detail. Some requests fail here, which saves the cost of a full assessment.\n\nA detailed evaluation assesses the impact on scope, schedule, cost, quality, risk and benefits. This is the substance of the process, and it is where the true cost of a change usually turns out to exceed the obvious one.\n\nA recommendation is made on the basis of that evaluation.\n\nA decision is taken by whoever holds the authority. Within the project manager's tolerance, that is the project manager. Beyond it, the governance board.\n\nImplementation follows for approved changes, and the affected records and baselines are updated, which is where configuration management takes over.\n\nThe reason the process exists is that the alternative is scope creep: change by accumulation, unpriced and unagreed.",
+      "watch_for": "Configuration management activities offered inside this list, particularly status accounting and verification audit. The examiner mixes the two lists deliberately, so learn both and learn which word belongs to which."
+    },
+    {
+      "outcome_code": "5.8",
+      "outcome_title": "Outline the activities in a typical configuration management process",
+      "key_takeaway": "Planning, identification, control, status accounting, verification audit. Five activities, named in the syllabus, therefore examinable by name.",
+      "body_markdown": "The syllabus names five activities, and because they appear in a bracketed list they are examinable by name.\n\nPlanning establishes what will be placed under configuration management, how, and by whom. Not everything needs controlling, and deciding the boundary is the first activity.\n\nIdentification determines the individual configuration items and gives each a unique reference, so that a specific version of a specific thing can be pointed at unambiguously.\n\nControl ensures that changes to those items happen only through the agreed process, which is where change control from outcome 5.7 connects.\n\nStatus accounting records and reports the current state of every item and its change history. It answers what version is current, and what happened to get here.\n\nVerification audit checks that the records match reality. It is the activity that catches the case where documentation says version four and the thing built is version three.\n\nThe five together produce one property: at any moment, the project can say what the current, approved version of anything is, and prove it.",
+      "watch_for": "Change control words appearing in this list, particularly evaluation, recommendation and justification. If it decides, it belongs to change control. If it records or checks, it belongs here."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "Scope management is just writing down what the project will deliver.",
+      "right": "It is identifying, defining and controlling. Control is where most of the examinable content sits, and where projects actually fail."
+    },
+    {
+      "wrong": "Iterative projects do not control scope.",
+      "right": "They control it by fixing time and cost and re-prioritising scope within them. Different mechanism, not an absence of control."
+    },
+    {
+      "wrong": "A product breakdown structure and a work breakdown structure are the same thing drawn differently.",
+      "right": "One decomposes what is being produced, the other decomposes the work needed to produce it. Products first, then work."
+    },
+    {
+      "wrong": "The responsibility assignment matrix comes from the product breakdown structure.",
+      "right": "It comes from the work breakdown structure combined with the organisational breakdown structure. Work by people."
+    },
+    {
+      "wrong": "Change control and configuration management are two names for the same process.",
+      "right": "Change control decides whether a change happens. Configuration management records what the current version is. Each is useless without the other."
+    },
+    {
+      "wrong": "Configuration management is only about documents.",
+      "right": "It applies to any configuration item the project chooses to control, including designs, software, physical components and documentation."
+    },
+    {
+      "wrong": "A change should be implemented as soon as it is approved, and the paperwork can catch up.",
+      "right": "Updating the records is part of the process. Without it, the approved change exists in the product but not in the documentation, which is how the wrong version gets built or tested."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "PICSV",
+      "expansion": "Planning, Identification, Control, Status accounting, Verification audit. The five configuration management activities, in order."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Decide / Record",
+      "expansion": "Change control decides. Configuration management records. Two verbs that resolve the most confused pair in this objective."
+    },
+    {
+      "type": "test",
+      "acronym": "WBS times OBS",
+      "expansion": "Work multiplied by people gives the responsibility assignment matrix. If an option names any other pair of structures, it is wrong."
+    },
+    {
+      "type": "test",
+      "acronym": "Products, then work",
+      "expansion": "PBS decomposes products. WBS decomposes work. Decide what before deciding how."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can define scope management using all three verbs, including control.",
+    "I can say how scope is handled differently in linear and iterative projects, and why.",
+    "I can explain the difference between a PBS and a WBS in one sentence each.",
+    "I can say which two structures combine to form a RAM, and what a RAM reveals.",
+    "I can define change control and configuration management without confusing them.",
+    "I can explain how the two processes interlock on a single change.",
+    "I can list the stages of a typical change control process in order.",
+    "I can name the five configuration management activities and say what each achieves.",
+    "I can tell, for any given word, which of the two lists it belongs to."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "The five configuration management activities are planning, identification, control, status accounting and verification audit.",
+      "sub_outcome": "5.8",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' list in syllabus outcome 5.8. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "A typical change control process runs request, evaluate, recommend, decide, implement, update.",
+      "sub_outcome": "5.7",
+      "level": "medium",
+      "basis": "Derived from the APM Body of Knowledge sections referenced by this outcome, and consistent with the published sample paper, which tests individual stage names rather than the full sequence.",
+      "risk": "The syllabus says 'a typical change control process', so wording varies between sources. Teach the shape and the stage names; do not present one provider's exact sequence as the only correct one."
+    }
+  ]
+}

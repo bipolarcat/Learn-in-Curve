@@ -1,0 +1,182 @@
+{
+  "objective_number": 6,
+  "objective_code": "PFQ-OBJ-06",
+  "title": "Resource, scheduling and optimisation",
+  "day": 2,
+  "apm_learning_objective": "Understand resource, scheduling and optimisation in a project.",
+  "learning_outcomes": ["6.1", "6.2", "6.3", "6.4", "6.5", "6.6"],
+  "exam_coverage_note": "6 of 60 marks. One exam question per learning outcome.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 2.1.4, 4.2.5, 4.2.6, 4.2.7 and 8th ed. 1.1.2, 2.5.1, 3.3.2, 5.5, 5.5.1, 5.6.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "The first objective of day two, and the most technical-sounding in the syllabus. It is less demanding than it looks. Five of the six outcomes are Define or State, which means recall rather than calculation. You will not be asked to work out a critical path or draw a network diagram at this level, only to say what critical path analysis is for. The pair that decides marks here is resource levelling against resource smoothing, and the trick to it is asking which constraint the question has fixed.",
+
+  "key_definitions": [
+    {
+      "term": "Scheduling",
+      "definition": "The process of determining when project activities will take place and what resources they require.",
+      "plain_english": "Working out what happens when, and who or what is needed to do it."
+    },
+    {
+      "term": "Critical path",
+      "definition": "The sequence of activities through a project network that determines the shortest possible overall duration.",
+      "plain_english": "The chain of tasks where any delay delays the whole project."
+    },
+    {
+      "term": "Float",
+      "definition": "The amount of time an activity can be delayed without affecting a subsequent activity or the project completion date.",
+      "plain_english": "Slack. How late a task can run before it starts causing problems."
+    },
+    {
+      "term": "Milestone",
+      "definition": "A significant event in a project, often the completion of a key deliverable, having no duration and consuming no resource.",
+      "plain_english": "A marker on the schedule. Something either has or has not happened."
+    },
+    {
+      "term": "Time box",
+      "definition": "A fixed period of time within which work is carried out, where time and resources are fixed and scope and quality may vary.",
+      "plain_english": "A window you cannot extend. You deliver what fits inside it."
+    },
+    {
+      "term": "Resource levelling",
+      "definition": "A resource optimisation technique applied where resource availability is a constraint, which may extend the project completion date.",
+      "plain_english": "Only so many people are available, so the end date moves to fit."
+    },
+    {
+      "term": "Resource smoothing",
+      "definition": "A resource optimisation technique applied where the completion date is fixed, using available float to even out resource usage.",
+      "plain_english": "The end date is immovable, so you shuffle work within the slack to avoid peaks and troughs."
+    },
+    {
+      "term": "Procurement strategy",
+      "definition": "The high-level approach to securing the goods and services required by the project.",
+      "plain_english": "How the project will get what it needs to buy in, at the level of make or buy rather than contract detail."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "6.1",
+      "outcome_title": "State the purpose of scheduling",
+      "key_takeaway": "Scheduling determines when activities happen and what resources they need. It answers when and with what.",
+      "body_markdown": "The purpose of scheduling is to determine when project activities will take place and what resources they require.\n\nA schedule takes the work identified in the breakdown structures at outcome 5.3 and adds two dimensions: sequence and time. It establishes the order activities must run in, how long each takes, what depends on what, and which resources each needs.\n\nWhat that produces is a plan that can be committed to and measured against. Without a schedule the project has a list of work and no way of saying whether it is on track, because there is nothing that says where it should be by now.\n\nThe schedule is also where constraints become visible. Two activities needing the same specialist in the same week is invisible in a work breakdown structure and obvious in a schedule, which is the problem resource optimisation at outcome 6.5 exists to solve.",
+      "watch_for": "Options describing what scope management does, such as defining deliverables, or what cost control does. Scheduling is about timing and resourcing, not about deciding what the project delivers."
+    },
+    {
+      "outcome_code": "6.2",
+      "outcome_title": "State the purpose of critical path analysis",
+      "key_takeaway": "Critical path analysis identifies the longest path through the network, which determines the shortest time the project can take.",
+      "body_markdown": "Critical path analysis identifies the sequence of dependent activities that determines the shortest possible project duration.\n\nThe apparent contradiction is worth understanding, because the exam plays on it. The critical path is the longest path through the network, and it determines the shortest time the project can take. Both are true at once: you cannot finish faster than the longest chain of dependent work allows.\n\nActivities on the critical path have no float. Delay one by a day and the project finishes a day later. Activities off the critical path have float, and can slip a certain amount without affecting the end date.\n\nThe practical purpose is prioritisation of attention. It tells a project manager which activities genuinely threaten the completion date and which have room, so that management effort goes where delay actually costs something.\n\nThe analysis also produces earliest and latest start and finish times for each activity, and the total and free float available. It does not produce cost figures or a business case.",
+      "watch_for": "Options offering cost benefit analysis, budget figures or risk rankings as outputs of critical path analysis. Also watch for the claim that the critical path is the shortest path through the network."
+    },
+    {
+      "outcome_code": "6.3",
+      "outcome_title": "State the purpose of milestones",
+      "key_takeaway": "A milestone marks a significant event or the completion of a key deliverable. Zero duration, no resource.",
+      "body_markdown": "A milestone marks a significant event in the project, most often the completion of a key deliverable or the end of a phase.\n\nTwo properties define it. A milestone has no duration: it is a point, not a period. And it consumes no resource: reaching it is the result of work, not work in itself.\n\nMilestones exist for reporting and control. Percentage complete is a soft measure and easily overstated. A milestone is binary, which makes it a far more honest progress indicator: either the deliverable is finished and accepted, or it is not.\n\nThey also give governance somewhere to attach. Decision gates at outcome 8.6 typically sit at milestones, because a phase boundary is the natural point to ask whether the project should continue.\n\nMilestones are what senior stakeholders track. A sponsor does not want a hundred activities, they want the six points that tell them whether the project is where it should be.",
+      "watch_for": "Options giving milestones a duration, resources or float. All three contradict the definition. Also watch for milestones being described as the same thing as decision gates: gates often sit at milestones, but a milestone is a marker and a gate is a decision."
+    },
+    {
+      "outcome_code": "6.4",
+      "outcome_title": "Define the term 'time boxing'",
+      "key_takeaway": "A time box fixes time and resources. Scope and quality flex within it. That is the exact inversion of the linear model.",
+      "body_markdown": "A time box is a fixed period within which work is carried out. Time and resources are fixed. Scope and, within agreed limits, quality may vary.\n\nThe deadline is not negotiable. If the work planned for the box will not fit, the response is to reduce what is delivered rather than extend the box. That is the whole mechanism, and it is why time boxing belongs to iterative working at outcome 2.2.\n\nThe reason to work this way is that fixed dates create decisions. When time can stretch, low-value work stays in scope because there is always more time. When it cannot, someone has to say which items matter most, which forces prioritisation to happen continuously rather than once at the start.\n\nCompare with the linear model, where scope is fixed and time and cost flex through change control. Time boxing is the exact inversion, and questions on this outcome usually offer the inversion as the distractor.",
+      "watch_for": "Options stating that scope and quality are fixed while time and resources flex. That is the linear, change-controlled model and it is the standard wrong answer here."
+    },
+    {
+      "outcome_code": "6.5",
+      "outcome_title": "Outline options for resource optimisation",
+      "key_takeaway": "Levelling respects a resource limit and may move the end date. Smoothing protects the end date and uses float. Ask which one the question has fixed.",
+      "body_markdown": "The syllabus names two techniques, and because they are named in brackets they are examinable by name.\n\nResource levelling is used when resource availability is the binding constraint. Activities are rescheduled so that demand never exceeds what is available. Because the resource limit cannot be broken, the project completion date may have to move.\n\nResource smoothing is used when the completion date is the binding constraint. Activities are adjusted within their available float to even out peaks and troughs in resource usage. Because float is being consumed rather than the deadline, the end date does not move.\n\nOne question separates them: what is fixed? If the question says resources are limited or unavailable, it is levelling. If it says the end date cannot move, it is smoothing.\n\nThe reason to optimise at all is that an unoptimised schedule frequently demands impossible resource profiles, such as four testers in one week and none for the next month. Both techniques trade something to make the profile achievable. Levelling trades the date. Smoothing trades the float.",
+      "watch_for": "Resource aggregation and resource estimation offered as optimisation techniques. Neither is named in this outcome. Also watch for the two definitions being swapped, which is the most common form of this question."
+    },
+    {
+      "outcome_code": "6.6",
+      "outcome_title": "Define the term 'procurement strategy'",
+      "key_takeaway": "The high-level approach to securing the goods and services the project requires. Strategy, not contract detail.",
+      "body_markdown": "A procurement strategy sets out the high-level approach to securing the goods and services the project requires.\n\nIt addresses questions at the level of approach rather than paperwork: what will be made in house and what will be bought in, how many suppliers will be used, what form of contract and payment arrangement suits the work, and how supplier relationships will be managed.\n\nThe reason it sits at strategy level is that these choices shape risk before any contract is written. Fixed price arrangements move cost risk to the supplier and reduce flexibility. Reimbursable arrangements keep flexibility and leave cost risk with the buyer. Choosing between them is a project decision with consequences for the schedule, the budget and the risk register.\n\nDetailed contract terms, tender documents and acceptance certificates all sit beneath the strategy. They implement it; they are not it.",
+      "watch_for": "Options describing detailed contractual terms, supplier acceptance criteria or payment schedules for the project team. The word to hold onto is high-level."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "The critical path is the shortest route through the project.",
+      "right": "It is the longest path through the network, and that is precisely why it sets the shortest possible duration."
+    },
+    {
+      "wrong": "Critical path analysis tells you which activities are most important to the business.",
+      "right": "It tells you which activities have no float and therefore control the end date. A low-value activity can sit on the critical path."
+    },
+    {
+      "wrong": "Milestones take time and need resources.",
+      "right": "A milestone has zero duration and consumes no resource. It marks that something has happened."
+    },
+    {
+      "wrong": "In a time box you can extend the deadline if the work is not finished.",
+      "right": "Then it is not a time box. Time and resources are fixed; what varies is what gets delivered inside them."
+    },
+    {
+      "wrong": "Levelling and smoothing are interchangeable words for balancing resources.",
+      "right": "Levelling respects a resource limit and may move the completion date. Smoothing protects the completion date and uses float. Different constraint, different technique."
+    },
+    {
+      "wrong": "Procurement strategy means choosing suppliers.",
+      "right": "It is the high-level approach to securing goods and services. Selecting a specific supplier happens underneath the strategy."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "test",
+      "acronym": "What is fixed?",
+      "expansion": "Resources fixed means levelling and the date may move. Date fixed means smoothing and float gets used. One question answers this outcome."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Longest gives shortest",
+      "expansion": "The critical path is the longest path, and that is what determines the shortest possible duration."
+    },
+    {
+      "type": "test",
+      "acronym": "Zero, zero",
+      "expansion": "A milestone has zero duration and zero resource. Any option giving it either is wrong."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Box fixes time",
+      "expansion": "Time box fixes time and resources, flexes scope. Linear fixes scope, flexes time and cost. Exact inversions of each other."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can state the purpose of scheduling in one sentence covering both timing and resources.",
+    "I can explain why the longest path through the network gives the shortest possible duration.",
+    "I can name what critical path analysis produces, and two things it does not.",
+    "I can give the two defining properties of a milestone.",
+    "I can say what is fixed and what varies in a time box, without inverting it.",
+    "I can define resource levelling and resource smoothing and say which constraint each respects.",
+    "I can decide, from the wording of a question, whether it is describing levelling or smoothing.",
+    "I can define procurement strategy and name two things that sit beneath it rather than in it."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "The two named resource optimisation options are resource levelling and resource smoothing.",
+      "sub_outcome": "6.5",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' list in syllabus outcome 6.5. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "In a time box, time and resources are fixed while scope and quality may vary.",
+      "sub_outcome": "6.4",
+      "level": "high",
+      "basis": "Consistent with the APM Body of Knowledge treatment of time boxing and corroborated by the published PFQ sample paper, where the answer identifies scope and quality as the adjustable elements.",
+      "risk": "Some agile literature treats quality as non-negotiable within a time box. For PFQ purposes, follow the APM position tested in the sample paper."
+    }
+  ]
+}

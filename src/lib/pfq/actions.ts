@@ -10,6 +10,8 @@ import {
 import { PFQ_DURATION_SECONDS, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
 import { buildPfqResults, isDisplayAnswerCorrect } from "@/lib/pfq/scoring";
 import { toPublicPfqQuestion } from "@/lib/pfq/public-question";
+import { getPfqTier } from "@/lib/pfq/entitlement";
+import { canAccessPfqMock } from "@/lib/pfq/tiers";
 import type {
   PfqAttemptRow,
   PfqPublicQuestion,
@@ -52,6 +54,19 @@ async function currentUserId(): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+async function requirePfqProUser(): Promise<
+  { ok: true; userId: string } | { ok: false; error: string }
+> {
+  const userId = await currentUserId();
+  if (!userId) return { ok: false, error: "Sign in required." };
+  const authClient = await createClient();
+  const tier = await getPfqTier(authClient, userId);
+  if (!canAccessPfqMock(tier)) {
+    return { ok: false, error: "PFQ Pro is required." };
+  }
+  return { ok: true, userId };
 }
 
 function normalizeGuestToken(raw: unknown): string | null {
@@ -100,15 +115,15 @@ export type StartPfqAttemptResult =
     }
   | { ok: false; error: string };
 
-export async function startPfqAttempt(input: {
+export async function startPfqAttempt(_input: {
   guestToken?: string | null;
 }): Promise<StartPfqAttemptResult> {
   try {
-    const userId = await currentUserId();
-    const guestToken = userId ? null : normalizeGuestToken(input.guestToken);
-    if (!userId && !guestToken) {
-      return { ok: false, error: "Missing guest session. Refresh and try again." };
-    }
+    const access = await requirePfqProUser();
+    if (!access.ok) return access;
+    const userId = access.userId;
+    // guest_token column retained for a possible future trial; unused while Pro-gated.
+    const guestToken = null;
 
     const supabase = createServiceClient();
     const { data: bank, error: bankError } = await supabase
@@ -205,7 +220,9 @@ export async function loadPfqAttempt(input: {
   guestToken?: string | null;
 }): Promise<ResumePfqAttemptResult> {
   try {
-    const userId = await currentUserId();
+    const access = await requirePfqProUser();
+    if (!access.ok) return { ok: false, error: access.error };
+    const userId = access.userId;
     const guestToken = normalizeGuestToken(input.guestToken);
     const supabase = createServiceClient();
 
@@ -319,7 +336,9 @@ export async function savePfqAnswer(input: {
   guestToken?: string | null;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   try {
-    const userId = await currentUserId();
+    const access = await requirePfqProUser();
+    if (!access.ok) return access;
+    const userId = access.userId;
     const guestToken = normalizeGuestToken(input.guestToken);
     const supabase = createServiceClient();
 
@@ -366,7 +385,9 @@ export async function togglePfqFlag(input: {
   guestToken?: string | null;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   try {
-    const userId = await currentUserId();
+    const access = await requirePfqProUser();
+    if (!access.ok) return access;
+    const userId = access.userId;
     const guestToken = normalizeGuestToken(input.guestToken);
     const supabase = createServiceClient();
 
@@ -406,7 +427,9 @@ export async function submitPfqAttempt(input: {
   reason?: "manual" | "timeout";
 }): Promise<SubmitPfqResult> {
   try {
-    const userId = await currentUserId();
+    const access = await requirePfqProUser();
+    if (!access.ok) return { ok: false, error: access.error };
+    const userId = access.userId;
     const guestToken = normalizeGuestToken(input.guestToken);
     const supabase = createServiceClient();
 

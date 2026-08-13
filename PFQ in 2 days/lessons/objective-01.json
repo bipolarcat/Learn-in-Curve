@@ -1,0 +1,176 @@
+{
+  "objective_number": 1,
+  "objective_code": "PFQ-OBJ-01",
+  "title": "Project management and the operating environment",
+  "day": 1,
+  "apm_learning_objective": "Understand project management and the operating environment.",
+  "learning_outcomes": [
+    "1.1",
+    "1.2",
+    "1.3",
+    "1.4",
+    "1.5",
+    "1.6"
+  ],
+  "exam_coverage_note": "6 of 60 marks. One exam question per learning outcome.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.1.1, 1.1.5 and 8th ed. 1.1, 1.1.4, 1.2, 1.3.2.",
+  "competence_area": null,
+  "competence_area_note": "The handbook states the syllabus is referenced to the four APM Competence Framework areas but does not publish a per-objective mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+  "where_this_fits": "This is the vocabulary objective, and everything after it assumes you have it. Six marks are available here, but the real value is larger: outcome 1.1 supplies the definition of a project that objective 2 builds life cycles on top of, and outcome 1.4 states the purpose of project management, which is beneficial change. That is the reason the extended life cycle in outcome 2.4 and benefits management in outcome 4.7 exist at all. Candidates who skip this objective because it looks like introductory filler tend to lose marks later, in objectives 4 and 5, where a question turns on whether they can tell a project from a programme or an output from a benefit. Study it first and study it properly. It is the cheapest objective in the syllabus to get completely right.",
+  "key_definitions": [
+    {
+      "term": "Project",
+      "definition": "A unique, transient endeavour undertaken to bring about change and achieve planned objectives.",
+      "plain_english": "A piece of work that hasn't been done in this exact form before, and that has a beginning and an end. When it's finished, it's finished."
+    },
+    {
+      "term": "Business as usual",
+      "definition": "The ongoing, repeatable operational activity of an organisation, which sustains current performance rather than changing it.",
+      "plain_english": "The work that keeps happening. Payroll runs every month, the helpdesk opens every morning. Nobody expects it to finish."
+    },
+    {
+      "term": "Project management",
+      "definition": "The application of processes, methods, knowledge, skills and experience to achieve specific project objectives.",
+      "plain_english": "Applying what you know, and how you work, to get a defined piece of change delivered."
+    },
+    {
+      "term": "Programme management",
+      "definition": "The coordinated management of related projects and business-as-usual activity to achieve outcomes and benefits that would not be available from managing them individually.",
+      "plain_english": "Running several connected projects together because the whole is worth more than the parts."
+    },
+    {
+      "term": "Portfolio management",
+      "definition": "The selection, prioritisation and control of an organisation's projects and programmes so that they align with its strategic objectives.",
+      "plain_english": "Deciding which projects the organisation should be doing at all, and in what order."
+    },
+    {
+      "term": "PESTLE",
+      "definition": "A technique for analysing the external environment across political, economic, sociological, technological, legal and environmental factors.",
+      "plain_english": "A six-heading checklist for spotting what's going on outside the project that could land on it."
+    }
+  ],
+  "core_content": [
+    {
+      "outcome_code": "1.1",
+      "outcome_title": "Define the term 'project'",
+      "key_takeaway": "A project is unique and transient. Those two words carry the whole definition, and every distractor in the exam attacks one of them.",
+      "body_markdown": "A project is a unique, transient endeavour undertaken to bring about change and achieve planned objectives.\n\nTake the definition apart, because the exam tests the parts rather than the sentence.\n\nUnique means this exact piece of work has not been done before in this form. A housebuilder who has built two hundred houses is still running a project on the two hundred and first, because the site, the ground conditions, the buyer and the crew differ. Uniqueness does not require novelty; it requires that you cannot simply repeat what you did last time without thinking.\n\nTransient means the work has a defined beginning and a defined end. The team assembles, delivers, and disbands. This is the single most reliable discriminator in the exam, because business as usual shares almost every other characteristic a project has.\n\nUndertaken to bring about change is the purpose. A project exists to move the organisation from one state to another. If nothing changes, no project was needed.\n\nAnd achieve planned objectives tells you the change was intended and specified in advance. Change that happens by accident is not a project.\n\nA useful test when a question describes some activity and asks whether it is a project: ask when it finishes. If the honest answer is \"it doesn't\", you are looking at business as usual, whatever else the description says about budgets or teams.",
+      "watch_for": "Distractors that describe something with a separate budget, a dedicated team, or clearly stated objectives, and invite you to conclude it must be a project. Business as usual can have all three. Only transience and uniqueness separate them."
+    },
+    {
+      "outcome_code": "1.2",
+      "outcome_title": "State the differences between a project and business as usual",
+      "key_takeaway": "Projects end and deliver change; business as usual continues and sustains. Everything else the two share.",
+      "body_markdown": "This outcome is worth one mark and is almost always tested as a direct comparison, so learn it as a table rather than as prose.\n\n| Project | Business as usual |\n|---|---|\n| Defined start and end | Ongoing, no planned end |\n| Delivers change | Sustains current operations |\n| Unique output | Repeatable output |\n| Temporary team, disbanded at closure | Permanent function |\n| Risk concentrated in doing something new | Risk concentrated in service continuity |\n\nThe reason this outcome exists is that organisations run both at once, and the difference determines how work should be managed. You would not apply change control and a governance board to the weekly payroll run, and you would not manage a new finance system as though it were a permanent service.\n\nThe relationship also runs in one direction: projects hand their outputs over to business as usual. A project builds the new payroll system; business as usual then runs it every month. That handover is what objective 2 calls transition, and it is the point at which the project's temporary structure dissolves.",
+      "watch_for": "Options claiming business as usual has no budget, no stakeholders, no objectives, or no outputs. All four are false. A payroll department has every one of them. The difference is that it never finishes."
+    },
+    {
+      "outcome_code": "1.3",
+      "outcome_title": "Define the term 'project management'",
+      "key_takeaway": "Project management is the application of processes, methods, knowledge, skills and experience to achieve specific project objectives. It is a practice, not a tool or a job title.",
+      "body_markdown": "Project management is the application of processes, methods, knowledge, skills and experience to achieve specific project objectives.\n\nNotice what kind of thing the definition says it is: an application of several things at once. That matters, because the exam offers distractors that reduce it to just one of them.\n\nIt is not software. Scheduling tools support project management; they are not project management.\n\nIt is not governance. Governance sets the framework of authority the project operates inside, which is objective 3's territory. Project management operates within it.\n\nIt is not a job title. A project can be managed by someone whose title says something else entirely, and having the title does not mean the practice is being applied.\n\nThe five ingredients in the definition are worth holding in order: processes, methods, knowledge, skills, experience. The last two are the ones candidates drop. A person applying a flawless process with no judgement is not managing the project well, and the definition deliberately includes the human contribution.",
+      "watch_for": "Any option promising a guaranteed result: \"ensures delivery on time\", \"delivers within the original budget\", \"removes the risk of failure\". Project management manages towards objectives; it does not guarantee them. Guarantee language is nearly always the wrong answer in this exam."
+    },
+    {
+      "outcome_code": "1.4",
+      "outcome_title": "State the key purpose of project management",
+      "key_takeaway": "To achieve project objectives within agreed constraints, delivering beneficial change. Both halves are examinable, and candidates drop the second.",
+      "body_markdown": "The purpose of project management is to achieve project objectives within agreed constraints, and in doing so to deliver beneficial change.\n\nThere are two halves, and they are tested separately.\n\nThe first half, objectives within constraints. Is the one everybody knows. Time, cost, quality and scope are agreed, and the project is managed to hold them.\n\nThe second half is the one that decides marks. The point is beneficial change. A project delivered exactly on time and on budget that leaves the organisation no better off has not achieved the purpose of project management, however well it was run. This is why benefits appear repeatedly in the syllabus: in the extended life cycle at outcome 2.4, in the business case at 4.4, in benefits management at 4.7, and in benefits reviews at 8.6. They are all the same idea seen from different angles.\n\nHolding both halves also explains a distinction the exam likes: outputs versus benefits. A project delivers outputs, the new system, the finished building. Benefits are the measurable improvement that follows when someone uses them. The project manager is accountable for outputs. The sponsor is accountable for benefits.",
+      "watch_for": "\"Removing uncertainty\", uncertainty is managed, never removed. \"Keeping stakeholders happy\", a means, not the purpose. \"Ensuring full resource utilisation\", a resource-management aim borrowed from elsewhere in the syllabus."
+    },
+    {
+      "outcome_code": "1.5",
+      "outcome_title": "Define programme and portfolio management and their relationship with project management",
+      "key_takeaway": "Programme is coordination of related projects. Portfolio is prioritisation against strategy. One word each, and the exam turns on which is which.",
+      "body_markdown": "Three levels, and the exam tests whether you can separate them.\n\nA project delivers a defined set of objectives. One output, one end.\n\nA programme coordinates related projects, together with business-as-usual activity, to deliver outcomes and benefits that could not be achieved by managing those projects individually. The key word is related, the components are connected to each other, and the programme exists because managing them together produces something extra.\n\nA portfolio selects and prioritises an organisation's projects and programmes so that its investment aligns with strategic objectives. The contents need not be related at all. A portfolio might hold a building project, an IT migration and a marketing campaign side by side, and its job is to decide which of them the organisation should be funding, and in what order.\n\nThe one-word tell is worth memorising: programme is coordination, portfolio is prioritisation.\n\nThe relationship between the three is hierarchical but not rigid. Projects can sit inside programmes, and both sit inside portfolios. A project can also sit directly in a portfolio with no programme above it.",
+      "watch_for": "The definition of a programme offered as the answer to a portfolio question, and the reverse. This is the most reliable near-miss pair in the objective. If an option mentions strategic alignment or prioritisation, it is portfolio; if it mentions related projects or coordination, it is programme."
+    },
+    {
+      "outcome_code": "1.6",
+      "outcome_title": "Describe why PESTLE analysis might be used by a project manager",
+      "key_takeaway": "PESTLE scans the external environment for factors that could affect the project. It identifies; it does not prioritise.",
+      "body_markdown": "PESTLE is a structured scan of the environment outside the project: political, economic, sociological, technological, legal and environmental.\n\nA project manager uses it to surface factors that the project does not control but will be affected by, a change of government, an interest rate movement, a shift in public attitude, a new technology, a new regulation, a flooding risk on the site.\n\nThe value is in the structure. Left to themselves, project teams notice the categories they are already comfortable with, usually technological and economic, and miss the others entirely. Six fixed headings force attention onto the ones nobody in the room thinks about.\n\nWhat PESTLE produces is an input to risk identification, which is outcome 7.3. It tells you what is out there. It does not tell you how likely any of it is, how badly it would hurt, or what you should do about it, those come from risk analysis and response. Keeping that boundary clear is what this outcome is really testing.",
+      "watch_for": "Options that turn PESTLE into a risk assessment or prioritisation tool. Also anything internal, team capability, resource availability, schedule pressure. PESTLE only ever looks outwards."
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "If it has a budget and a team, it's a project.",
+      "right": "Business as usual has budgets and teams too. Transience and uniqueness are the only reliable discriminators, ask when the work finishes."
+    },
+    {
+      "wrong": "A programme is just a big project.",
+      "right": "Size is irrelevant. A programme coordinates several related projects to produce benefits that managing them separately would not deliver. A very large single endeavour is still a project."
+    },
+    {
+      "wrong": "A portfolio is a collection of related projects.",
+      "right": "That is a programme. A portfolio's contents need not be related at all, it is grouped by whose strategy the work serves, not by whether the work connects."
+    },
+    {
+      "wrong": "Project management guarantees the project will succeed.",
+      "right": "It improves the odds and manages the constraints. Any exam option containing a guarantee is almost certainly a distractor."
+    },
+    {
+      "wrong": "Delivering the output on time and on budget means the project achieved its purpose.",
+      "right": "The purpose is beneficial change. An output nobody adopts delivers no benefit, however well the delivery was managed."
+    },
+    {
+      "wrong": "PESTLE is a risk assessment technique.",
+      "right": "It is an identification technique that feeds risk assessment. It produces no probability, no impact and no response."
+    },
+    {
+      "wrong": "Uniqueness means the project must be doing something never done before by anyone.",
+      "right": "It means this particular endeavour, in this context, is not a straight repeat. The two hundredth house on a new site is still a project."
+    }
+  ],
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "PESTLE",
+      "expansion": "Political, Economic, Sociological, Technological, Legal, Environmental, the six external headings, and the only list in this objective you must recite."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Coordinate / Prioritise",
+      "expansion": "Programme coordinates related projects. Portfolio prioritises against strategy. Two words, and the near-miss pair stops being a trap."
+    },
+    {
+      "type": "test",
+      "acronym": "When does it end?",
+      "expansion": "The one question that separates a project from business as usual. If the honest answer is 'it doesn't', it isn't a project."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Outputs / Benefits",
+      "expansion": "The project delivers outputs. Benefits arrive when someone uses them. Project manager owns the first, sponsor owns the second."
+    }
+  ],
+  "progress_checkpoint": [
+    "I can define a project in one sentence and name the two words that do the work, unique and transient.",
+    "I can give three things a project and business as usual have in common, and the one thing that separates them.",
+    "I can define project management without mentioning software, governance or a job title.",
+    "I can state both halves of the purpose of project management, including beneficial change.",
+    "I can define programme and portfolio management and say which is coordination and which is prioritisation.",
+    "I can explain the difference between an output and a benefit, and say who is accountable for each.",
+    "I can expand PESTLE and explain why it identifies rather than prioritises.",
+    "I can spot a guarantee-flavoured distractor and rule it out on sight."
+  ],
+  "source_confidence": [
+    {
+      "claim": "One exam question is asked per learning outcome, so this objective is worth exactly 6 marks.",
+      "sub_outcome": "all",
+      "level": "high",
+      "basis": "PFQ Handbook §12c, verified against the published sample paper where all 59 outcomes appear once and 10.4 appears twice.",
+      "risk": "The handbook states one outcome is assessed twice but not which. If the doubled outcome fell inside this objective, it would be worth 7 marks in that sitting. The 6-mark figure is the expected case, not a guarantee."
+    },
+    {
+      "claim": "Definitions here are written in our own words, aligned to APM Body of Knowledge terminology rather than quoted from it.",
+      "sub_outcome": "all",
+      "level": "high",
+      "basis": "Deliberate authoring rule, see PFQ_RESEARCH.md §9 on reproduction of APM material.",
+      "risk": "Exam questions use APM's own phrasing. Our wording must stay close enough that a candidate recognises the APM version on the paper, without reproducing protected text. Reviewed per outcome."
+    }
+  ]
+}

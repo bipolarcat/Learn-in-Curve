@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PfqMockRunner } from "@/components/pfq/PfqMockRunner";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
+import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
 
 type Props = {
   params: Promise<{ attemptId: string }>;
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PfqMockAttemptPage({ params }: Props) {
+  await requirePfqProOrRedirect();
   const { attemptId } = await params;
   return (
     <div className="mx-auto w-full max-w-wrap px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">

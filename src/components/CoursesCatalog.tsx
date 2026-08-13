@@ -42,8 +42,8 @@ const SUBHEADS: Partial<
     line2: "Management Qualification Exam",
   },
   "pfq-in-2-days": {
-    line1: "Build Strong Project Management Foundations",
-    line2: "and Pass Your APM PFQ Exam",
+    line1: "59 outcomes. One coverage map.",
+    line2: "Lessons, practice and a timed mock.",
   },
 };
 
@@ -389,11 +389,11 @@ export function CoursesCatalog({
                     ) : course.slug === "pfq-in-2-days" ? (
                       <>
                         <CatalogNavButton
-                          href="/pfq/mock"
+                          href="/pfq"
                           className={stampCtaPrimaryCompact}
-                          busyLabel="Opening mock"
+                          busyLabel="Opening PFQ"
                         >
-                          Free mock
+                          View course
                         </CatalogNavButton>
                         <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
                       </>

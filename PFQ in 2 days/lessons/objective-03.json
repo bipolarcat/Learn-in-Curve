@@ -1,0 +1,146 @@
+{
+  "objective_number": 3,
+  "objective_code": "PFQ-OBJ-03",
+  "title": "Roles and responsibilities within projects",
+  "day": 1,
+  "apm_learning_objective": "Understand the roles and responsibilities within projects.",
+  "learning_outcomes": ["3.1"],
+  "exam_coverage_note": "1 of 60 marks. One learning outcome, but it names seven roles and any of them can be the question.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.3.5, 1.3.8, 1.3.10, 2.2.1, 3.3.1 and 8th ed. 2.6.2, 2.6.3, 2.6.4, 3.5.4, 4.1.4, 1.1.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "The smallest objective in the syllabus and the worst return on study time in it. One outcome, one mark, seven named roles. You should know that before you decide how long to spend here. The saving grace is that the roles do not stay in this objective. The sponsor reappears at outcome 4.5 owning the business case, the governance board reappears at outcome 8.6 running decision gates, and the product owner reappears whenever iterative work is discussed. Learning the seven properly buys you clarity in objectives 4, 5 and 8 as well as the one mark here. Learn them once, quickly, and move on to objective 4 where the marks actually are.",
+
+  "key_definitions": [
+    {
+      "term": "Project sponsor",
+      "definition": "The individual accountable for the project's business case and for the realisation of its benefits.",
+      "plain_english": "The person who wanted this done and who answers for whether it was worth doing."
+    },
+    {
+      "term": "Project manager",
+      "definition": "The individual accountable for the day-to-day management of the project and for delivering its objectives within agreed constraints.",
+      "plain_english": "The person who runs it and answers for whether it got delivered."
+    },
+    {
+      "term": "Project governance",
+      "definition": "The framework of authority, accountability and decision-making within which a project is directed and controlled.",
+      "plain_english": "The rules about who can decide what, and what happens when the project goes outside its limits."
+    },
+    {
+      "term": "Governance board",
+      "definition": "The body that exercises project governance, authorising the project to proceed at decision gates and deciding matters beyond the project manager's delegated authority.",
+      "plain_english": "The group the project manager goes to when a decision is above their pay grade."
+    },
+    {
+      "term": "Project team member",
+      "definition": "An individual accountable to the project manager for delivering allocated work packages.",
+      "plain_english": "The people doing the work that produces the output."
+    },
+    {
+      "term": "End user",
+      "definition": "An individual or group who will use the project's outputs once they are handed over.",
+      "plain_english": "Whoever ends up having to live with what the project built."
+    },
+    {
+      "term": "Product owner",
+      "definition": "A role in iterative working, accountable for prioritising requirements and deciding what the team delivers next on behalf of those who will use the product.",
+      "plain_english": "The person who decides what gets built in the next iteration, and in what order."
+    },
+    {
+      "term": "Project management office (PMO)",
+      "definition": "A function providing standards, processes, tools, reporting and support to projects across an organisation.",
+      "plain_english": "The team that sets how projects are run here and helps them run that way."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "3.1",
+      "outcome_title": "Outline project management roles and responsibilities",
+      "key_takeaway": "Seven roles, each learned by its single distinguishing duty. The sponsor owns why the project exists; the project manager owns how it gets done. That one distinction decides most questions here.",
+      "body_markdown": "The syllabus names seven roles for this outcome. The exam tests whether you can attach a responsibility to the right one, so learn each by the duty that only it holds rather than by a list of tasks.\n\nThe project sponsor owns the business case and is accountable for the project delivering its benefits. They secure the funding, chair the decision gates, and are the project manager's route to a decision that sits above their authority. If a question mentions owning, approving, justifying or funding, it is the sponsor.\n\nThe project manager is accountable for day-to-day management and for delivering the project's objectives within its constraints. They produce the project management plan; they do not own the business case. If a question mentions planning, coordinating, monitoring or reporting, it is the project manager.\n\nProject governance is the framework of authority, accountability and decision-making the project runs inside. It sets the tolerances the project manager works within and determines what happens when those are breached. Governance is a framework, not a person.\n\nThe governance board is the body that exercises that framework. It authorises the project to continue at each decision gate and rules on changes that exceed the project manager's delegated limit.\n\nProject team members do the work that produces the outputs, and are accountable to the project manager for the work packages allocated to them.\n\nEnd users are the people who will use the output once it is handed over. Their acceptance decides whether transition succeeds, and their adoption decides whether benefits appear at all, which connects this role directly to the extended life cycle at outcome 2.4.\n\nThe product owner is an iterative role. They prioritise requirements and decide what the team builds next, representing the interests of those who will use the product. Where a linear project fixes scope up front, an iterative one relies on the product owner to keep deciding what matters most.\n\nThe project management office provides standards, processes, tools, reporting and support across projects. It supports and enables. It does not own the business case and it does not run individual projects.\n\nThe distinction that decides most questions is sponsor against project manager. One owns why the project exists. The other owns how it gets done.",
+      "watch_for": "Questions that offer four of the seven roles as options, where all four are genuine roles and only one holds the responsibility described. There is no obviously wrong answer to eliminate, so the mark goes to whoever learned all seven. Watch particularly for sponsor duties offered as project manager duties, and for the PMO being credited with authority it does not have."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "The project manager owns the business case.",
+      "right": "The sponsor owns it. The project manager supplies the information that keeps it accurate, which is outcome 4.5."
+    },
+    {
+      "wrong": "The sponsor is the project manager's line manager.",
+      "right": "The sponsor is accountable for the business case and the benefits. The relationship is about project accountability, not line management, and in many organisations they sit in different reporting lines entirely."
+    },
+    {
+      "wrong": "The PMO runs the projects.",
+      "right": "The PMO provides standards, processes, tools and support across projects. Running an individual project is the project manager's job."
+    },
+    {
+      "wrong": "Project governance and the governance board are the same thing.",
+      "right": "Governance is the framework of authority and accountability. The board is the body that exercises it. One is a set of rules, the other is a group of people."
+    },
+    {
+      "wrong": "End users only matter at handover.",
+      "right": "Their acceptance decides whether transition succeeds and their adoption decides whether benefits are realised, which is why the extended life cycle runs past handover."
+    },
+    {
+      "wrong": "The product owner is just an iterative name for the project manager.",
+      "right": "They are separate roles with different accountabilities. The product owner decides what gets built next. The project manager is accountable for delivering it within constraints."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "contrast",
+      "acronym": "Why / How",
+      "expansion": "Sponsor owns why the project exists. Project manager owns how it gets done. The single most examined distinction in this objective."
+    },
+    {
+      "type": "test",
+      "acronym": "Owns, approves, funds",
+      "expansion": "Any of those three verbs in a question stem points at the sponsor or the governance board, never the project manager."
+    },
+    {
+      "type": "test",
+      "acronym": "Supports, does not decide",
+      "expansion": "The PMO's whole position in one phrase. If an option gives the PMO authority over a project decision, it is wrong."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Framework / Body",
+      "expansion": "Governance is the framework. The governance board is the body that applies it."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can name all seven roles in this outcome without looking.",
+    "I can give each role its one distinguishing duty in a single sentence.",
+    "I can say who owns the business case and who produces the project management plan.",
+    "I can explain the difference between project governance and a governance board.",
+    "I can say what a PMO does and, more importantly, what it does not do.",
+    "I can explain why end users matter after handover and not only at it.",
+    "I can say what a product owner decides and why that role belongs to iterative working."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "This objective is worth one mark despite naming seven roles.",
+      "sub_outcome": "3.1",
+      "level": "high",
+      "basis": "PFQ Handbook §11d shows a single learning outcome for objective 3; §12c states one question per outcome. Confirmed against the published sample paper, where one question covers this outcome.",
+      "risk": "If the doubled outcome in a given sitting happened to be 3.1, this objective would be worth two marks in that paper. The handbook does not say which outcome is doubled, so treat one mark as the expected case."
+    },
+    {
+      "claim": "The seven roles listed are exactly those named in the syllabus outcome.",
+      "sub_outcome": "3.1",
+      "level": "high",
+      "basis": "Taken verbatim from the bracketed 'including' list in outcome 3.1, which the handbook states is examinable content.",
+      "risk": "None identified. The handbook is explicit that bracketed content is examinable."
+    }
+  ]
+}

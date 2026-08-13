@@ -1,0 +1,202 @@
+{
+  "objective_number": 7,
+  "objective_code": "PFQ-OBJ-07",
+  "title": "Project risk and issue management",
+  "day": 2,
+  "apm_learning_objective": "Understand project risk and issue management in the context of a project.",
+  "learning_outcomes": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8"],
+  "exam_coverage_note": "8 of 60 marks. Joint second largest objective, alongside scope management.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 4.2.2, 4.2.3, 4.3.3, 4.3.5 and 8th ed. 5.4.3, 5.10, 5.10.1, 5.10.2, 5.10.3.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "Eight marks, and the objective with the cleanest internal structure in the syllabus. Four outcomes concern risk, three concern issues, and one asks you to tell them apart. That last one, 7.7, is the hinge: the whole objective is built on a single distinction, and the examiner uses the definition of each as the distractor for the other. Get 7.1, 7.5 and 7.7 solid and the remaining five outcomes follow, because once you know an issue has already happened and a risk has not, the purpose and process questions answer themselves.",
+
+  "key_definitions": [
+    {
+      "term": "Risk",
+      "definition": "An uncertain event or set of circumstances that, should it occur, would affect the achievement of objectives.",
+      "plain_english": "Something that might happen and would matter if it did. It has not happened yet."
+    },
+    {
+      "term": "Issue",
+      "definition": "A problem that has occurred and that requires resolution beyond the delegated authority of the project manager.",
+      "plain_english": "Something that has already happened, is causing a problem now, and is too big for the project manager to absorb alone."
+    },
+    {
+      "term": "Risk management",
+      "definition": "The process of identifying, analysing and responding to risk throughout the life of a project, to minimise threats and maximise opportunities.",
+      "plain_english": "Working out what could go wrong or right, how much it would matter, and doing something about it in advance."
+    },
+    {
+      "term": "Risk register",
+      "definition": "A record of identified risks, their assessment, their owners and the planned responses, maintained throughout the project.",
+      "plain_english": "The live list of risks, who owns each one, and what is being done about it."
+    },
+    {
+      "term": "Issue management",
+      "definition": "The process by which issues are identified, assessed, escalated and resolved so that project objectives can still be achieved.",
+      "plain_english": "How the project deals with problems that have already landed."
+    },
+    {
+      "term": "Threat",
+      "definition": "A risk with a negative effect on objectives should it occur.",
+      "plain_english": "The kind of risk people usually mean when they say risk."
+    },
+    {
+      "term": "Opportunity",
+      "definition": "A risk with a positive effect on objectives should it occur.",
+      "plain_english": "Uncertainty that could work in your favour, and which should be managed rather than left to luck."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "7.1",
+      "outcome_title": "Define the term 'risk'",
+      "key_takeaway": "An uncertain event that, should it occur, would affect the achievement of objectives. Uncertain and forward looking, and it can be positive.",
+      "body_markdown": "A risk is an uncertain event or set of circumstances that, should it occur, would affect the achievement of objectives.\n\nTwo elements matter for the exam. First, uncertainty. A risk has not happened, and might not. The moment it does happen it stops being a risk and becomes an issue, which is outcome 7.5.\n\nSecond, effect on objectives. Something uncertain that would not affect the project's objectives is not a project risk, however interesting it is. The link to objectives is what makes it worth managing.\n\nThe part candidates most often miss is that a risk can be positive. A risk with a negative effect is a threat; one with a positive effect is an opportunity. That is why the purpose of risk management at outcome 7.2 has two halves, and why treating risk as a synonym for bad news loses marks here.",
+      "watch_for": "The definition of an issue offered as the answer, describing a problem currently affecting the project. Also watch for definitions restricting risk to negative effects only."
+    },
+    {
+      "outcome_code": "7.2",
+      "outcome_title": "Explain the purpose of risk management",
+      "key_takeaway": "To minimise threats and maximise opportunities to the project's objectives. Both halves, and never to eliminate uncertainty.",
+      "body_markdown": "The purpose of risk management is to minimise threats to the project's objectives and to maximise opportunities.\n\nBoth halves are examinable and the second is routinely forgotten. A project that only ever manages downside is doing half the job. If a supplier offers early delivery, or a new tool could cut testing time, those are uncertainties with positive effects and they deserve deliberate management rather than luck.\n\nWhat risk management does not do is remove uncertainty. Every project is uncertain because every project is doing something that has not been done in exactly this form before, which takes you back to the definition of a project at outcome 1.1. Any exam option promising the elimination of risk is wrong on principle.\n\nThe practical purpose is to make uncertainty visible early enough to act cheaply. A risk identified at concept can be avoided by a design decision. The same risk discovered during deployment can only be absorbed.",
+      "watch_for": "Options claiming risk management removes or eliminates uncertainty, guarantees delivery, or is only concerned with threats."
+    },
+    {
+      "outcome_code": "7.3",
+      "outcome_title": "Outline the stages of a typical risk management process",
+      "key_takeaway": "Identification, analysis, response, closure. Four stages named in the syllabus, therefore examinable by name.",
+      "body_markdown": "The syllabus names four stages, and because they appear in a bracketed list they are examinable by name.\n\nIdentification finds the risks. Techniques include workshops, checklists, lessons from previous projects, and structured scans of the environment such as the PESTLE analysis at outcome 1.6.\n\nAnalysis assesses each risk, typically by probability and by impact on objectives, so that attention can be prioritised. A risk that is near certain and severe is not managed the same way as one that is remote and trivial.\n\nResponse decides and implements what will be done. For threats the options are broadly to avoid, reduce, transfer or accept. For opportunities they are to exploit, enhance, share or reject.\n\nClosure formally closes risks that can no longer occur, because the event has passed or the circumstances have changed. Closure matters more than it sounds: without it, registers fill with dead entries and the live risks get lost among them.\n\nThe process is continuous. New risks appear throughout the life cycle, so identification does not stop after the first workshop.",
+      "watch_for": "Words borrowed from other processes offered as risk stages: justification, verification, aggregation, evaluation. If it is not identification, analysis, response or closure, treat it with suspicion."
+    },
+    {
+      "outcome_code": "7.4",
+      "outcome_title": "Describe the use of risk registers",
+      "key_takeaway": "A live record of identified risks, their assessment, their owners and their planned responses. An owner per risk is what makes it a register rather than a list.",
+      "body_markdown": "A risk register records identified risks together with their assessment, their owners and the planned responses.\n\nA typical entry carries a description of the risk, its probability and impact, the response chosen, the actions agreed, the person who owns it, and its current status.\n\nOwnership is the part that makes the document work. A risk with no named owner is a risk nobody is managing, and a register full of unowned risks is a list of worries. Assigning ownership converts each entry into someone's responsibility.\n\nThe register is live. It is reviewed and updated throughout the project, new risks are added as they emerge, assessments change as circumstances change, and risks that can no longer occur are closed under outcome 7.3.\n\nIt also feeds other processes. Progress reporting at outcome 4.11 draws on it, decision gates at outcome 8.6 consider it, and the business case is re-tested against it when major risks change.",
+      "watch_for": "Options describing the risk register as a record of issues, a log of changes, or a lessons learned document. Also watch for definitions that omit owners or responses, leaving it as a bare list of risks."
+    },
+    {
+      "outcome_code": "7.5",
+      "outcome_title": "Define the term 'issue'",
+      "key_takeaway": "A problem that has occurred and requires resolution beyond the project manager's delegated authority.",
+      "body_markdown": "An issue is a problem that has occurred and that requires resolution beyond the delegated authority of the project manager.\n\nTwo elements again. The problem is real and present rather than potential, which separates it from a risk. And it exceeds the project manager's delegated tolerance, which is why it has to be escalated rather than simply absorbed.\n\nThat second element is worth pausing on. Project managers deal with problems constantly, and most of them never become issues in the formal sense because they sit inside the authority the project manager already holds. An issue is specifically a problem that requires a decision from someone higher, which links directly to project governance and the governance board at outcome 3.1.\n\nIssues arrive from two directions. Some are risks that occurred, which is why the risk register and issue log are connected. Others simply happen without ever having been foreseen.",
+      "watch_for": "The definition of a risk offered as the answer, describing an uncertain future event. Also watch for definitions that make every day to day problem an issue, ignoring the tolerance element."
+    },
+    {
+      "outcome_code": "7.6",
+      "outcome_title": "Outline the purpose of issue management",
+      "key_takeaway": "To ensure issues are identified, escalated and resolved so objectives can still be met. Resolution, never prevention.",
+      "body_markdown": "The purpose of issue management is to ensure that issues are identified, assessed, escalated and resolved so that the project's objectives can still be achieved.\n\nThe word to hold onto is resolution. You cannot prevent an issue, because by definition it has already happened. Prevention belongs to risk management, which acts on things that have not occurred yet. Any exam option offering prevention as the purpose of issue management is wrong on definition alone.\n\nWhat issue management provides is a route. Without it, a problem beyond the project manager's authority either stalls the project while nobody decides, or gets absorbed quietly by someone exceeding their authority. Both are worse than escalation.\n\nSpeed matters as much as process. An unresolved issue usually costs more the longer it sits, because work continues around it and rework accumulates.",
+      "watch_for": "Options claiming issue management prevents issues from arising, or describing probability and impact assessment. Probability belongs to risk. An issue is certain, so it has none."
+    },
+    {
+      "outcome_code": "7.7",
+      "outcome_title": "Differentiate between an issue and a risk",
+      "key_takeaway": "A risk might happen. An issue has happened. Everything else the two share.",
+      "body_markdown": "The distinction is certainty. A risk is uncertain and lies in the future. An issue has occurred and exists now.\n\nEverything else people reach for as a difference is false. Both are recorded. Both have owners. Both can affect cost, time, quality or scope. Both can be escalated. Neither belongs exclusively to one type of constraint.\n\nThe relationship between them is worth holding: a risk that occurs becomes an issue. That is the transition the two processes are built around. Good risk management reduces how many risks make that transition, and prepares a response for those that do.\n\nA short test for the exam. Ask whether the thing described has happened. If yes, issue. If not yet, risk. If the question describes something already delaying testing, disrupting delivery or breaching a tolerance, it is an issue however it is phrased.",
+      "watch_for": "Distractors offering differences that are not real: that issues are recorded and risks are not, that issues affect cost while risks affect time, or that issues are owned by the sponsor and risks by the team."
+    },
+    {
+      "outcome_code": "7.8",
+      "outcome_title": "State the stages of an issue resolution process",
+      "key_takeaway": "Identify and log, assess impact, escalate, agree and implement resolution, close. No probability stage, because the event is certain.",
+      "body_markdown": "A typical issue resolution process runs as follows.\n\nThe issue is identified and logged, so that it exists as a recorded item with an owner rather than as an escalating conversation.\n\nIts impact is assessed. Since the event is certain, the assessment concerns severity and consequence for objectives, not likelihood.\n\nIt is escalated to the appropriate level of authority. This is the stage that distinguishes issue resolution from routine problem solving, and it follows directly from the definition at outcome 7.5.\n\nA resolution is agreed and implemented by whoever holds the authority to decide, and the actions are tracked to completion.\n\nThe issue is closed once resolved, and any consequences are reflected in the plan, the baseline or the risk register as appropriate.\n\nNotice what is absent. There is no probability assessment, because the event has already happened. An exam option offering one is wrong by definition rather than by convention.",
+      "watch_for": "Assessing the probability of the issue occurring, offered as a stage. Also watch for risk process words such as response planning or risk closure appearing in this list."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "Risk means something bad that might happen.",
+      "right": "A risk is an uncertain event that would affect objectives. Negative risks are threats, positive ones are opportunities, and both are managed."
+    },
+    {
+      "wrong": "Good risk management eliminates risk.",
+      "right": "It minimises threats and maximises opportunities. Uncertainty is inherent in doing something unique, so it can be managed but never removed."
+    },
+    {
+      "wrong": "Every problem on a project is an issue.",
+      "right": "An issue is a problem beyond the project manager's delegated authority, requiring escalation. Most day to day problems are handled within tolerance."
+    },
+    {
+      "wrong": "An issue is just a risk that has been recorded.",
+      "right": "An issue is a risk that has occurred, or a problem that arrived unforeseen. Recording has nothing to do with the distinction."
+    },
+    {
+      "wrong": "Issue management stops issues happening.",
+      "right": "It resolves them. Stopping things happening is risk management, acting on events that have not occurred."
+    },
+    {
+      "wrong": "An issue can be assessed for probability.",
+      "right": "It has already happened, so its probability is one. Assessment concerns severity and consequence."
+    },
+    {
+      "wrong": "The risk register is written once during planning.",
+      "right": "It is live throughout. New risks are added, assessments change, and risks that can no longer occur are formally closed."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "IARC",
+      "expansion": "Identification, Analysis, Response, Closure. The four risk management stages named in the syllabus."
+    },
+    {
+      "type": "test",
+      "acronym": "Has it happened?",
+      "expansion": "Yes means issue. Not yet means risk. The single question behind eight marks."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Threat / Opportunity",
+      "expansion": "Risk cuts both ways. If an answer only manages the downside, it is only doing half of risk management."
+    },
+    {
+      "type": "test",
+      "acronym": "No probability on an issue",
+      "expansion": "An issue is certain. Any option assessing its likelihood is wrong by definition."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can define risk including the words uncertain and objectives, and note that it can be positive.",
+    "I can state both halves of the purpose of risk management.",
+    "I can name the four stages of the risk management process in order.",
+    "I can list what a risk register entry contains, including owner and response.",
+    "I can define an issue including the tolerance element, not just the fact it has happened.",
+    "I can state the purpose of issue management without using the word prevent.",
+    "I can give the single real difference between a risk and an issue, and name three false ones.",
+    "I can outline the stages of issue resolution and explain why none of them assesses probability."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "The four stages of a typical risk management process are identification, analysis, response and closure.",
+      "sub_outcome": "7.3",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' list in syllabus outcome 7.3. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "An issue requires resolution beyond the project manager's delegated authority.",
+      "sub_outcome": "7.5",
+      "level": "high",
+      "basis": "Consistent with the APM Body of Knowledge treatment of issue management and with the published sample paper, whose correct answer refers to breaching delegated tolerances.",
+      "risk": "Everyday usage treats any problem as an issue. Teaching the tolerance element is what separates a correct exam answer from a colloquial one."
+    },
+    {
+      "claim": "Threat responses are broadly avoid, reduce, transfer or accept; opportunity responses are exploit, enhance, share or reject.",
+      "sub_outcome": "7.3",
+      "level": "medium",
+      "basis": "Standard APM treatment of risk responses, included as supporting context for the response stage.",
+      "risk": "The syllabus outcome asks only for the stages of the process, not for the response types. Teach these as context; do not present them as separately examinable at PFQ level."
+    }
+  ]
+}

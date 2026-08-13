@@ -173,6 +173,11 @@ decision below are independent of the payment question.
       acknowledgement). Rendered on `/pfq` and mock routes. Guarded by
       `tests/pfq-disclaimer.test.mjs`. No pass-rate or endorsement claims.
       Informal guidance only — solicitor before any paid PFQ product.
+- [ ] **PFQ checkout CCR waiver — before live charges (2026-08-13).**
+      `createPfqCheckout` + Stripe `consent_collection` built with the required
+      unticked waiver; gated by `PFQ_CHECKOUT_ENABLED = false` until Sim confirms
+      solicitor/review of the wording. Terms + refund policy already at `/terms`.
+      Flip the flag only after that review — educational note, not legal advice.
 
 ## 4. Payments & data compliance
 

@@ -27,3 +27,8 @@ test("/pfq landing imports the PFQ disclaimer", async () => {
   const page = await read("src/app/(site)/pfq/page.tsx");
   assert.match(page, /PFQ_ATP_DISCLAIMER/);
 });
+
+test("/pfq/pricing imports the PFQ disclaimer", async () => {
+  const page = await read("src/app/(site)/pfq/pricing/page.tsx");
+  assert.match(page, /PFQ_ATP_DISCLAIMER/);
+});

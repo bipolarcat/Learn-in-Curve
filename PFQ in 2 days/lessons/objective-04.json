@@ -1,0 +1,239 @@
+{
+  "objective_number": 4,
+  "objective_code": "PFQ-OBJ-04",
+  "title": "Project management planning",
+  "day": 1,
+  "apm_learning_objective": "Understand project management planning.",
+  "learning_outcomes": ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "4.10", "4.11"],
+  "exam_coverage_note": "11 of 60 marks. The largest objective in the syllabus, worth almost a fifth of the paper.",
+  "source_ref": "APM PFQ Qualification Handbook, APM-QS-PFQ-8 V5 (April 2026), §11d. Syllabus maps this objective to APM Body of Knowledge 7th ed. 1.2.2, 1.2.3, 1.3.5, 1.3.7, 2.3, 3.1, 4.1.1, 4.2, 4.2.4, 4.2.10, 4.3, 4.3.1 and 8th ed. 2.4, 3.1.3, 3.6, 4.1, 5.1.1, 5.4, 5.4.1, 5.5.3, 5.5.4.",
+  "competence_area": null,
+  "competence_area_note": "The handbook publishes no per-objective Competence Framework mapping. Left null rather than guessed.",
+  "authored_on": "2026-08-13",
+  "review_status": "draft-pending-sim",
+
+  "where_this_fits": "Eleven marks, more than any other objective and nearly a fifth of the paper. If you have limited time, this is where it goes. The objective covers the documents and techniques that get a project from an idea to an agreed plan: the business case that justifies it, the baseline that measures it, the estimates that size it, the stakeholder analysis that keeps people on side, the success criteria that define done, and the progress reporting that shows whether it is working. It draws on objective 1 for the purpose of project management and on objective 2 for the life cycle, and it feeds objective 5, where scope gets controlled once the plan is agreed. Study it after objectives 1 and 2, and give it more time than its share of the syllabus text suggests.",
+
+  "key_definitions": [
+    {
+      "term": "Deployment baseline",
+      "definition": "The approved plan against which project progress is measured and controlled.",
+      "plain_english": "The agreed version of the plan. Everything you report afterwards is measured against it."
+    },
+    {
+      "term": "Project management plan",
+      "definition": "The document setting out why, what, how, when, how much and by whom a project will be delivered, produced by the project manager and approved by the sponsor.",
+      "plain_english": "The single document that says how this project will actually be run."
+    },
+    {
+      "term": "Business case",
+      "definition": "The document providing justification for undertaking a project, setting out costs, benefits, risks, options and timescales.",
+      "plain_english": "The answer to why should we do this, and is it still worth doing."
+    },
+    {
+      "term": "Stakeholder analysis",
+      "definition": "The identification and assessment of stakeholders' interest in and influence over a project, used to plan engagement.",
+      "plain_english": "Working out who cares, who can affect the outcome, and how to deal with each of them."
+    },
+    {
+      "term": "Benefits management",
+      "definition": "The identification, definition, planning, tracking and realisation of business benefits.",
+      "plain_english": "Making sure the improvement the project was funded to produce actually turns up."
+    },
+    {
+      "term": "Estimating funnel",
+      "definition": "A representation of how estimating accuracy improves through the life cycle as uncertainty reduces.",
+      "plain_english": "Early estimates are wide guesses. Later ones are narrow. The funnel is that shape drawn out."
+    },
+    {
+      "term": "Success criteria",
+      "definition": "The measures by which the success of a project is judged.",
+      "plain_english": "What has to be true at the end for everyone to agree it went well."
+    }
+  ],
+
+  "core_content": [
+    {
+      "outcome_code": "4.1",
+      "outcome_title": "Define the term 'deployment baseline'",
+      "key_takeaway": "The deployment baseline is the approved plan that progress is measured against. Baseline means reference point, not starting date.",
+      "body_markdown": "A deployment baseline is the approved plan against which project progress is measured and controlled.\n\nThe word to hold onto is reference. Once the plan is baselined, anyone can ask a precise question: are we ahead or behind, over or under, against what we agreed? Without a baseline that question has no answer, because there is nothing to compare against.\n\nA baseline normally covers scope, schedule and cost together. Changing any of them changes what the project is measured against, which is why change control exists at outcome 5.7. You cannot quietly move a baseline, because moving it invalidates every progress report that referred to the old one.\n\nBaselining happens at the end of the definition phase in a linear life cycle, once scope, schedule and cost are settled and approved. In iterative work the timing differs, which is outcome 4.2.",
+      "watch_for": "Options that define baseline as a starting date, a first estimate, or the point of handover. The word deployment invites you to think about go-live. Read the whole option: the correct one will mention measurement, monitoring or control."
+    },
+    {
+      "outcome_code": "4.2",
+      "outcome_title": "State how deployment baselines differ between linear and iterative life cycles",
+      "key_takeaway": "Linear baselines the whole project once. Iterative baselines each iteration in turn.",
+      "body_markdown": "In a linear life cycle the deployment baseline is set once, for the whole project, at the end of definition. The full scope is known, so the whole thing can be measured against a single agreed plan. Changing it afterwards requires formal change control.\n\nIn an iterative life cycle the baseline is set for each iteration. Time and resources are fixed for that iteration and the scope within it is agreed, but the detail of later iterations is deliberately left open. There is still a high-level plan for the project as a whole; what is baselined in detail is only the current cycle.\n\nThe difference follows directly from what each life cycle fixes, which is outcome 2.2. Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost and flexes scope through re-prioritisation. Baselines behave accordingly.",
+      "watch_for": "Options that reverse the two, or that claim an iterative life cycle has no baseline at all. It has one per iteration. Also watch for the claim that an iterative baseline cannot change, which inverts the whole point of iterating."
+    },
+    {
+      "outcome_code": "4.3",
+      "outcome_title": "Outline the stakeholders of a project management plan",
+      "key_takeaway": "Different stakeholders care about the plan for different reasons. The exam asks why a named group is a stakeholder of it, not just whether they are one.",
+      "body_markdown": "The project management plan sets out why, what, how, when, how much and by whom the project will be delivered. Several groups have a stake in it, and each for a different reason.\n\nThe sponsor approves the plan and owns the business case it serves. Their interest is whether the plan will deliver the benefits they are accountable for.\n\nThe project manager produces the plan and works to it. It is the document they are held to.\n\nProject team members find their own work in it, in the form of work packages, schedules and responsibilities.\n\nSuppliers are stakeholders because the plan states what will be procured and when it is needed. Their commitments depend on it.\n\nEnd users have a stake because the plan determines what they will receive and when, and what will be expected of them at transition.\n\nThe governance board uses the plan as the basis for the tolerances it sets and the decisions it takes at gates.\n\nThe examinable point is that being a stakeholder is about having an interest in the plan, not about having written it or being named in it.",
+      "watch_for": "Questions phrased as \"X are stakeholders of the project management plan because...\". All four options may name a plausible group, and the answer turns on the reason given rather than on the group. Read the whole clause."
+    },
+    {
+      "outcome_code": "4.4",
+      "outcome_title": "Outline the purpose and typical content of a business case",
+      "key_takeaway": "The business case justifies the project. Costs, benefits, risks, options and timescales, not delivery detail.",
+      "body_markdown": "The business case provides the justification for undertaking a project. Its purpose is to answer one question and keep answering it: is this still worth doing?\n\nTypical content includes the strategic reason for the project, the options considered and why the preferred one was chosen, the expected costs, the expected benefits, the major risks, and the timescales. A do-nothing option is normally among those considered, because it establishes the baseline against which the others are judged.\n\nThe business case is not a delivery document. Work breakdown structures, detailed schedules and issue logs belong elsewhere. If an option describes something a project manager would use to run the work, it is not business case content.\n\nThe business case is also live rather than one-off. It is created at concept, approved before the project proceeds, and reviewed at each decision gate to confirm the justification still holds. A project whose costs have doubled and whose benefits have halved should fail its next gate, and the business case is how that becomes visible.",
+      "watch_for": "Delivery artefacts offered as business case content: work breakdown structures, risk registers, acceptance certificates, daily logs. Also watch for the assumption that the business case is written once and filed. It is maintained throughout."
+    },
+    {
+      "outcome_code": "4.5",
+      "outcome_title": "Explain the role of the project sponsor and project manager in relation to developing a business case",
+      "key_takeaway": "The sponsor owns, develops and maintains the business case. The project manager supplies the information that keeps it accurate.",
+      "body_markdown": "The sponsor owns the business case. They are accountable for developing it, for maintaining it through the life of the project, and for the benefits it promises. When a decision gate asks whether the project should continue, it is the sponsor's business case that answers.\n\nThe project manager supplies the information the sponsor needs to do that: current cost forecasts, schedule position, changes in risk, anything that alters the picture. The project manager does not own the case and does not approve it.\n\nThe division matters because the two roles can conflict. A project manager measured on delivery has an incentive to keep delivering. A sponsor accountable for benefits has an incentive to stop a project that no longer justifies its cost. Separating ownership of the business case from responsibility for delivery is what makes it possible to cancel a project that is being run well but is no longer worth doing.\n\nThis is the same why-versus-how distinction as objective 3, applied to a single document.",
+      "watch_for": "Options handing the project manager ownership of the business case, or handing the sponsor responsibility for producing the project management plan. Both invert the relationship."
+    },
+    {
+      "outcome_code": "4.6",
+      "outcome_title": "Explain how stakeholder analysis supports effective stakeholder engagement",
+      "key_takeaway": "Analysis identifies interest and influence so that engagement can be targeted. It does not guarantee support.",
+      "body_markdown": "Stakeholder analysis identifies who has an interest in the project and how much influence they have over it. Engagement is then planned accordingly.\n\nThe usual approach assesses each stakeholder on two axes, interest and power or influence, and treats them differently depending on where they land. Someone with high influence and high interest needs close, active management. Someone with high influence but little interest needs to be kept satisfied so that their interest is not aroused unhelpfully. Someone with high interest but little influence should be kept informed. Someone with neither needs monitoring and little else.\n\nThe value is in the targeting. Engagement effort is finite, and spreading it evenly means the people who can sink the project get the same attention as the people who cannot. Analysis is what makes it possible to spend the effort where it changes the outcome.\n\nAnalysis feeds the communication plan at outcome 9.4, which is where the decisions about who gets what information, when and how, are recorded.",
+      "watch_for": "Options claiming stakeholder analysis guarantees stakeholder support, or removes the need for a communication plan. It informs engagement, it does not replace it, and it cannot manufacture agreement."
+    },
+    {
+      "outcome_code": "4.7",
+      "outcome_title": "Define the term 'benefits management'",
+      "key_takeaway": "The identification, definition, planning, tracking and realisation of business benefits. Benefits are not outputs.",
+      "body_markdown": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits.\n\nThe distinction the exam cares about is benefits against outputs. A project delivers outputs: the new system, the finished building, the trained staff. Benefits are the measurable improvement that follows when those outputs are used. A new system that nobody logs into has been delivered and has produced no benefit at all.\n\nThat is why benefits management runs past the end of delivery, and why the extended life cycle at outcome 2.4 exists. It is also why accountability splits the way it does: the project manager is accountable for outputs, the sponsor for benefits.\n\nBenefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover, which is outcome 8.6.",
+      "watch_for": "Definitions substituting outputs, deliverables or objectives for benefits. Also watch for options limiting benefits management to the end of the project. It starts at concept, in the business case."
+    },
+    {
+      "outcome_code": "4.8",
+      "outcome_title": "State typical estimating methods",
+      "key_takeaway": "Analytical, analogous, parametric. Three named methods, and the exam expects all three by name.",
+      "body_markdown": "The syllabus names three estimating methods, and because it names them in brackets they are examinable by name.\n\nAnalytical estimating, sometimes called bottom-up, breaks the work down into small components, estimates each, and adds them up. It is the most accurate method and the most expensive to produce, because it requires the work to be understood in detail first.\n\nAnalogous estimating, sometimes called comparative, uses actual data from similar past work and adjusts for differences. It is quick and cheap and depends entirely on having comparable history and on the honesty of the adjustment.\n\nParametric estimating uses a measured relationship between a variable and cost or duration: cost per square metre, hours per test case. It is reliable where the relationship genuinely holds and misleading where it does not.\n\nThe methods suit different points in the life cycle. Analogous and parametric estimates are what you can produce early, when little is known. Analytical estimates become possible later, once the work is defined. That progression is the estimating funnel at outcome 4.9.",
+      "watch_for": "Plausible distractors that are not estimating methods: budgeting, incremental, iterative, contingency. Multi-select questions on this outcome are common, so find the item you are sure is wrong and eliminate every option containing it."
+    },
+    {
+      "outcome_code": "4.9",
+      "outcome_title": "Outline the purpose of the estimating funnel",
+      "key_takeaway": "The funnel shows estimating accuracy improving as the project progresses and uncertainty falls. It is about accuracy, not about cost.",
+      "body_markdown": "The estimating funnel illustrates how the accuracy of estimates improves through the life cycle.\n\nAt concept, almost nothing is known and the range around any estimate is very wide. As the project moves through definition and into deployment, more becomes known, assumptions are replaced by facts, and the range narrows. Drawn as a shape, the range starts wide and closes, which is why it is called a funnel.\n\nThe practical use is expectation management. A sponsor asking for a number at concept should be given a range and told why it is a range. Presenting an early estimate as a single confident figure is how projects acquire budgets they were never going to meet, and it is a large part of why estimates get a bad reputation.\n\nThe funnel also explains why estimates should be revisited at each phase rather than produced once. An estimate is a statement about what was known at the time it was made.",
+      "watch_for": "Options claiming the funnel shows costs reducing over time. It shows accuracy improving, which is not the same thing. Also watch for options suggesting estimates are produced once, at the start."
+    },
+    {
+      "outcome_code": "4.10",
+      "outcome_title": "Explain why establishing success criteria is important at the start, during, and at the handover of a project",
+      "key_takeaway": "Success criteria define what done and good look like. Agreeing them at the start removes the argument at the end.",
+      "body_markdown": "Success criteria are the measures by which the success of the project is judged. The outcome names three points in time, and each has a different reason.\n\nAt the start, they define what everyone is aiming at. Agreeing them before work begins forces disagreement into the open while it is still cheap to resolve, and prevents the far more expensive argument at the end where different stakeholders reveal they had different definitions of success all along.\n\nDuring the project, they give decisions a reference. When a change is proposed or a trade-off is forced, the question becomes whether it moves the project towards or away from its agreed criteria. Without them, trade-offs get made on whoever is loudest.\n\nAt handover, they are the basis for judging whether the project succeeded. Acceptance is measured against agreed criteria rather than against expectations formed along the way.\n\nSuccess criteria are related to but distinct from acceptance criteria, which sit at outcome 8.3 and describe whether a specific deliverable is fit for purpose. Success criteria are about the project; acceptance criteria are about the products.",
+      "watch_for": "Options making success criteria fix the budget, select suppliers, or replace the business case. Their function is judgement, not control."
+    },
+    {
+      "outcome_code": "4.11",
+      "outcome_title": "Outline the purpose and benefits of project progress reporting",
+      "key_takeaway": "Reporting makes performance against the baseline visible so decisions can be made early. It reveals variance rather than preventing it.",
+      "body_markdown": "Progress reporting communicates the project's position against its baseline: what has been completed, what it has cost, what remains, and what has changed.\n\nThe purpose is to enable decisions. A variance spotted early can be corrected cheaply. The same variance discovered at handover cannot be corrected at all. Reporting exists to shorten the gap between something going wrong and somebody being able to do something about it.\n\nThe benefits are worth being able to state. Stakeholders get timely, consistent information instead of rumour. The sponsor gets what they need to decide whether the business case still holds. The governance board gets the evidence it needs at decision gates. Problems surface while they are still small. And the project has a record of what was known when, which matters at the post-project review.\n\nReporting depends on the baseline from outcome 4.1. Without an approved plan to report against, progress reporting degenerates into describing activity rather than measuring performance.",
+      "watch_for": "Options claiming reporting prevents variance, guarantees delivery on time, or removes the need for a risk register. Reporting reveals; it does not control. It is also not the same as monitoring: monitoring gathers the data, reporting communicates it."
+    }
+  ],
+
+  "misconceptions": [
+    {
+      "wrong": "A baseline is the date the project starts.",
+      "right": "A baseline is the approved plan that progress is measured against. It covers scope, schedule and cost, and changing it requires change control."
+    },
+    {
+      "wrong": "Iterative projects have no baseline.",
+      "right": "They baseline each iteration rather than the whole project at once."
+    },
+    {
+      "wrong": "The project manager owns the business case.",
+      "right": "The sponsor owns it. The project manager supplies the information that keeps it accurate."
+    },
+    {
+      "wrong": "The business case is written once, at the start.",
+      "right": "It is maintained throughout and reviewed at every decision gate. Its job is to keep answering whether the project is still worth doing."
+    },
+    {
+      "wrong": "Benefits and outputs are the same thing.",
+      "right": "Outputs are what the project delivers. Benefits are the measurable improvement that follows when someone uses them. An unused output produces no benefit."
+    },
+    {
+      "wrong": "The estimating funnel shows costs falling as the project progresses.",
+      "right": "It shows estimating accuracy improving as uncertainty reduces. Costs may do anything."
+    },
+    {
+      "wrong": "Analytical estimating is always the right choice because it is the most accurate.",
+      "right": "It requires the work to be understood in detail first, so it is unavailable early. Analogous and parametric methods exist because a number is needed before that point."
+    },
+    {
+      "wrong": "Stakeholder analysis makes stakeholders supportive.",
+      "right": "It tells you who matters and how, so engagement can be targeted. Some stakeholders will oppose the project no matter how well they are analysed."
+    },
+    {
+      "wrong": "Progress reporting keeps the project on track.",
+      "right": "It makes deviation visible early enough for someone to act. The acting is a separate thing."
+    }
+  ],
+
+  "memory_aids": [
+    {
+      "type": "acronym",
+      "acronym": "AAP",
+      "expansion": "Analytical, Analogous, Parametric. The three estimating methods named in the syllabus. Anything else in a list is a distractor."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Output / Benefit",
+      "expansion": "The project delivers the output. The benefit arrives when someone uses it. Project manager owns the first, sponsor owns the second."
+    },
+    {
+      "type": "contrast",
+      "acronym": "Owns / Informs",
+      "expansion": "Sponsor owns the business case. Project manager informs it. Same why-versus-how split as objective 3."
+    },
+    {
+      "type": "test",
+      "acronym": "Measured against what?",
+      "expansion": "If a question is about progress, variance or control, the answer almost always involves the baseline."
+    },
+    {
+      "type": "test",
+      "acronym": "Wide to narrow",
+      "expansion": "The estimating funnel in three words. Accuracy improves; it says nothing about whether costs go up or down."
+    }
+  ],
+
+  "progress_checkpoint": [
+    "I can define a deployment baseline without using the word start.",
+    "I can say how baselines differ between linear and iterative life cycles, and why.",
+    "I can name four stakeholders of the project management plan and give each a reason.",
+    "I can list the typical contents of a business case and name two things that do not belong in it.",
+    "I can say who owns the business case, who maintains it, and who informs it.",
+    "I can explain what stakeholder analysis produces and what it cannot promise.",
+    "I can define benefits management and explain the difference between a benefit and an output.",
+    "I can name the three estimating methods and say when each is realistically available.",
+    "I can explain what the estimating funnel shows, and what it does not show.",
+    "I can give a different reason for success criteria at the start, during, and at handover.",
+    "I can state three benefits of progress reporting without claiming it prevents variance."
+  ],
+
+  "source_confidence": [
+    {
+      "claim": "This objective is worth 11 of 60 marks, the largest share in the syllabus.",
+      "sub_outcome": "all",
+      "level": "high",
+      "basis": "Counted directly from PFQ Handbook §11d, which lists 11 learning outcomes under objective 4, combined with §12c stating one question per outcome.",
+      "risk": "None material. The count is arithmetic from the published syllabus."
+    },
+    {
+      "claim": "The three named estimating methods are analytical, analogous and parametric.",
+      "sub_outcome": "4.8",
+      "level": "high",
+      "basis": "Named in the bracketed 'including' list in outcome 4.8. The handbook states bracketed content is examinable.",
+      "risk": "None identified."
+    },
+    {
+      "claim": "Stakeholder analysis is commonly taught using power and interest axes.",
+      "sub_outcome": "4.6",
+      "level": "medium",
+      "basis": "Standard practice reflected in the APM Body of Knowledge sections referenced by this outcome.",
+      "risk": "The syllabus outcome asks only how analysis supports engagement, not for a specific grid. Teach the principle; do not present any one grid as the examinable answer."
+    }
+  ]
+}
