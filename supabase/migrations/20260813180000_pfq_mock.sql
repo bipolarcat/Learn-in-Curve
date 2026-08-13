@@ -85,11 +85,16 @@ revoke all on public.pfq_attempts from anon, authenticated;
 revoke all on public.pfq_answers from anon, authenticated;
 
 -- Own-row policies for signed-in users (guests always go through service role).
-grant select, update on table public.pfq_attempts to authenticated;
-grant select, insert, update on table public.pfq_answers to authenticated;
+-- Decision 2026-08-13 (Sim): NO client write grants on scoring data. Every product
+-- path goes through service-role server actions, which bypass RLS anyway — so a
+-- GRANT here buys nothing and opens a PostgREST route for a user to set their own
+-- score or mark their own answers correct. The coverage map is only worth anything
+-- if its numbers can't be self-reported. Read grants withheld for the same reason;
+-- add SELECT back deliberately if a client-side history view is ever built.
+-- No GRANTs to anon or authenticated on any pfq_* table. The revokes above stand.
 
--- Authenticated users may read their own attempts/answers via PostgREST if needed;
--- all product paths currently use the service-role server actions.
+-- The policies below are retained so that any future GRANT is safe by default:
+-- they constrain access to own rows, and answer writes to unsubmitted attempts.
 drop policy if exists pfq_attempts_select_own on public.pfq_attempts;
 create policy pfq_attempts_select_own
   on public.pfq_attempts
@@ -117,7 +122,7 @@ create policy pfq_answers_select_own
     )
   );
 
-drop policy if exists pfq_answers_upsert_own on public.pfq_answers;
+drop policy if exists pfq_answers_insert_own on public.pfq_answers;
 create policy pfq_answers_insert_own
   on public.pfq_answers
   for insert
