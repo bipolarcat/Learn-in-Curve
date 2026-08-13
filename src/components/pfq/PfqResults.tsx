@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PfqCoverageMap } from "@/components/pfq/PfqCoverageMap";
 import styles from "@/components/pfq/PfqResults.module.css";
 import { PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
+import { pfqLessonHref } from "@/lib/pfq/lesson-href";
 import type { PfqResultsPayload } from "@/lib/pfq/types";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 
@@ -46,7 +47,10 @@ export function PfqResults({ results }: Props) {
           Ordered by how many marks each outcome cost you on this sitting.
         </p>
         <ol className={styles.gapList}>
-          {results.gaps.map((gap) => (
+          {results.gaps.map((gap) => {
+            const objective = Number(gap.code.split(".")[0]);
+            const lessonHref = pfqLessonHref(objective, gap.code);
+            return (
             <li key={gap.code} className={styles.gapItem}>
               <div className={styles.gapHead}>
                 <span className={styles.gapCode}>{gap.code}</span>
@@ -58,8 +62,12 @@ export function PfqResults({ results }: Props) {
               {gap.explanation ? (
                 <p className={styles.gapExplain}>{gap.explanation}</p>
               ) : null}
+              <p className={styles.gapLink}>
+                <Link href={lessonHref}>Study outcome {gap.code}</Link>
+              </p>
             </li>
-          ))}
+            );
+          })}
         </ol>
       </section>
 

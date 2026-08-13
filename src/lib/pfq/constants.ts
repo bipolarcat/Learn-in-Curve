@@ -19,6 +19,12 @@ export const PFQ_PRACTICE_HREF = "/pfq/practice";
  */
 export const PFQ_PRACTICE_ENABLED = true;
 
+/**
+ * Lesson content flag. Pro gate is separate (canAccessPfqLessons). Flip false
+ * to hide /pfq/learn/* lesson map + objective pages while content is dark.
+ */
+export const PFQ_LESSONS_ENABLED = true;
+
 export const PFQ_PRO_INTENT_PARAM = "intent";
 export const PFQ_PRO_INTENT_VALUE = "pro";
 export const PFQ_PRICING_PRO_INTENT_HREF = `${PFQ_PRICING_HREF}?${PFQ_PRO_INTENT_PARAM}=${PFQ_PRO_INTENT_VALUE}`;

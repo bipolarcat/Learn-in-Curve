@@ -2,7 +2,19 @@
 
 **Written 13 Aug 2026.** Runs alongside `cursor-prompt-pfq-course.md` (entitlement, paywall, pricing). That prompt still stands. This one covers content only, and it is the part that can start immediately because the schema is fixed and objective 1 exists as a reference fixture.
 
-**Read first:** `PFQ in 2 days/lessons/objective-01.json`. That file is the contract. Claude is authoring objectives 2 to 10 to the identical shape while you build.
+**Read first:** `PFQ in 2 days/lessons/objective-01.json`. That file is the contract.
+
+## State of play, 13 Aug 2026 (updated after the practice build)
+
+All ten objective files are written and complete: 59 outcomes, every file carrying all seven sections. Nothing here is waiting on Claude.
+
+Already live in the database, verified:
+
+- `pfq_questions` — **306 rows seeded**, 60 flagged `mock_suitable`, all 59 outcomes covered, 4 to 8 questions each
+- `pfq_practice_sessions`, `pfq_practice_answers`, `pfq_coverage_signals` — created, RLS on, no client grants, `user_id` cascades confirmed
+- Mock runner and practice runner shipped
+
+So the coverage map already exists and already merges practice and mock results. **This prompt's job is to add lessons to it, not to build a second one.**
 
 ---
 
@@ -63,7 +75,14 @@ One page per objective, rendering in this order:
 - Checkpoint items are tickable and persist per user.
 - Use `section_progress`. **Known gotcha:** completion has two signals, timestamps and `checklist_state`. A reset must clear both, or the pathway still reads complete. See `OPERATIONS.md`.
 - An objective counts as complete when its checkpoints are all ticked. Do not infer completion from scroll position or time on page.
-- Feed completion into the existing coverage map so lessons, practice and mock all report against the same 59 outcomes.
+
+**Checkpoints and the coverage map.** `pfq_coverage_signals` is live and already carries `source` with `'lesson'` as a permitted value, so the plumbing exists. But think before wiring checkpoints straight into it.
+
+A checkpoint is self-assessed. A practice or mock answer is measured. If a ticked checkbox writes `correct = true` for an outcome under the most-recent-wins rule, a learner can tick their way to "you can answer 59 of 59" without answering a single question, and the headline number stops meaning anything. That number is the product.
+
+So: **do not let a lesson signal overwrite a practice or mock signal for the same outcome.** Either write lesson signals only where no measured signal exists, or track lesson completion separately from the coverage map and show it as a distinct state in the UI. Pick one, implement it, and say which in your report. If neither feels right, flag it rather than guessing — this is a product decision, not a plumbing detail.
+
+Note that this is a deliberate exception to most-recent-wins, which remains correct between practice and mock because both are measured.
 
 ## Task 6 — Deep links
 

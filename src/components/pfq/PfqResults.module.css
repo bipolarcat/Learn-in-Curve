@@ -140,6 +140,18 @@
   color: rgb(var(--ink-rgb) / 0.78);
 }
 
+.gapLink {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+}
+
+.gapLink a {
+  color: rgb(var(--orange-rgb));
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .reviewOk {
   border-color: color-mix(in srgb, var(--olive) 35%, transparent);
 }

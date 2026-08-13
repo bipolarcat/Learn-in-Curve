@@ -1,0 +1,122 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dayHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+}
+
+.dayTitle {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgb(var(--ink-rgb));
+}
+
+.dayMarks {
+  margin: 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: rgb(var(--ink-rgb) / 0.55);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.row {
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  border-radius: 0.75rem;
+  background: rgb(var(--paper-rgb));
+}
+
+.weightHeavy {
+  border-left: 4px solid rgb(var(--orange-rgb));
+}
+
+.weightMid {
+  border-left: 4px solid rgb(var(--olive-rgb, 90 110 60) / 0.7);
+}
+
+.weightLight {
+  border-left: 4px solid rgb(var(--ink-rgb) / 0.2);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover .objTitle {
+  color: rgb(var(--orange-rgb));
+}
+
+.rowMain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.65rem;
+}
+
+.objCode {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.45);
+}
+
+.objTitle {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: rgb(var(--ink-rgb));
+  transition: color 0.12s ease;
+}
+
+.rowMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: rgb(var(--ink-rgb) / 0.6);
+}
+
+.marks strong {
+  font-variant-numeric: tabular-nums;
+  color: rgb(var(--ink-rgb));
+}
+
+.statusDone {
+  color: rgb(var(--olive-rgb, 90 110 60));
+  font-weight: 650;
+}
+
+.statusTodo {
+  color: rgb(var(--ink-rgb) / 0.5);
+}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node --test tests/hero-animals-assets.test.mjs && next build",
+    "build": "node --test tests/hero-animals-assets.test.mjs tests/pfq-content-invariant.test.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "test:unit": "node --test tests/*.test.mjs",
