@@ -7,7 +7,7 @@ import {
 import { SITE_VERSION } from "@/lib/site-version";
 
 /**
- * Full-bleed footer band — flickering grid spelling “Keep Learning”,
+ * Full-bleed footer band — flickering grid spelling “Be Curious.”,
  * with © + version overlay.
  */
 export function FooterFlickerBand() {
@@ -17,7 +17,7 @@ export function FooterFlickerBand() {
     <div className="footer-flicker relative h-36 w-full overflow-hidden sm:h-44 md:h-52">
       <div className="absolute inset-0 z-0">
         <FlickeringGrid
-          text="Keep Learning"
+          text="Be Curious."
           fontSize={compact ? 48 : 80}
           fontWeight={700}
           className="h-full w-full"

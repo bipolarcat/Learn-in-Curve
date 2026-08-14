@@ -42,7 +42,7 @@ const footerLinkClass =
   "inline-flex min-h-9 items-center rounded-md px-0.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 /**
- * Full-bleed ink footer — quiet link strip + “Keep Learning” flicker band.
+ * Full-bleed ink footer — quiet link strip + “Be Curious.” flicker band.
  *
  * APM disclaimer is opt-in (`showApmDisclaimer`) and currently only enabled
  * on the PMQ course overview via `CoursesSiteFooter` (LIC-48 surface).
