@@ -49,16 +49,19 @@ export default async function PmqPricingPage({
           <PricingBackLink
             current={
               <>
-                PMQ in <span className="text-orange">5 days</span> Plan
+                PMQ in <span className="text-orange">5 days</span>
+                <span className="text-ink/30" aria-hidden>
+                  {" "}
+                  •{" "}
+                </span>
+                Plans
               </>
             }
           />
 
           <h1 className="text-left font-display text-[clamp(1.9rem,4.4vw,2.75rem)] font-bold leading-[1.08] tracking-[-0.035em] text-balance text-ink">
-            <span className="block">
-              PMQ in <span className="text-orange">five days</span>
-            </span>
-            <span className="block">Start free. Upgrade only if you love it.</span>
+            <span className="block text-orange">Start free.</span>
+            <span className="block">Upgrade only if you love it.</span>
           </h1>
           <p className="mt-3.5 max-w-[38rem] text-left text-[15px] leading-relaxed text-pretty text-ink/72">
             Every plan includes the complete APM PMQ syllabus, covering all 24

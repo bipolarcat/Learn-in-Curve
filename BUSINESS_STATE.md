@@ -23,7 +23,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
-- **2026-08-18** — PMQ pricing header: dropped the uppercase eyebrow and per-card “For PMQ in 5 Days” kickers; H1 is “PMQ in five days” (only “five days” orange); back row is `Back to courses | PMQ in 5 days Plan` with “5 days” orange. (`pricing/page.tsx`, `PricingBackLink.tsx`, `PmqPlanCards.tsx`).
+- **2026-08-18** — PMQ pricing header: dropped the uppercase eyebrow and per-card course kickers; back row is `Back to courses | PMQ in 5 days • Plans` (“5 days” orange); H1 is two rows, “Start free.” / “Upgrade only if you love it.” (`pricing/page.tsx`, `PricingBackLink.tsx`, `PmqPlanCards.tsx`).
 
 - **2026-08-18** — Public course overviews + named pricing cards. `/courses` cards now **Course Overview** + **View plans** for both PMQ and PFQ (Enrol for Free left the catalog). New public PMQ marketing page at `/pmq` (practice + mocks USP; Enrol for Free + View plans). `/pfq` rewritten as a short overview with the same CTAs and **plan cards at the bottom**; `/pfq/preview` is account-only sign-up (no free course slice — Terms Schedule still lists no PFQ Free Features). `/pfq/pricing` restyled to the PMQ plan-card chrome: Pro Bundle **£6** (registry `priceCents` 500 → 600) + AI Pro Bundle **£12 waitlist** (`pfq-in-2-days-ai-pro`); no `ai_pro` entitlement and `PFQ_CHECKOUT_ENABLED` still false. Every pricing card kickers the course name; both pricing pages have a course heading. Files: `CoursesCatalog.tsx`, `src/app/(site)/pmq/page.tsx`, `src/app/(site)/pfq/page.tsx`, `PfqPlanCards.tsx`, `src/lib/pfq/plans.ts`, `registry-data.ts`, `legal/TERMS_OF_SERVICE.md` Schedule, `PFQ_COURSE_SPEC.md`.
 
