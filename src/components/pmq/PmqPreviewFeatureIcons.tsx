@@ -177,17 +177,17 @@ export function IconReport({ className }: IconProps) {
   );
 }
 
-/** Sly — same fox face as the LO AI tutor panel */
+/** Sly — same portrait crop as the landing AI tutor demo (`SlyTutorWindow`) */
 export function IconSly({ className }: IconProps) {
   return (
     <LoIconTile className={className}>
-      <span className="relative inline-flex h-[1.35rem] w-[1.35rem] overflow-hidden rounded-full bg-sand">
+      <span className="relative inline-flex h-full w-full overflow-hidden rounded-full border border-ink/10 bg-paper">
         <Image
-          src="/mascot/fox-face.svg"
+          src="/brand/sly/sly-tutor-portrait.png"
           alt=""
           width={22}
           height={22}
-          className="h-full w-full object-cover object-top"
+          className="h-full w-full scale-[1.5] object-cover object-[center_24%]"
         />
       </span>
     </LoIconTile>

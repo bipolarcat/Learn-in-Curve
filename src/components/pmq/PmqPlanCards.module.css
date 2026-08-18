@@ -321,13 +321,14 @@
 }
 
 .ctaPrimary {
-  background: var(--orange);
-  border-color: color-mix(in srgb, var(--orange) 80%, #241a12);
-  color: #fbf3e1;
+  background: var(--orange-action);
+  border-color: var(--orange-action);
+  color: rgb(var(--paper-rgb));
 }
 
 .ctaPrimary:hover:not(:disabled) {
-  background: var(--orange-action, #a83b14);
+  background: var(--orange-action-hover);
+  border-color: var(--orange-action-hover);
 }
 
 .ctaSecondary {

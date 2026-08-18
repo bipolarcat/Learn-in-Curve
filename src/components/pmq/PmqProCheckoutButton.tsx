@@ -25,10 +25,10 @@ type PmqProCheckoutButtonProps = {
  * Pro Bundle checkout button.
  *
  * Deliberately NOT `AiTutorUpgradeCta`. That component returns `null` when
- * `AI_TUTOR_LAUNCHED` is false and hard-codes its own `btn btn-primary` chrome —
- * both wrong here. Pro is no longer "the AI tutor tier" (Sly moved to AI Pro), so
- * gating this CTA on the tutor flag would silently leave the Pro card with no way
- * to buy. The pricing page also needs stamp-CTA styling, not `btn`.
+ * `AI_TUTOR_LAUNCHED` is false — wrong here. Pro is no longer "the AI tutor
+ * tier" (Sly moved to AI Pro), so gating this CTA on the tutor flag would
+ * silently leave the Pro card with no way to buy. Fill colour matches
+ * `.btn-primary` (`--orange-action`); the plan card keeps its own compact chrome.
  *
  * Guests: `createAiTutorCheckout` returns `{ error: "Not signed in" }` and the
  * Stripe webhook grants entitlement on `metadata.user_id`, so a guest purchase
