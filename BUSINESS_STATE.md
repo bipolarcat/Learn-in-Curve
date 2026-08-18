@@ -23,7 +23,9 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
-- **2026-08-18** — PMQ plan cards: AI Pro now lists Pro’s video + audio overviews; cards share equal height/width, even feature-line spacing, and aligned split rules above/below the feature list with CTAs pinned to the bottom (`plans.ts`, `PmqPlanCards.module.css`).
+- **2026-08-18** — PMQ plan cards: removed the rule above the CTA; tightened the gap between tagline and the feature separator (`PmqPlanCards.module.css`).
+
+- **2026-08-18** — PMQ plan cards: AI Pro now lists Pro’s video + audio overviews; cards share equal height/width, even feature-line spacing, and aligned split rules with CTAs pinned to the bottom (`plans.ts`, `PmqPlanCards.module.css`).
 
 - **2026-08-18** — PMQ pricing header: dropped the uppercase eyebrow and per-card course kickers; back row is `Back to courses | PMQ in 5 days Pricing` (“5 days” orange); H1 is two rows, “Start free.” / “Upgrade only if you love it.” (`pricing/page.tsx`, `PricingBackLink.tsx`, `PmqPlanCards.tsx`).
 
