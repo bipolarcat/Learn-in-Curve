@@ -52,7 +52,7 @@ export default async function PmqPricingPage({
                 PMQ in <span className="text-orange">5 days</span>
                 <span className="text-ink/30" aria-hidden>
                   {" "}
-                  •{" "}
+                  |{" "}
                 </span>
                 Plans
               </>
