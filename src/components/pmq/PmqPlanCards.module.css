@@ -168,8 +168,8 @@
 }
 
 .tagline {
-  margin: 0.45rem 0 0;
-  min-height: calc(1.4em * 3);
+  margin: 0.35rem 0 0;
+  min-height: 0;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -178,15 +178,15 @@
   text-wrap: pretty;
 }
 
-/* Feature well — top rule shares a Y across the row of cards */
+/* Feature well — top rule sits tight under the tagline on stacked (mobile) cards */
 .split {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   min-width: 0;
   min-height: 0;
-  margin-top: 0.35rem;
-  padding-top: 0.7rem;
+  margin-top: 0.2rem;
+  padding-top: 0.4rem;
   border-top: 1px solid rgb(var(--ink-rgb) / 0.1);
 }
 
@@ -359,5 +359,14 @@
 
   .card {
     padding: 1.05rem 1.1rem 1rem;
+  }
+
+  .tagline {
+    min-height: calc(1.4em * 3);
+  }
+
+  .split {
+    margin-top: 0.35rem;
+    padding-top: 0.7rem;
   }
 }
