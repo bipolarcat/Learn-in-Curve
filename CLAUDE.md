@@ -77,3 +77,61 @@ Environment setup only. No code has been written for V1 yet — this session cre
 - **Working style: YC/Bay-Area startup mode.** Sim is running this build the way a first-time YC-associated founder would — smart, fast learner, wants to build the product *and* learn proper startup PM practice in the process. Use standard startup terminology and workflow: a short spec/PRD for anything non-trivial (continuing the `REBUILD_PLAN.md`/`PMQ_NATIVE_MIGRATION.md`/`GAMIFICATION_SPEC.md` convention), a triaged backlog in Linear (bug/chore/feature labels, priority) for everything else. Check `Lenny's Product Pass` in Notion before recommending a new tool. Claude's role is mentor *and* operator — proactively call out what's a bug vs. a feature vs. an open decision, the way a sharp early PM/co-founder would, not just execute requests silently.
 - **Terminology coaching (standing permission, given 2026-07-08):** Sim has explicitly given permission to correct his word choice in real time. When he uses an informal, imprecise, or non-standard term for a startup/PM/eng concept, correct it to the term a Bay Area/YC-style founder would actually use, and briefly explain why — don't just silently use the correct term and let his stay wrong. This is part of the mentor role and specifically framed by Sim as his way of "being a Bay Area founder without being physically there."
 - **Project naming:** Sim refers to this project as "LIC" going forward (short for Learn in Curve, and now also the actual Linear team key — see decision log). Use "LIC" in conversation and issue references; "Learn in Curve" stays the full name in docs/prose.
+
+## Usage budget — check in before expensive work (set 2026-08-18)
+
+**Sim's rule: do not spend a large share of a 5-hour usage window without asking first.** Ask before starting the work, not after it has been done.
+
+**Read this first — the honest constraint.** You cannot see Sim's usage against his 5-hour rate-limit window. No tool reports it. Do NOT state, estimate, or imply a percentage of the window — a made-up "you're at 40%" is worse than saying nothing. What you *can* do is recognise expensive work before you start it, and measure what this session has actually consumed. That is what this rule is built on.
+
+**What actually drives cost.** The whole conversation is re-sent to the model on every turn. So cost is not "number of messages" — it is *how much content a task pours into the conversation*, multiplied by every turn that follows. Anything that adds a lot of text is expensive twice: once when it lands, and again on every subsequent message. Reference incident: 2026-08-18, see `feedback_linear_bulk_edits_expensive.md` in project memory.
+
+### Stop and ask before starting, if the task will involve any of these
+
+Estimate the shape of the work first. If any trigger fires, present the plan and the rough cost, and get a yes before proceeding.
+
+- **More than ~25 write calls to any MCP connector** (Linear `save_issue`, Notion updates, Supabase migrations). Linear in particular returns the ticket's entire description on every call, and LIC descriptions run to thousands of words.
+- **More than ~20 items in any loop** — per-file, per-ticket, per-row, per-URL.
+- **Reading more than ~10 files**, or any single file over ~1,500 lines. `BUSINESS_STATE.md` (344KB) and `OPERATIONS.md` (34KB) are never "just have a quick look" reads — say what you need from them and read only that.
+- **Any `/last30days` run.** Its instruction file alone is ~2,300 lines, and the multi-source evidence dump it returns for synthesis is large. One run is a deliberate spend, not a lookup.
+- **Any subagent fan-out of 3 or more agents**, or any Workflow invocation.
+- **A full repo scan, dependency audit, or test suite run** whose output comes back into context.
+
+### How to ask
+
+One short block, then wait. Do not start and ask later.
+
+> This is a ~150-call Linear pass; each call returns the full ticket description, so it'll add roughly 100k tokens to the conversation and make everything after it more expensive. Options: (a) run it now, (b) run it in a fresh session so it doesn't tax later work, (c) narrow it to the 20 tickets that matter. Which?
+
+Always offer **"do it in a fresh session"** as an option — for bulk work that is usually the right answer, and it costs Sim nothing because project memory carries the context.
+
+### Mid-task checkpoint
+
+If a task is running longer than planned and you want a real number rather than a guess, measure it — do not estimate:
+
+```bash
+python3 - <<'PY'
+import json,glob,collections
+f=sorted(glob.glob('/root/.claude/projects/*/*.jsonl'))[-1]
+t=collections.Counter()
+for l in open(f,encoding='utf-8'):
+    l=l.strip()
+    if not l: continue
+    try: m=json.loads(l).get('message') or {}
+    except: continue
+    u=m.get('usage') or {}
+    for k,s in (('cache_read_input_tokens','read'),('cache_creation_input_tokens','write'),('output_tokens','out')):
+        t[s]+=u.get(k,0)
+print(f"context re-read {t['read']:,} · new content written {t['write']:,} · replies {t['out']:,}")
+print(f"weighted total ≈ {t['read']*0.1+t['write']*2+t['out']*5:,.0f}")
+PY
+```
+
+Report the real figures and let Sim decide. **A session past roughly 250,000 tokens of context is one where every further message costs about three times what it did at the start** — say so plainly and offer a fresh session.
+
+### Standing habits that keep this from biting
+
+- **One pass, not two.** Set every field an object needs in a single write call. The 2026-08-18 incident doubled its own cost by backfilling a field and then changing status in a second sweep.
+- **Narrow your reads.** Pass an explicit `fields` array to `list_issues`; `grep` a file rather than `cat`-ing it; never re-read something already in the conversation.
+- **Delegate bulk to a subagent** when the work is genuinely large — the bulky tool results land in the subagent's context and only its summary comes back to the main thread.
+- **Say when to stop.** After any heavy pass, proactively suggest starting a fresh session before moving to unrelated work.
