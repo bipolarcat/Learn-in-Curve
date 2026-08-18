@@ -344,8 +344,10 @@ export function SiteHeaderControls({
   const onLibrary =
     pathname === "/library" || (pathname?.startsWith("/library/") ?? false);
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
+  const onPfqPreview = pathname === "/pfq/preview";
   const showGuestCoursesPill =
     onPmqPreview ||
+    onPfqPreview ||
     pathname === "/about" ||
     pathname === "/careers" ||
     pathname === "/privacy" ||
@@ -355,7 +357,7 @@ export function SiteHeaderControls({
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
-    (pathname?.startsWith("/auth") ?? false) || onPmqPreview;
+    (pathname?.startsWith("/auth") ?? false) || onPmqPreview || onPfqPreview;
   const darkModeAllowed = allowsDarkMode(pathname);
 
   useEffect(() => {

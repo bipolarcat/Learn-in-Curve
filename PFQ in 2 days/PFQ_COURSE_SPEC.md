@@ -8,9 +8,11 @@ Companion docs: `PFQ_RESEARCH.md` (evidence), `PFQ_DAY_PLAN.md` (LO split), `PFQ
 
 ## 1. Product shape
 
-**One course. One price. £5. No tiers, no free tier, no AI tier.**
+**Pro Bundle £6. No free course slice. AI Pro (£12) is a waitlist card only — not purchasable, not an entitlement.**
 
-| Included at £5 |
+Updated 18 Aug 2026: the public marketing ladder matches PMQ's card design (Pro + AI Pro waitlist). Enforcement in `src/lib/pfq/tiers.ts` is unchanged: starter (absence) vs pro. Do not add `ai_pro` there until it is actually granted.
+
+| Included at Pro (£6) |
 |---|
 | 59 lessons — one per learning outcome, split Day 1 (LO1–5) / Day 2 (LO6–10) |
 | ~300 practice questions, tagged per learning outcome |
@@ -18,22 +20,23 @@ Companion docs: `PFQ_RESEARCH.md` (evidence), `PFQ_DAY_PLAN.md` (LO split), `PFQ
 | Coverage map — "you can currently answer N of 59 outcomes" |
 | Trap School — exam format training |
 
-**Explicitly dropped, 13 Aug 2026:**
+**Still dropped:**
 
-- The free 10-question taster mock
-- The AI Pro tier
-- Sly on PFQ — dropped entirely, not deferred
+- The free 10-question taster mock / any free course slice
+- Sly on PFQ — not on the waitlist card as a named product; AI Pro copy is personalised practice, launching soon
 
-**Consequence to be aware of:** there is now no free surface on PFQ at all. The 60-question mock currently live and public at `/pfq/mock` moves behind payment. See §7.
+**Consequence:** there is still no free surface on PFQ. "Enrol for Free" on `/pfq` creates an account only. Lessons, practice, mock, coverage map and Trap School stay behind Pro.
 
 ### Tier model
 
 Reuse `tiers.ts`'s structure, collapsed to two states:
 
 - **starter** — the absence of an entitlement row. Sees marketing pages only.
-- **pro (£5)** — everything in the table above.
+- **pro (£6)** — everything in the table above.
 
 Keep starter as an absence rather than a stored value. That property is load-bearing: a failed payment write leaves someone unpaid rather than half-provisioned.
+
+Marketing may show an AI Pro waitlist card. That is not a third enforcement tier.
 
 ---
 
@@ -84,7 +87,7 @@ Practice questions and the mock share a bank, so someone who works the full 300 
 - **Consumer Contracts Regulations:** 14-day cancellation right on digital content, plus a required, unticked checkbox at checkout consenting to immediate access and acknowledging loss of that right. Without it the right survives the full fortnight even after the course has been fully consumed. **Solicitor review before the first real payment.**
 - T&Cs and refund policy live and linked from checkout.
 - Stripe hosted checkout. Never handle card data.
-- VAT on digital services — Sim to confirm registration status; decides whether £5 is inclusive.
+- VAT on digital services — Sim to confirm registration status; decides whether £6 is inclusive.
 - `PFQ_ATP_DISCLAIMER` and the trademark notice appear on the pricing page as well as the course.
 - No pass-rate, guarantee, or implied-accreditation wording anywhere near a price.
 
@@ -97,7 +100,7 @@ Practice questions and the mock share a bank, so someone who works the full 300 
 **Settled:**
 
 1. **Question bank: 306 written**, against a ~300 target. Approved and delivered.
-2. **Trap School is gated** behind the £5 unlock (decided 13 Aug 2026). It is part of the course, not a free surface.
+2. **Trap School is gated** behind the Pro unlock (decided 13 Aug 2026). It is part of the course, not a free surface.
 3. **Lesson format approved** (13 Aug 2026), objective 1 as the pattern. All 10 objectives written to it.
 4. **Lesson checkpoints stay off the coverage map.** Checkpoints are self-assessed; the headline number stays measured from practice and mock only. Ticking a box cannot claim an outcome.
 

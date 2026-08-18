@@ -10,8 +10,8 @@ import {
   filterCatalogCourses,
 } from "@/lib/courses-catalog";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
-import { PMQ_PRICING_HREF } from "@/lib/pmq/plans";
-import { PmqStartLink } from "@/components/PmqStartLink";
+import { PMQ_OVERVIEW_HREF, PMQ_PRICING_HREF } from "@/lib/pmq/plans";
+import { PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import { PfqNotifyDialog } from "@/components/PfqNotifyDialog";
 import { CtaArrow, stampCtaPrimaryCompact, stampCtaSecondaryCompact } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
@@ -282,12 +282,9 @@ function NotifyMeButton({ onOpen }: { onOpen: () => void }) {
 
 export function CoursesCatalog({
   courses,
-  isSignedIn,
-  enrolledSlugs = [],
 }: CoursesCatalogProps) {
   const [filter, setFilter] = useState<CatalogFilter>("all");
   const [notifyOpen, setNotifyOpen] = useState(false);
-  const enrolled = useMemo(() => new Set(enrolledSlugs), [enrolledSlugs]);
   const visible = useMemo(
     () => filterCatalogCourses(courses, filter),
     [courses, filter],
@@ -313,8 +310,6 @@ export function CoursesCatalog({
             const isPmq = course.slug === PMQ_SLUG;
             const artSrc = ILLUSTRATIONS[course.slug];
             const subhead = SUBHEADS[course.slug];
-            const isEnrolled = enrolled.has(course.slug);
-
             return (
               <li key={course.id} className={styles.item}>
                 <article
@@ -371,34 +366,40 @@ export function CoursesCatalog({
                   <div className={styles.footer}>
                     {isLive && isPmq ? (
                       <>
-                        <PmqStartLink
-                          isSignedIn={isSignedIn}
-                          from="courses"
-                          showArrow={!isEnrolled}
-                          className={
-                            isEnrolled
-                              ? stampCtaSecondaryCompact
-                              : stampCtaPrimaryCompact
-                          }
+                        <CatalogNavButton
+                          href={PMQ_OVERVIEW_HREF}
+                          className={stampCtaPrimaryCompact}
+                          busyLabel="Opening overview"
                         >
-                          {isEnrolled ? "Enrolled" : "Enrol for free"}
-                        </PmqStartLink>
+                          Course Overview
+                          <CtaArrow />
+                        </CatalogNavButton>
                         <CatalogNavButton
                           href={PMQ_PRICING_HREF}
                           className={stampCtaSecondaryCompact}
                           busyLabel="Opening plans"
                         >
-                          View plans
+                          View Plans
                         </CatalogNavButton>
                       </>
                     ) : course.slug === "pfq-in-2-days" ? (
-                      <CatalogNavButton
-                        href="/pfq"
-                        className={stampCtaPrimaryCompact}
-                        busyLabel="Opening PFQ"
-                      >
-                        View course
-                      </CatalogNavButton>
+                      <>
+                        <CatalogNavButton
+                          href="/pfq"
+                          className={stampCtaPrimaryCompact}
+                          busyLabel="Opening overview"
+                        >
+                          Course Overview
+                          <CtaArrow />
+                        </CatalogNavButton>
+                        <CatalogNavButton
+                          href={PFQ_PRICING_HREF}
+                          className={stampCtaSecondaryCompact}
+                          busyLabel="Opening plans"
+                        >
+                          View Plans
+                        </CatalogNavButton>
+                      </>
                     ) : (
                       <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
                     )}

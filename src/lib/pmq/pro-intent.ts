@@ -18,6 +18,7 @@
  * import it without the `@/` alias resolver. Keep it import-free.
  */
 
+export const PMQ_OVERVIEW_HREF = "/pmq";
 export const PMQ_PRICING_HREF = "/courses/pmq-in-5-days/pricing";
 
 export const PMQ_PRO_INTENT_PARAM = "intent";

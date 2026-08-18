@@ -77,7 +77,7 @@ test("price constants re-export the registry (no second literal)", () => {
   );
 
   assert.equal(PMQ_PRO_PRICE_CENTS, 800);
-  assert.equal(PFQ_PRO_PRICE_CENTS, 500);
+  assert.equal(PFQ_PRO_PRICE_CENTS, 600);
   assert.equal(COURSE_STATIC["pmq-in-5-days"].priceCents, PMQ_PRO_PRICE_CENTS);
   assert.equal(COURSE_STATIC["pfq-in-2-days"].priceCents, PFQ_PRO_PRICE_CENTS);
 });

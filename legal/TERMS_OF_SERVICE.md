@@ -103,7 +103,7 @@ For any questions regarding these terms, contact us at support@learnincurve.com.
 ---
 
 # Schedule — Courses, Free Features and Paid Features
-*In force from 13 August 2026*
+*In force from 18 August 2026*
 
 This Schedule sets out the Courses available, what is free in each, and what counts as a Paid Feature for the purposes of the 14-Day Unused Guarantee in section 8. Prices are shown on each course page and confirmed at checkout, not here.
 
@@ -118,7 +118,7 @@ This Schedule sets out the Courses available, what is free in each, and what cou
 *Preparation for the APM Project Fundamentals Qualification.*
 
 - **Free Features:** none. No part of this Course is available without a Paid Unlock.
-- **Paid Unlock:** a single unlock covering the whole Course, including all lessons, the practice question bank, the mock exam and the coverage map.
+- **Paid Unlock:** a Pro unlock covering the whole Course, including all lessons, the practice question bank, the mock exam, the coverage map and Trap School.
 - **A Paid Feature is treated as used if you have:** opened a lesson, answered a practice question, or started the mock exam.
 
 ---

@@ -27,6 +27,6 @@ test("checkout stays behind the review flag by default", () => {
 });
 
 test("price and course id are fixed", () => {
-  assert.equal(PFQ_PRO_PRICE_CENTS, 500);
+  assert.equal(PFQ_PRO_PRICE_CENTS, 600);
   assert.match(PFQ_COURSE_ID, /^[0-9a-f-]{36}$/i);
 });

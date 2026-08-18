@@ -8,12 +8,12 @@ import {
   PFQ_COURSE_ID as REGISTRY_PFQ_COURSE_ID,
   PFQ_PRO_PRICE_CENTS as REGISTRY_PFQ_PRO_PRICE_CENTS,
   PFQ_SLUG as REGISTRY_PFQ_SLUG,
-} from "@/lib/courses/registry-data";
+} from "../courses/registry-data.ts";
 
 export const PFQ_COURSE_ID = REGISTRY_PFQ_COURSE_ID;
 export const PFQ_SLUG = REGISTRY_PFQ_SLUG;
 
-/** £5.00 — single price, no tiers. Defined once in the course registry. */
+/** Pro Bundle price. Defined once in the course registry. AI Pro is waitlist-only. */
 export const PFQ_PRO_PRICE_CENTS = REGISTRY_PFQ_PRO_PRICE_CENTS;
 
 export const PFQ_PRICING_HREF = "/pfq/pricing";

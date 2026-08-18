@@ -24,7 +24,7 @@ export function PfqCheckoutButton({
   label = `Get PFQ in 2 Days — ${formatPfqPriceGbp()}`,
   isSignedIn,
   autoStart = false,
-  className = "",
+  className,
 }: Props) {
   const router = useRouter();
   const [error, setError] = useState("");
@@ -61,12 +61,13 @@ export function PfqCheckoutButton({
   }, [autoStart, isSignedIn]);
 
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="grid w-full gap-1.5">
       <button
         type="button"
-        className={`${stampCtaPrimary} ${className} disabled:opacity-60`}
+        className={`${className ?? stampCtaPrimary} disabled:cursor-wait disabled:opacity-90`}
         disabled={pending}
         aria-busy={pending}
+        aria-label={pending ? "Opening checkout" : label}
         onClick={startCheckout}
       >
         {pending ? (

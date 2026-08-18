@@ -38,7 +38,7 @@ export const COURSE_STATIC: { [K in CourseSlug]: CourseStaticProduct } = {
     id: PFQ_COURSE_ID,
     slug: "pfq-in-2-days",
     displayName: "PFQ in 2 Days",
-    priceCents: 500,
+    priceCents: 600,
     stripePriceId: null,
     freeFeatures: [],
     paidFeatures: ["lessons", "practice_bank", "mock_exam", "coverage_map"],

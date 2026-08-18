@@ -202,6 +202,7 @@ export { AI_PRO_LIST_KEY as PMQ_AI_PRO_NOTIFY_KEY } from "@/lib/notify/lists";
  */
 export {
   hasProIntent,
+  PMQ_OVERVIEW_HREF,
   PMQ_PRICING_HREF,
   PMQ_PRICING_PRO_INTENT_HREF,
   PMQ_PRO_INTENT_PARAM,

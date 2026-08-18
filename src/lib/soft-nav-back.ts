@@ -2,7 +2,13 @@
  * Soft-nav `?from=` targets — used so marketing CTAs can show a contextual
  * back control on the destination page (same language as PricingBackLink).
  */
-export type SoftNavFrom = "home" | "courses" | "pricing" | "library";
+export type SoftNavFrom =
+  | "home"
+  | "courses"
+  | "pricing"
+  | "library"
+  | "pmq"
+  | "pfq";
 
 export type SoftNavBackTarget = {
   href: string;
@@ -30,6 +36,16 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
     href: "/library",
     label: "Back to library",
     busyLabel: "Opening library",
+  },
+  pmq: {
+    href: "/pmq",
+    label: "Back to overview",
+    busyLabel: "Opening overview",
+  },
+  pfq: {
+    href: "/pfq",
+    label: "Back to overview",
+    busyLabel: "Opening overview",
   },
 };
 
@@ -60,7 +76,9 @@ export function parseSoftNavFrom(
     raw === "home" ||
     raw === "courses" ||
     raw === "pricing" ||
-    raw === "library"
+    raw === "library" ||
+    raw === "pmq" ||
+    raw === "pfq"
   ) {
     return raw;
   }

@@ -17,6 +17,15 @@
   min-width: 0;
 }
 
+.gridTwo {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -31,6 +40,17 @@
     0 1px 2px rgb(var(--ink-rgb) / 0.04),
     0 6px 20px rgb(var(--ink-rgb) / 0.06);
   isolation: isolate;
+}
+
+.courseKicker {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.45);
 }
 
 :global(.dark) .card {
@@ -314,6 +334,11 @@
 @media (min-width: 48rem) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .gridTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.85rem;
   }
 

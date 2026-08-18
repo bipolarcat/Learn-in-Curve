@@ -168,6 +168,8 @@ type PmqPlanCardsProps = {
   planIds?: PmqPlanId[];
   /** When false, omit card CTAs (e.g. preview page with signup beside). */
   showCtas?: boolean;
+  /** Quiet kicker on every card so the course is named on the pricing grid. */
+  courseLabel?: string;
 };
 
 /**
@@ -184,6 +186,7 @@ export function PmqPlanCards({
   resumeProCheckout = false,
   planIds,
   showCtas = true,
+  courseLabel = "For PMQ in 5 Days",
 }: PmqPlanCardsProps) {
   const plans = planIds?.length
     ? PMQ_PLANS.filter((plan) => planIds.includes(plan.id))
@@ -202,6 +205,7 @@ export function PmqPlanCards({
 
           return (
             <li key={plan.id} className={styles.card}>
+              <p className={styles.courseKicker}>{courseLabel}</p>
               <PlanName
                 plan={plan}
                 soonBadge={plan.status === "waitlist"}

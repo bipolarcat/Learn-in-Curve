@@ -94,6 +94,15 @@ test("PMQ course overview footer enables the APM disclaimer", async () => {
   );
 });
 
+test("public PMQ marketing overview imports the APM disclaimer", async () => {
+  const page = await read("src/app/(site)/pmq/page.tsx");
+  assert.match(
+    page,
+    /APM_DISCLAIMER/,
+    "public /pmq overview must import APM_DISCLAIMER",
+  );
+});
+
 test("footer wording stays consistent with TERMS_OF_SERVICE.md", async () => {
   const [legalCopy, terms] = await Promise.all([
     read("src/lib/legal-copy.ts"),
@@ -111,7 +120,7 @@ test("footer wording stays consistent with TERMS_OF_SERVICE.md", async () => {
   // doesn't — which is the drift that caused this ticket in the first place.
   assert.match(
     terms,
-    /not affiliated with, endorsed by, or acting on behalf of APM/i,
+    /not affiliated with, endorsed by, or acting on behalf of[\s\S]*\bAPM\b/i,
     "TERMS_OF_SERVICE.md §2 must retain the affiliation disclaimer clause",
   );
   assert.match(

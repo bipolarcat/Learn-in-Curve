@@ -18,9 +18,21 @@ import styles from "./PmqPlanCards.module.css";
  * button. Anything that offers to sell it would be advertising something the
  * user cannot actually buy.
  */
-export function JoinWaitlistButton({ className }: { className?: string }) {
+export function JoinWaitlistButton({
+  className,
+  notifyKey = PMQ_AI_PRO_NOTIFY_KEY,
+  subjectLabel = "AI Pro Bundle",
+  courseCopy = "the AI Pro Bundle",
+  label,
+}: {
+  className?: string;
+  notifyKey?: string;
+  subjectLabel?: string;
+  courseCopy?: string;
+  label?: string;
+}) {
   const [open, setOpen] = useState(false);
-  const label = getPmqPlan("ai_pro").ctaLabel;
+  const ctaLabel = label ?? getPmqPlan("ai_pro").ctaLabel;
 
   return (
     <>
@@ -29,15 +41,15 @@ export function JoinWaitlistButton({ className }: { className?: string }) {
         onClick={() => setOpen(true)}
         className={className ?? `${styles.ctaBtn} ${styles.ctaSecondary}`}
       >
-        {label}
+        {ctaLabel}
       </button>
 
       <NotifyDialog
         open={open}
         onClose={() => setOpen(false)}
-        notifyKey={PMQ_AI_PRO_NOTIFY_KEY}
-        subjectLabel="AI Pro Bundle"
-        courseCopy="the AI Pro Bundle"
+        notifyKey={notifyKey}
+        subjectLabel={subjectLabel}
+        courseCopy={courseCopy}
       />
     </>
   );
