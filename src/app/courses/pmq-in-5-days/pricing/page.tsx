@@ -49,12 +49,7 @@ export default async function PmqPricingPage({
           <PricingBackLink
             current={
               <>
-                PMQ in <span className="text-orange">5 days</span>
-                <span className="text-ink/30" aria-hidden>
-                  {" "}
-                  |{" "}
-                </span>
-                Plans
+                PMQ in <span className="text-orange">5 days</span> pricing
               </>
             }
           />
