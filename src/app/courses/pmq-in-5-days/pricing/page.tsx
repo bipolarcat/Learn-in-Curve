@@ -46,13 +46,18 @@ export default async function PmqPricingPage({
     <section className="wrap py-10 sm:py-14">
       <div className="mx-auto max-w-[62rem]">
         <header className="mb-8 max-w-[42rem] sm:mb-10">
-          <PricingBackLink />
+          <PricingBackLink
+            current={
+              <>
+                PMQ in <span className="text-orange">5 days</span> Plan
+              </>
+            }
+          />
 
-          <p className="mb-2 font-body text-[12px] font-semibold tracking-[0.08em] text-ink/45 uppercase">
-            PMQ in 5 Days
-          </p>
           <h1 className="text-left font-display text-[clamp(1.9rem,4.4vw,2.75rem)] font-bold leading-[1.08] tracking-[-0.035em] text-balance text-ink">
-            <span className="block text-orange">Plans for PMQ in 5 Days.</span>
+            <span className="block">
+              PMQ in <span className="text-orange">five days</span>
+            </span>
             <span className="block">Start free. Upgrade only if you love it.</span>
           </h1>
           <p className="mt-3.5 max-w-[38rem] text-left text-[15px] leading-relaxed text-pretty text-ink/72">
