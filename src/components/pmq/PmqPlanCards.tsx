@@ -205,28 +205,30 @@ export function PmqPlanCards({
 
           return (
             <li key={plan.id} className={styles.card}>
-              {courseLabel ? (
-                <p className={styles.courseKicker}>{courseLabel}</p>
-              ) : null}
-              <PlanName
-                plan={plan}
-                soonBadge={plan.status === "waitlist"}
-              />
+              <div className={styles.head}>
+                {courseLabel ? (
+                  <p className={styles.courseKicker}>{courseLabel}</p>
+                ) : null}
+                <PlanName
+                  plan={plan}
+                  soonBadge={plan.status === "waitlist"}
+                />
 
-              <div className={styles.priceRow}>
-                <span
-                  className={`${styles.price} ${
-                    plan.priceCents === null ? styles.priceFree : ""
-                  }`}
-                >
-                  {plan.priceCents === null
-                    ? "Free"
-                    : formatGbp(plan.priceCents)}
-                </span>
-                <span className={styles.priceNote}>{plan.priceNote}</span>
+                <div className={styles.priceRow}>
+                  <span
+                    className={`${styles.price} ${
+                      plan.priceCents === null ? styles.priceFree : ""
+                    }`}
+                  >
+                    {plan.priceCents === null
+                      ? "Free"
+                      : formatGbp(plan.priceCents)}
+                  </span>
+                  <span className={styles.priceNote}>{plan.priceNote}</span>
+                </div>
+
+                <p className={styles.tagline}>{plan.tagline}</p>
               </div>
-
-              <p className={styles.tagline}>{plan.tagline}</p>
 
               <div className={styles.split}>
                 {inherited ? (

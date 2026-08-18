@@ -129,15 +129,17 @@ export function PfqPlanCards({
 
         return (
           <li key={plan.id} className={styles.card}>
-            <p className={styles.courseKicker}>For PFQ in 2 Days</p>
-            <PlanName plan={plan} soonBadge={plan.status === "waitlist"} />
+            <div className={styles.head}>
+              <p className={styles.courseKicker}>For PFQ in 2 Days</p>
+              <PlanName plan={plan} soonBadge={plan.status === "waitlist"} />
 
-            <div className={styles.priceRow}>
-              <span className={styles.price}>{formatGbp(plan.priceCents)}</span>
-              <span className={styles.priceNote}>{plan.priceNote}</span>
+              <div className={styles.priceRow}>
+                <span className={styles.price}>{formatGbp(plan.priceCents)}</span>
+                <span className={styles.priceNote}>{plan.priceNote}</span>
+              </div>
+
+              <p className={styles.tagline}>{plan.tagline}</p>
             </div>
-
-            <p className={styles.tagline}>{plan.tagline}</p>
 
             <div className={styles.split}>
               {inherited ? (

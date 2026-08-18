@@ -178,6 +178,14 @@ export const PMQ_PLANS: PmqPlan[] = [
         value: "1,620",
       },
       { icon: "mock", label: "additional mock exams", value: "3" },
+      {
+        icon: "video",
+        label: "Video overview for every learning objective",
+      },
+      {
+        icon: "audio",
+        label: "Audio overview for every learning objective",
+      },
       { icon: "sly", label: "Sly, your personal AI tutor" },
       {
         icon: "report",
