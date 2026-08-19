@@ -14,6 +14,7 @@ import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { cn } from "@/lib/utils";
 
 const MENU_ITEMS = [
+  { href: "/courses", label: "Explore Courses" },
   { href: "/free-mock-exam", label: "Mock Me" },
   { href: "/library", label: "The Shelf" },
   { href: "/about", label: "Behind the Curve" },
@@ -137,7 +138,9 @@ export function SiteHeaderMenu() {
                     const current =
                       pathname === item.href ||
                       (item.href === "/library" &&
-                        (pathname?.startsWith("/library/") ?? false));
+                        (pathname?.startsWith("/library/") ?? false)) ||
+                      (item.href === "/courses" &&
+                        (pathname?.startsWith("/courses/") ?? false));
                     return (
                       <motion.div
                         key={item.href}

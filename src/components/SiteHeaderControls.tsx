@@ -8,11 +8,6 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
 import { SignOutButton } from "@/components/SignOutButton";
 import { hasCreatedAccount } from "@/lib/auth-hints";
 import { isPmqStudySurface } from "@/lib/pmq/constants";
@@ -24,8 +19,6 @@ import { trackCtaClicked } from "@/lib/analytics/events";
 import {
   headerIconPrimary,
   headerIconQuiet,
-  headerIconTeal,
-  headerPillSecondary,
   headerPillTeal,
 } from "@/components/header-control";
 import { SiteHeaderMenu } from "@/components/SiteHeaderMenu";
@@ -165,25 +158,6 @@ function DashboardNavButton() {
   );
 }
 
-/** Ticket / destination board for Courses */
-function CoursesIcon({ compact = false }: { compact?: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={compact ? 1.75 : 2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={`${compact ? compactIconClass : iconClass} group-hover:translate-x-0.5`}
-    >
-      <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-9Z" />
-      <path d="M8 5v14M12 9.5h4M12 13h3" />
-    </svg>
-  );
-}
-
 function SignOutIcon({ compact = false }: { compact?: boolean }) {
   const sizeClass = compact ? compactIconClass : iconClass;
   const doorMotion =
@@ -273,57 +247,17 @@ function HeaderChip({
   );
 }
 
-/** Landing-only: Courses pops in once the brand hero has scrolled out of view. */
-function CoursesReveal({
-  show,
-  children,
-}: {
-  show: boolean;
-  children: ReactNode;
-}) {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <AnimatePresence initial={false}>
-      {show ? (
-        <motion.span
-          key="header-courses"
-          className="inline-flex origin-top"
-          initial={
-            reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.86, y: -10 }
-          }
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={
-            reduceMotion
-              ? { opacity: 0 }
-              : { opacity: 0, scale: 0.92, y: -6 }
-          }
-          transition={{
-            duration: reduceMotion ? 0.12 : 0.28,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {children}
-        </motion.span>
-      ) : null}
-    </AnimatePresence>
-  );
-}
-
 type SiteHeaderControlsProps = {
   isSignedIn?: boolean;
 };
 
 /**
  * Site chrome:
- * - Guests: labeled Courses on all sizes (prompt to browse); Get Started / Sign in
- *   labeled at all sizes. Off-home: icon-only Home (space reserved for Courses prompt).
- *   Also show labeled Courses on PMQ preview, About, Careers, Privacy, Terms.
+ * - Overflow menu holds Explore Courses and the other site links
+ * - Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home
  * - Dark toggle: dashboard, PMQ overview and individual LOs only
- * - Auth pages (`/auth/*`) and PMQ preview: Home icon + labeled Courses
- *   only — no Sign in/up CTA (auth form is already on the page)
- * - Signed in: same h-8 icon discs as guest chrome + Courses↔Home swap
- * - Landing (`/`): Courses appears only after scrolling past `#home-brand-hero`
+ * - Auth pages (`/auth/*`) and PMQ preview: Home only — no Sign in/up CTA
+ * - Signed in: same h-8 icon discs as guest chrome
  */
 export function SiteHeaderControls({
   isSignedIn = false,
@@ -333,7 +267,6 @@ export function SiteHeaderControls({
     href: "/auth/sign-up",
     label: "Get Started",
   });
-  const [pastHomeHero, setPastHomeHero] = useState(false);
 
   useEffect(() => {
     setGuestCta(resolveGuestCta());
@@ -341,56 +274,15 @@ export function SiteHeaderControls({
 
   const onDashboard = pathname === "/dashboard";
   const onHome = pathname === "/";
-  const onFreeMock = pathname === "/free-mock-exam";
-  const onLibrary =
-    pathname === "/library" || (pathname?.startsWith("/library/") ?? false);
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const onPfqPreview = pathname === "/pfq/preview";
-  const showGuestCoursesPill =
-    onPmqPreview ||
-    onPfqPreview ||
-    pathname === "/about" ||
-    pathname === "/careers" ||
-    pathname === "/privacy" ||
-    pathname === "/terms" ||
-    onFreeMock ||
-    onLibrary;
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
     (pathname?.startsWith("/auth") ?? false) || onPmqPreview || onPfqPreview;
   const darkModeAllowed = allowsDarkMode(pathname);
-
-  useEffect(() => {
-    if (!onHome) {
-      setPastHomeHero(false);
-      return;
-    }
-
-    const hero = document.getElementById("home-brand-hero");
-    if (!hero) {
-      setPastHomeHero(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Reveal Courses once the brand hero has left the viewport.
-        setPastHomeHero(!entry.isIntersecting);
-      },
-      {
-        root: null,
-        threshold: 0,
-        // Trigger a touch early so the chip is ready as the hero clears the fold.
-        rootMargin: "-8% 0px 0px 0px",
-      },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, [onHome]);
-
-  const showLandingCourses = onHome && pastHomeHero;
+  const showHome =
+    !onHome && !onDashboard && !hideHomeIconOnCourseExperience;
 
   return (
     <div
@@ -405,49 +297,32 @@ export function SiteHeaderControls({
       {isSignedIn ? (
         <>
           {darkModeAllowed && (
-            <HeaderChip style={{ "--i": 0 } as CSSProperties}>
+            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
               <ThemeToggle />
             </HeaderChip>
           )}
 
           {!onDashboard ? (
-            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
+            <HeaderChip style={{ "--i": 2 } as CSSProperties}>
               <DashboardNavButton />
             </HeaderChip>
           ) : null}
 
-          {!onDashboard && !hideHomeIconOnCourseExperience ? (
-            onHome ? (
-              <CoursesReveal show={showLandingCourses}>
-                <HeaderNavButton
-                  href="/courses"
-                  className={headerIconTeal}
-                  ariaLabel="Courses"
-                  title="Courses"
-                  busyLabel="Opening courses"
-                  spinnerClassName="text-paper"
-                >
-                  <CoursesIcon />
-                </HeaderNavButton>
-              </CoursesReveal>
-            ) : (
-              <HeaderChip
-                style={{ "--i": onDashboard ? 1 : 2 } as CSSProperties}
+          {showHome ? (
+            <HeaderChip style={{ "--i": 3 } as CSSProperties}>
+              <HeaderNavButton
+                href="/"
+                className={headerIconQuiet}
+                ariaLabel="Home"
+                title="Home"
+                busyLabel="Opening home"
               >
-                <HeaderNavButton
-                  href="/"
-                  className={headerIconQuiet}
-                  ariaLabel="Home"
-                  title="Home"
-                  busyLabel="Opening home"
-                >
-                  <HomeIcon />
-                </HeaderNavButton>
-              </HeaderChip>
-            )
+                <HomeIcon />
+              </HeaderNavButton>
+            </HeaderChip>
           ) : null}
 
-          <HeaderChip style={{ "--i": onDashboard ? 2 : 3 } as CSSProperties}>
+          <HeaderChip style={{ "--i": 4 } as CSSProperties}>
             <SignOutButton
               aria-label="Sign out"
               title="Sign out"
@@ -458,93 +333,41 @@ export function SiteHeaderControls({
           </HeaderChip>
         </>
       ) : hideGuestAuthCta ? (
-        <>
-          <HeaderChip style={{ "--i": 0 } as CSSProperties}>
-            <HeaderNavButton
-              href="/courses"
-              className={headerPillSecondary}
-              ariaLabel="Courses"
-              busyLabel="Opening courses"
-            >
-              <CoursesIcon />
-              <span>Courses</span>
-            </HeaderNavButton>
-          </HeaderChip>
-
-          <HeaderChip style={{ "--i": 1 } as CSSProperties}>
-            <HeaderNavButton
-              href="/"
-              className={headerIconPrimary}
-              ariaLabel="Home"
-              title="Home"
-              busyLabel="Opening home"
-              spinnerClassName="text-paper"
-            >
-              <HomeIcon />
-            </HeaderNavButton>
-          </HeaderChip>
-        </>
+        <HeaderChip style={{ "--i": 1 } as CSSProperties}>
+          <HeaderNavButton
+            href="/"
+            className={headerIconPrimary}
+            ariaLabel="Home"
+            title="Home"
+            busyLabel="Opening home"
+            spinnerClassName="text-paper"
+          >
+            <HomeIcon />
+          </HeaderNavButton>
+        </HeaderChip>
       ) : (
         <>
           {darkModeAllowed && (
-            <HeaderChip style={{ "--i": 0 } as CSSProperties}>
+            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
               <ThemeToggle />
             </HeaderChip>
           )}
 
-          {showGuestCoursesPill ? (
-            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
+          {showHome ? (
+            <HeaderChip style={{ "--i": 2 } as CSSProperties}>
               <HeaderNavButton
-                href="/courses"
-                className={headerPillSecondary}
-                ariaLabel="Courses"
-                busyLabel="Opening courses"
+                href="/"
+                className={headerIconQuiet}
+                ariaLabel="Home"
+                title="Home"
+                busyLabel="Opening home"
               >
-                <CoursesIcon />
-                <span>Courses</span>
+                <HomeIcon />
               </HeaderNavButton>
             </HeaderChip>
           ) : null}
 
-          {!onDashboard && !hideHomeIconOnCourseExperience ? (
-            onHome ? (
-              <CoursesReveal show={showLandingCourses}>
-                <HeaderNavButton
-                  href="/courses"
-                  className={headerPillSecondary}
-                  ariaLabel="Courses"
-                  busyLabel="Opening courses"
-                  analyticsLocation="header"
-                  analyticsVariant="Courses"
-                >
-                  <CoursesIcon />
-                  <span>Courses</span>
-                </HeaderNavButton>
-              </CoursesReveal>
-            ) : (
-              <HeaderChip
-                style={
-                  { "--i": showGuestCoursesPill ? 2 : 1 } as CSSProperties
-                }
-              >
-                <HeaderNavButton
-                  href="/"
-                  className={headerIconQuiet}
-                  ariaLabel="Home"
-                  title="Home"
-                  busyLabel="Opening home"
-                >
-                  <HomeIcon />
-                </HeaderNavButton>
-              </HeaderChip>
-            )
-          ) : null}
-
-          <HeaderChip
-            style={
-              { "--i": showGuestCoursesPill ? 3 : 2 } as CSSProperties
-            }
-          >
+          <HeaderChip style={{ "--i": 3 } as CSSProperties}>
             <HeaderNavButton
               href={guestCta.href}
               className={headerPillTeal}
