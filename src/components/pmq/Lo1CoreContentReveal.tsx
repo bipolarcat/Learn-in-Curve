@@ -185,8 +185,7 @@ export function Lo1CoreContentReveal({
   return (
     <div>
       <p className="mb-3 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
-        Open an outcome to read the core notes. Teal marks stay filled after you
-        have opened them.
+        Expand sections to view study materials.
       </p>
       <div className="grid gap-2.5" aria-label="Core content outcomes">
         {blocks.map((block, index) => (
