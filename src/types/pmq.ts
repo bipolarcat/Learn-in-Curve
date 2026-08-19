@@ -8,6 +8,8 @@ export type CoreContentBlock = {
   outcome_code: string;
   outcome_title: string;
   body_markdown: string;
+  /** One-line tease. Present on v2 JSON; optional if an older body omits it. */
+  key_takeaway?: string;
   diagrams?: {
     id: string;
     file: string;

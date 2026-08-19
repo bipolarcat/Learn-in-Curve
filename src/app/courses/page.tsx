@@ -11,10 +11,15 @@ import {
 } from "@/lib/soft-nav-back";
 import styles from "./CoursesPage.module.css";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+  "https://www.learnincurve.com";
+
 export const metadata: Metadata = {
   title: "Courses — Learn in Curve",
   description:
     "Pick your course. APM PMQ in 5 Days is live; PFQ is on the way.",
+  alternates: { canonical: `${SITE_URL}/courses` },
 };
 
 type CoursesPageProps = {
