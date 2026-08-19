@@ -4,16 +4,26 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 await page.goto("http://localhost:3000/", { waitUntil: "networkidle" });
 
-const dashBtns = await page.getByRole("button", { name: "Dashboard" }).count();
-const signOutBtns = await page.getByRole("button", { name: "Sign out" }).count();
-await page.getByRole("button", { name: "Open menu" }).click();
-await page.waitForTimeout(400);
-const menuText = await page.getByRole("menu", { name: "Site" }).innerText();
-const myDash = await page.getByRole("menuitem", { name: "My dashboard" }).count();
-const signMeOut = await page.getByRole("menuitem", { name: "Sign me out" }).count();
-await page.screenshot({ path: ".tmp-header-guest-menu.png" });
-await browser.close();
+const closedName = await page.getByRole("button", { name: "Open menu" }).getAttribute("aria-label");
+const closedVisible = await page.locator("header, nav").getByRole("button", { name: "Open menu" }).evaluate((el) => el.textContent);
+if (!/Menu/i.test(closedVisible?.replace(/\s+/g, "") ?? "")) {
+  throw new Error(`expected Menu letters, got ${JSON.stringify(closedVisible)}`);
+}
 
-console.log({ dashBtns, signOutBtns, myDash, signMeOut, menuText });
-if (dashBtns !== 0 || signOutBtns !== 0) throw new Error("header still has account buttons as guest");
-if (myDash !== 0 || signMeOut !== 0) throw new Error("guest menu shows signed-in items");
+await page.getByRole("button", { name: "Open menu" }).click();
+await page.waitForTimeout(450);
+
+const openBtn = page.getByRole("button", { name: "Close menu" });
+await openBtn.waitFor();
+const openText = (await openBtn.innerText()).trim();
+if (/Menu/i.test(openText)) throw new Error(`Menu label still visible when open: ${JSON.stringify(openText)}`);
+
+const menu = page.getByRole("menu", { name: "Site" });
+const text = await menu.innerText();
+if (/My dashboard|Sign me out|Dark mode/i.test(text)) {
+  throw new Error(`guest menu has signed-in chrome: ${text}`);
+}
+
+await page.screenshot({ path: ".tmp-header-menu-open.png" });
+await browser.close();
+console.log("ok guest", { closedName, closedVisible, openText, text });

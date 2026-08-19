@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,10 +9,23 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { headerIcon } from "@/components/header-control";
+import { AvatarImage } from "@/components/AvatarImage";
+import {
+  headerIcon,
+  headerMenuTrigger,
+} from "@/components/header-control";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { SignOutButton } from "@/components/SignOutButton";
+import type { AvatarId } from "@/lib/avatars";
 import { cn } from "@/lib/utils";
+
+export type HeaderAccount = {
+  email: string;
+  /** Profile first + last name when either is set; otherwise null. */
+  name: string | null;
+  avatarId: AvatarId;
+};
 
 const MENU_ITEMS = [
   { href: "/courses", label: "Explore Courses" },
@@ -24,6 +37,61 @@ const MENU_ITEMS = [
 
 const menuItemClass =
   "flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55";
+
+const blurEase = [0.22, 1, 0.36, 1] as const;
+
+/**
+ * "Menu" label: blur-in on appear, blur-out-up on hide.
+ * Motion values from 21st.dev Blur Out Up (framecn, demo 19317).
+ */
+function MenuWord({
+  visible,
+  reduceMotion,
+}: {
+  visible: boolean;
+  reduceMotion: boolean | null;
+}) {
+  const letters = ["M", "e", "n", "u"] as const;
+
+  if (reduceMotion) {
+    return visible ? (
+      <span className="pl-0.5 tracking-[-0.01em]">Menu</span>
+    ) : null;
+  }
+
+  return (
+    <AnimatePresence initial={false}>
+      {visible ? (
+        <motion.span
+          key="menu-word"
+          className="flex overflow-hidden whitespace-nowrap pl-0.5"
+          initial={{ maxWidth: 0, opacity: 0 }}
+          animate={{ maxWidth: 48, opacity: 1 }}
+          exit={{ maxWidth: 0, opacity: 0 }}
+          transition={{ duration: 0.22, ease: blurEase }}
+          aria-hidden
+        >
+          {letters.map((letter, i) => (
+            <motion.span
+              key={`${letter}-${i}`}
+              className="inline-block tracking-[-0.01em]"
+              initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -14, filter: "blur(8px)" }}
+              transition={{
+                duration: 0.2,
+                delay: i * 0.028,
+                ease: blurEase,
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.span>
+      ) : null}
+    </AnimatePresence>
+  );
+}
 
 function MenuBoardIcon() {
   return (
@@ -83,14 +151,43 @@ function MenuSignOutIcon() {
   );
 }
 
+function MenuItemMotion({
+  index,
+  reduceMotion,
+  children,
+}: {
+  index: number;
+  reduceMotion: boolean | null;
+  children: ReactNode;
+}) {
+  return (
+    <motion.div
+      initial={reduceMotion ? false : { opacity: 0, x: 8 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        delay: reduceMotion ? 0 : 0.04 + index * 0.035,
+        duration: 0.2,
+        ease: blurEase,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function SiteHeaderMenu({
   isSignedIn = false,
+  account = null,
+  showThemeToggle = false,
 }: {
   isSignedIn?: boolean;
+  account?: HeaderAccount | null;
+  showThemeToggle?: boolean;
 }) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const menuId = useId();
+  const headingId = useId();
   const wrapRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
@@ -99,6 +196,12 @@ export function SiteHeaderMenu({
 
   const duration = reduceMotion ? 0 : 500;
   const onDashboard = pathname === "/dashboard";
+  const signedIn = isSignedIn && account;
+  const title = signedIn
+    ? account.name || account.email || "Signed in"
+    : null;
+  const subtitle =
+    signedIn && account.name && account.email ? account.email : null;
 
   useEffect(() => {
     setMounted(true);
@@ -152,7 +255,7 @@ export function SiteHeaderMenu({
     };
   }, [open, menuId]);
 
-  const accountStartIndex = MENU_ITEMS.length;
+  let itemIndex = 0;
 
   return (
     <div ref={wrapRef} className="relative inline-flex">
@@ -160,8 +263,8 @@ export function SiteHeaderMenu({
         ref={buttonRef}
         type="button"
         className={cn(
-          headerIcon,
-          open && "bg-ink text-paper hover:bg-ink hover:text-paper",
+          headerMenuTrigger,
+          open && `${headerIcon} bg-ink text-paper hover:bg-ink hover:text-paper`,
         )}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-haspopup="menu"
@@ -170,6 +273,7 @@ export function SiteHeaderMenu({
         onClick={() => setOpen((v) => !v)}
       >
         <MenuToggleIcon open={open} duration={duration} className="size-[18px]" />
+        <MenuWord visible={!open} reduceMotion={reduceMotion} />
       </button>
 
       {mounted
@@ -179,7 +283,8 @@ export function SiteHeaderMenu({
                 <motion.div
                   id={menuId}
                   role="menu"
-                  aria-label="Site"
+                  aria-label={signedIn ? undefined : "Site"}
+                  aria-labelledby={signedIn ? headingId : undefined}
                   initial={
                     reduceMotion
                       ? { opacity: 1 }
@@ -193,7 +298,7 @@ export function SiteHeaderMenu({
                   }
                   transition={{
                     duration: reduceMotion ? 0.08 : 0.22,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: blurEase,
                   }}
                   style={{
                     position: "fixed",
@@ -202,62 +307,34 @@ export function SiteHeaderMenu({
                     transformOrigin: "top right",
                     zIndex: 70,
                   }}
-                  className="min-w-[13.5rem] rounded-xl border border-black/[0.08] bg-paper/95 p-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_12px_32px_rgb(var(--ink-rgb)_/_0.12)] backdrop-blur-xl dark:border-white/[0.12]"
+                  className="min-w-[16rem] max-w-[20rem] rounded-xl border border-black/[0.08] bg-paper/95 p-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_12px_32px_rgb(var(--ink-rgb)_/_0.12)] backdrop-blur-xl dark:border-white/[0.12]"
                 >
-                  {MENU_ITEMS.map((item, i) => {
-                    const current =
-                      pathname === item.href ||
-                      (item.href === "/library" &&
-                        (pathname?.startsWith("/library/") ?? false)) ||
-                      (item.href === "/courses" &&
-                        (pathname?.startsWith("/courses/") ?? false));
-                    return (
-                      <motion.div
-                        key={item.href}
-                        initial={
-                          reduceMotion ? false : { opacity: 0, x: 8 }
-                        }
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          delay: reduceMotion ? 0 : 0.04 + i * 0.035,
-                          duration: 0.2,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                      >
-                        <Link
-                          role="menuitem"
-                          href={item.href}
-                          aria-current={current ? "page" : undefined}
-                          className={cn(
-                            menuItemClass,
-                            current && "bg-ink/[0.06] text-orange",
-                          )}
-                          onClick={() => setOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
-
-                  {isSignedIn ? (
+                  {signedIn ? (
                     <>
                       <div
-                        role="separator"
-                        className="my-1 h-px bg-ink/[0.08]"
-                      />
-                      <motion.div
-                        initial={
-                          reduceMotion ? false : { opacity: 0, x: 8 }
-                        }
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          delay: reduceMotion
-                            ? 0
-                            : 0.04 + accountStartIndex * 0.035,
-                          duration: 0.2,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
+                        id={headingId}
+                        className="flex items-center gap-2.5 px-2.5 py-2"
+                      >
+                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-black/[0.08] dark:ring-white/[0.12]">
+                          <AvatarImage
+                            avatarId={account.avatarId}
+                            size={36}
+                          />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
+                            {title}
+                          </span>
+                          {subtitle ? (
+                            <span className="block truncate font-body text-[11px] font-medium tracking-tight text-ink/55">
+                              {subtitle}
+                            </span>
+                          ) : null}
+                        </span>
+                      </div>
+                      <MenuItemMotion
+                        index={itemIndex++}
+                        reduceMotion={reduceMotion}
                       >
                         <Link
                           role="menuitem"
@@ -272,19 +349,10 @@ export function SiteHeaderMenu({
                           <MenuBoardIcon />
                           My dashboard
                         </Link>
-                      </motion.div>
-                      <motion.div
-                        initial={
-                          reduceMotion ? false : { opacity: 0, x: 8 }
-                        }
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          delay: reduceMotion
-                            ? 0
-                            : 0.04 + (accountStartIndex + 1) * 0.035,
-                          duration: 0.2,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
+                      </MenuItemMotion>
+                      <MenuItemMotion
+                        index={itemIndex++}
+                        reduceMotion={reduceMotion}
                       >
                         <SignOutButton
                           role="menuitem"
@@ -299,7 +367,61 @@ export function SiteHeaderMenu({
                           <MenuSignOutIcon />
                           Sign me out
                         </SignOutButton>
-                      </motion.div>
+                      </MenuItemMotion>
+                      <div
+                        role="separator"
+                        className="my-1 h-px bg-ink/[0.08]"
+                      />
+                    </>
+                  ) : null}
+
+                  {MENU_ITEMS.map((item) => {
+                    const current =
+                      pathname === item.href ||
+                      (item.href === "/library" &&
+                        (pathname?.startsWith("/library/") ?? false)) ||
+                      (item.href === "/courses" &&
+                        (pathname?.startsWith("/courses/") ?? false));
+                    const i = itemIndex++;
+                    return (
+                      <MenuItemMotion
+                        key={item.href}
+                        index={i}
+                        reduceMotion={reduceMotion}
+                      >
+                        <Link
+                          role="menuitem"
+                          href={item.href}
+                          aria-current={current ? "page" : undefined}
+                          className={cn(
+                            menuItemClass,
+                            current && "bg-ink/[0.06] text-orange",
+                          )}
+                          onClick={() => setOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      </MenuItemMotion>
+                    );
+                  })}
+
+                  {showThemeToggle ? (
+                    <>
+                      <div
+                        role="separator"
+                        className="my-1 h-px bg-ink/[0.08]"
+                      />
+                      <MenuItemMotion
+                        index={itemIndex}
+                        reduceMotion={reduceMotion}
+                      >
+                        <div className="flex min-h-9 items-center justify-between gap-3 px-2.5">
+                          <span className="font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
+                            Dark mode
+                          </span>
+                          <ThemeToggle />
+                        </div>
+                      </MenuItemMotion>
                     </>
                   ) : null}
                 </motion.div>

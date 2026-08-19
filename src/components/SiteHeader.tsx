@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/Logo";
 import { SiteHeaderControls } from "@/components/SiteHeaderControls";
 import { isPmqStudySurface } from "@/lib/pmq/constants";
+import type { HeaderAccount } from "@/components/SiteHeaderMenu";
 
 type SiteHeaderProps = {
   isSignedIn?: boolean;
+  account?: HeaderAccount | null;
   /**
    * When true (default), bar is fixed to the viewport.
    * When false, bar floats in document flow and scrolls away.
@@ -18,6 +20,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({
   isSignedIn = false,
+  account = null,
   pinned = true,
 }: SiteHeaderProps) {
   const pathname = usePathname();
@@ -41,7 +44,7 @@ export function SiteHeader({
         </span>
       </Link>
 
-      <SiteHeaderControls isSignedIn={isSignedIn} />
+      <SiteHeaderControls isSignedIn={isSignedIn} account={account} />
     </nav>
   );
 

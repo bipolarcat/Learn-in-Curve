@@ -48,6 +48,10 @@ export const headerIconTeal =
 export const headerPillSecondary =
   `group inline-flex h-8 min-w-8 items-center justify-center gap-1.5 rounded-xl border border-ink/10 bg-transparent px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink hover:bg-ink/[0.07] sm:px-3 ${motion}`;
 
+/** Overflow menu trigger: icon + Menu label (label hides when open). */
+export const headerMenuTrigger =
+  `group inline-flex h-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink hover:bg-ink/[0.07] ${motion}`;
+
 /** Labeled teal — Courses with brand accent. */
 export const headerPillTeal =
   `group inline-flex h-8 min-w-8 items-center justify-center gap-1.5 rounded-xl border border-transparent bg-teal px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper hover:brightness-[1.08] sm:px-3 ${motion}`;

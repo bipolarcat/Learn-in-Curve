@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { SiteHeader } from "@/components/SiteHeader";
+import { getUserProfile } from "@/lib/profile";
+import type { HeaderAccount } from "@/components/SiteHeaderMenu";
 
 type SiteHeaderWithAuthProps = {
   /** Pass through to SiteHeader — false on courses so the bar scrolls away. */
@@ -14,5 +16,20 @@ export async function SiteHeaderWithAuth({
     data: { user },
   } = await supabase.auth.getUser();
 
-  return <SiteHeader isSignedIn={!!user} pinned={pinned} />;
+  let account: HeaderAccount | null = null;
+  if (user) {
+    const profile = await getUserProfile(supabase, user);
+    const first = profile.first_name?.trim() ?? "";
+    const last = profile.last_name?.trim() ?? "";
+    const name = [first, last].filter(Boolean).join(" ") || null;
+    account = {
+      email: user.email?.trim() || "",
+      name,
+      avatarId: profile.avatar_id,
+    };
+  }
+
+  return (
+    <SiteHeader isSignedIn={!!user} account={account} pinned={pinned} />
+  );
 }

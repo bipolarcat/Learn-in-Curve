@@ -12,7 +12,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { hasCreatedAccount } from "@/lib/auth-hints";
 import { isPmqStudySurface } from "@/lib/pmq/constants";
 import { allowsDarkMode } from "@/lib/theme-routes";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
 import {
@@ -20,7 +19,7 @@ import {
   headerIconQuiet,
   headerPillTeal,
 } from "@/components/header-control";
-import { SiteHeaderMenu } from "@/components/SiteHeaderMenu";
+import { SiteHeaderMenu, type HeaderAccount } from "@/components/SiteHeaderMenu";
 
 export {
   stampChipActive,
@@ -221,18 +220,19 @@ function HeaderChip({
 
 type SiteHeaderControlsProps = {
   isSignedIn?: boolean;
+  account?: HeaderAccount | null;
 };
 
 /**
  * Site chrome:
- * Overflow menu holds Explore Courses, site links, and (when signed in)
- * My dashboard plus Sign me out.
+ * Overflow menu holds site links. Signed-in: profile summary, My dashboard,
+ * Sign me out, and (on dark-capable routes) the theme toggle.
  * Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home.
- * Dark toggle: dashboard, enrolled PMQ overview, and individual LOs only.
  * Auth pages (`/auth/*`) and PMQ preview: Home only, no Sign in/up CTA.
  */
 export function SiteHeaderControls({
   isSignedIn = false,
+  account = null,
 }: SiteHeaderControlsProps) {
   const pathname = usePathname();
   const [guestCta, setGuestCta] = useState<GuestCta>({
@@ -264,14 +264,8 @@ export function SiteHeaderControls({
     >
       {isSignedIn ? (
         <>
-          {darkModeAllowed && (
-            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
-              <ThemeToggle />
-            </HeaderChip>
-          )}
-
           {showHome ? (
-            <HeaderChip style={{ "--i": 2 } as CSSProperties}>
+            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
               <HomeNavButton className={headerIconQuiet} />
             </HeaderChip>
           ) : null}
@@ -282,12 +276,6 @@ export function SiteHeaderControls({
         </HeaderChip>
       ) : (
         <>
-          {darkModeAllowed && (
-            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
-              <ThemeToggle />
-            </HeaderChip>
-          )}
-
           <HeaderChip style={{ "--i": 2 } as CSSProperties}>
             <HeaderNavButton
               href={guestCta.href}
@@ -317,7 +305,11 @@ export function SiteHeaderControls({
       )}
 
       <HeaderChip style={{ "--i": 5 } as CSSProperties}>
-        <SiteHeaderMenu isSignedIn={isSignedIn} />
+        <SiteHeaderMenu
+          isSignedIn={isSignedIn}
+          account={account}
+          showThemeToggle={darkModeAllowed}
+        />
       </HeaderChip>
     </div>
   );

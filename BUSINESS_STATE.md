@@ -19,6 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-08-19** — Header menu: labeled **Menu** (21st.dev blur-out-up, hides when open); signed-in profile summary (avatar, name if set, else email); My dashboard and Sign me out sit at the top; dark-mode toggle moved into the panel on dark-capable routes. (`SiteHeaderMenu.tsx`, `SiteHeaderWithAuth.tsx`, `header-control.ts`)
+
 - **2026-08-19** — Dark mode toggle is back on the enrolled PMQ course overview (`/courses/pmq-in-5-days`). Preview, pricing, mock, and public `/pmq` stay light. (`theme-routes.ts`, `layout.tsx`, `ThemeRoutePolicy.tsx`)
 
 - **2026-08-19** — Signed-in header: Dashboard and Sign out left the control bar. They sit at the bottom of the overflow menu as **My dashboard** and **Sign me out** (door icon). (`SiteHeaderControls.tsx`, `SiteHeaderMenu.tsx`)
