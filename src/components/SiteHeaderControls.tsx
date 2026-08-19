@@ -226,7 +226,7 @@ type SiteHeaderControlsProps = {
 /**
  * Site chrome:
  * Overflow menu holds site links. Signed-in: profile summary, My dashboard,
- * Sign me out, and (on dark-capable routes) the theme toggle.
+ * Sign out, and (on dark-capable routes) the theme toggle.
  * Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home.
  * Auth pages (`/auth/*`) and PMQ preview: Home only, no Sign in/up CTA.
  */

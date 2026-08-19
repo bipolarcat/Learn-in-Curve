@@ -356,8 +356,8 @@ export function SiteHeaderMenu({
                       >
                         <SignOutButton
                           role="menuitem"
-                          aria-label="Sign me out"
-                          title="Sign me out"
+                          aria-label="Sign out"
+                          title="Sign out"
                           className={cn(
                             "group overflow-visible",
                             menuItemClass,
@@ -365,7 +365,7 @@ export function SiteHeaderMenu({
                           )}
                         >
                           <MenuSignOutIcon />
-                          Sign me out
+                          Sign out
                         </SignOutButton>
                       </MenuItemMotion>
                       <div
@@ -381,7 +381,8 @@ export function SiteHeaderMenu({
                       (item.href === "/library" &&
                         (pathname?.startsWith("/library/") ?? false)) ||
                       (item.href === "/courses" &&
-                        (pathname?.startsWith("/courses/") ?? false));
+                        (pathname === "/courses" ||
+                          pathname === "/courses/"));
                     const i = itemIndex++;
                     return (
                       <MenuItemMotion
@@ -417,7 +418,7 @@ export function SiteHeaderMenu({
                       >
                         <div className="flex min-h-9 items-center justify-between gap-3 px-2.5">
                           <span className="font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
-                            Dark mode
+                            Theme
                           </span>
                           <ThemeToggle />
                         </div>
