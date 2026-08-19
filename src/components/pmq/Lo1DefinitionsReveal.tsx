@@ -44,7 +44,6 @@ function usePanelHeight() {
 
 function DefinitionPlate({
   def,
-  index,
   open,
   onToggle,
   onKeyDown,
@@ -53,7 +52,6 @@ function DefinitionPlate({
   panelId,
 }: {
   def: KeyDefinition;
-  index: number;
   open: boolean;
   onToggle: () => void;
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
@@ -79,34 +77,25 @@ function DefinitionPlate({
           aria-controls={panelId}
           onClick={onToggle}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-2 px-3 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07]"
+          className="group flex w-full min-h-11 items-center gap-1.5 py-2.5 pl-2 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3"
         >
           <span
             className={cn(
-              "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight",
-              open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
+              "mt-px size-1.5 shrink-0 rounded-[3px]",
+              open ? "bg-teal" : "bg-teal/45",
             )}
-            style={
-              open
-                ? {
-                    backgroundColor: "var(--teal)",
-                    color: "rgb(var(--paper-rgb))",
-                  }
-                : {
-                    backgroundColor:
-                      "color-mix(in srgb, var(--teal) 22%, transparent)",
-                    color: "var(--teal)",
-                  }
-            }
+            style={{
+              backgroundColor: open
+                ? "var(--teal)"
+                : "color-mix(in srgb, var(--teal) 45%, transparent)",
+            }}
             aria-hidden
-          >
-            {index}
-          </span>
+          />
           <span
             className={cn(
-              "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)]",
+              "min-w-0 flex-1 text-left transition-colors duration-150 ease-[var(--ease-out-quint)]",
               termClass,
-              index >= 9 ? "line-clamp-2" : "line-clamp-1",
+              "line-clamp-2",
               "group-hover:text-orange",
             )}
           >
@@ -210,7 +199,6 @@ export function Lo1DefinitionsReveal({
           <DefinitionPlate
             key={def.term}
             def={def}
-            index={index + 1}
             open={openTerm === def.term}
             buttonId={`${baseId}-term-${index}`}
             panelId={`${baseId}-panel-${index}`}

@@ -93,6 +93,26 @@ export function parseFreeMockSoftNavFrom(
   return null;
 }
 
+/**
+ * Left click with no modifier keys. Cmd, Ctrl, Shift, Alt, and middle click
+ * stay native so a real anchor can open in a new tab.
+ */
+export function isSoftNavClick(event: {
+  button: number;
+  metaKey: boolean;
+  ctrlKey: boolean;
+  shiftKey: boolean;
+  altKey: boolean;
+}): boolean {
+  return (
+    event.button === 0 &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    !event.altKey
+  );
+}
+
 /** Append or replace `from` on a path (pathname + optional existing query). */
 export function withSoftNavFrom(path: string, from: SoftNavFrom): string {
   const q = path.indexOf("?");

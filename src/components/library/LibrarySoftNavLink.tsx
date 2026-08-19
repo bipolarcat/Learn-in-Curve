@@ -1,8 +1,10 @@
 "use client";
 
-import { useTransition, type ReactNode } from "react";
+import { useTransition, type MouseEvent, type ReactNode } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner";
+import { isSoftNavClick } from "@/lib/soft-nav-back";
 
 type LibrarySoftNavLinkProps = {
   href: string;
@@ -16,7 +18,8 @@ type LibrarySoftNavLinkProps = {
 };
 
 /**
- * Soft-nav link for library hub / article chrome — spinner replaces label while routing.
+ * Soft-nav link for library hub / article chrome. Real anchor for crawlers
+ * and new-tab clicks; spinner replaces the label while routing.
  */
 export function LibrarySoftNavLink({
   href,
@@ -30,18 +33,22 @@ export function LibrarySoftNavLink({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
+    <Link
+      href={href}
       aria-busy={pending}
+      aria-disabled={pending || undefined}
       aria-label={pending ? busyLabel : undefined}
-      className={`${className} disabled:cursor-wait disabled:opacity-80`.trim()}
-      onClick={() => {
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
+      className={`${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner
@@ -53,6 +60,6 @@ export function LibrarySoftNavLink({
       ) : (
         children
       )}
-    </button>
+    </Link>
   );
 }
