@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-08-19** — LO1 definition plates use numbered teal discs (1, 2, 3…) instead of dots; uncovered fills solid teal. (`Lo1DefinitionsReveal.tsx`)
+- **2026-08-19** — LO1 definitions intro copy: “Uncover a term to see both the Plain English and APM definitions.” (`Lo1DefinitionsReveal.tsx`)
 
 - **2026-08-19** — Header menu copy: Theme (was Dark mode), Sign out (was Sign me out). Explore Courses is current only on `/courses`, not on course overview or LO routes. (`SiteHeaderMenu.tsx`)
 

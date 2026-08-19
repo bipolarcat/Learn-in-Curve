@@ -229,7 +229,7 @@ export function Lo1DefinitionsReveal({
   return (
     <div>
       <p className="mb-3 font-body text-[13px] font-medium leading-snug text-pretty text-ink/55">
-        Uncover a term to see the Plain English, then the APM wording.
+        Uncover a term to see both the Plain English and APM definitions.
       </p>
       <div
         className="grid grid-cols-2 gap-2"
