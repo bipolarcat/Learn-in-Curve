@@ -17,6 +17,7 @@ import {
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { SignOutButton } from "@/components/SignOutButton";
+import { NewBadge } from "@/components/pmq/tier-badge";
 import type { AvatarId } from "@/lib/avatars";
 import { cn } from "@/lib/utils";
 
@@ -29,8 +30,8 @@ export type HeaderAccount = {
 
 const MENU_ITEMS = [
   { href: "/courses", label: "Explore Courses" },
-  { href: "/free-mock-exam", label: "Mock Me" },
-  { href: "/library", label: "The Shelf" },
+  { href: "/free-mock-exam", label: "Mock Me", badge: "New" },
+  { href: "/library", label: "The Shelf", badge: "New" },
   { href: "/about", label: "Behind the Curve" },
   { href: "/contact", label: "Let's Talk" },
 ] as const;
@@ -401,6 +402,9 @@ export function SiteHeaderMenu({
                           onClick={() => setOpen(false)}
                         >
                           {item.label}
+                          {"badge" in item && item.badge ? (
+                            <NewBadge />
+                          ) : null}
                         </Link>
                       </MenuItemMotion>
                     );

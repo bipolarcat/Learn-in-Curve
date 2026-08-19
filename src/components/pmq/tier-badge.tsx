@@ -35,3 +35,12 @@ export function BetaBadge() {
     </span>
   );
 }
+
+/** Same chip geometry as Pro / AI Pro; orange wash like the Pro teal plate. */
+export function NewBadge() {
+  return (
+    <span className="inline-flex h-[1.125rem] shrink-0 items-center rounded-[0.25rem] bg-orange/[0.12] px-1 text-[10px] font-semibold tracking-tight text-orange dark:bg-orange/[0.2]">
+      New
+    </span>
+  );
+}
