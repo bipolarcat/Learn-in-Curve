@@ -117,7 +117,7 @@ function OutcomePlate({
           aria-hidden={!open}
           inert={!open ? true : undefined}
         >
-          <div className="border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12] [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
+          <div className="px-3.5 pb-4 pt-3 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
             <CoreContentBlock block={block} />
           </div>
         </div>
