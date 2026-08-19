@@ -8,6 +8,8 @@ export type CoreContentBlock = {
   outcome_code: string;
   outcome_title: string;
   body_markdown: string;
+  /** One-line tease on closed LO1 plates. Optional if an older body omits it. */
+  key_takeaway?: string;
   diagrams?: {
     id: string;
     file: string;

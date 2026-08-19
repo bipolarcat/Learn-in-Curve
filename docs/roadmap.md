@@ -73,7 +73,7 @@ Not a general PM learning platform — a gamified, interactive, exam-focused rev
 - [x] LO Orient quieter pass — full wrap width; separate Context / Outcomes cards; pathway Lucide icons (Compass / ListChecks) — 2026-07-29; **2026-07-29:** split into two opaque cards (was one panel + divider); **2026-07-30:** body copy full card width (no icon-column indent)
 - [x] LO Learn / Apply body copy full card width (markdown + list shells) — 2026-07-30
 - [x] LO Orient critique fix-all (keep wrap width) — opaque surface; Context/Outcomes hierarchy; empty + Next→Learn; Learn dialect rhyme — 2026-07-29
-- [x] LO Learn quieter redesign — separate opaque cards at wrap width; quiet definitions; caption-in-diagram — 2026-07-29. **2026-08-19:** LO1 definitions are click-to-uncover plates (2-col on mobile and desktop); other LOs unchanged.
+- [x] LO Learn quieter redesign — separate opaque cards at wrap width; quiet definitions; caption-in-diagram — 2026-07-29. **2026-08-19:** LO1 definitions are click-to-uncover plates (2-col on mobile and desktop); other LOs unchanged. **2026-08-19:** LO1 core is four outcome accordion plates; other LOs unchanged.
 - [x] LO Learn core markdown tables — continuous thin ink outline (`markdown-table-shell` + internal grid) — 2026-07-30
 - [x] LO Learn audit fix-all — heading demotion, AA contrast, flatten nested cards, next/image diagrams — 2026-07-16
 - [x] Free-tier Video/Audio locked preview — blurred media chrome + quiet dashboard-matched Pro CTA (`ProMediaLockedPreview.tsx`), overview sub-header omits LO title (shows “Learning Objective N” only; placeholder in `LoMediaPlaceholder.tsx`) — 2026-07-16; **2026-08-06:** removed “What’s included” dropdown (heading + Get Pro only)
