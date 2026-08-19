@@ -57,7 +57,6 @@ function OutcomePlate({
 }) {
   const { ref, height } = usePanelHeight();
   const code = block.outcome_code.toLowerCase();
-  const takeaway = block.key_takeaway?.trim() ?? "";
 
   return (
     <div className="min-w-0 rounded-xl border border-black/[0.08] bg-paper dark:border-white/[0.12]">
@@ -73,28 +72,21 @@ function OutcomePlate({
             if (event.pointerType === "touch") event.currentTarget.blur();
           }}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-start gap-2.5 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
+          className="group flex w-full min-h-11 items-center gap-2.5 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
         >
-          <OutcomeCodeBadge code={code} filled={open} className="mt-0.5" />
-          <span className="min-w-0 flex-1">
-            <span
-              className={cn(
-                headingClass,
-                "block transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
-              )}
-            >
-              <span className="sr-only">{code}: </span>
-              {block.outcome_title}
-            </span>
-            {!open && takeaway ? (
-              <span className="mt-1 block font-body text-sm font-normal leading-snug text-pretty text-ink/70 line-clamp-2">
-                {takeaway}
-              </span>
-            ) : null}
+          <OutcomeCodeBadge code={code} filled={open} />
+          <span
+            className={cn(
+              headingClass,
+              "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
+            )}
+          >
+            <span className="sr-only">{code}: </span>
+            {block.outcome_title}
           </span>
           <svg
             className={cn(
-              "mt-2.5 size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0",
+              "size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0",
               open && "rotate-180",
             )}
             viewBox="0 0 24 24"
@@ -132,8 +124,8 @@ function OutcomePlate({
 }
 
 /**
- * LO1-only core content. One open outcome at a time. Closed plates show
- * key_takeaway when the body includes it. Same 220ms clip as Lo1DefinitionsReveal.
+ * LO1-only core content. One open outcome at a time. Same 220ms clip as
+ * Lo1DefinitionsReveal.
  */
 export function Lo1CoreContentReveal({
   blocks,
