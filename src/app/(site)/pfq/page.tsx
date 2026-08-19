@@ -18,6 +18,7 @@ import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import {
   formatPfqPriceGbp,
+  PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
@@ -63,23 +64,46 @@ export default async function PfqLandingPage() {
             learning outcome — so you can see exactly which ones you cannot
             answer yet.
           </p>
+          {/*
+            Three states, because an existing PMQ learner is not a new visitor.
+            Sending someone who already has an account to a sign-up page (or to
+            a PMQ dashboard that says nothing about PFQ) is the dead end this
+            branch exists to prevent.
+          */}
           <div className={styles.actions}>
-            <PfqStartLink
-              isSignedIn={!!user}
-              from="pfq"
-              className={stampCtaPrimary}
-              analyticsLocation="pfq_overview"
-            >
-              Enrol for Free
-            </PfqStartLink>
-            <Link href={PFQ_PRICING_HREF} className={stampCtaSecondary}>
-              View Plans
-              <CtaArrow />
-            </Link>
+            {hasPro ? (
+              <Link href={PFQ_LEARN_HREF} className={stampCtaPrimary}>
+                Continue the course
+                <CtaArrow />
+              </Link>
+            ) : user ? (
+              <Link href={PFQ_PRICING_HREF} className={stampCtaPrimary}>
+                Unlock the full course
+                <CtaArrow />
+              </Link>
+            ) : (
+              <>
+                <PfqStartLink
+                  isSignedIn={false}
+                  from="pfq"
+                  className={stampCtaPrimary}
+                  analyticsLocation="pfq_overview"
+                >
+                  Enrol for Free
+                </PfqStartLink>
+                <Link href={PFQ_PRICING_HREF} className={stampCtaSecondary}>
+                  View Plans
+                  <CtaArrow />
+                </Link>
+              </>
+            )}
           </div>
           <p className={styles.note}>
-            Create an account free. The course itself unlocks with Pro — one
-            payment, no subscription.
+            {hasPro
+              ? "You have the Pro Bundle. Lessons, practice, the mock and Trap School are all unlocked."
+              : user
+                ? "You are signed in. PFQ unlocks on this same account, one payment, no subscription and no second sign-up."
+                : "Create an account free. The course itself unlocks with Pro — one payment, no subscription."}
           </p>
         </header>
 

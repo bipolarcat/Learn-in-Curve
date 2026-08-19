@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "PRINCE2 teaches a method. The APM PMQ tests broad project management judgement. Which one your employer wants, and why plenty of people end up holding both.",
   group: "choosing",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-vs-pmp",
     "apm-pmq-vs-pfq",

@@ -22,8 +22,6 @@ export type LibraryPage = {
   /** Markdown body, target 600–900 words when copy lands. */
   body: string;
   faqs: LibraryFaq[];
-  /** LO numbers to pull ring-fenced sample questions from. */
-  sampleQuestionLos: number[];
   /** Sibling slugs for the related-links block. Omit or leave empty for none. */
   related?: string[];
   status: "draft" | "published";

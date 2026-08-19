@@ -11,6 +11,13 @@ import { page as isApmPmqWorthIt } from "./pages/is-apm-pmq-worth-it";
 import { page as apmPmqBusinessCase } from "./pages/apm-pmq-business-case";
 import { page as apmPmqRiskManagement } from "./pages/apm-pmq-risk-management";
 import { page as apmPmqStakeholderManagement } from "./pages/apm-pmq-stakeholder-management";
+import { page as apmPmqGovernance } from "./pages/apm-pmq-governance";
+import { page as apmPmqProjectLifeCycles } from "./pages/apm-pmq-project-life-cycles";
+import { page as apmPmqBreakdownStructures } from "./pages/apm-pmq-breakdown-structures";
+import { page as apmPmqScheduling } from "./pages/apm-pmq-scheduling-and-critical-path";
+import { page as apmPmqChangeControl } from "./pages/apm-pmq-change-control";
+import { page as apmPmqQualityManagement } from "./pages/apm-pmq-quality-management";
+import { page as apmPmqLeadershipAndTeams } from "./pages/apm-pmq-leadership-and-teams";
 
 /**
  * Register new pages here. Adding page #40 = one import + one array entry.
@@ -27,6 +34,13 @@ export const LIBRARY_PAGES: LibraryPage[] = [
   apmPmqBusinessCase,
   apmPmqRiskManagement,
   apmPmqStakeholderManagement,
+  apmPmqGovernance,
+  apmPmqProjectLifeCycles,
+  apmPmqBreakdownStructures,
+  apmPmqScheduling,
+  apmPmqChangeControl,
+  apmPmqQualityManagement,
+  apmPmqLeadershipAndTeams,
 ];
 
 const bySlug = new Map(LIBRARY_PAGES.map((p) => [p.slug, p]));

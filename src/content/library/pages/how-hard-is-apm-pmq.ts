@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "The APM PMQ isn't hard because the content is difficult. It's hard because most people prepare for a memory test and sit an application test. Here's the difference.",
   group: "exam-prep",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-pass-mark",
     "apm-pmq-exam-format",

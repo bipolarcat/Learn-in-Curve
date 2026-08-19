@@ -17,6 +17,7 @@ import { canAccessCourseReport, canAccessSly } from "@/lib/pmq/tiers";
 import { summarizeFairUsage } from "@/lib/tutor/fair-usage";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 import { PMQ_SLUG, pmqLoHref } from "@/lib/pmq/constants";
+import { PFQ_LEARN_HREF, PFQ_SLUG } from "@/lib/pfq/constants";
 import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard";
 import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
@@ -59,6 +60,9 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     getUserProfile(supabase, user),
   ]);
   const pmqCourse = courses.find((c) => c.slug === PMQ_SLUG);
+  // PFQ is a separate purchase on the same account. It appears here only when
+  // the learner holds a feature_entitlements row for it — there is no free tier.
+  const pfqCourse = courses.find((c) => c.slug === PFQ_SLUG);
 
   const [stats, userTier, completion, sections, completedSectionIds, hasReport, loStageReached] =
     pmqCourse
@@ -211,19 +215,35 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                   returnPath="/dashboard"
                 />
               </>
-            ) : (
-              courses.map((course) => (
-                <Link
-                  key={course.id}
-                  href={`/courses/${course.slug}`}
-                  className={`${productSurfaceQuiet} block max-w-md px-4 py-3.5 text-inherit no-underline transition-colors duration-150 hover:border-ink/20`}
-                >
-                  <h3 className="font-body text-[0.9375rem] font-medium tracking-tight text-ink">
-                    {course.name}
-                  </h3>
-                </Link>
-              ))
-            )}
+            ) : null}
+
+            {pfqCourse ? (
+              <Link
+                href={PFQ_LEARN_HREF}
+                className={`${productSurfaceQuiet} block max-w-md px-4 py-3.5 text-inherit no-underline transition-colors duration-150 hover:border-ink/20`}
+              >
+                <h3 className="font-body text-[0.9375rem] font-medium tracking-tight text-ink">
+                  {pfqCourse.name}
+                </h3>
+                <p className="mt-1 text-[13px] leading-relaxed text-ink/60">
+                  Lessons, practice and your coverage map.
+                </p>
+              </Link>
+            ) : null}
+
+            {!(pmqCourse && stats) && !pfqCourse
+              ? courses.map((course) => (
+                  <Link
+                    key={course.id}
+                    href={`/courses/${course.slug}`}
+                    className={`${productSurfaceQuiet} block max-w-md px-4 py-3.5 text-inherit no-underline transition-colors duration-150 hover:border-ink/20`}
+                  >
+                    <h3 className="font-body text-[0.9375rem] font-medium tracking-tight text-ink">
+                      {course.name}
+                    </h3>
+                  </Link>
+                ))
+              : null}
           </div>
         )}
       </div>

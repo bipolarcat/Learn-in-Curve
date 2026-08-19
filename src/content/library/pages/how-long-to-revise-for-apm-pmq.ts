@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "How much revision the APM PMQ actually needs, how to weight your time to match where the 90 marks sit, and when to sit your first mock exam.",
   group: "exam-prep",
-  sampleQuestionLos: [],
   related: [
     "how-hard-is-apm-pmq",
     "apm-pmq-pass-mark",

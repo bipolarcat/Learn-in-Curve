@@ -7,11 +7,12 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "Stakeholder engagement and communication for the APM PMQ: why engagement is not the same as communication, how analysis drives the plan, and how the questions are framed.",
   group: "syllabus",
-  sampleQuestionLos: [10],
   related: [
     "apm-pmq-business-case",
     "apm-pmq-risk-management",
     "is-apm-pmq-worth-it",
+    "apm-pmq-leadership-and-teams",
+    "apm-pmq-governance",
   ],
   status: "published",
   updatedAt: "2026-08-08",

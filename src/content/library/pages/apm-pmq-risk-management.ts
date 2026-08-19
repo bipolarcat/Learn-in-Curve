@@ -7,11 +7,12 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "Risk and issue management for the APM PMQ: the risk versus issue distinction, why opportunities count as risks, risk owner versus action owner, and how the questions are framed.",
   group: "syllabus",
-  sampleQuestionLos: [23],
   related: [
     "apm-pmq-business-case",
     "apm-pmq-stakeholder-management",
     "how-hard-is-apm-pmq",
+    "apm-pmq-scheduling-and-critical-path",
+    "apm-pmq-quality-management",
   ],
   status: "published",
   updatedAt: "2026-08-08",

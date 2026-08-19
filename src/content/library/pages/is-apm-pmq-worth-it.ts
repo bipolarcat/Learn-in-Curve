@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "What the APM PMQ actually does for your career, who gets the most out of it, and the situations where it isn't the right spend. Written without the sales pitch.",
   group: "choosing",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-vs-prince2",
     "apm-pmq-vs-pmp",

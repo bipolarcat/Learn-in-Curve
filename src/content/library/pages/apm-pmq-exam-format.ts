@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "The full APM PMQ format: two parts, four question types, where the 90 marks sit, and how the syllabus is weighted. Plus the rule about Part 1 that catches people out.",
   group: "exam-prep",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-pass-mark",
     "how-hard-is-apm-pmq",

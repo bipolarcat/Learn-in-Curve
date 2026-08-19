@@ -1,5 +1,4 @@
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
-import { LibrarySampleQuestions } from "@/components/library/LibrarySampleQuestions";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
@@ -10,7 +9,6 @@ import {
   pageHasTodoCopy,
   type LibraryPage,
 } from "@/content/library";
-import { pickLibrarySamples } from "@/lib/library/pick-samples";
 import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
 
 const SITE_URL =
@@ -79,14 +77,6 @@ export function buildLibraryJsonLd(page: LibraryPage) {
 }
 
 export function LibraryArticle({ page }: { page: LibraryPage }) {
-  // Sample questions belong only on syllabus-topic pages, where they teach a
-  // specific learning objective. Exam-prep and choosing pages end on the free
-  // mock CTA instead: they answer a decision, not a topic, and drawing samples
-  // across many pages from a shallow pool caused repeats between pages.
-  const samples =
-    page.group === "syllabus"
-      ? pickLibrarySamples(page.sampleQuestionLos, 3, page.slug)
-      : [];
   const related = (page.related ?? [])
     .map((slug) => getLibraryPage(slug))
     .filter((p): p is LibraryPage => Boolean(p));
@@ -137,7 +127,7 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
           </ol>
         </nav>
 
-        {/* Reading card — title, answer-first, body, samples only */}
+        {/* Reading card — title, answer-first, body */}
         <div
           className={`mx-auto max-w-[46rem] ${productSurfaceOpaque} px-5 py-7 sm:px-8 sm:py-9`}
         >
@@ -161,12 +151,6 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
               className="pmq-markdown--library-core"
             />
           </div>
-
-          {samples.length > 0 ? (
-            <div className="mt-12">
-              <LibrarySampleQuestions questions={samples} />
-            </div>
-          ) : null}
         </div>
 
         {/* FAQ — own accordion card, full section width */}

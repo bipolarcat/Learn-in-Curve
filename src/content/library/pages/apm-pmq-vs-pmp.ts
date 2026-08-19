@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "How the APM PMQ and PMI's PMP differ on eligibility, exam format, geography and ongoing renewal, and how to work out which one your career actually needs.",
   group: "choosing",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-vs-prince2",
     "is-apm-pmq-worth-it",

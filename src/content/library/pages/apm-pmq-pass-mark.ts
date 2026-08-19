@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "The APM PMQ pass mark changes between exam papers. Here's how it's set, why 50 of the 90 marks sit in ten questions, and what a borderline fail actually means.",
   group: "exam-prep",
-  sampleQuestionLos: [],
   related: [
     "apm-pmq-exam-format",
     "how-hard-is-apm-pmq",

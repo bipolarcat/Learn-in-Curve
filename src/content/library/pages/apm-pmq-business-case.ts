@@ -7,11 +7,12 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "The business case for the APM PMQ: who owns it, why it stays alive through the life cycle, and how five-mark questions on it are actually framed.",
   group: "syllabus",
-  sampleQuestionLos: [4],
   related: [
     "apm-pmq-risk-management",
     "apm-pmq-stakeholder-management",
     "apm-pmq-exam-format",
+    "apm-pmq-governance",
+    "apm-pmq-change-control",
   ],
   status: "published",
   updatedAt: "2026-08-08",

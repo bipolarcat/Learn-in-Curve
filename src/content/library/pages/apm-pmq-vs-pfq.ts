@@ -7,7 +7,6 @@ export const page = scaffoldLibraryPage({
   metaDescription:
     "The real difference between the APM PFQ and PMQ, who each one is for, whether you need the PFQ first, and how the exams differ in format and difficulty.",
   group: "choosing",
-  sampleQuestionLos: [],
   related: [
     "how-hard-is-apm-pmq",
     "apm-pmq-exam-format",
