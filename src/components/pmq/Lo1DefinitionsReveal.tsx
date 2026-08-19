@@ -86,10 +86,8 @@ function DefinitionPlate({
   return (
     <div
       className={cn(
-        "min-w-0 overflow-hidden rounded-xl border bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] transition-[border-color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
-        open
-          ? "col-span-2 border-black/[0.08] dark:border-white/[0.12]"
-          : "border-black/[0.08] hover:border-teal/30 dark:border-white/[0.12]",
+        "min-w-0 overflow-hidden rounded-xl border border-black/[0.08] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] dark:border-white/[0.12]",
+        open && "col-span-2",
       )}
     >
       <h3 className="m-0">
@@ -106,8 +104,8 @@ function DefinitionPlate({
             className={cn(
               "inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)]",
               open
-                ? "bg-teal text-paper"
-                : "bg-teal/25 text-teal/60",
+                ? "bg-[#1B6560] text-[#FBF3E1]"
+                : "bg-[#1B6560]/25 text-[#1B6560]/60",
             )}
             aria-hidden
           >
@@ -133,7 +131,7 @@ function DefinitionPlate({
         className="overflow-hidden"
       >
         <div ref={ref} id={panelId} role="region">
-          <div className="space-y-3 border-t border-teal/15 px-3.5 pb-3.5 pt-3">
+          <div className="space-y-3 border-t border-black/[0.08] px-3.5 pb-3.5 pt-3 dark:border-white/[0.12]">
             <motion.div
               initial={false}
               animate={
