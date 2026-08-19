@@ -41,7 +41,7 @@ Not a general PM learning platform — a gamified, interactive, exam-focused rev
 - [x] Header controls: ThemeToggle pill palette updated to Curve ink/cream tokens (no stark white) — **2026-07-27:** `src/components/ui/theme-toggle.tsx`
 - [x] Header controls: shrank the ThemeToggle pill and removed the Home chip from `/dashboard` — **2026-07-27:** `src/components/ui/theme-toggle.tsx`, `SiteHeaderControls.tsx`
 - [x] Header ThemeToggle: wide pill (`w-14`), vertically thinner than icon chrome (`h-6`), fully rounded — **2026-07-30:** `src/components/ui/theme-toggle.tsx`
-- [x] Header controls: Dashboard + Sign out compact discs match ThemeToggle height with Curve tokens + hover micro-motion — **2026-07-27:** `header-control.ts`, `SiteHeaderControls.tsx`
+- [x] Header controls: Dashboard + Sign out compact discs match ThemeToggle height with Curve tokens + hover micro-motion — **2026-07-27:** `header-control.ts`, `SiteHeaderControls.tsx`. **2026-08-19:** signed-in Dashboard and Sign out moved into the overflow menu (**My dashboard**, **Sign me out**).
 - [x] Header Sign out: visible ink outline + leftward arrow (partial hover / full click exit) — **2026-07-27:** `SignOutButton.tsx`, `SiteHeaderControls.tsx`
 - [x] Header Dashboard control quieter motion (no lift/rotate/scale; soft press only) — **2026-07-27:** `header-control.ts`, `SiteHeaderControls.tsx`
 - [x] Signed-in landing Courses control matches compact header disc size (`h-7`) — **2026-07-27:** `headerIconCompactTeal`

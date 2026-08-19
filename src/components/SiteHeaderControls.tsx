@@ -9,13 +9,11 @@ import {
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
-import { SignOutButton } from "@/components/SignOutButton";
 import { hasCreatedAccount } from "@/lib/auth-hints";
 import { isPmqStudySurface } from "@/lib/pmq/constants";
 import { allowsDarkMode } from "@/lib/theme-routes";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Spinner } from "@/components/ui/spinner";
-import { cn } from "@/lib/utils";
 import { trackCtaClicked } from "@/lib/analytics/events";
 import {
   headerIconPrimary,
@@ -39,10 +37,6 @@ export {
 
 const iconClass =
   "header-icon h-[17px] w-[17px] shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)]";
-
-/** Smaller glyph when a control explicitly opts into compact sizing. */
-const compactIconClass =
-  "header-icon h-3.5 w-3.5 shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)]";
 
 function HomeIcon({ busy = false }: { busy?: boolean }) {
   const reduceMotion = useReducedMotion();
@@ -94,29 +88,7 @@ function HomeIcon({ busy = false }: { busy?: boolean }) {
   );
 }
 
-function BoardIcon({ compact = false }: { compact?: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={compact ? 1.75 : 2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={
-        compact
-          ? compactIconClass
-          : `${iconClass} group-hover:rotate-[-6deg]`
-      }
-    >
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <path d="M3 10h18M9 4v16" />
-    </svg>
-  );
-}
-
-/** Soft-nav header control — ellipsis while the destination is pending. */
+/** Soft-nav header control. Ellipsis while the destination is pending. */
 function HeaderNavButton({
   href,
   className,
@@ -199,62 +171,6 @@ function HomeNavButton({ className }: { className: string }) {
   );
 }
 
-function DashboardNavButton() {
-  return (
-    <HeaderNavButton
-      href="/dashboard"
-      className={headerIconPrimary}
-      ariaLabel="Dashboard"
-      title="Dashboard"
-      busyLabel="Opening dashboard"
-      spinnerClassName="text-paper"
-    >
-      <BoardIcon />
-    </HeaderNavButton>
-  );
-}
-
-function SignOutIcon({ compact = false }: { compact?: boolean }) {
-  const sizeClass = compact ? compactIconClass : iconClass;
-  const doorMotion =
-    "motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none";
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={compact ? 1.75 : 2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={`${sizeClass} overflow-visible`}
-    >
-      {/* Open door — idle / hover */}
-      <path
-        d="M10 8V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-2"
-        className={cn(doorMotion, "group-[.is-signing-out]:opacity-0")}
-      />
-      {/* Closed door — full left edge + solid fill after click */}
-      <path
-        d="M12 4h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
-        fill="currentColor"
-        stroke="currentColor"
-        className={cn(doorMotion, "opacity-0 group-[.is-signing-out]:opacity-100")}
-      />
-      {/* Arrow: slight left on hover; snaps fully off-left on click */}
-      <g
-        className={cn(
-          "origin-center motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-          "motion-safe:group-hover:-translate-x-0.5",
-          "motion-safe:group-[.is-signing-out]:-translate-x-[20px]",
-        )}
-      >
-        <path d="M15 12H3M6 9l-3 3 3 3" />
-      </g>
-    </svg>
-  );
-}
-
 /** Person for Sign up / Sign in */
 function AuthIcon() {
   return (
@@ -309,11 +225,11 @@ type SiteHeaderControlsProps = {
 
 /**
  * Site chrome:
- * - Overflow menu holds Explore Courses and the other site links
- * - Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home
- * - Dark toggle: dashboard, PMQ overview and individual LOs only
- * - Auth pages (`/auth/*`) and PMQ preview: Home only — no Sign in/up CTA
- * - Signed in: same h-8 icon discs as guest chrome
+ * Overflow menu holds Explore Courses, site links, and (when signed in)
+ * My dashboard plus Sign me out.
+ * Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home.
+ * Dark toggle: dashboard, PMQ overview and individual LOs only.
+ * Auth pages (`/auth/*`) and PMQ preview: Home only, no Sign in/up CTA.
  */
 export function SiteHeaderControls({
   isSignedIn = false,
@@ -354,24 +270,8 @@ export function SiteHeaderControls({
             </HeaderChip>
           )}
 
-          {!onDashboard ? (
-            <HeaderChip style={{ "--i": 2 } as CSSProperties}>
-              <DashboardNavButton />
-            </HeaderChip>
-          ) : null}
-
-          <HeaderChip style={{ "--i": 3 } as CSSProperties}>
-            <SignOutButton
-              aria-label="Sign out"
-              title="Sign out"
-              className={headerIconQuiet}
-            >
-              <SignOutIcon />
-            </SignOutButton>
-          </HeaderChip>
-
           {showHome ? (
-            <HeaderChip style={{ "--i": 4 } as CSSProperties}>
+            <HeaderChip style={{ "--i": 2 } as CSSProperties}>
               <HomeNavButton className={headerIconQuiet} />
             </HeaderChip>
           ) : null}
@@ -417,7 +317,7 @@ export function SiteHeaderControls({
       )}
 
       <HeaderChip style={{ "--i": 5 } as CSSProperties}>
-        <SiteHeaderMenu />
+        <SiteHeaderMenu isSignedIn={isSignedIn} />
       </HeaderChip>
     </div>
   );

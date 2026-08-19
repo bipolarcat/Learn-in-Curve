@@ -13,6 +13,7 @@ type SignOutButtonProps = {
   children?: ReactNode;
   "aria-label"?: string;
   title?: string;
+  role?: string;
 };
 
 export function SignOutButton({
@@ -20,6 +21,7 @@ export function SignOutButton({
   children,
   "aria-label": ariaLabel = "Sign out",
   title,
+  role,
 }: SignOutButtonProps) {
   const router = useRouter();
   const supabase = createClient();
@@ -47,6 +49,7 @@ export function SignOutButton({
     <button
       type="button"
       onClick={handleSignOut}
+      role={role}
       className={cn(className, exiting && "is-signing-out")}
       aria-label={exiting ? "Signing out" : ariaLabel}
       aria-busy={exiting}

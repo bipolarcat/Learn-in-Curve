@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import { headerIcon } from "@/components/header-control";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
+import { SignOutButton } from "@/components/SignOutButton";
 import { cn } from "@/lib/utils";
 
 const MENU_ITEMS = [
@@ -21,7 +22,72 @@ const MENU_ITEMS = [
   { href: "/contact", label: "Let's Talk" },
 ] as const;
 
-export function SiteHeaderMenu() {
+const menuItemClass =
+  "flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55";
+
+function MenuBoardIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className="h-4 w-4 shrink-0"
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 10h18M9 4v16" />
+    </svg>
+  );
+}
+
+function MenuSignOutIcon() {
+  const doorMotion =
+    "motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none";
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className="h-4 w-4 shrink-0 overflow-visible"
+    >
+      <path
+        d="M10 8V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-2"
+        className={cn(doorMotion, "group-[.is-signing-out]:opacity-0")}
+      />
+      <path
+        d="M12 4h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
+        fill="currentColor"
+        stroke="currentColor"
+        className={cn(
+          doorMotion,
+          "opacity-0 group-[.is-signing-out]:opacity-100",
+        )}
+      />
+      <g
+        className={cn(
+          "origin-center motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+          "motion-safe:group-hover:-translate-x-0.5",
+          "motion-safe:group-[.is-signing-out]:-translate-x-[20px]",
+        )}
+      >
+        <path d="M15 12H3M6 9l-3 3 3 3" />
+      </g>
+    </svg>
+  );
+}
+
+export function SiteHeaderMenu({
+  isSignedIn = false,
+}: {
+  isSignedIn?: boolean;
+}) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const menuId = useId();
@@ -32,6 +98,7 @@ export function SiteHeaderMenu() {
   const [panelPos, setPanelPos] = useState({ top: 0, right: 0 });
 
   const duration = reduceMotion ? 0 : 500;
+  const onDashboard = pathname === "/dashboard";
 
   useEffect(() => {
     setMounted(true);
@@ -84,6 +151,8 @@ export function SiteHeaderMenu() {
       document.removeEventListener("keydown", onKey);
     };
   }, [open, menuId]);
+
+  const accountStartIndex = MENU_ITEMS.length;
 
   return (
     <div ref={wrapRef} className="relative inline-flex">
@@ -160,7 +229,7 @@ export function SiteHeaderMenu() {
                           href={item.href}
                           aria-current={current ? "page" : undefined}
                           className={cn(
-                            "flex min-h-9 items-center rounded-lg px-2.5 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+                            menuItemClass,
                             current && "bg-ink/[0.06] text-orange",
                           )}
                           onClick={() => setOpen(false)}
@@ -170,6 +239,69 @@ export function SiteHeaderMenu() {
                       </motion.div>
                     );
                   })}
+
+                  {isSignedIn ? (
+                    <>
+                      <div
+                        role="separator"
+                        className="my-1 h-px bg-ink/[0.08]"
+                      />
+                      <motion.div
+                        initial={
+                          reduceMotion ? false : { opacity: 0, x: 8 }
+                        }
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: reduceMotion
+                            ? 0
+                            : 0.04 + accountStartIndex * 0.035,
+                          duration: 0.2,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        <Link
+                          role="menuitem"
+                          href="/dashboard"
+                          aria-current={onDashboard ? "page" : undefined}
+                          className={cn(
+                            menuItemClass,
+                            onDashboard && "bg-ink/[0.06] text-orange",
+                          )}
+                          onClick={() => setOpen(false)}
+                        >
+                          <MenuBoardIcon />
+                          My dashboard
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        initial={
+                          reduceMotion ? false : { opacity: 0, x: 8 }
+                        }
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: reduceMotion
+                            ? 0
+                            : 0.04 + (accountStartIndex + 1) * 0.035,
+                          duration: 0.2,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        <SignOutButton
+                          role="menuitem"
+                          aria-label="Sign me out"
+                          title="Sign me out"
+                          className={cn(
+                            "group overflow-visible",
+                            menuItemClass,
+                            "hover:bg-rust/[0.08] hover:text-rust",
+                          )}
+                        >
+                          <MenuSignOutIcon />
+                          Sign me out
+                        </SignOutButton>
+                      </motion.div>
+                    </>
+                  ) : null}
                 </motion.div>
               ) : null}
             </AnimatePresence>,
