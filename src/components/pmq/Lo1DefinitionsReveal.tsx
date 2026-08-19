@@ -66,7 +66,7 @@ function DefinitionPlate({
   return (
     <div
       className={cn(
-        "min-w-0 rounded-xl border border-black/[0.08] bg-paper dark:border-white/[0.12]",
+        "min-w-0 overflow-hidden rounded-xl border border-black/[0.08] bg-paper dark:border-white/[0.12]",
         open && "col-span-2",
       )}
     >
@@ -82,7 +82,10 @@ function DefinitionPlate({
             if (event.pointerType === "touch") event.currentTarget.blur();
           }}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-2 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
+          className={cn(
+            "group flex w-full min-h-11 items-center gap-2 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange/50 sm:px-3",
+            open ? "rounded-t-xl" : "rounded-xl",
+          )}
         >
           <span
             className={cn(
