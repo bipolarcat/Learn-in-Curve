@@ -150,6 +150,49 @@ function nodeText(node: ReactNode): string {
   return "";
 }
 
+type HastLike = {
+  type?: string;
+  tagName?: string;
+  value?: string;
+  children?: HastLike[];
+};
+
+function hastText(node: HastLike | undefined): string {
+  if (!node) return "";
+  if (node.type === "text") return node.value ?? "";
+  return (node.children ?? []).map(hastText).join("");
+}
+
+function hastFind(node: HastLike | undefined, tag: string): HastLike[] {
+  if (!node) return [];
+  const out: HastLike[] = [];
+  if (node.tagName === tag) out.push(node);
+  for (const child of node.children ?? []) {
+    out.push(...hastFind(child, tag));
+  }
+  return out;
+}
+
+function parseHastTable(node: HastLike | undefined): {
+  headers: [string, string];
+  rows: [string, string][];
+} | null {
+  if (!node || node.tagName !== "table") return null;
+  const headers = hastFind(node, "th").map((el) =>
+    normaliseTableCell(hastText(el)),
+  );
+  const rows: [string, string][] = [];
+  for (const tr of hastFind(node, "tr")) {
+    const tds = (tr.children ?? []).filter((c) => c.tagName === "td");
+    if (tds.length < 2) continue;
+    const left = normaliseTableCell(hastText(tds[0]));
+    const right = normaliseTableCell(hastText(tds[1]));
+    if (left) rows.push([left, right]);
+  }
+  if (headers.length < 2 || rows.length < 2) return null;
+  return { headers: [headers[0]!, headers[1]!], rows };
+}
+
 function elementTag(el: ReactElement): string | null {
   return typeof el.type === "string" ? el.type : null;
 }
@@ -232,8 +275,10 @@ export function CoreContentBlock({ block }: CoreContentBlockProps) {
               "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
               children,
             ),
-          table: ({ children }) => {
-            const parsed = parseTwoColumnTable(children);
+          table: ({ children, node }) => {
+            const parsed =
+              parseHastTable(node as HastLike | undefined) ??
+              parseTwoColumnTable(children);
             const firstCell = parsed?.rows[0]?.[0] ?? "";
             if (
               parsed &&
