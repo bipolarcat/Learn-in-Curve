@@ -38,7 +38,7 @@ export const CATALOG_COURSES: Course[] = [
       "59 lessons, practice, a timed mock and a coverage map of every APM PFQ learning outcome.",
     price_cents: PFQ_PRO_PRICE_CENTS,
     is_free: false,
-    status: "planned",
+    status: "live",
     created_at: "",
     has_mock_exam: true,
     pass_mark_percent: 60,

@@ -23,7 +23,7 @@ The good news: the machinery is already right. `src/lib/pfq/checkout.ts` reuses 
 
 **Add a new bullet** after the Pro Bundle bullet:
 
-> - **PFQ in 2 Days:** A separate one-time purchase of £5.00, which unlocks the whole course: all 59 lessons, the practice question bank, the full mock exam and the coverage map. There is no free tier for this course, and no part of it is available without purchase.
+> - **PFQ in 2 Days:** A separate one-time purchase of £6.00, which unlocks the whole course: all 59 lessons, the practice question bank, the full mock exam and the coverage map. There is no free tier for this course, and no part of it is available without purchase.
 
 Rationale: "Future Courses" in §5 already anticipates separately purchasable courses, so this is a specific instance of an existing principle rather than a new commercial model. Making the absence of a free tier explicit is what protects against a reasonable-expectation complaint.
 
@@ -64,7 +64,7 @@ If any of the three fails, the buyer keeps the full 14-day unconditional right *
 
 1. **Solicitor review** of the two clause changes above, and specifically of whether the per-product "unused" definition holds up.
 2. **Confirm the durable-medium step** — that the purchase email is sent and carries the acknowledgement.
-3. **VAT position.** PFQ is £5 to UK consumers. Whether that £5 is VAT-inclusive depends on registration status, which is Sim's to confirm. It affects the price displayed, not just the accounting.
+3. **VAT position.** PFQ is £6 to UK consumers. Whether that £6 is VAT-inclusive depends on registration status, which is Sim's to confirm. It affects the price displayed, not just the accounting.
 4. **Then, and only then**, flip `PFQ_CHECKOUT_ENABLED` to true.
 
 Update `legal/PRE_LAUNCH_CHECKLIST.md` §4 with a PFQ line once the above is done, so the checklist stays the single gate before any launch decision.
