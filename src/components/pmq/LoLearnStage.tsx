@@ -2,11 +2,13 @@ import { BookOpen, Layers, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType, KeyDefinition } from "@/types/pmq";
 import { DefinitionsTable } from "@/components/pmq/DefinitionsTable";
+import { Lo1DefinitionsReveal } from "@/components/pmq/Lo1DefinitionsReveal";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
 
 type LoLearnStageProps = {
+  loNumber: number;
   definitions: KeyDefinition[];
   coreContent: CoreContentBlockType[];
 };
@@ -48,7 +50,11 @@ function SectionTitle({
  * Learn — quieter Orient-matched layout: two opaque cards, full wrap width,
  * pathway Lucide titles, Figtree throughout.
  */
-export function LoLearnStage({ definitions, coreContent }: LoLearnStageProps) {
+export function LoLearnStage({
+  loNumber,
+  definitions,
+  coreContent,
+}: LoLearnStageProps) {
   return (
     <div
       className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
@@ -64,7 +70,11 @@ export function LoLearnStage({ definitions, coreContent }: LoLearnStageProps) {
             Key definitions
           </SectionTitle>
           <div className="mt-1.5 w-full min-w-0 max-w-full">
-            <DefinitionsTable definitions={definitions} />
+            {loNumber === 1 ? (
+              <Lo1DefinitionsReveal definitions={definitions} />
+            ) : (
+              <DefinitionsTable definitions={definitions} />
+            )}
           </div>
         </section>
       ) : null}

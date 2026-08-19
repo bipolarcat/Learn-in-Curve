@@ -451,6 +451,7 @@ export function LoStudyJourney({
             />
           ) : currentId === "learn" ? (
             <LoLearnStage
+              loNumber={loNumber}
               definitions={body.key_definitions}
               coreContent={body.core_content}
             />
