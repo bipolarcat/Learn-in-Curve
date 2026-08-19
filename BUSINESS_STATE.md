@@ -19,6 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-08-19** — Core outcome titles are teal. Section-number badges are outline only (2px orange border, orange type, transparent fill) so 1A stays readable on mobile. (`Lo1CoreContentReveal.tsx`, `OutcomeCodeBadge.tsx`)
+
 - **2026-08-19** — LO1 Core accordion headings are title only: dropped the closed-plate `key_takeaway` line. (`Lo1CoreContentReveal.tsx`)
 
 - **2026-08-19** — Outcome badges: 2px inset orange ring (not a 1.5px CSS border) so the stroke holds on mobile. Core accordion fills the badge solid orange from the centre (220ms quint, paper type) while open. (`OutcomeCodeBadge.tsx`, `Lo1CoreContentReveal.tsx`)

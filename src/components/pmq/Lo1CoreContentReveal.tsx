@@ -74,11 +74,11 @@ function OutcomePlate({
           onKeyDown={onKeyDown}
           className="group flex w-full min-h-11 items-center gap-2.5 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
         >
-          <OutcomeCodeBadge code={code} filled={open} />
+          <OutcomeCodeBadge code={code} />
           <span
             className={cn(
               headingClass,
-              "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
+              "min-w-0 flex-1 text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-teal-deep",
             )}
           >
             <span className="sr-only">{code}: </span>
