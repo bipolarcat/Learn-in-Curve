@@ -83,7 +83,7 @@ function DefinitionPlate({
         >
           <span
             className={cn(
-              "inline-flex size-8 shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight sm:size-[1.85em]",
+              "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight",
               open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
             )}
             style={
