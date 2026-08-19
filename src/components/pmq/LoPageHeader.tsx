@@ -30,9 +30,9 @@ type LoPageHeaderProps = {
   loTitle: string;
   stages: LoStageDef[];
   currentId: LoStageId;
-  doneIds: Set<LoStageId>;
+  /** Stages the pathway icons may open. Toast only fires for stages not in this set. */
+  unlockedIds: Set<LoStageId>;
   lockedIds?: Set<LoStageId>;
-  sealed: boolean;
   onSelect: (id: LoStageId) => void;
   /** Compact continue CTA label; omit when not advancing. */
   continueLabel?: string | null;
@@ -183,9 +183,8 @@ export function LoPageHeader({
   loTitle,
   stages,
   currentId,
-  doneIds,
+  unlockedIds,
   lockedIds,
-  sealed,
   onSelect,
   continueLabel,
   onContinue,
@@ -209,8 +208,7 @@ export function LoPageHeader({
   const tabs = useMemo(
     () =>
       stages.map((stage) => {
-        const isCurrent = stage.id === currentId;
-        const isReached = sealed || isCurrent || doneIds.has(stage.id);
+        const isReached = unlockedIds.has(stage.id);
         const isProLocked = lockedIds?.has(stage.id) ?? false;
         return {
           title: stage.label,
@@ -226,7 +224,7 @@ export function LoPageHeader({
           ) : undefined,
         };
       }),
-    [stages, currentId, doneIds, lockedIds, sealed],
+    [stages, unlockedIds, lockedIds],
   );
 
   const onTabChange = (index: number | null) => {

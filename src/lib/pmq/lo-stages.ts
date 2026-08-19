@@ -46,6 +46,26 @@ const STAGE_ORDER = LO_STAGE_ORDER;
 export const LO_STAGE_COUNT = LO_STAGE_ORDER.length;
 
 /**
+ * Pathway icons may open any stage the learner has already been on, not only
+ * stages they left via Next. `doneIds` is Continue-off; `visitedIds` is every
+ * current stage they have landed on (including the frontier they have not
+ * Next'd away from yet).
+ */
+export function collectUnlockedLoStages(
+  stageIds: readonly LoStageId[],
+  doneIds: ReadonlySet<LoStageId>,
+  visitedIds: ReadonlySet<LoStageId>,
+  currentId: LoStageId,
+  sealed: boolean,
+): Set<LoStageId> {
+  if (sealed) return new Set(stageIds);
+  const next = new Set(doneIds);
+  for (const id of visitedIds) next.add(id);
+  next.add(currentId);
+  return next;
+}
+
+/**
  * Total equally-weighted units of overall course progress: 24 LOs × 7 stages
  * = 168.
  */

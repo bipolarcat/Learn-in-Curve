@@ -29,6 +29,7 @@ import type { PmqTier } from "@/lib/pmq/tiers";
 import {
   buildLoStages,
   canSealLo,
+  collectUnlockedLoStages,
   PMQ_PROGRESS_UNIT_PERCENT,
   STAGE_REACHED_COLUMN,
   type LoStageId,
@@ -187,6 +188,10 @@ export function LoStudyJourney({
     () => stages[0]?.id ?? "orient",
   );
   const [doneIds, setDoneIds] = useState<Set<LoStageId>>(() => new Set());
+  /** Every stage the learner has landed on, including the current frontier. */
+  const [visitedIds, setVisitedIds] = useState<Set<LoStageId>>(
+    () => new Set([stages[0]?.id ?? "orient"]),
+  );
   /** Tracks seal across refreshes so we don't yank the user out of Practise mid-review. */
   const prevSealedRef = useRef<boolean | null>(null);
 
@@ -235,6 +240,13 @@ export function LoStudyJourney({
       return next;
     });
 
+    setVisitedIds((prev) => {
+      if (wasReset) return new Set(dbDone);
+      const next = new Set(prev);
+      for (const id of dbDone) next.add(id);
+      return next;
+    });
+
     if (resumedForLoRef.current === loNumber) return;
     resumedForLoRef.current = loNumber;
 
@@ -264,14 +276,32 @@ export function LoStudyJourney({
     prevSealedRef.current = sealed;
   }, [sealed, stageIds, quizCompleted]);
 
+  useEffect(() => {
+    setVisitedIds((prev) => {
+      if (prev.has(currentId)) return prev;
+      const next = new Set(prev);
+      next.add(currentId);
+      return next;
+    });
+  }, [currentId]);
+
+  const unlockedIds = useMemo(
+    () =>
+      collectUnlockedLoStages(
+        stageIds,
+        doneIds,
+        visitedIds,
+        currentId,
+        sealed,
+      ),
+    [stageIds, doneIds, visitedIds, currentId, sealed],
+  );
+
   const selectStage = useCallback(
     (id: LoStageId) => {
-      // Forward jumps only via Continue; pathway may revisit reached stages.
-      if (sealed || id === currentId || doneIds.has(id)) {
-        setCurrentId(id);
-      }
+      if (unlockedIds.has(id)) setCurrentId(id);
     },
-    [sealed, currentId, doneIds],
+    [unlockedIds],
   );
 
   const mediaLocked = !hasEntitlement;
@@ -429,9 +459,8 @@ export function LoStudyJourney({
         loTitle={loTitle}
         stages={stages}
         currentId={currentId}
-        doneIds={doneIds}
+        unlockedIds={unlockedIds}
         lockedIds={lockedStageIds}
-        sealed={sealed}
         onSelect={selectStage}
         continueLabel={headerContinueLabel}
         onContinue={headerOnContinue}

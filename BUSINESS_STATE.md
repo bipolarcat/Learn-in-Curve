@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-08-19** — LO1 definition number disc is 24px (`size-6`) with 13px numerals on every viewport. (`Lo1DefinitionsReveal.tsx`)
+- **2026-08-19** — LO pathway icons move to any stage already visited (back and forward). The "Use Next" tip only shows for stages that are still locked. (`LoStudyJourney.tsx`, `LoPageHeader.tsx`, `lo-stages.ts`)
 
 - **2026-08-19** — LO1 definition plates: one implementation on mobile and desktop (desktop type, disc, padding). Open/close is measured height at 220ms ease-out-quint, not 0fr/1fr or display:contents. (`Lo1DefinitionsReveal.tsx`)
 
