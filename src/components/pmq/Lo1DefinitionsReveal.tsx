@@ -45,6 +45,7 @@ function usePanelHeight() {
 function DefinitionPlate({
   def,
   open,
+  seen,
   onToggle,
   onKeyDown,
   buttonRef,
@@ -53,6 +54,7 @@ function DefinitionPlate({
 }: {
   def: KeyDefinition;
   open: boolean;
+  seen: boolean;
   onToggle: () => void;
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
   buttonRef: (node: HTMLButtonElement | null) => void;
@@ -85,7 +87,7 @@ function DefinitionPlate({
           <span
             className={cn(
               "block h-2 w-2 min-h-2 min-w-2 shrink-0 rounded-[2px] bg-teal/55",
-              open && "bg-teal",
+              (open || seen) && "bg-teal",
             )}
             aria-hidden
           />
@@ -156,6 +158,7 @@ export function Lo1DefinitionsReveal({
 }) {
   const baseId = useId();
   const [openTerm, setOpenTerm] = useState<string | null>(null);
+  const [seenTerms, setSeenTerms] = useState<Set<string>>(() => new Set());
   const buttons = useRef(new Map<string, HTMLButtonElement>());
   const ids = useMemo(() => definitions.map((d) => d.term), [definitions]);
 
@@ -198,10 +201,17 @@ export function Lo1DefinitionsReveal({
             key={def.term}
             def={def}
             open={openTerm === def.term}
+            seen={seenTerms.has(def.term)}
             buttonId={`${baseId}-term-${index}`}
             panelId={`${baseId}-panel-${index}`}
             buttonRef={bindRef(def.term)}
             onToggle={() => {
+              setSeenTerms((prev) => {
+                if (prev.has(def.term)) return prev;
+                const next = new Set(prev);
+                next.add(def.term);
+                return next;
+              });
               setOpenTerm((current) =>
                 current === def.term ? null : def.term,
               );

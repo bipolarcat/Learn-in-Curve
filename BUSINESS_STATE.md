@@ -21,7 +21,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 - **2026-08-19** — Soft-nav family now renders real anchors. Audit: all six listed components were buttons with `router.push` and no `href` (`LibrarySoftNavLink`, `FreeMockExamLink`, `PmqStartLink`, `PfqStartLink`, `ExploreCoursesLink`, `SoftNavBackLink`); none were already fine. Spinner kept via `useTransition` plus `router.push` on primary click only; Cmd/Ctrl/middle-click is left to the browser. Server-rendered `/library` HTML: 0 article `<a href="/library/...">` before (live), 11 after (local production). Related sibling slugs already existed; vs-prince2 now also points at vs-pmp; hub title is `APM PMQ guides and exam prep | Learn in Curve`. Routes and canonicals unchanged. Sitemap still resolves (12 `/library` URLs).
 
-- **2026-08-19** — LO1 definition plates: teal marks use `teal-rgb` (no color-mix inline, so they paint on mobile); hover/orange only on real hover so tap no longer leaves a stuck wash; LO1 Learn section `overflow-visible` so marks are not clipped. (`Lo1DefinitionsReveal.tsx`, `LoLearnStage.tsx`)
+- **2026-08-19** — LO1 definition plates: teal mark stays solid `bg-teal` after a term has been opened. (`Lo1DefinitionsReveal.tsx`)
 
 - **2026-08-19** — LO1 definition plates: one implementation on mobile and desktop (desktop type, disc, padding). Open/close is measured height at 220ms ease-out-quint, not 0fr/1fr or display:contents. (`Lo1DefinitionsReveal.tsx`)
 
