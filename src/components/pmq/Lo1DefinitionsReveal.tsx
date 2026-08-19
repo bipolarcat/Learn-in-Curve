@@ -108,10 +108,8 @@ function DefinitionPlate({
         >
           <span
             className={cn(
-              "inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)]",
-              open || seen
-                ? "bg-teal text-paper"
-                : "bg-teal/25 text-teal/60",
+              "shrink-0 font-body text-[13px] font-bold tabular-nums leading-none tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)] sm:text-[15px]",
+              open || seen ? "text-teal-deep" : "text-teal/45",
             )}
             aria-hidden
           >
