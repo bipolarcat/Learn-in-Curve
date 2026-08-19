@@ -46,7 +46,7 @@ Not a general PM learning platform — a gamified, interactive, exam-focused rev
 - [x] Header Dashboard control quieter motion (no lift/rotate/scale; soft press only) — **2026-07-27:** `header-control.ts`, `SiteHeaderControls.tsx`
 - [x] Signed-in landing Courses control matches compact header disc size (`h-7`) — **2026-07-27:** `headerIconCompactTeal`
 - [x] Landing header Courses reveals only after scrolling past the brand hero — **2026-07-27:** IntersectionObserver + Framer `AnimatePresence` (`SiteHeaderControls.tsx`)
-- [x] Header overflow menu — **2026-08-19:** two-line → X toggle in `SiteHeader` (21st.dev menu-toggle-icon); items Mock Me / The Shelf / Behind the Curve / Let's Talk; those four removed from the footer.
+- [x] Header overflow menu — **2026-08-19:** two-line → X toggle in `SiteHeader` (21st.dev menu-toggle-icon); items Mock Me / The Shelf / Behind the Curve / Let's Talk; those four removed from the footer. Sign in / Get Started pill is teal.
 - [x] Header controls: hid the Home icon chip on PMQ course overview and individual LO pages — **2026-07-27:** `SiteHeaderControls.tsx`; **2026-07-30:** also hide Sign in / Get Started on PMQ preview (`SiteHeaderControls`)
 - [x] PMQ in 5 days embedded as-is (free, basic) — this phase is shell + auth only, not a PMQ upgrade
 - [x] Wave 1 polish backlog (LIC-5,6,7,8,9,14,16,23,25,29,30,38) — shipped 2026-07-08 for Sim/Claude In Review: hero CTA/boarding-pass/header copy, drop "gamified" from user-visible copy, LO exam-technique + Go deeper cleanup, memory-aid grid, study-plan theme duplicate, demo-banner harden, `lic_has_account` header Sign up/Sign in, Intercom Messenger (dormant until App ID)

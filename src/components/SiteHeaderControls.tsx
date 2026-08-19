@@ -25,8 +25,8 @@ import {
   headerIconPrimary,
   headerIconQuiet,
   headerIconTeal,
-  headerPillPrimary,
   headerPillSecondary,
+  headerPillTeal,
 } from "@/components/header-control";
 import { SiteHeaderMenu } from "@/components/SiteHeaderMenu";
 
@@ -547,7 +547,7 @@ export function SiteHeaderControls({
           >
             <HeaderNavButton
               href={guestCta.href}
-              className={headerPillPrimary}
+              className={headerPillTeal}
               ariaLabel={guestCta.label}
               title={guestCta.label}
               busyLabel={
