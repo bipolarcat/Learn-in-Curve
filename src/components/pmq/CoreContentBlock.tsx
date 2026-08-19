@@ -1,19 +1,9 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import {
-  Children,
-  isValidElement,
-  type ReactElement,
-  type ReactNode,
-} from "react";
+import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
-import { SequenceTable } from "@/components/pmq/SequenceTable";
-import {
-  matchSequenceTable,
-  normaliseTableCell,
-} from "@/lib/pmq/interactive-tables";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -140,100 +130,6 @@ type CoreContentBlockProps = {
   block: CoreContentBlockType;
 };
 
-function nodeText(node: ReactNode): string {
-  if (node == null || typeof node === "boolean") return "";
-  if (typeof node === "string" || typeof node === "number") return String(node);
-  if (Array.isArray(node)) return node.map(nodeText).join("");
-  if (isValidElement(node)) {
-    return nodeText((node.props as { children?: ReactNode }).children);
-  }
-  return "";
-}
-
-type HastLike = {
-  type?: string;
-  tagName?: string;
-  value?: string;
-  children?: HastLike[];
-};
-
-function hastText(node: HastLike | undefined): string {
-  if (!node) return "";
-  if (node.type === "text") return node.value ?? "";
-  return (node.children ?? []).map(hastText).join("");
-}
-
-function hastFind(node: HastLike | undefined, tag: string): HastLike[] {
-  if (!node) return [];
-  const out: HastLike[] = [];
-  if (node.tagName === tag) out.push(node);
-  for (const child of node.children ?? []) {
-    out.push(...hastFind(child, tag));
-  }
-  return out;
-}
-
-function parseHastTable(node: HastLike | undefined): {
-  headers: [string, string];
-  rows: [string, string][];
-} | null {
-  if (!node || node.tagName !== "table") return null;
-  const headers = hastFind(node, "th").map((el) =>
-    normaliseTableCell(hastText(el)),
-  );
-  const rows: [string, string][] = [];
-  for (const tr of hastFind(node, "tr")) {
-    const tds = (tr.children ?? []).filter((c) => c.tagName === "td");
-    if (tds.length < 2) continue;
-    const left = normaliseTableCell(hastText(tds[0]));
-    const right = normaliseTableCell(hastText(tds[1]));
-    if (left) rows.push([left, right]);
-  }
-  if (headers.length < 2 || rows.length < 2) return null;
-  return { headers: [headers[0]!, headers[1]!], rows };
-}
-
-function elementTag(el: ReactElement): string | null {
-  return typeof el.type === "string" ? el.type : null;
-}
-
-function collectElements(node: ReactNode, tag: string): ReactElement[] {
-  const out: ReactElement[] = [];
-  Children.forEach(node, (child) => {
-    if (!isValidElement(child)) return;
-    if (elementTag(child) === tag) out.push(child);
-    const kids = (child.props as { children?: ReactNode }).children;
-    if (kids != null) out.push(...collectElements(kids, tag));
-  });
-  return out;
-}
-
-function parseTwoColumnTable(children: ReactNode): {
-  headers: [string, string];
-  rows: [string, string][];
-} | null {
-  const headers = collectElements(children, "th").map((el) =>
-    normaliseTableCell(nodeText((el.props as { children?: ReactNode }).children)),
-  );
-  const rows: [string, string][] = [];
-  for (const tr of collectElements(children, "tr")) {
-    const tds = collectElements(
-      (tr.props as { children?: ReactNode }).children,
-      "td",
-    );
-    if (tds.length < 2) continue;
-    const left = normaliseTableCell(
-      nodeText((tds[0]!.props as { children?: ReactNode }).children),
-    );
-    const right = normaliseTableCell(
-      nodeText((tds[1]!.props as { children?: ReactNode }).children),
-    );
-    if (left) rows.push([left, right]);
-  }
-  if (headers.length < 2 || rows.length < 2) return null;
-  return { headers: [headers[0]!, headers[1]!], rows };
-}
-
 /**
  * Core lesson markdown. Heading levels are demoted (h4/h5) so they nest
  * correctly under Learn’s outcome `h3` titles.
@@ -275,30 +171,11 @@ export function CoreContentBlock({ block }: CoreContentBlockProps) {
               "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
               children,
             ),
-          table: ({ children, node }) => {
-            const parsed =
-              parseHastTable(node as HastLike | undefined) ??
-              parseTwoColumnTable(children);
-            const firstCell = parsed?.rows[0]?.[0] ?? "";
-            if (
-              parsed &&
-              matchSequenceTable(loNumber, block.outcome_code, firstCell)
-            ) {
-              return (
-                <SequenceTable
-                  loNumber={loNumber!}
-                  outcomeCode={block.outcome_code}
-                  headers={parsed.headers}
-                  rows={parsed.rows}
-                />
-              );
-            }
-            return (
-              <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
-                <table>{children}</table>
-              </div>
-            );
-          },
+          table: ({ children }) => (
+            <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
+              <table>{children}</table>
+            </div>
+          ),
           pre: ({ children }) => (
             <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
               <pre className="overflow-x-auto">{children}</pre>

@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType, KeyDefinition } from "@/types/pmq";
 import { DefinitionsTable } from "@/components/pmq/DefinitionsTable";
 import { Lo1DefinitionsReveal } from "@/components/pmq/Lo1DefinitionsReveal";
-import { Lo1CoreContentReveal } from "@/components/pmq/Lo1CoreContentReveal";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
@@ -84,9 +83,7 @@ export function LoLearnStage({
 
       {coreContent.length > 0 ? (
         <section
-          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 p-4 sm:p-5 ${
-            loNumber === 1 ? "overflow-visible" : "overflow-x-clip"
-          }`}
+          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 overflow-x-clip p-4 sm:p-5`}
           style={{ ["--i" as string]: 1 }}
           aria-labelledby="lo-learn-core"
         >
@@ -94,35 +91,30 @@ export function LoLearnStage({
             Core content
           </SectionTitle>
 
-          {loNumber === 1 ? (
-            <div className="mt-1.5 w-full min-w-0 max-w-full">
-              <Lo1CoreContentReveal blocks={coreContent} />
-            </div>
-          ) : (
-            <div className="mt-1.5 grid w-full min-w-0 max-w-full gap-0 divide-y divide-black/[0.05] dark:divide-white/[0.08]">
-              {coreContent.map((block, index) => {
-                const code = block.outcome_code.toLowerCase();
-                return (
-                  <article
-                    key={block.outcome_code}
-                    className={`${motion.outcome} min-w-0 py-3 first:pt-2 last:pb-0 sm:py-3.5`}
-                    style={{ ["--i" as string]: index }}
-                  >
-                    <h3 className={headingClass}>
-                      <span className="mr-2 inline tabular-nums" aria-hidden>
-                        {code})
-                      </span>
-                      <span className="sr-only">{code}): </span>
-                      {block.outcome_title}
-                    </h3>
-                    <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-                      <CoreContentBlock block={block} />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          )}
+          <div className="mt-1.5 grid w-full min-w-0 max-w-full gap-0 divide-y divide-black/[0.05] dark:divide-white/[0.08]">
+            {coreContent.map((block, index) => {
+              const code = block.outcome_code.toLowerCase();
+              return (
+                <article
+                  key={block.outcome_code}
+                  className={`${motion.outcome} min-w-0 py-3 first:pt-2 last:pb-0 sm:py-3.5`}
+                  style={{ ["--i" as string]: index }}
+                >
+                  {/* Code inline on first line; body spans full card width */}
+                  <h3 className={headingClass}>
+                    <span className="mr-2 inline tabular-nums" aria-hidden>
+                      {code})
+                    </span>
+                    <span className="sr-only">{code}): </span>
+                    {block.outcome_title}
+                  </h3>
+                  <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
+                    <CoreContentBlock block={block} />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </section>
       ) : null}
     </div>

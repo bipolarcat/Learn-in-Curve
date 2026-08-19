@@ -303,43 +303,6 @@ export function trackExamDateSet(props: { days_until_exam: number }): void {
   capture("exam_date_set", props);
 }
 
-export function trackLoCoreSequenceViewed(props: {
-  lo_number: number;
-  outcome_code: string;
-}): void {
-  capture("lo_core_sequence_viewed", props);
-}
-
-export function trackLoCoreSequenceStarted(props: {
-  lo_number: number;
-  outcome_code: string;
-}): void {
-  capture("lo_core_sequence_started", props);
-}
-
-export function trackLoCoreSequenceChecked(props: {
-  lo_number: number;
-  outcome_code: string;
-  correct_count: number;
-  total: number;
-}): void {
-  capture("lo_core_sequence_checked", props);
-}
-
-export function trackLoCoreSequenceRevealed(props: {
-  lo_number: number;
-  outcome_code: string;
-}): void {
-  capture("lo_core_sequence_revealed", props);
-}
-
-export function trackLoCoreSequenceRetried(props: {
-  lo_number: number;
-  outcome_code: string;
-}): void {
-  capture("lo_core_sequence_retried", props);
-}
-
 // —— Growth: free mock / leads ——————————————————————————————————————
 
 export function trackFreeMockCompleted(props: {
