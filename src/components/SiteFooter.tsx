@@ -100,20 +100,8 @@ export function SiteFooter({
 
           <nav
             aria-label="Footer"
-            className="grid grid-cols-3 gap-x-3 gap-y-0.5 sm:gap-x-5 lg:flex lg:max-w-[36rem] lg:flex-wrap lg:justify-end lg:gap-x-5 lg:gap-y-1"
+            className="flex flex-wrap gap-x-4 gap-y-0.5 sm:gap-x-5 lg:max-w-[36rem] lg:justify-end"
           >
-            <Link href="/about" className={footerLinkClass}>
-              About
-            </Link>
-            <Link href="/free-mock-exam" className={footerLinkClass}>
-              Free mock exam
-            </Link>
-            <Link href="/library" className={footerLinkClass}>
-              Library
-            </Link>
-            <Link href="/contact" className={footerLinkClass}>
-              Get in touch
-            </Link>
             <Link href="/privacy" className={footerLinkClass}>
               Privacy
             </Link>

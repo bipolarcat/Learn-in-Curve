@@ -28,6 +28,7 @@ import {
   headerPillPrimary,
   headerPillSecondary,
 } from "@/components/header-control";
+import { SiteHeaderMenu } from "@/components/SiteHeaderMenu";
 
 export {
   stampChipActive,
@@ -397,6 +398,10 @@ export function SiteHeaderControls({
       role="group"
       aria-label="Site controls"
     >
+      <HeaderChip style={{ "--i": 0 } as CSSProperties}>
+        <SiteHeaderMenu />
+      </HeaderChip>
+
       {isSignedIn ? (
         <>
           {darkModeAllowed && (
