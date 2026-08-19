@@ -21,6 +21,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 - **2026-07-03** — Investigated a reported "LO1 doesn't match" issue. Verified live via browser (both the new native `/courses/pmq-in-5-days/lo/1` and the old static `lo.html?lo=1`) — both correctly show the rebuilt LO1 content (11 questions, matching definitions), confirming `app.js` fetches from `content/lo*.json` (the folder edited all session), not the separate `PMQ in 5 days/JSON content/` folder (a stale, untouched duplicate of all 24 LOs — still has the old difficulty/time fields and original quiz banks. Not used by any live code path per a grep of `app.js`, but worth deleting or renaming to avoid future confusion — flagged to user, not deleted without confirmation). Did find and fix one real regression: `lo.html`'s hero pills still referenced `data.estimated_study_time_minutes` and `data.difficulty`, which were removed from the JSON earlier — rendering as "undefined min" / "undefined". Fixed by removing those two pills from `lo.html`, leaving just the question-count pill.
 
+- **2026-08-19** — Header menu panel sits 8px below the header bar (not the toggle), so desktop no longer overlaps the taller `sm:h-14` chrome (`SiteHeaderMenu.tsx`).
+
 - **2026-08-19** — Courses left the header bar; **Explore Courses** is the first item in the overflow menu (`/courses`). (`SiteHeaderMenu.tsx`, `SiteHeaderControls.tsx`).
 
 - **2026-08-19** — Header Sign in / Get Started pill is teal (`headerPillTeal` in `SiteHeaderControls.tsx`).

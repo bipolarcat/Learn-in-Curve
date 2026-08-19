@@ -47,10 +47,12 @@ export function SiteHeaderMenu() {
     const place = () => {
       const btn = buttonRef.current;
       if (!btn) return;
-      const r = btn.getBoundingClientRect();
+      const header = btn.closest(".site-header") ?? btn;
+      const headerBox = header.getBoundingClientRect();
+      const btnBox = btn.getBoundingClientRect();
       setPanelPos({
-        top: r.bottom + 8,
-        right: Math.max(12, window.innerWidth - r.right),
+        top: headerBox.bottom + 8,
+        right: Math.max(12, window.innerWidth - btnBox.right),
       });
     };
 
