@@ -1,24 +1,46 @@
 "use client";
 
-import { useCallback, useId, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import type { KeyDefinition } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
-/** Same 220ms ease-out-quint as SiteHeaderMenu. */
-const discloseDesktop =
-  "max-sm:contents sm:grid sm:w-full sm:min-w-0 sm:transition-[grid-template-rows] sm:duration-[220ms] sm:ease-[var(--ease-out-quint)] motion-reduce:sm:duration-0";
-const discloseMobile =
-  "overflow-hidden transition-[max-height] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0 sm:contents sm:overflow-visible sm:transition-none";
-const chevronTurn =
-  "size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0";
 const GRID_COLS = 2;
 
 const termClass =
-  "font-body text-[12px] font-semibold leading-snug tracking-tight text-ink text-pretty break-words sm:text-[13px] sm:leading-tight";
+  "font-body text-[13px] font-semibold leading-tight tracking-tight text-ink text-pretty break-words";
 const bodyClass =
   "font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
 const fieldLabelClass =
   "font-body text-[12px] font-semibold tracking-tight";
+
+function usePanelHeight() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const read = () => {
+      const next = el.scrollHeight;
+      if (next > 0) setHeight(next);
+    };
+
+    read();
+    const observer = new ResizeObserver(read);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, height };
+}
 
 function DefinitionPlate({
   def,
@@ -39,10 +61,12 @@ function DefinitionPlate({
   buttonId: string;
   panelId: string;
 }) {
+  const { ref, height } = usePanelHeight();
+
   return (
     <div
       className={cn(
-        "min-w-0 overflow-hidden rounded-xl border border-black/[0.08] bg-paper dark:border-white/[0.12]",
+        "min-w-0 rounded-xl border border-black/[0.08] bg-paper dark:border-white/[0.12]",
         open && "col-span-2",
       )}
     >
@@ -55,11 +79,11 @@ function DefinitionPlate({
           aria-controls={panelId}
           onClick={onToggle}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-2 px-3 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3 sm:py-2.5"
+          className="group flex w-full min-h-11 items-center gap-2 px-3 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07]"
         >
           <span
             className={cn(
-              "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums leading-none tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] sm:size-[1.85em] sm:text-[13px]",
+              "inline-flex size-[1.85em] shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight",
               open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
             )}
             style={
@@ -82,15 +106,17 @@ function DefinitionPlate({
             className={cn(
               "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)]",
               termClass,
-              "line-clamp-2 sm:line-clamp-1",
-              index >= 9 && "sm:line-clamp-2",
+              index >= 9 ? "line-clamp-2" : "line-clamp-1",
               "group-hover:text-orange",
             )}
           >
             {def.term}
           </span>
           <svg
-            className={cn(chevronTurn, open && "rotate-180")}
+            className={cn(
+              "size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0",
+              open && "rotate-180",
+            )}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -105,34 +131,25 @@ function DefinitionPlate({
       </h3>
 
       <div
-        className={cn(
-          discloseMobile,
-          open ? "max-sm:max-h-[80rem]" : "max-sm:max-h-0",
-        )}
+        className="overflow-hidden transition-[height] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0"
+        style={{ height: open ? (height > 0 ? height : "auto") : 0 }}
       >
         <div
-          className={cn(
-            discloseDesktop,
-            open ? "sm:grid-rows-[1fr]" : "sm:grid-rows-[0fr]",
-          )}
+          ref={ref}
+          id={panelId}
+          role="region"
+          aria-labelledby={buttonId}
+          aria-hidden={!open}
+          inert={!open ? true : undefined}
         >
-          <div
-            id={panelId}
-            role="region"
-            aria-labelledby={buttonId}
-            aria-hidden={!open}
-            inert={!open ? true : undefined}
-            className="w-full min-w-0 min-h-0 overflow-hidden"
-          >
-            <div className="grid gap-3 border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12]">
-              <div>
-                <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
-                <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
-              </div>
-              <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
-                <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
-                <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
-              </div>
+          <div className="grid gap-3 border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12]">
+            <div>
+              <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
+              <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
+            </div>
+            <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
+              <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
+              <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
             </div>
           </div>
         </div>
@@ -142,8 +159,8 @@ function DefinitionPlate({
 }
 
 /**
- * LO1-only key definitions: term plates, one open, click to uncover.
- * Open/close is a 220ms ease-out-quint clip, same curve as SiteHeaderMenu.
+ * LO1-only key definitions. One clip animation on every viewport: measured
+ * height, 220ms ease-out-quint (same curve as SiteHeaderMenu).
  */
 export function Lo1DefinitionsReveal({
   definitions,
@@ -185,7 +202,10 @@ export function Lo1DefinitionsReveal({
       <p className="mb-3 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
         Reveal a term to see its Plain English and APM definitions.
       </p>
-      <div className="grid grid-cols-2 gap-2 sm:gap-2.5" aria-label="Key definitions">
+      <div
+        className="grid grid-cols-2 gap-2.5"
+        aria-label="Key definitions"
+      >
         {definitions.map((def, index) => (
           <DefinitionPlate
             key={def.term}
