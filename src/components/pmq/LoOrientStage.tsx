@@ -6,6 +6,7 @@ import {
 import type { ReactNode } from "react";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
+import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 
 type LoOrientStageProps = {
   context: string;
@@ -113,21 +114,12 @@ export function LoOrientStage({ context, outcomes }: LoOrientStageProps) {
               return (
                 <li
                   key={`${code ?? "o"}-${index}-${text.slice(0, 24)}`}
-                  className={`${motion.outcome} w-full min-w-0 py-2 first:pt-0 last:pb-0`}
+                  className={`${motion.outcome} flex w-full min-w-0 items-start gap-2.5 py-2 first:pt-0 last:pb-0`}
                   style={{ ["--i" as string]: index }}
                 >
+                  {code ? <OutcomeCodeBadge code={code} className="mt-0.5" /> : null}
                   <p className={bodyClass}>
-                    {code ? (
-                      <>
-                        <span
-                          className="mr-2 inline tabular-nums text-ink/55"
-                          aria-hidden
-                        >
-                          {code})
-                        </span>
-                        <span className="sr-only">{code}): </span>
-                      </>
-                    ) : null}
+                    {code ? <span className="sr-only">{code}: </span> : null}
                     {text}
                   </p>
                 </li>

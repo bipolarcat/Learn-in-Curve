@@ -5,6 +5,7 @@ import { DefinitionsTable } from "@/components/pmq/DefinitionsTable";
 import { Lo1DefinitionsReveal } from "@/components/pmq/Lo1DefinitionsReveal";
 import { Lo1CoreContentReveal } from "@/components/pmq/Lo1CoreContentReveal";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
+import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
 
@@ -108,12 +109,12 @@ export function LoLearnStage({
                     className={`${motion.outcome} min-w-0 py-3 first:pt-2 last:pb-0 sm:py-3.5`}
                     style={{ ["--i" as string]: index }}
                   >
-                    <h3 className={headingClass}>
-                      <span className="mr-2 inline tabular-nums" aria-hidden>
-                        {code})
+                    <h3 className={`flex min-w-0 items-start gap-2.5 ${headingClass}`}>
+                      <OutcomeCodeBadge code={code} className="mt-0.5" />
+                      <span className="min-w-0 flex-1">
+                        <span className="sr-only">{code}: </span>
+                        {block.outcome_title}
                       </span>
-                      <span className="sr-only">{code}): </span>
-                      {block.outcome_title}
                     </h3>
                     <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
                       <CoreContentBlock block={block} />

@@ -10,10 +10,11 @@ import {
 } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
+import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { cn } from "@/lib/utils";
 
 const headingClass =
-  "w-full min-w-0 font-body text-lg font-semibold leading-snug tracking-tight text-ink";
+  "min-w-0 font-body text-lg font-semibold leading-snug tracking-tight text-ink";
 
 function usePanelHeight() {
   const ref = useRef<HTMLDivElement>(null);
@@ -83,17 +84,15 @@ function OutcomePlate({
             )}
             aria-hidden
           />
+          <OutcomeCodeBadge code={code} className="mt-1" />
           <span className="min-w-0 flex-1">
             <span
               className={cn(
                 headingClass,
-                "transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
+                "block transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
               )}
             >
-              <span className="mr-2 inline tabular-nums" aria-hidden>
-                {code})
-              </span>
-              <span className="sr-only">{code}): </span>
+              <span className="sr-only">{code}: </span>
               {block.outcome_title}
             </span>
             {!open && takeaway ? (
