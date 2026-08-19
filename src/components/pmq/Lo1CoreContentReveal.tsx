@@ -41,7 +41,6 @@ function usePanelHeight() {
 function OutcomePlate({
   block,
   open,
-  seen,
   onToggle,
   onKeyDown,
   buttonRef,
@@ -50,7 +49,6 @@ function OutcomePlate({
 }: {
   block: CoreContentBlockType;
   open: boolean;
-  seen: boolean;
   onToggle: () => void;
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
   buttonRef: (node: HTMLButtonElement | null) => void;
@@ -75,16 +73,9 @@ function OutcomePlate({
             if (event.pointerType === "touch") event.currentTarget.blur();
           }}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-start gap-2 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
+          className="group flex w-full min-h-11 items-start gap-2.5 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
         >
-          <span
-            className={cn(
-              "mt-2 block h-2 w-2 min-h-2 min-w-2 shrink-0 rounded-[2px] bg-teal/55",
-              (open || seen) && "bg-teal",
-            )}
-            aria-hidden
-          />
-          <OutcomeCodeBadge code={code} className="mt-1" />
+          <OutcomeCodeBadge code={code} className="mt-0.5" />
           <span className="min-w-0 flex-1">
             <span
               className={cn(
@@ -142,8 +133,7 @@ function OutcomePlate({
 
 /**
  * LO1-only core content. One open outcome at a time. Closed plates show
- * key_takeaway when the body includes it. Same teal seen-mark and 220ms clip
- * as Lo1DefinitionsReveal.
+ * key_takeaway when the body includes it. Same 220ms clip as Lo1DefinitionsReveal.
  */
 export function Lo1CoreContentReveal({
   blocks,
@@ -152,7 +142,6 @@ export function Lo1CoreContentReveal({
 }) {
   const baseId = useId();
   const [openCode, setOpenCode] = useState<string | null>(null);
-  const [seen, setSeen] = useState<Set<string>>(() => new Set());
   const buttons = useRef(new Map<string, HTMLButtonElement>());
   const ids = useMemo(() => blocks.map((b) => b.outcome_code), [blocks]);
 
@@ -192,17 +181,10 @@ export function Lo1CoreContentReveal({
             key={block.outcome_code}
             block={block}
             open={openCode === block.outcome_code}
-            seen={seen.has(block.outcome_code)}
             buttonId={`${baseId}-outcome-${index}`}
             panelId={`${baseId}-panel-${index}`}
             buttonRef={bindRef(block.outcome_code)}
             onToggle={() => {
-              setSeen((prev) => {
-                if (prev.has(block.outcome_code)) return prev;
-                const next = new Set(prev);
-                next.add(block.outcome_code);
-                return next;
-              });
               setOpenCode((current) =>
                 current === block.outcome_code ? null : block.outcome_code,
               );

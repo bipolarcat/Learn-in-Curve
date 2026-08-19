@@ -17,7 +17,7 @@ export function OutcomeCodeBadge({
   return (
     <span
       className={cn(
-        "inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-lg border-[1.5px] border-orange px-1 font-body text-[11px] font-semibold tabular-nums tracking-tight text-orange",
+        "inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-[0.25rem] border-[1.5px] border-orange px-1 font-body text-[11px] font-semibold tabular-nums tracking-tight text-orange",
         className,
       )}
       aria-hidden
