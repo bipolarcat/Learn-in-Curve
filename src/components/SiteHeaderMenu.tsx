@@ -92,8 +92,7 @@ export function SiteHeaderMenu() {
         type="button"
         className={cn(
           headerIcon,
-          open &&
-            "border-ink bg-ink text-paper hover:border-ink hover:bg-ink hover:text-paper",
+          open && "bg-ink text-paper hover:bg-ink hover:text-paper",
         )}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-haspopup="menu"

@@ -9,13 +9,13 @@ const focus =
 const motion =
   `motion-safe:transition-[transform,background-color,border-color,color,filter] motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-safe:active:scale-[0.96] motion-reduce:transition-none ${focus}`;
 
-/** Quiet icon control — secondary chrome. */
+/** Quiet icon control — no rim. */
 export const headerIcon =
-  `group inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-ink/10 bg-transparent text-ink hover:bg-ink/[0.07] ${motion}`;
+  `group inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border-0 bg-transparent text-ink hover:bg-ink/[0.07] ${motion}`;
 
 /** Quiet danger hover for Home / Sign out. */
 export const headerIconQuiet =
-  `${headerIcon} hover:!border-rust/20 hover:!bg-rust/[0.1] hover:!text-rust`;
+  `${headerIcon} hover:!bg-rust/[0.1] hover:!text-rust`;
 
 /** Filled orange icon — primary nav affordance (Dashboard). */
 export const headerIconPrimary =

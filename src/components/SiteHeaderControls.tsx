@@ -290,10 +290,6 @@ export function SiteHeaderControls({
       role="group"
       aria-label="Site controls"
     >
-      <HeaderChip style={{ "--i": 0 } as CSSProperties}>
-        <SiteHeaderMenu />
-      </HeaderChip>
-
       {isSignedIn ? (
         <>
           {darkModeAllowed && (
@@ -388,6 +384,10 @@ export function SiteHeaderControls({
           </HeaderChip>
         </>
       )}
+
+      <HeaderChip style={{ "--i": 5 } as CSSProperties}>
+        <SiteHeaderMenu />
+      </HeaderChip>
     </div>
   );
 }
