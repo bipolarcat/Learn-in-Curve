@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,6 +42,43 @@ const MENU_ITEMS = [
   { href: "/about", label: "Behind the Curve" },
   { href: "/contact", label: "Let's Talk" },
 ] as const;
+
+/** Per-item "New" chips; survives reload on this browser. */
+const MENU_NEW_SEEN_KEY = "lic_menu_new_v1";
+
+function readMenuNewSeen(): string[] {
+  try {
+    const raw = localStorage.getItem(MENU_NEW_SEEN_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((value): value is string => typeof value === "string");
+  } catch {
+    return [];
+  }
+}
+
+function writeMenuNewSeen(hrefs: string[]): void {
+  try {
+    localStorage.setItem(MENU_NEW_SEEN_KEY, JSON.stringify(hrefs));
+  } catch {
+    /* private browsing / blocked storage */
+  }
+}
+
+function badgeKeyForPath(pathname: string | null): string | null {
+  if (!pathname) return null;
+  if (
+    pathname === "/free-mock-exam" ||
+    pathname.startsWith("/free-mock-exam/")
+  ) {
+    return "/free-mock-exam";
+  }
+  if (pathname === "/library" || pathname.startsWith("/library/")) {
+    return "/library";
+  }
+  return null;
+}
 
 const menuItemClass =
   "flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55";
@@ -194,6 +238,9 @@ export function SiteHeaderMenu({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [panelPos, setPanelPos] = useState({ top: 0, right: 0 });
+  const [seenNew, setSeenNew] = useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
 
   const duration = reduceMotion ? 0 : 500;
   const onDashboard = pathname === "/dashboard";
@@ -204,9 +251,24 @@ export function SiteHeaderMenu({
   const subtitle =
     signedIn && account.name && account.email ? account.email : null;
 
-  useEffect(() => {
+  const markNewSeen = (href: string) => {
+    setSeenNew((prev) => {
+      if (prev.has(href)) return prev;
+      const next = new Set(prev);
+      next.add(href);
+      writeMenuNewSeen([...next]);
+      return next;
+    });
+  };
+
+  useLayoutEffect(() => {
+    const stored = new Set(readMenuNewSeen());
+    const fromPath = badgeKeyForPath(pathname);
+    if (fromPath) stored.add(fromPath);
+    writeMenuNewSeen([...stored]);
+    setSeenNew(stored);
     setMounted(true);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     setOpen(false);
@@ -399,10 +461,17 @@ export function SiteHeaderMenu({
                             menuItemClass,
                             current && "bg-ink/[0.06] text-orange",
                           )}
-                          onClick={() => setOpen(false)}
+                          onClick={() => {
+                            if ("badge" in item && item.badge) {
+                              markNewSeen(item.href);
+                            }
+                            setOpen(false);
+                          }}
                         >
                           {item.label}
-                          {"badge" in item && item.badge ? (
+                          {"badge" in item &&
+                          item.badge &&
+                          !seenNew.has(item.href) ? (
                             <NewBadge />
                           ) : null}
                         </Link>
