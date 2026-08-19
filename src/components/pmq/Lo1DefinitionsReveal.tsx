@@ -4,9 +4,11 @@ import { useCallback, useId, useMemo, useRef, useState } from "react";
 import type { KeyDefinition } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
-/** Same 220ms ease-out-quint as SiteHeaderMenu panel (blurEase). */
-const disclose =
-  "grid transition-[grid-template-rows] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0";
+/** Same 220ms ease-out-quint as SiteHeaderMenu. */
+const discloseDesktop =
+  "max-sm:contents sm:grid sm:w-full sm:min-w-0 sm:transition-[grid-template-rows] sm:duration-[220ms] sm:ease-[var(--ease-out-quint)] motion-reduce:sm:duration-0";
+const discloseMobile =
+  "overflow-hidden transition-[max-height] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0 sm:contents sm:overflow-visible sm:transition-none";
 const chevronTurn =
   "size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0";
 const GRID_COLS = 2;
@@ -102,22 +104,35 @@ function DefinitionPlate({
         </button>
       </h3>
 
-      <div className={cn(disclose, open ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
+      <div
+        className={cn(
+          discloseMobile,
+          open ? "max-sm:max-h-[80rem]" : "max-sm:max-h-0",
+        )}
+      >
         <div
-          id={panelId}
-          role="region"
-          aria-labelledby={buttonId}
-          inert={!open}
-          className="min-h-0 overflow-hidden"
+          className={cn(
+            discloseDesktop,
+            open ? "sm:grid-rows-[1fr]" : "sm:grid-rows-[0fr]",
+          )}
         >
-          <div className="grid gap-3 border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12]">
-            <div>
-              <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
-              <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
-            </div>
-            <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
-              <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
-              <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
+          <div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
+            aria-hidden={!open}
+            inert={!open ? true : undefined}
+            className="w-full min-w-0 min-h-0 overflow-hidden"
+          >
+            <div className="grid gap-3 border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12]">
+              <div>
+                <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
+                <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
+              </div>
+              <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
+                <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
+                <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
+              </div>
             </div>
           </div>
         </div>
