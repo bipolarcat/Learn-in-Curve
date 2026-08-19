@@ -9,7 +9,8 @@ import {
 } from "@/lib/theme-routes";
 
 /**
- * Enforces light everywhere except the dashboard and individual LOs.
+ * Enforces light everywhere except the dashboard, the enrolled PMQ course
+ * overview, and individual LOs.
  *
  * The blocking script in <head> already resolves the theme for the initial
  * load; this handles client-side navigation (where that script never re-runs)

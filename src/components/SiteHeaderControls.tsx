@@ -228,7 +228,7 @@ type SiteHeaderControlsProps = {
  * Overflow menu holds Explore Courses, site links, and (when signed in)
  * My dashboard plus Sign me out.
  * Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home.
- * Dark toggle: dashboard, PMQ overview and individual LOs only.
+ * Dark toggle: dashboard, enrolled PMQ overview, and individual LOs only.
  * Auth pages (`/auth/*`) and PMQ preview: Home only, no Sign in/up CTA.
  */
 export function SiteHeaderControls({

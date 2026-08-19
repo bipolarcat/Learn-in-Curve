@@ -67,7 +67,7 @@ export default function RootLayout({
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var d=document.documentElement;function light(){d.classList.remove('dark');d.style.colorScheme='only light';}try{var p=location.pathname||'';if(!(/^\\/dashboard\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/lo\\/[^/]+\\/?$/.test(p))){light();return;}var m=document.cookie.match(/(?:^|;\\s*)lic_theme=([^;]*)/);if(!m||m[1]!=='dark'){light();return;}d.classList.add('dark');d.style.colorScheme='only dark';}catch(e){light();}})();`,
+            __html: `(function(){var d=document.documentElement;function light(){d.classList.remove('dark');d.style.colorScheme='only light';}try{var p=location.pathname||'';if(!(/^\\/dashboard\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/?$/.test(p)||/^\\/courses\\/pmq-in-5-days\\/lo\\/[^/]+\\/?$/.test(p))){light();return;}var m=document.cookie.match(/(?:^|;\\s*)lic_theme=([^;]*)/);if(!m||m[1]!=='dark'){light();return;}d.classList.add('dark');d.style.colorScheme='only dark';}catch(e){light();}})();`,
           }}
         />
         {/*

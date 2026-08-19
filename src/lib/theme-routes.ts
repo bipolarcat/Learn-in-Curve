@@ -1,7 +1,8 @@
 /**
  * Dark-mode policy. One file, four rules, no exceptions (LIC-114):
  *
- *   1. Dark mode exists only on the dashboard and individual LO pages.
+ *   1. Dark mode exists only on the dashboard, the signed-in PMQ course
+ *      overview, and individual LO pages.
  *   2. Every other page — the home page and all public/marketing pages — is
  *      light, regardless of any stored preference and regardless of auth state.
  *   3. The OS / browser `prefers-color-scheme` setting is NEVER consulted. A
@@ -43,14 +44,14 @@ export function parseThemeChoice(value: unknown): ThemeChoice {
 /**
  * Routes where a signed-in user may opt into dark mode.
  *
- * Exactly the dashboard and individual learning objectives. The PMQ course
- * overview (`/courses/pmq-in-5-days`) used to be on this list but is reachable
- * signed out, which makes it a public page under rule 2.
+ * Dashboard, the enrolled PMQ course overview, and individual learning
+ * objectives. Preview, pricing, mock, and the public `/pmq` page stay light.
  */
 export function allowsDarkMode(pathname: string | null | undefined): boolean {
   if (!pathname) return false;
   return (
     /^\/dashboard\/?$/.test(pathname) ||
+    /^\/courses\/pmq-in-5-days\/?$/.test(pathname) ||
     /^\/courses\/pmq-in-5-days\/lo\/[^/]+\/?$/.test(pathname)
   );
 }
