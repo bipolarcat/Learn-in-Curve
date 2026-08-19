@@ -4,8 +4,10 @@ import {
   useEffect,
   useState,
   useTransition,
+  type MouseEvent,
   type ReactNode,
 } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { CtaArrow } from "@/components/stamp-chip";
@@ -13,6 +15,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import {
   type SoftNavFrom,
+  isSoftNavClick,
   withSoftNavFrom,
 } from "@/lib/soft-nav-back";
 import { trackCtaClicked } from "@/lib/analytics/events";
@@ -68,24 +71,28 @@ export function PmqStartLink({
     };
   }, [isSignedIn, guestHref]);
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (analyticsLocation) {
+      const variant =
+        analyticsVariant ??
+        (typeof children === "string" ? children : "pmq_start");
+      trackCtaClicked({ variant, location: analyticsLocation });
+    }
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
+    <Link
+      href={href}
       aria-busy={pending}
+      aria-disabled={pending || undefined}
       aria-label={pending ? "Opening course" : undefined}
-      className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
-      onClick={() => {
-        if (analyticsLocation) {
-          const variant =
-            analyticsVariant ??
-            (typeof children === "string" ? children : "pmq_start");
-          trackCtaClicked({ variant, location: analyticsLocation });
-        }
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
+      className={`${className ?? ""} ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner
@@ -100,6 +107,6 @@ export function PmqStartLink({
           {showArrow ? <CtaArrow /> : null}
         </>
       )}
-    </button>
+    </Link>
   );
 }

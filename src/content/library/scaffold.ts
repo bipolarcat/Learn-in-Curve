@@ -23,6 +23,7 @@ export function scaffoldLibraryPage(
     ...partial,
     answerFirst: partial.answerFirst ?? TODO_COPY,
     body: partial.body ?? TODO_COPY,
+    related: partial.related ?? [],
     status: partial.status ?? "draft",
     updatedAt: partial.updatedAt ?? "2026-08-08",
   };

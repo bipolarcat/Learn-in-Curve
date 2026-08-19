@@ -87,7 +87,7 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
     page.group === "syllabus"
       ? pickLibrarySamples(page.sampleQuestionLos, 3, page.slug)
       : [];
-  const related = page.related
+  const related = (page.related ?? [])
     .map((slug) => getLibraryPage(slug))
     .filter((p): p is LibraryPage => Boolean(p));
   const showPlaceholderBanner = pageHasTodoCopy(page) || page.status === "draft";

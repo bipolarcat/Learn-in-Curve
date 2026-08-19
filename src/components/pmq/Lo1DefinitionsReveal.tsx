@@ -76,19 +76,17 @@ function DefinitionPlate({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={onToggle}
+          onPointerUp={(event) => {
+            if (event.pointerType === "touch") event.currentTarget.blur();
+          }}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-1.5 py-2.5 pl-2 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3"
+          className="group flex w-full min-h-11 items-center gap-2 py-2.5 pl-2.5 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] active:bg-ink/[0.06] [@media(hover:hover)]:hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-3"
         >
           <span
             className={cn(
-              "mt-px size-1.5 shrink-0 rounded-[3px]",
-              open ? "bg-teal" : "bg-teal/45",
+              "block h-2 w-2 min-h-2 min-w-2 shrink-0 rounded-[2px] bg-teal/55",
+              open && "bg-teal",
             )}
-            style={{
-              backgroundColor: open
-                ? "var(--teal)"
-                : "color-mix(in srgb, var(--teal) 45%, transparent)",
-            }}
             aria-hidden
           />
           <span
@@ -96,7 +94,7 @@ function DefinitionPlate({
               "min-w-0 flex-1 text-left transition-colors duration-150 ease-[var(--ease-out-quint)]",
               termClass,
               "line-clamp-2",
-              "group-hover:text-orange",
+              "[@media(hover:hover)]:group-hover:text-orange",
             )}
           >
             {def.term}

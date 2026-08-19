@@ -1,8 +1,10 @@
 "use client";
 
-import { useTransition } from "react";
+import { useTransition, type MouseEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner";
+import { isSoftNavClick } from "@/lib/soft-nav-back";
 
 type SoftNavBackLinkProps = {
   href: string;
@@ -12,8 +14,8 @@ type SoftNavBackLinkProps = {
 };
 
 /**
- * Soft-nav back control — same language as LO OverviewBackButton /
- * PricingBackLink (← + ring spinner while routing).
+ * Soft-nav back control. Same language as LO OverviewBackButton /
+ * PricingBackLink (← + ring spinner while routing), as a real anchor.
  */
 export function SoftNavBackLink({
   href,
@@ -24,18 +26,22 @@ export function SoftNavBackLink({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
+    <Link
+      href={href}
       aria-busy={pending}
-      aria-label={pending ? busyLabel : label}
-      className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-md px-0.5 font-body text-[12px] font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:cursor-wait disabled:opacity-80 sm:text-[13px] ${className}`.trim()}
-      onClick={() => {
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
+      aria-disabled={pending || undefined}
+      aria-label={pending ? busyLabel : undefined}
+      className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-md px-0.5 font-body text-[12px] font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:text-[13px] ${pending ? "cursor-wait opacity-80" : ""} ${className}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner variant="ring" size={14} className="text-orange" aria-hidden />
@@ -47,6 +53,6 @@ export function SoftNavBackLink({
           {label}
         </>
       )}
-    </button>
+    </Link>
   );
 }

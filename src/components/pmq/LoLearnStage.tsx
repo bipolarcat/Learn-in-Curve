@@ -62,7 +62,9 @@ export function LoLearnStage({
     >
       {definitions.length > 0 ? (
         <section
-          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 overflow-x-clip p-4 sm:p-5`}
+          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 p-4 sm:p-5 ${
+            loNumber === 1 ? "overflow-visible" : "overflow-x-clip"
+          }`}
           style={{ ["--i" as string]: 0 }}
           aria-labelledby="lo-learn-definitions"
         >

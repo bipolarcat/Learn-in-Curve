@@ -9,9 +9,9 @@ export const page = scaffoldLibraryPage({
   group: "choosing",
   sampleQuestionLos: [],
   related: [
+    "apm-pmq-vs-pmp",
     "apm-pmq-vs-pfq",
     "is-apm-pmq-worth-it",
-    "how-hard-is-apm-pmq",
   ],
   status: "published",
   updatedAt: "2026-08-08",
