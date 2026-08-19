@@ -111,7 +111,7 @@ export function LoLearnStage({
                   >
                     <h3 className={`flex min-w-0 items-start gap-2.5 ${headingClass}`}>
                       <OutcomeCodeBadge code={code} className="mt-0.5" />
-                      <span className="min-w-0 flex-1 text-teal">
+                      <span className="min-w-0 flex-1">
                         <span className="sr-only">{code}: </span>
                         {block.outcome_title}
                       </span>

@@ -78,7 +78,7 @@ function OutcomePlate({
           <span
             className={cn(
               headingClass,
-              "min-w-0 flex-1 text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-teal-deep",
+              "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)] [@media(hover:hover)]:group-hover:text-orange",
             )}
           >
             <span className="sr-only">{code}: </span>

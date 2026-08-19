@@ -6,7 +6,7 @@ export function formatOutcomeBadge(code: string): string {
   return `${match[1]}${match[2]!.toUpperCase()}`;
 }
 
-/** Outline outcome code, e.g. 1A. Decorative: pair with sr-only text. */
+/** Teal outline outcome code, e.g. 1A. Decorative: pair with sr-only text. */
 export function OutcomeCodeBadge({
   code,
   className,
@@ -17,7 +17,7 @@ export function OutcomeCodeBadge({
   return (
     <span
       className={cn(
-        "inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-[0.25rem] border-2 border-orange bg-transparent px-1 font-body text-[11px] font-semibold leading-none tabular-nums tracking-tight text-orange",
+        "inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-[0.25rem] border-2 border-teal bg-transparent px-1 font-body text-[11px] font-semibold leading-none tabular-nums tracking-tight text-teal",
         className,
       )}
       aria-hidden
