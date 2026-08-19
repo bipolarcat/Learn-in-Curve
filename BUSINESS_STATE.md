@@ -19,6 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-08-19** — LO1 definition number discs use the same 12/13px type as the term, in a 1.35em circle. (`Lo1DefinitionsReveal.tsx`)
+
 - **2026-08-19** — LO1 definition plates: APM teal plate back for emphasis; number discs 16px so terms 1–8 stay one line and 9–10 cap at two; open/close uses 21st.dev ddoemonn accordion springs (23530) plus 180ms quint fade. (`Lo1DefinitionsReveal.tsx`)
 
 - **2026-08-19** — LO1 definition plates polished: teal disc uses `--teal`/`--paper` (solid when open); hover is ink wash + orange term (no teal card border); APM matches other LOs (label + divider, not a nested teal card); height uses ease-out-quint instead of spring; 2-col arrow keys. (`Lo1DefinitionsReveal.tsx`)
