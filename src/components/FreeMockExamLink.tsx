@@ -1,12 +1,14 @@
 "use client";
 
-import { useTransition } from "react";
+import { useTransition, type MouseEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
 import {
   type SoftNavFrom,
+  isSoftNavClick,
   withSoftNavFrom,
 } from "@/lib/soft-nav-back";
 
@@ -33,22 +35,26 @@ export function FreeMockExamLink({
   const [pending, startTransition] = useTransition();
   const href = from ? withSoftNavFrom("/free-mock-exam", from) : "/free-mock-exam";
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    trackCtaClicked({
+      variant: label,
+      location,
+    });
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
+    <Link
+      href={href}
       aria-busy={pending}
-      aria-label={pending ? "Opening free mock exam" : label}
-      className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
-      onClick={() => {
-        trackCtaClicked({
-          variant: label,
-          location,
-        });
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
+      aria-disabled={pending || undefined}
+      aria-label={pending ? "Opening free mock exam" : undefined}
+      className={`${className ?? ""} ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner
@@ -63,6 +69,6 @@ export function FreeMockExamLink({
           {showArrow ? <CtaArrow /> : null}
         </>
       )}
-    </button>
+    </Link>
   );
 }

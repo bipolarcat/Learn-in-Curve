@@ -14,6 +14,8 @@ export default function robots(): MetadataRoute.Robots {
         "/auth/",
         "/courses/pmq-in-5-days/lo",
         "/courses/pmq-in-5-days/mock",
+        "/pfq/preview",
+        "/pfq/learn",
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,

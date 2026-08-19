@@ -24,8 +24,8 @@ export type LibraryPage = {
   faqs: LibraryFaq[];
   /** LO numbers to pull ring-fenced sample questions from. */
   sampleQuestionLos: number[];
-  /** Related page slugs for internal linking. */
-  related: string[];
+  /** Sibling slugs for the related-links block. Omit or leave empty for none. */
+  related?: string[];
   status: "draft" | "published";
   /** ISO date — Article dateModified freshness signal. */
   updatedAt: string;

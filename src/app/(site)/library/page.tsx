@@ -11,12 +11,12 @@ const SITE_URL =
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "Library APM PMQ — guides and exam prep | Learn in Curve",
+  title: "APM PMQ guides and exam prep | Learn in Curve",
   description:
     "Plain-English guides to the APM PMQ exam: format, pass mark, revision, and syllabus topics. Then test yourself with a free 15-question readiness check.",
   alternates: { canonical: `${SITE_URL}/library` },
   openGraph: {
-    title: "Library APM PMQ — guides and exam prep",
+    title: "APM PMQ guides and exam prep",
     description:
       "Plain-English guides to the APM PMQ exam, then a free 15-question readiness check.",
     url: `${SITE_URL}/library`,

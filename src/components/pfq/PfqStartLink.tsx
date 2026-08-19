@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
-import { PMQ_SLUG } from "@/lib/pmq/constants";
 import {
   type SoftNavFrom,
   isSoftNavClick,
@@ -20,32 +19,25 @@ import {
 } from "@/lib/soft-nav-back";
 import { trackCtaClicked } from "@/lib/analytics/events";
 
-type PmqStartLinkProps = {
+type PfqStartLinkProps = {
   isSignedIn: boolean;
   className?: string;
   children: ReactNode;
-  /** When false, hides the trailing CTA arrow. Default true. */
   showArrow?: boolean;
-  /**
-   * Where “Back …” should return from the preview signup card.
-   * Omitted → no back control on the destination.
-   */
   from?: SoftNavFrom;
-  /** PostHog `cta_clicked.location` — omit to skip tracking. */
   analyticsLocation?: string;
-  /** PostHog `cta_clicked.variant` — defaults to a stringified children label. */
   analyticsVariant?: string;
 };
 
-const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;
+const GUEST_PATH = "/pfq/preview";
 const SIGNED_IN_PATH = "/dashboard";
 
 /**
- * Primary free CTA — same destination as Quiz “Enrol to PMQ for free”.
- * Guest → PMQ preview sign-up card (form only).
- * Signed-in → dashboard.
+ * PFQ "Enrol for Free" — account creation only.
+ * Guest → PFQ preview sign-up. Signed-in → dashboard.
+ * Does not unlock the Pro-gated course.
  */
-export function PmqStartLink({
+export function PfqStartLink({
   isSignedIn,
   className,
   children,
@@ -53,7 +45,7 @@ export function PmqStartLink({
   from,
   analyticsLocation,
   analyticsVariant,
-}: PmqStartLinkProps) {
+}: PfqStartLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const guestHref = from ? withSoftNavFrom(GUEST_PATH, from) : GUEST_PATH;
@@ -75,7 +67,7 @@ export function PmqStartLink({
     if (analyticsLocation) {
       const variant =
         analyticsVariant ??
-        (typeof children === "string" ? children : "pmq_start");
+        (typeof children === "string" ? children : "pfq_start");
       trackCtaClicked({ variant, location: analyticsLocation });
     }
     if (!isSoftNavClick(event)) return;
@@ -90,7 +82,7 @@ export function PmqStartLink({
       href={href}
       aria-busy={pending}
       aria-disabled={pending || undefined}
-      aria-label={pending ? "Opening course" : undefined}
+      aria-label={pending ? "Opening sign-up" : undefined}
       className={`${className ?? ""} ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
       onClick={onClick}
     >

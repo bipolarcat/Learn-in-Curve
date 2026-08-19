@@ -10,8 +10,8 @@ export const page = scaffoldLibraryPage({
   sampleQuestionLos: [],
   related: [
     "how-hard-is-apm-pmq",
+    "apm-pmq-pass-mark",
     "apm-pmq-exam-format",
-    "is-apm-pmq-worth-it",
   ],
   status: "published",
   updatedAt: "2026-08-08",

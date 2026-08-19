@@ -1,37 +1,44 @@
 "use client";
 
-import { useTransition } from "react";
+import { useTransition, type MouseEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CtaArrowUpRight } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
-import { withSoftNavFrom } from "@/lib/soft-nav-back";
+import { isSoftNavClick, withSoftNavFrom } from "@/lib/soft-nav-back";
 import { trackCtaClicked } from "@/lib/analytics/events";
 
 type ExploreCoursesLinkProps = {
   className?: string;
 };
 
+const HREF = withSoftNavFrom("/courses", "home");
+
 /** Hero / marketing soft-nav to `/courses` with ellipsis pending state. */
 export function ExploreCoursesLink({ className }: ExploreCoursesLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    trackCtaClicked({
+      variant: "Explore Courses",
+      location: "hero",
+    });
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(HREF);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
+    <Link
+      href={HREF}
       aria-busy={pending}
-      aria-label={pending ? "Opening courses" : "Explore Courses"}
-      className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
-      onClick={() => {
-        trackCtaClicked({
-          variant: "Explore Courses",
-          location: "hero",
-        });
-        startTransition(() => {
-          router.push(withSoftNavFrom("/courses", "home"));
-        });
-      }}
+      aria-disabled={pending || undefined}
+      aria-label={pending ? "Opening courses" : undefined}
+      className={`${className ?? ""} ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner
@@ -46,6 +53,6 @@ export function ExploreCoursesLink({ className }: ExploreCoursesLinkProps) {
           <CtaArrowUpRight />
         </>
       )}
-    </button>
+    </Link>
   );
 }
