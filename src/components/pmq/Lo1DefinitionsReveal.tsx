@@ -32,7 +32,7 @@ const CHEVRON = {
 const GRID_COLS = 2;
 
 const termClass =
-  "font-body text-[12px] font-semibold leading-tight tracking-tight text-ink text-pretty break-words sm:text-[13px]";
+  "font-body text-[12px] font-semibold leading-snug tracking-tight text-ink text-pretty break-words sm:text-[13px] sm:leading-tight";
 const bodyClass =
   "font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
 const fieldLabelClass =
@@ -103,11 +103,11 @@ function DefinitionPlate({
           aria-controls={panelId}
           onClick={onToggle}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-1.5 px-2.5 py-2 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3 sm:py-2.5"
+          className="group flex w-full min-h-11 items-center gap-2 px-3 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3 sm:py-2.5"
         >
           <span
             className={cn(
-              "inline-flex size-[1.85em] shrink-0 items-center justify-center rounded-full font-body text-[12px] font-bold tabular-nums leading-none tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] sm:text-[13px]",
+              "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums leading-none tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] sm:size-[1.85em] sm:text-[13px]",
               open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
             )}
             style={
@@ -130,14 +130,15 @@ function DefinitionPlate({
             className={cn(
               "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)]",
               termClass,
-              index >= 9 ? "line-clamp-2" : "line-clamp-1",
+              "line-clamp-2 sm:line-clamp-1",
+              index >= 9 && "sm:line-clamp-2",
               "group-hover:text-orange",
             )}
           >
             {def.term}
           </span>
           <motion.span
-            className="inline-flex shrink-0 text-ink/45"
+            className="hidden shrink-0 text-ink/45 sm:inline-flex"
             initial={false}
             animate={{ rotate: open ? 180 : 0 }}
             transition={reduced ? { duration: 0 } : CHEVRON}
@@ -258,7 +259,7 @@ export function Lo1DefinitionsReveal({
       <p className="mb-3 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
         Reveal a term to see its Plain English and APM definitions.
       </p>
-      <div className="grid grid-cols-2 gap-2.5" aria-label="Key definitions">
+      <div className="grid grid-cols-2 gap-2 sm:gap-2.5" aria-label="Key definitions">
         {definitions.map((def, index) => (
           <DefinitionPlate
             key={def.term}
