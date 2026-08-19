@@ -76,7 +76,7 @@ export const PRO_INCLUDED: {
  * all 24 LOs, common misconceptions, memory aids.
  */
 export const PMQ_TICKET_SELL_POINTS = [
-  "Streaks + XP that pull you back every day",
+  "Daily streaks that pull you back every day",
   "24 LOs, full syllabus, nothing skipped",
   "240 practice questions, answer wrong, know why instantly",
   "Full 40-question mock exam included",

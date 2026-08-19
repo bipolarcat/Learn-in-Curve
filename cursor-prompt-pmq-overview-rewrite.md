@@ -1,88 +1,115 @@
-# Cursor prompt — rewrite the PMQ course overview page
+# Cursor prompt, rewrite the PMQ course overview page
 
-**Written 18 Aug 2026.** Copy is fully specified in `PMQ_OVERVIEW_PAGE_COPY.md` — read that first and treat it as the source for every string. This prompt covers the build only.
+**Version 2, 19 August 2026.** Copy is fully specified in `PMQ_OVERVIEW_PAGE_COPY.md`. Read that first and use it as the source for every string. This prompt covers the build.
+
+**Style constraint for any string you write:** no em dashes or en dashes. Use commas, colons, full stops or parentheses. This applies to copy, comments and commit messages.
 
 ## Why
 
-`src/app/(site)/pmq/page.tsx` is the course overview page and it currently carries a hero, three feature cards and a CTA. That is enough to describe the free tier and nothing else. A visitor cannot see the study pathway, the mock exam format, the tier ladder, or that Sly exists — so the page asks for an enrolment before it has explained what is being enrolled in.
+`src/app/(site)/pmq/page.tsx` is the course overview page. It currently has a hero, three feature cards and a CTA, which describes the free tier and nothing else. A visitor cannot see the misconceptions content, the memory aids, the command word coverage, the video or audio overviews, the study pathway, or that Sly exists. The product has roughly nine sellable features and the page shows three of them.
 
-The activation funnel says 39% of users are lost between the Orient and Learn stages. A visitor who arrives inside the course without knowing its shape is the most likely person to be in that 39%. Showing the pathway *before* signup is the cheapest intervention available.
+The page also currently leans on plan comparison language in every card body ("Pro adds more...", "Upgrade for extra mocks..."). That is pricing page work. This rewrite moves all plan detail to `/pricing` and lets this page sell features.
 
-Three files already hold the facts this page needs, and none of them should be duplicated into it:
+Facts live in three files and must not be duplicated into the page:
 
-- `src/lib/pmq/tiers.ts` — what each tier actually unlocks
-- `src/lib/pmq/plans.ts` — what the cards are permitted to claim, and `planFeatureValue()` for reading a figure
-- `src/lib/pmq/lo-stages.ts` — `LO_STAGE_ORDER`, `LO_STAGE_COUNT`, `PMQ_TOTAL_PROGRESS_UNITS`
+- `src/lib/pmq/tiers.ts`, what each tier unlocks
+- `src/lib/pmq/plans.ts`, what may be claimed, plus `planFeatureValue()`
+- `src/lib/pmq/lo-stages.ts`, `LO_STAGE_ORDER` and `PMQ_TOTAL_PROGRESS_UNITS`
 
-## Task 1 — hero
+## Task 1, remove XP
 
-Replace the lead with option A from the copy doc. Keep the eyebrow, title, artwork and `PmqStartLink` exactly as they are.
+Do this first, it is independent of the page.
 
-Change the secondary CTA label from "View Plans" to "See what's included". Keep it pointing at `PMQ_PRICING_HREF`.
+XP per answer has been removed from the product. It is still claimed in two places:
 
-Add a one-line trust strip under `.actions`, using the existing `.note` class: `Free forever · No card · 24 learning objectives`.
+1. `src/lib/pmq/pro-included.ts`, `PMQ_TICKET_SELL_POINTS[0]` currently reads "Streaks + XP that pull you back every day". This is live copy on the courses catalogue card. Rewrite it to sell streaks alone, for example "Daily streaks that pull you back every day".
+2. `src/components/pmq/XpStreakBar.tsx` renders an XP pill and a streak pill. Remove the XP pill, the `xp` prop, and the `xp` argument at every call site. Keep the streak pill and the percentage complete.
 
-## Task 2 — positioning block
+**Streaks stay.** Do not remove streak tracking or the completion meter. Only XP goes.
 
-New section between the hero and the feature cards. A heading and a single paragraph, no card chrome, constrained to roughly `36rem` so it reads as prose rather than a banner. Add a `.pitch` / `.pitchTitle` / `.pitchBody` trio to `CourseMarketing.module.css` following the type scale already in that file — Fraunces for the heading, Figtree for the body.
+`FEATURES.md` has already been updated and carries a note explaining this. Do not re-add XP to any file on the basis of finding it elsewhere in the codebase.
 
-## Task 3 — feature cards
+## Task 2, hero
 
-Replace the three card bodies with the copy-doc versions. Keep `IconPractice`, `IconMock`, `IconCore` and the `.features` grid untouched.
+Replace the lead with option A from the copy doc. Keep the eyebrow, title, artwork and `PmqStartLink` as they are.
 
-`PRACTICE` and `MOCKS` currently come from `planFeatureValue("starter", …)`. Card 1 keeps that binding. Card 2's heading becomes "A full mock paper, free" — no interpolated count — so drop the now-unused `MOCKS` constant rather than leaving it dangling.
+Change the secondary CTA label to "See What's Included", still pointing at `PMQ_PRICING_HREF`.
 
-## Task 4 — the pathway strip
+Add the trust strip beneath `.actions` using the existing `.note` class.
 
-New section rendering the seven stages horizontally, derived from `LO_STAGE_ORDER` — do not hardcode the list, and do not hardcode 168. Read `PMQ_TOTAL_PROGRESS_UNITS`.
+Remove the `PRACTICE` and `MOCKS` constants at the top of the file. Neither number appears on this page any more, and `planFeatureValue()` throws rather than returning a default, so leaving an unused call is a live error waiting for a plans.ts edit.
 
-`Video` and `Audio` must carry a small "Pro" chip. Derive that from `canAccessMedia()` semantics rather than a hardcoded pair of strings: those two stages are Pro-gated per `tiers.ts`, and a strip that shows seven stages while a free account delivers five is the exact claim/delivery mismatch `pro-included.ts` exists to prevent.
+## Task 3, positioning block
 
-Must wrap gracefully on mobile. A horizontal scroll strip is acceptable; a squashed seven-column grid is not.
+New section between the hero and the feature grid. A heading and one paragraph, no card chrome, body constrained to about `36rem` so it reads as prose. Add `.pitch`, `.pitchTitle` and `.pitchBody` to `CourseMarketing.module.css`, following the existing type scale: Fraunces for the heading, Figtree for the body.
 
-## Task 5 — mock exam section
+## Task 4, the feature grid
 
-Heading, one paragraph, and three stat figures (40 questions · 90 marks · 2.5 hours). Style the stats like figures, not sentences — Fraunces, large, orange accent on the numeral, consistent with `.featureTitle`.
+This is the main change. Replace the three-card `.features` list with a nine-card grid, three across on desktop, two on tablet, one on mobile.
 
-## Task 6 — Sly section
+Icons come from `PmqPreviewFeatureIcons`, which already exports `IconCore`, `IconPractice`, `IconMock`, `IconMisconceptions`, `IconMemory`, `IconVideo`, `IconAudio`, `IconSly` and `IconReport`. The command words card has no dedicated icon. Reuse `IconCore` rather than inventing one, or add a matching icon in the same stroke style if you prefer.
 
-Heading and one paragraph, then the status line from the copy doc as a visually distinct note.
+Three cards need a tier chip: `Pro` on Video and Audio, `Launching soon` on Sly. Derive Video and Audio from `canAccessMedia()` semantics and Sly from `PMQ_PLANS.ai_pro.status === "waitlist"` rather than hardcoding either. A grid showing nine features where a free account delivers six, with nothing marking the difference, is the claim and delivery mismatch that `pro-included.ts` exists to prevent.
 
-**The status line is not optional and must not be softened.** `FEATURES.md` records that copy which lets a visitor infer a free account includes the tutor is a misleading omission under the CPRs and generates refunds in practice. If the layout makes it look like fine print, change the layout, not the sentence.
+Add the single qualifying line beneath the grid, from the copy doc. It replaces the plan table.
 
-Link the "try it on the homepage" phrase to `/` — the guest Sly panel lives there.
+Keep the existing card treatment: same border, radius, shadow and `.featureIcon` orange. Nine cards at the current padding will be tall, so tighten the vertical rhythm rather than redesigning the card.
 
-## Task 7 — the ladder
+## Task 5, the pathway strip
 
-Render `PmqPlanCards` under a "Start free. Upgrade if you want more reps." heading, using the existing `.plans` / `.plansTitle` classes.
+New section rendering the seven stages horizontally from `LO_STAGE_ORDER`. Do not hardcode the stage list. Do not hardcode 168, read `PMQ_TOTAL_PROGRESS_UNITS`.
 
-Check that the AI Pro card's `status: "waitlist"` badge actually renders in this context. If it only renders on `/pricing`, fix it so it renders here too. An unbadged waitlist card on a page with buy CTAs reads as purchasable.
+Must degrade well on mobile. A horizontal scroll strip is fine. A seven-column grid squashed onto a phone is not.
 
-Add the one-off payment line beneath the cards using `.note`.
+## Task 6, Sly section
 
-## Task 8 — FAQ
+Heading, one paragraph, then the status line as a visually distinct note.
 
-Add the four product FAQs from the copy doc **above** the existing `PmqFaqSection` items. Prefer extending `PmqFaqSection` with a `leadingItems` prop over duplicating the accordion — its header comment says the copy is locked, and it should stay that way.
+**The status line is not optional and must not be softened into fine print.** `FEATURES.md` records that copy letting a visitor infer a free account includes the tutor is a misleading omission under the CPRs and generates refunds in practice.
 
-## Task 9 — closing CTA and legal
+Link the "try it on the homepage" phrase to `/`.
 
-Retitle the footer CTA block with "Find out what you can't answer yet". Keep both buttons and `analyticsLocation="pmq_overview_footer"`. `APM_DISCLAIMER` stays exactly as it is.
+## Task 7, pricing handoff
 
-## Task 10 — analytics
+No plan cards on this page. Do not render `PmqPlanCards`. A single band with the heading, the one-off payment line and a `See Plans and Pricing` button to `PMQ_PRICING_HREF`.
 
-Every new CTA and the Sly homepage link need `capture()` events consistent with `src/lib/analytics/events.ts`. Route them through the existing helper — nothing may fire before cookie consent, per `PostHogProvider`.
+## Task 8, FAQ
 
-Add a scroll-depth or section-view event on the pathway strip. It is the section this rewrite is betting on, and without an event there is no way to know whether it worked.
+Add the three product questions from the copy doc above the existing items. Extend `PmqFaqSection` with a `leadingItems` prop rather than duplicating the accordion. Its header comment says the copy is locked and it should stay locked.
+
+## Task 9, closing and legal
+
+Retitle the footer CTA block. Keep both buttons and `analyticsLocation="pmq_overview_footer"`. `APM_DISCLAIMER` unchanged.
+
+## Task 10, analytics
+
+Every new CTA and the Sly homepage link needs a `capture()` event consistent with `src/lib/analytics/events.ts`. Route through the existing helper so nothing fires before cookie consent.
+
+Add a section-view event on the pathway strip. That section is the bet this rewrite is making, and without an event there is no way to tell whether it worked.
+
+## Task 11, interface guidelines pass
+
+Apply these while building rather than fixing them afterwards. They come from the Vercel Web Interface Guidelines.
+
+- Headings must be hierarchical. The page has one `<h1>`, section headings are `<h2>`, and card titles are `<h3>`. The current page uses `<h2>` for card titles under an `<h1>` with no `<h2>` sections, which breaks the outline once sections are added.
+- Decorative icons need `aria-hidden="true"`. The nine card icons are decorative because the card title carries the meaning.
+- Images need explicit `width` and `height`, or `fill` with a sized parent, to prevent layout shift. Keep `priority` on the hero art and use `loading="lazy"` for anything below the fold.
+- Interactive elements need a visible `:focus-visible` state. Do not use `outline-none` without a replacement.
+- Apply `text-wrap: balance` to headings and `text-pretty` to body copy. `.title` and `.lead` already do this, so match it on the new classes.
+- Use `tabular-nums` on the mock exam stat figures.
+- Links use `<a>` or `<Link>`, never a div with an onClick, so middle-click and Cmd-click work.
+- Title Case on buttons, sentence case on section headings. That matches the copy doc.
 
 ## Do not
 
-- **Do not hardcode any number that has a constant.** Question counts come from `planFeatureValue()`, stage count from `LO_STAGE_ORDER`, progress units from `PMQ_TOTAL_PROGRESS_UNITS`. A figure typed into this page can only ever drift out of agreement with what the gates deliver, and `plans.ts` is explicit that an unprovable count is a misleading commercial practice, not a cosmetic bug.
-- **Do not write the Pro price into this page.** It derives from `SLY_UNLOCK_PRICE_CENTS`. `PmqPlanCards` already handles it.
-- **Do not put "nearly 1,900" or 1,862 anywhere on this page.** That is the AI Pro ceiling and AI Pro has no checkout. It belongs on the plan card, where the "Launching soon" badge sits next to it.
-- **Do not add a pass rate, a "pass first time" claim, or a learner count.** No outcome data exists, and any learner count would have to come from `attempts`/`auth.users` rather than `profiles`, which is under-populated.
-- **Do not redesign.** Reuse the existing tokens, type scale, card treatment and stamp CTAs. New classes should look like they were always in `CourseMarketing.module.css`.
-- Do not touch `/pricing`, `PMQ_PLANS`, or any entitlement logic. This is a copy and layout task.
+- **Do not hardcode any number that has a constant.** Stage count from `LO_STAGE_ORDER`, progress units from `PMQ_TOTAL_PROGRESS_UNITS`, question counts via `planFeatureValue()` if you need one at all.
+- **Do not put the Pro price on this page.** It derives from `SLY_UNLOCK_PRICE_CENTS` and belongs on `/pricing`.
+- **Do not add a plan comparison, a feature matrix, or per-tier counts.** That is the specific thing this rewrite removes. The one qualifying line under the grid is the whole of it.
+- **Do not write "1,862" or "up to 2,000".** The approved claim is "1,800+", once, on the practice card, with its qualifying sentence.
+- **Do not add a pass rate, a "pass first time" claim, or a learner count.**
+- **Do not redesign.** Reuse existing tokens, type scale, card treatment and stamp CTAs. New classes should look like they were always in `CourseMarketing.module.css`.
+- Do not touch `/pricing`, `PMQ_PLANS`, or any entitlement logic.
 
 ## Report back
 
-Append to `BUSINESS_STATE.md`: which sections landed, whether the waitlist badge needed fixing, any place where a copy-doc claim could not be backed by a constant, and the new analytics event names. Flag anything you had to hardcode and why.
+Append to `BUSINESS_STATE.md`: which sections landed, where XP was found and removed, any copy claim you could not back with a constant, and the new analytics event names. Flag anything you had to hardcode and why.

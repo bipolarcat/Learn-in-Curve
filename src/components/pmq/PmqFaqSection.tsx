@@ -1,6 +1,6 @@
 "use client";
 
-import { FaqAccordion } from "@/components/FaqAccordion";
+import { FaqAccordion, type FaqAccordionItem } from "@/components/FaqAccordion";
 
 const FAQ_ITEMS = [
   {
@@ -85,11 +85,18 @@ const FAQ_ITEMS = [
   },
 ];
 
-/** Flat FAQ accordion — copy locked; chrome matches plan / command words consoles. */
-export function PmqFaqSection() {
+/**
+ * Flat FAQ accordion. The five items above are locked qualification copy.
+ * Pass `leadingItems` for extra product questions on the public overview only.
+ */
+export function PmqFaqSection({
+  leadingItems = [],
+}: {
+  leadingItems?: FaqAccordionItem[];
+}) {
   return (
     <FaqAccordion
-      items={FAQ_ITEMS}
+      items={[...leadingItems, ...FAQ_ITEMS]}
       headingId="pmq-faqs-heading"
       title="FAQ"
       titleAccent="s"

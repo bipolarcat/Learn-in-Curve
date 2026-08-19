@@ -9,7 +9,6 @@ import {
   getLoStageReachedMap,
   getMockExamSetSummaries,
   getPmqSections,
-  getPractiseQuizXp,
   getUserCourseStats,
 } from "@/lib/pmq/queries";
 import { canAccessCourseReport, canAccessSly } from "@/lib/pmq/tiers";
@@ -53,7 +52,6 @@ export default async function PmqCourseOverviewPage() {
     userTier,
     completion,
     profile,
-    practiseXp,
     mockExamSummaries,
     hasCourseReport,
     stageReachedBySectionId,
@@ -64,12 +62,11 @@ export default async function PmqCourseOverviewPage() {
         getPmqTier(supabase, user.id, course.id),
         getCourseCompletion(supabase, user.id, course.id),
         getUserProfile(supabase, user),
-        getPractiseQuizXp(supabase, user.id, course.id),
         getMockExamSetSummaries(supabase, user.id),
         hasCourseCompletionReport(supabase, user.id, course.id),
         getLoStageReachedMap(supabase, user.id, course.id),
       ])
-    : [null, [], "starter" as const, null, null, 0, [], false, {}];
+    : [null, [], "starter" as const, null, null, [], false, {}];
 
   const tutorPriceCents = getAiTutorPriceCents(course);
   const nextSection = getNextIncompleteSection(sections, completedSectionIds);
@@ -96,7 +93,6 @@ export default async function PmqCourseOverviewPage() {
       <DemoBanner isSignedIn={!!user} />
       <PmqCourseHeader
         courseName={course.name}
-        xp={practiseXp}
         streak={courseStats?.current_streak ?? 0}
         completionPercent={completion?.percent ?? 0}
         showStats={!!user}

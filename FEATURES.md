@@ -7,7 +7,6 @@
 **Gamification**
 - Completion meter (visual progress across the course)
 - Daily streak tracking — keeps learners returning and finishing
-- XP on every quiz answer (10 XP each) — the more XP, the better
 
 **Learning**
 - 24 learning objectives (LOs), full APM syllabus coverage for the exam
@@ -98,4 +97,14 @@ misleading omission under the CPRs, and in practice it generates refunds.
    currently unlocks everything listed under AI Pro too. The tier split is
    marketing until **LIC-98** lands — do not put Pro on sale at a Pro price
    before then.
+6. **XP removed, 2026-08-19 — do not reinstate.** Sim confirmed the XP-per-answer
+   feature has been taken out of the product. The bullet that claimed "XP on every
+   quiz answer (10 XP each)" has been deleted from this file. **Daily streaks and the
+   completion meter remain live and may still be sold.** Two other places still
+   referenced XP at the time of this edit and are being handled separately:
+   `src/lib/pmq/pro-included.ts` (`PMQ_TICKET_SELL_POINTS[0]`, which is live copy on
+   the courses catalogue card) and `src/components/pmq/XpStreakBar.tsx` (the XP pill
+   itself). If either of those still mentions XP when you read this, the removal was
+   not finished. Do not re-add XP to this file on the basis of finding it in code.
+
 5. **Free-tier rename, 2026-07-27.** "Lite" renamed to "Starter" across marketing/landing copy (`FEATURES.md`, `PmqPreviewCompare.tsx`) — "Lite" tested as implying reduced value. Quiz counts also corrected to live DB-verified numbers same day: Starter = 240 questions (was documented as "~280"), Pro = 1,862 total / 1,622 Starter-exclusive extra (was documented as "800+", now stale-low). Note: the internal `MockExamTier` type (`"lite" | "full"`) in `src/lib/pmq/{mock-domain,mock-actions,constants,queries}.ts` and `src/types/pmq.ts` still uses `"lite"` as a code-level value — this wasn't touched, since it's an internal/routing identifier (not displayed to users) and renaming it touches URL params and session-tier comparisons across several files. Flag if you want that renamed too.

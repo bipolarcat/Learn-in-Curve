@@ -151,6 +151,13 @@ export function trackCtaClicked(props: {
   capture("cta_clicked", props);
 }
 
+export function trackPmqOverviewPathwayViewed(props: {
+  progress_units: number;
+  stage_count: number;
+}): void {
+  capture("pmq_overview_pathway_viewed", props);
+}
+
 export function trackQuizDemoQuestionAnswered(props: {
   question_index: number;
   correct: boolean;

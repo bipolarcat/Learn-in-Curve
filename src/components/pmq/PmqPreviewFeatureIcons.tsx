@@ -187,6 +187,7 @@ export function IconSly({ className }: IconProps) {
           alt=""
           width={22}
           height={22}
+          loading="lazy"
           className="h-full w-full scale-[1.5] object-cover object-[center_24%]"
         />
       </span>
