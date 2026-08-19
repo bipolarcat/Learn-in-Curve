@@ -83,7 +83,7 @@ function DefinitionPlate({
         >
           <span
             className={cn(
-              "inline-flex size-[1.85em] shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight",
+              "inline-flex size-8 shrink-0 items-center justify-center rounded-full font-body text-[13px] font-bold tabular-nums leading-none tracking-tight sm:size-[1.85em]",
               open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
             )}
             style={
@@ -147,7 +147,7 @@ function DefinitionPlate({
               <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
               <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
             </div>
-            <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
+            <div className="rounded-xl bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
               <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
               <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
             </div>
