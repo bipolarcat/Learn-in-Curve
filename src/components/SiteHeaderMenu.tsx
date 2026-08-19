@@ -14,10 +14,10 @@ import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { cn } from "@/lib/utils";
 
 const MENU_ITEMS = [
-  { href: "/about", label: "About" },
-  { href: "/free-mock-exam", label: "Free PMQ mock exam" },
-  { href: "/library", label: "Library" },
-  { href: "/contact", label: "Get in Touch" },
+  { href: "/free-mock-exam", label: "Mock Me" },
+  { href: "/library", label: "The Shelf" },
+  { href: "/about", label: "Behind the Curve" },
+  { href: "/contact", label: "Let's Talk" },
 ] as const;
 
 export function SiteHeaderMenu() {
