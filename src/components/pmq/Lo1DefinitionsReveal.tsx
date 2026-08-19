@@ -59,6 +59,7 @@ function useAutoHeight(open: boolean) {
 
 function DefinitionPlate({
   def,
+  index,
   open,
   seen,
   onToggle,
@@ -67,6 +68,7 @@ function DefinitionPlate({
   panelId,
 }: {
   def: KeyDefinition;
+  index: number;
   open: boolean;
   seen: boolean;
   onToggle: () => void;
@@ -106,11 +108,15 @@ function DefinitionPlate({
         >
           <span
             className={cn(
-              "h-2 w-2 shrink-0 rounded-full transition-colors duration-200 ease-[var(--ease-out-quint)]",
-              open || seen ? "bg-teal" : "bg-teal/25",
+              "inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)]",
+              open || seen
+                ? "bg-teal text-paper"
+                : "bg-teal/25 text-teal/60",
             )}
             aria-hidden
-          />
+          >
+            {index}
+          </span>
           <span className={`min-w-0 flex-1 ${termClass}`}>{def.term}</span>
           <motion.span
             className="inline-flex shrink-0 text-ink/40"
@@ -233,6 +239,7 @@ export function Lo1DefinitionsReveal({
           <DefinitionPlate
             key={def.term}
             def={def}
+            index={index + 1}
             open={openTerm === def.term}
             seen={seen.has(def.term)}
             panelId={`${baseId}-panel-${index}`}
