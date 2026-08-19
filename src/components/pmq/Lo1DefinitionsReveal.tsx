@@ -9,7 +9,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { ChevronDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { KeyDefinition } from "@/types/pmq";
 import { cn } from "@/lib/utils";
@@ -23,12 +22,8 @@ const DISCLOSE = {
   damping: 40,
   mass: 0.6,
 } as const;
-const CHEVRON = {
-  type: "spring",
-  stiffness: 700,
-  damping: 46,
-  mass: 0.5,
-} as const;
+/** 21st.dev ncdai chevrons-up-down-icon (21382): path morph, 300ms. */
+const CHEVRON_PATH = { duration: 0.3, ease: EASE } as const;
 const GRID_COLS = 2;
 
 const termClass =
@@ -137,15 +132,24 @@ function DefinitionPlate({
           >
             {def.term}
           </span>
-          <motion.span
-            className="hidden shrink-0 text-ink/45 sm:inline-flex"
-            initial={false}
-            animate={{ rotate: open ? 180 : 0 }}
-            transition={reduced ? { duration: 0 } : CHEVRON}
+          <svg
+            className="size-3.5 shrink-0 text-ink/45"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             aria-hidden
           >
-            <ChevronDown className="size-3.5" strokeWidth={2} />
-          </motion.span>
+            <motion.path
+              initial={false}
+              animate={{
+                d: open ? "M6 15L12 9L18 15" : "M6 9L12 15L18 9",
+              }}
+              transition={reduced ? { duration: 0 } : CHEVRON_PATH}
+            />
+          </svg>
         </button>
       </h3>
 
