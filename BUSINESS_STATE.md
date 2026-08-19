@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-08-19** — LO1 definition plates: chevron back on every size; open/close morphs the path (21st.dev ncdai chevrons-up-down-icon, 21382) instead of rotating. (`Lo1DefinitionsReveal.tsx`)
+- **2026-08-19** — LO1 definition plates open/close like the header menu: 220ms ease-out-quint grid clip (no spring, no blur). Chevron rotates on the same curve. (`Lo1DefinitionsReveal.tsx`)
 
 - **2026-08-19** — LO1 definition plates, mobile: 24px disc with 10px numerals (more ring around the digit), gap-2 from the term, chevron hidden until sm, terms may wrap two lines. Desktop disc/type unchanged. (`Lo1DefinitionsReveal.tsx`)
 

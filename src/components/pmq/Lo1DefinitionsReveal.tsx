@@ -1,29 +1,14 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useCallback, useId, useMemo, useRef, useState } from "react";
 import type { KeyDefinition } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
-/** 21st.dev ddoemonn accordion (23530): snappy spring + quint fade. */
-const EASE = [0.23, 1, 0.32, 1] as const;
-const EXIT_EASE = [0.4, 0, 1, 1] as const;
-const DISCLOSE = {
-  type: "spring",
-  stiffness: 480,
-  damping: 40,
-  mass: 0.6,
-} as const;
-/** 21st.dev ncdai chevrons-up-down-icon (21382): path morph, 300ms. */
-const CHEVRON_PATH = { duration: 0.3, ease: EASE } as const;
+/** Same 220ms ease-out-quint as SiteHeaderMenu panel (blurEase). */
+const disclose =
+  "grid transition-[grid-template-rows] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0";
+const chevronTurn =
+  "size-3.5 shrink-0 text-ink/45 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:duration-0";
 const GRID_COLS = 2;
 
 const termClass =
@@ -32,27 +17,6 @@ const bodyClass =
   "font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
 const fieldLabelClass =
   "font-body text-[12px] font-semibold tracking-tight";
-
-function useAutoHeight(open: boolean) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useLayoutEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const read = () => {
-      setHeight(el.getBoundingClientRect().height);
-    };
-
-    read();
-    const observer = new ResizeObserver(read);
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [open]);
-
-  return { ref, height };
-}
 
 function DefinitionPlate({
   def,
@@ -73,15 +37,6 @@ function DefinitionPlate({
   buttonId: string;
   panelId: string;
 }) {
-  const reduced = useReducedMotion();
-  const { ref, height } = useAutoHeight(open);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    el.inert = !open;
-  }, [ref, open]);
-
   return (
     <div
       className={cn(
@@ -133,7 +88,7 @@ function DefinitionPlate({
             {def.term}
           </span>
           <svg
-            className="size-3.5 shrink-0 text-ink/45"
+            className={cn(chevronTurn, open && "rotate-180")}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -142,86 +97,38 @@ function DefinitionPlate({
             strokeLinejoin="round"
             aria-hidden
           >
-            <motion.path
-              initial={false}
-              animate={{
-                d: open ? "M6 15L12 9L18 15" : "M6 9L12 15L18 9",
-              }}
-              transition={reduced ? { duration: 0 } : CHEVRON_PATH}
-            />
+            <path d="M6 9L12 15L18 9" />
           </svg>
         </button>
       </h3>
 
-      <motion.div
-        initial={false}
-        animate={{ height: open ? height : 0 }}
-        transition={reduced ? { duration: 0 } : DISCLOSE}
-        className="overflow-hidden"
-      >
+      <div className={cn(disclose, open ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
         <div
-          ref={ref}
           id={panelId}
           role="region"
           aria-labelledby={buttonId}
+          inert={!open}
+          className="min-h-0 overflow-hidden"
         >
           <div className="grid gap-3 border-t border-black/[0.08] px-3.5 pb-4 pt-3 dark:border-white/[0.12]">
-            <motion.div
-              initial={false}
-              animate={
-                open
-                  ? { opacity: 1, y: 0, filter: "blur(0px)" }
-                  : {
-                      opacity: 0,
-                      y: reduced ? 0 : 4,
-                      filter: reduced ? "blur(0px)" : "blur(4px)",
-                    }
-              }
-              transition={
-                reduced
-                  ? { duration: 0 }
-                  : open
-                    ? { duration: 0.18, delay: 0.04, ease: EASE }
-                    : { duration: 0.14, ease: EXIT_EASE }
-              }
-            >
+            <div>
               <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
               <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
-            </motion.div>
-            <motion.div
-              initial={false}
-              animate={
-                open
-                  ? { opacity: 1, y: 0, filter: "blur(0px)" }
-                  : {
-                      opacity: 0,
-                      y: reduced ? 0 : 4,
-                      filter: reduced ? "blur(0px)" : "blur(4px)",
-                    }
-              }
-              transition={
-                reduced
-                  ? { duration: 0 }
-                  : open
-                    ? { duration: 0.18, delay: 0.08, ease: EASE }
-                    : { duration: 0.14, ease: EXIT_EASE }
-              }
-              className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]"
-            >
+            </div>
+            <div className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]">
               <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
               <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 /**
  * LO1-only key definitions: term plates, one open, click to uncover.
- * Height spring from 21st.dev accordion (ddoemonn, 23530). Content fade
- * uses the same quint in / quart out. APM sits on a teal plate.
+ * Open/close is a 220ms ease-out-quint clip, same curve as SiteHeaderMenu.
  */
 export function Lo1DefinitionsReveal({
   definitions,
