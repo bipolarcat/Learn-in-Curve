@@ -61,7 +61,6 @@ function DefinitionPlate({
   def,
   index,
   open,
-  seen,
   onToggle,
   onKeyDown,
   buttonRef,
@@ -70,7 +69,6 @@ function DefinitionPlate({
   def: KeyDefinition;
   index: number;
   open: boolean;
-  seen: boolean;
   onToggle: () => void;
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
   buttonRef: (node: HTMLButtonElement | null) => void;
@@ -90,10 +88,8 @@ function DefinitionPlate({
       className={cn(
         "min-w-0 overflow-hidden rounded-xl border bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] transition-[border-color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
         open
-          ? "col-span-2 border-teal/35 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_0_0_1px_rgb(var(--teal-rgb)_/_0.12)]"
-          : seen
-            ? "border-teal/30"
-            : "border-black/[0.08] hover:border-teal/30 dark:border-white/[0.12]",
+          ? "col-span-2 border-black/[0.08] dark:border-white/[0.12]"
+          : "border-black/[0.08] hover:border-teal/30 dark:border-white/[0.12]",
       )}
     >
       <h3 className="m-0">
@@ -108,8 +104,10 @@ function DefinitionPlate({
         >
           <span
             className={cn(
-              "shrink-0 font-body text-[13px] font-bold tabular-nums leading-none tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)] sm:text-[15px]",
-              open || seen ? "text-teal-deep" : "text-teal/45",
+              "inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-body text-[10px] font-bold tabular-nums tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)]",
+              open
+                ? "bg-teal text-paper"
+                : "bg-teal/25 text-teal/60",
             )}
             aria-hidden
           >
@@ -196,7 +194,6 @@ export function Lo1DefinitionsReveal({
 }) {
   const baseId = useId();
   const [openTerm, setOpenTerm] = useState<string | null>(null);
-  const [seen, setSeen] = useState<Set<string>>(() => new Set());
   const buttons = useRef(new Map<string, HTMLButtonElement>());
 
   const ids = definitions.map((d) => d.term);
@@ -239,19 +236,12 @@ export function Lo1DefinitionsReveal({
             def={def}
             index={index + 1}
             open={openTerm === def.term}
-            seen={seen.has(def.term)}
             panelId={`${baseId}-panel-${index}`}
             buttonRef={bindRef(def.term)}
             onToggle={() => {
               setOpenTerm((current) =>
                 current === def.term ? null : def.term,
               );
-              setSeen((prev) => {
-                if (prev.has(def.term)) return prev;
-                const next = new Set(prev);
-                next.add(def.term);
-                return next;
-              });
             }}
             onKeyDown={(event) => {
               if (event.key === "ArrowDown") {
