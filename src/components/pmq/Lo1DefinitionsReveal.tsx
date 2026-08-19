@@ -14,17 +14,29 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { KeyDefinition } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-const DISCLOSE = { duration: 0.22, ease: EASE } as const;
-const REVEAL = { duration: 0.2, ease: EASE } as const;
+/** 21st.dev ddoemonn accordion (23530): snappy spring + quint fade. */
+const EASE = [0.23, 1, 0.32, 1] as const;
+const EXIT_EASE = [0.4, 0, 1, 1] as const;
+const DISCLOSE = {
+  type: "spring",
+  stiffness: 480,
+  damping: 40,
+  mass: 0.6,
+} as const;
+const CHEVRON = {
+  type: "spring",
+  stiffness: 700,
+  damping: 46,
+  mass: 0.5,
+} as const;
 const GRID_COLS = 2;
 
 const termClass =
-  "font-body text-sm font-semibold leading-snug tracking-tight text-ink text-pretty break-words sm:text-base";
+  "font-body text-[12px] font-semibold leading-tight tracking-tight text-ink text-pretty break-words sm:text-[13px]";
 const bodyClass =
   "font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
 const fieldLabelClass =
-  "font-body text-[12px] font-semibold tracking-tight text-ink/70";
+  "font-body text-[12px] font-semibold tracking-tight";
 
 function useAutoHeight(open: boolean) {
   const ref = useRef<HTMLDivElement>(null);
@@ -91,11 +103,11 @@ function DefinitionPlate({
           aria-controls={panelId}
           onClick={onToggle}
           onKeyDown={onKeyDown}
-          className="group flex w-full min-h-11 items-center gap-2.5 px-3 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-3 sm:px-3.5 sm:py-3"
+          className="group flex w-full min-h-11 items-center gap-1.5 px-2.5 py-2 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:bg-ink/[0.07] sm:gap-2 sm:px-3 sm:py-2.5"
         >
           <span
             className={cn(
-              "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-body text-[11px] font-bold tabular-nums tracking-tight transition-colors duration-200 ease-[var(--ease-out-quint)]",
+              "inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full font-body text-[8px] font-bold tabular-nums tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)]",
               open ? "bg-teal text-paper" : "bg-teal/20 text-teal",
             )}
             style={
@@ -118,19 +130,21 @@ function DefinitionPlate({
             className={cn(
               "min-w-0 flex-1 transition-colors duration-150 ease-[var(--ease-out-quint)]",
               termClass,
+              index >= 9 ? "line-clamp-2" : "line-clamp-1",
               "group-hover:text-orange",
             )}
           >
             {def.term}
           </span>
-          <ChevronDown
-            className={cn(
-              "size-4 shrink-0 text-ink/45 transition-transform duration-200 ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-              open && "rotate-180 text-ink/55",
-            )}
-            strokeWidth={2}
+          <motion.span
+            className="inline-flex shrink-0 text-ink/45"
+            initial={false}
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={reduced ? { duration: 0 } : CHEVRON}
             aria-hidden
-          />
+          >
+            <ChevronDown className="size-3.5" strokeWidth={2} />
+          </motion.span>
         </button>
       </h3>
 
@@ -154,17 +168,19 @@ function DefinitionPlate({
                   ? { opacity: 1, y: 0, filter: "blur(0px)" }
                   : {
                       opacity: 0,
-                      y: reduced ? 0 : 6,
-                      filter: reduced ? "blur(0px)" : "blur(5px)",
+                      y: reduced ? 0 : 4,
+                      filter: reduced ? "blur(0px)" : "blur(4px)",
                     }
               }
               transition={
                 reduced
                   ? { duration: 0 }
-                  : { ...REVEAL, delay: open ? 0.04 : 0 }
+                  : open
+                    ? { duration: 0.18, delay: 0.04, ease: EASE }
+                    : { duration: 0.14, ease: EXIT_EASE }
               }
             >
-              <p className={fieldLabelClass}>Plain English</p>
+              <p className={`${fieldLabelClass} text-ink/70`}>Plain English</p>
               <p className={`mt-1 ${bodyClass}`}>{def.plain_english}</p>
             </motion.div>
             <motion.div
@@ -174,18 +190,20 @@ function DefinitionPlate({
                   ? { opacity: 1, y: 0, filter: "blur(0px)" }
                   : {
                       opacity: 0,
-                      y: reduced ? 0 : 6,
-                      filter: reduced ? "blur(0px)" : "blur(5px)",
+                      y: reduced ? 0 : 4,
+                      filter: reduced ? "blur(0px)" : "blur(4px)",
                     }
               }
               transition={
                 reduced
                   ? { duration: 0 }
-                  : { ...REVEAL, delay: open ? 0.1 : 0 }
+                  : open
+                    ? { duration: 0.18, delay: 0.08, ease: EASE }
+                    : { duration: 0.14, ease: EXIT_EASE }
               }
-              className="border-t border-black/[0.06] pt-3 dark:border-white/[0.1]"
+              className="rounded-lg bg-teal/[0.08] px-3 py-2.5 dark:bg-teal/[0.14]"
             >
-              <p className={fieldLabelClass}>APM definition</p>
+              <p className={`${fieldLabelClass} text-teal`}>APM definition</p>
               <p className={`mt-1 ${bodyClass}`}>{def.apm_definition}</p>
             </motion.div>
           </div>
@@ -197,7 +215,8 @@ function DefinitionPlate({
 
 /**
  * LO1-only key definitions: term plates, one open, click to uncover.
- * Height ease from the LO accordion; blur-in on the two definition fields.
+ * Height spring from 21st.dev accordion (ddoemonn, 23530). Content fade
+ * uses the same quint in / quart out. APM sits on a teal plate.
  */
 export function Lo1DefinitionsReveal({
   definitions,
