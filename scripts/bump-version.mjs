@@ -98,6 +98,8 @@ if (setTo) {
 }
 
 if (next === current.version) {
+  // Still rewrite so package.json can never drift out of sync with SITE_VERSION.
+  writeVersion(next);
   process.stdout.write(`site-version: already ${next}\n`);
   process.exit(0);
 }
