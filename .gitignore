@@ -47,3 +47,6 @@ _wispr/
 *.sqlite-wal
 *.sqlite-shm
 PMP in 5 days/
+
+# Scratch screenshots and one-off verify scripts (Cursor sessions)
+.tmp-*
