@@ -1,5 +1,6 @@
 /**
- * Guard: the PFQ ATP / trademark disclaimer stays defined and is used on /pfq.
+ * Guard: the PFQ ATP / trademark disclaimer stays defined and is used on the
+ * PFQ course overview and pricing pages.
  * Informal legal hygiene — mirrors tests/apm-disclaimer.test.mjs.
  */
 import assert from "node:assert/strict";
@@ -23,12 +24,12 @@ test("PFQ_ATP_DISCLAIMER is defined with required claims", async () => {
   assert.match(text, /trademarks of the Association for Project Management/i);
 });
 
-test("/pfq landing imports the PFQ disclaimer", async () => {
-  const page = await read("src/app/(site)/pfq/page.tsx");
+test("PFQ overview imports the PFQ disclaimer", async () => {
+  const page = await read("src/app/courses/pfq-in-2-days/page.tsx");
   assert.match(page, /PFQ_ATP_DISCLAIMER/);
 });
 
-test("/pfq/pricing imports the PFQ disclaimer", async () => {
-  const page = await read("src/app/(site)/pfq/pricing/page.tsx");
+test("PFQ pricing imports the PFQ disclaimer", async () => {
+  const page = await read("src/app/courses/pfq-in-2-days/pricing/page.tsx");
   assert.match(page, /PFQ_ATP_DISCLAIMER/);
 });

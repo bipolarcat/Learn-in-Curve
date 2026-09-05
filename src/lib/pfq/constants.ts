@@ -16,11 +16,15 @@ export const PFQ_SLUG = REGISTRY_PFQ_SLUG;
 /** Pro Bundle price. Defined once in the course registry. AI Pro is waitlist-only. */
 export const PFQ_PRO_PRICE_CENTS = REGISTRY_PFQ_PRO_PRICE_CENTS;
 
-export const PFQ_PRICING_HREF = "/pfq/pricing";
-export const PFQ_LEARN_HREF = "/pfq/learn";
-export const PFQ_MOCK_HREF = "/pfq/mock";
-export const PFQ_PRACTICE_HREF = "/pfq/practice";
-export const PFQ_TRAP_SCHOOL_HREF = "/pfq/trap-school";
+/** Base path under `/courses` — every PFQ route hangs off this. */
+export const PFQ_BASE_HREF = `/courses/${PFQ_SLUG}`;
+
+export const PFQ_PRICING_HREF = `${PFQ_BASE_HREF}/pricing`;
+export const PFQ_LEARN_HREF = `${PFQ_BASE_HREF}/learn`;
+export const PFQ_MOCK_HREF = `${PFQ_BASE_HREF}/mock`;
+export const PFQ_PRACTICE_HREF = `${PFQ_BASE_HREF}/practice`;
+export const PFQ_TRAP_SCHOOL_HREF = `${PFQ_BASE_HREF}/trap-school`;
+export const PFQ_PREVIEW_HREF = `${PFQ_BASE_HREF}/preview`;
 
 /**
  * Practice runner feature flag. Commerce gating (Pro) is separate via
@@ -30,7 +34,8 @@ export const PFQ_PRACTICE_ENABLED = true;
 
 /**
  * Lesson content flag. Pro gate is separate (canAccessPfqLessons). Flip false
- * to hide /pfq/learn/* lesson map + objective pages while content is dark.
+ * to hide /courses/pfq-in-2-days/learn/* lesson map + objective pages while
+ * content is dark.
  */
 export const PFQ_LESSONS_ENABLED = true;
 

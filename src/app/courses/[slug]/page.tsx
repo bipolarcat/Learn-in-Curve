@@ -23,7 +23,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
   }
 
   if (slug === "pfq-in-2-days" || slug === "psq-in-2-days") {
-    redirect("/pfq");
+    redirect("/courses/pfq-in-2-days");
   }
 
   const { data: course } = await supabase

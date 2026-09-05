@@ -5,6 +5,7 @@ import {
   PFQ_CHECKOUT_ENABLED,
   PFQ_COURSE_ID,
   PFQ_LEARN_HREF,
+  PFQ_PRICING_HREF,
   PFQ_PRO_PRICE_CENTS,
   formatPfqPriceGbp,
 } from "@/lib/pfq/constants";
@@ -105,7 +106,7 @@ export async function createPfqCheckout(): Promise<
     },
     ...PFQ_DIGITAL_CONTENT_CONSENT,
     success_url: `${appUrl}${PFQ_LEARN_HREF}?pfq_unlocked=1`,
-    cancel_url: `${appUrl}/pfq/pricing`,
+    cancel_url: `${appUrl}${PFQ_PRICING_HREF}`,
   });
 
   if (!session.url) {

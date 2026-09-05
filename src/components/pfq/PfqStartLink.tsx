@@ -18,6 +18,7 @@ import {
   withSoftNavFrom,
 } from "@/lib/soft-nav-back";
 import { trackCtaClicked } from "@/lib/analytics/events";
+import { PFQ_PREVIEW_HREF } from "@/lib/pfq/constants";
 
 type PfqStartLinkProps = {
   isSignedIn: boolean;
@@ -29,7 +30,7 @@ type PfqStartLinkProps = {
   analyticsVariant?: string;
 };
 
-const GUEST_PATH = "/pfq/preview";
+const GUEST_PATH = PFQ_PREVIEW_HREF;
 const SIGNED_IN_PATH = "/dashboard";
 
 /**

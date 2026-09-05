@@ -12,6 +12,7 @@ import {
   togglePfqFlag,
 } from "@/lib/pfq/actions";
 import { PFQ_DURATION_SECONDS, PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
+import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { PfqResults } from "@/components/pfq/PfqResults";
 import { Spinner } from "@/components/ui/spinner";
@@ -156,7 +157,7 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
       setIndex(0);
       autoSubmitted.current = false;
       setPhase("exam");
-      router.replace(`/pfq/mock/${started.attemptId}`);
+      router.replace(`${PFQ_MOCK_HREF}/${started.attemptId}`);
     });
   }
 
@@ -224,7 +225,7 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
       }
       setResults(submitted);
       setPhase("results");
-      router.replace(`/pfq/mock/${attemptId}`);
+      router.replace(`${PFQ_MOCK_HREF}/${attemptId}`);
     });
   }
 

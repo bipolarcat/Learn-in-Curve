@@ -6,6 +6,7 @@ import { getPfqTier } from "@/lib/pfq/entitlement";
 import { canAccessPfqLessons } from "@/lib/pfq/tiers";
 import {
   PFQ_COURSE_ID,
+  PFQ_LEARN_HREF,
   PFQ_LESSONS_ENABLED,
 } from "@/lib/pfq/constants";
 import { pfqSectionId } from "@/lib/pfq/section-ids";
@@ -40,8 +41,8 @@ async function requirePfqLessonUser(): Promise<
 }
 
 function revalidateLesson(objective: number) {
-  revalidatePath("/pfq/learn");
-  revalidatePath(`/pfq/learn/${objective}`);
+  revalidatePath(PFQ_LEARN_HREF);
+  revalidatePath(`${PFQ_LEARN_HREF}/${objective}`);
 }
 
 export async function updatePfqCheckpoint(input: {

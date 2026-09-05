@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PfqMockRunner } from "@/components/pfq/PfqMockRunner";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
+import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "PFQ Mock Exam — Timed 60 Questions",
   description:
     "Timed APM PFQ practice mock: 60 questions, 60 minutes, flagging and review panel. Results show a 59-outcome coverage map.",
-  alternates: { canonical: `${SITE_URL}/pfq/mock` },
+  alternates: { canonical: `${SITE_URL}${PFQ_MOCK_HREF}` },
   robots: { index: false, follow: false },
 };
 

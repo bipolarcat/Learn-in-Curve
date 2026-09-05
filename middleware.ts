@@ -3,7 +3,8 @@ import { updateSession } from "@/lib/supabase/middleware";
 
 /**
  * Permanent redirects for the old PFQ subtree → `/courses/pfq-in-2-days/*`.
- * Must ship in the same deploy as the route move.
+ * Must ship in the same deploy as the route move. next.config.ts also lists
+ * these redirects as a belt-and-braces layer.
  */
 function redirectLegacyPfq(request: NextRequest): NextResponse | null {
   const { pathname, search } = request.nextUrl;
@@ -25,6 +26,8 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/pfq",
+    "/pfq/:path*",
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

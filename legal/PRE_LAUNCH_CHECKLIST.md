@@ -167,10 +167,11 @@ decision below are independent of the payment question.
       (informal):** homepage/pricing still market PMQ material without this line
       on-page — Terms still carry it; revisit if a solicitor wants broader
       surface coverage.
-- [x] **PFQ ATP / trademark disclaimer on `/pfq` — 2026-08-13.**
+- [x] **PFQ ATP / trademark disclaimer on PFQ overview — 2026-08-13.**
       `PFQ_ATP_DISCLAIMER` in `src/lib/legal-copy.ts` (not an Accredited Training
       Provider; do not sell/administer/invigilate the exam; APM/PFQ trademark
-      acknowledgement). Rendered on `/pfq` and mock routes. Guarded by
+      acknowledgement). Rendered on `/courses/pfq-in-2-days` and mock routes
+      (path moved 2026-09-05; `/pfq` 301s). Guarded by
       `tests/pfq-disclaimer.test.mjs`. No pass-rate or endorsement claims.
       Informal guidance only — solicitor before any paid PFQ product.
 - [ ] **PFQ checkout CCR waiver — before live charges (2026-08-13).**

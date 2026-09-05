@@ -247,7 +247,7 @@ export function SiteHeaderControls({
   const onDashboard = pathname === "/dashboard";
   const onHome = pathname === "/";
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
-  const onPfqPreview = pathname === "/pfq/preview";
+  const onPfqPreview = pathname === "/courses/pfq-in-2-days/preview";
   const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =

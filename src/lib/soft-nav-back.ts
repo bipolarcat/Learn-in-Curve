@@ -43,7 +43,7 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
     busyLabel: "Opening overview",
   },
   pfq: {
-    href: "/pfq",
+    href: "/courses/pfq-in-2-days",
     label: "Back to overview",
     busyLabel: "Opening overview",
   },

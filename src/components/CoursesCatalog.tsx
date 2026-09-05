@@ -11,7 +11,7 @@ import {
 } from "@/lib/courses-catalog";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import { PMQ_OVERVIEW_HREF, PMQ_PRICING_HREF } from "@/lib/pmq/plans";
-import { PFQ_PRICING_HREF } from "@/lib/pfq/constants";
+import { PFQ_BASE_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import { PfqNotifyDialog } from "@/components/PfqNotifyDialog";
 import { CtaArrow, stampCtaPrimaryCompact, stampCtaSecondaryCompact } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
@@ -385,7 +385,7 @@ export function CoursesCatalog({
                     ) : course.slug === "pfq-in-2-days" ? (
                       <>
                         <CatalogNavButton
-                          href="/pfq"
+                          href={PFQ_BASE_HREF}
                           className={stampCtaPrimaryCompact}
                           busyLabel="Opening overview"
                         >

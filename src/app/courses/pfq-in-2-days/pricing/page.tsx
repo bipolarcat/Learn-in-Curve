@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import {
   PFQ_CHECKOUT_ENABLED,
+  PFQ_PRICING_HREF,
   PFQ_PRO_INTENT_PARAM,
   PFQ_PRO_INTENT_VALUE,
   formatPfqPriceGbp,
@@ -21,7 +22,7 @@ const PFQ_PRICE_LABEL = formatPfqPriceGbp();
 export const metadata: Metadata = {
   title: "Plans & pricing — PFQ in 2 Days | Learn in Curve",
   description: `Pro Bundle ${PFQ_PRICE_LABEL} for the APM Project Fundamentals Qualification — lessons, practice, timed mock, coverage map. AI Pro launching soon.`,
-  alternates: { canonical: `${SITE_URL}/pfq/pricing` },
+  alternates: { canonical: `${SITE_URL}${PFQ_PRICING_HREF}` },
 };
 
 type Props = {

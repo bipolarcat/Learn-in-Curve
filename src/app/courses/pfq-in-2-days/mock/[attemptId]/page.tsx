@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PfqMockRunner } from "@/components/pfq/PfqMockRunner";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
+import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 
 type Props = {
   params: Promise<{ attemptId: string }>;
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "PFQ Mock Attempt",
     robots: { index: false, follow: false },
     alternates: {
-      canonical: `https://www.learnincurve.com/pfq/mock/${attemptId}`,
+      canonical: `https://www.learnincurve.com${PFQ_MOCK_HREF}/${attemptId}`,
     },
   };
 }

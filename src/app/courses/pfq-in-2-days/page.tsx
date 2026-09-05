@@ -18,6 +18,7 @@ import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import {
   formatPfqPriceGbp,
+  PFQ_BASE_HREF,
   PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
@@ -32,11 +33,11 @@ const PRICE = formatPfqPriceGbp();
 export const metadata: Metadata = {
   title: `PFQ in 2 Days — Course overview | Learn in Curve`,
   description: `59 lessons, 306 practice questions, and a full mock mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
-  alternates: { canonical: `${SITE_URL}/pfq` },
+  alternates: { canonical: `${SITE_URL}${PFQ_BASE_HREF}` },
   openGraph: {
     title: `PFQ in 2 Days — Course overview | Learn in Curve`,
     description: `59 lessons, 306 practice questions, and a full mock mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
-    url: `${SITE_URL}/pfq`,
+    url: `${SITE_URL}${PFQ_BASE_HREF}`,
     type: "website",
   },
 };

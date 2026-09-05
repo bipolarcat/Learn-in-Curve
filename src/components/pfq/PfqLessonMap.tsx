@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PFQ_LESSONS } from "@/lib/pfq/content";
 import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
 import { pfqObjectiveDisplayTitle } from "@/lib/pfq/outcome-titles";
+import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
 import styles from "@/components/pfq/PfqLessonMap.module.css";
 
 type Progress = {
@@ -52,7 +53,7 @@ export function PfqLessonMap({ progress }: Props) {
             return (
               <li key={obj.objective} className={`${styles.row} ${weightClass}`}>
                 <Link
-                  href={`/pfq/learn/${obj.objective}`}
+                  href={`${PFQ_LEARN_HREF}/${obj.objective}`}
                   className={styles.link}
                 >
                   <div className={styles.rowMain}>

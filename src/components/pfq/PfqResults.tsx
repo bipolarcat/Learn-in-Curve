@@ -5,6 +5,7 @@ import { PfqCoverageMap } from "@/components/pfq/PfqCoverageMap";
 import styles from "@/components/pfq/PfqResults.module.css";
 import { PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
 import { pfqLessonHref } from "@/lib/pfq/lesson-href";
+import { PFQ_MOCK_HREF, PFQ_TRAP_SCHOOL_HREF } from "@/lib/pfq/constants";
 import type { PfqResultsPayload } from "@/lib/pfq/types";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 
@@ -116,10 +117,10 @@ export function PfqResults({ results }: Props) {
       </section>
 
       <div className={styles.actions}>
-        <Link href="/pfq/mock" className={stampCtaPrimary}>
+        <Link href={PFQ_MOCK_HREF} className={stampCtaPrimary}>
           Sit another mock
         </Link>
-        <Link href="/pfq#trap-school" className={stampCtaSecondary}>
+        <Link href={PFQ_TRAP_SCHOOL_HREF} className={stampCtaSecondary}>
           Trap School
         </Link>
       </div>

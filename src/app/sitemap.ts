@@ -18,8 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/courses/pmq-in-5-days",
     "/pmq",
     "/free-mock-exam",
-    "/pfq",
-    "/pfq/pricing",
+    "/courses/pfq-in-2-days",
+    "/courses/pfq-in-2-days/pricing",
     "/courses/pmq-in-5-days/pricing",
     "/library",
     "/privacy",
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path === "/" ||
       path === "/free-mock-exam" ||
       path === "/pmq" ||
-      path === "/pfq" ||
+      path === "/courses/pfq-in-2-days" ||
       path === "/library"
         ? "weekly"
         : "monthly",
@@ -47,8 +47,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : path === "/free-mock-exam" ||
             path === "/pmq" ||
-            path === "/pfq" ||
-            path === "/pfq/pricing" ||
+            path === "/courses/pfq-in-2-days" ||
+            path === "/courses/pfq-in-2-days/pricing" ||
             path === "/courses/pmq-in-5-days/pricing" ||
             path === "/library"
           ? 0.9

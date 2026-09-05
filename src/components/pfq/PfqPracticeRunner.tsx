@@ -10,6 +10,7 @@ import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { Spinner } from "@/components/ui/spinner";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 import styles from "@/components/pfq/PfqPracticeRunner.module.css";
+import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
 
 type Feedback = {
   correct: boolean;
@@ -139,7 +140,7 @@ export function PfqPracticeRunner({ objective, objectiveTitle }: Props) {
           >
             Practise again
           </button>
-          <Link href="/pfq/learn" className={stampCtaSecondary}>
+          <Link href={PFQ_LEARN_HREF} className={stampCtaSecondary}>
             Coverage map
           </Link>
         </div>

@@ -5,6 +5,7 @@ import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import {
   PFQ_PRACTICE_ENABLED,
   PFQ_PRICING_HREF,
+  PFQ_PRACTICE_HREF,
 } from "@/lib/pfq/constants";
 import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
 import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
@@ -34,7 +35,7 @@ export default async function PfqPracticeIndexPage() {
         {PFQ_OBJECTIVES.map((obj) => (
           <li key={obj.objective}>
             <Link
-              href={`/pfq/practice/${obj.objective}`}
+              href={`${PFQ_PRACTICE_HREF}/${obj.objective}`}
               className={stampCtaSecondary}
             >
               LO{obj.objective} · {obj.title}

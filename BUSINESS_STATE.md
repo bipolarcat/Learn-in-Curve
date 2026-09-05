@@ -19,6 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-05** — PFQ↔PMQ parity Phase 1 (shell + routes): generalised `PmqCourseHeader` → `src/components/course/CourseHeader.tsx` (+ moved `CourseChromeProgress`); `PmqCourseHeader` is a thin `slug={PMQ_SLUG}` wrapper. Moved `src/app/(site)/pfq/**` → `src/app/courses/pfq-in-2-days/**`; href constants, `revalidatePath`, sitemap/robots, soft-nav, catalog, and checkout cancel URL updated. Old `/pfq/*` 301s via `middleware.ts` + `next.config.ts` redirects. Verified: curl 301 for `/pfq`, `/pfq/learn`, `/pfq/pricing?x=1`, `/pfq/mock/abc-123`; new overview and learn routes in `npm run build`; PMQ call sites unchanged (wrapper only). Not verified this pass: signed-in progress row (no session in this environment) or PMQ pixel screenshots (overview/LO require auth).
+
 - **2026-09-05** — LO1 mobile Core sticky header: replaced orange “Core” label with the shared teal `OutcomeCodeBadge` (same 1A/1B box as Orient Learning outcomes). (`Lo1CoreContentStudy`)
 
 -

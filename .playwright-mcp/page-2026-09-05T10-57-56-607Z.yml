@@ -1,0 +1,112 @@
+- generic [ref=f3e2]:
+  - link "Skip to content" [ref=f3e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Primary" [ref=f3e5]:
+    - link "Learn in Curve" [ref=f3e6] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f3e7]:
+        - generic [ref=f3e8]: Learn in
+        - generic [ref=f3e9]: Curve
+    - group "Site controls" [ref=f3e10]:
+      - button "Get Started" [ref=f3e12] [cursor=pointer]
+      - button "Home" [ref=f3e18] [cursor=pointer]
+      - button "Open menu" [ref=f3e24] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f3e27]:
+          - generic [ref=f3e28]: M
+          - generic [ref=f3e29]: e
+          - generic [ref=f3e30]: "n"
+          - generic [ref=f3e31]: u
+  - main [ref=f3e32]:
+    - generic [ref=f3e33]:
+      - generic [ref=f3e35]:
+        - paragraph [ref=f3e36]: APM Project Fundamentals Qualification
+        - heading "PFQ in 2 Days" [level=1] [ref=f3e37]
+        - paragraph [ref=f3e38]: A lesson, practice questions, and a mock for every published learning outcome — so you can see exactly which ones you cannot answer yet.
+        - generic [ref=f3e39]:
+          - link "Enrol for Free" [ref=f3e40] [cursor=pointer]:
+            - /url: /courses/pfq-in-2-days/preview?from=pfq
+          - link "View Plans" [ref=f3e43] [cursor=pointer]:
+            - /url: /courses/pfq-in-2-days/pricing
+        - paragraph [ref=f3e46]: Create an account free. The course itself unlocks with Pro — one payment, no subscription.
+      - list [ref=f3e48]:
+        - listitem [ref=f3e49]:
+          - heading "59 lessons" [level=2] [ref=f3e55]
+          - paragraph [ref=f3e56]: One for every learning outcome in the APM syllabus, split across two days.
+        - listitem [ref=f3e57]:
+          - heading "306 practice questions" [level=2] [ref=f3e63]
+          - paragraph [ref=f3e64]: Each tagged to the outcome it tests, with why the right answer is right.
+        - listitem [ref=f3e65]:
+          - heading "Full mock + coverage map" [level=2] [ref=f3e70]
+          - paragraph [ref=f3e71]: A 60-question paper, then a map of which outcomes you can answer and which you cannot.
+      - region [ref=f3e72]:
+        - heading "Plans for PFQ in 2 Days" [level=2] [ref=f3e73]
+        - list [ref=f3e74]:
+          - listitem [ref=f3e75]:
+            - generic [ref=f3e76]:
+              - paragraph [ref=f3e77]: For PFQ in 2 Days
+              - heading "Pro Bundle" [level=3] [ref=f3e79]:
+                - generic [ref=f3e80]: Pro
+                - text: Bundle
+              - generic [ref=f3e81]:
+                - generic [ref=f3e82]: £6
+                - generic [ref=f3e83]: one-off · no subscription
+              - paragraph [ref=f3e84]: Lessons, practice, a full mock, and a coverage map for every PFQ learning outcome.
+            - list [ref=f3e86]:
+              - listitem [ref=f3e87]:
+                - generic [ref=f3e93]: 59 lessons, one per learning outcome
+              - listitem [ref=f3e94]:
+                - generic [ref=f3e100]: 306 practice questions, tagged to the outcome they test
+              - listitem [ref=f3e101]:
+                - generic [ref=f3e106]: 1 full 60-question mock exam
+              - listitem [ref=f3e107]:
+                - generic [ref=f3e113]: Coverage map of the 59 outcomes
+              - listitem [ref=f3e114]:
+                - generic [ref=f3e119]: Trap School — the formats that cost people marks
+            - button "Get Pro Bundle" [ref=f3e122] [cursor=pointer]
+          - listitem [ref=f3e123]:
+            - generic [ref=f3e124]:
+              - paragraph [ref=f3e125]: For PFQ in 2 Days
+              - generic [ref=f3e126]:
+                - heading "AI Pro Bundle" [level=3] [ref=f3e127]:
+                  - generic [ref=f3e128]: AI Pro
+                  - text: Bundle
+                - generic [ref=f3e129]: Launching soon
+              - generic [ref=f3e130]:
+                - generic [ref=f3e131]: £12
+                - generic [ref=f3e132]: one-off · no subscription
+              - paragraph [ref=f3e133]: Personalised AI practice that targets the outcomes you cannot answer yet. Launching soon.
+            - generic [ref=f3e134]:
+              - paragraph [ref=f3e135]: Everything in Pro Bundle, plus
+              - list [ref=f3e139]:
+                - listitem [ref=f3e140]:
+                  - generic [ref=f3e146]: AI practice aimed at your remaining gaps
+                - listitem [ref=f3e147]:
+                  - generic [ref=f3e153]: A personalised path from your coverage map
+            - button "Join Waitlist" [ref=f3e155] [cursor=pointer]
+      - paragraph [ref=f3e156]: "For context: the APM exam itself currently costs £278.40 for non-members, booked and paid separately with APM. This course prepares you for it. It is not the exam and it is not a qualification."
+      - paragraph [ref=f3e157]: Learn in Curve is not an APM Accredited Training Provider. We do not sell, administer or invigilate the APM PFQ exam. APM, Association for Project Management and Project Fundamentals Qualification are trademarks of the Association for Project Management.
+  - contentinfo [ref=f3e158]:
+    - generic [ref=f3e160]:
+      - generic [ref=f3e161]:
+        - generic [ref=f3e162]:
+          - generic [ref=f3e164]:
+            - generic [ref=f3e165]: Learn in
+            - generic [ref=f3e166]: Curve
+          - paragraph [ref=f3e167]: Master project Management & AI
+        - generic [ref=f3e168]:
+          - link "Learn in Curve on Instagram" [ref=f3e169] [cursor=pointer]:
+            - /url: https://www.instagram.com/learn.in.curve/
+          - link "Learn in Curve on LinkedIn" [ref=f3e172] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/learn-in-curve/
+      - navigation "Footer" [ref=f3e175]:
+        - link "Privacy" [ref=f3e176] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms" [ref=f3e177] [cursor=pointer]:
+          - /url: /terms
+        - link "Cookies" [ref=f3e178] [cursor=pointer]:
+          - /url: /cookies
+        - button "Send feedback" [ref=f3e179] [cursor=pointer]
+    - generic [ref=f3e180]:
+      - generic:
+        - paragraph: © 2026 Learn in Curve
+        - paragraph: v2.43
