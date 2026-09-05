@@ -93,12 +93,14 @@ export function MenuHomeIcon(props: MenuSvgProps) {
   );
 }
 
-/** Kanban / dashboard board — My dashboard. */
+/** Workstation / desk + monitor — My dashboard. */
 export function MenuBoardIcon(props: MenuSvgProps) {
   return (
     <svg {...menuStrokeProps(props)}>
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <path d="M3 10h18M9 4v16" />
+      <rect x="3" y="4" width="18" height="12" rx="2" />
+      <path d="M8 20h8" />
+      <path d="M12 16v4" />
+      <path d="M2 20h20" />
     </svg>
   );
 }
