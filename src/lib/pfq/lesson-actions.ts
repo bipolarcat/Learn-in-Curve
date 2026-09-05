@@ -11,6 +11,10 @@ import {
 } from "@/lib/pfq/constants";
 import { pfqSectionId } from "@/lib/pfq/section-ids";
 import { getPfqLesson } from "@/lib/pfq/content";
+import {
+  PFQ_STAGE_REACHED_COLUMN,
+  type PfqStageId,
+} from "@/lib/pfq/lesson-stages";
 
 /**
  * Checkpoint progress for PFQ objectives.
@@ -43,6 +47,66 @@ async function requirePfqLessonUser(): Promise<
 function revalidateLesson(objective: number) {
   revalidatePath(PFQ_LEARN_HREF);
   revalidatePath(`${PFQ_LEARN_HREF}/${objective}`);
+}
+
+/**
+ * Persist that the learner left a pathway stage (orient / learn / drill).
+ * Idempotent. Does not touch pfq_coverage_signals.
+ */
+export async function markPfqStageReached(input: {
+  objective: number;
+  stageId: PfqStageId;
+}): Promise<{ ok: true } | { ok: false; error: string }> {
+  try {
+    const column = PFQ_STAGE_REACHED_COLUMN[input.stageId];
+    if (!column) return { ok: true };
+
+    const access = await requirePfqLessonUser();
+    if (!access.ok) return access;
+
+    const lesson = getPfqLesson(input.objective);
+    if (!lesson) return { ok: false, error: "Unknown objective." };
+
+    const sectionId = pfqSectionId(input.objective);
+    const supabase = await createClient();
+
+    const { data: existing } = await supabase
+      .from("section_progress")
+      .select(`id, ${column}`)
+      .eq("user_id", access.userId)
+      .eq("section_id", sectionId)
+      .maybeSingle();
+
+    const existingRow = existing as { id?: string; [key: string]: unknown } | null;
+    if (existingRow && existingRow[column]) {
+      return { ok: true };
+    }
+
+    const now = new Date().toISOString();
+    if (existingRow?.id) {
+      const { error } = await supabase
+        .from("section_progress")
+        .update({ [column]: now, updated_at: now, course_id: PFQ_COURSE_ID })
+        .eq("id", existingRow.id);
+      if (error) throw error;
+    } else {
+      const { error } = await supabase.from("section_progress").insert({
+        user_id: access.userId,
+        section_id: sectionId,
+        course_id: PFQ_COURSE_ID,
+        checklist_state: [],
+        [column]: now,
+        updated_at: now,
+      });
+      if (error) throw error;
+    }
+
+    revalidateLesson(input.objective);
+    return { ok: true };
+  } catch (err) {
+    console.error("[pfq] markStageReached", err);
+    return { ok: false, error: "Couldn’t save stage progress." };
+  }
 }
 
 export async function updatePfqCheckpoint(input: {

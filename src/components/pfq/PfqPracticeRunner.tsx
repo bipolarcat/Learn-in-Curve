@@ -11,6 +11,8 @@ import { Spinner } from "@/components/ui/spinner";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 import styles from "@/components/pfq/PfqPracticeRunner.module.css";
 import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
+import { resolveTrapCallout } from "@/lib/pfq/trap-callout";
+import { PfqTrapCallout } from "@/components/pfq/PfqTrapCallout";
 
 type Feedback = {
   correct: boolean;
@@ -22,9 +24,15 @@ type Feedback = {
 type Props = {
   objective: number;
   objectiveTitle: string;
+  /** When true, drop the standalone page chrome (title / coverage map link). */
+  embedded?: boolean;
 };
 
-export function PfqPracticeRunner({ objective, objectiveTitle }: Props) {
+export function PfqPracticeRunner({
+  objective,
+  objectiveTitle,
+  embedded = false,
+}: Props) {
   const [phase, setPhase] = useState<"ready" | "run" | "done">("ready");
   const [error, setError] = useState("");
   const [sessionId, setSessionId] = useState("");
@@ -90,10 +98,17 @@ export function PfqPracticeRunner({ objective, objectiveTitle }: Props) {
   if (phase === "ready") {
     return (
       <div className={styles.startCard}>
-        <h1 className={styles.title}>
-          Practice LO{objective}
-          <span className={styles.titleSub}>{objectiveTitle}</span>
-        </h1>
+        {embedded ? (
+          <h2 className={styles.title}>
+            Drill
+            <span className={styles.titleSub}>{objectiveTitle}</span>
+          </h2>
+        ) : (
+          <h1 className={styles.title}>
+            Practice LO{objective}
+            <span className={styles.titleSub}>{objectiveTitle}</span>
+          </h1>
+        )}
         <p className={styles.lead}>
           Untimed. Every active question for this objective — mock and
           practice variants. Immediate feedback after each answer; results
@@ -140,9 +155,11 @@ export function PfqPracticeRunner({ objective, objectiveTitle }: Props) {
           >
             Practise again
           </button>
-          <Link href={PFQ_LEARN_HREF} className={stampCtaSecondary}>
-            Coverage map
-          </Link>
+          {embedded ? null : (
+            <Link href={PFQ_LEARN_HREF} className={stampCtaSecondary}>
+              Coverage map
+            </Link>
+          )}
         </div>
       </div>
     );
@@ -221,6 +238,12 @@ export function PfqPracticeRunner({ objective, objectiveTitle }: Props) {
               {feedback.learning_outcome}
             </p>
             <p className={styles.feedbackBody}>{feedback.explanation}</p>
+            {!feedback.correct
+              ? (() => {
+                  const callout = resolveTrapCallout(current.traps);
+                  return callout ? <PfqTrapCallout callout={callout} /> : null;
+                })()
+              : null}
           </div>
         ) : null}
 

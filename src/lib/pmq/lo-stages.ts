@@ -1,5 +1,12 @@
 import { PMQ_SECTION_COUNT } from "@/lib/pmq/constants";
 import type { LessonBody } from "@/types/pmq";
+import {
+  buildStageContinueLabels,
+  canSealCourse,
+  collectUnlockedStages,
+  sealBlockedReason as sealBlockedReasonGeneric,
+  type CourseStageDef,
+} from "@/lib/course/stages";
 
 export type LoStageId =
   | "orient"
@@ -10,11 +17,7 @@ export type LoStageId =
   | "practice"
   | "checkpoint";
 
-export type LoStageDef = {
-  id: LoStageId;
-  label: string;
-  continueLabel: string;
-};
+export type LoStageDef = CourseStageDef<LoStageId>;
 
 const STAGE_META: Record<
   LoStageId,
@@ -45,12 +48,6 @@ const STAGE_ORDER = LO_STAGE_ORDER;
 
 export const LO_STAGE_COUNT = LO_STAGE_ORDER.length;
 
-/**
- * Pathway icons may open any stage the learner has already been on, not only
- * stages they left via Next. `doneIds` is Continue-off; `visitedIds` is every
- * current stage they have landed on (including the frontier they have not
- * Next'd away from yet).
- */
 export function collectUnlockedLoStages(
   stageIds: readonly LoStageId[],
   doneIds: ReadonlySet<LoStageId>,
@@ -58,11 +55,13 @@ export function collectUnlockedLoStages(
   currentId: LoStageId,
   sealed: boolean,
 ): Set<LoStageId> {
-  if (sealed) return new Set(stageIds);
-  const next = new Set(doneIds);
-  for (const id of visitedIds) next.add(id);
-  next.add(currentId);
-  return next;
+  return collectUnlockedStages(
+    stageIds,
+    doneIds,
+    visitedIds,
+    currentId,
+    sealed,
+  );
 }
 
 /**
@@ -80,33 +79,11 @@ export const PMQ_TOTAL_PROGRESS_UNITS = PMQ_SECTION_COUNT * LO_STAGE_COUNT;
  */
 export const PMQ_PROGRESS_UNIT_PERCENT = 100 / PMQ_TOTAL_PROGRESS_UNITS;
 
-// NOTE: there used to be a `loJourneyStorageKey`/`getLoJourneyReachedCount`
-// pair here backed by `window.sessionStorage` — a client-only "done stages"
-// cache with no server invalidation path. It was the root cause of two
-// separate bugs (incorrect progress pies, and a reset LO reopening on a
-// stale stage instead of Orient) because it had no way to distinguish "the
-// user revisited this LO" from "an admin reset this account server-side."
-// Removed entirely 2026-07-30 rather than patched a third time — DB
-// (`getLoReachedCountFromProgress`, `section_progress.*_reached_at`) is now
-// the sole source of truth for both progress and pathway position. See
-// OPERATIONS.md, "reset didn't reset the in-LO pathway".
-
 export function buildLoStages(_input?: {
   loNumber?: number;
   body?: LessonBody;
 }): LoStageDef[] {
-  return STAGE_ORDER.map((id, index) => {
-    const next = STAGE_ORDER[index + 1];
-    let continueLabel = STAGE_META[id].continueLabel;
-    if (next && id !== "checkpoint") {
-      continueLabel = `Continue to ${STAGE_META[next].label}`;
-    }
-    return {
-      id,
-      label: STAGE_META[id].label,
-      continueLabel,
-    };
-  });
+  return buildStageContinueLabels(STAGE_ORDER, STAGE_META);
 }
 
 /** Seal when the checklist is done (quiz no longer gates LO complete). */
@@ -116,8 +93,7 @@ export function canSealLo(input: {
   /** @deprecated Ignored — quiz no longer required to seal. */
   quizCompleted?: boolean;
 }): boolean {
-  if (input.checkpointTotal <= 0) return true;
-  return input.completedCheckpointCount >= input.checkpointTotal;
+  return canSealCourse(input);
 }
 
 export function sealBlockedReason(input: {
@@ -126,8 +102,7 @@ export function sealBlockedReason(input: {
   /** @deprecated Ignored — quiz no longer required to seal. */
   quizCompleted?: boolean;
 }): string | null {
-  if (canSealLo(input)) return null;
-  return "Finish the checklist to mark this LO complete.";
+  return sealBlockedReasonGeneric(input);
 }
 
 /**

@@ -23,17 +23,17 @@ import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { Progress } from "@/components/ui/interfaces-progress";
 import { Spinner } from "@/components/ui/spinner";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
-import type { LoStageDef, LoStageId } from "@/lib/pmq/lo-stages";
+import type { CourseStageDef } from "@/lib/course/stages";
 
 type LoPageHeaderProps = {
   loNumber: number;
   loTitle: string;
-  stages: LoStageDef[];
-  currentId: LoStageId;
+  stages: CourseStageDef[];
+  currentId: string;
   /** Stages the pathway icons may open. Toast only fires for stages not in this set. */
-  unlockedIds: Set<LoStageId>;
-  lockedIds?: Set<LoStageId>;
-  onSelect: (id: LoStageId) => void;
+  unlockedIds: Set<string>;
+  lockedIds?: Set<string>;
+  onSelect: (id: string) => void;
   /** Compact continue CTA label; omit when not advancing. */
   continueLabel?: string | null;
   onContinue?: () => void;
@@ -41,6 +41,10 @@ type LoPageHeaderProps = {
   continueEnabled?: boolean;
   /** 0–100 overall course completion. */
   completionPercent?: number;
+  /** Overview back link. Defaults to PMQ course overview. */
+  overviewHref?: string;
+  /** Eyebrow label before the title — e.g. "LO 3" or "Objective 7". */
+  unitLabel?: string;
 };
 
 /** Hold ∞ long enough to read before a sync stage swap. */
@@ -130,17 +134,24 @@ function PathwayNextButton({
   );
 }
 
-const STAGE_ICONS: Record<LoStageId, LucideIcon> = {
+const STAGE_ICONS: Record<string, LucideIcon> = {
   orient: Compass,
   learn: BookOpen,
   video: Video,
   audio: AudioLines,
   apply: CheckSquare,
   practice: ClipboardList,
+  drill: ClipboardList,
   checkpoint: Flag,
 };
 
-function OverviewBackButton({ compact = false }: { compact?: boolean }) {
+function OverviewBackButton({
+  compact = false,
+  overviewHref = `/courses/${PMQ_SLUG}`,
+}: {
+  compact?: boolean;
+  overviewHref?: string;
+}) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
@@ -157,7 +168,7 @@ function OverviewBackButton({ compact = false }: { compact?: boolean }) {
       }`}
       onClick={() => {
         startTransition(() => {
-          router.push(`/courses/${PMQ_SLUG}`);
+          router.push(overviewHref);
         });
       }}
     >
@@ -190,11 +201,14 @@ export function LoPageHeader({
   onContinue,
   continueEnabled = true,
   completionPercent = 0,
+  overviewHref = `/courses/${PMQ_SLUG}`,
+  unitLabel,
 }: LoPageHeaderProps) {
   const currentIndex = stages.findIndex((s) => s.id === currentId);
   const showContinue = Boolean(continueLabel && onContinue);
   const currentStageLabel =
     stages.find((s) => s.id === currentId)?.label ?? "Study";
+  const unitEyebrow = unitLabel ?? `LO ${loNumber}`;
   // Keep the fraction: a stage is ~0.595%, so rounding here is exactly what
   // made the bar sit still for four tabs and then jump 3 points on the fifth.
   // `pctExact` drives anything that moves; `pct` is only for labels/thresholds.
@@ -212,7 +226,7 @@ export function LoPageHeader({
         const isProLocked = lockedIds?.has(stage.id) ?? false;
         return {
           title: stage.label,
-          icon: STAGE_ICONS[stage.id],
+          icon: STAGE_ICONS[stage.id] ?? Compass,
           disabled: !isReached,
           trailing: isProLocked ? (
             <Lock
@@ -245,12 +259,12 @@ export function LoPageHeader({
                 className="flex min-w-0 flex-1 items-center gap-1 text-[11px] leading-none"
                 aria-label="Location"
               >
-                <OverviewBackButton compact />
+                <OverviewBackButton compact overviewHref={overviewHref} />
                 <span className="select-none text-ink/25" aria-hidden>
                   |
                 </span>
                 <span className="min-w-0 truncate font-semibold tracking-tight">
-                  <span className="text-orange">LO {loNumber}</span>
+                  <span className="text-orange">{unitEyebrow}</span>
                   <span className="mx-1 font-medium text-ink/35" aria-hidden>
                     ·
                   </span>
@@ -295,12 +309,12 @@ export function LoPageHeader({
               className="flex min-w-0 max-w-[15rem] shrink-0 items-center gap-1.5 text-[13px] leading-none lg:max-w-[17rem]"
               aria-label="Location"
             >
-              <OverviewBackButton />
+              <OverviewBackButton overviewHref={overviewHref} />
               <span className="select-none text-ink/25" aria-hidden>
                 |
               </span>
               <span className="min-w-0 truncate font-semibold tracking-tight">
-                <span className="text-orange">LO {loNumber}</span>
+                <span className="text-orange">{unitEyebrow}</span>
                 <span className="mx-1 font-medium text-ink/35" aria-hidden>
                   ·
                 </span>

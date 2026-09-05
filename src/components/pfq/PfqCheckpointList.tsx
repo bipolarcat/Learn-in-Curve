@@ -14,6 +14,8 @@ type Props = {
   items: string[];
   initialCompleted: number[];
   initiallyComplete: boolean;
+  /** Fires when checklist readiness changes (all items done). */
+  onReadyChange?: (ready: boolean) => void;
 };
 
 export function PfqCheckpointList({
@@ -21,6 +23,7 @@ export function PfqCheckpointList({
   items,
   initialCompleted,
   initiallyComplete,
+  onReadyChange,
 }: Props) {
   const router = useRouter();
   const [completed, setCompleted] = useState(() => new Set(initialCompleted));
@@ -33,8 +36,13 @@ export function PfqCheckpointList({
     setCompleted(new Set(initialCompleted));
     setIsComplete(initiallyComplete);
     wasCompleteRef.current = initiallyComplete;
+    onReadyChange?.(initiallyComplete || items.length <= 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- key sync
   }, [initialKey, initiallyComplete, items.length]);
+
+  useEffect(() => {
+    onReadyChange?.(isComplete || items.length <= 0);
+  }, [isComplete, items.length, onReadyChange]);
 
   const toggle = (index: number, checked: boolean) => {
     setError("");

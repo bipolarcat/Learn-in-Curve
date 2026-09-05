@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import type { LessonBody, PmqQuestion, PmqSection } from "@/types/pmq";
 import { LoPageHeader } from "@/components/pmq/LoPageHeader";
@@ -11,13 +11,7 @@ import { LoAudioStage } from "@/components/pmq/LoAudioStage";
 import { LoApplyStage } from "@/components/pmq/LoApplyStage";
 import { PracticeQuizSection } from "@/components/pmq/PracticeQuizSection";
 import { LoCheckpointStage } from "@/components/pmq/LoCheckpointStage";
-import {
-  CHECKPOINT_GATE_COPY,
-  showCheckpointGateHint,
-} from "@/components/pmq/CheckpointGateHint";
-import { productActionSecondary } from "@/components/ui/semantic";
-import { Spinner } from "@/components/ui/spinner";
-import { CtaArrow } from "@/components/stamp-chip";
+import { StudyJourney } from "@/components/course/StudyJourney";
 import {
   PMQ_LO_AUDIO_OVERVIEWS,
   PMQ_LO_EXPLAINER_VIDEOS,
@@ -29,7 +23,6 @@ import type { PmqTier } from "@/lib/pmq/tiers";
 import {
   buildLoStages,
   canSealLo,
-  collectUnlockedLoStages,
   PMQ_PROGRESS_UNIT_PERCENT,
   STAGE_REACHED_COLUMN,
   type LoStageId,
@@ -37,66 +30,6 @@ import {
 import { markLoStageReached } from "@/lib/pmq/actions";
 import { trackLoStageReached } from "@/lib/analytics/events";
 
-/** Hold ∞ long enough for the bars spinner to read before a sync stage swap. */
-const STAGE_CONTINUE_ADVANCE_MS = 420;
-
-function StageContinueButton({
-  label,
-  onContinue,
-  enabled = true,
-}: {
-  label: string;
-  onContinue: () => void;
-  enabled?: boolean;
-}) {
-  const [pending, setPending] = useState(false);
-
-  return (
-    <div className="mt-6 flex justify-center sm:mt-8">
-      <button
-        type="button"
-        disabled={pending}
-        aria-busy={pending}
-        aria-disabled={!enabled}
-        aria-label={
-          !enabled ? CHECKPOINT_GATE_COPY : pending ? "Advancing" : label
-        }
-        className={`${productActionSecondary} disabled:cursor-wait disabled:opacity-90 ${
-          !enabled
-            ? "!cursor-not-allowed !opacity-40 hover:!bg-paper hover:!opacity-40"
-            : ""
-        }`}
-        onClick={(event) => {
-          event.preventDefault();
-          if (pending) return;
-          if (!enabled) {
-            showCheckpointGateHint("bottom-center");
-            return;
-          }
-          setPending(true);
-          window.setTimeout(() => {
-            onContinue();
-            setPending(false);
-          }, STAGE_CONTINUE_ADVANCE_MS);
-        }}
-      >
-        {pending ? (
-          <Spinner
-            variant="bars"
-            size={14}
-            className="text-ink/55"
-            aria-hidden
-          />
-        ) : (
-          <>
-            {label}
-            <CtaArrow className="!h-3.5 !w-3.5" />
-          </>
-        )}
-      </button>
-    </div>
-  );
-}
 type LoStudyJourneyProps = {
   loNumber: number;
   loTitle: string;
@@ -129,11 +62,7 @@ type LoStudyJourneyProps = {
   /**
    * Pre-quiz pathway stages the DB confirms as reached (from
    * `section_progress`'s `*_reached_at` columns). This is the *only*
-   * source of truth for "done" stages and which stage to resume on — see
-   * the hydration effect below. There is deliberately no client-side
-   * cache anymore (OPERATIONS.md: "reset didn't reset the in-LO
-   * pathway"); a sessionStorage cache used to fill this role and it's
-   * what caused a post-reset LO to keep reopening on a stale stage.
+   * source of truth for "done" stages and which stage to resume on.
    */
   dbReachedStageIds?: LoStageId[];
 };
@@ -141,6 +70,7 @@ type LoStudyJourneyProps = {
 /**
  * Within-LO study journey: pathway + one focused stage.
  * Free navigation until seal; sealed LOs are review-only.
+ * Composes shared `StudyJourney` — PMQ stage bodies stay here.
  */
 export function LoStudyJourney({
   loNumber,
@@ -153,7 +83,6 @@ export function LoStudyJourney({
   set1Questions,
   totalSets,
   priorAttempts = {},
-  initialLoXp = 0,
   hasEntitlement,
   userTier,
   priceCents,
@@ -171,11 +100,6 @@ export function LoStudyJourney({
     () => buildLoStages({ loNumber, body }),
     [loNumber, body],
   );
-  const stageIdsKey = stages.map((s) => s.id).join("|");
-  const stageIds = useMemo(
-    () => stageIdsKey.split("|") as LoStageId[],
-    [stageIdsKey],
-  );
   const sealed = isSectionCompleted;
 
   const checkpointTotal = body.progress_checkpoint.length;
@@ -184,238 +108,22 @@ export function LoStudyJourney({
     completedCheckpointCount: completedCheckpoints.length,
   });
 
-  const [currentId, setCurrentId] = useState<LoStageId>(
-    () => stages[0]?.id ?? "orient",
-  );
-  const [doneIds, setDoneIds] = useState<Set<LoStageId>>(() => new Set());
-  /** Every stage the learner has landed on, including the current frontier. */
-  const [visitedIds, setVisitedIds] = useState<Set<LoStageId>>(
-    () => new Set([stages[0]?.id ?? "orient"]),
-  );
-  /** Tracks seal across refreshes so we don't yank the user out of Practise mid-review. */
-  const prevSealedRef = useRef<boolean | null>(null);
-
-  /** Which LO we've already picked a resume stage for — see the effect below. */
-  const resumedForLoRef = useRef<number | null>(null);
-  /** Previous DB-confirmed stage count, to spot a progress reset. */
-  const dbDoneCountRef = useRef(0);
-
-  useEffect(() => {
-    // DB is the *only* source of truth for done stages and where to
-    // resume. There used to also be a sessionStorage cache here for
-    // same-session continuity, but it's what caused a reset account to
-    // reopen an LO on a stale stage (e.g. Quiz) instead of Orient — the
-    // cache had no way to tell a real reset apart from a normal revisit,
-    // so it just kept whatever it last saw. Removed rather than patched
-    // again: a stage's `*_reached_at` is only set when the learner clicks
-    // Continue *off* that stage (see advance() below), so "the stage right
-    // after the furthest DB-confirmed stage" is always exactly where they
-    // left off — no client cache required.
-    // See OPERATIONS.md, "reset didn't reset the in-LO pathway".
-    //
-    // Resuming is a MOUNT decision, not a per-render one. `dbReachedStageIds`
-    // is a fresh array on every RSC render, so this effect also re-runs on
-    // every `router.refresh()` — and each checklist tick fires one
-    // (ProgressCheckpointList.toggle), as does the confetti's onDone. Only the
-    // five pre-quiz stages have a `*_reached_at` column; `practice` and
-    // `checkpoint` never appear in `dbReachedStageIds`, so recomputing put the
-    // furthest stage at `apply` and dropped the learner back onto `practice` —
-    // the quiz — mid-checklist. Hence the ref: resume once per LO, then let the
-    // learner's own navigation stand.
-    const dbDone = dbReachedStageIds.filter((id) => stageIds.includes(id));
-
-    // A shrinking DB set means progress was reset underneath us (admin reset,
-    // another tab). That's the one case where client state must be discarded
-    // rather than merged, so allow a fresh resume.
-    const wasReset = dbDone.length < dbDoneCountRef.current;
-    dbDoneCountRef.current = dbDone.length;
-    if (wasReset) resumedForLoRef.current = null;
-
-    // Absorb DB-confirmed stages without forgetting ones only the client knows
-    // about — `practice` and `checkpoint` have no column to come back from.
-    setDoneIds((prev) => {
-      if (wasReset) return new Set(dbDone);
-      const next = new Set(prev);
-      for (const id of dbDone) next.add(id);
-      return next;
-    });
-
-    setVisitedIds((prev) => {
-      if (wasReset) return new Set(dbDone);
-      const next = new Set(prev);
-      for (const id of dbDone) next.add(id);
-      return next;
-    });
-
-    if (resumedForLoRef.current === loNumber) return;
-    resumedForLoRef.current = loNumber;
-
-    const furthestDbIdx = dbDone.reduce((max, id) => {
-      const idx = stageIds.indexOf(id);
-      return idx > max ? idx : max;
-    }, -1);
-    const nextIdx = Math.min(Math.max(furthestDbIdx + 1, 0), stageIds.length - 1);
-    setCurrentId(stageIds[nextIdx] ?? stageIds[0] ?? "orient");
-  }, [loNumber, stageIds, dbReachedStageIds]);
-
-  useEffect(() => {
-    if (sealed) {
-      setDoneIds(new Set(stageIds));
-      // Only auto-jump when the LO newly seals (or first paint already sealed).
-      // Re-running after quiz answer → router.refresh() must NOT kick you to Checkpoint.
-      if (prevSealedRef.current !== true) {
-        setCurrentId("checkpoint");
-      }
-    } else if (quizCompleted) {
-      setDoneIds((prev) => {
-        const next = new Set(prev);
-        next.add("practice");
-        return next;
-      });
-    }
-    prevSealedRef.current = sealed;
-  }, [sealed, stageIds, quizCompleted]);
-
-  useEffect(() => {
-    setVisitedIds((prev) => {
-      if (prev.has(currentId)) return prev;
-      const next = new Set(prev);
-      next.add(currentId);
-      return next;
-    });
-  }, [currentId]);
-
-  const unlockedIds = useMemo(
-    () =>
-      collectUnlockedLoStages(
-        stageIds,
-        doneIds,
-        visitedIds,
-        currentId,
-        sealed,
-      ),
-    [stageIds, doneIds, visitedIds, currentId, sealed],
-  );
-
-  const selectStage = useCallback(
-    (id: LoStageId) => {
-      if (unlockedIds.has(id)) setCurrentId(id);
-    },
-    [unlockedIds],
-  );
-
   const mediaLocked = !hasEntitlement;
-
-  const advance = useCallback(() => {
-    const idx = stageIds.indexOf(currentId);
-    if (idx < 0 || idx >= stageIds.length - 1) return;
-
-    // Starter / free: Video + Audio are Pro-gated — don't force the paywall
-    // detour between Learn and Apply. Mark them done so tabs stay openable
-    // for the locked upsell preview.
-    const skipProMedia = mediaLocked && currentId === "learn";
-    let nextIdx = idx + 1;
-    if (skipProMedia) {
-      const applyIdx = stageIds.indexOf("apply");
-      if (applyIdx > idx) nextIdx = applyIdx;
-    }
-    const nextId = stageIds[nextIdx];
-    if (!nextId) return;
-
-    setDoneIds((prev) => {
-      const next = new Set(prev);
-      next.add(currentId);
-      if (skipProMedia) {
-        next.add("video");
-        next.add("audio");
-      }
-      return next;
-    });
-    setCurrentId(nextId);
-
-    // Persist to section_progress so per-LO/overall progress, and where to
-    // resume this LO on the next visit, are entirely DB-backed — see
-    // lo-stages.ts, STAGE_REACHED_COLUMN. Only the 5 pre-quiz stages have
-    // a column;
-    // "practice"/"checkpoint" are covered by quiz_completed_at/completed_at
-    // elsewhere, so markLoStageReached no-ops for those automatically.
-    const newlyDone: LoStageId[] = skipProMedia
-      ? [currentId, "video", "audio"]
-      : [currentId];
-    for (const stageId of newlyDone) {
-      if (!STAGE_REACHED_COLUMN[stageId]) continue;
-      void markLoStageReached({ sectionId, courseId, loNumber, stageId })
-        .then((result) => {
-          if (result && "ok" in result && result.ok) {
-            trackLoStageReached({ lo_number: loNumber, stage_id: stageId });
-          }
-        })
-        .catch((err) => {
-          console.error("[LoStudyJourney] markLoStageReached failed:", err);
-        });
-    }
-
-    // Bottom Continue leaves the viewport near the footer — jump back to the pathway.
-    requestAnimationFrame(() => {
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      window.scrollTo({
-        top: 0,
-        behavior: reduceMotion ? "auto" : "smooth",
-      });
-    });
-  }, [currentId, stageIds, mediaLocked, sectionId, courseId, loNumber]);
-
-  /**
-   * Optimistic overall-course percent for the header bar.
-   *
-   * `completionPercent` is server-rendered. `advance()` writes the stage via
-   * `markLoStageReached` (which does `revalidatePmqPaths`), but revalidation
-   * only invalidates the *server* cache — it doesn't push a fresh RSC payload
-   * to an already-mounted client. So the header used to hold its mount-time
-   * value until something else triggered a refresh, at which point every stage
-   * advanced since then landed in one jump (the 7 → 10 after five tabs).
-   *
-   * Rather than call `router.refresh()` on advance — which would race the
-   * un-awaited DB write and could reset `doneIds`/`currentId` backwards via the
-   * resume effect above — we add the pending stages client-side.
-   *
-   * Derived from set difference, not an incrementing counter, so it's
-   * idempotent: when a real refresh does land, each stage moves from "pending"
-   * into `dbReachedStageIds` and the base rises by exactly the amount the
-   * delta drops. No double-count, no flicker.
-   */
-  const optimisticCompletionPercent = useMemo(() => {
-    const dbReached = new Set(dbReachedStageIds);
-    let pendingUnits = 0;
-    for (const id of doneIds) {
-      // Only the 5 timestamp-backed stages; Quiz/Checkpoint are already
-      // server-derived via quiz_completed_at / completed_at.
-      if (STAGE_REACHED_COLUMN[id] && !dbReached.has(id)) pendingUnits += 1;
-    }
-    return Math.min(
-      100,
-      completionPercent + pendingUnits * PMQ_PROGRESS_UNIT_PERCENT,
-    );
-  }, [completionPercent, doneIds, dbReachedStageIds]);
-
-  const currentStage = stages.find((s) => s.id === currentId) ?? stages[0];
-  const isLast = currentId === "checkpoint";
-  /** Keep Next/Continue available after a stage (or whole LO) is already done. */
-  const showAdvance = !isLast && !!currentStage;
-  const video = explainerVideo ?? PMQ_LO_EXPLAINER_VIDEOS[loNumber];
-  const audio = audioOverview ?? PMQ_LO_AUDIO_OVERVIEWS[loNumber];
   const lockedStageIds = useMemo(() => {
     if (!mediaLocked) return new Set<LoStageId>();
     return new Set<LoStageId>(["video", "audio"]);
   }, [mediaLocked]);
 
-  const continueLabel = !showAdvance
-    ? null
-    : mediaLocked && currentId === "learn"
-      ? "Continue to Apply"
-      : (currentStage.continueLabel ?? null);
+  const timestampStageIds = useMemo(
+    () =>
+      (Object.keys(STAGE_REACHED_COLUMN) as LoStageId[]).filter(
+        (id) => STAGE_REACHED_COLUMN[id],
+      ),
+    [],
+  );
+
+  const video = explainerVideo ?? PMQ_LO_EXPLAINER_VIDEOS[loNumber];
+  const audio = audioOverview ?? PMQ_LO_AUDIO_OVERVIEWS[loNumber];
 
   const router = useRouter();
   const [, startNextLoTransition] = useTransition();
@@ -448,44 +156,94 @@ export function LoStudyJourney({
     ? `Continue to LO${nextLo.order_index}`
     : "Back to overview";
 
-  const headerContinueLabel = isLast ? "Next LO" : continueLabel;
-  const headerOnContinue = isLast ? goNextLo : advance;
-  const continueEnabled = !isLast || checkpointReady;
+  const onStagesMarkedDone = useCallback(
+    (newlyDone: LoStageId[]) => {
+      for (const stageId of newlyDone) {
+        if (!STAGE_REACHED_COLUMN[stageId]) continue;
+        void markLoStageReached({ sectionId, courseId, loNumber, stageId })
+          .then((result) => {
+            if (result && "ok" in result && result.ok) {
+              trackLoStageReached({ lo_number: loNumber, stage_id: stageId });
+            }
+          })
+          .catch((err) => {
+            console.error("[LoStudyJourney] markLoStageReached failed:", err);
+          });
+      }
+    },
+    [sectionId, courseId, loNumber],
+  );
 
   return (
-    <>
-      <LoPageHeader
-        loNumber={loNumber}
-        loTitle={loTitle}
-        stages={stages}
-        currentId={currentId}
-        unlockedIds={unlockedIds}
-        lockedIds={lockedStageIds}
-        onSelect={selectStage}
-        continueLabel={headerContinueLabel}
-        onContinue={headerOnContinue}
-        continueEnabled={continueEnabled}
-        completionPercent={optimisticCompletionPercent}
-      />
-
-      <main className="w-full px-3 pb-28 pt-4 sm:px-5 sm:pb-24 sm:pt-6">
-        <h1 className="sr-only">
-          LO {loNumber}: {loTitle}
-        </h1>
-        <div className="mx-auto w-full min-w-0 max-w-wrap">
-          {currentId === "orient" ? (
+    <StudyJourney<LoStageId>
+      unitKey={loNumber}
+      stages={stages}
+      sealed={sealed}
+      quizStageId="practice"
+      quizCompleted={quizCompleted}
+      checkpointStageId="checkpoint"
+      dbReachedStageIds={dbReachedStageIds}
+      timestampStageIds={timestampStageIds}
+      completionPercent={completionPercent}
+      progressUnitPercent={PMQ_PROGRESS_UNIT_PERCENT}
+      lockedIds={lockedStageIds}
+      stagesCompletedOnAdvance={(fromId) => {
+        if (mediaLocked && fromId === "learn") {
+          return ["learn", "video", "audio"];
+        }
+        return [fromId];
+      }}
+      resolveNextIndex={(fromId, fromIndex, stageIds) => {
+        if (mediaLocked && fromId === "learn") {
+          const applyIdx = stageIds.indexOf("apply");
+          if (applyIdx > fromIndex) return applyIdx;
+        }
+        return fromIndex + 1;
+      }}
+      continueLabelFor={(currentId, defaultLabel) =>
+        mediaLocked && currentId === "learn" ? "Continue to Apply" : defaultLabel
+      }
+      onStagesMarkedDone={onStagesMarkedDone}
+      checkpointContinueLabel={checkpointContinueLabel}
+      checkpointReady={checkpointReady}
+      onCheckpointContinue={goNextLo}
+      srTitle={`LO ${loNumber}: ${loTitle}`}
+      renderChrome={(ctx) => (
+        <LoPageHeader
+          loNumber={loNumber}
+          loTitle={loTitle}
+          stages={ctx.stages}
+          currentId={ctx.currentId}
+          unlockedIds={ctx.unlockedIds}
+          lockedIds={ctx.lockedIds}
+          onSelect={(id) => ctx.selectStage(id as LoStageId)}
+          continueLabel={ctx.continueLabel}
+          onContinue={ctx.onContinue}
+          continueEnabled={ctx.continueEnabled}
+          completionPercent={ctx.optimisticCompletionPercent}
+        />
+      )}
+      renderStage={(currentId, { selectStage }) => {
+        if (currentId === "orient") {
+          return (
             <LoOrientStage
               context={body.where_this_fits}
               outcomes={body.learning_outcomes}
               definitions={loNumber === 1 ? body.key_definitions : undefined}
             />
-          ) : currentId === "learn" ? (
+          );
+        }
+        if (currentId === "learn") {
+          return (
             <LoLearnStage
               loNumber={loNumber}
               definitions={loNumber === 1 ? [] : body.key_definitions}
               coreContent={body.core_content}
             />
-          ) : currentId === "video" && video ? (
+          );
+        }
+        if (currentId === "video" && video) {
+          return (
             <LoVideoStage
               video={video}
               loNumber={loNumber}
@@ -494,7 +252,10 @@ export function LoStudyJourney({
               priceCents={priceCents}
               onJumpToLearn={() => selectStage("learn")}
             />
-          ) : currentId === "audio" && audio ? (
+          );
+        }
+        if (currentId === "audio" && audio) {
+          return (
             <LoAudioStage
               audio={audio}
               loNumber={loNumber}
@@ -502,12 +263,18 @@ export function LoStudyJourney({
               mediaLocked={mediaLocked}
               priceCents={priceCents}
             />
-          ) : currentId === "apply" ? (
+          );
+        }
+        if (currentId === "apply") {
+          return (
             <LoApplyStage
               misconceptions={body.misconceptions}
               memoryAids={body.memory_aids}
             />
-          ) : currentId === "practice" ? (
+          );
+        }
+        if (currentId === "practice") {
+          return (
             <PracticeQuizSection
               loNumber={loNumber}
               loCode={loCode}
@@ -518,7 +285,10 @@ export function LoStudyJourney({
               priceCents={priceCents}
               checkpointTotal={checkpointTotal}
             />
-          ) : currentId === "checkpoint" ? (
+          );
+        }
+        if (currentId === "checkpoint") {
+          return (
             <LoCheckpointStage
               checklistItems={body.progress_checkpoint}
               sectionId={sectionId}
@@ -534,24 +304,10 @@ export function LoStudyJourney({
               showQaComplete={showQaComplete}
               onChecklistReadyChange={onChecklistReadyChange}
             />
-          ) : null}
-
-          {isLast ? (
-            <StageContinueButton
-              key="checkpoint-continue"
-              label={checkpointContinueLabel}
-              onContinue={goNextLo}
-              enabled={continueEnabled}
-            />
-          ) : showAdvance && continueLabel ? (
-            <StageContinueButton
-              key={currentId}
-              label={continueLabel}
-              onContinue={advance}
-            />
-          ) : null}
-        </div>
-      </main>
-    </>
+          );
+        }
+        return null;
+      }}
+    />
   );
 }
