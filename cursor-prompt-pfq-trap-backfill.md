@@ -79,25 +79,26 @@ is meant to be Surpass-faithful, this gap makes it materially easier than the re
 exam. Include this as a headline number in the report summary. Do not try to fix it
 here — it is a content authoring ticket, not a tagging one.
 
-### 2c. Absolutes → tag `absolutes`
+### 2c. Absolutes → RETIRED, do not implement
 
-Match option text for: `always`, `never`, `all`, `only`, `every`, `must`, `none`,
-`entirely`, `guarantees`.
+**Decided 2026-09-05 after reviewing the first `--report` run. Remove this detector.**
 
-**This one is over-inclusive and must not be auto-approved.** A naive sweep returns
-~74 hits, and words like "all" and "only" appear innocuously in correct options all the
-time ("all project stakeholders", "only after approval"). The trap is specifically an
-*absolute claim in a distractor that is wrong because it is absolute*.
+It produced 85 candidates of which roughly 14 were genuine. The problem is not the
+regex, it is the category: an absolute word can be an overclaim that makes the option
+wrong, or it can be plain description in an option that is wrong for an unrelated
+reason, and nothing short of semantics separates those. "recording the current version
+of every project document" is a *correct* description of configuration management being
+used as a near-miss distractor.
 
-Two constraints:
+`trap-school-content.ts` describes absolutes as "a tie-breaker, not a rule. Use it when
+you're down to two options and out of time." That is a strategy the learner applies, not
+a property of a question, so there is nothing to tag. It also has no measured frequency
+where traps 1 and 2 both do, and `PFQ_RESEARCH.md` never mentions it.
 
-1. Only consider options that are **not** the correct answer. An absolute in the
-   correct answer is not a trap.
-2. Emit every hit to the report with the full option text and a `confidence` field, and
-   default `approved: false`. A human decides.
-
-Expect the true count to be far below 74. If the reviewed set comes out under ~15,
-report that and flag whether `absolutes` is worth carrying as a trap category at all.
+Actions: delete the absolutes detection branch, drop `absolutes` from
+`TRAP_TAG_TO_MODULE` in `src/lib/pfq/trap-tags.ts`, and stop emitting these proposals so
+a re-run does not regenerate 85 rows that will only be rejected again. Leave the Trap 4
+section in `trap-school-content.ts` alone — it stays as reading material.
 
 ### 2d. Near-miss definition → tag `near_miss`
 
@@ -170,16 +171,38 @@ Export a single constant that both this script and the callout component import:
 ```ts
 // src/lib/pfq/trap-tags.ts
 export const TRAP_TAG_TO_MODULE = {
+  near_miss: "near_miss",
   negative_stem: "negative",
   multi_select: "combination",
-  near_miss: "near_miss",
-  absolutes: "absolutes",
 } as const;
+// Declaration order is the callout priority: near_miss wins over negative_stem,
+// which wins over multi_select. See section 3b of the parity prompt.
+// `absolutes` is deliberately absent — see section 2c.
 export type PfqTrapTag = keyof typeof TRAP_TAG_TO_MODULE;
 ```
 
 Do not rename the existing DB tag values — 29 rows already use them and renaming buys
 nothing. Map instead.
+
+## 5a. Review outcome of the first report run — 2026-09-05
+
+The first `--report` run has been generated and reviewed. `scripts/pfq/trap-backfill-report.json`
+on disk already carries the review decisions; the pre-review copy is at
+`scripts/pfq/trap-backfill-report.pre-review.json`.
+
+| Trap | Proposed | Approved | Rejected |
+|---|---|---|---|
+| `negative_stem` | 8 new | 8 | 0 |
+| `multi_select` | 0 | 0 | 0 |
+| `near_miss` | 34 | 32 | 2 |
+| `absolutes` | 85 | 0 | 85 (category retired) |
+
+The two rejected near-misses are `PFQP-4-11-4` and `PFQP-7-6-5`: in both the matched
+pair terms are incidental distractors and the stem is not a discrimination question.
+
+Post-apply coverage is 69 of 306 questions tagged (22.5%), ranging from 7.7% on
+objective 9 to 40.5% on objective 7. That is dense enough for the Drill callouts in
+section 3b of the parity prompt to fire regularly.
 
 ## 6. Acceptance
 

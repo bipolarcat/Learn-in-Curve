@@ -159,6 +159,17 @@ variation.
 `video_reached_at`, `audio_reached_at` and `apply_reached_at` are simply unused by PFQ.
 Leave them alone. Do not drop them — PMQ uses them.
 
+**Legacy rows: treat a non-null `completed_at` as every stage reached.** Resolve this on
+read. Do **not** backfill the stage columns in the database and do **not** write a
+migration for it.
+
+There is already one such row in production (`section_id
+f8a2c1e0-4d3b-4a9e-9c06-2e1d0b9a8c7d`, objective 6): `completed_at` is set, the
+checklist has 6 entries, and every stage timestamp is null, because the staged pathway
+did not exist when it was written. Without this rule that objective renders as complete
+with zero of four stages, which reads as broken. The same rule covers anyone who
+finishes an objective between now and this phase shipping.
+
 ### 3b. Inline trap callouts in the Drill stage
 
 This replaces the rejected trap stage and is where the per-LO trap benefit actually
@@ -172,13 +183,18 @@ for it.
 - Source the explanation from `PFQ_TRAP_SCHOOL.traps` in
   `src/lib/pfq/trap-school-content.ts`. Use the `whatToDo` field as the callout body
   and the module `title` as its heading.
-- Map the question's `traps[]` tag values to trap school module ids:
+- Map the question's `traps[]` tag values to trap school module ids. **Three tags
+  only** — `absolutes` was dropped as a category on 2026-09-05, see 3d:
   `negative_stem` → `negative`, `multi_select` → `combination`,
-  `near_miss` → `near_miss`, `absolutes` → `absolutes`.
-  **Put this map in one exported constant**, not inline at the call site — the tag
-  vocabulary and the module ids currently disagree and that is a real footgun.
-- If a question carries multiple trap tags, show the first match only. Do not stack
-  callouts.
+  `near_miss` → `near_miss`.
+  **Put this map in one exported constant** (`src/lib/pfq/trap-tags.ts`), not inline at
+  the call site — the tag vocabulary and the module ids disagree and that is a real
+  footgun. That file already exists; remove the `absolutes` entry from it.
+- **A question can carry two tags** (at least one does: `PFQP-7-7-2` is both a negative
+  stem and a near-miss). Show exactly one callout, resolved by this fixed priority:
+  **`near_miss` > `negative_stem` > `multi_select`.** Near-miss wins because it teaches
+  something content-specific about the two terms the learner confused, where a negative
+  stem callout only restates a generic reading habit. Do not stack callouts.
 - Link the callout to `/courses/pfq-in-2-days/trap-school#<module-id>` with text along
   the lines of "More on this trap". Trap school gains anchor ids for this.
 - Show nothing on a correct answer. This is corrective feedback, not a lecture.
@@ -186,6 +202,25 @@ for it.
 **Depends on `cursor-prompt-pfq-trap-backfill.md`.** Only 29 of 306 questions currently
 carry a `traps` tag, so without the backfill these callouts will almost never fire.
 Build the component regardless; it degrades to showing nothing.
+
+### 3d. Absolutes is not a trap category — decided 2026-09-05
+
+A fourth tag, `absolutes`, was specced and then dropped after reviewing the detector
+output. 85 candidates were generated; roughly 14 were genuine. The reason for dropping
+it is not detection noise, it is that the category is incoherent: the detector cannot
+separate an absolute word used as an overclaim (which is *why* the option is wrong)
+from one used descriptively in an option that is wrong for an unrelated reason.
+"recording the current version of every project document" is a *correct* description of
+configuration management serving as a near-miss distractor, and tagging it `absolutes`
+would tell the learner the wrong thing about their own mistake.
+
+`trap-school-content.ts` says so itself: absolutes is "a tie-breaker, not a rule. Use it
+when you're down to two options and out of time." It is a strategy the learner applies
+when stuck, not a property a question has. It also carries no measured frequency where
+traps 1 and 2 both do, and `PFQ_RESEARCH.md` never mentions it.
+
+**Trap School keeps its Trap 4 section as reading material.** Only the *tag* is dropped.
+Do not delete the module from `trap-school-content.ts` and do not remove its anchor id.
 
 ### 3c. Content mapping for the stages
 
