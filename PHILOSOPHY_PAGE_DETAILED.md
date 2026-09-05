@@ -22,15 +22,15 @@ Learn in Curve tells you exactly what's free, what costs money, and why — beca
 
 ## Section: where the money actually goes
 
-**Eyebrow:** THE £9.99, EXPLAINED
+**Eyebrow:** THE £8, EXPLAINED
 
 **Body:**
 
 The PMQ in 5 Days course — every learning objective, every quiz, the full mock exam question bank — is free. It always will be.
 
-The only payment on the platform is a one-off £9.99 that unlocks the premium bundle: AI tutor (Sly), an extra quiz-generation option, AI grading on a full mock exam, and a complete additional mock exam.
+The only payment on the platform is a one-off £8 that unlocks the Pro Bundle: four more practice quiz sets per learning objective, two more AI-graded mock exam papers, and a video and audio overview for every one of the 24 learning objectives. Sly, the AI tutor, is not in this tier — he sits in AI Pro (£15), which is a waitlist card with no checkout behind it.
 
-That £9.99 isn't a markup. It's a platform fee — it covers the actual infrastructure cost of running the AI tools, with a £5 fair-usage allowance for the AI tutor built in. Use more than that and you can top up on a pay-as-you-go basis. No hidden limits, no silent auto-upgrade to a subscription. You can always see how much keeps the platform running and how much you get to spend.
+That £8 isn't a markup. It's a platform fee — it covers the actual infrastructure cost of running the course and its AI grading. Use more than that and you can top up on a pay-as-you-go basis. No hidden limits, no silent auto-upgrade to a subscription. You can always see how much keeps the platform running and how much you get to spend.
 
 *(Note: "fair-usage" is deliberately unquantified for now — the exact quota hasn't been finalised. Swap in a real number once it's decided; a concrete figure will read as more transparent than the word "fair" alone.)*
 
@@ -41,7 +41,7 @@ That £9.99 isn't a markup. It's a platform fee — it covers the actual infrast
 Same card pattern as the existing homepage `AboutCard` component (icon + title + one-line body) — reworked for this vision.
 
 1. **Pricing you can see through**
-   One free course. One £9.99 platform fee that covers exactly what it says it covers. No subscriptions, no upsells buried in the revision flow.
+   One free course. One £8 platform fee that covers exactly what it says it covers. No subscriptions, no upsells buried in the revision flow.
 
 2. **One person, fully accountable**
    This isn't a faceless EdTech brand. It's built and maintained by a working project manager who's put his name on it.
@@ -97,7 +97,7 @@ Confident / warm / unpretentious, per `PRODUCT.md` and `DESIGN.md`. Restrained, 
 
 ## Next steps
 
-- Confirm the fair-usage quota once it's decided, and drop the real number into the £9.99 section.
+- Confirm the fair-usage quota once it's decided, and drop the real number into the £8 section.
 - Confirm or correct the PMQ-certification point above.
 - Say if you want a shorter homepage teaser version of this (a few lines + a "read our philosophy" link) in addition to the full standalone page — not built yet since placement was set to standalone-only.
 - Want a version for a different channel (e.g. a LinkedIn launch post drawing on the same trust angle)?

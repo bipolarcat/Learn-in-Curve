@@ -1,8 +1,10 @@
 {
   "mcpServers": {
-    "@21st-dev/magic": {
-      "command": "npx",
-      "args": ["-y", "@21st-dev/magic@latest", "API_KEY=\"an_sk_aa330fee7bccbcb2b886a6ef6dcfca8c9822b0cbdd9f3ef411ed4db62804c41f\""]
+    "21st": {
+      "url": "https://21st.dev/api/mcp",
+      "headers": {
+        "x-api-key": "21st_sk_073ecda51f6fa4cb53b7858dc9115f64715836ba328b3a5ddb3df8d8a6fbed13"
+      }
     },
     "firecrawl-mcp": {
       "command": "npx",
@@ -19,6 +21,9 @@
       "type": "http",
       "url": "https://api.mobbin.com/mcp",
       "headers": {}
+    },
+    "notion": {
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }

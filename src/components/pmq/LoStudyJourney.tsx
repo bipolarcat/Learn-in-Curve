@@ -477,11 +477,12 @@ export function LoStudyJourney({
             <LoOrientStage
               context={body.where_this_fits}
               outcomes={body.learning_outcomes}
+              definitions={loNumber === 1 ? body.key_definitions : undefined}
             />
           ) : currentId === "learn" ? (
             <LoLearnStage
               loNumber={loNumber}
-              definitions={body.key_definitions}
+              definitions={loNumber === 1 ? [] : body.key_definitions}
               coreContent={body.core_content}
             />
           ) : currentId === "video" && video ? (

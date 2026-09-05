@@ -7,7 +7,7 @@ below that doesn't match how Sim actually wants this to work before building.
 
 PostHog goes in to answer real questions that are currently guesses:
 where people drop off between homepage and LO1 completion, whether
-Gamification Phase A (streaks/XP, see `GAMIFICATION_SPEC.md`) actually drives
+Gamification Phase A (streaks — XP removed 2026-08-19, see `GAMIFICATION_SPEC.md`) actually drives
 retention, and which of two homepage CTA copy options (LIC-5) converts
 better. Scope for v1: event tracking, funnels, one feature flag experiment.
 **Not** in scope for v1: session replay rollout, self-hosting, server-side
@@ -52,7 +52,7 @@ sequencing dependency, not a nice-to-have:
 | `quiz_demo_question_answered` (props: `question_index`, `correct`) | `QuizDemo.tsx` | Homepage funnel step, ties to LIC-10 |
 | `quiz_demo_completed` | `QuizDemo.tsx` | Funnel step right before the enrol CTA |
 | `signed_up` / `signed_in` | Auth callback | Funnel anchor point |
-| `quiz_attempt_submitted` (props: `lo_number`, `question_type`, `is_correct`, `xp_awarded`) | `submitQuizAttempt` server action | Real (not demo) engagement signal, ties to `GAMIFICATION_SPEC.md` |
+| `quiz_attempt_submitted` (props: `lo_number`, `question_type`, `is_correct`, ~~`xp_awarded`~~) | `submitQuizAttempt` server action | Real (not demo) engagement signal. **`xp_awarded` is being retired** with the XP removal (`cursor-prompt-xp-removal.md`) — it still ships as of 2026-09-03. Check saved PostHog insights for it before the property disappears; they will go flat rather than error. Historical events keep the property. |
 | `streak_incremented` (props: `new_streak`) | Same action, streak branch | Retention signal — the actual test of whether gamification is working |
 | `lo_completed` | Section/LO completion checkpoint | Progress funnel |
 | `ai_tutor_unlock_clicked` | AI tutor paywall CTA | Early monetization signal, useful even while tutor itself ships "Coming soon" |

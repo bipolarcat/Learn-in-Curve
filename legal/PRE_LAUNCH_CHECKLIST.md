@@ -305,6 +305,25 @@ future flag flip.
       Stripe Price object + Supabase `exam_config` must match — do not advertise
       £8 while charging £9.99. Solicitor review still recommended for payment
       flows.
+- [ ] **Correction appended 2026-08-28 — do not edit the signed-off item above.**
+      The entry above states the £8 unlock includes the £5 fair-usage credit.
+      That was true when written, but stopped being true when **LIC-98** landed
+      on 2026-07-30 and `tiers.ts` began enforcing a real ladder: Sly and the
+      end-of-course report moved to **AI Pro (£15)**, which is `status:
+      "waitlist"` with no checkout. The £8 Pro Bundle therefore grants quiz sets
+      2–5, mock papers 2–3, and video/audio per LO — **no Sly, and no £5
+      credit**. Any customer-facing copy still pairing "£8" with "AI tutor" or
+      "£5 credit" is an over-claim on a paid product. `PHILOSOPHY_PAGE_COPY.md`
+      and `PHILOSOPHY_PAGE_DETAILED.md` were corrected on 2026-08-28; the live
+      site copy has **not** been audited for this. `TERMS_OF_SERVICE.md` is
+      clean — it deliberately lists no prices (§3) and scopes the AI fair-usage
+      clause to "a Paid Unlock **covering AI features**" (§4), which stays
+      accurate under the new ladder.
+      **Also outstanding:** live Supabase `courses.exam_config` still holds
+      `ai_tutor_price_cents: 999` (PMQ) and `pfq_pro_price_cents: 500` (PFQ),
+      verified 2026-08-28. Checkout passes explicit amounts so charges are
+      correct, but reconcile registry + migration + Stripe together before any
+      price move.
 
 ## 5. Final sign-off
 

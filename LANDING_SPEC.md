@@ -160,7 +160,8 @@ not an approximation. Local `useState` only. No network, no server action, no DB
 
 Replicate from `QuizRunner`: the question rail across the top, "Check answer" button,
 `aria-live="polite"` feedback region, correct/incorrect states, explanation reveal, and the
-XP pill. XP is cosmetic here — display only, never persisted.
+progress indicator. (The XP pill described here was cosmetic — display only, never
+persisted — and is removed with the rest of XP, `cursor-prompt-xp-removal.md`.)
 
 **After question 3**, the panel resolves into a signup CTA: *"That's the taster. The full
 course is free."* → `PmqStartLink`. Do not offer a fourth question.

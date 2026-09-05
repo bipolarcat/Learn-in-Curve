@@ -1,9 +1,13 @@
+"use client";
+
 import { BookOpen, Layers, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import type { CoreContentBlock as CoreContentBlockType, KeyDefinition } from "@/types/pmq";
-import { DefinitionsTable } from "@/components/pmq/DefinitionsTable";
-import { Lo1DefinitionsReveal } from "@/components/pmq/Lo1DefinitionsReveal";
-import { Lo1CoreContentReveal } from "@/components/pmq/Lo1CoreContentReveal";
+import type {
+  CoreContentBlock as CoreContentBlockType,
+  KeyDefinition,
+} from "@/types/pmq";
+import { DefinitionsReveal } from "@/components/pmq/DefinitionsReveal";
+import { Lo1CoreContentStudy } from "@/components/pmq/Lo1CoreContentStudy";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
@@ -49,14 +53,24 @@ function SectionTitle({
 }
 
 /**
- * Learn — quieter Orient-matched layout: two opaque cards, full wrap width,
- * pathway Lucide titles, Figtree throughout.
+ * Learn — LO1: notebook single-scroll core (definitions live on Orient).
+ * Other LOs: definitions plates + stacked core blocks.
  */
 export function LoLearnStage({
   loNumber,
   definitions,
   coreContent,
 }: LoLearnStageProps) {
+  if (loNumber === 1) {
+    return (
+      <div className="lo-learn-stage min-w-0" aria-label="Learn">
+        {coreContent.length > 0 ? (
+          <Lo1CoreContentStudy blocks={coreContent} />
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div
       className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
@@ -64,9 +78,7 @@ export function LoLearnStage({
     >
       {definitions.length > 0 ? (
         <section
-          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 p-4 sm:p-5 ${
-            loNumber === 1 ? "overflow-visible" : "overflow-x-clip"
-          }`}
+          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 overflow-visible p-4 sm:p-5`}
           style={{ ["--i" as string]: 0 }}
           aria-labelledby="lo-learn-definitions"
         >
@@ -74,20 +86,14 @@ export function LoLearnStage({
             Key definitions
           </SectionTitle>
           <div className="mt-1.5 w-full min-w-0 max-w-full">
-            {loNumber === 1 ? (
-              <Lo1DefinitionsReveal definitions={definitions} />
-            ) : (
-              <DefinitionsTable definitions={definitions} />
-            )}
+            <DefinitionsReveal definitions={definitions} />
           </div>
         </section>
       ) : null}
 
       {coreContent.length > 0 ? (
         <section
-          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 p-4 sm:p-5 ${
-            loNumber === 1 ? "overflow-visible" : "overflow-x-clip"
-          }`}
+          className={`${productSurfaceOpaque} ${motion.panel} min-w-0 overflow-x-clip p-4 sm:p-5`}
           style={{ ["--i" as string]: 1 }}
           aria-labelledby="lo-learn-core"
         >
@@ -95,35 +101,31 @@ export function LoLearnStage({
             Core content
           </SectionTitle>
 
-          {loNumber === 1 ? (
-            <div className="mt-1.5 w-full min-w-0 max-w-full">
-              <Lo1CoreContentReveal blocks={coreContent} />
-            </div>
-          ) : (
-            <div className="mt-1.5 grid w-full min-w-0 max-w-full gap-0 divide-y divide-black/[0.05] dark:divide-white/[0.08]">
-              {coreContent.map((block, index) => {
-                const code = block.outcome_code.toLowerCase();
-                return (
-                  <article
-                    key={block.outcome_code}
-                    className={`${motion.outcome} min-w-0 py-3 first:pt-2 last:pb-0 sm:py-3.5`}
-                    style={{ ["--i" as string]: index }}
+          <div className="mt-1.5 grid w-full min-w-0 max-w-full gap-0 divide-y divide-black/[0.05] dark:divide-white/[0.08]">
+            {coreContent.map((block, index) => {
+              const code = block.outcome_code.toLowerCase();
+              return (
+                <article
+                  key={block.outcome_code}
+                  className={`${motion.outcome} min-w-0 py-3 first:pt-2 last:pb-0 sm:py-3.5`}
+                  style={{ ["--i" as string]: index }}
+                >
+                  <h3
+                    className={`flex min-w-0 items-start gap-2.5 ${headingClass}`}
                   >
-                    <h3 className={`flex min-w-0 items-start gap-2.5 ${headingClass}`}>
-                      <OutcomeCodeBadge code={code} className="mt-0.5" />
-                      <span className="min-w-0 flex-1">
-                        <span className="sr-only">{code}: </span>
-                        {block.outcome_title}
-                      </span>
-                    </h3>
-                    <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-                      <CoreContentBlock block={block} />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          )}
+                    <OutcomeCodeBadge code={code} className="mt-0.5" />
+                    <span className="min-w-0 flex-1">
+                      <span className="sr-only">{code}: </span>
+                      {block.outcome_title}
+                    </span>
+                  </h3>
+                  <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
+                    <CoreContentBlock block={block} />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </section>
       ) : null}
     </div>

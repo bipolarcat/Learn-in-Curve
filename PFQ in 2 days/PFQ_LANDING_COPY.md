@@ -14,7 +14,7 @@ Voice per `VOICE_GUIDE.md`. No em dashes. Every claim on this page is checkable 
 
 **Sub:** APM publishes the syllabus, and the qualification handbook says every learning outcome in it is assessed, with one asked twice. Fifty-nine outcomes, sixty questions. So "am I ready?" has an exact answer, and this course is built to give it to you.
 
-**Primary CTA:** Get the course, £5
+**Primary CTA:** Get the course, £6
 **Secondary CTA:** See what's inside
 
 **Under the CTA, small:** One payment. No subscription. Yours for good.
@@ -74,19 +74,19 @@ Straight from the APM qualification handbook. Worth knowing before you book.
 
 **You've failed once and are paying for a resit.** You know the content roughly. What you need is the specific outcomes that cost you the marks, and that is exactly what this is built to find.
 
-**You're self-studying without a course.** APM's open online exam route exists for you and comes with no teaching attached. This fills that gap for £5.
+**You're self-studying without a course.** APM's open online exam route exists for you and comes with no teaching attached. This fills that gap for £6.
 
 ---
 
 ## Section 7: price
 
-**H2:** £5. One payment.
+**H2:** £6. One payment.
 
 Everything above. No subscription, no upsell, no locked modules.
 
 For context: the APM exam itself currently costs £278.40 for non-members, booked and paid separately with APM. Accredited two-day courses run into the hundreds. This is preparation, not the exam, and not a qualification.
 
-**CTA:** Get the course, £5
+**CTA:** Get the course, £6
 
 ---
 
@@ -111,5 +111,5 @@ Note the hero deliberately says the exam "asks 59 questions you can see in advan
 
 ## Meta
 
-**Title:** APM PFQ Course, £5 — 59 Lessons, 306 Practice Questions, Full Mock | Learn in Curve
-**Description:** Prepare for the APM Project Fundamentals Qualification for £5. A lesson for every one of the 59 syllabus learning outcomes, 306 tagged practice questions, and a full 60-question mock. Find out exactly which outcomes you cannot answer yet.
+**Title:** APM PFQ Course, £6 — 59 Lessons, 306 Practice Questions, Full Mock | Learn in Curve
+**Description:** Prepare for the APM Project Fundamentals Qualification for £6. A lesson for every one of the 59 syllabus learning outcomes, 306 tagged practice questions, and a full 60-question mock. Find out exactly which outcomes you cannot answer yet.

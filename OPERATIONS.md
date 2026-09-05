@@ -65,7 +65,7 @@ where user_id = '<uuid>'
 Run whichever of these matches the reset's scope in the same pass as the `section_progress` update above — don't do one without the other, that's exactly how this gap got found.
 
 **Explicitly out of scope (confirmed with Sim 2026-07-30, don't guess on this again):**
-- **XP is not a live feature** — there's no XP system to reset or preserve; `user_course_stats.total_xp` and the derived `getPractiseQuizXp` count are not something to worry about either way when scoping a reset.
+- **XP is decided-removed but the write path is still live (as of 2026-09-03).** XP was removed from the product on 2026-08-19, but the code removal was never finished: `submitQuizAttempt` still computes `xpAwarded` and writes `user_course_stats.total_xp` on every quiz answer. Verified 2026-09-03 — a user who signed up on 1 Sep had 450 XP written the same day. **When scoping a reset, treat `total_xp` as live data that will keep growing until `cursor-prompt-xp-removal.md` lands.** The column is deliberately being kept (historical points for 27 users); only the writes are going. Do not drop it without a separate decision.
 - **`user_course_stats` (streak) must never be touched by a content reset.** Streak tracks the user opening/using the course day to day, not lesson or quiz progress — it's a separate signal from everything above and should keep running across a reset, not zero out just because the LOs did.
 - **`public.course_completion_reports`** (the downloadable end-of-course report) still isn't part of default scope — confirm separately if the ask is "make it look like they never touched the course at all."
 

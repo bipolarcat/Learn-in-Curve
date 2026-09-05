@@ -85,7 +85,7 @@ One genuine semantic match did turn up: `GuestSlyPanel.tsx` has a literal "Sly i
 |---|---|---|
 | Idle loop | ~~Hero section~~ | No full-body hero slot exists. Closest candidate: `SlyShowcase.tsx`'s "Meet Sly" module (right after the homepage hero) — but it's currently a small avatar + text layout, not a full-body-mascot layout. Would need a real design decision, not a swap. |
 | Greeting wave | ~~Enrol gate modal~~ | No enrol-gate modal exists in this app. The sign-up page (`auth/sign-up/page.tsx`) uses `AuthDeskScene.tsx` — a *different* illustration (a man at a monitor), not Sly at all. No wave-shaped moment identified yet. |
-| Celebration | ~~Progress bar milestone~~ | `DashboardPmqCourseCard.tsx` takes `streak`/`completionPercent`/`xp` props and is the real progress-tracking surface — but again only shows a tiny avatar icon today, not a full-body moment. |
+| Celebration | ~~Progress bar milestone~~ | `DashboardPmqCourseCard.tsx` takes `streak`/`completionPercent` props (the `xp` prop was removed 2026-07-29) and is the real progress-tracking surface — but again only shows a tiny avatar icon today, not a full-body moment. |
 | Thinking pose | ~~FAQ / Command Words section~~ | `GuestSlyPanel.tsx`'s "Sly is thinking" typing-dots state is a real, well-matched moment conceptually — just needs a placement decision (replace the tiny avatar with a looping crop vs. a bigger redesigned panel). |
 
 **Current placement status — 2026-07-18:** the full-body Home-hero implementation was tried and reverted at Sim's request. The separate circular-avatar animation idea remains shelved; all current Sly placements are static.

@@ -7,7 +7,7 @@
 
 ## What changed from v1
 
-The page no longer breaks down which plan has how many questions or mock papers. That belongs on `/pricing`. This page sells the features and lets pricing sell the plans. The hero carries no question count at all. XP has been removed everywhere. Streaks stay.
+The page no longer breaks down which plan has how many questions or mock papers. That belongs on `/pricing`. This page sells the features and lets pricing sell the plans. The hero carries no question count at all. XP has been removed from this page's copy. Streaks stay. (Product-wide XP removal was decided 2026-08-19; the code removal is specced in `cursor-prompt-xp-removal.md`.)
 
 ---
 

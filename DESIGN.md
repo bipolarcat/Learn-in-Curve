@@ -32,7 +32,8 @@ what carries forward into v4 unchanged.
   titles, big stat numbers. Weight 600 by default, 800 for the stat-block numbers.
 - **Body** — Figtree, weights 400–700. Everything else.
 - **Mono/stamp accent** — Space Mono, 400/700. Eyebrows, tags, badges, captions,
-  marquee text, XP counters — anything meant to read as "stamped" or "ticketed."
+  marquee text, streak and completion pills — anything meant to read as "stamped" or
+  "ticketed."
 
 ## Motion principles
 
@@ -44,7 +45,7 @@ what carries forward into v4 unchanged.
   attention outside of a direct interaction.
 - **Interaction feedback is immediate and slightly theatrical.** Hover-tilt on cards
   (`translate(-3px,-3px)` + shadow growth), button press-shadow ("sticker" shadow that
-  grows on hover), quiz answer shake/flash, "+10 XP" flying text — these should feel
+  grows on hover), quiz answer shake/flash — these should feel
   responsive within ~150ms, not eased into existence.
 - **Progress draws itself in.** The journey path SVG uses `stroke-dashoffset` animated
   from full-length to 0 when scrolled into view — this is the core "gamified journey"
@@ -121,7 +122,7 @@ imports from there rather than keeping its own copies.
 **TrialQuiz** (`TrialQuiz.tsx`) — three real questions for guests, importing
 `pmq/PracticeQuiz.module.css` and `McqResponseFields` so it is visually the real
 practice console, not an approximation. Local state only: no fetch, no server
-action, no DB, and the XP pill is cosmetic. `QuizRunner` is untouched — it needs
+action, no DB. `QuizRunner` is untouched — it needs
 auth and writes an attempt row, so it cannot run for a guest. After question 3
 the panel resolves into the signup CTA; there is no fourth question.
 
@@ -158,7 +159,7 @@ the grid; animation pauses off-screen.
 the arrow — do not nest a second `CtaArrow`.
 
 **Live quiz card** — interactive demo on the marketing page: question, four options,
-correct (olive) / incorrect (rust, shake), XP pill + progress, explanation line.
+correct (olive) / incorrect (rust, shake), progress, explanation line.
 **2026-07-31:** Home now uses `TrialQuiz`, which borrows the real practice
 console's stylesheet instead of this bespoke card. `QuizDemo` stays in the repo,
 unmounted — see "Home sections" above.

@@ -1,5 +1,12 @@
 # Site Shell, Dashboard & LO Page Rework — handoff spec for Cursor
 
+> **XP references in this doc are historical (2026-09-03).** XP was removed from the
+> product on 2026-08-19; the code removal is specced in `cursor-prompt-xp-removal.md`. §2
+> ("XP-not-adding-up") and every `XpStreakBar xp={...}` instruction below are kept
+> as a record of what was built, not as work to do. Streak and completion chrome is
+> unaffected.
+
+
 Written after reviewing a screenshot of the live LO page plus a long list of new
 requirements from the user. This doc audits what's actually built against
 `GAMIFICATION_SPEC.md` and `PMQ_NATIVE_MIGRATION.md`, flags one critical DB bug

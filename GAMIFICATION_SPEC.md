@@ -1,4 +1,13 @@
-# Gamification Spec — Phase A (XP, streaks, feedback, progress ring)
+# Gamification Spec — Phase A (streaks, feedback, progress ring)
+
+> **XP is removed from the product (decided 2026-08-19, code removal specced 2026-09-03).**
+> Everything in this document about **XP** — the awarding rule in §2, the `xpAwarded`
+> / `totalXp` return values, the `XpStreakBar` XP half, the "+N XP" fly-up — is
+> **historical**. It records what was built in Phase A and is kept so the decision
+> log makes sense; it is **not** a description of the product and is **not** to be
+> implemented. **Streaks, quiz feedback and the progress ring are unaffected and
+> remain live.** Do not reinstate XP from this doc. See `cursor-prompt-xp-removal.md` and `FEATURES.md` item 6.
+
 
 Scope decision made 2026-07-03 (see `BUSINESS_STATE.md` decision log): full Duolingo-style
 gamification, built in two phases. **This doc covers Phase A only** — the XP/streak

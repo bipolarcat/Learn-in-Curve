@@ -151,10 +151,10 @@ function DefinitionPlate({
 }
 
 /**
- * LO1-only key definitions. One clip animation on every viewport: measured
+ * Key definitions for every LO. One clip animation on every viewport: measured
  * height, 220ms ease-out-quint (same curve as SiteHeaderMenu).
  */
-export function Lo1DefinitionsReveal({
+export function DefinitionsReveal({
   definitions,
 }: {
   definitions: KeyDefinition[];

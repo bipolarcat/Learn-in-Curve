@@ -1,7 +1,7 @@
 # AI Tutor Backend Spec (LIC-42)
 
 **2026-07-18 implementation note:** Full-mock Gemini grading now counts against
-the same £5 fair-usage credit included in the £9.99 Premium bundle. The server
+the same £5 fair-usage credit included in the £8 Pro Bundle. The server
 sums tutor usage and persisted `ai_cost_gbp_cents` before each written-answer
 grading call; it is not a separate allowance.
 

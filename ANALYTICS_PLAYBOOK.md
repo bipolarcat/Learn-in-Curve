@@ -89,7 +89,8 @@ Retention shows: of people who did something in week 1, what fraction did it
 again in week 2, week 3, etc.
 
 For LIC this is **the** number that matters long-term, and specifically it is
-the honest test of whether Gamification Phase A (streaks and XP) is doing
+the honest test of whether Gamification Phase A (streaks — XP was removed from the
+product on 2026-08-19) is doing
 anything. A streak feature that does not move retention is decoration you paid
 for with engineering time. The `streak_incremented` event exists precisely so
 you can split retention by "users who ever hit a streak" vs "users who did not"

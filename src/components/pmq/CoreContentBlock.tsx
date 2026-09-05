@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
+import { Lo1InteractiveTable } from "@/components/pmq/Lo1InteractiveTable";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -128,13 +129,18 @@ function diagramsAfterHeading(
 
 type CoreContentBlockProps = {
   block: CoreContentBlockType;
+  /** LO1 Learn: row-expand / column-focus instead of a static markdown table. */
+  interactiveTables?: boolean;
 };
 
 /**
  * Core lesson markdown. Heading levels are demoted (h4/h5) so they nest
  * correctly under Learn’s outcome `h3` titles.
  */
-export function CoreContentBlock({ block }: CoreContentBlockProps) {
+export function CoreContentBlock({
+  block,
+  interactiveTables = false,
+}: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
 
@@ -171,11 +177,14 @@ export function CoreContentBlock({ block }: CoreContentBlockProps) {
               "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
               children,
             ),
-          table: ({ children }) => (
-            <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
-              <table>{children}</table>
-            </div>
-          ),
+          table: ({ children }) =>
+            interactiveTables ? (
+              <Lo1InteractiveTable>{children}</Lo1InteractiveTable>
+            ) : (
+              <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
+                <table>{children}</table>
+              </div>
+            ),
           pre: ({ children }) => (
             <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
               <pre className="overflow-x-auto">{children}</pre>
