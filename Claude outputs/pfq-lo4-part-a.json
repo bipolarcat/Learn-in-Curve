@@ -11,7 +11,8 @@
       "d": "A configuration management system recording document versions."
     },
     "answer": "a",
-    "explanation": "A baseline is the approved reference. Without something agreed to compare against, ahead-or-behind has no meaning. B, C and D are all real and useful project documents, which is what makes them plausible, but none of them provides the point of comparison.",
+    "explanation": "A baseline is the approved reference. Without something agreed to compare against, ahead-or-behind has no meaning. B, C and D are all real and useful project documents, but none of them provides the point of comparison.",
+    "tip": "When every option names a genuine project document, the question is asking which one does the specific job in the stem. Answer the stem in your own head first, then look for it.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -26,7 +27,8 @@
       "d": "Because baselines are held in a system that prevents direct editing."
     },
     "answer": "a",
-    "explanation": "The baseline is what performance has been reported against. Quietly moving it makes the entire reporting history meaningless, which is why the change has to be visible and authorised. The other options describe process or tooling constraints that may or may not apply; none is the underlying reason.",
+    "explanation": "The baseline is what performance has been reported against. Quietly moving it makes the entire reporting history meaningless, which is why the change has to be visible and authorised. The other options describe process or tooling constraints that may or may not apply on a given project.",
+    "tip": "Watch for distractors that describe how a rule is enforced rather than why it exists. A why question wants the reason, not the mechanism.",
     "active": true, "mock_suitable": false, "variant": 7
   },
   {
@@ -38,7 +40,8 @@
       "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
     },
     "answer": "a",
-    "explanation": "A baseline normally covers scope, schedule and cost together, because changing any one of them changes what the project is measured against. Team morale is not baselined. Spotting that item 4 is wrong removes three of the four options in a single move.",
+    "explanation": "A baseline normally covers scope, schedule and cost together, because changing any one of them changes what the project is measured against. Team morale matters but is not baselined.",
+    "tip": "Do not evaluate the four options. Evaluate the four items, find the single one you are confident is wrong, then strike out every option containing it. Here that leaves one answer immediately.",
     "active": true, "mock_suitable": true, "variant": 8
   },
   {
@@ -53,7 +56,8 @@
       "d": "Nothing, because a baseline is simply the latest version of the plan."
     },
     "answer": "a",
-    "explanation": "The word doing the work in the definition is approved. A plan becomes a baseline at the point it is authorised, not at the point it is finished. Option D is the near-miss worth noticing: treating the current plan as the baseline is exactly the habit that makes progress reporting meaningless.",
+    "explanation": "The word doing the work in the definition is approved. A plan becomes a baseline at the point it is authorised, not at the point it is finished. Option D is the habit that makes progress reporting meaningless in practice.",
+    "tip": "Definitions in this syllabus often turn on a single qualifying word. Approved, agreed, measurable, formal. Find that word and the near-misses fall away.",
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -66,6 +70,7 @@
     },
     "answer": "a",
     "explanation": "A baseline is the reference point against which progress is measured and controlled. Authorisation is how a baseline is created rather than what it provides. Decomposition describes breakdown structures, and contingency is a cost and risk concept.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   },
 
@@ -81,7 +86,8 @@
       "d": "Yes, but only if the sponsor waives formal change control."
     },
     "answer": "a",
-    "explanation": "Iterative work baselines each iteration: time and resources are fixed for the cycle and the scope within it is agreed, while later iterations are deliberately left open. Option B describes the linear approach, which is the near-miss. Option C overstates the difference: iterative projects do baseline, just at a different granularity.",
+    "explanation": "Iterative work baselines each iteration: time and resources are fixed for the cycle and the scope within it is agreed, while later iterations are deliberately left open. Option B describes the linear approach. Option C overstates the difference, since iterative projects do baseline, just at a different granularity.",
+    "tip": "In a yes-or-no question, read the reason attached to each option, not the yes or the no. Two options here say yes and only one gives the right reason.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -96,7 +102,8 @@
       "d": "Both fix time and cost, and flex scope."
     },
     "answer": "a",
-    "explanation": "Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost per cycle and flexes scope through re-prioritisation. Option B is the exact inversion, which is the classic near-miss here: three of these four options are correct statements about something, just not about this pairing.",
+    "explanation": "Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost per cycle and flexes scope through re-prioritisation. Option B is the exact inversion.",
+    "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Decide which half you are sure of, and let it settle the pair.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -111,7 +118,8 @@
       "d": "Because later iterations are estimated parametrically rather than analytically."
     },
     "answer": "a",
-    "explanation": "Leaving later detail open is the point of the approach, not an oversight: it is what allows scope to flex through re-prioritisation. Option B is a common misconception, iterative projects do have end points. C and D describe things that might be true on a given project but are not the reason.",
+    "explanation": "Leaving later detail open is the point of the approach, not an oversight: it is what allows scope to flex through re-prioritisation. Option B is a common misconception, since iterative projects do have end points.",
+    "tip": "Distractors that describe a method as lacking discipline are usually wrong. The syllabus treats iterative work as deliberate, not loose.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -126,7 +134,8 @@
       "d": "Changing it after approval requires formal change control."
     },
     "answer": "c",
-    "explanation": "Inverted stem: three options are true. A linear baseline is set once and changed only through change control. Routine re-baselining at every phase describes iterative practice, not linear. Reading fast and picking the first true statement is the mistake this question exists to catch.",
+    "explanation": "A linear baseline is set once and changed only through change control. Routine re-baselining at every phase describes iterative practice, not linear.",
+    "tip": "The word not inverts the question. Mark it before you read a single option, then ask of each one: is this true? Pick the one where the answer is no.",
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -141,7 +150,8 @@
       "d": "No baseline exists until all iterations are complete."
     },
     "answer": "a",
-    "explanation": "Iterative baselining happens per cycle, so each new iteration gets its own. Option B applies the linear mechanism to an iterative project, which is the trap. C and D would leave the team with nothing to measure against, which defeats the purpose of baselining entirely.",
+    "explanation": "Iterative baselining happens per cycle, so each new iteration gets its own. Option B applies the linear mechanism to an iterative project. C and D would leave the team with nothing to measure against, which defeats the purpose of baselining.",
+    "tip": "Check whether an option's mechanism belongs to the life cycle in the scenario. Change control is a linear answer, re-prioritisation is an iterative one.",
     "active": true, "mock_suitable": true, "variant": 10
   },
 
@@ -157,7 +167,8 @@
       "d": "Yes, but only once they are formally added to the stakeholder register."
     },
     "answer": "a",
-    "explanation": "The examinable point is that stakeholder status comes from having an interest, not from authorship or from being named. Options B and C are both plausible-sounding process rules and both wrong. D confuses being a stakeholder with being recorded as one.",
+    "explanation": "Stakeholder status comes from having an interest, not from authorship or from being named. Options B and C are both plausible-sounding process rules and both wrong. D confuses being a stakeholder with being recorded as one.",
+    "tip": "Be suspicious of options that make a status depend on paperwork. Being something and being recorded as something are different, and the exam tests the difference.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -170,7 +181,8 @@
       "c": "The project manager.", "d": "The supplier."
     },
     "answer": "a",
-    "explanation": "The governance board sets tolerances and takes gate decisions using the plan. The sponsor approves it and owns the business case it serves, the project manager produces and works to it, and suppliers depend on its procurement timing. All four are genuine stakeholders, which is why this tests whether you can tell their interests apart rather than whether you can spot a non-stakeholder.",
+    "explanation": "The governance board sets tolerances and takes gate decisions using the plan. The sponsor approves it and owns the business case it serves, the project manager produces and works to it, and suppliers depend on its procurement timing.",
+    "tip": "When every option is a genuine stakeholder, the question is testing which interest belongs to which role. Match the verb in the stem to the role that performs it.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -185,7 +197,8 @@
       "d": "The threats and opportunities facing the project and their owners."
     },
     "answer": "a",
-    "explanation": "That six-part formulation is the plan. Option B describes the business case, C describes configuration management records, and D describes the risk register. Each is a correct description of a different document, which is what makes them work as distractors.",
+    "explanation": "That six-part formulation is the plan. Option B describes the business case, C describes configuration management records, and D describes the risk register.",
+    "tip": "Three options describing three different documents is the classic near-miss shape. Name the document in your head from the stem before reading on.",
     "active": true, "mock_suitable": true, "variant": 8
   },
   {
@@ -200,7 +213,8 @@
       "d": "Because they produce the work packages the plan contains."
     },
     "answer": "a",
-    "explanation": "End users are affected by what is delivered and by what transition asks of them. Approval belongs to the sponsor, benefits accountability to the sponsor, and work packages to the project manager and team. Each wrong option correctly describes a different stakeholder's interest.",
+    "explanation": "End users are affected by what is delivered and by what transition asks of them. Approval and benefits accountability belong to the sponsor, and work packages to the project manager and team.",
+    "tip": "Each wrong option here correctly describes a different stakeholder. Ask who the stem names, then find the interest that belongs to them specifically.",
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -215,7 +229,8 @@
       "d": "The plan records the acceptance criteria for their deliverables."
     },
     "answer": "a",
-    "explanation": "Suppliers have a stake because the plan drives what they must supply and when. Option C is the tempting one and it is wrong: the plan is not a contract, and treating it as one confuses a management document with a legal instrument. Tolerances are a governance board matter.",
+    "explanation": "Suppliers have a stake because the plan drives what must be supplied and when. Option C is wrong in an important way: the plan is not a contract, and treating it as one confuses a management document with a legal instrument. Tolerances are a governance board matter.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   },
 
@@ -231,7 +246,8 @@
       "d": "The major risks and the expected timescales."
     },
     "answer": "a",
-    "explanation": "A useful test: if an option describes something a project manager would use to run the work, it is not business case content. A work breakdown structure is a delivery tool. B, C and D are all typical business case content, so this rewards knowing the boundary rather than the list.",
+    "explanation": "A work breakdown structure is a delivery tool, not justification. B, C and D are all typical business case content.",
+    "tip": "A reliable test for business case content: if an option describes something a project manager would use to run the work, it does not belong in the business case.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -244,7 +260,8 @@
       "c": "Is this deliverable fit for purpose?", "d": "Who is accountable for this decision?"
     },
     "answer": "a",
-    "explanation": "The business case is the justification, and its job is to keep answering whether the project remains worth doing. B is progress reporting, C is quality control, and D is governance. Each belongs to a different part of the syllabus.",
+    "explanation": "The business case is the justification, and its job is to keep answering whether the project remains worth doing. B is progress reporting, C is quality control, and D is governance.",
+    "tip": "Each document in this syllabus answers one question. Business case: is it worth doing. Plan: how will it be done. Register: what might go wrong. Learn them as questions, not as contents lists.",
     "active": true, "mock_suitable": true, "variant": 8
   },
   {
@@ -256,7 +273,8 @@
       "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
     },
     "answer": "b",
-    "explanation": "Options considered, expected benefits and major risks all belong in a business case. The issue log is a live delivery record and belongs elsewhere. Identifying item 3 as the odd one out eliminates three options at once, which is the efficient way to handle this question shape.",
+    "explanation": "Options considered, expected benefits and major risks all belong in a business case. The issue log is a live delivery record and belongs elsewhere.",
+    "tip": "Look for the item that is a live operational record rather than a piece of justification. In a business case question, logs and registers are usually the intruder.",
     "active": true, "mock_suitable": true, "variant": 9
   },
   {
@@ -271,7 +289,8 @@
       "d": "It provides a fallback position if the preferred option is rejected."
     },
     "answer": "a",
-    "explanation": "Do-nothing is the comparator: without it there is no way to judge whether any option is worth its cost. Option D is the near-miss, because do-nothing is not a contingency plan, it is a measuring stick. C invents a rule that does not exist.",
+    "explanation": "Do-nothing is the comparator: without it there is no way to judge whether any option is worth its cost. It is a measuring stick, not a contingency plan. Option C invents a rule that does not exist.",
+    "tip": "Distrust options that cite a specific numerical requirement the syllabus never states. Invented thresholds are a common distractor.",
     "active": true, "mock_suitable": false, "variant": 10
   },
   {
@@ -287,6 +306,7 @@
     },
     "answer": "a",
     "explanation": "Live means it is revisited at gates to confirm the justification still holds, not that it changes constantly. B and C describe real processes that may apply to it, but neither is what makes it live. D gets both the frequency and the owner wrong, since the sponsor owns the business case.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 11
   },
 
@@ -303,6 +323,7 @@
     },
     "answer": "a",
     "explanation": "This is why business case ownership sits with the sponsor rather than the project manager. A project manager measured on delivery has every incentive to keep delivering. Separating ownership of the why from responsibility for the how is what makes it possible to stop a well-run project that is no longer worth doing.",
+    "tip": "When a scenario separates delivering well from being worth delivering, the answer almost always involves the sponsor and the business case.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -317,7 +338,8 @@
       "d": "Accountability for realising the benefits after handover."
     },
     "answer": "a",
-    "explanation": "The project manager feeds the sponsor the information needed to judge whether the case still holds. Approval, justification and benefits accountability all sit with the sponsor. Each distractor is a real business case responsibility, just assigned to the wrong role.",
+    "explanation": "The project manager feeds the sponsor the information needed to judge whether the case still holds. Approval, justification and benefits accountability all sit with the sponsor.",
+    "tip": "Supplying information and owning a document are different responsibilities. The exam tests that boundary repeatedly, so read the verb in the stem carefully.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -331,7 +353,8 @@
       "d": "Producing the cost forecasts that update it."
     },
     "answer": "d",
-    "explanation": "Inverted stem: three are sponsor responsibilities. Cost forecasts come from the project manager, who supplies information without owning or approving the case. The distinction between supplying information and owning the document is the whole point of this outcome.",
+    "explanation": "Three of these are sponsor responsibilities. Cost forecasts come from the project manager, who supplies information without owning or approving the case.",
+    "tip": "On an inverted stem about roles, list the role's real responsibilities in your head first. The odd one out is usually a task belonging to the other role in the pair.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -347,6 +370,7 @@
     },
     "answer": "a",
     "explanation": "The separation exists precisely because the two roles have conflicting incentives. Collapsing them into one person removes the check. Option B identifies a real but secondary problem, and options C and D would both leave the conflict of interest in place.",
+    "tip": "Where two options both identify a genuine problem, pick the one that names the more fundamental failure. Governance beats housekeeping.",
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -360,6 +384,7 @@
     },
     "answer": "a",
     "explanation": "The sponsor owns why the project is being done; the project manager runs how it is delivered. Option C is the closest near-miss because it is a genuinely related split with the same role boundary, but it describes what each is accountable for delivering rather than the ownership of the justification.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   },
 
@@ -375,7 +400,8 @@
       "d": "Monitor only, since low interest means low engagement need."
     },
     "answer": "a",
-    "explanation": "High influence with low interest is the keep-satisfied quadrant. Option B is the near-miss: close management is for high influence and high interest, and over-engaging a powerful but disinterested stakeholder can create the very scrutiny you wanted to avoid. Option D ignores the power axis entirely.",
+    "explanation": "High influence with low interest is the keep-satisfied quadrant. Close management is for high influence and high interest, and over-engaging a powerful but disinterested stakeholder can create the very scrutiny you wanted to avoid. Option D ignores the power axis entirely.",
+    "tip": "Place the stakeholder on both axes before reading the options. Getting one axis right and forgetting the other is how three of these four distractors catch people.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -390,7 +416,8 @@
       "d": "Because engagement effort must be justified in the business case."
     },
     "answer": "a",
-    "explanation": "Engagement effort is finite. The value of analysis is targeting, so that effort lands where it changes the outcome. B is a real communication irritation but not the reason analysis exists, and C and D invent constraints.",
+    "explanation": "Engagement effort is finite. The value of analysis is targeting, so that effort lands where it changes the outcome. B is a real irritation but not the reason analysis exists, and C and D invent constraints.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 7
   },
   {
@@ -403,7 +430,8 @@
       "c": "The stakeholder register.", "d": "The business case."
     },
     "answer": "a",
-    "explanation": "Analysis feeds the communication plan, which is where the who, what, when and how are set down. The stakeholder register is the closest near-miss: it records who the stakeholders are and their analysis, but not the communication decisions that follow.",
+    "explanation": "Analysis feeds the communication plan, which is where the who, what, when and how are set down. The stakeholder register is the closest near-miss: it records who the stakeholders are and their analysis, but not the communication decisions that follow from it.",
+    "tip": "Distinguish the document that holds the analysis from the document that holds the resulting decisions. The exam separates them deliberately.",
     "active": true, "mock_suitable": true, "variant": 8
   },
   {
@@ -417,6 +445,7 @@
     },
     "answer": "a",
     "explanation": "High interest with low influence is the keep-informed quadrant: they want to know and deserve to be told, but they do not need the effort that close management costs. Each of the other three options is the correct treatment for a different quadrant.",
+    "tip": "Memorise the four quadrant treatments as a pair of axes, not as a list. Given any two-word description of a stakeholder you should be able to place them in one move.",
     "active": true, "mock_suitable": true, "variant": 9
   },
   {
@@ -429,7 +458,8 @@
       "c": "Interest and expertise.", "d": "Influence and location."
     },
     "answer": "a",
-    "explanation": "The two axes are interest and power or influence, and the combination determines the engagement approach. Seniority is often correlated with influence but is not the same thing: a junior person with regulatory authority has influence that their grade does not show.",
+    "explanation": "The two axes are interest and power or influence, and the combination determines the engagement approach. Seniority often correlates with influence but is not the same thing: a junior person with regulatory authority has influence their grade does not show.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   }
 ]

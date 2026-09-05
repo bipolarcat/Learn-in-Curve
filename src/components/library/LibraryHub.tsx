@@ -81,7 +81,7 @@ export function LibraryHub({
 
   return (
     <div className={styles.page}>
-      <div className={`wrap ${styles.shell}`}>
+      <div className={`mx-auto w-full max-w-wrap px-3 sm:px-5 ${styles.shell}`}>
         <header className={styles.hero}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Library</p>

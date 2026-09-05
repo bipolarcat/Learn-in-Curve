@@ -10,7 +10,8 @@
       "d": "Neither, because unused deliverables are not accepted."
     },
     "answer": "a",
-    "explanation": "Outputs are what the project delivers; benefits are the measurable improvement that follows when those outputs are used. A system nobody opens is a complete output and a total failure of benefit. Option C is the trap: meeting specification proves the output, and says nothing about the benefit.",
+    "explanation": "Outputs are what the project delivers; benefits are the measurable improvement that follows when those outputs are used. A system nobody opens is a complete output and a total failure of benefit. Meeting specification proves the output and says nothing about the benefit.",
+    "tip": "Whenever a scenario mentions something delivered but unused, the answer turns on the output-versus-benefit split. Ask whether anything actually improved.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -26,6 +27,7 @@
     },
     "answer": "a",
     "explanation": "The project manager delivers the outputs; the sponsor is accountable for the benefits those outputs enable. Option B is the exact inversion. This split is why benefits management continues past the end of delivery, when the project manager has already gone.",
+    "tip": "Tie accountability to timing. The project manager leaves at handover, so anything measured after handover cannot be theirs.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -41,6 +43,7 @@
     },
     "answer": "a",
     "explanation": "Use is what converts an output into a benefit, and use starts after handover. That is also why the extended life cycle exists. Option C inverts the dependency: acceptance is judged against acceptance criteria, not against realised benefits, which would make handover impossible.",
+    "tip": "Test a tempting option by following it through. If accepting it would make a normal project impossible to run, it is wrong.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -52,7 +55,8 @@
       "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
     },
     "answer": "b",
-    "explanation": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits. Procurement is a separate discipline at outcome 6.6. Spotting item 3 as the intruder eliminates three options in one step.",
+    "explanation": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits. Procurement is a separate discipline at outcome 6.6.",
+    "tip": "When a definition lists activities, learn the list as a sequence. An intruder from another topic then stands out because it does not fit the flow.",
     "active": true, "mock_suitable": true, "variant": 9
   },
   {
@@ -67,7 +71,8 @@
       "d": "Identified in the benefits register, confirmed by the project manager."
     },
     "answer": "a",
-    "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover. Option C is the sharpest near-miss: a post-project review examines how the project was run, while a benefits review asks whether the benefits actually landed. Those are different reviews at outcome 8.6.",
+    "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover. Option C is the sharpest near-miss: a post-project review examines how the project was run, while a benefits review asks whether the benefits actually landed.",
+    "tip": "Hold the four review types apart by the question each one asks. Audit: did we follow the process. Post-project review: how did we do. Benefits review: did the benefits arrive. Decision gate: should we continue.",
     "active": true, "mock_suitable": true, "variant": 10
   },
 
@@ -83,7 +88,8 @@
       "d": "Three-point estimating, because three jobs were used."
     },
     "answer": "b",
-    "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Option A is the near-miss: analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method. Analytical works bottom-up from decomposed components, and three-point is not one of the three methods the syllabus names.",
+    "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method.",
+    "tip": "Ignore the numbers in the scenario and look at the mechanism. A rate applied to a quantity is parametric, whatever the rate was derived from.",
     "active": true, "mock_suitable": false, "variant": 6
   },
   {
@@ -95,7 +101,8 @@
       "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
     },
     "answer": "b",
-    "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names, so any option containing item 3 can be struck out immediately. That removes three of the four options in one move.",
+    "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names.",
+    "tip": "A real technique that the syllabus does not name is a favourite distractor. Knowing what is on the list matters as much as knowing what each item means.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -110,7 +117,8 @@
       "d": "All three are equally accurate if applied correctly."
     },
     "answer": "c",
-    "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, which is what makes them near-misses, but neither answers the question asked.",
+    "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, but neither answers the question asked.",
+    "tip": "A true statement is not the same as the right answer. Check that the option addresses the exact property the stem asks about.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -123,7 +131,8 @@
       "c": "Analytical and analogous.", "d": "Analytical only, because anything else would be a guess."
     },
     "answer": "a",
-    "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept. This progression from early rough methods to later detailed ones is the estimating funnel at outcome 4.9.",
+    "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept.",
+    "tip": "Anchor each method to a life cycle phase. Analytical needs a defined scope, so it is never the early answer.",
     "active": true, "mock_suitable": true, "variant": 9
   },
   {
@@ -138,7 +147,8 @@
       "d": "Whether the estimate was produced before or after the baseline was set."
     },
     "answer": "a",
-    "explanation": "Analogous estimating is only as good as the comparability of the past work and the honesty of the adjustment made for differences. Option C describes what makes a parametric estimate reliable, which is the near-miss worth noticing, and option B describes analytical estimating.",
+    "explanation": "Analogous estimating is only as good as the comparability of the past work and the honesty of the adjustment made for differences. Option C describes what makes a parametric estimate reliable, and option B describes analytical estimating.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   },
 
@@ -154,7 +164,8 @@
       "d": "That contingency should be released in stages as risks close."
     },
     "answer": "a",
-    "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, which is exactly why they work as distractors, but none of them is what the funnel depicts.",
+    "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, but none of them is what the funnel depicts.",
+    "tip": "Several concepts in this syllabus change over the life cycle. Fix in mind what each one shows on its vertical axis, and these stop being confusable.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -169,7 +180,8 @@
       "d": "Give the figure with a contingency percentage added to protect it."
     },
     "answer": "b",
-    "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent: presenting an early estimate as a single confident figure is how projects acquire budgets they were never going to meet. Declining to estimate is not an option a sponsor can act on.",
+    "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent, and declining to estimate is not something a sponsor can act on.",
+    "tip": "In scenario questions, refusing to act is almost never the answer. The exam rewards the option that helps the stakeholder while staying honest.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -184,7 +196,8 @@
       "d": "Determining which supplier offers the best value for money."
     },
     "answer": "d",
-    "explanation": "Inverted stem: three options are true and one is not. Supplier selection is a procurement activity and has nothing to do with the funnel. A, B and C are all genuine purposes, so reading quickly and selecting the first true statement is exactly the mistake this question is built to catch.",
+    "explanation": "Three of these are genuine purposes. Supplier selection is a procurement activity and has nothing to do with the funnel.",
+    "tip": "On an inverted stem, the odd option is often from a completely different topic rather than a subtle variation. Scan for the one that does not belong to this outcome at all.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -199,7 +212,8 @@
       "d": "Because sponsors are required to re-authorise funding each phase."
     },
     "answer": "a",
-    "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, which is what makes them plausible, but neither is the reason the funnel gives.",
+    "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, but neither is the reason the funnel gives.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -212,6 +226,7 @@
     },
     "answer": "a",
     "explanation": "At concept almost nothing is known, so the range is widest. It narrows through definition and deployment as assumptions become facts. Drawn out, that narrowing range is the shape the funnel is named for.",
+    "tip": null,
     "active": true, "mock_suitable": true, "variant": 10
   },
 
@@ -227,7 +242,8 @@
       "d": "Tolerance criteria, because the governance board sets the thresholds."
     },
     "answer": "a",
-    "explanation": "Acceptance criteria describe whether a specific deliverable is fit for purpose. Success criteria are about the project as a whole. This pair is the discrimination the exam tests here, and B is the near-miss precisely because both are agreed measures.",
+    "explanation": "Acceptance criteria describe whether a specific deliverable is fit for purpose. Success criteria are about the project as a whole. Option B is the near-miss precisely because both are agreed measures.",
+    "tip": "Ask what is being judged. A single deliverable points to acceptance criteria; the whole project points to success criteria.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -242,7 +258,8 @@
       "d": "Maintain a stakeholder register through delivery."
     },
     "answer": "a",
-    "explanation": "Agreeing criteria at the start forces disagreement into the open early. The alternative is the expensive version of the same argument at the end, which is exactly what happened here. The other options describe real omissions, but none of them explains a disagreement about what success meant.",
+    "explanation": "Agreeing criteria at the start forces disagreement into the open early. The alternative is the expensive version of the same argument at the end, which is exactly what happened here. The other options describe real omissions, but none explains a disagreement about what success meant.",
+    "tip": "Trace the symptom back to its cause rather than to the nearest missing process. The question is what would have prevented this, not what else was missing.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -257,7 +274,8 @@
       "d": "They remove the need for change control on scope trade-offs."
     },
     "answer": "a",
-    "explanation": "Without agreed criteria, trade-offs get settled by whoever is loudest. With them, there is a shared reference. Options B and C describe governance mechanisms rather than criteria, and D is simply wrong: criteria inform change decisions, they do not replace the process.",
+    "explanation": "Without agreed criteria, trade-offs get settled by whoever is loudest. With them, there is a shared reference. Options B and C describe governance mechanisms rather than criteria, and D is wrong: criteria inform change decisions, they do not replace the process.",
+    "tip": "Any option claiming a technique removes the need for change control is wrong. Nothing in this syllabus does that.",
     "active": true, "mock_suitable": false, "variant": 8
   },
   {
@@ -269,7 +287,8 @@
       "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
     },
     "answer": "b",
-    "explanation": "The outcome names three points: at the start to define the target, during the project to give decisions a reference, and at handover to judge whether the project succeeded. Risk reviews are a separate process. Identifying item 3 as the intruder removes three options at once.",
+    "explanation": "The outcome names three points: at the start to define the target, during the project to give decisions a reference, and at handover to judge whether the project succeeded. Risk reviews are a separate process.",
+    "tip": "Where an outcome names a fixed number of points in time, count them. A list question with a fourth item is usually testing whether you know the count.",
     "active": true, "mock_suitable": true, "variant": 9
   },
   {
@@ -285,6 +304,7 @@
     },
     "answer": "a",
     "explanation": "Judging acceptance against agreed criteria rather than against expectations formed along the way is the whole point of setting them early. Option D is the near-miss: benefits are confirmed later at a benefits review, and cannot be the basis for accepting a deliverable at handover.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   },
 
@@ -301,6 +321,7 @@
     },
     "answer": "a",
     "explanation": "Reporting exists to enable decisions. A variance spotted early can be corrected cheaply; the same variance found at handover cannot be corrected at all. Option B is a genuine secondary benefit, having a record of what was known when, but it is not the purpose.",
+    "tip": "Separate a purpose from a side effect. Both may be true, and the exam wants the reason the activity exists.",
     "active": true, "mock_suitable": true, "variant": 6
   },
   {
@@ -315,7 +336,8 @@
       "d": "It duplicates information already held in the risk register."
     },
     "answer": "a",
-    "explanation": "Without an approved plan to report against, there is nothing to compare to, so reporting degenerates into a description of what people did. Busy and on track are not the same thing, and only a baseline separates them. That dependency links this outcome back to 4.1.",
+    "explanation": "Without an approved plan to report against, there is nothing to compare to, so reporting degenerates into a description of what people did. Busy and on track are not the same thing, and only a baseline separates them.",
+    "tip": "Reporting questions almost always depend on the baseline. If a scenario says no baseline, that is the answer the question is pointing at.",
     "active": true, "mock_suitable": true, "variant": 7
   },
   {
@@ -330,7 +352,8 @@
       "d": "It allocates work packages to named team members."
     },
     "answer": "a",
-    "explanation": "The sponsor owns the business case, so what they need from reporting is whether the justification still stands. B is quality control, C is configuration management, D is planning. Each is a real activity supporting a different role.",
+    "explanation": "The sponsor owns the business case, so what they need from reporting is whether the justification still stands. B is quality control, C is configuration management, D is planning.",
+    "tip": "When a stem names a specific role, answer from that role's accountability. The sponsor's question is always whether it is still worth doing.",
     "active": true, "mock_suitable": true, "variant": 8
   },
   {
@@ -345,7 +368,8 @@
       "d": "The project's baseline is automatically adjusted to match actual performance."
     },
     "answer": "d",
-    "explanation": "Inverted stem: three are real benefits. Reporting measures performance against the baseline; it never moves the baseline, which would require change control and would destroy the comparison. Option D describes precisely the thing progress reporting exists to prevent.",
+    "explanation": "Three of these are real benefits. Reporting measures performance against the baseline; it never moves the baseline, which would require change control and would destroy the comparison. Option D describes precisely the thing progress reporting exists to prevent.",
+    "tip": "The word automatically is worth pausing on. Controlled documents in this syllabus never update themselves.",
     "active": true, "mock_suitable": false, "variant": 9
   },
   {
@@ -360,7 +384,8 @@
       "d": "The agreed measures by which the project's success will be judged."
     },
     "answer": "a",
-    "explanation": "That four-part position against the baseline is the content of a progress report. Option B describes the risk register, C the business case, and D success criteria. All three are documents a project genuinely produces, which is what makes them work as distractors rather than as filler.",
+    "explanation": "That four-part position against the baseline is the content of a progress report. Option B describes the risk register, C the business case, and D success criteria.",
+    "tip": null,
     "active": true, "mock_suitable": false, "variant": 10
   }
 ]
