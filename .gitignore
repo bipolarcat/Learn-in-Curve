@@ -50,3 +50,6 @@ PMP in 5 days/
 
 # Scratch screenshots and one-off verify scripts (Cursor sessions)
 .tmp-*
+
+# PFQ trap backfill working report (review in place, then --apply; do not commit)
+scripts/pfq/trap-backfill-report.json

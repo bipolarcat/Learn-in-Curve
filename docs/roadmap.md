@@ -11,6 +11,7 @@ Not a general PM learning platform — a gamified, interactive, exam-focused rev
 - [x] Brand kit for Learn in Curve (retro 70s aesthetic, applied consistently across the whole platform) — v1 through v4 "Illustrated Edition" built 2026-07-01/02, applied to the live homepage. *(Marked done 2026-07-06 — was stale; see `BUSINESS_STATE.md`.)* **2026-07-26:** header/footer mark → `fox-logo-png.png` (`Logo.tsx`). **2026-07-27:** wordmark two-line “Learn in” / “Curve” with matched widths (Curve 1.41×) and compact gap (no logo edge-align); header controls → Wispr-soft flat pills (`header-control.ts`, no glow shadows)
 - [x] Core data architecture: courses as a first-class, reusable concept — `courses`, `entitlements`, `feature_entitlements`, `sections`/`lessons`/`questions`/`attempts` all exist and are used generically (not PMQ-hardcoded). *(Marked done 2026-07-06 — proven with PMQ; not yet exercised end-to-end by a second course, worth re-confirming when PFQ actually gets built.)*
 - [x] PFQ↔PMQ parity Phase 1 (shell + routes) — **2026-09-05:** `CourseHeader` / `CourseChromeProgress` under `src/components/course/`; PFQ routes at `/courses/pfq-in-2-days/*`; `/pfq/*` 301s; constants/sitemap/robots updated. Phases 2–4 (pathway, overview stack, dashboard/restyle) still open (`cursor-prompt-pfq-pmq-parity.md`).
+- [x] PFQ trap-tag backfill report tooling — **2026-09-05:** `TRAP_TAG_TO_MODULE` + `scripts/pfq/backfill-traps.ts`; `--report` written (no DB writes). Human review + `--apply` still open before Drill callouts will fire often.
 
 ## Phase 1 — Platform shell
 
