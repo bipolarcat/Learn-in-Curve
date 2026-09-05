@@ -18,7 +18,6 @@ import { summarizeFairUsage } from "@/lib/tutor/fair-usage";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 import { PMQ_SLUG, pmqLoHref } from "@/lib/pmq/constants";
 import {
-  PFQ_BASE_HREF,
   PFQ_LEARN_HREF,
   PFQ_SLUG,
 } from "@/lib/pfq/constants";
@@ -232,7 +231,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             {pfqCourse && pfqCard ? (
               <DashboardPmqCourseCard
                 courseName={pfqCourse.name}
-                overviewHref={PFQ_BASE_HREF}
+                overviewHref={PFQ_LEARN_HREF}
                 continueHref={
                   pfqCard.nextObjective != null
                     ? `${PFQ_LEARN_HREF}/${pfqCard.nextObjective}`

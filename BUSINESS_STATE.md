@@ -19,6 +19,6 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-05** — PFQ course overview gains the PMQ-style study console: `PfqDayPlan` (Day 1/2 tabs, LO rows, stage pies, Continue) reusing `PmqDayPlan.module.css`; `PfqPlanContinue`; Pro overview shows `CourseHeader` + linked console; non-Pro sees locked console teaser. Progress from `getPfqDashboardCardState`. (`/courses/pfq-in-2-days/page.tsx`, `PfqDayPlan.tsx`, `PfqPlanContinue.tsx`)
+- **2026-09-05** — Split PFQ “course overview” surfaces: `/courses/pfq-in-2-days` is marketing only (no study console). `/courses/pfq-in-2-days/learn` is the enrolled study overview matching PMQ rhythm (`CourseHeader` + `PfqOverview`: day-plan console, mock/practice/Trap School console, exam structure, syllabus weight, traps teaser). Coverage map removed from learn hub (stays on mock results). Dashboard + LO “Overview” links point at `/learn`, not the marketing page.
 
 -

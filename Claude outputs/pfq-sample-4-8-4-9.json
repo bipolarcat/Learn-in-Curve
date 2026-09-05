@@ -1,0 +1,178 @@
+[
+  {
+    "id": "PFQP-4-8-6",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": ["near_miss"],
+    "stem": "A contractor prices an office fit-out at a rate per square metre taken from three similar completed jobs. Which estimating method is this?",
+    "items": null,
+    "options": {
+      "a": "Analogous estimating, because it uses data from similar past work.",
+      "b": "Parametric estimating, because it applies a measured rate to a variable.",
+      "c": "Analytical estimating, because the work has been broken into components.",
+      "d": "Three-point estimating, because three jobs were used."
+    },
+    "answer": "b",
+    "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Option A is the near-miss: analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method. Analytical works bottom-up from decomposed components, and three-point is not one of the three methods the syllabus names.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 6
+  },
+  {
+    "id": "PFQP-4-8-7",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "multi_select",
+    "traps": ["multi_select"],
+    "stem": "Which of the following are estimating methods named in the syllabus?",
+    "items": ["Analogous", "Parametric", "Three-point", "Analytical"],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names, so any option containing item 3 can be struck out immediately. That removes three of the four options in one move.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6
+  },
+  {
+    "id": "PFQP-4-8-8",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": ["near_miss"],
+    "stem": "Which estimating method is the most accurate and the most expensive to produce?",
+    "items": null,
+    "options": {
+      "a": "Analogous, because it draws on real outturn data.",
+      "b": "Parametric, because the relationship is measured rather than judged.",
+      "c": "Analytical, because every component is estimated and summed.",
+      "d": "All three are equally accurate if applied correctly."
+    },
+    "answer": "c",
+    "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, which is what makes them near-misses, but neither answers the question asked.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7
+  },
+  {
+    "id": "PFQP-4-8-9",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [],
+    "stem": "Very little is known about a project at concept, and the sponsor wants an indicative cost this week. Which two methods are realistically available?",
+    "items": null,
+    "options": {
+      "a": "Analogous and parametric.",
+      "b": "Analytical and parametric.",
+      "c": "Analytical and analogous.",
+      "d": "Analytical only, because anything else would be a guess."
+    },
+    "answer": "a",
+    "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept. This progression from early rough methods to later detailed ones is the estimating funnel at outcome 4.9.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7
+  },
+  {
+    "id": "PFQP-4-9-6",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": ["near_miss"],
+    "stem": "What does the estimating funnel illustrate?",
+    "items": null,
+    "options": {
+      "a": "That the range around an estimate narrows as the life cycle progresses.",
+      "b": "That the cost of change increases as the life cycle progresses.",
+      "c": "That scope is progressively decomposed into smaller work packages.",
+      "d": "That contingency should be released in stages as risks close."
+    },
+    "answer": "a",
+    "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, which is exactly why they work as distractors, but none of them is what the funnel depicts.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6
+  },
+  {
+    "id": "PFQP-4-9-7",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A sponsor asks for a single cost figure at concept. Applying the estimating funnel, what should the project manager do?",
+    "items": null,
+    "options": {
+      "a": "Give the figure requested, then revise it once the scope is defined.",
+      "b": "Give a range and explain why an estimate at this stage is a range.",
+      "c": "Decline to estimate until the work breakdown structure exists.",
+      "d": "Give the figure with a contingency percentage added to protect it."
+    },
+    "answer": "b",
+    "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent: presenting an early estimate as a single confident figure is how projects acquire budgets they were never going to meet. Declining to estimate is not an option a sponsor can act on.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7
+  },
+  {
+    "id": "PFQP-4-9-8",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": ["negative_stem"],
+    "stem": "Which of the following is not a purpose of the estimating funnel?",
+    "items": null,
+    "options": {
+      "a": "Managing the sponsor's expectations about early figures.",
+      "b": "Showing why estimates should be revisited at each phase.",
+      "c": "Illustrating how estimate accuracy improves as more becomes known.",
+      "d": "Determining which supplier offers the best value for money."
+    },
+    "answer": "d",
+    "explanation": "Inverted stem: three options are true and one is not. Supplier selection is a procurement activity and has nothing to do with the funnel. A, B and C are all genuine purposes, so reading quickly and selecting the first true statement is exactly the mistake this question is built to catch.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8
+  },
+  {
+    "id": "PFQP-4-9-9",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does the estimating funnel imply that an estimate should be revisited at each phase?",
+    "items": null,
+    "options": {
+      "a": "Because an estimate is a statement about what was known when it was made.",
+      "b": "Because the baseline must be re-approved at every decision gate.",
+      "c": "Because contingency is consumed at a predictable rate over time.",
+      "d": "Because sponsors are required to re-authorise funding each phase."
+    },
+    "answer": "a",
+    "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, which is what makes them plausible, but neither is the reason the funnel gives.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8
+  }
+]

@@ -28,7 +28,6 @@ import {
 } from "@/lib/pfq/lesson-stages";
 import { markPfqStageReached } from "@/lib/pfq/lesson-actions";
 import {
-  PFQ_BASE_HREF,
   PFQ_LEARN_HREF,
 } from "@/lib/pfq/constants";
 import { canSealLo } from "@/lib/pmq/lo-stages";
@@ -198,7 +197,7 @@ export function PfqObjectiveLessonView({
           loNumber={lesson.objective_number}
           loTitle={lesson.title}
           unitLabel={`LO${lesson.objective_number}`}
-          overviewHref={PFQ_BASE_HREF}
+          overviewHref={PFQ_LEARN_HREF}
           stages={ctx.stages}
           currentId={ctx.currentId}
           unlockedIds={ctx.unlockedIds}
