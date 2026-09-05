@@ -1,0 +1,366 @@
+[
+  {
+    "id": "PFQP-4-7-6", "learning_outcome": "4.7", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A new scheduling system is delivered on time, to specification, and nobody logs into it. What has the project produced?",
+    "items": null,
+    "options": {
+      "a": "An output but no benefit.", "b": "A benefit but no output.",
+      "c": "Both an output and a benefit, since it met specification.",
+      "d": "Neither, because unused deliverables are not accepted."
+    },
+    "answer": "a",
+    "explanation": "Outputs are what the project delivers; benefits are the measurable improvement that follows when those outputs are used. A system nobody opens is a complete output and a total failure of benefit. Option C is the trap: meeting specification proves the output, and says nothing about the benefit.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-7-7", "learning_outcome": "4.7", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Who is accountable for outputs, and who for benefits?",
+    "items": null,
+    "options": {
+      "a": "The project manager for outputs, the sponsor for benefits.",
+      "b": "The sponsor for outputs, the project manager for benefits.",
+      "c": "The project manager for both, until handover.",
+      "d": "The governance board for both, through its gate decisions."
+    },
+    "answer": "a",
+    "explanation": "The project manager delivers the outputs; the sponsor is accountable for the benefits those outputs enable. Option B is the exact inversion. This split is why benefits management continues past the end of delivery, when the project manager has already gone.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-7-8", "learning_outcome": "4.7", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": [],
+    "stem": "Why does benefits management run beyond the end of project delivery?",
+    "items": null,
+    "options": {
+      "a": "Because benefits only appear once the outputs are in use.",
+      "b": "Because the project manager's contract typically extends past handover.",
+      "c": "Because outputs cannot be accepted until benefits are measured.",
+      "d": "Because the business case is closed only after the final payment."
+    },
+    "answer": "a",
+    "explanation": "Use is what converts an output into a benefit, and use starts after handover. That is also why the extended life cycle exists. Option C inverts the dependency: acceptance is judged against acceptance criteria, not against realised benefits, which would make handover impossible.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-7-9", "learning_outcome": "4.7", "objective": 4, "day": 1, "verb": "define",
+    "type": "multi_select", "traps": ["multi_select"],
+    "stem": "Which of the following activities does benefits management cover?",
+    "items": ["Identification", "Planning", "Procurement", "Realisation"],
+    "options": {
+      "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits. Procurement is a separate discipline at outcome 6.6. Spotting item 3 as the intruder eliminates three options in one step.",
+    "active": true, "mock_suitable": true, "variant": 9
+  },
+  {
+    "id": "PFQP-4-7-10", "learning_outcome": "4.7", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Where are benefits first identified, and where are they finally confirmed?",
+    "items": null,
+    "options": {
+      "a": "Identified in the business case, confirmed at a benefits review.",
+      "b": "Identified in the project management plan, confirmed at handover.",
+      "c": "Identified at the first decision gate, confirmed at the post-project review.",
+      "d": "Identified in the benefits register, confirmed by the project manager."
+    },
+    "answer": "a",
+    "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover. Option C is the sharpest near-miss: a post-project review examines how the project was run, while a benefits review asks whether the benefits actually landed. Those are different reviews at outcome 8.6.",
+    "active": true, "mock_suitable": true, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-8-6", "learning_outcome": "4.8", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A contractor prices an office fit-out at a rate per square metre taken from three similar completed jobs. Which estimating method is this?",
+    "items": null,
+    "options": {
+      "a": "Analogous estimating, because it uses data from similar past work.",
+      "b": "Parametric estimating, because it applies a measured rate to a variable.",
+      "c": "Analytical estimating, because the work has been broken into components.",
+      "d": "Three-point estimating, because three jobs were used."
+    },
+    "answer": "b",
+    "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Option A is the near-miss: analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method. Analytical works bottom-up from decomposed components, and three-point is not one of the three methods the syllabus names.",
+    "active": true, "mock_suitable": false, "variant": 6
+  },
+  {
+    "id": "PFQP-4-8-7", "learning_outcome": "4.8", "objective": 4, "day": 1, "verb": "state",
+    "type": "multi_select", "traps": ["multi_select"],
+    "stem": "Which of the following are estimating methods named in the syllabus?",
+    "items": ["Analogous", "Parametric", "Three-point", "Analytical"],
+    "options": {
+      "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names, so any option containing item 3 can be struck out immediately. That removes three of the four options in one move.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-8-8", "learning_outcome": "4.8", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Which estimating method is the most accurate and the most expensive to produce?",
+    "items": null,
+    "options": {
+      "a": "Analogous, because it draws on real outturn data.",
+      "b": "Parametric, because the relationship is measured rather than judged.",
+      "c": "Analytical, because every component is estimated and summed.",
+      "d": "All three are equally accurate if applied correctly."
+    },
+    "answer": "c",
+    "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, which is what makes them near-misses, but neither answers the question asked.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-8-9", "learning_outcome": "4.8", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": [],
+    "stem": "Very little is known about a project at concept, and the sponsor wants an indicative cost this week. Which two methods are realistically available?",
+    "items": null,
+    "options": {
+      "a": "Analogous and parametric.", "b": "Analytical and parametric.",
+      "c": "Analytical and analogous.", "d": "Analytical only, because anything else would be a guess."
+    },
+    "answer": "a",
+    "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept. This progression from early rough methods to later detailed ones is the estimating funnel at outcome 4.9.",
+    "active": true, "mock_suitable": true, "variant": 9
+  },
+  {
+    "id": "PFQP-4-8-10", "learning_outcome": "4.8", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": [],
+    "stem": "On what does the reliability of an analogous estimate mainly depend?",
+    "items": null,
+    "options": {
+      "a": "Having genuinely comparable history, and adjusting it honestly.",
+      "b": "The number of work packages the scope has been broken into.",
+      "c": "Whether the measured relationship between variable and cost still holds.",
+      "d": "Whether the estimate was produced before or after the baseline was set."
+    },
+    "answer": "a",
+    "explanation": "Analogous estimating is only as good as the comparability of the past work and the honesty of the adjustment made for differences. Option C describes what makes a parametric estimate reliable, which is the near-miss worth noticing, and option B describes analytical estimating.",
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-9-6", "learning_outcome": "4.9", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "What does the estimating funnel illustrate?",
+    "items": null,
+    "options": {
+      "a": "That the range around an estimate narrows as the life cycle progresses.",
+      "b": "That the cost of change increases as the life cycle progresses.",
+      "c": "That scope is progressively decomposed into smaller work packages.",
+      "d": "That contingency should be released in stages as risks close."
+    },
+    "answer": "a",
+    "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, which is exactly why they work as distractors, but none of them is what the funnel depicts.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-9-7", "learning_outcome": "4.9", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "A sponsor asks for a single cost figure at concept. Applying the estimating funnel, what should the project manager do?",
+    "items": null,
+    "options": {
+      "a": "Give the figure requested, then revise it once the scope is defined.",
+      "b": "Give a range and explain why an estimate at this stage is a range.",
+      "c": "Decline to estimate until the work breakdown structure exists.",
+      "d": "Give the figure with a contingency percentage added to protect it."
+    },
+    "answer": "b",
+    "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent: presenting an early estimate as a single confident figure is how projects acquire budgets they were never going to meet. Declining to estimate is not an option a sponsor can act on.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-9-8", "learning_outcome": "4.9", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["negative_stem"],
+    "stem": "Which of the following is not a purpose of the estimating funnel?",
+    "items": null,
+    "options": {
+      "a": "Managing the sponsor's expectations about early figures.",
+      "b": "Showing why estimates should be revisited at each phase.",
+      "c": "Illustrating how estimate accuracy improves as more becomes known.",
+      "d": "Determining which supplier offers the best value for money."
+    },
+    "answer": "d",
+    "explanation": "Inverted stem: three options are true and one is not. Supplier selection is a procurement activity and has nothing to do with the funnel. A, B and C are all genuine purposes, so reading quickly and selecting the first true statement is exactly the mistake this question is built to catch.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-9-9", "learning_outcome": "4.9", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "Why does the estimating funnel imply that an estimate should be revisited at each phase?",
+    "items": null,
+    "options": {
+      "a": "Because an estimate is a statement about what was known when it was made.",
+      "b": "Because the baseline must be re-approved at every decision gate.",
+      "c": "Because contingency is consumed at a predictable rate over time.",
+      "d": "Because sponsors are required to re-authorise funding each phase."
+    },
+    "answer": "a",
+    "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, which is what makes them plausible, but neither is the reason the funnel gives.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-9-10", "learning_outcome": "4.9", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "At which point in the life cycle is the range around an estimate at its widest?",
+    "items": null,
+    "options": {
+      "a": "Concept.", "b": "Definition.", "c": "Deployment.", "d": "Transition."
+    },
+    "answer": "a",
+    "explanation": "At concept almost nothing is known, so the range is widest. It narrows through definition and deployment as assumptions become facts. Drawn out, that narrowing range is the shape the funnel is named for.",
+    "active": true, "mock_suitable": true, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-10-6", "learning_outcome": "4.10", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A deliverable is being judged as fit for purpose against agreed measures. Which criteria are being applied?",
+    "items": null,
+    "options": {
+      "a": "Acceptance criteria, because they describe a specific deliverable.",
+      "b": "Success criteria, because they are the agreed measures of achievement.",
+      "c": "Quality criteria, because fitness for purpose is a quality judgement.",
+      "d": "Tolerance criteria, because the governance board sets the thresholds."
+    },
+    "answer": "a",
+    "explanation": "Acceptance criteria describe whether a specific deliverable is fit for purpose. Success criteria are about the project as a whole. This pair is the discrimination the exam tests here, and B is the near-miss precisely because both are agreed measures.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-10-7", "learning_outcome": "4.10", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "Two stakeholders discover at handover that they had different definitions of success all along. What did the project fail to do?",
+    "items": null,
+    "options": {
+      "a": "Agree success criteria at the start, while disagreement was still cheap to resolve.",
+      "b": "Hold a benefits review before closing the project.",
+      "c": "Apply change control when the scope was amended.",
+      "d": "Maintain a stakeholder register through delivery."
+    },
+    "answer": "a",
+    "explanation": "Agreeing criteria at the start forces disagreement into the open early. The alternative is the expensive version of the same argument at the end, which is exactly what happened here. The other options describe real omissions, but none of them explains a disagreement about what success meant.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-10-8", "learning_outcome": "4.10", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "A trade-off is forced mid-project. How do success criteria help?",
+    "items": null,
+    "options": {
+      "a": "They give the decision a reference, so the question becomes which option moves the project towards them.",
+      "b": "They set the tolerance within which the project manager may decide alone.",
+      "c": "They determine which stakeholder has authority over the decision.",
+      "d": "They remove the need for change control on scope trade-offs."
+    },
+    "answer": "a",
+    "explanation": "Without agreed criteria, trade-offs get settled by whoever is loudest. With them, there is a shared reference. Options B and C describe governance mechanisms rather than criteria, and D is simply wrong: criteria inform change decisions, they do not replace the process.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-10-9", "learning_outcome": "4.10", "objective": 4, "day": 1, "verb": "explain",
+    "type": "multi_select", "traps": ["multi_select"],
+    "stem": "At which points do success criteria serve a distinct purpose?",
+    "items": ["At the start", "During the project", "At each risk review", "At handover"],
+    "options": {
+      "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The outcome names three points: at the start to define the target, during the project to give decisions a reference, and at handover to judge whether the project succeeded. Risk reviews are a separate process. Identifying item 3 as the intruder removes three options at once.",
+    "active": true, "mock_suitable": true, "variant": 9
+  },
+  {
+    "id": "PFQP-4-10-10", "learning_outcome": "4.10", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "What are acceptance decisions at handover measured against?",
+    "items": null,
+    "options": {
+      "a": "The criteria agreed at the outset.",
+      "b": "The expectations stakeholders formed during delivery.",
+      "c": "The original cost and schedule baseline.",
+      "d": "The benefits realised in the first months of operation."
+    },
+    "answer": "a",
+    "explanation": "Judging acceptance against agreed criteria rather than against expectations formed along the way is the whole point of setting them early. Option D is the near-miss: benefits are confirmed later at a benefits review, and cannot be the basis for accepting a deliverable at handover.",
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-11-6", "learning_outcome": "4.11", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "What is the underlying purpose of progress reporting?",
+    "items": null,
+    "options": {
+      "a": "To shorten the gap between something going wrong and somebody being able to act on it.",
+      "b": "To create a record that protects the project manager at the post-project review.",
+      "c": "To demonstrate to the governance board that the team is working hard.",
+      "d": "To keep the project management plan up to date as work completes."
+    },
+    "answer": "a",
+    "explanation": "Reporting exists to enable decisions. A variance spotted early can be corrected cheaply; the same variance found at handover cannot be corrected at all. Option B is a genuine secondary benefit, having a record of what was known when, but it is not the purpose.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-11-7", "learning_outcome": "4.11", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A project reports weekly on tasks completed and hours worked, but has no approved baseline. What is the weakness?",
+    "items": null,
+    "options": {
+      "a": "It describes activity rather than measuring performance.",
+      "b": "It breaches the reporting frequency the governance board requires.",
+      "c": "It cannot be shared with stakeholders until the baseline exists.",
+      "d": "It duplicates information already held in the risk register."
+    },
+    "answer": "a",
+    "explanation": "Without an approved plan to report against, there is nothing to compare to, so reporting degenerates into a description of what people did. Busy and on track are not the same thing, and only a baseline separates them. That dependency links this outcome back to 4.1.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-11-8", "learning_outcome": "4.11", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "How does progress reporting support the sponsor specifically?",
+    "items": null,
+    "options": {
+      "a": "It gives them what they need to decide whether the business case still holds.",
+      "b": "It confirms that each deliverable has met its acceptance criteria.",
+      "c": "It records the current version of every controlled document.",
+      "d": "It allocates work packages to named team members."
+    },
+    "answer": "a",
+    "explanation": "The sponsor owns the business case, so what they need from reporting is whether the justification still stands. B is quality control, C is configuration management, D is planning. Each is a real activity supporting a different role.",
+    "active": true, "mock_suitable": true, "variant": 8
+  },
+  {
+    "id": "PFQP-4-11-9", "learning_outcome": "4.11", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["negative_stem"],
+    "stem": "Which of the following is not a benefit of project progress reporting?",
+    "items": null,
+    "options": {
+      "a": "Stakeholders receive timely, consistent information rather than rumour.",
+      "b": "Problems surface while they are still small enough to correct.",
+      "c": "The governance board has evidence for its decisions at gates.",
+      "d": "The project's baseline is automatically adjusted to match actual performance."
+    },
+    "answer": "d",
+    "explanation": "Inverted stem: three are real benefits. Reporting measures performance against the baseline; it never moves the baseline, which would require change control and would destroy the comparison. Option D describes precisely the thing progress reporting exists to prevent.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-11-10", "learning_outcome": "4.11", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "What does a progress report communicate?",
+    "items": null,
+    "options": {
+      "a": "The project's position against its baseline: what is complete, what it has cost, what remains and what has changed.",
+      "b": "The threats and opportunities currently facing the project and their owners.",
+      "c": "The justification for continuing, and the options that were considered.",
+      "d": "The agreed measures by which the project's success will be judged."
+    },
+    "answer": "a",
+    "explanation": "That four-part position against the baseline is the content of a progress report. Option B describes the risk register, C the business case, and D success criteria. All three are documents a project genuinely produces, which is what makes them work as distractors rather than as filler.",
+    "active": true, "mock_suitable": false, "variant": 10
+  }
+]

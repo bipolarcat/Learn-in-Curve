@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { getLibraryPagesByGroup, LIBRARY_PAGES } from "@/content/library";
 import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
-import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
-import { stampCtaPrimary } from "@/components/stamp-chip";
-import { withSoftNavFrom } from "@/lib/soft-nav-back";
+import { LibraryHub } from "@/components/library/LibraryHub";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -26,87 +23,15 @@ export const metadata: Metadata = {
 
 export default function LibraryIndexPage() {
   const groups = getLibraryPagesByGroup();
-  const publishedCount = groups.reduce((n, g) => n + g.pages.length, 0);
-  // Drafts are reachable by URL for copy work but not listed until published.
-  const draftCount = LIBRARY_PAGES.length - publishedCount;
+  const pages = groups.flatMap((g) => g.pages);
+  const draftCount = LIBRARY_PAGES.length - pages.length;
 
   return (
-    <div className="pb-16 pt-8 sm:pb-20 sm:pt-10">
-      <div className="wrap">
-        <header className="mx-auto max-w-[46rem] text-center">
-          <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-            Library
-          </p>
-          <h1 className="mt-2 text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
-            APM PMQ guides
-          </h1>
-        </header>
-
-        <div className="mx-auto mt-10 max-w-[46rem] space-y-10">
-          {publishedCount === 0 ? (
-            <div className="rounded-xl border border-ink/10 bg-paper px-5 py-6 text-center">
-              <p className="m-0 font-display text-lg font-semibold text-ink">
-                Guides are being written
-              </p>
-              <p className="mt-2 font-body text-[14.5px] text-ink/70">
-                {draftCount} draft page{draftCount === 1 ? "" : "s"} in progress.
-                Meanwhile, take the free mock.
-              </p>
-              <FreeMockExamLink
-                className={`${stampCtaPrimary} mt-5`}
-                label="Free PMQ mock exam"
-                location="library_hub_empty"
-                from="library"
-              />
-            </div>
-          ) : (
-            groups.map((group) =>
-              group.pages.length === 0 ? null : (
-                <section
-                  key={group.group}
-                  aria-labelledby={`library-${group.group}`}
-                >
-                  <h2
-                    id={`library-${group.group}`}
-                    className="font-display text-xl font-semibold tracking-[-0.02em] text-ink"
-                  >
-                    {group.label}
-                  </h2>
-                  <ul className="mt-4 space-y-3">
-                    {group.pages.map((page) => (
-                      <li key={page.slug}>
-                        <LibrarySoftNavLink
-                          href={`/library/${page.slug}`}
-                          busyLabel={`Opening ${page.title}`}
-                          className="font-body text-[16px] font-semibold text-orange underline-offset-2 hover:underline"
-                        >
-                          {page.title}
-                        </LibrarySoftNavLink>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ),
-            )
-          )}
-        </div>
-
-        <div className="mx-auto mt-12 max-w-[46rem] text-center">
-          <LibrarySoftNavLink
-            href={withSoftNavFrom("/free-mock-exam", "library")}
-            busyLabel="Opening free mock exam"
-            spinner="ellipsis"
-            spinnerClassName="text-orange"
-            className="font-body text-[14px] font-semibold text-orange underline-offset-2 hover:underline"
-          >
-            Test yourself: free 15-question APM PMQ mock exam
-          </LibrarySoftNavLink>
-        </div>
-
-        <p className="mx-auto mt-12 max-w-[46rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
-          {LIBRARY_HUB_APM_DISCLAIMER}
-        </p>
-      </div>
-    </div>
+    <LibraryHub
+      pages={pages}
+      groups={groups}
+      draftCount={draftCount}
+      disclaimer={LIBRARY_HUB_APM_DISCLAIMER}
+    />
   );
 }
