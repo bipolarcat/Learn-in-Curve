@@ -34,6 +34,7 @@ import {
   MenuLicMarkIcon,
   MenuMockMeIcon,
   MenuShelfIcon,
+  MenuSignOutIcon,
   MenuTalkIcon,
   MenuThemeIcon,
   menuIconClass,
@@ -158,46 +159,6 @@ function MenuWord({
         </motion.span>
       ) : null}
     </AnimatePresence>
-  );
-}
-
-function MenuSignOutIcon() {
-  const doorMotion =
-    "motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none";
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={cn(menuIconClass, "overflow-visible")}
-    >
-      <path
-        d="M10 8V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-2"
-        className={cn(doorMotion, "group-[.is-signing-out]:opacity-0")}
-      />
-      <path
-        d="M12 4h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
-        fill="currentColor"
-        stroke="currentColor"
-        className={cn(
-          doorMotion,
-          "opacity-0 group-[.is-signing-out]:opacity-100",
-        )}
-      />
-      <g
-        className={cn(
-          "origin-center motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-          "motion-safe:group-hover:-translate-x-0.5",
-          "motion-safe:group-[.is-signing-out]:-translate-x-[20px]",
-        )}
-      >
-        <path d="M15 12H3M6 9l-3 3 3 3" />
-      </g>
-    </svg>
   );
 }
 
@@ -428,7 +389,6 @@ export function SiteHeaderMenu({
                           aria-label="Sign out"
                           title="Sign out"
                           className={cn(
-                            "group overflow-visible",
                             menuItemClass,
                             "hover:bg-rust/[0.08] hover:text-rust",
                           )}

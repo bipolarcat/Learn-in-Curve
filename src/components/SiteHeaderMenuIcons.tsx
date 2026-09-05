@@ -124,3 +124,13 @@ export function MenuThemeIcon(props: MenuSvgProps) {
     </svg>
   );
 }
+
+/** Power off — Sign out. */
+export function MenuSignOutIcon(props: MenuSvgProps) {
+  return (
+    <svg {...menuStrokeProps(props)}>
+      <path d="M12 2v10" />
+      <path d="M18.4 6.6a8 8 0 1 1-12.8 0" />
+    </svg>
+  );
+}
