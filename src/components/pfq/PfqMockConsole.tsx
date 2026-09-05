@@ -97,52 +97,50 @@ export function PfqMockConsole() {
                   ? "open"
                   : "plain";
             return (
-              <button
-                key={summary.mockSet}
-                type="button"
-                disabled={pending}
-                aria-busy={pending}
-                aria-label={`Mock paper ${summary.mockSet}: ${status}`}
-                className={`${styles.row} ${styles.rowInteractive}`}
-                onClick={() =>
-                  openPath(`${PFQ_MOCK_HREF}?set=${summary.mockSet}`)
-                }
-              >
+              <div key={summary.mockSet} className={styles.row}>
                 <div className={styles.rowMain}>
-                  <p className={styles.rowTitle}>
-                    Mock paper {summary.mockSet}
-                  </p>
-                  <span
-                    className={`${styles.rowStatus} ${
-                      tone === "done"
-                        ? styles.rowStatusDone
-                        : tone === "open"
-                          ? styles.rowStatusOpen
-                          : ""
-                    }`}
-                  >
-                    {status}
-                  </span>
-                </div>
-                <div className={styles.rowAction}>
-                  {pending ? (
-                    <span className={styles.rowPending} aria-hidden>
-                      <Spinner
-                        variant="bars"
-                        size={12}
-                        className="text-orange"
-                      />
+                  <div className="min-w-0 flex-1">
+                    <p className={styles.rowTitle}>
+                      Mock paper {summary.mockSet}
+                    </p>
+                    <span
+                      className={`${styles.rowStatus} ${
+                        tone === "done"
+                          ? styles.rowStatusDone
+                          : tone === "open"
+                            ? styles.rowStatusOpen
+                            : ""
+                      }`}
+                    >
+                      {status}
                     </span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  disabled={pending}
+                  aria-busy={pending}
+                  aria-label={`Start mock paper ${summary.mockSet}`}
+                  className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:cursor-wait disabled:opacity-70`}
+                  onClick={() =>
+                    openPath(`${PFQ_MOCK_HREF}?set=${summary.mockSet}`)
+                  }
+                >
+                  {pending ? (
+                    <Spinner
+                      variant="bars"
+                      size={14}
+                      className="text-paper"
+                      aria-hidden
+                    />
                   ) : (
                     <>
-                      <span className="sr-only">Open</span>
-                      <span className={styles.rowChevron} aria-hidden>
-                        →
-                      </span>
+                      Start
+                      <CtaArrow />
                     </>
                   )}
-                </div>
-              </button>
+                </button>
+              </div>
             );
           })}
           <div className={styles.row}>
