@@ -1,11 +1,11 @@
-# PFQ in 2 Days — visual and structural parity with PMQ in 5 Days
+# PFQ in 2 Days, visual and structural parity with PMQ in 5 Days
 
 Handoff spec for Cursor. Written 2026-09-05. Revised same day after a bank audit
 resolved the open stage-set question and the course-overview section mapping.
 
 **Goal:** PFQ in 2 Days currently reads as a different product from PMQ in 5 Days.
-Bring it to full parity — routes, shell, lesson architecture, progress chrome, course
-overview and dashboard treatment — so the two courses are visibly one brand. Driver is
+Bring it to full parity, routes, shell, lesson architecture, progress chrome, course
+overview and dashboard treatment, so the two courses are visibly one brand. Driver is
 brand consistency and cross-sell, not a shared course engine: prefer the smallest
 generalisation that achieves parity over building a generic course framework.
 
@@ -18,7 +18,7 @@ inline trap callouts in section 3. It can run in parallel with sections 1 and 2.
 
 ---
 
-## 0. Decisions already locked — do not relitigate
+## 0. Decisions already locked, do not relitigate
 
 1. **PFQ's differentiators stay.** The 59-outcome coverage map, trap school, the
    Surpass-faithful mock simulator and the practice runner are the product's wedge
@@ -38,11 +38,11 @@ inline trap callouts in section 3. It can run in parallel with sections 1 and 2.
    `apply_reached_at`, `content_completed_at`, `quiz_completed_at`. If you believe you
    need a migration, stop and report why before writing one.
 5. **PFQ uses a 4-stage pathway and trap school stays a standalone global module.**
-   Decided 2026-09-05 after auditing the bank — see section 3a for the numbers.
+   Decided 2026-09-05 after auditing the bank, see section 3a for the numbers.
 
 ---
 
-## 1. Shell — generalise the course header (do this first)
+## 1. Shell, generalise the course header (do this first)
 
 `src/components/pmq/PmqCourseHeader.tsx` is already almost course-agnostic. Its props
 (`courseName`, `breadcrumb`, `completionPercent`, `showProgress`, `streak`, `userTier`,
@@ -59,7 +59,7 @@ hardcoded `PMQ_SLUG` import used to build the overview link.
 Acceptance: PMQ pages render byte-identically to before. Verify by screenshotting
 `/courses/pmq-in-5-days` and one LO page before and after.
 
-## 2. Routes — move PFQ under /courses
+## 2. Routes, move PFQ under /courses
 
 Move `src/app/(site)/pfq/**` to `src/app/courses/pfq-in-2-days/**`, preserving the
 subtree shape:
@@ -82,11 +82,11 @@ Then:
 1. **Update the href constants** in `src/lib/pfq/constants.ts`
    (`PFQ_PRICING_HREF`, `PFQ_LEARN_HREF`, `PFQ_MOCK_HREF`, `PFQ_PRACTICE_HREF`,
    `PFQ_TRAP_SCHOOL_HREF`). Every one becomes `/courses/pfq-in-2-days/...`.
-   Grep for any remaining hardcoded `"/pfq` string literals across `src/` — there are
+   Grep for any remaining hardcoded `"/pfq` string literals across `src/`, there are
    several, including inside `hasPfqProIntent`.
 2. **Fix `revalidatePath` calls.** `src/lib/pfq/lesson-actions.ts` and
    `src/lib/pfq/practice-actions.ts` both revalidate literal `/pfq/...` paths. These
-   fail silently if left stale — the page just serves stale progress. Derive them from
+   fail silently if left stale, the page just serves stale progress. Derive them from
    the constants instead of re-hardcoding.
 3. **Add 301 redirects in `middleware.ts`** for the whole old subtree. The current
    middleware only calls `updateSession`; add a path rewrite ahead of it that maps
@@ -98,9 +98,9 @@ Then:
 
 Acceptance: `/pfq/learn` 301s to `/courses/pfq-in-2-days/learn`; a signed-in Pro user's
 existing lesson progress still shows (section UUIDs are deterministic and unchanged,
-so this should be automatic — verify, do not assume).
+so this should be automatic, verify, do not assume).
 
-## 3. Lesson pathway — the main piece
+## 3. Lesson pathway, the main piece
 
 Today `src/components/pfq/PfqObjectiveLesson.tsx` renders one long scrolling
 `<article>` with stacked sections. Its own comment notes it does not reuse
@@ -111,7 +111,7 @@ Today `src/components/pfq/PfqObjectiveLesson.tsx` renders one long scrolling
 1. Create `src/components/course/StudyJourney.tsx` holding the stage shell currently
    in `LoStudyJourney`: stage panel, continue button, jump nav, progress ring, spine
    scrollbar, stage pie, checkpoint celebration, reduced-motion handling. It takes a
-   stage list plus a render function per stage — it must not know about PMQ or PFQ.
+   stage list plus a render function per stage, it must not know about PMQ or PFQ.
 2. Create `src/lib/course/stages.ts` from the generic half of `src/lib/pmq/lo-stages.ts`
    (`collectUnlockedLoStages`, unlock/seal logic, the reached-column map). The PMQ
    stage list and the `24 × 7 = 168` progress unit constant stay in `lo-stages.ts`.
@@ -120,7 +120,7 @@ Today `src/components/pfq/PfqObjectiveLesson.tsx` renders one long scrolling
 4. Create `src/lib/pfq/lesson-stages.ts` with the PFQ stage list per section 3a.
 5. Rewrite `PfqObjectiveLesson` to compose `StudyJourney` with the PFQ stage list.
 
-### 3a. The PFQ stage set — 4 stages, decided
+### 3a. The PFQ stage set, 4 stages, decided
 
 PMQ runs 7 stages. PFQ has no video or audio content and no `worked_example` or
 `exam_technique` in its lesson model, so a 1:1 copy leaves empty stages.
@@ -143,7 +143,7 @@ A 5th "traps" stage was considered and **rejected on evidence**. Bank audit,
 
 Objective 3 has 7 questions total and is a 1-mark outcome. Six of ten objectives have
 zero multi-select questions. A per-objective trap stage would render empty across most
-of the course. Traps are also a *format* skill, not an LO-specific one — a negative
+of the course. Traps are also a *format* skill, not an LO-specific one, a negative
 stem behaves identically in LO1 and LO7, so teaching it ten times is repetition without
 variation.
 
@@ -157,7 +157,7 @@ variation.
 | `checkpoint` | `progress_checkpoint`                      | `completed_at`       |
 
 `video_reached_at`, `audio_reached_at` and `apply_reached_at` are simply unused by PFQ.
-Leave them alone. Do not drop them — PMQ uses them.
+Leave them alone. Do not drop them. PMQ uses them.
 
 **Legacy rows: treat a non-null `completed_at` as every stage reached.** Resolve this on
 read. Do **not** backfill the stage columns in the database and do **not** write a
@@ -177,21 +177,21 @@ lands.
 
 When a learner answers a trap-tagged question **incorrectly** in the Drill stage,
 render the matching trap explanation inline, immediately, alongside the normal answer
-explanation. Not before the question, not on a separate page — at the moment they fell
+explanation. Not before the question, not on a separate page, at the moment they fell
 for it.
 
 - Source the explanation from `PFQ_TRAP_SCHOOL.traps` in
   `src/lib/pfq/trap-school-content.ts`. Use the `whatToDo` field as the callout body
   and the module `title` as its heading.
 - Map the question's `traps[]` tag values to trap school module ids. **Three tags
-  only** — `absolutes` was dropped as a category on 2026-09-05, see 3d:
+  only** (`absolutes` was dropped as a category on 2026-09-05, see 3d):
   `negative_stem` → `negative`, `multi_select` → `combination`,
   `near_miss` → `near_miss`.
   **Put this map in one exported constant** (`src/lib/pfq/trap-tags.ts`), not inline at
-  the call site — the tag vocabulary and the module ids disagree and that is a real
+  the call site. The tag vocabulary and the module ids disagree and that is a real
   footgun. That file already exists; remove the `absolutes` entry from it.
-- **A question can carry two tags** (at least one does: `PFQP-7-7-2` is both a negative
-  stem and a near-miss). Show exactly one callout, resolved by this fixed priority:
+- **A question can carry two tags.** `PFQP-7-7-2` is currently the only one (both a
+  negative stem and a near-miss), so it is the single test case for this rule. Show exactly one callout, resolved by this fixed priority:
   **`near_miss` > `negative_stem` > `multi_select`.** Near-miss wins because it teaches
   something content-specific about the two terms the learner confused, where a negative
   stem callout only restates a generic reading habit. Do not stack callouts.
@@ -203,7 +203,29 @@ for it.
 carry a `traps` tag, so without the backfill these callouts will almost never fire.
 Build the component regardless; it degrades to showing nothing.
 
-### 3d. Absolutes is not a trap category — decided 2026-09-05
+### 3c. Content mapping for the stages
+
+From the existing `PfqLesson` shape in `src/lib/pfq/content.ts`. This is a re-layout,
+no content authoring:
+
+- `orient`, `where_this_fits`, then `key_definitions` via a component matching
+  PMQ's `DefinitionsReveal` treatment.
+- `learn`, `core_content[]`, each block using the PMQ `CoreContentBlock` visual
+  treatment. `watch_for` has no PMQ equivalent: render it in the same slot and style
+  PMQ uses for `misconceptions` callouts. Then `misconceptions` and `memory_aids`
+  (reuse `MemoryAidsList` as-is, it is already generic over `{acronym, expansion, type}`).
+- `drill`, the existing `PfqPracticeRunner`, embedded as a stage rather than a
+  separate route, plus the trap callouts from 3b. The standalone practice route stays.
+- `checkpoint`, `progress_checkpoint[]` via the PMQ `ProgressCheckpointList`
+  treatment, writing `checklist_state` and `completed_at` exactly as
+  `lesson-actions.ts` already does. **Do not change the reset behaviour**, it must
+  keep clearing both fields (OPERATIONS.md gotcha).
+
+Acceptance: a PFQ objective page shows the 4-stage pathway with a working progress
+ring; stage timestamps land in `section_progress`; `pfq_coverage_signals` is untouched
+by anything on this page; PMQ LO pages are visually unchanged.
+
+### 3d. Absolutes is not a trap category, decided 2026-09-05
 
 A fourth tag, `absolutes`, was specced and then dropped after reviewing the detector
 output. 85 candidates were generated; roughly 14 were genuine. The reason for dropping
@@ -222,29 +244,7 @@ traps 1 and 2 both do, and `PFQ_RESEARCH.md` never mentions it.
 **Trap School keeps its Trap 4 section as reading material.** Only the *tag* is dropped.
 Do not delete the module from `trap-school-content.ts` and do not remove its anchor id.
 
-### 3c. Content mapping for the stages
-
-From the existing `PfqLesson` shape in `src/lib/pfq/content.ts`. This is a re-layout,
-no content authoring:
-
-- `orient` — `where_this_fits`, then `key_definitions` via a component matching
-  PMQ's `DefinitionsReveal` treatment.
-- `learn` — `core_content[]`, each block using the PMQ `CoreContentBlock` visual
-  treatment. `watch_for` has no PMQ equivalent: render it in the same slot and style
-  PMQ uses for `misconceptions` callouts. Then `misconceptions` and `memory_aids`
-  (reuse `MemoryAidsList` as-is — it is already generic over `{acronym, expansion, type}`).
-- `drill` — the existing `PfqPracticeRunner`, embedded as a stage rather than a
-  separate route, plus the trap callouts from 3b. The standalone practice route stays.
-- `checkpoint` — `progress_checkpoint[]` via the PMQ `ProgressCheckpointList`
-  treatment, writing `checklist_state` and `completed_at` exactly as
-  `lesson-actions.ts` already does. **Do not change the reset behaviour** — it must
-  keep clearing both fields (OPERATIONS.md gotcha).
-
-Acceptance: a PFQ objective page shows the 4-stage pathway with a working progress
-ring; stage timestamps land in `section_progress`; `pfq_coverage_signals` is untouched
-by anything on this page; PMQ LO pages are visually unchanged.
-
-## 4. Course overview — the section stack
+## 4. Course overview, the section stack
 
 `/courses/pfq-in-2-days/page.tsx` is currently a sales page: hero, three feature tiles,
 plan cards, legal. PMQ's overview has twelve sections. Restructure PFQ to the same
@@ -265,14 +265,14 @@ paraphrase from memory and do not round any figure.**
 | `PmqDayPlan` (5 days) | 2-day plan, 8 sessions. Content is in `PFQ_RESEARCH.md` §7 |
 | `PmqMockExamsSection` | One 60-question Surpass-alike mock |
 | `PmqExamStructureSection` | Direct, richer content |
-| `PmqMarksBreakdownSection` | **Merge into exam structure** — 60 × 1 mark is too thin to stand alone |
+| `PmqMarksBreakdownSection` | **Merge into exam structure**, 60 × 1 mark is too thin to stand alone |
 | `PmqSyllabusWeightSection` | Direct, and **promote up the page** |
 | `PmqCommandWordsTable` | **Does not transfer. Replace with a Trap School teaser** |
 | `PmqMarkingGuidanceSection` | **Does not transfer. Replace with a guessing-policy section** |
 | `PmqPassMarkSection` | Direct |
 | `PmqGlobalFurtherReading` | Direct port |
 | `PmqFaqSection` | Direct port |
-| — | **New: coverage map teaser.** No PMQ counterpart |
+|, | **New: coverage map teaser.** No PMQ counterpart |
 
 Generalise the PMQ section components where the layout is identical (they share
 `PmqExamGuideSections.module.css`); do not copy-paste the CSS modules.
@@ -295,17 +295,17 @@ line from `PFQ_TRAP_SCHOOL.why`, and a CTA to the module.
 
 ### 4c. Content for the sections that do transfer
 
-- **Exam structure** — 60 questions, 1 mark each, 60 minutes, four options, delivered
+- **Exam structure**, 60 questions, 1 mark each, 60 minutes, four options, delivered
   online in Surpass, remote-invigilated or classroom. Include the line that carries the
   whole product thesis: **59 outcomes, one question each, plus LO 10.4 twice, equals
   exactly 60. Every sitting covers every outcome exactly once. There is no sampling.**
-- **Syllabus weighting** — LO4 = 11 marks, LO3 = 1 mark. LO4 + LO5 + LO7 = 27 marks,
+- **Syllabus weighting**. LO4 = 11 marks, LO3 = 1 mark. LO4 + LO5 + LO7 = 27 marks,
   45% of the paper. Frame it as what it is: study-time allocation advice competitors do
   not give.
-- **Pass mark** — 36 out of 60, 60%, fixed for every sitting. State plainly that it
+- **Pass mark**, 36 out of 60, 60%, fixed for every sitting. State plainly that it
   does not vary between papers. This is a better story than PMQ's floating Angoff cut
   score and the copy should be confident about it.
-- **Coverage map teaser** — no PMQ component to inherit from, so design it with the
+- **Coverage map teaser**, no PMQ component to inherit from, so design it with the
   existing ticket and stamp-chip vocabulary. Lead with the enumerable-completeness
   claim above.
 
@@ -328,7 +328,7 @@ and the "not an APM Accredited Training Provider" statement on the page.
 `DashboardPmqCourseCard` becomes `DashboardCourseCard` taking course identity, ring
 percent, streak, tier and a resume href. PFQ appears on `/dashboard` with the same
 ring, badge and hover treatment as PMQ. `src/app/(site)/dashboard/page.tsx` already
-calls `getUserCourses`, so PFQ should slot in without new queries — verify.
+calls `getUserCourses`, so PFQ should slot in without new queries, verify.
 
 ## 6. Restyle-only surfaces
 
@@ -339,11 +339,13 @@ Visual treatment to match PMQ; **no behaviour change, no prop changes**:
 Bring them onto the same token usage, border radius, shadow, eyebrow and stamp-chip
 conventions PMQ uses. Reuse `stamp-chip` and the `productSurfaceQuiet` /
 `productActionSecondary` semantic helpers rather than bespoke CSS where they fit.
-`PfqMockRunner` must keep its Surpass-faithful behaviour exactly — flag, review panel,
+`PfqMockRunner` must keep its Surpass-faithful behaviour exactly, flag, review panel,
 unattempted filter, pacing. Restyle the chrome, not the mechanics.
 
 `PfqTrapSchool` additionally needs stable anchor ids per trap module
 (`#negative`, `#combination`, `#near_miss`, `#absolutes`) for the callout links in 3b.
+`#absolutes` is included deliberately: Trap 4 stays in the module as reading material,
+it is only the machine tag that was retired (3d).
 
 ---
 
@@ -351,11 +353,11 @@ unattempted filter, pacing. Restyle the chrome, not the mechanics.
 
 Ship after each phase. Do not do this as one drop.
 
-- **Phase 1** — sections 1 and 2 (shell + routes). Most of the visible parity, no
+- **Phase 1**, sections 1 and 2 (shell + routes). Most of the visible parity, no
   content risk. The trap backfill prompt can run in parallel here.
-- **Phase 2** — section 3 (pathway + inline callouts). Largest piece.
-- **Phase 3** — section 4 (overview). Second largest, and the most copy-heavy.
-- **Phase 4** — sections 5 and 6.
+- **Phase 2**, section 3 (pathway + inline callouts). Largest piece.
+- **Phase 3**, section 4 (overview). Second largest, and the most copy-heavy.
+- **Phase 4**, sections 5 and 6.
 
 ## Constraints
 
@@ -368,7 +370,7 @@ Ship after each phase. Do not do this as one drop.
 - Do not touch `pfq_coverage_signals`, the coverage resolve rule, or the mock scoring
   logic.
 - Every exam fact on the overview must be traceable to `PFQ_RESEARCH.md`. If a figure
-  is not in that document, do not invent it — flag it and leave a TODO.
+  is not in that document, do not invent it, flag it and leave a TODO.
 - Report status by appending a `BUSINESS_STATE.md` decision-log entry. Do not claim a
   phase is done without stating what you actually verified (route responses, a real
   `section_progress` row, a screenshot diff).

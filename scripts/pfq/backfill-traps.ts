@@ -28,19 +28,38 @@ const DEFAULT_REPORT = join(
   "scripts/pfq/trap-backfill-report.json",
 );
 
-const ABSOLUTE_WORDS =
-  /\b(always|never|all|only|every|must|none|entirely|guarantees)\b/i;
-
-/** Word-boundary negatives; multi-word forms listed first. */
-const NEGATIVE_PATTERNS: { label: string; re: RegExp }[] = [
-  { label: "is not", re: /\bis\s+not\b/i },
-  { label: "are not", re: /\bare\s+not\b/i },
-  { label: "incorrect", re: /\bincorrect\b/i },
-  { label: "never", re: /\bnever\b/i },
-  { label: "except", re: /\bexcept\b/i },
+/**
+ * Inverted-question operators only (trap school: pick the false / absent option).
+ * Do not use a bare "not" word match — that tags contrastive and scenario stems.
+ */
+const INVERTED_NEGATIVE_PATTERNS: { label: string; re: RegExp }[] = [
+  { label: "which ... is not", re: /\bwhich\b[\s\S]{0,160}?\bis\s+not\b/i },
+  { label: "which ... are not", re: /\bwhich\b[\s\S]{0,160}?\bare\s+not\b/i },
+  { label: "which ... would not", re: /\bwhich\b[\s\S]{0,160}?\bwould\s+not\b/i },
+  { label: "which ... does not", re: /\bwhich\b[\s\S]{0,160}?\bdoes\s+not\b/i },
+  { label: "what can ... not", re: /\bwhat\s+can\b[\s\S]{0,100}?\bnot\b/i },
+  { label: "is false", re: /\bis\s+false\b/i },
+  { label: "is incorrect", re: /\bis\s+incorrect\b/i },
   { label: "least", re: /\bleast\b/i },
-  { label: "false", re: /\bfalse\b/i },
-  { label: "not", re: /\bnot\b/i },
+  { label: "except", re: /\bexcept\b/i },
+  { label: "not a genuine", re: /\bnot\s+a\s+genuine\b/i },
+  { label: "not a real", re: /\bnot\s+a\s+real\b/i },
+];
+
+/**
+ * Stems that contain a negative word but still ask for a true statement
+ * (contrastive clause, scenario constraint, or Why-explanation).
+ * Belt-and-suspenders against future allowlist drift.
+ */
+const NEGATIVE_REJECT_PATTERNS: RegExp[] = [
+  /\bwhy\s+can\b[\s\S]{0,100}?\bnot\b/i,
+  /\bwhy\b[\s\S]{0,80}?\bnot\b/i,
+  /\bbut\s+not\s+in\b/i,
+  /\balone\s+does\s+not\b/i,
+  /\bthat\b[\s\S]{0,60}?\bdoes\s+not\b/i,
+  /\bmust\s+not\b/i,
+  /\bwill\s+not\s+fit\b/i,
+  /\bwith\s+no\b/i,
 ];
 
 type QuestionRow = {
@@ -90,7 +109,6 @@ type Report = {
       exam_percent: number;
       note: string;
     };
-    absolutes_note: string;
     traps_checksum_before: string;
     by_objective_currently_tagged: Record<string, number>;
   };
@@ -142,47 +160,13 @@ function taggedByObjective(rows: QuestionRow[]): Record<string, number> {
   return out;
 }
 
-/** True if any match of `re` in `text` falls inside "…" or '…' spans. */
-function matchInsideQuotes(text: string, re: RegExp): boolean {
-  const flags = re.flags.includes("g") ? re.flags : `${re.flags}g`;
-  const global = new RegExp(re.source, flags);
-  let m: RegExpExecArray | null;
-  while ((m = global.exec(text)) !== null) {
-    const at = m.index;
-    if (indexInsideQuotes(text, at)) return true;
-  }
-  return false;
-}
-
-function indexInsideQuotes(text: string, index: number): boolean {
-  let inDouble = false;
-  let inSingle = false;
-  for (let i = 0; i < index; i++) {
-    const ch = text[i];
-    if (ch === '"' && !inSingle) inDouble = !inDouble;
-    else if (ch === "'" && !inDouble) inSingle = !inSingle;
-  }
-  return inDouble || inSingle;
-}
-
-function findNegative(stem: string): {
-  label: string;
-  inQuotes: boolean;
-} | null {
-  for (const { label, re } of NEGATIVE_PATTERNS) {
-    if (!re.test(stem)) continue;
-    return { label, inQuotes: matchInsideQuotes(stem, re) };
+/** True when the stem is an inverted demand (pick the false/absent option). */
+function findInvertedNegative(stem: string): { label: string } | null {
+  if (NEGATIVE_REJECT_PATTERNS.some((re) => re.test(stem))) return null;
+  for (const { label, re } of INVERTED_NEGATIVE_PATTERNS) {
+    if (re.test(stem)) return { label };
   }
   return null;
-}
-
-function correctOptionKeys(answer: string): Set<string> {
-  return new Set(
-    answer
-      .split(/[,;|\s]+/)
-      .map((s) => s.trim().toLowerCase())
-      .filter(Boolean),
-  );
 }
 
 function pairTerms(confused: string): string[] {
@@ -250,24 +234,21 @@ function detectProposals(rows: QuestionRow[]): {
       if (!isPfqTrapTag(t)) unknownTags.add(t);
     }
 
-    // 2a — negative stem
-    const neg = findNegative(row.stem);
+    // 2a — inverted negative stem only (not contrastive / scenario "not")
+    const neg = findInvertedNegative(row.stem);
     if (neg) {
       const already = existing.includes("negative_stem");
-      const needsReview = neg.inQuotes;
       proposals.push({
         question_id: row.id,
         objective: row.objective,
         learning_outcome: row.learning_outcome,
         trap: "negative_stem",
-        confidence: needsReview ? "medium" : "high",
-        evidence: needsReview
-          ? `matched "${neg.label}" inside quotation marks — manual review`
-          : `matched "${neg.label}" in stem`,
+        confidence: "high",
+        evidence: `inverted demand: matched "${neg.label}" in stem`,
         stem_excerpt: stemExcerpt(row.stem),
         existing_traps: existing,
         already_tagged: already,
-        approved: !already && !needsReview,
+        approved: !already,
       });
     }
 
@@ -295,30 +276,10 @@ function detectProposals(rows: QuestionRow[]): {
       });
     }
 
-    // 2c — absolutes in distractors only
-    const correct = correctOptionKeys(row.answer);
-    const options = row.options ?? {};
-    for (const [key, text] of Object.entries(options)) {
-      if (correct.has(key.toLowerCase())) continue;
-      const m = text.match(ABSOLUTE_WORDS);
-      if (!m) continue;
-      const already = existing.includes("absolutes");
-      proposals.push({
-        question_id: row.id,
-        objective: row.objective,
-        learning_outcome: row.learning_outcome,
-        trap: "absolutes",
-        confidence: "low",
-        evidence: `distractor ${key}: "${text}" (matched "${m[1]}")`,
-        stem_excerpt: stemExcerpt(row.stem),
-        existing_traps: existing,
-        already_tagged: already,
-        approved: false,
-      });
-      break; // one proposal per question for this trap
-    }
+    // 2c — absolutes retired: do not detect or propose
 
     // 2d — near-miss definition pairs
+    const options = row.options ?? {};
     const haystack = [
       row.stem,
       ...Object.values(options),
@@ -364,17 +325,15 @@ function buildReport(rows: QuestionRow[]): Report {
   const { proposals, integrity, multiSelectCount } = detectProposals(rows);
   const additions = proposals.filter((p) => !p.already_tagged);
   const byTrap: Record<PfqTrapTag, number> = {
+    near_miss: 0,
     negative_stem: 0,
     multi_select: 0,
-    absolutes: 0,
-    near_miss: 0,
   };
   for (const p of additions) byTrap[p.trap] += 1;
 
   const negAll = proposals.filter((p) => p.trap === "negative_stem");
   const negAlready = negAll.filter((p) => p.already_tagged).length;
 
-  const absAdditions = additions.filter((p) => p.trap === "absolutes").length;
   const bankPercent =
     rows.length === 0
       ? 0
@@ -391,7 +350,7 @@ function buildReport(rows: QuestionRow[]): Report {
         detected: negAll.length,
         already_tagged_among_detected: negAlready,
         note:
-          "Sanity check: detected negatives should substantially overlap the existing 24 negative_stem tags.",
+          "Tightened 2026-09-05: inverted demand only. Expect ~22 detections, all already tagged → zero new negative_stem proposals.",
       },
       multi_select_shortfall: {
         bank_count: multiSelectCount,
@@ -399,10 +358,6 @@ function buildReport(rows: QuestionRow[]): Report {
         exam_percent: 10.0,
         note: "Authoring gap, not a tagging gap. See section 2b.",
       },
-      absolutes_note:
-        absAdditions < 15
-          ? `Only ${absAdditions} absolute-distractor hits proposed (all approved:false). After review, if true positives stay under ~15, reconsider whether absolutes is worth carrying as a trap category.`
-          : `${absAdditions} absolute-distractor candidates (all approved:false — human review required; naive sweeps are over-inclusive).`,
       traps_checksum_before: trapsChecksum(rows),
       by_objective_currently_tagged: taggedByObjective(rows),
     },
@@ -424,7 +379,6 @@ function printSummary(report: Report) {
   console.log(
     `  multi-select bank:    ${s.multi_select_shortfall.bank_count} (${s.multi_select_shortfall.bank_percent}%) vs exam ${s.multi_select_shortfall.exam_percent}%`,
   );
-  console.log(`  absolutes:            ${s.absolutes_note}`);
   console.log(`  traps checksum:       ${s.traps_checksum_before}`);
   if (report.integrity.multi_select_untagged.length) {
     console.log(
