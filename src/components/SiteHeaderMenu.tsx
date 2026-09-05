@@ -156,6 +156,24 @@ function MenuBoardIcon() {
   );
 }
 
+function MenuHomeIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className="h-4 w-4 shrink-0"
+    >
+      <path d="M3 10.5 12 3l9 7.5" />
+      <path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
+    </svg>
+  );
+}
+
 function MenuSignOutIcon() {
   const doorMotion =
     "motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-[var(--ease-out-quint)] motion-reduce:transition-none";
@@ -243,6 +261,7 @@ export function SiteHeaderMenu({
   );
 
   const duration = reduceMotion ? 0 : 500;
+  const onHome = pathname === "/";
   const onDashboard = pathname === "/dashboard";
   const signedIn = isSignedIn && account;
   const title = signedIn
@@ -436,6 +455,23 @@ export function SiteHeaderMenu({
                         className="my-1 h-px bg-ink/[0.08]"
                       />
                     </>
+                  ) : null}
+
+                  {!onHome ? (
+                    <MenuItemMotion
+                      index={itemIndex++}
+                      reduceMotion={reduceMotion}
+                    >
+                      <Link
+                        role="menuitem"
+                        href="/"
+                        className={menuItemClass}
+                        onClick={() => setOpen(false)}
+                      >
+                        <MenuHomeIcon />
+                        Back to Home
+                      </Link>
+                    </MenuItemMotion>
                   ) : null}
 
                   {MENU_ITEMS.map((item) => {

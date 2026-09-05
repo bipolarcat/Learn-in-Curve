@@ -8,17 +8,11 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, useReducedMotion } from "framer-motion";
 import { hasCreatedAccount } from "@/lib/auth-hints";
-import { isPmqStudySurface } from "@/lib/pmq/constants";
 import { allowsDarkMode } from "@/lib/theme-routes";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
-import {
-  headerIconPrimary,
-  headerIconQuiet,
-  headerPillTeal,
-} from "@/components/header-control";
+import { headerPillTeal } from "@/components/header-control";
 import { SiteHeaderMenu, type HeaderAccount } from "@/components/SiteHeaderMenu";
 
 export {
@@ -36,56 +30,6 @@ export {
 
 const iconClass =
   "header-icon h-[17px] w-[17px] shrink-0 motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)]";
-
-function HomeIcon({ busy = false }: { busy?: boolean }) {
-  const reduceMotion = useReducedMotion();
-  const looping = busy && !reduceMotion;
-  const loop = {
-    duration: 0.7,
-    repeat: Infinity,
-    repeatType: "reverse" as const,
-    ease: [0.22, 1, 0.36, 1] as const,
-  };
-  const settle = { duration: 0.28, ease: [0.22, 1, 0.36, 1] as const };
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={iconClass}
-    >
-      {/* Stroke draw while navigating — same pathLength morph as 21st.dev
-          animated-state-icons SuccessIcon (demo 10058), on the house glyph. */}
-      <motion.path
-        d="M3 10.5 12 3l9 7.5"
-        initial={false}
-        animate={
-          looping
-            ? { pathLength: [0.2, 1], opacity: [0.4, 1] }
-            : { pathLength: 1, opacity: 1 }
-        }
-        transition={looping ? loop : settle}
-      />
-      <motion.path
-        d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"
-        initial={false}
-        animate={
-          looping
-            ? { pathLength: [0.25, 1], opacity: [0.4, 1] }
-            : { pathLength: 1, opacity: 1 }
-        }
-        transition={
-          looping ? { ...loop, delay: 0.08 } : settle
-        }
-      />
-    </svg>
-  );
-}
 
 /** Soft-nav header control. Ellipsis while the destination is pending. */
 function HeaderNavButton({
@@ -146,30 +90,6 @@ function HeaderNavButton({
   );
 }
 
-/** Home — house glyph redraws while the route is pending (no ellipsis). */
-function HomeNavButton({ className }: { className: string }) {
-  const router = useRouter();
-  const [pending, startTransition] = useTransition();
-
-  return (
-    <button
-      type="button"
-      disabled={pending}
-      aria-busy={pending}
-      aria-label={pending ? "Opening home" : "Home"}
-      title="Home"
-      className={`${className} disabled:cursor-wait`}
-      onClick={() => {
-        startTransition(() => {
-          router.push("/");
-        });
-      }}
-    >
-      <HomeIcon busy={pending} />
-    </button>
-  );
-}
-
 /** Person for Sign up / Sign in */
 function AuthIcon() {
   return (
@@ -225,10 +145,10 @@ type SiteHeaderControlsProps = {
 
 /**
  * Site chrome:
- * Overflow menu holds site links. Signed-in: profile summary, My dashboard,
- * Sign out, and (on dark-capable routes) the theme toggle.
- * Guests: Get Started / Sign in labeled at all sizes; off-home icon-only Home.
- * Auth pages (`/auth/*`) and PMQ preview: Home only, no Sign in/up CTA.
+ * Overflow menu holds site links (including Back to Home). Signed-in: profile
+ * summary, My dashboard, Sign out, and (on dark-capable routes) the theme toggle.
+ * Guests: Get Started / Sign in labeled at all sizes.
+ * Auth pages (`/auth/*`) and course previews: menu only, no Sign in/up CTA.
  */
 export function SiteHeaderControls({
   isSignedIn = false,
@@ -244,17 +164,12 @@ export function SiteHeaderControls({
     setGuestCta(resolveGuestCta());
   }, []);
 
-  const onDashboard = pathname === "/dashboard";
-  const onHome = pathname === "/";
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const onPfqPreview = pathname === "/courses/pfq-in-2-days/preview";
-  const hideHomeIconOnCourseExperience = isPmqStudySurface(pathname);
   /** Auth + preview keep chrome minimal — no theme toggle / no auth CTA. */
   const hideGuestAuthCta =
     (pathname?.startsWith("/auth") ?? false) || onPmqPreview || onPfqPreview;
   const darkModeAllowed = allowsDarkMode(pathname);
-  const showHome =
-    !onHome && !onDashboard && !hideHomeIconOnCourseExperience;
 
   return (
     <div
@@ -262,47 +177,27 @@ export function SiteHeaderControls({
       role="group"
       aria-label="Site controls"
     >
-      {isSignedIn ? (
-        <>
-          {showHome ? (
-            <HeaderChip style={{ "--i": 1 } as CSSProperties}>
-              <HomeNavButton className={headerIconQuiet} />
-            </HeaderChip>
-          ) : null}
-        </>
-      ) : hideGuestAuthCta ? (
-        <HeaderChip style={{ "--i": 1 } as CSSProperties}>
-          <HomeNavButton className={headerIconPrimary} />
+      {!isSignedIn && !hideGuestAuthCta ? (
+        <HeaderChip style={{ "--i": 2 } as CSSProperties}>
+          <HeaderNavButton
+            href={guestCta.href}
+            className={headerPillTeal}
+            ariaLabel={guestCta.label}
+            title={guestCta.label}
+            busyLabel={
+              guestCta.label === "Sign in"
+                ? "Opening sign in"
+                : "Opening sign up"
+            }
+            spinnerClassName="text-paper"
+            analyticsLocation="header"
+            analyticsVariant={guestCta.label}
+          >
+            <AuthIcon />
+            <span>{guestCta.label}</span>
+          </HeaderNavButton>
         </HeaderChip>
-      ) : (
-        <>
-          <HeaderChip style={{ "--i": 2 } as CSSProperties}>
-            <HeaderNavButton
-              href={guestCta.href}
-              className={headerPillTeal}
-              ariaLabel={guestCta.label}
-              title={guestCta.label}
-              busyLabel={
-                guestCta.label === "Sign in"
-                  ? "Opening sign in"
-                  : "Opening sign up"
-              }
-              spinnerClassName="text-paper"
-              analyticsLocation="header"
-              analyticsVariant={guestCta.label}
-            >
-              <AuthIcon />
-              <span>{guestCta.label}</span>
-            </HeaderNavButton>
-          </HeaderChip>
-
-          {showHome ? (
-            <HeaderChip style={{ "--i": 3 } as CSSProperties}>
-              <HomeNavButton className={headerIconQuiet} />
-            </HeaderChip>
-          ) : null}
-        </>
-      )}
+      ) : null}
 
       <HeaderChip style={{ "--i": 5 } as CSSProperties}>
         <SiteHeaderMenu
