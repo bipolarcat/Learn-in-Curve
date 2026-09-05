@@ -83,15 +83,15 @@ export function MenuLicMarkIcon({
   );
 }
 
-/** Van parked — Home Page. */
+/** House with chimney — Home Page. */
 export function MenuHomeIcon(props: MenuSvgProps) {
   return (
     <svg {...menuStrokeProps(props)}>
-      <path d="M3 14V9.5A2.5 2.5 0 0 1 5.5 7H11l3.2-2.4A2 2 0 0 1 15.4 4H18a2 2 0 0 1 2 2v8" />
-      <path d="M3 14h18" />
-      <circle cx="7" cy="16.5" r="2" />
-      <circle cx="17" cy="16.5" r="2" />
-      <path d="M11 7v7" />
+      <path d="M3 10.5 12 3l9 7.5" />
+      <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
+      <path d="M9 21v-7h6v7" />
+      <path d="M16 3.5V6" />
+      <path d="M14.5 3.5h3" />
     </svg>
   );
 }
