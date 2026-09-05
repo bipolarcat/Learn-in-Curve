@@ -121,7 +121,7 @@ export function PfqMockConsole() {
                   disabled={pending}
                   aria-busy={pending}
                   aria-label={`Start mock paper ${summary.mockSet}`}
-                  className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:cursor-wait disabled:opacity-70`}
+                  className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
                   onClick={() =>
                     openPath(`${PFQ_MOCK_HREF}?set=${summary.mockSet}`)
                   }
@@ -130,7 +130,7 @@ export function PfqMockConsole() {
                     <Spinner
                       variant="bars"
                       size={14}
-                      className="text-paper"
+                      className="text-ink"
                       aria-hidden
                     />
                   ) : (
