@@ -33,22 +33,11 @@ export function MenuCoursesIcon(props: MenuSvgProps) {
   );
 }
 
-/**
- * Bookcase / shelf — The Shelf.
- * Vertical uprights + three shelves (Mobbin lineal density, Lucide weight).
- */
+/** Mac-style folder — The Shelf. */
 export function MenuShelfIcon(props: MenuSvgProps) {
   return (
     <svg {...menuStrokeProps(props)}>
-      <path d="M4 4v16" />
-      <path d="M20 4v16" />
-      <path d="M4 8h16" />
-      <path d="M4 13h16" />
-      <path d="M4 18h16" />
-      <path d="M8 8v5" />
-      <path d="M12 8v5" />
-      <path d="M15.5 13v5" />
-      <path d="M9.5 13v5" />
+      <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H9l1.8 1.8c.3.3.7.45 1.1.45H18.5A2.5 2.5 0 0 1 21 9.75v7.75A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5Z" />
     </svg>
   );
 }
