@@ -53,15 +53,16 @@ export function MenuShelfIcon(props: MenuSvgProps) {
   );
 }
 
-/** Stopwatch — Mock Me (timed mock exam). */
+/** Dice — Mock Me. */
 export function MenuMockMeIcon(props: MenuSvgProps) {
   return (
     <svg {...menuStrokeProps(props)}>
-      <path d="M10 2h4" />
-      <path d="M12 2v3" />
-      <circle cx="12" cy="14" r="7" />
-      <path d="M12 14V10" />
-      <path d="M12 14l3 2" />
+      <rect x="3" y="3" width="18" height="18" rx="2.5" />
+      <circle cx="8.5" cy="8.5" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="15.5" cy="8.5" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="8.5" cy="15.5" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="15.5" cy="15.5" r="1.15" fill="currentColor" stroke="none" />
     </svg>
   );
 }
