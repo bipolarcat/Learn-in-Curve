@@ -416,7 +416,7 @@ export function SiteHeaderMenu({
                         onClick={() => setOpen(false)}
                       >
                         <MenuHomeIcon />
-                        Back to Home
+                        Home Page
                       </Link>
                     </MenuItemMotion>
                   ) : null}

@@ -145,7 +145,7 @@ type SiteHeaderControlsProps = {
 
 /**
  * Site chrome:
- * Overflow menu holds site links (including Back to Home). Signed-in: profile
+ * Overflow menu holds site links (including Home Page). Signed-in: profile
  * summary, My dashboard, Sign out, and (on dark-capable routes) the theme toggle.
  * Guests: Get Started / Sign in labeled at all sizes.
  * Auth pages (`/auth/*`) and course previews: menu only, no Sign in/up CTA.
