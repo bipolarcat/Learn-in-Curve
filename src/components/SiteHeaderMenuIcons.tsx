@@ -53,14 +53,15 @@ export function MenuShelfIcon(props: MenuSvgProps) {
   );
 }
 
-/** Person with lightbulb above head — Mock Me. */
+/** Stopwatch — Mock Me (timed mock exam). */
 export function MenuMockMeIcon(props: MenuSvgProps) {
   return (
     <svg {...menuStrokeProps(props)}>
-      <path d="M12 2a2.5 2.5 0 0 0-1.6 4.4V7.5h3.2V6.4A2.5 2.5 0 0 0 12 2Z" />
-      <path d="M10.8 7.5h2.4" />
-      <circle cx="12" cy="12.75" r="2.5" />
-      <path d="M7.25 20.5c.95-2.55 2.85-3.85 4.75-3.85s3.8 1.3 4.75 3.85" />
+      <path d="M10 2h4" />
+      <path d="M12 2v3" />
+      <circle cx="12" cy="14" r="7" />
+      <path d="M12 14V10" />
+      <path d="M12 14l3 2" />
     </svg>
   );
 }
