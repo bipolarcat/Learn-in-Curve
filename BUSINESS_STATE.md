@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-05** — Site header: Behind the Curve menu icon uses the real LIC logo (`fox-logo-png.png`) as a solid currentColor silhouette via CSS mask (not a hand-drawn outline).
 - **2026-09-05** — Site header menu icons: matched monoline set in `SiteHeaderMenuIcons` (stacked books / shelf / person+bulb / LIC mark outline / home / board / talk / theme). Inspired by Mobbin settings sidebars + 21st.dev icon menus; replaces mixed Lucide picks.
 - **2026-09-05** — Site header menu: icons on every overflow item (Back to Home, Explore Courses, Mock Me, The Shelf, Behind the Curve, Let's Talk, Theme; signed-in dashboard/sign-out already had icons) via Lucide in `SiteHeaderMenu`.
 - **2026-09-05** — Site header: removed the Home icon chip from the bar; added **Back to Home** (house icon) as the first site link in the overflow menu (`SiteHeaderControls`, `SiteHeaderMenu`). Hidden on `/` only.

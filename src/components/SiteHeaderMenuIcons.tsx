@@ -66,14 +66,29 @@ export function MenuMockMeIcon(props: MenuSvgProps) {
 }
 
 /**
- * Learn in Curve mark outline — Behind the Curve.
- * Geometric fox / shield silhouette (same mark as `fox-logo-png.png`), stroke only.
+ * Learn in Curve logo mark — Behind the Curve.
+ * Real asset (`fox-logo-png.png`) masked so the silhouette fills with currentColor (solid ink).
  */
-export function MenuLicMarkIcon(props: MenuSvgProps) {
+export function MenuLicMarkIcon({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <svg {...menuStrokeProps(props)}>
-      <path d="M12 20.5 4.25 4.75h4.1v3.6h7.3v-3.6h4.1L12 20.5Z" />
-    </svg>
+    <span
+      aria-hidden
+      className={cn(menuIconClass, "inline-block bg-current", className)}
+      style={{
+        maskImage: "url(/brand/logo/fox-logo-png.png)",
+        WebkitMaskImage: "url(/brand/logo/fox-logo-png.png)",
+        maskSize: "contain",
+        WebkitMaskSize: "contain",
+        maskRepeat: "no-repeat",
+        WebkitMaskRepeat: "no-repeat",
+        maskPosition: "center",
+        WebkitMaskPosition: "center",
+      }}
+    />
   );
 }
 
