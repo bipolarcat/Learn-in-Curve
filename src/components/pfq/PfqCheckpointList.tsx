@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import {
@@ -8,6 +8,7 @@ import {
   updatePfqCheckpoint,
 } from "@/lib/pfq/lesson-actions";
 import { stampCtaSecondary } from "@/components/stamp-chip";
+import { LoCheckpointCelebration } from "@/components/pmq/LoCheckpointCelebration";
 
 type Props = {
   objective: number;
@@ -28,6 +29,7 @@ export function PfqCheckpointList({
   const router = useRouter();
   const [completed, setCompleted] = useState(() => new Set(initialCompleted));
   const [isComplete, setIsComplete] = useState(initiallyComplete);
+  const [celebrating, setCelebrating] = useState(false);
   const [error, setError] = useState("");
   const initialKey = initialCompleted.join(",");
   const wasCompleteRef = useRef(initiallyComplete);
@@ -44,6 +46,10 @@ export function PfqCheckpointList({
     onReadyChange?.(isComplete || items.length <= 0);
   }, [isComplete, items.length, onReadyChange]);
 
+  const endCelebration = useCallback(() => {
+    setCelebrating(false);
+  }, []);
+
   const toggle = (index: number, checked: boolean) => {
     setError("");
     setCompleted((prev) => {
@@ -51,8 +57,13 @@ export function PfqCheckpointList({
       if (checked) next.add(index);
       else next.delete(index);
       const allDone = items.length > 0 && next.size >= items.length;
+      if (allDone && !wasCompleteRef.current) {
+        wasCompleteRef.current = true;
+        queueMicrotask(() => setCelebrating(true));
+      } else if (!allDone) {
+        wasCompleteRef.current = false;
+      }
       setIsComplete(allDone);
-      wasCompleteRef.current = allDone;
       return next;
     });
 
@@ -70,6 +81,7 @@ export function PfqCheckpointList({
           else next.add(index);
           const allDone = items.length > 0 && next.size >= items.length;
           setIsComplete(allDone);
+          wasCompleteRef.current = allDone;
           return next;
         });
         return;
@@ -90,6 +102,7 @@ export function PfqCheckpointList({
       setCompleted(new Set());
       setIsComplete(false);
       wasCompleteRef.current = false;
+      setCelebrating(false);
       router.refresh();
     })();
   };
@@ -147,10 +160,14 @@ export function PfqCheckpointList({
         </button>
       ) : null}
       {error ? (
-        <p className="m-0 font-body text-sm text-[color:rgb(var(--rust-rgb,180_65_45))]" role="alert">
+        <p
+          className="m-0 font-body text-sm text-[color:rgb(var(--rust-rgb,180_65_45))]"
+          role="alert"
+        >
           {error}
         </p>
       ) : null}
+      <LoCheckpointCelebration open={celebrating} onDone={endCelebration} />
     </div>
   );
 }

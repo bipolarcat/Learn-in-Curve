@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-05** — PFQ Progress checkpoint: fire the same canvas-confetti celebration as PMQ (`LoCheckpointCelebration`) when the checklist transitions to fully ticked (`PfqCheckpointList`); respects reduced motion; does not re-fire on remount if already complete.
 - **2026-09-05** — PFQ mock console PMQ parity: drop idle "Not attempted yet"; show In progress + live countdown timer, Passed / Completed · Refer; Start / Resume / View result (or Finish paper N first); summaries include activeAttemptId + endsAt from unsubmitted attempts.
 - **2026-09-05** — PFQ mock console: Mock paper 1–3 "Start" buttons match Practise/Open (transparent ink text + arrow, no filled orange background).
 - **2026-09-05** — PFQ mock console: Mock paper 1–3 rows now use explicit primary "Start" stamp buttons (same affordance language as Practise / Open), instead of full-row chevron clicks.
