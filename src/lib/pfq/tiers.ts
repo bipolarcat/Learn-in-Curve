@@ -2,8 +2,14 @@
  * The single source of truth for what each PFQ tier unlocks.
  *
  * Mirror of `src/lib/pmq/tiers.ts`, collapsed to two states:
- *   starter — absence of an entitlement row (marketing only)
- *   pro     — lessons, practice, mock, coverage map, Trap School
+ *   starter — absence of an entitlement row
+ *   pro     — full practice bank + timed mocks + coverage map
+ *
+ * Free for everyone (signed-in or not, depending on the route):
+ *   lessons + Trap School
+ *
+ * Free sample practice (50 questions) is available to signed-in starters;
+ * gated in practice-actions, not here.
  *
  * There is no ai_pro on PFQ. Do not add one. Every gate calls a function in
  * this file — nothing re-derives tier from its own row lookup.
@@ -40,15 +46,27 @@ export function pfqTierAtLeast(tier: PfqTier, required: PfqTier): boolean {
   return TIER_RANK[tier] >= TIER_RANK[required];
 }
 
-/** Lessons, practice bank, timed mock, coverage map. */
+/** Full paid course bundle (practice bank + mocks). Prefer the specific gates. */
 export function canAccessPfqCourse(tier: PfqTier): boolean {
   return pfqTierAtLeast(tier, "pro");
 }
 
+/** Timed mock papers (sets 1–3). */
 export function canAccessPfqMock(tier: PfqTier): boolean {
-  return canAccessPfqCourse(tier);
+  return pfqTierAtLeast(tier, "pro");
 }
 
-export function canAccessPfqLessons(tier: PfqTier): boolean {
-  return canAccessPfqCourse(tier);
+/** Full practice bank (all practice-only rows). Free sample is separate. */
+export function canAccessPfqFullPractice(tier: PfqTier): boolean {
+  return pfqTierAtLeast(tier, "pro");
+}
+
+/** Lessons are free for every tier. */
+export function canAccessPfqLessons(_tier: PfqTier): boolean {
+  return true;
+}
+
+/** Trap School is free for every tier. */
+export function canAccessPfqTrapSchool(_tier: PfqTier): boolean {
+  return true;
 }

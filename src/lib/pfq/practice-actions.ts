@@ -10,39 +10,35 @@ import {
   toPublicPfqQuestion,
 } from "@/lib/pfq/public-question";
 import { getPfqTier } from "@/lib/pfq/entitlement";
-import { canAccessPfqMock } from "@/lib/pfq/tiers";
+import {
+  canAccessPfqFullPractice,
+  type PfqTier,
+} from "@/lib/pfq/tiers";
 import { PFQ_PRACTICE_ENABLED } from "@/lib/pfq/constants";
-import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
+import { PFQ_OBJECTIVES, PFQ_OUTCOME_COUNT } from "@/lib/pfq/outcomes";
 import { buildCoverageFromSignals } from "@/lib/pfq/coverage";
 import { upsertCoverageSignals } from "@/lib/pfq/coverage-signals";
+import {
+  getPfqFreeSampleQuestionIds,
+  PFQ_FREE_SAMPLE_SIZE,
+} from "@/lib/pfq/free-sample";
+import { asQuestionRow } from "@/lib/pfq/question-row";
+import { pfqOutcomeDisplayTitle } from "@/lib/pfq/outcome-titles";
 import type {
   PfqCoverageSignal,
   PfqPublicQuestion,
-  PfqQuestionRow,
 } from "@/lib/pfq/types";
 
-function asQuestionRow(raw: Record<string, unknown>): PfqQuestionRow {
-  return {
-    id: String(raw.id),
-    learning_outcome: String(raw.learning_outcome),
-    objective: Number(raw.objective),
-    day: Number(raw.day),
-    verb: String(raw.verb),
-    type: raw.type === "multi_select" ? "multi_select" : "single",
-    traps: Array.isArray(raw.traps) ? (raw.traps as string[]) : [],
-    stem: String(raw.stem),
-    items: Array.isArray(raw.items) ? (raw.items as string[]) : null,
-    options: (raw.options ?? {}) as Record<string, string>,
-    answer: String(raw.answer),
-    explanation: String(raw.explanation),
-    active: raw.active !== false,
-    mock_suitable: Boolean(raw.mock_suitable),
-    variant: Number(raw.variant ?? 1),
-  };
-}
+/**
+ * pfq_practice_sessions.objective is constrained to 1–10
+ * (migration 20260813220000). Free-sample sessions reuse objective 1 as a
+ * placeholder; question_ids carry the actual sample set.
+ */
+const PFQ_FREE_SAMPLE_SESSION_OBJECTIVE = 1;
 
-async function requirePfqProUser(): Promise<
-  { ok: true; userId: string } | { ok: false; error: string }
+async function requireSignedInPfqUser(): Promise<
+  | { ok: true; userId: string; tier: PfqTier }
+  | { ok: false; error: string }
 > {
   if (!PFQ_PRACTICE_ENABLED) {
     return { ok: false, error: "Practice is not enabled yet." };
@@ -54,13 +50,21 @@ async function requirePfqProUser(): Promise<
     } = await supabase.auth.getUser();
     if (!user) return { ok: false, error: "Sign in required." };
     const tier = await getPfqTier(supabase, user.id);
-    if (!canAccessPfqMock(tier)) {
-      return { ok: false, error: "PFQ Pro is required." };
-    }
-    return { ok: true, userId: user.id };
+    return { ok: true, userId: user.id, tier };
   } catch {
     return { ok: false, error: "Sign in required." };
   }
+}
+
+async function requirePfqProUser(): Promise<
+  { ok: true; userId: string } | { ok: false; error: string }
+> {
+  const access = await requireSignedInPfqUser();
+  if (!access.ok) return access;
+  if (!canAccessPfqFullPractice(access.tier)) {
+    return { ok: false, error: "PFQ Pro is required." };
+  }
+  return { ok: true, userId: access.userId };
 }
 
 export type StartPfqPracticeResult =
@@ -89,7 +93,8 @@ export async function startPfqPractice(input: {
       .from("pfq_questions")
       .select("*")
       .eq("active", true)
-      .eq("objective", objective);
+      .eq("objective", objective)
+      .is("mock_set", null);
     if (bankError) throw bankError;
     if (!bank?.length) {
       return {
@@ -149,11 +154,102 @@ export async function startPfqPractice(input: {
   }
 }
 
+export type StartPfqFreeSampleResult =
+  | {
+      ok: true;
+      sessionId: string;
+      questionCount: number;
+      questions: PfqPublicQuestion[];
+    }
+  | { ok: false; error: string };
+
+export async function startPfqFreeSamplePractice(): Promise<StartPfqFreeSampleResult> {
+  try {
+    const access = await requireSignedInPfqUser();
+    if (!access.ok) return access;
+
+    const supabase = createServiceClient();
+    const questionIds = await getPfqFreeSampleQuestionIds(async () => {
+      const { data, error } = await supabase
+        .from("pfq_questions")
+        .select("*")
+        .eq("active", true)
+        .is("mock_set", null);
+      if (error) throw error;
+      return (data ?? []).map((r) =>
+        asQuestionRow(r as Record<string, unknown>),
+      );
+    });
+
+    if (!questionIds.length) {
+      return {
+        ok: false,
+        error: "Free sample is not ready yet. Check back after the bank loads.",
+      };
+    }
+
+    const { data: bank, error: bankError } = await supabase
+      .from("pfq_questions")
+      .select("*")
+      .in("id", questionIds);
+    if (bankError) throw bankError;
+
+    const rows = (bank ?? []).map((r) =>
+      asQuestionRow(r as Record<string, unknown>),
+    );
+    const byId = new Map(rows.map((q) => [q.id, q]));
+    const orderedIds = questionIds.filter((id) => byId.has(id));
+    const optionOrders = buildOptionOrdersForAttempt(orderedIds);
+
+    const { data: session, error: sessionError } = await supabase
+      .from("pfq_practice_sessions")
+      .insert({
+        user_id: access.userId,
+        objective: PFQ_FREE_SAMPLE_SESSION_OBJECTIVE,
+        question_ids: orderedIds,
+      })
+      .select("id")
+      .single();
+    if (sessionError) throw sessionError;
+
+    const answerRows = orderedIds.map((question_id) => ({
+      session_id: session.id,
+      question_id,
+      option_order: optionOrders[question_id],
+      selected: null,
+      correct: null,
+      answered_at: null,
+    }));
+    const { error: answersError } = await supabase
+      .from("pfq_practice_answers")
+      .insert(answerRows);
+    if (answersError) throw answersError;
+
+    const questions = orderedIds.map((id) => {
+      const q = byId.get(id)!;
+      return toPublicPfqQuestion(q, optionOrders[id]!);
+    });
+
+    assertNoSecretsInPublicPayload({ questions });
+
+    return {
+      ok: true,
+      sessionId: session.id,
+      questionCount: orderedIds.length,
+      questions,
+    };
+  } catch (err) {
+    console.error("[pfq] startFreeSamplePractice", err);
+    return { ok: false, error: "Couldn’t start the free sample. Try again." };
+  }
+}
+
 export type SubmitPfqPracticeAnswerResult =
   | {
       ok: true;
       correct: boolean;
       explanation: string;
+      tip: string | null;
       learning_outcome: string;
       correct_key: string;
     }
@@ -165,7 +261,7 @@ export async function submitPfqPracticeAnswer(input: {
   selected: string;
 }): Promise<SubmitPfqPracticeAnswerResult> {
   try {
-    const access = await requirePfqProUser();
+    const access = await requireSignedInPfqUser();
     if (!access.ok) return access;
 
     const selected =
@@ -242,12 +338,109 @@ export async function submitPfqPracticeAnswer(input: {
       ok: true,
       correct,
       explanation: q.explanation,
+      tip: q.tip,
       learning_outcome: q.learning_outcome,
       correct_key: bankToDisplayAnswer(q.answer, optionOrder),
     };
   } catch (err) {
     console.error("[pfq] submitPracticeAnswer", err);
     return { ok: false, error: "Couldn’t check that answer." };
+  }
+}
+
+export type FinishPfqFreeSampleSummaryResult =
+  | {
+      ok: true;
+      correctOutcomes: number;
+      testedCount: number;
+      missed: Array<{ code: string; title: string }>;
+      untestedCount: number;
+      proBlurb: {
+        headline: string;
+        body: string;
+      };
+    }
+  | { ok: false; error: string };
+
+export async function finishPfqFreeSampleSummary(
+  sessionId: string,
+): Promise<FinishPfqFreeSampleSummaryResult> {
+  try {
+    const access = await requireSignedInPfqUser();
+    if (!access.ok) return access;
+
+    const supabase = createServiceClient();
+    const { data: session, error: sessionError } = await supabase
+      .from("pfq_practice_sessions")
+      .select("*")
+      .eq("id", sessionId)
+      .maybeSingle();
+    if (sessionError) throw sessionError;
+    if (!session || session.user_id !== access.userId) {
+      return { ok: false, error: "Session not found." };
+    }
+
+    const questionIds = session.question_ids as string[];
+    const { data: answers, error: answersError } = await supabase
+      .from("pfq_practice_answers")
+      .select("question_id, correct")
+      .eq("session_id", sessionId);
+    if (answersError) throw answersError;
+
+    const { data: bank, error: bankError } = await supabase
+      .from("pfq_questions")
+      .select("id, learning_outcome")
+      .in("id", questionIds);
+    if (bankError) throw bankError;
+
+    const outcomeById = new Map(
+      (bank ?? []).map((r) => [
+        String(r.id),
+        String(r.learning_outcome),
+      ]),
+    );
+    const answerById = new Map(
+      (answers ?? []).map((a) => [
+        String(a.question_id),
+        a.correct as boolean | null,
+      ]),
+    );
+
+    let correctOutcomes = 0;
+    const missed: Array<{ code: string; title: string }> = [];
+    const seen = new Set<string>();
+
+    for (const id of questionIds) {
+      const code = outcomeById.get(id);
+      if (!code || seen.has(code)) continue;
+      seen.add(code);
+      const correct = answerById.get(id) === true;
+      if (correct) correctOutcomes += 1;
+      else {
+        missed.push({
+          code,
+          title: pfqOutcomeDisplayTitle(code),
+        });
+      }
+    }
+
+    const testedCount = seen.size;
+    const untestedCount = Math.max(0, PFQ_OUTCOME_COUNT - PFQ_FREE_SAMPLE_SIZE);
+
+    return {
+      ok: true,
+      correctOutcomes,
+      testedCount,
+      missed,
+      untestedCount,
+      proBlurb: {
+        headline: "Unlock the full bank and three mock papers",
+        body: `You sampled ${PFQ_FREE_SAMPLE_SIZE} of ${PFQ_OUTCOME_COUNT} outcomes. Pro unlocks the full practice bank and three timed mock papers so you can finish the syllabus under exam conditions.`,
+      },
+    };
+  } catch (err) {
+    console.error("[pfq] finishFreeSampleSummary", err);
+    return { ok: false, error: "Couldn’t build the free sample summary." };
   }
 }
 

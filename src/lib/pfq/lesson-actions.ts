@@ -43,7 +43,7 @@ async function requirePfqLessonUser(): Promise<
   if (!user) return { ok: false, error: "Sign in required." };
   const tier = await getPfqTier(supabase, user.id);
   if (!canAccessPfqLessons(tier)) {
-    return { ok: false, error: "PFQ Pro is required." };
+    return { ok: false, error: "Lessons are not available." };
   }
   return { ok: true, userId: user.id };
 }

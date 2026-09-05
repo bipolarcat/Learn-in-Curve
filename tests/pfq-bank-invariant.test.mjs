@@ -10,8 +10,15 @@ import { PFQ_EXPECTED_OUTCOMES } from "../src/lib/pfq/outcomes.ts";
 import {
   validateCombinedPfqBank,
   validatePfqBank,
+  validatePfqMockSets,
 } from "../src/lib/pfq/bank-invariant.ts";
 import { drawPfqMockQuestionIds } from "../src/lib/pfq/generator.ts";
+import {
+  __clearPfqFreeSampleCacheForTests,
+  getPfqFreeSampleQuestionIds,
+  selectPfqFreeSampleIds,
+  PFQ_FREE_SAMPLE_SIZE,
+} from "../src/lib/pfq/free-sample.ts";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const mockPath = join(root, "PFQ in 2 days", "pfq-questions.json");
@@ -24,6 +31,38 @@ function loadMock() {
 function loadPractice() {
   if (!existsSync(practicePath)) return { questions: [] };
   return JSON.parse(readFileSync(practicePath, "utf8"));
+}
+
+/** Build a valid mock_set=1 paper from syllabus outcomes (tests only). */
+function syntheticMockSetRows(mockSet = 1) {
+  const outcomes = [...PFQ_EXPECTED_OUTCOMES];
+  assert.equal(outcomes.length, 59);
+  const doubled = outcomes[0];
+  const list = [...outcomes, doubled];
+  assert.equal(list.length, 60);
+
+  return list.map((code, index) => {
+    const isMulti = index < 6;
+    return {
+      id: `SYN-SET${mockSet}-${index + 1}`,
+      learning_outcome: code,
+      objective: Number(code.split(".")[0]),
+      day: 1,
+      verb: "define",
+      type: isMulti ? "multi_select" : "single",
+      traps: isMulti ? ["multi_select"] : [],
+      stem: `Synthetic stem ${index + 1}`,
+      items: isMulti ? ["One", "Two", "Three", "Four"] : null,
+      options: { a: "A", b: "B", c: "C", d: "D" },
+      answer: "a",
+      explanation: "Synthetic explanation.",
+      tip: null,
+      active: true,
+      mock_suitable: true,
+      mock_set: mockSet,
+      variant: index + 1,
+    };
+  });
 }
 
 test("combined bank passes all invariants", () => {
@@ -79,27 +118,35 @@ test("invariant fails on em dash in stem", () => {
   assert.ok(failures.some((f) => f.code === "em_dash"));
 });
 
-test("generator draws 60 from mock_suitable only", () => {
-  const mock = loadMock().questions;
-  const practice = loadPractice().questions;
-  const rows = [...mock, ...practice].map((q) => ({
-    ...q,
-    active: true,
-    mock_suitable: Boolean(q.mock_suitable),
-    variant: Number(q.variant ?? 1),
-    items: q.items ?? null,
-    traps: q.traps ?? [],
-  }));
-  const ids = drawPfqMockQuestionIds(rows, () => 0.42);
+test("validatePfqMockSets accepts a well-formed set and skips empty sets", () => {
+  const rows = syntheticMockSetRows(1);
+  assert.deepEqual(validatePfqMockSets(rows), []);
+});
+
+test("validatePfqMockSets rejects broken set counts", () => {
+  const rows = syntheticMockSetRows(2).slice(0, 59);
+  const failures = validatePfqMockSets(rows);
+  assert.ok(failures.some((f) => f.code === "mock_set_count"));
+});
+
+test("generator draws 60 from a mock_set paper", () => {
+  const rows = syntheticMockSetRows(1);
+  const ids = drawPfqMockQuestionIds(rows, 1, () => 0.42);
   assert.equal(ids.length, 60);
   assert.equal(new Set(ids).size, 60);
   const byId = new Map(rows.map((q) => [q.id, q]));
   for (const id of ids) {
+    assert.equal(byId.get(id)?.mock_set, 1);
     assert.equal(byId.get(id)?.mock_suitable, true);
   }
 });
 
-test("public payload never includes answer or explanation keys", async () => {
+test("generator rejects wrong mock_set shape", () => {
+  const rows = syntheticMockSetRows(1).slice(0, 50);
+  assert.throws(() => drawPfqMockQuestionIds(rows, 1, () => 0.1), /expected 60/);
+});
+
+test("public payload never includes answer, explanation, or tip keys", async () => {
   const { toPublicPfqQuestion, assertNoSecretsInPublicPayload } = await import(
     "../src/lib/pfq/public-question.ts"
   );
@@ -108,8 +155,10 @@ test("public payload never includes answer or explanation keys", async () => {
   const pub = toPublicPfqQuestion(
     {
       ...q,
+      tip: "Never leak this",
       active: true,
       mock_suitable: true,
+      mock_set: null,
       variant: 1,
       items: q.items ?? null,
       traps: q.traps ?? [],
@@ -118,5 +167,112 @@ test("public payload never includes answer or explanation keys", async () => {
   );
   assert.equal("answer" in pub, false);
   assert.equal("explanation" in pub, false);
+  assert.equal("tip" in pub, false);
   assertNoSecretsInPublicPayload({ questions: [pub] });
+  assert.throws(
+    () => assertNoSecretsInPublicPayload({ tip: "secret" }),
+    /tip/,
+  );
+});
+
+test("free sample picks first 50 outcomes with lowest variant practice rows", () => {
+  __clearPfqFreeSampleCacheForTests();
+  const rows = PFQ_EXPECTED_OUTCOMES.flatMap((code, i) => [
+    {
+      id: `FS-${code}-mock`,
+      learning_outcome: code,
+      objective: Number(code.split(".")[0]),
+      day: 1,
+      verb: "define",
+      type: "single",
+      traps: [],
+      stem: "s",
+      items: null,
+      options: { a: "A", b: "B", c: "C", d: "D" },
+      answer: "a",
+      explanation: "e",
+      tip: null,
+      active: true,
+      mock_suitable: true,
+      mock_set: 1,
+      variant: 1,
+    },
+    {
+      id: `FS-${code}-v2`,
+      learning_outcome: code,
+      objective: Number(code.split(".")[0]),
+      day: 1,
+      verb: "define",
+      type: "single",
+      traps: [],
+      stem: "s",
+      items: null,
+      options: { a: "A", b: "B", c: "C", d: "D" },
+      answer: "a",
+      explanation: "e",
+      tip: null,
+      active: true,
+      mock_suitable: false,
+      mock_set: null,
+      variant: 2,
+    },
+    {
+      id: `FS-${code}-v1`,
+      learning_outcome: code,
+      objective: Number(code.split(".")[0]),
+      day: 1,
+      verb: "define",
+      type: "single",
+      traps: [],
+      stem: "s",
+      items: null,
+      options: { a: "A", b: "B", c: "C", d: "D" },
+      answer: "a",
+      explanation: "e",
+      tip: null,
+      active: true,
+      mock_suitable: false,
+      mock_set: null,
+      variant: 1,
+    },
+  ]);
+
+  const ids = selectPfqFreeSampleIds(rows);
+  assert.equal(ids.length, PFQ_FREE_SAMPLE_SIZE);
+  for (let i = 0; i < PFQ_FREE_SAMPLE_SIZE; i += 1) {
+    const code = PFQ_EXPECTED_OUTCOMES[i];
+    assert.equal(ids[i], `FS-${code}-v1`);
+  }
+});
+
+test("free sample cache returns same ids until cleared", async () => {
+  __clearPfqFreeSampleCacheForTests();
+  let fetches = 0;
+  const fetchRows = async () => {
+    fetches += 1;
+    return PFQ_EXPECTED_OUTCOMES.slice(0, 3).map((code) => ({
+      id: `C-${code}`,
+      learning_outcome: code,
+      objective: 1,
+      day: 1,
+      verb: "define",
+      type: "single",
+      traps: [],
+      stem: "s",
+      items: null,
+      options: { a: "A", b: "B", c: "C", d: "D" },
+      answer: "a",
+      explanation: "e",
+      tip: null,
+      active: true,
+      mock_suitable: false,
+      mock_set: null,
+      variant: 1,
+    }));
+  };
+  const a = await getPfqFreeSampleQuestionIds(fetchRows);
+  const b = await getPfqFreeSampleQuestionIds(fetchRows);
+  assert.deepEqual(a, b);
+  assert.equal(fetches, 1);
+  __clearPfqFreeSampleCacheForTests();
 });

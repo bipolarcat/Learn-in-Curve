@@ -68,6 +68,7 @@ export function buildPfqResults(input: {
       option_order: optionOrder,
       answer: bankToDisplayAnswer(q.answer, optionOrder),
       explanation: q.explanation,
+      tip: q.tip ?? null,
       selected,
       correct,
       flagged: a?.flagged ?? false,

@@ -20,3 +20,18 @@ export async function requirePfqProOrRedirect(): Promise<void> {
     redirect(PFQ_PRICING_HREF);
   }
 }
+
+/**
+ * Lessons, Trap School, and free-sample practice: signed-in only.
+ * Starters are allowed; commerce stays behind Pro gates elsewhere.
+ */
+export async function requirePfqSignedInOrRedirect(): Promise<void> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect(PFQ_PRICING_HREF);
+  }
+}

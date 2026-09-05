@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  canAccessPfqFullPractice,
+  canAccessPfqLessons,
   canAccessPfqMock,
+  canAccessPfqTrapSchool,
   toPfqTier,
 } from "../src/lib/pfq/tiers.ts";
 import {
@@ -17,9 +20,18 @@ test("starter is absence — unrecognized values fail closed", () => {
   assert.equal(toPfqTier("pro"), "pro");
 });
 
-test("mock requires pro", () => {
+test("mock and full practice require pro", () => {
   assert.equal(canAccessPfqMock("starter"), false);
   assert.equal(canAccessPfqMock("pro"), true);
+  assert.equal(canAccessPfqFullPractice("starter"), false);
+  assert.equal(canAccessPfqFullPractice("pro"), true);
+});
+
+test("lessons and Trap School are free", () => {
+  assert.equal(canAccessPfqLessons("starter"), true);
+  assert.equal(canAccessPfqLessons("pro"), true);
+  assert.equal(canAccessPfqTrapSchool("starter"), true);
+  assert.equal(canAccessPfqTrapSchool("pro"), true);
 });
 
 test("checkout stays behind the review flag by default", () => {

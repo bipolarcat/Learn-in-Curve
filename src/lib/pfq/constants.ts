@@ -33,8 +33,8 @@ export const PFQ_PREVIEW_HREF = `${PFQ_BASE_HREF}/preview`;
 export const PFQ_PRACTICE_ENABLED = true;
 
 /**
- * Lesson content flag. Pro gate is separate (canAccessPfqLessons). Flip false
- * to hide /courses/pfq-in-2-days/learn/* lesson map + objective pages while
+ * Lesson content flag. Access is free (canAccessPfqLessons always true).
+ * Flip false to hide /courses/pfq-in-2-days/learn/* lesson map + objective pages while
  * content is dark.
  */
 export const PFQ_LESSONS_ENABLED = true;

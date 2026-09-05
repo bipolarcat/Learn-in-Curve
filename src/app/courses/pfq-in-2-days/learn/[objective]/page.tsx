@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
+import { requirePfqSignedInOrRedirect } from "@/lib/pfq/require-pro";
 import {
   PFQ_COURSE_ID,
   PFQ_LESSONS_ENABLED,
@@ -53,7 +53,7 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     notFound();
   }
 
-  await requirePfqProOrRedirect();
+  await requirePfqSignedInOrRedirect();
 
   const supabase = await createClient();
   const {

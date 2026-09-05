@@ -71,7 +71,7 @@ export function PfqOverview({
             <p className={styles.lede}>
               {PFQ_QUESTION_COUNT} questions, 1 mark each, 60 minutes, four
               options. Delivered online in Surpass. Every sitting covers every
-              published learning outcome exactly once (LO 10.4 twice) — there is
+              published learning outcome exactly once (LO 10.4 twice). There is
               no sampling.
             </p>
             <ul className={styles.list}>

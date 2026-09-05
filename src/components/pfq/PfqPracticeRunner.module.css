@@ -207,3 +207,12 @@
   gap: 0.65rem;
   align-items: center;
 }
+
+.missedList {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: rgb(var(--ink-rgb) / 0.78);
+}

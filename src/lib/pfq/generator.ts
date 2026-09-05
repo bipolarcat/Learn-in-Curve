@@ -1,44 +1,47 @@
 import { shuffleInPlace, shuffleOptionOrder } from "./shuffle.ts";
 import type { PfqQuestionRow } from "./types.ts";
 
+export type PfqMockSet = 1 | 2 | 3;
+
+export const PFQ_MOCK_SETS = [1, 2, 3] as const;
+
+function assertMockPaperShape(drawn: PfqQuestionRow[], mockSet: PfqMockSet): void {
+  if (drawn.length !== 60) {
+    throw new Error(
+      `PFQ mock set ${mockSet}: expected 60 questions, got ${drawn.length}`,
+    );
+  }
+  const outcomes = new Set(drawn.map((q) => q.learning_outcome));
+  if (outcomes.size !== 59) {
+    throw new Error(
+      `PFQ mock set ${mockSet}: expected 59 distinct outcomes (one doubled), got ${outcomes.size}`,
+    );
+  }
+  const multiSelect = drawn.filter((q) => q.type === "multi_select").length;
+  if (multiSelect !== 6) {
+    throw new Error(
+      `PFQ mock set ${mockSet}: expected exactly 6 multi_select questions, got ${multiSelect}`,
+    );
+  }
+}
+
 /**
- * Draw one question per distinct learning_outcome, then one extra from an
- * outcome that still has unused questions (the handbook doubles one outcome —
- * which one must not be hardcoded).
+ * Draw the fixed 60-question paper for a mock set: filter by mock_set,
+ * shuffle order, assert paper shape (60 / 59 LOs / 6 multi_select).
  */
 export function drawPfqMockQuestionIds(
   bank: PfqQuestionRow[],
+  mockSet: PfqMockSet,
   random = Math.random,
 ): string[] {
-  // Practice-only rows (mock_suitable=false) must never enter the timed paper.
-  const active = bank.filter(
-    (q) => q.active !== false && q.mock_suitable === true,
+  const pool = bank.filter(
+    (q) =>
+      q.active !== false &&
+      q.mock_suitable === true &&
+      q.mock_set === mockSet,
   );
-  const byOutcome = new Map<string, PfqQuestionRow[]>();
-  for (const q of active) {
-    const list = byOutcome.get(q.learning_outcome) ?? [];
-    list.push(q);
-    byOutcome.set(q.learning_outcome, list);
-  }
-
-  const primary: PfqQuestionRow[] = [];
-  const leftovers: PfqQuestionRow[] = [];
-
-  for (const [, list] of byOutcome) {
-    const shuffled = shuffleInPlace(list, random);
-    const first = shuffled[0];
-    if (first) primary.push(first);
-    leftovers.push(...shuffled.slice(1));
-  }
-
-  if (leftovers.length === 0) {
-    throw new Error(
-      "PFQ bank has no duplicate outcome questions — need 60 draws from 59 outcomes",
-    );
-  }
-
-  const duplicate = leftovers[Math.floor(random() * leftovers.length)]!;
-  const drawn = shuffleInPlace([...primary, duplicate], random);
+  const drawn = shuffleInPlace([...pool], random);
+  assertMockPaperShape(drawn, mockSet);
   return drawn.map((q) => q.id);
 }
 

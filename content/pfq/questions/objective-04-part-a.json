@@ -1,0 +1,465 @@
+[
+  {
+    "id": "PFQP-4-1-6", "learning_outcome": "4.1", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A project manager wants to answer the question \"are we ahead or behind?\". What makes that question answerable?",
+    "items": null,
+    "options": {
+      "a": "An approved deployment baseline to compare current position against.",
+      "b": "A work breakdown structure showing every work package.",
+      "c": "A risk register kept current through the delivery phase.",
+      "d": "A configuration management system recording document versions."
+    },
+    "answer": "a",
+    "explanation": "A baseline is the approved reference. Without something agreed to compare against, ahead-or-behind has no meaning. B, C and D are all real and useful project documents, but none of them provides the point of comparison.",
+    "tip": "When every option names a genuine project document, the question is asking which one does the specific job in the stem. Answer the stem in your own head first, then look for it.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-1-7", "learning_outcome": "4.1", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": [],
+    "stem": "Why does moving a deployment baseline require formal change control rather than a simple update?",
+    "items": null,
+    "options": {
+      "a": "Because moving it invalidates every progress report that referred to the old one.",
+      "b": "Because the sponsor must personally re-sign the project management plan.",
+      "c": "Because the schedule cannot be recalculated once it has been approved.",
+      "d": "Because baselines are held in a system that prevents direct editing."
+    },
+    "answer": "a",
+    "explanation": "The baseline is what performance has been reported against. Quietly moving it makes the entire reporting history meaningless, which is why the change has to be visible and authorised. The other options describe process or tooling constraints that may or may not apply on a given project.",
+    "tip": "Watch for distractors that describe how a rule is enforced rather than why it exists. A why question wants the reason, not the mechanism.",
+    "active": true, "mock_suitable": false, "variant": 7
+  },
+  {
+    "id": "PFQP-4-1-8", "learning_outcome": "4.1", "objective": 4, "day": 1, "verb": "define",
+    "type": "multi_select", "traps": ["multi_select"],
+    "stem": "Which of the following does a deployment baseline normally cover?",
+    "items": ["Scope", "Schedule", "Cost", "Team morale"],
+    "options": {
+      "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
+    },
+    "answer": "a",
+    "explanation": "A baseline normally covers scope, schedule and cost together, because changing any one of them changes what the project is measured against. Team morale matters but is not baselined.",
+    "tip": "Do not evaluate the four options. Evaluate the four items, find the single one you are confident is wrong, then strike out every option containing it. Here that leaves one answer immediately.",
+    "active": true, "mock_suitable": true, "variant": 8
+  },
+  {
+    "id": "PFQP-4-1-9", "learning_outcome": "4.1", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A project has a detailed schedule and a full cost plan, but neither has been approved. What does it lack?",
+    "items": null,
+    "options": {
+      "a": "A deployment baseline, because a baseline is the approved plan, not merely a plan.",
+      "b": "A project management plan, because approval is what creates one.",
+      "c": "A business case, because costs cannot be planned without justification.",
+      "d": "Nothing, because a baseline is simply the latest version of the plan."
+    },
+    "answer": "a",
+    "explanation": "The word doing the work in the definition is approved. A plan becomes a baseline at the point it is authorised, not at the point it is finished. Option D is the habit that makes progress reporting meaningless in practice.",
+    "tip": "Definitions in this syllabus often turn on a single qualifying word. Approved, agreed, measurable, formal. Find that word and the near-misses fall away.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-1-10", "learning_outcome": "4.1", "objective": 4, "day": 1, "verb": "define",
+    "type": "single", "traps": [],
+    "stem": "Which single word best captures what a deployment baseline provides?",
+    "items": null,
+    "options": {
+      "a": "Reference.", "b": "Authorisation.", "c": "Decomposition.", "d": "Contingency."
+    },
+    "answer": "a",
+    "explanation": "A baseline is the reference point against which progress is measured and controlled. Authorisation is how a baseline is created rather than what it provides. Decomposition describes breakdown structures, and contingency is a cost and risk concept.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-2-6", "learning_outcome": "4.2", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "An iterative project has a high-level plan for the whole project and a detailed agreed plan for the current cycle only. Is this correct practice?",
+    "items": null,
+    "options": {
+      "a": "Yes. In iterative work only the current iteration is baselined in detail.",
+      "b": "No. The whole project must be baselined in detail before delivery starts.",
+      "c": "No. Iterative projects do not use baselines at all.",
+      "d": "Yes, but only if the sponsor waives formal change control."
+    },
+    "answer": "a",
+    "explanation": "Iterative work baselines each iteration: time and resources are fixed for the cycle and the scope within it is agreed, while later iterations are deliberately left open. Option B describes the linear approach. Option C overstates the difference, since iterative projects do baseline, just at a different granularity.",
+    "tip": "In a yes-or-no question, read the reason attached to each option, not the yes or the no. Two options here say yes and only one gives the right reason.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-2-7", "learning_outcome": "4.2", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Which pairing correctly describes what each life cycle fixes?",
+    "items": null,
+    "options": {
+      "a": "Linear fixes scope; iterative fixes time and cost.",
+      "b": "Linear fixes time and cost; iterative fixes scope.",
+      "c": "Both fix scope, and flex time and cost.",
+      "d": "Both fix time and cost, and flex scope."
+    },
+    "answer": "a",
+    "explanation": "Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost per cycle and flexes scope through re-prioritisation. Option B is the exact inversion.",
+    "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Decide which half you are sure of, and let it settle the pair.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-2-8", "learning_outcome": "4.2", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": [],
+    "stem": "Why does an iterative project not baseline the detail of its later iterations?",
+    "items": null,
+    "options": {
+      "a": "Because the detail of later work is deliberately left open to be re-prioritised.",
+      "b": "Because iterative projects have no defined end point.",
+      "c": "Because the sponsor only approves one iteration at a time.",
+      "d": "Because later iterations are estimated parametrically rather than analytically."
+    },
+    "answer": "a",
+    "explanation": "Leaving later detail open is the point of the approach, not an oversight: it is what allows scope to flex through re-prioritisation. Option B is a common misconception, since iterative projects do have end points.",
+    "tip": "Distractors that describe a method as lacking discipline are usually wrong. The syllabus treats iterative work as deliberate, not loose.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-2-9", "learning_outcome": "4.2", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": ["negative_stem"],
+    "stem": "Which of the following is not true of a linear life cycle baseline?",
+    "items": null,
+    "options": {
+      "a": "It is set once, at the end of the definition phase.",
+      "b": "It covers the full scope of the project.",
+      "c": "It is re-set at the start of every delivery phase as a matter of course.",
+      "d": "Changing it after approval requires formal change control."
+    },
+    "answer": "c",
+    "explanation": "A linear baseline is set once and changed only through change control. Routine re-baselining at every phase describes iterative practice, not linear.",
+    "tip": "The word not inverts the question. Mark it before you read a single option, then ask of each one: is this true? Pick the one where the answer is no.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-2-10", "learning_outcome": "4.2", "objective": 4, "day": 1, "verb": "state",
+    "type": "single", "traps": [],
+    "stem": "A team completes an iteration and agrees the scope of the next one. What happens to the baseline?",
+    "items": null,
+    "options": {
+      "a": "A new baseline is set for the next iteration.",
+      "b": "The original project baseline is amended through change control.",
+      "c": "The baseline is suspended until the final iteration.",
+      "d": "No baseline exists until all iterations are complete."
+    },
+    "answer": "a",
+    "explanation": "Iterative baselining happens per cycle, so each new iteration gets its own. Option B applies the linear mechanism to an iterative project. C and D would leave the team with nothing to measure against, which defeats the purpose of baselining.",
+    "tip": "Check whether an option's mechanism belongs to the life cycle in the scenario. Change control is a linear answer, re-prioritisation is an iterative one.",
+    "active": true, "mock_suitable": true, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-3-6", "learning_outcome": "4.3", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A user group has not contributed to the project management plan and is not named in it, but the plan determines what they will receive and when. Are they a stakeholder of the plan?",
+    "items": null,
+    "options": {
+      "a": "Yes, because being a stakeholder is about having an interest in the plan.",
+      "b": "No, because they were not consulted during its development.",
+      "c": "No, because only roles named in the plan are its stakeholders.",
+      "d": "Yes, but only once they are formally added to the stakeholder register."
+    },
+    "answer": "a",
+    "explanation": "Stakeholder status comes from having an interest, not from authorship or from being named. Options B and C are both plausible-sounding process rules and both wrong. D confuses being a stakeholder with being recorded as one.",
+    "tip": "Be suspicious of options that make a status depend on paperwork. Being something and being recorded as something are different, and the exam tests the difference.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-3-7", "learning_outcome": "4.3", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Which stakeholder uses the project management plan as the basis for the tolerances it sets?",
+    "items": null,
+    "options": {
+      "a": "The governance board.", "b": "The project sponsor.",
+      "c": "The project manager.", "d": "The supplier."
+    },
+    "answer": "a",
+    "explanation": "The governance board sets tolerances and takes gate decisions using the plan. The sponsor approves it and owns the business case it serves, the project manager produces and works to it, and suppliers depend on its procurement timing.",
+    "tip": "When every option is a genuine stakeholder, the question is testing which interest belongs to which role. Match the verb in the stem to the role that performs it.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-3-8", "learning_outcome": "4.3", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "What does the project management plan set out?",
+    "items": null,
+    "options": {
+      "a": "Why, what, how, when, how much and by whom the project will be delivered.",
+      "b": "The justification for the project and the options considered.",
+      "c": "The current version and status of every project document.",
+      "d": "The threats and opportunities facing the project and their owners."
+    },
+    "answer": "a",
+    "explanation": "That six-part formulation is the plan. Option B describes the business case, C describes configuration management records, and D describes the risk register.",
+    "tip": "Three options describing three different documents is the classic near-miss shape. Name the document in your head from the stem before reading on.",
+    "active": true, "mock_suitable": true, "variant": 8
+  },
+  {
+    "id": "PFQP-4-3-9", "learning_outcome": "4.3", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "Why do end users have a stake in the project management plan?",
+    "items": null,
+    "options": {
+      "a": "Because it determines what they will receive and what will be expected of them at transition.",
+      "b": "Because they approve the plan before delivery can begin.",
+      "c": "Because they are accountable for the benefits the plan supports.",
+      "d": "Because they produce the work packages the plan contains."
+    },
+    "answer": "a",
+    "explanation": "End users are affected by what is delivered and by what transition asks of them. Approval and benefits accountability belong to the sponsor, and work packages to the project manager and team.",
+    "tip": "Each wrong option here correctly describes a different stakeholder. Ask who the stem names, then find the interest that belongs to them specifically.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-3-10", "learning_outcome": "4.3", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "A supplier asks why they should be consulted on the project management plan. What is the best answer?",
+    "items": null,
+    "options": {
+      "a": "The plan states what will be procured and when it is needed, so their commitments depend on it.",
+      "b": "The plan sets the tolerances within which they must operate.",
+      "c": "The plan is the contract between the project and the supplier.",
+      "d": "The plan records the acceptance criteria for their deliverables."
+    },
+    "answer": "a",
+    "explanation": "Suppliers have a stake because the plan drives what must be supplied and when. Option C is wrong in an important way: the plan is not a contract, and treating it as one confuses a management document with a legal instrument. Tolerances are a governance board matter.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-4-7", "learning_outcome": "4.4", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Which of the following, if it appeared in a business case, would suggest the document has strayed into delivery detail?",
+    "items": null,
+    "options": {
+      "a": "A work breakdown structure of the preferred option.",
+      "b": "The strategic reason for undertaking the project.",
+      "c": "The options considered and why one was preferred.",
+      "d": "The major risks and the expected timescales."
+    },
+    "answer": "a",
+    "explanation": "A work breakdown structure is a delivery tool, not justification. B, C and D are all typical business case content.",
+    "tip": "A reliable test for business case content: if an option describes something a project manager would use to run the work, it does not belong in the business case.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-4-8", "learning_outcome": "4.4", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "What question does the business case exist to keep answering?",
+    "items": null,
+    "options": {
+      "a": "Is this still worth doing?", "b": "Are we still on schedule?",
+      "c": "Is this deliverable fit for purpose?", "d": "Who is accountable for this decision?"
+    },
+    "answer": "a",
+    "explanation": "The business case is the justification, and its job is to keep answering whether the project remains worth doing. B is progress reporting, C is quality control, and D is governance.",
+    "tip": "Each document in this syllabus answers one question. Business case: is it worth doing. Plan: how will it be done. Register: what might go wrong. Learn them as questions, not as contents lists.",
+    "active": true, "mock_suitable": true, "variant": 8
+  },
+  {
+    "id": "PFQP-4-4-9", "learning_outcome": "4.4", "objective": 4, "day": 1, "verb": "outline",
+    "type": "multi_select", "traps": ["multi_select"],
+    "stem": "Which of the following are typical business case content?",
+    "items": ["The options considered", "Expected benefits", "The issue log", "Major risks"],
+    "options": {
+      "a": "1, 2 and 3", "b": "1, 2 and 4", "c": "2, 3 and 4", "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Options considered, expected benefits and major risks all belong in a business case. The issue log is a live delivery record and belongs elsewhere.",
+    "tip": "Look for the item that is a live operational record rather than a piece of justification. In a business case question, logs and registers are usually the intruder.",
+    "active": true, "mock_suitable": true, "variant": 9
+  },
+  {
+    "id": "PFQP-4-4-10", "learning_outcome": "4.4", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "What is the purpose of including a do-nothing option in a business case?",
+    "items": null,
+    "options": {
+      "a": "It establishes the baseline against which the other options are judged.",
+      "b": "It demonstrates that the project team considered cancelling the project.",
+      "c": "It satisfies a governance requirement to present at least three options.",
+      "d": "It provides a fallback position if the preferred option is rejected."
+    },
+    "answer": "a",
+    "explanation": "Do-nothing is the comparator: without it there is no way to judge whether any option is worth its cost. It is a measuring stick, not a contingency plan. Option C invents a rule that does not exist.",
+    "tip": "Distrust options that cite a specific numerical requirement the syllabus never states. Invented thresholds are a common distractor.",
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+  {
+    "id": "PFQP-4-4-11", "learning_outcome": "4.4", "objective": 4, "day": 1, "verb": "outline",
+    "type": "single", "traps": [],
+    "stem": "In what sense is the business case a live document?",
+    "items": null,
+    "options": {
+      "a": "It is created at concept, approved before the project proceeds, and reviewed at each decision gate.",
+      "b": "It is updated whenever a change request is approved.",
+      "c": "It is version-controlled under configuration management throughout delivery.",
+      "d": "It is rewritten at the start of each phase by the project manager."
+    },
+    "answer": "a",
+    "explanation": "Live means it is revisited at gates to confirm the justification still holds, not that it changes constantly. B and C describe real processes that may apply to it, but neither is what makes it live. D gets both the frequency and the owner wrong, since the sponsor owns the business case.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 11
+  },
+
+  {
+    "id": "PFQP-4-5-6", "learning_outcome": "4.5", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A project is being run well, on time and to budget, but the market has moved and the benefits will no longer materialise. Who is positioned to stop it, and why?",
+    "items": null,
+    "options": {
+      "a": "The sponsor, because they own the business case and are accountable for benefits.",
+      "b": "The project manager, because they have the clearest view of delivery performance.",
+      "c": "The governance board, because only they can cancel an authorised project.",
+      "d": "The end users, because they will not adopt an output they no longer need."
+    },
+    "answer": "a",
+    "explanation": "This is why business case ownership sits with the sponsor rather than the project manager. A project manager measured on delivery has every incentive to keep delivering. Separating ownership of the why from responsibility for the how is what makes it possible to stop a well-run project that is no longer worth doing.",
+    "tip": "When a scenario separates delivering well from being worth delivering, the answer almost always involves the sponsor and the business case.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-5-7", "learning_outcome": "4.5", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "What does the project manager supply in relation to the business case?",
+    "items": null,
+    "options": {
+      "a": "Current cost forecasts, schedule position and changes in risk.",
+      "b": "Approval of the case before each decision gate.",
+      "c": "The strategic justification for undertaking the project.",
+      "d": "Accountability for realising the benefits after handover."
+    },
+    "answer": "a",
+    "explanation": "The project manager feeds the sponsor the information needed to judge whether the case still holds. Approval, justification and benefits accountability all sit with the sponsor.",
+    "tip": "Supplying information and owning a document are different responsibilities. The exam tests that boundary repeatedly, so read the verb in the stem carefully.",
+    "active": true, "mock_suitable": true, "variant": 7
+  },
+  {
+    "id": "PFQP-4-5-8", "learning_outcome": "4.5", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["negative_stem"],
+    "stem": "Which of the following is not a sponsor responsibility in relation to the business case?",
+    "items": null,
+    "options": {
+      "a": "Developing the case.", "b": "Maintaining it through the life of the project.",
+      "c": "Being accountable for the benefits it promises.",
+      "d": "Producing the cost forecasts that update it."
+    },
+    "answer": "d",
+    "explanation": "Three of these are sponsor responsibilities. Cost forecasts come from the project manager, who supplies information without owning or approving the case.",
+    "tip": "On an inverted stem about roles, list the role's real responsibilities in your head first. The odd one out is usually a task belonging to the other role in the pair.",
+    "active": true, "mock_suitable": false, "variant": 8
+  },
+  {
+    "id": "PFQP-4-5-9", "learning_outcome": "4.5", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "A project manager updates the business case and approves it themselves before a gate. What is wrong with this?",
+    "items": null,
+    "options": {
+      "a": "It removes the independence that lets a project be stopped when it stops being worth doing.",
+      "b": "It breaches configuration management, because the document version is uncontrolled.",
+      "c": "Nothing, provided the sponsor is informed afterwards.",
+      "d": "It is acceptable only on iterative projects, where roles are combined."
+    },
+    "answer": "a",
+    "explanation": "The separation exists precisely because the two roles have conflicting incentives. Collapsing them into one person removes the check. Option B identifies a real but secondary problem, and options C and D would both leave the conflict of interest in place.",
+    "tip": "Where two options both identify a genuine problem, pick the one that names the more fundamental failure. Governance beats housekeeping.",
+    "active": true, "mock_suitable": false, "variant": 9
+  },
+  {
+    "id": "PFQP-4-5-10", "learning_outcome": "4.5", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "The split of responsibility for the business case mirrors which broader distinction?",
+    "items": null,
+    "options": {
+      "a": "Why versus how.", "b": "Risk versus issue.",
+      "c": "Output versus benefit.", "d": "Scope versus quality."
+    },
+    "answer": "a",
+    "explanation": "The sponsor owns why the project is being done; the project manager runs how it is delivered. Option C is the closest near-miss because it is a genuinely related split with the same role boundary, but it describes what each is accountable for delivering rather than the ownership of the justification.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 10
+  },
+
+  {
+    "id": "PFQP-4-6-6", "learning_outcome": "4.6", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "A regulator has considerable power over the project but currently shows little interest in it. How should they be engaged?",
+    "items": null,
+    "options": {
+      "a": "Keep them satisfied, so their interest is not aroused unhelpfully.",
+      "b": "Manage them closely, with frequent detailed updates.",
+      "c": "Keep them informed with the same reporting everyone else receives.",
+      "d": "Monitor only, since low interest means low engagement need."
+    },
+    "answer": "a",
+    "explanation": "High influence with low interest is the keep-satisfied quadrant. Close management is for high influence and high interest, and over-engaging a powerful but disinterested stakeholder can create the very scrutiny you wanted to avoid. Option D ignores the power axis entirely.",
+    "tip": "Place the stakeholder on both axes before reading the options. Getting one axis right and forgetting the other is how three of these four distractors catch people.",
+    "active": true, "mock_suitable": true, "variant": 6
+  },
+  {
+    "id": "PFQP-4-6-7", "learning_outcome": "4.6", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "Why is it a problem to spread engagement effort evenly across all stakeholders?",
+    "items": null,
+    "options": {
+      "a": "Because those who can sink the project receive no more attention than those who cannot.",
+      "b": "Because stakeholders resent receiving communication they did not ask for.",
+      "c": "Because the communication plan permits only one method per stakeholder.",
+      "d": "Because engagement effort must be justified in the business case."
+    },
+    "answer": "a",
+    "explanation": "Engagement effort is finite. The value of analysis is targeting, so that effort lands where it changes the outcome. B is a real irritation but not the reason analysis exists, and C and D invent constraints.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 7
+  },
+  {
+    "id": "PFQP-4-6-8", "learning_outcome": "4.6", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": ["near_miss"],
+    "stem": "Stakeholder analysis produces its conclusions. Where are the resulting decisions about who gets what information, when and how, recorded?",
+    "items": null,
+    "options": {
+      "a": "The communication plan.", "b": "The project management plan's governance section.",
+      "c": "The stakeholder register.", "d": "The business case."
+    },
+    "answer": "a",
+    "explanation": "Analysis feeds the communication plan, which is where the who, what, when and how are set down. The stakeholder register is the closest near-miss: it records who the stakeholders are and their analysis, but not the communication decisions that follow from it.",
+    "tip": "Distinguish the document that holds the analysis from the document that holds the resulting decisions. The exam separates them deliberately.",
+    "active": true, "mock_suitable": true, "variant": 8
+  },
+  {
+    "id": "PFQP-4-6-9", "learning_outcome": "4.6", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "A stakeholder has high interest in the project but little influence over it. What is the appropriate approach?",
+    "items": null,
+    "options": {
+      "a": "Keep them informed.", "b": "Manage them closely.",
+      "c": "Keep them satisfied.", "d": "Monitor with minimal effort."
+    },
+    "answer": "a",
+    "explanation": "High interest with low influence is the keep-informed quadrant: they want to know and deserve to be told, but they do not need the effort that close management costs. Each of the other three options is the correct treatment for a different quadrant.",
+    "tip": "Memorise the four quadrant treatments as a pair of axes, not as a list. Given any two-word description of a stakeholder you should be able to place them in one move.",
+    "active": true, "mock_suitable": true, "variant": 9
+  },
+  {
+    "id": "PFQP-4-6-10", "learning_outcome": "4.6", "objective": 4, "day": 1, "verb": "explain",
+    "type": "single", "traps": [],
+    "stem": "Which two attributes does stakeholder analysis assess in order to plan engagement?",
+    "items": null,
+    "options": {
+      "a": "Interest and influence.", "b": "Availability and seniority.",
+      "c": "Interest and expertise.", "d": "Influence and location."
+    },
+    "answer": "a",
+    "explanation": "The two axes are interest and power or influence, and the combination determines the engagement approach. Seniority often correlates with influence but is not the same thing: a junior person with regulatory authority has influence their grade does not show.",
+    "tip": null,
+    "active": true, "mock_suitable": false, "variant": 10
+  }
+]

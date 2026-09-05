@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { PfqCoverageMap } from "@/components/pfq/PfqCoverageMap";
+import { PfqTip } from "@/components/pfq/PfqTip";
 import styles from "@/components/pfq/PfqResults.module.css";
 import { PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
 import { pfqLessonHref } from "@/lib/pfq/lesson-href";
@@ -31,7 +32,7 @@ export function PfqResults({ results }: Props) {
         </p>
         <p className={styles.passHint}>
           Pass mark on the real PFQ is {PFQ_PASS_MARK}/{results.maxScore}. No
-          negative marking — unanswered scored 0.
+          negative marking. Unanswered scored 0.
         </p>
       </header>
 
@@ -111,6 +112,7 @@ export function PfqResults({ results }: Props) {
                 ))}
               </ul>
               <p className={styles.explanation}>{q.explanation}</p>
+              <PfqTip tip={q.tip} />
             </li>
           ))}
         </ul>

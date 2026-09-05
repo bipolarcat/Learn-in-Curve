@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
+import { requirePfqSignedInOrRedirect } from "@/lib/pfq/require-pro";
 import {
   PFQ_COURSE_ID,
   PFQ_LESSONS_ENABLED,
@@ -10,6 +10,7 @@ import {
 } from "@/lib/pfq/constants";
 import { PFQ_LESSONS } from "@/lib/pfq/content";
 import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
+import { getPfqTier } from "@/lib/pfq/entitlement";
 import { getUserCourseStats } from "@/lib/pmq/queries";
 import { CourseHeader } from "@/components/course/CourseHeader";
 import { PfqOverview } from "@/components/pfq/PfqOverview";
@@ -28,7 +29,7 @@ export default async function PfqLearnHubPage() {
     redirect(PFQ_PRICING_HREF);
   }
 
-  await requirePfqProOrRedirect();
+  await requirePfqSignedInOrRedirect();
 
   const supabase = await createClient();
   const {
@@ -40,9 +41,10 @@ export default async function PfqLearnHubPage() {
 
   void PFQ_LESSONS.length;
 
-  const [pfqStats, pfqCard] = await Promise.all([
+  const [pfqStats, pfqCard, tier] = await Promise.all([
     getUserCourseStats(supabase, user.id, PFQ_COURSE_ID),
     getPfqDashboardCardState(user.id),
+    getPfqTier(supabase, user.id),
   ]);
 
   return (
@@ -54,7 +56,7 @@ export default async function PfqLearnHubPage() {
         completionPercent={pfqCard.completionPercent}
         showProgress
         showOverviewLink={false}
-        userTier="pro"
+        userTier={tier}
       />
       <PfqOverview
         completedObjectives={pfqCard.completedObjectives}

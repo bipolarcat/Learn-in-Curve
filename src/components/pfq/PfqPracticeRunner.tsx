@@ -3,36 +3,45 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import {
+  finishPfqFreeSampleSummary,
+  startPfqFreeSamplePractice,
   startPfqPractice,
   submitPfqPracticeAnswer,
+  type FinishPfqFreeSampleSummaryResult,
 } from "@/lib/pfq/practice-actions";
 import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { Spinner } from "@/components/ui/spinner";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 import styles from "@/components/pfq/PfqPracticeRunner.module.css";
-import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
+import { PFQ_LEARN_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import { resolveTrapCallout } from "@/lib/pfq/trap-callout";
 import { PfqTrapCallout } from "@/components/pfq/PfqTrapCallout";
+import { PfqTip } from "@/components/pfq/PfqTip";
 
 type Feedback = {
   correct: boolean;
   explanation: string;
+  tip: string | null;
   learning_outcome: string;
   correct_key: string;
 };
 
 type Props = {
-  objective: number;
+  mode?: "objective" | "free-sample";
+  /** Required for objective mode; ignored for free-sample. */
+  objective?: number;
   objectiveTitle: string;
   /** When true, drop the standalone page chrome (title / coverage map link). */
   embedded?: boolean;
 };
 
 export function PfqPracticeRunner({
+  mode = "objective",
   objective,
   objectiveTitle,
   embedded = false,
 }: Props) {
+  const isFreeSample = mode === "free-sample";
   const [phase, setPhase] = useState<"ready" | "run" | "done">("ready");
   const [error, setError] = useState("");
   const [sessionId, setSessionId] = useState("");
@@ -42,6 +51,9 @@ export function PfqPracticeRunner({
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [answered, setAnswered] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
+  const [sampleSummary, setSampleSummary] = useState<
+    Extract<FinishPfqFreeSampleSummaryResult, { ok: true }> | null
+  >(null);
   const [pending, startTransition] = useTransition();
 
   const current = questions[index] ?? null;
@@ -49,7 +61,9 @@ export function PfqPracticeRunner({
   function begin() {
     setError("");
     startTransition(async () => {
-      const started = await startPfqPractice({ objective });
+      const started = isFreeSample
+        ? await startPfqFreeSamplePractice()
+        : await startPfqPractice({ objective: objective! });
       if (!started.ok) {
         setError(started.error);
         return;
@@ -61,6 +75,7 @@ export function PfqPracticeRunner({
       setFeedback(null);
       setAnswered(0);
       setCorrectCount(0);
+      setSampleSummary(null);
       setPhase("run");
     });
   }
@@ -86,6 +101,19 @@ export function PfqPracticeRunner({
 
   function next() {
     if (index + 1 >= questions.length) {
+      if (isFreeSample) {
+        setError("");
+        startTransition(async () => {
+          const summary = await finishPfqFreeSampleSummary(sessionId);
+          if (!summary.ok) {
+            setError(summary.error);
+            return;
+          }
+          setSampleSummary(summary);
+          setPhase("done");
+        });
+        return;
+      }
       setPhase("done");
       return;
     }
@@ -105,14 +133,14 @@ export function PfqPracticeRunner({
           </h2>
         ) : (
           <h1 className={styles.title}>
-            Practice LO{objective}
+            {isFreeSample ? "Free sample" : `Practice LO${objective}`}
             <span className={styles.titleSub}>{objectiveTitle}</span>
           </h1>
         )}
         <p className={styles.lead}>
-          Untimed. Every active question for this objective — mock and
-          practice variants. Immediate feedback after each answer; results
-          feed the coverage map by learning outcome.
+          {isFreeSample
+            ? "Untimed. Fifty questions across fifty learning outcomes. Immediate feedback after each answer. A short report at the end shows what you missed."
+            : "Untimed. Every active question for this objective, mock and practice variants. Immediate feedback after each answer; results feed the coverage map by learning outcome."}
         </p>
         {error ? (
           <p className={styles.error} role="alert">
@@ -128,10 +156,67 @@ export function PfqPracticeRunner({
         >
           {pending ? (
             <Spinner variant="bars" size={16} className="text-current" />
+          ) : isFreeSample ? (
+            "Start free sample"
           ) : (
             "Start practice"
           )}
         </button>
+      </div>
+    );
+  }
+
+  if (phase === "done" && isFreeSample && sampleSummary) {
+    return (
+      <div className={styles.startCard}>
+        <h1 className={styles.title}>Free sample complete</h1>
+        <p className={styles.lead}>
+          You answered {sampleSummary.correctOutcomes} of{" "}
+          {sampleSummary.testedCount} tested outcomes correctly.
+        </p>
+        {sampleSummary.missed.length > 0 ? (
+          <div>
+            <p className={styles.lead}>Missed outcomes:</p>
+            <ul className={styles.missedList}>
+              {sampleSummary.missed.map((m) => (
+                <li key={m.code}>
+                  {m.code} {m.title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p className={styles.lead}>No missed outcomes in this sample.</p>
+        )}
+        <p className={styles.lead}>
+          {sampleSummary.untestedCount} outcomes were not tested in this free
+          sample.
+        </p>
+        <p className={styles.lead}>
+          Pro adds the full practice bank, three timed mock papers, and a
+          per-outcome coverage report.
+        </p>
+        {error ? (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        ) : null}
+        <div className={styles.navRow}>
+          <Link href={PFQ_PRICING_HREF} className={stampCtaPrimary}>
+            See Pro plans
+          </Link>
+          <button
+            type="button"
+            className={stampCtaSecondary}
+            onClick={() => {
+              setPhase("ready");
+              setQuestions([]);
+              setSampleSummary(null);
+            }}
+          >
+            Try sample again
+          </button>
+        </div>
       </div>
     );
   }
@@ -180,7 +265,9 @@ export function PfqPracticeRunner({
           Q{index + 1}/{questions.length}
         </span>
         <span className={styles.muted}>
-          LO{objective} · untimed · {answered} checked
+          {isFreeSample
+            ? `Free sample · untimed · ${answered} checked`
+            : `LO${objective} · untimed · ${answered} checked`}
         </span>
       </header>
 
@@ -238,6 +325,7 @@ export function PfqPracticeRunner({
               {feedback.learning_outcome}
             </p>
             <p className={styles.feedbackBody}>{feedback.explanation}</p>
+            <PfqTip tip={feedback.tip} />
             {!feedback.correct
               ? (() => {
                   const callout = resolveTrapCallout(current.traps);
@@ -272,9 +360,17 @@ export function PfqPracticeRunner({
             <button
               type="button"
               className={stampCtaPrimary}
+              disabled={pending}
+              aria-busy={pending}
               onClick={() => next()}
             >
-              {index + 1 >= questions.length ? "Finish" : "Next question"}
+              {pending ? (
+                <Spinner variant="bars" size={16} className="text-current" />
+              ) : index + 1 >= questions.length ? (
+                "Finish"
+              ) : (
+                "Next question"
+              )}
             </button>
           )}
         </div>

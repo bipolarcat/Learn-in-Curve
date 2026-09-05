@@ -1,4 +1,6 @@
 import { PFQ_EXPECTED_OUTCOMES } from "./outcomes.ts";
+import type { PfqMockSet } from "./generator.ts";
+import { PFQ_MOCK_SETS } from "./generator.ts";
 
 export type BankQuestion = {
   id: string;
@@ -10,7 +12,9 @@ export type BankQuestion = {
   options: Record<string, string>;
   answer: string;
   explanation: string;
+  tip?: string | null;
   mock_suitable?: boolean;
+  mock_set?: 1 | 2 | 3 | null;
   variant?: number;
 };
 
@@ -96,6 +100,87 @@ export function validatePfqBank(
   return failures;
 }
 
+function isMockSet(value: unknown): value is PfqMockSet {
+  return value === 1 || value === 2 || value === 3;
+}
+
+/**
+ * Validate assigned mock papers. Only checks sets that have any rows;
+ * empty / unassigned banks are fine during authoring.
+ */
+export function validatePfqMockSets(
+  questions: BankQuestion[],
+): BankInvariantFailure[] {
+  const failures: BankInvariantFailure[] = [];
+  const bySet = new Map<PfqMockSet, BankQuestion[]>();
+  const idToSets = new Map<string, PfqMockSet[]>();
+
+  for (const q of questions) {
+    if (!isMockSet(q.mock_set)) continue;
+    const list = bySet.get(q.mock_set) ?? [];
+    list.push(q);
+    bySet.set(q.mock_set, list);
+
+    const sets = idToSets.get(q.id) ?? [];
+    sets.push(q.mock_set);
+    idToSets.set(q.id, sets);
+  }
+
+  for (const [id, sets] of idToSets) {
+    const unique = new Set(sets);
+    if (unique.size > 1) {
+      failures.push({
+        code: "mock_set_id_collision",
+        message: `Question ${id} appears in more than one mock_set: ${[...unique].join(", ")}`,
+      });
+    }
+  }
+
+  for (const mockSet of PFQ_MOCK_SETS) {
+    const rows = bySet.get(mockSet);
+    if (!rows || rows.length === 0) continue;
+
+    if (rows.length !== 60) {
+      failures.push({
+        code: "mock_set_count",
+        message: `Mock set ${mockSet}: expected 60 questions, got ${rows.length}`,
+      });
+    }
+
+    const outcomes = rows.map((q) => q.learning_outcome);
+    const distinct = new Set(outcomes);
+    if (distinct.size !== 59) {
+      failures.push({
+        code: "mock_set_outcomes",
+        message: `Mock set ${mockSet}: expected 59 distinct outcomes, got ${distinct.size}`,
+      });
+    }
+
+    const counts = new Map<string, number>();
+    for (const code of outcomes) {
+      counts.set(code, (counts.get(code) ?? 0) + 1);
+    }
+    const doubled = [...counts.entries()].filter(([, n]) => n === 2);
+    const over = [...counts.entries()].filter(([, n]) => n > 2);
+    if (doubled.length !== 1 || over.length > 0) {
+      failures.push({
+        code: "mock_set_double",
+        message: `Mock set ${mockSet}: expected exactly one outcome doubled once, got doubles=${doubled.map(([c]) => c).join(",") || "none"} overs=${over.map(([c, n]) => `${c}x${n}`).join(",") || "none"}`,
+      });
+    }
+
+    const multiSelect = rows.filter((q) => q.type === "multi_select").length;
+    if (multiSelect !== 6) {
+      failures.push({
+        code: "mock_set_multi_select",
+        message: `Mock set ${mockSet}: expected exactly 6 multi_select, got ${multiSelect}`,
+      });
+    }
+  }
+
+  return failures;
+}
+
 /**
  * Combined mock + practice bank checks used by CI and the seed script.
  */
@@ -135,6 +220,11 @@ export function validateCombinedPfqBank(
         message: `Outcome ${code} has no mock_suitable question`,
       });
     }
+  }
+
+  const combined = [...mockQuestions, ...practiceQuestions];
+  if (combined.some((q) => isMockSet(q.mock_set))) {
+    failures.push(...validatePfqMockSets(combined));
   }
 
   return failures;

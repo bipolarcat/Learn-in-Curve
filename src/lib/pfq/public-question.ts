@@ -1,7 +1,7 @@
 import { optionsForAttempt } from "./shuffle.ts";
 import type { PfqPublicQuestion, PfqQuestionRow } from "./types.ts";
 
-/** Strip answer + explanation before any client response. */
+/** Strip answer + explanation + tip before any client response. */
 export function toPublicPfqQuestion(
   q: PfqQuestionRow,
   optionOrder: string[],
@@ -23,7 +23,13 @@ export function toPublicPfqQuestion(
 
 export function assertNoSecretsInPublicPayload(payload: unknown): void {
   const json = JSON.stringify(payload);
-  if (/"answer"\s*:/.test(json) || /"explanation"\s*:/.test(json)) {
-    throw new Error("Public PFQ payload must not include answer or explanation");
+  if (
+    /"answer"\s*:/.test(json) ||
+    /"explanation"\s*:/.test(json) ||
+    /"tip"\s*:/.test(json)
+  ) {
+    throw new Error(
+      "Public PFQ payload must not include answer, explanation, or tip",
+    );
   }
 }

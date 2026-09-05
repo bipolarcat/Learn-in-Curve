@@ -1,23 +1,31 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Flag } from "lucide-react";
 import {
+  listPfqMockSetSummaries,
   loadPfqAttempt,
   mintPfqGuestToken,
   savePfqAnswer,
   startPfqAttempt,
   submitPfqAttempt,
   togglePfqFlag,
+  type PfqMockSetSummary,
 } from "@/lib/pfq/actions";
-import { PFQ_DURATION_SECONDS, PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
+import {
+  PFQ_DURATION_SECONDS,
+  PFQ_PASS_MARK,
+  PFQ_QUESTION_COUNT,
+} from "@/lib/pfq/outcomes";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
+import { PFQ_MOCK_SETS, type PfqMockSet } from "@/lib/pfq/generator";
 import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { PfqResults } from "@/components/pfq/PfqResults";
 import { Spinner } from "@/components/ui/spinner";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
 import styles from "@/components/pfq/PfqMockRunner.module.css";
+import consoleStyles from "@/components/pmq/PmqMockExamsSection.module.css";
 
 const GUEST_KEY = "pfq_guest_token";
 
@@ -26,7 +34,32 @@ type ReviewFilter = "all" | "unattempted" | "attempted" | "flagged";
 type Props = {
   /** Resume an existing attempt. */
   attemptId?: string;
+  /** Mock paper 1–3. Falls back to `?set=` search param. */
+  mockSet?: PfqMockSet;
 };
+
+function parseMockSetParam(raw: string | null | undefined): PfqMockSet | null {
+  if (raw === "1" || raw === "2" || raw === "3") return Number(raw) as PfqMockSet;
+  return null;
+}
+
+function emptySummary(mockSet: PfqMockSet): PfqMockSetSummary {
+  return {
+    mockSet,
+    attempted: false,
+    lastScore: null,
+    lastSubmittedAt: null,
+    attemptId: null,
+  };
+}
+
+function paperStatusLabel(summary: PfqMockSetSummary): string {
+  if (summary.attempted && typeof summary.lastScore === "number") {
+    return `Last score ${summary.lastScore}/${PFQ_QUESTION_COUNT}`;
+  }
+  if (summary.attempted) return "Attempted";
+  return "Not attempted yet";
+}
 
 function formatClock(totalSeconds: number): string {
   const s = Math.max(0, totalSeconds);
@@ -44,8 +77,14 @@ async function ensureGuestToken(): Promise<string> {
   return minted;
 }
 
-export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
+export function PfqMockRunner({
+  attemptId: initialAttemptId,
+  mockSet: mockSetProp,
+}: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const resolvedMockSet =
+    mockSetProp ?? parseMockSetParam(searchParams.get("set"));
   const [phase, setPhase] = useState<"boot" | "ready" | "exam" | "results">(
     initialAttemptId ? "boot" : "ready",
   );
@@ -64,6 +103,9 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
   const [results, setResults] = useState<Awaited<
     ReturnType<typeof submitPfqAttempt>
   > | null>(null);
+  const [summaries, setSummaries] = useState<PfqMockSetSummary[]>(() =>
+    PFQ_MOCK_SETS.map(emptySummary),
+  );
   const [pending, startTransition] = useTransition();
   const autoSubmitted = useRef(false);
 
@@ -122,6 +164,19 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
   }, [initialAttemptId, hydrate]);
 
   useEffect(() => {
+    if (initialAttemptId || resolvedMockSet) return;
+    let cancelled = false;
+    void (async () => {
+      const result = await listPfqMockSetSummaries();
+      if (cancelled || !result.ok) return;
+      setSummaries(result.summaries);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [initialAttemptId, resolvedMockSet]);
+
+  useEffect(() => {
     if (phase !== "exam" || !endsAt) return;
     const tick = () => {
       const left = Math.max(
@@ -140,11 +195,11 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, endsAt]);
 
-  async function begin() {
+  async function begin(mockSet: PfqMockSet) {
     setError("");
     startTransition(async () => {
       const guestToken = await ensureGuestToken();
-      const started = await startPfqAttempt({ guestToken });
+      const started = await startPfqAttempt({ guestToken, mockSet });
       if (!started.ok) {
         setError(started.error);
         return;
@@ -159,6 +214,10 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
       setPhase("exam");
       router.replace(`${PFQ_MOCK_HREF}/${started.attemptId}`);
     });
+  }
+
+  function choosePaper(mockSet: PfqMockSet) {
+    router.replace(`${PFQ_MOCK_HREF}?set=${mockSet}`);
   }
 
   async function selectOption(letter: string) {
@@ -196,7 +255,7 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
     const parts: string[] = [];
     if (counts.unattempted > 0) {
       parts.push(
-        `${counts.unattempted} unanswered — APM advises guessing (no negative marking)`,
+        `${counts.unattempted} unanswered. APM advises guessing (no negative marking)`,
       );
     }
     if (counts.flagged > 0) {
@@ -242,19 +301,63 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
     return <PfqResults results={results.results} />;
   }
 
-  if (phase === "ready") {
+  if (phase === "ready" && !resolvedMockSet) {
     return (
       <div className={styles.startCard}>
-        <h1 className={styles.title}>PFQ free mock</h1>
+        <h1 className={styles.title}>Choose a mock paper</h1>
         <p className={styles.lead}>
-          60 questions · 60 minutes · pass mark {PFQ_PASS_MARK}/60. One question
-          per learning outcome, plus one doubled — the same shape as the real
-          paper.
+          Three timed papers. {PFQ_QUESTION_COUNT} questions · 60 minutes · pass
+          mark {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. Pick one paper to sit; you
+          stay on that paper until you submit.
+        </p>
+        {error ? (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        ) : null}
+        <div className={consoleStyles.list}>
+          {summaries.map((summary) => {
+            const status = paperStatusLabel(summary);
+            return (
+              <button
+                key={summary.mockSet}
+                type="button"
+                disabled={pending}
+                className={`${consoleStyles.row} ${consoleStyles.rowInteractive}`}
+                onClick={() => choosePaper(summary.mockSet)}
+              >
+                <div className={consoleStyles.rowMain}>
+                  <p className={consoleStyles.rowTitle}>
+                    Mock paper {summary.mockSet}
+                  </p>
+                  <span className={consoleStyles.rowStatus}>{status}</span>
+                </div>
+                <div className={consoleStyles.rowAction}>
+                  <span className={consoleStyles.rowChevron} aria-hidden>
+                    →
+                  </span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  if (phase === "ready" && resolvedMockSet) {
+    return (
+      <div className={styles.startCard}>
+        <h1 className={styles.title}>Mock paper {resolvedMockSet}</h1>
+        <p className={styles.lead}>
+          {PFQ_QUESTION_COUNT} questions · 60 minutes · pass mark{" "}
+          {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. One question per learning
+          outcome, plus one doubled. Same shape as the real paper.
         </p>
         <ul className={styles.bullets}>
           <li>Flag questions and filter Unattempted / Attempted / Flagged.</li>
           <li>Pacing guide: about 1 minute per question.</li>
-          <li>No negative marking — answer everything.</li>
+          <li>No negative marking. Answer everything.</li>
           <li>Results show a 59-outcome coverage map, not just a percentage.</li>
         </ul>
         {error ? (
@@ -262,19 +365,29 @@ export function PfqMockRunner({ attemptId: initialAttemptId }: Props) {
             {error}
           </p>
         ) : null}
-        <button
-          type="button"
-          className={stampCtaPrimary}
-          disabled={pending}
-          aria-busy={pending}
-          onClick={() => void begin()}
-        >
-          {pending ? (
-            <Spinner variant="bars" size={16} className="text-current" />
-          ) : (
-            "Start 60-minute mock"
-          )}
-        </button>
+        <div className={styles.navRow}>
+          <button
+            type="button"
+            className={stampCtaSecondary}
+            disabled={pending}
+            onClick={() => router.replace(PFQ_MOCK_HREF)}
+          >
+            Change paper
+          </button>
+          <button
+            type="button"
+            className={stampCtaPrimary}
+            disabled={pending}
+            aria-busy={pending}
+            onClick={() => void begin(resolvedMockSet)}
+          >
+            {pending ? (
+              <Spinner variant="bars" size={16} className="text-current" />
+            ) : (
+              "Start 60-minute mock"
+            )}
+          </button>
+        </div>
       </div>
     );
   }

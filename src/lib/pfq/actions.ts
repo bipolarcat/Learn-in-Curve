@@ -6,6 +6,8 @@ import { createServiceClient } from "@/lib/supabase/admin";
 import {
   buildOptionOrdersForAttempt,
   drawPfqMockQuestionIds,
+  PFQ_MOCK_SETS,
+  type PfqMockSet,
 } from "@/lib/pfq/generator";
 import { PFQ_DURATION_SECONDS, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
 import { buildPfqResults, isDisplayAnswerCorrect } from "@/lib/pfq/scoring";
@@ -13,32 +15,13 @@ import { toPublicPfqQuestion, assertNoSecretsInPublicPayload } from "@/lib/pfq/p
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { canAccessPfqMock } from "@/lib/pfq/tiers";
 import { upsertCoverageSignals } from "@/lib/pfq/coverage-signals";
+import { asQuestionRow } from "@/lib/pfq/question-row";
 import type {
   PfqAttemptRow,
   PfqPublicQuestion,
   PfqQuestionRow,
   PfqResultsPayload,
 } from "@/lib/pfq/types";
-
-function asQuestionRow(raw: Record<string, unknown>): PfqQuestionRow {
-  return {
-    id: String(raw.id),
-    learning_outcome: String(raw.learning_outcome),
-    objective: Number(raw.objective),
-    day: Number(raw.day),
-    verb: String(raw.verb),
-    type: raw.type === "multi_select" ? "multi_select" : "single",
-    traps: Array.isArray(raw.traps) ? (raw.traps as string[]) : [],
-    stem: String(raw.stem),
-    items: Array.isArray(raw.items) ? (raw.items as string[]) : null,
-    options: (raw.options ?? {}) as Record<string, string>,
-    answer: String(raw.answer),
-    explanation: String(raw.explanation),
-    active: raw.active !== false,
-    mock_suitable: Boolean(raw.mock_suitable),
-    variant: Number(raw.variant ?? 1),
-  };
-}
 
 function toPublic(
   q: PfqQuestionRow,
@@ -79,6 +62,11 @@ function normalizeGuestToken(raw: unknown): string | null {
   return token;
 }
 
+function parseMockSet(raw: unknown): PfqMockSet | null {
+  if (raw === 1 || raw === 2 || raw === 3) return raw;
+  return null;
+}
+
 async function loadQuestionsByIds(
   ids: string[],
 ): Promise<Map<string, PfqQuestionRow>> {
@@ -115,16 +103,22 @@ export type StartPfqAttemptResult =
       questions: PfqPublicQuestion[];
       answers: Record<string, string | null>;
       flags: string[];
+      mockSet: PfqMockSet;
     }
   | { ok: false; error: string };
 
-export async function startPfqAttempt(_input: {
+export async function startPfqAttempt(input: {
+  mockSet: PfqMockSet;
   guestToken?: string | null;
 }): Promise<StartPfqAttemptResult> {
   try {
     const access = await requirePfqProUser();
     if (!access.ok) return access;
     const userId = access.userId;
+    const mockSet = parseMockSet(input.mockSet);
+    if (!mockSet) {
+      return { ok: false, error: "Pick mock paper 1, 2, or 3." };
+    }
     // guest_token column retained for a possible future trial; unused while Pro-gated.
     const guestToken = null;
 
@@ -142,7 +136,7 @@ export async function startPfqAttempt(_input: {
     }
 
     const rows = bank.map((r) => asQuestionRow(r as Record<string, unknown>));
-    const questionIds = drawPfqMockQuestionIds(rows);
+    const questionIds = drawPfqMockQuestionIds(rows, mockSet);
     if (questionIds.length !== PFQ_QUESTION_COUNT) {
       return {
         ok: false,
@@ -159,6 +153,7 @@ export async function startPfqAttempt(_input: {
         guest_token: guestToken,
         question_ids: questionIds,
         started_at: startedAt.toISOString(),
+        mock_set: mockSet,
       })
       .select("id, started_at")
       .single();
@@ -197,10 +192,78 @@ export async function startPfqAttempt(_input: {
       questions,
       answers: Object.fromEntries(questionIds.map((id) => [id, null])),
       flags: [],
+      mockSet,
     };
   } catch (err) {
     console.error("[pfq] startAttempt", err);
     return { ok: false, error: "Couldn’t start the mock. Try again." };
+  }
+}
+
+export type PfqMockSetSummary = {
+  mockSet: PfqMockSet;
+  attempted: boolean;
+  lastScore: number | null;
+  lastSubmittedAt: string | null;
+  attemptId: string | null;
+};
+
+export async function listPfqMockSetSummaries(): Promise<
+  { ok: true; summaries: PfqMockSetSummary[] } | { ok: false; error: string }
+> {
+  try {
+    const access = await requirePfqProUser();
+    if (!access.ok) return access;
+
+    const supabase = createServiceClient();
+    const { data, error } = await supabase
+      .from("pfq_attempts")
+      .select("id, mock_set, score, submitted_at")
+      .eq("user_id", access.userId)
+      .not("submitted_at", "is", null)
+      .not("mock_set", "is", null)
+      .order("submitted_at", { ascending: false });
+    if (error) throw error;
+
+    const latestBySet = new Map<PfqMockSet, {
+      attemptId: string;
+      score: number | null;
+      submittedAt: string;
+    }>();
+    for (const row of data ?? []) {
+      const set = parseMockSet(row.mock_set);
+      if (!set || latestBySet.has(set)) continue;
+      latestBySet.set(set, {
+        attemptId: String(row.id),
+        score: typeof row.score === "number" ? row.score : null,
+        submittedAt: String(row.submitted_at),
+      });
+    }
+
+    const summaries: PfqMockSetSummary[] = PFQ_MOCK_SETS.map((mockSet) => {
+      const latest = latestBySet.get(mockSet);
+      if (!latest) {
+        return {
+          mockSet,
+          attempted: false,
+          lastScore: null,
+          lastSubmittedAt: null,
+          attemptId: null,
+        };
+      }
+      return {
+        mockSet,
+        attempted: true,
+        lastScore: latest.score,
+        lastSubmittedAt: latest.submittedAt,
+        attemptId: latest.attemptId,
+      };
+    });
+
+    return { ok: true, summaries };
+  } catch (err) {
+    console.error("[pfq] listMockSetSummaries", err);
+    return { ok: false, error: "Couldn’t load mock papers." };
   }
 }
 

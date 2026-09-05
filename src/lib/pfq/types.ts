@@ -13,9 +13,13 @@ export type PfqQuestionRow = {
   options: Record<string, string>;
   answer: string;
   explanation: string;
+  /** Optional exam-technique pointer. Review-time only. */
+  tip: string | null;
   active: boolean;
   /** May be drawn into the timed 60-question mock. */
   mock_suitable: boolean;
+  /** Which timed mock paper (1–3). Null = practice bank only. */
+  mock_set: 1 | 2 | 3 | null;
   /** Ordinal within a learning outcome (1 = mock-eligible; 2+ practice-only). */
   variant: number;
 };
@@ -69,11 +73,14 @@ export type PfqAttemptRow = {
   submitted_at: string | null;
   score: number | null;
   question_ids: string[];
+  /** Mock paper number (1–3). Null on legacy attempts before set papers. */
+  mock_set?: 1 | 2 | 3 | null;
 };
 
 export type PfqReviewQuestion = PfqPublicQuestion & {
   answer: string;
   explanation: string;
+  tip: string | null;
   selected: string | null;
   correct: boolean | null;
   flagged: boolean;
