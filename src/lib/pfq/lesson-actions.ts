@@ -289,6 +289,8 @@ export async function getPfqDashboardCardState(userId: string): Promise<{
   completionPercent: number;
   nextObjective: number | null;
   nextStarted: boolean;
+  completedObjectives: number[];
+  stageReachedBySectionId: Record<string, number>;
 }> {
   const supabase = await createClient();
   const sectionIds = Array.from({ length: 10 }, (_, i) => pfqSectionId(i + 1));
@@ -307,21 +309,30 @@ export async function getPfqDashboardCardState(userId: string): Promise<{
   let reachedUnits = 0;
   let nextObjective: number | null = null;
   let nextStarted = false;
+  const completedObjectives: number[] = [];
+  const stageReachedBySectionId: Record<string, number> = {};
 
   for (let n = 1; n <= 10; n += 1) {
     const lesson = getPfqLesson(n);
     const total = lesson?.progress_checkpoint.length ?? 0;
-    const row = bySection.get(pfqSectionId(n)) as PfqStageSignals & {
-      checklist_state?: number[] | null;
-      completed_at?: string | null;
-    } | undefined;
-    reachedUnits += getPfqReachedCountFromProgress(row ?? null);
+    const sectionId = pfqSectionId(n);
+    const row = bySection.get(sectionId) as
+      | (PfqStageSignals & {
+          checklist_state?: number[] | null;
+          completed_at?: string | null;
+        })
+      | undefined;
+    const reached = getPfqReachedCountFromProgress(row ?? null);
+    reachedUnits += reached;
+    stageReachedBySectionId[sectionId] = reached;
 
     const checklist = Array.isArray(row?.checklist_state)
       ? row!.checklist_state!
       : [];
     const completed =
       Boolean(row?.completed_at) || (total > 0 && checklist.length >= total);
+
+    if (completed) completedObjectives.push(n);
 
     if (!completed && nextObjective == null) {
       nextObjective = n;
@@ -333,5 +344,7 @@ export async function getPfqDashboardCardState(userId: string): Promise<{
     completionPercent: Math.min(100, reachedUnits * PFQ_PROGRESS_UNIT_PERCENT),
     nextObjective,
     nextStarted,
+    completedObjectives,
+    stageReachedBySectionId,
   };
 }

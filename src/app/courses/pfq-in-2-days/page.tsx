@@ -4,6 +4,9 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { PfqStartLink } from "@/components/pfq/PfqStartLink";
 import { PfqPlanCards } from "@/components/pfq/PfqPlanCards";
+import { PfqDayPlan } from "@/components/pfq/PfqDayPlan";
+import { PfqPlanContinue } from "@/components/pfq/PfqPlanContinue";
+import { CourseHeader } from "@/components/course/CourseHeader";
 import {
   CtaArrow,
   stampCtaPrimary,
@@ -16,11 +19,16 @@ import {
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { getPfqTier } from "@/lib/pfq/entitlement";
+import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
+import { getUserCourseStats } from "@/lib/pmq/queries";
+import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
 import {
   formatPfqPriceGbp,
   PFQ_BASE_HREF,
+  PFQ_COURSE_ID,
   PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
+  PFQ_SLUG,
 } from "@/lib/pfq/constants";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
 
@@ -29,6 +37,7 @@ const SITE_URL =
   "https://www.learnincurve.com";
 
 const PRICE = formatPfqPriceGbp();
+const COURSE_NAME = "PFQ in 2 Days";
 
 export const metadata: Metadata = {
   title: `PFQ in 2 Days — Course overview | Learn in Curve`,
@@ -50,8 +59,58 @@ export default async function PfqLandingPage() {
   const tier = await getPfqTier(supabase, user?.id);
   const hasPro = tier === "pro";
 
+  const [pfqStats, pfqCard] =
+    user && hasPro
+      ? await Promise.all([
+          getUserCourseStats(supabase, user.id, PFQ_COURSE_ID),
+          getPfqDashboardCardState(user.id),
+        ])
+      : [null, null];
+
+  const defaultDay =
+    pfqCard?.nextObjective != null
+      ? (PFQ_OBJECTIVES.find((o) => o.objective === pfqCard.nextObjective)
+          ?.day ?? 1)
+      : 1;
+
   return (
     <div className={styles.page}>
+      {hasPro ? (
+        <CourseHeader
+          slug={PFQ_SLUG}
+          courseName={COURSE_NAME}
+          streak={pfqStats?.current_streak ?? 0}
+          completionPercent={pfqCard?.completionPercent ?? 0}
+          showProgress
+          showOverviewLink={false}
+          userTier="pro"
+        />
+      ) : null}
+
+      {hasPro && pfqCard ? (
+        <div className="relative z-[1] flex w-full min-w-0 justify-center overflow-x-clip px-3 pb-2 pt-4 sm:px-5 sm:pt-6">
+          <div className="w-full min-w-0 max-w-wrap">
+            <section aria-labelledby="pfq-plan-heading">
+              <PfqDayPlan
+                mode="linked"
+                completedObjectives={pfqCard.completedObjectives}
+                defaultExpandedDay={defaultDay}
+                stageReachedBySectionId={pfqCard.stageReachedBySectionId}
+                titleAction={
+                  <PfqPlanContinue
+                    nextObjective={pfqCard.nextObjective}
+                    started={
+                      pfqCard.completedObjectives.length > 0 ||
+                      pfqCard.nextStarted
+                    }
+                  />
+                }
+              />
+            </section>
+          </div>
+        </div>
+      ) : null}
+
       <div className={styles.hero}>
         <header>
           <p className={styles.eyebrow}>
@@ -65,12 +124,6 @@ export default async function PfqLandingPage() {
             learning outcome — so you can see exactly which ones you cannot
             answer yet.
           </p>
-          {/*
-            Three states, because an existing PMQ learner is not a new visitor.
-            Sending someone who already has an account to a sign-up page (or to
-            a PMQ dashboard that says nothing about PFQ) is the dead end this
-            branch exists to prevent.
-          */}
           <div className={styles.actions}>
             {hasPro ? (
               <Link href={PFQ_LEARN_HREF} className={stampCtaPrimary}>
@@ -119,6 +172,14 @@ export default async function PfqLandingPage() {
           />
         </div>
       </div>
+
+      {!hasPro ? (
+        <div className="relative z-[1] mx-auto w-full max-w-wrap px-0 pb-2">
+          <section aria-labelledby="pfq-plan-heading">
+            <PfqDayPlan mode="locked" />
+          </section>
+        </div>
+      ) : null}
 
       <ul className={styles.features}>
         <li className={styles.feature}>
