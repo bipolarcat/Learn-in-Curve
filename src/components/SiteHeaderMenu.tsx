@@ -22,7 +22,6 @@ import {
   Info,
   MessageCircle,
   Palette,
-  Ticket,
   type LucideIcon,
 } from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
@@ -44,13 +43,35 @@ export type HeaderAccount = {
   avatarId: AvatarId;
 };
 
+type MenuGlyph = LucideIcon | ((props: { className?: string }) => ReactNode);
+
+/** Brain + lightbulb courses mark (user asset; ink via CSS mask). */
+function MenuCoursesIcon({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={cn(className, "inline-block bg-current")}
+      style={{
+        maskImage: "url(/brand/icons/brain-bulb.png)",
+        WebkitMaskImage: "url(/brand/icons/brain-bulb.png)",
+        maskSize: "contain",
+        WebkitMaskSize: "contain",
+        maskRepeat: "no-repeat",
+        WebkitMaskRepeat: "no-repeat",
+        maskPosition: "center",
+        WebkitMaskPosition: "center",
+      }}
+    />
+  );
+}
+
 const MENU_ITEMS: ReadonlyArray<{
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: MenuGlyph;
   badge?: "New";
 }> = [
-  { href: "/courses", label: "Explore Courses", icon: Ticket },
+  { href: "/courses", label: "Explore Courses", icon: MenuCoursesIcon },
   {
     href: "/free-mock-exam",
     label: "Mock Me",
@@ -526,11 +547,7 @@ export function SiteHeaderMenu({
                             setOpen(false);
                           }}
                         >
-                          <Icon
-                            className={menuIconClass}
-                            strokeWidth={2}
-                            aria-hidden
-                          />
+                          <Icon className={menuIconClass} aria-hidden />
                           {item.label}
                           {item.badge && !seenNew.has(item.href) ? (
                             <NewBadge />
