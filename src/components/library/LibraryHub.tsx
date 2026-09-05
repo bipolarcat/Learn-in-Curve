@@ -81,7 +81,9 @@ export function LibraryHub({
 
   return (
     <div className={styles.page}>
-      <div className={`mx-auto w-full max-w-wrap px-3 sm:px-5 ${styles.shell}`}>
+      {/* Same chrome rhythm as SiteHeader: gutter outside, max-w-wrap content flush to bar edges */}
+      <div className="px-3 sm:px-5">
+        <div className={`mx-auto w-full max-w-wrap ${styles.shell}`}>
         <header className={styles.hero}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Library</p>
@@ -306,6 +308,7 @@ export function LibraryHub({
         )}
 
         <p className={styles.disclaimer}>{disclaimer}</p>
+        </div>
       </div>
     </div>
   );

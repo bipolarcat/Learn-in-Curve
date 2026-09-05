@@ -1,0 +1,244 @@
+- generic [ref=f7e2]:
+  - link "Skip to content" [ref=f7e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Primary" [ref=f7e5]:
+    - link "Learn in Curve" [ref=f7e6] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f7e7]:
+        - generic [ref=f7e8]: Learn in
+        - generic [ref=f7e9]: Curve
+    - group "Site controls" [ref=f7e10]:
+      - button "Get Started" [ref=f7e12] [cursor=pointer]
+      - button "Home" [ref=f7e18] [cursor=pointer]
+      - button "Open menu" [ref=f7e24] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f7e27]:
+          - generic [ref=f7e28]: M
+          - generic [ref=f7e29]: e
+          - generic [ref=f7e30]: "n"
+          - generic [ref=f7e31]: u
+  - main [ref=f7e32]:
+    - generic [ref=f7e35]:
+      - generic [ref=f7e37]:
+        - paragraph [ref=f7e38]: Library
+        - heading "APM PMQ guides" [level=1] [ref=f7e39]
+        - paragraph [ref=f7e40]: Plain-English exam prep, qualification comparisons, and syllabus topics — filter the shelf, then open a guide.
+        - generic [ref=f7e41]: 18 published
+      - generic [ref=f7e59]:
+        - complementary "Library filters" [ref=f7e60]:
+          - generic [ref=f7e61]:
+            - text: Search
+            - searchbox "Search" [ref=f7e62]
+            - paragraph [ref=f7e63]: Browse
+            - list [ref=f7e64]:
+              - listitem [ref=f7e65]:
+                - button "All guides 18" [pressed] [ref=f7e66] [cursor=pointer]:
+                  - generic [ref=f7e71]: All guides
+                  - generic [ref=f7e72]: "18"
+              - listitem [ref=f7e73]:
+                - button "Exam prep 4" [ref=f7e74] [cursor=pointer]:
+                  - generic [ref=f7e79]: Exam prep
+                  - generic [ref=f7e80]: "4"
+              - listitem [ref=f7e81]:
+                - button "Choosing a qualification 4" [ref=f7e82] [cursor=pointer]:
+                  - generic [ref=f7e87]: Choosing a qualification
+                  - generic [ref=f7e88]: "4"
+              - listitem [ref=f7e89]:
+                - button "Syllabus topics 10" [ref=f7e90] [cursor=pointer]:
+                  - generic [ref=f7e97]: Syllabus topics
+                  - generic [ref=f7e98]: "10"
+            - generic [ref=f7e99]:
+              - paragraph [ref=f7e100]: Ready to test?
+              - link "Free 15-question mock →" [ref=f7e101] [cursor=pointer]:
+                - /url: /free-mock-exam?from=library
+        - generic [ref=f7e102]:
+          - paragraph [ref=f7e103]: 18 guides
+          - region [ref=f7e104]:
+            - heading "Exam prep" [level=2] [ref=f7e110]
+            - list [ref=f7e111]:
+              - listitem [ref=f7e112]:
+                - link "Exam prep What's the APM PMQ pass mark? There isn't a fixed one. The APM PMQ pass mark changes from paper to paper, set using a modified Angoff method so that a harder version of the exam doesn't penalise you. The maximum score is 90 marks. Read guide" [ref=f7e113] [cursor=pointer]:
+                  - /url: /library/apm-pmq-pass-mark
+                  - img [aria-hidden] [ref=f7e115]:
+                    - generic [ref=f7e121]: 55%
+                  - generic [ref=f7e122]:
+                    - generic [ref=f7e123]: Exam prep
+                    - generic [ref=f7e124]: What's the APM PMQ pass mark?
+                    - generic [ref=f7e125]: There isn't a fixed one. The APM PMQ pass mark changes from paper to paper, set using a modified Angoff method so that a harder version of the exam doesn't penalise you. The maximum score is 90 marks.
+                    - generic [ref=f7e126]: Read guide
+              - listitem [ref=f7e127]:
+                - link "Exam prep How hard is the APM PMQ really? The content isn't difficult. The APM PMQ is hard because most people revise it as a memory test and then sit an application test, where 50 of the 90 marks come from ten written answers about scenarios they've never seen. Read guide" [ref=f7e128] [cursor=pointer]:
+                  - /url: /library/how-hard-is-apm-pmq
+                  - generic [ref=f7e135]:
+                    - generic [ref=f7e136]: Exam prep
+                    - generic [ref=f7e137]: How hard is the APM PMQ really?
+                    - generic [ref=f7e138]: The content isn't difficult. The APM PMQ is hard because most people revise it as a memory test and then sit an application test, where 50 of the 90 marks come from ten written answers about scenarios they've never seen.
+                    - generic [ref=f7e139]: Read guide
+              - listitem [ref=f7e140]:
+                - link "Exam prep What's the APM PMQ exam format? The APM PMQ is 2.5 hours, taken online through the Surpass platform with remote proctoring. It's 40 questions worth 90 marks in total, split into two parts with an optional break of up to 30 minutes between them. Read guide" [ref=f7e141] [cursor=pointer]:
+                  - /url: /library/apm-pmq-exam-format
+                  - img [aria-hidden] [ref=f7e143]:
+                    - generic [ref=f7e148]: "?"
+                  - generic [ref=f7e149]:
+                    - generic [ref=f7e150]: Exam prep
+                    - generic [ref=f7e151]: What's the APM PMQ exam format?
+                    - generic [ref=f7e152]: The APM PMQ is 2.5 hours, taken online through the Surpass platform with remote proctoring. It's 40 questions worth 90 marks in total, split into two parts with an optional break of up to 30 minutes between them.
+                    - generic [ref=f7e153]: Read guide
+              - listitem [ref=f7e154]:
+                - 'link "Exam prep How long should I revise for the APM PMQ? There''s no single number, because it depends on whether you already work in project delivery. What matters more is how you spend it: 50 of the 90 marks come from written answers, so most revision should be writing, not reading. Read guide" [ref=f7e155] [cursor=pointer]':
+                  - /url: /library/how-long-to-revise-for-apm-pmq
+                  - generic [ref=f7e163]:
+                    - generic [ref=f7e164]: Exam prep
+                    - generic [ref=f7e165]: How long should I revise for the APM PMQ?
+                    - generic [ref=f7e166]: "There's no single number, because it depends on whether you already work in project delivery. What matters more is how you spend it: 50 of the 90 marks come from written answers, so most revision should be writing, not reading."
+                    - generic [ref=f7e167]: Read guide
+          - region [ref=f7e168]:
+            - heading "Choosing a qualification" [level=2] [ref=f7e174]
+            - list [ref=f7e175]:
+              - listitem [ref=f7e176]:
+                - 'link "Choosing a qualification APM PMQ vs PFQ: which should you take? The PFQ tests whether you know the terminology. The PMQ tests whether you can apply it and write the answer out. If you already work in project delivery, the PMQ is usually the right target. Read guide" [ref=f7e177] [cursor=pointer]':
+                  - /url: /library/apm-pmq-vs-pfq
+                  - img [aria-hidden] [ref=f7e179]:
+                    - generic [ref=f7e184]: PFQ
+                    - generic [ref=f7e185]: PMQ
+                  - generic [ref=f7e186]:
+                    - generic [ref=f7e187]: Choosing a qualification
+                    - generic [ref=f7e188]: "APM PMQ vs PFQ: which should you take?"
+                    - generic [ref=f7e189]: The PFQ tests whether you know the terminology. The PMQ tests whether you can apply it and write the answer out. If you already work in project delivery, the PMQ is usually the right target.
+                    - generic [ref=f7e190]: Read guide
+              - listitem [ref=f7e191]:
+                - 'link "Choosing a qualification APM PMQ vs PRINCE2: what''s the difference? PRINCE2 is a method: a defined way of running a project, with its own processes, roles and terminology. The APM PMQ is a broad body of knowledge, testing judgement across the whole discipline rather than one prescribed approach. Read guide" [ref=f7e192] [cursor=pointer]':
+                  - /url: /library/apm-pmq-vs-prince2
+                  - generic [ref=f7e201]:
+                    - generic [ref=f7e202]: Choosing a qualification
+                    - generic [ref=f7e203]: "APM PMQ vs PRINCE2: what's the difference?"
+                    - generic [ref=f7e204]: "PRINCE2 is a method: a defined way of running a project, with its own processes, roles and terminology. The APM PMQ is a broad body of knowledge, testing judgement across the whole discipline rather than one prescribed approach."
+                    - generic [ref=f7e205]: Read guide
+              - listitem [ref=f7e206]:
+                - 'link "Choosing a qualification APM PMQ vs PMP: which is right for you? Both are respected certifications. The PMQ is the established UK route, awarded by the APM, with no experience gate to sit it. The PMP, awarded by PMI, has stronger global recognition but requires documented experience and ongoing renewal. Read guide" [ref=f7e207] [cursor=pointer]':
+                  - /url: /library/apm-pmq-vs-pmp
+                  - img [aria-hidden] [ref=f7e209]:
+                    - generic [ref=f7e214]: vs
+                  - generic [ref=f7e215]:
+                    - generic [ref=f7e216]: Choosing a qualification
+                    - generic [ref=f7e217]: "APM PMQ vs PMP: which is right for you?"
+                    - generic [ref=f7e218]: Both are respected certifications. The PMQ is the established UK route, awarded by the APM, with no experience gate to sit it. The PMP, awarded by PMI, has stronger global recognition but requires documented experience and ongoing renewal.
+                    - generic [ref=f7e219]: Read guide
+              - listitem [ref=f7e220]:
+                - link "Choosing a qualification Is the APM PMQ worth it? For most people working in or moving into UK project delivery, yes. It's the recognised professional qualification, it gets you past CV filters, and preparing for it forces you to structure knowledge you've picked up unevenly on the job. Read guide" [ref=f7e221] [cursor=pointer]:
+                  - /url: /library/is-apm-pmq-worth-it
+                  - generic [ref=f7e227]:
+                    - generic [ref=f7e228]: Choosing a qualification
+                    - generic [ref=f7e229]: Is the APM PMQ worth it?
+                    - generic [ref=f7e230]: For most people working in or moving into UK project delivery, yes. It's the recognised professional qualification, it gets you past CV filters, and preparing for it forces you to structure knowledge you've picked up unevenly on the job.
+                    - generic [ref=f7e231]: Read guide
+          - region [ref=f7e232]:
+            - heading "Syllabus topics" [level=2] [ref=f7e240]
+            - list [ref=f7e241]:
+              - listitem [ref=f7e242]:
+                - 'link "Syllabus topics APM PMQ business case: what you need to know The business case sets out why a project is worth doing: the justification, the expected benefits, the whole-life costs and the risks. It''s owned by the sponsor, not the project manager, and it stays live across the whole life cycle. Read guide" [ref=f7e243] [cursor=pointer]':
+                  - /url: /library/apm-pmq-business-case
+                  - generic [ref=f7e253]:
+                    - generic [ref=f7e254]: Syllabus topics
+                    - generic [ref=f7e255]: "APM PMQ business case: what you need to know"
+                    - generic [ref=f7e256]: "The business case sets out why a project is worth doing: the justification, the expected benefits, the whole-life costs and the risks. It's owned by the sponsor, not the project manager, and it stays live across the whole life cycle."
+                    - generic [ref=f7e257]: Read guide
+              - listitem [ref=f7e258]:
+                - 'link "Syllabus topics APM PMQ risk management: what you need to know A risk is an uncertain event that has not happened yet. An issue is one that has. The APM PMQ tests whether you can identify, assess, respond to and monitor risks, including opportunities, not just describe a risk register. Read guide" [ref=f7e259] [cursor=pointer]':
+                  - /url: /library/apm-pmq-risk-management
+                  - generic [ref=f7e267]:
+                    - generic [ref=f7e268]: Syllabus topics
+                    - generic [ref=f7e269]: "APM PMQ risk management: what you need to know"
+                    - generic [ref=f7e270]: A risk is an uncertain event that has not happened yet. An issue is one that has. The APM PMQ tests whether you can identify, assess, respond to and monitor risks, including opportunities, not just describe a risk register.
+                    - generic [ref=f7e271]: Read guide
+              - listitem [ref=f7e272]:
+                - 'link "Syllabus topics APM PMQ stakeholder management: what you need to know Stakeholder management means identifying who is affected by or can affect the project, analysing their influence and interest, and planning engagement accordingly. The APM PMQ treats engagement and communication as linked but distinct, and examines both. Read guide" [ref=f7e273] [cursor=pointer]':
+                  - /url: /library/apm-pmq-stakeholder-management
+                  - generic [ref=f7e282]:
+                    - generic [ref=f7e283]: Syllabus topics
+                    - generic [ref=f7e284]: "APM PMQ stakeholder management: what you need to know"
+                    - generic [ref=f7e285]: Stakeholder management means identifying who is affected by or can affect the project, analysing their influence and interest, and planning engagement accordingly. The APM PMQ treats engagement and communication as linked but distinct, and examines both.
+                    - generic [ref=f7e286]: Read guide
+              - listitem [ref=f7e287]:
+                - 'link "Syllabus topics APM PMQ governance: what you need to know Governance is the framework of roles, decisions and accountability a project runs inside. Management is the work done within that framework. The exam tests whether you can say who decides what, and why the split matters. Read guide" [ref=f7e288] [cursor=pointer]':
+                  - /url: /library/apm-pmq-governance
+                  - generic [ref=f7e298]:
+                    - generic [ref=f7e299]: Syllabus topics
+                    - generic [ref=f7e300]: "APM PMQ governance: what you need to know"
+                    - generic [ref=f7e301]: Governance is the framework of roles, decisions and accountability a project runs inside. Management is the work done within that framework. The exam tests whether you can say who decides what, and why the split matters.
+                    - generic [ref=f7e302]: Read guide
+              - listitem [ref=f7e303]:
+                - 'link "Syllabus topics APM PMQ project life cycles: what you need to know A life cycle is the set of phases a project moves through from start to handover. The PMQ tests whether you can choose between linear, iterative and hybrid for a given situation and justify the choice. Read guide" [ref=f7e304] [cursor=pointer]':
+                  - /url: /library/apm-pmq-project-life-cycles
+                  - generic [ref=f7e312]:
+                    - generic [ref=f7e313]: Syllabus topics
+                    - generic [ref=f7e314]: "APM PMQ project life cycles: what you need to know"
+                    - generic [ref=f7e315]: A life cycle is the set of phases a project moves through from start to handover. The PMQ tests whether you can choose between linear, iterative and hybrid for a given situation and justify the choice.
+                    - generic [ref=f7e316]: Read guide
+              - listitem [ref=f7e317]:
+                - 'link "Syllabus topics APM PMQ breakdown structures: what you need to know A product breakdown structure sets out what the project delivers. A work breakdown structure sets out the work needed to create it. Everything else, including cost, organisation and responsibility, hangs off those two. Read guide" [ref=f7e318] [cursor=pointer]':
+                  - /url: /library/apm-pmq-breakdown-structures
+                  - generic [ref=f7e328]:
+                    - generic [ref=f7e329]: Syllabus topics
+                    - generic [ref=f7e330]: "APM PMQ breakdown structures: what you need to know"
+                    - generic [ref=f7e331]: A product breakdown structure sets out what the project delivers. A work breakdown structure sets out the work needed to create it. Everything else, including cost, organisation and responsibility, hangs off those two.
+                    - generic [ref=f7e332]: Read guide
+              - listitem [ref=f7e333]:
+                - 'link "Syllabus topics APM PMQ scheduling and the critical path: what you need to know The critical path is the longest sequence of dependent activities through a project. It has no float, and it sets the shortest possible duration. Anything late on it makes the project late. Read guide" [ref=f7e334] [cursor=pointer]':
+                  - /url: /library/apm-pmq-scheduling-and-critical-path
+                  - generic [ref=f7e342]:
+                    - generic [ref=f7e343]: Syllabus topics
+                    - generic [ref=f7e344]: "APM PMQ scheduling and the critical path: what you need to know"
+                    - generic [ref=f7e345]: The critical path is the longest sequence of dependent activities through a project. It has no float, and it sets the shortest possible duration. Anything late on it makes the project late.
+                    - generic [ref=f7e346]: Read guide
+              - listitem [ref=f7e347]:
+                - 'link "Syllabus topics APM PMQ change control: what you need to know Change control is the process for evaluating and deciding requested changes to a baseline. It exists to make change visible and deliberate, not to prevent it. Configuration management then keeps track of what the current version actually is. Read guide" [ref=f7e348] [cursor=pointer]':
+                  - /url: /library/apm-pmq-change-control
+                  - generic [ref=f7e356]:
+                    - generic [ref=f7e357]: Syllabus topics
+                    - generic [ref=f7e358]: "APM PMQ change control: what you need to know"
+                    - generic [ref=f7e359]: Change control is the process for evaluating and deciding requested changes to a baseline. It exists to make change visible and deliberate, not to prevent it. Configuration management then keeps track of what the current version actually is.
+                    - generic [ref=f7e360]: Read guide
+              - listitem [ref=f7e361]:
+                - 'link "Syllabus topics APM PMQ quality management: what you need to know Quality assurance checks the process is capable of producing the right output. Quality control checks the output itself. The PMQ tests whether you can tell them apart and apply the right one to a described situation. Read guide" [ref=f7e362] [cursor=pointer]':
+                  - /url: /library/apm-pmq-quality-management
+                  - generic [ref=f7e369]:
+                    - generic [ref=f7e370]: Syllabus topics
+                    - generic [ref=f7e371]: "APM PMQ quality management: what you need to know"
+                    - generic [ref=f7e372]: Quality assurance checks the process is capable of producing the right output. Quality control checks the output itself. The PMQ tests whether you can tell them apart and apply the right one to a described situation.
+                    - generic [ref=f7e373]: Read guide
+              - listitem [ref=f7e374]:
+                - 'link "Syllabus topics APM PMQ leadership and teams: what you need to know Leadership on this syllabus is about influencing people you often do not manage. The exam gives you a team in a specific state and asks what you would do, so the marks are in applying a model, not describing one. Read guide" [ref=f7e375] [cursor=pointer]':
+                  - /url: /library/apm-pmq-leadership-and-teams
+                  - generic [ref=f7e384]:
+                    - generic [ref=f7e385]: Syllabus topics
+                    - generic [ref=f7e386]: "APM PMQ leadership and teams: what you need to know"
+                    - generic [ref=f7e387]: Leadership on this syllabus is about influencing people you often do not manage. The exam gives you a team in a specific state and asks what you would do, so the marks are in applying a model, not describing one.
+                    - generic [ref=f7e388]: Read guide
+          - 'link "Test yourself: free 15-question APM PMQ mock exam" [ref=f7e390] [cursor=pointer]':
+            - /url: /free-mock-exam?from=library
+      - paragraph [ref=f7e391]: Learn in Curve is not affiliated with, endorsed by, or accredited by the Association for Project Management.
+  - contentinfo [ref=f7e392]:
+    - generic [ref=f7e394]:
+      - generic [ref=f7e395]:
+        - generic [ref=f7e396]:
+          - generic [ref=f7e398]:
+            - generic [ref=f7e399]: Learn in
+            - generic [ref=f7e400]: Curve
+          - paragraph [ref=f7e401]: Master project Management & AI
+        - generic [ref=f7e402]:
+          - link "Learn in Curve on Instagram" [ref=f7e403] [cursor=pointer]:
+            - /url: https://www.instagram.com/learn.in.curve/
+          - link "Learn in Curve on LinkedIn" [ref=f7e406] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/learn-in-curve/
+      - navigation "Footer" [ref=f7e409]:
+        - link "Privacy" [ref=f7e410] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms" [ref=f7e411] [cursor=pointer]:
+          - /url: /terms
+        - link "Cookies" [ref=f7e412] [cursor=pointer]:
+          - /url: /cookies
+        - button "Send feedback" [ref=f7e413] [cursor=pointer]
+    - generic [ref=f7e414]:
+      - generic:
+        - paragraph: © 2026 Learn in Curve
+        - paragraph: v2.43
