@@ -16,6 +16,15 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
+import {
+  BookMarked,
+  ClipboardList,
+  Info,
+  MessageCircle,
+  Palette,
+  Ticket,
+  type LucideIcon,
+} from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
 import {
   headerIcon,
@@ -35,13 +44,25 @@ export type HeaderAccount = {
   avatarId: AvatarId;
 };
 
-const MENU_ITEMS = [
-  { href: "/courses", label: "Explore Courses" },
-  { href: "/free-mock-exam", label: "Mock Me", badge: "New" },
-  { href: "/library", label: "The Shelf", badge: "New" },
-  { href: "/about", label: "Behind the Curve" },
-  { href: "/contact", label: "Let's Talk" },
-] as const;
+const MENU_ITEMS: ReadonlyArray<{
+  href: string;
+  label: string;
+  icon: LucideIcon;
+  badge?: "New";
+}> = [
+  { href: "/courses", label: "Explore Courses", icon: Ticket },
+  {
+    href: "/free-mock-exam",
+    label: "Mock Me",
+    icon: ClipboardList,
+    badge: "New",
+  },
+  { href: "/library", label: "The Shelf", icon: BookMarked, badge: "New" },
+  { href: "/about", label: "Behind the Curve", icon: Info },
+  { href: "/contact", label: "Let's Talk", icon: MessageCircle },
+];
+
+const menuIconClass = "h-4 w-4 shrink-0";
 
 /** Per-item "New" chips; survives reload on this browser. */
 const MENU_NEW_SEEN_KEY = "lic_menu_new_v1";
@@ -148,7 +169,7 @@ function MenuBoardIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      className="h-4 w-4 shrink-0"
+      className={cn(menuIconClass)}
     >
       <rect x="3" y="4" width="18" height="16" rx="2" />
       <path d="M3 10h18M9 4v16" />
@@ -166,7 +187,7 @@ function MenuHomeIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      className="h-4 w-4 shrink-0"
+      className={menuIconClass}
     >
       <path d="M3 10.5 12 3l9 7.5" />
       <path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
@@ -186,7 +207,7 @@ function MenuSignOutIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      className="h-4 w-4 shrink-0 overflow-visible"
+      className={cn(menuIconClass, "overflow-visible")}
     >
       <path
         d="M10 8V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-2"
@@ -483,6 +504,7 @@ export function SiteHeaderMenu({
                         (pathname === "/courses" ||
                           pathname === "/courses/"));
                     const i = itemIndex++;
+                    const Icon = item.icon;
                     return (
                       <MenuItemMotion
                         key={item.href}
@@ -498,16 +520,19 @@ export function SiteHeaderMenu({
                             current && "bg-ink/[0.06] text-orange",
                           )}
                           onClick={() => {
-                            if ("badge" in item && item.badge) {
+                            if (item.badge) {
                               markNewSeen(item.href);
                             }
                             setOpen(false);
                           }}
                         >
+                          <Icon
+                            className={menuIconClass}
+                            strokeWidth={2}
+                            aria-hidden
+                          />
                           {item.label}
-                          {"badge" in item &&
-                          item.badge &&
-                          !seenNew.has(item.href) ? (
+                          {item.badge && !seenNew.has(item.href) ? (
                             <NewBadge />
                           ) : null}
                         </Link>
@@ -526,7 +551,12 @@ export function SiteHeaderMenu({
                         reduceMotion={reduceMotion}
                       >
                         <div className="flex min-h-9 items-center justify-between gap-3 px-2.5">
-                          <span className="font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
+                          <span className="flex items-center gap-2 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
+                            <Palette
+                              className={menuIconClass}
+                              strokeWidth={2}
+                              aria-hidden
+                            />
                             Theme
                           </span>
                           <ThemeToggle />
