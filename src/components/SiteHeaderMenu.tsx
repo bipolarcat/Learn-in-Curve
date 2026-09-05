@@ -16,15 +16,6 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import {
-  BookMarked,
-  ClipboardList,
-  Info,
-  MessageCircle,
-  Palette,
-  Ticket,
-  type LucideIcon,
-} from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
 import {
   headerIcon,
@@ -36,6 +27,17 @@ import { SignOutButton } from "@/components/SignOutButton";
 import { NewBadge } from "@/components/pmq/tier-badge";
 import type { AvatarId } from "@/lib/avatars";
 import { cn } from "@/lib/utils";
+import {
+  MenuBoardIcon,
+  MenuCoursesIcon,
+  MenuHomeIcon,
+  MenuLicMarkIcon,
+  MenuMockMeIcon,
+  MenuShelfIcon,
+  MenuTalkIcon,
+  MenuThemeIcon,
+  menuIconClass,
+} from "@/components/SiteHeaderMenuIcons";
 
 export type HeaderAccount = {
   email: string;
@@ -44,25 +46,25 @@ export type HeaderAccount = {
   avatarId: AvatarId;
 };
 
+type MenuGlyph = (props: { className?: string }) => ReactNode;
+
 const MENU_ITEMS: ReadonlyArray<{
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: MenuGlyph;
   badge?: "New";
 }> = [
-  { href: "/courses", label: "Explore Courses", icon: Ticket },
+  { href: "/courses", label: "Explore Courses", icon: MenuCoursesIcon },
   {
     href: "/free-mock-exam",
     label: "Mock Me",
-    icon: ClipboardList,
+    icon: MenuMockMeIcon,
     badge: "New",
   },
-  { href: "/library", label: "The Shelf", icon: BookMarked, badge: "New" },
-  { href: "/about", label: "Behind the Curve", icon: Info },
-  { href: "/contact", label: "Let's Talk", icon: MessageCircle },
+  { href: "/library", label: "The Shelf", icon: MenuShelfIcon, badge: "New" },
+  { href: "/about", label: "Behind the Curve", icon: MenuLicMarkIcon },
+  { href: "/contact", label: "Let's Talk", icon: MenuTalkIcon },
 ];
-
-const menuIconClass = "h-4 w-4 shrink-0";
 
 /** Per-item "New" chips; survives reload on this browser. */
 const MENU_NEW_SEEN_KEY = "lic_menu_new_v1";
@@ -156,42 +158,6 @@ function MenuWord({
         </motion.span>
       ) : null}
     </AnimatePresence>
-  );
-}
-
-function MenuBoardIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={cn(menuIconClass)}
-    >
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <path d="M3 10h18M9 4v16" />
-    </svg>
-  );
-}
-
-function MenuHomeIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={menuIconClass}
-    >
-      <path d="M3 10.5 12 3l9 7.5" />
-      <path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
-    </svg>
   );
 }
 
@@ -526,11 +492,7 @@ export function SiteHeaderMenu({
                             setOpen(false);
                           }}
                         >
-                          <Icon
-                            className={menuIconClass}
-                            strokeWidth={2}
-                            aria-hidden
-                          />
+                          <Icon className={menuIconClass} />
                           {item.label}
                           {item.badge && !seenNew.has(item.href) ? (
                             <NewBadge />
@@ -552,11 +514,7 @@ export function SiteHeaderMenu({
                       >
                         <div className="flex min-h-9 items-center justify-between gap-3 px-2.5">
                           <span className="flex items-center gap-2 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink">
-                            <Palette
-                              className={menuIconClass}
-                              strokeWidth={2}
-                              aria-hidden
-                            />
+                            <MenuThemeIcon />
                             Theme
                           </span>
                           <ThemeToggle />
