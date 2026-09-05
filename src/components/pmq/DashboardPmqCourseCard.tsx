@@ -83,24 +83,30 @@ type DashboardPmqCourseCardProps = {
   streak: number;
   completionPercent: number;
   /** True when Sly (AI Pro) is unlocked — drives meter vs upgrade CTA. */
-  tutorUnlocked: boolean;
+  tutorUnlocked?: boolean;
   /**
    * Paid-tier mark beside the course name.
    * Prefer this over inferring from `tutorUnlocked` (Sly ≠ Pro).
    */
   userTier?: PmqTier;
-  tutorPriceCents: number;
+  tutorPriceCents?: number;
   tutorUsage?: FairUsageSummary | null;
   topUpSuccess?: boolean;
   /** YYYY-MM-DD from profiles.target_exam_date */
   examDeadline?: string | null;
+  /**
+   * PMQ shows the Sly meter / Pro upsell footer. PFQ has no tutor on the card —
+   * pass false to keep the same chrome without that strip.
+   */
+  showTutorFooter?: boolean;
 };
 
-function highlightFiveDays(name: string) {
-  const parts = name.split(/(5[\s-]days?)/i);
+/** Orange the “N days” / “N-day” span in the course title (PMQ 5 / PFQ 2). */
+function highlightCourseDays(name: string) {
+  const parts = name.split(/(\d+[\s-]days?)/i);
   if (parts.length === 1) return name;
   return parts.map((part, i) =>
-    /^5[\s-]days?$/i.test(part) ? (
+    /^\d+[\s-]days?$/i.test(part) ? (
       <span key={i} className="text-orange">
         {part}
       </span>
@@ -286,7 +292,8 @@ function ExamDeadlinePicker({
 }
 
 /**
- * Dashboard PMQ course card — quiet SaaS console (next task → continue → meta → Pro).
+ * Dashboard course card — quiet SaaS console (next task → continue → meta → optional Pro/Sly).
+ * Shared chrome for PMQ and PFQ; tutor footer is PMQ-only.
  */
 export function DashboardPmqCourseCard({
   courseName,
@@ -297,17 +304,18 @@ export function DashboardPmqCourseCard({
   nextLoStarted = true,
   streak,
   completionPercent,
-  tutorUnlocked,
+  tutorUnlocked = false,
   userTier = "starter",
-  tutorPriceCents,
+  tutorPriceCents = 0,
   tutorUsage = null,
   topUpSuccess = false,
   examDeadline = null,
+  showTutorFooter = true,
 }: DashboardPmqCourseCardProps) {
   const router = useRouter();
   const panelId = useId();
   const deadlineId = useId();
-  const showTutor = AI_TUTOR_LAUNCHED;
+  const showTutor = showTutorFooter && AI_TUTOR_LAUNCHED;
   const priceLabel = formatGbp(tutorPriceCents);
   const [includedOpen, setIncludedOpen] = useState(false);
   const [topUpOpen, setTopUpOpen] = useState(false);
@@ -370,7 +378,7 @@ export function DashboardPmqCourseCard({
               className="min-w-0 truncate font-display text-[1.125rem] font-bold tracking-[-0.02em] text-ink no-underline transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:text-[1.25rem]"
               title={courseName}
             >
-              {highlightFiveDays(courseName)}
+              {highlightCourseDays(courseName)}
             </a>
             {userTier === "ai_pro" ? (
               <span
@@ -565,3 +573,6 @@ export function DashboardPmqCourseCard({
     </article>
   );
 }
+
+/** Parity §5 name — same component. */
+export const DashboardCourseCard = DashboardPmqCourseCard;

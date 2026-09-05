@@ -13,7 +13,11 @@ import { pfqSectionId } from "@/lib/pfq/section-ids";
 import { getPfqLesson } from "@/lib/pfq/content";
 import {
   PFQ_STAGE_REACHED_COLUMN,
+  getPfqReachedCountFromProgress,
+  getPfqReachedStageIds,
+  PFQ_PROGRESS_UNIT_PERCENT,
   type PfqStageId,
+  type PfqStageSignals,
 } from "@/lib/pfq/lesson-stages";
 
 /**
@@ -275,4 +279,59 @@ export async function getPfqLessonProgressMap(
     };
   }
   return out;
+}
+
+/**
+ * Dashboard card resume + % for PFQ (10 objectives × pathway stages).
+ * Does not write; safe for the dashboard server render.
+ */
+export async function getPfqDashboardCardState(userId: string): Promise<{
+  completionPercent: number;
+  nextObjective: number | null;
+  nextStarted: boolean;
+}> {
+  const supabase = await createClient();
+  const sectionIds = Array.from({ length: 10 }, (_, i) => pfqSectionId(i + 1));
+  const { data } = await supabase
+    .from("section_progress")
+    .select(
+      "section_id, checklist_state, completed_at, orient_reached_at, learn_reached_at, apply_reached_at, quiz_completed_at",
+    )
+    .eq("user_id", userId)
+    .in("section_id", sectionIds);
+
+  const bySection = new Map(
+    (data ?? []).map((row) => [row.section_id as string, row]),
+  );
+
+  let reachedUnits = 0;
+  let nextObjective: number | null = null;
+  let nextStarted = false;
+
+  for (let n = 1; n <= 10; n += 1) {
+    const lesson = getPfqLesson(n);
+    const total = lesson?.progress_checkpoint.length ?? 0;
+    const row = bySection.get(pfqSectionId(n)) as PfqStageSignals & {
+      checklist_state?: number[] | null;
+      completed_at?: string | null;
+    } | undefined;
+    reachedUnits += getPfqReachedCountFromProgress(row ?? null);
+
+    const checklist = Array.isArray(row?.checklist_state)
+      ? row!.checklist_state!
+      : [];
+    const completed =
+      Boolean(row?.completed_at) || (total > 0 && checklist.length >= total);
+
+    if (!completed && nextObjective == null) {
+      nextObjective = n;
+      nextStarted = getPfqReachedStageIds(row ?? null).length > 0;
+    }
+  }
+
+  return {
+    completionPercent: Math.min(100, reachedUnits * PFQ_PROGRESS_UNIT_PERCENT),
+    nextObjective,
+    nextStarted,
+  };
 }

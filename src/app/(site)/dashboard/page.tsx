@@ -17,7 +17,12 @@ import { canAccessCourseReport, canAccessSly } from "@/lib/pmq/tiers";
 import { summarizeFairUsage } from "@/lib/tutor/fair-usage";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 import { PMQ_SLUG, pmqLoHref } from "@/lib/pmq/constants";
-import { PFQ_LEARN_HREF, PFQ_SLUG } from "@/lib/pfq/constants";
+import {
+  PFQ_BASE_HREF,
+  PFQ_LEARN_HREF,
+  PFQ_SLUG,
+} from "@/lib/pfq/constants";
+import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
 import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard";
 import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
@@ -76,6 +81,13 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
           getLoStageReachedMap(supabase, user.id, pmqCourse.id),
         ])
       : [null, "starter" as const, null, [], [], false, {} as Record<string, number>];
+
+  const [pfqStats, pfqCard] = pfqCourse
+    ? await Promise.all([
+        getUserCourseStats(supabase, user.id, pfqCourse.id),
+        getPfqDashboardCardState(user.id),
+      ])
+    : [null, null];
 
   // Sly fair-usage meter is an AI Pro surface — never compute or show it for
   // Starter/Pro, who have no tutor at all.
@@ -217,18 +229,28 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
               </>
             ) : null}
 
-            {pfqCourse ? (
-              <Link
-                href={PFQ_LEARN_HREF}
-                className={`${productSurfaceQuiet} block max-w-md px-4 py-3.5 text-inherit no-underline transition-colors duration-150 hover:border-ink/20`}
-              >
-                <h3 className="font-body text-[0.9375rem] font-medium tracking-tight text-ink">
-                  {pfqCourse.name}
-                </h3>
-                <p className="mt-1 text-[13px] leading-relaxed text-ink/60">
-                  Lessons, practice and your coverage map.
-                </p>
-              </Link>
+            {pfqCourse && pfqCard ? (
+              <DashboardPmqCourseCard
+                courseName={pfqCourse.name}
+                overviewHref={PFQ_BASE_HREF}
+                continueHref={
+                  pfqCard.nextObjective != null
+                    ? `${PFQ_LEARN_HREF}/${pfqCard.nextObjective}`
+                    : PFQ_LEARN_HREF
+                }
+                continueLabel={
+                  pfqCard.nextObjective != null
+                    ? "Continue studying"
+                    : "Review course"
+                }
+                nextLoNumber={pfqCard.nextObjective}
+                nextLoStarted={pfqCard.nextStarted}
+                streak={pfqStats?.current_streak ?? 0}
+                completionPercent={pfqCard.completionPercent}
+                userTier="pro"
+                examDeadline={profile.target_exam_date}
+                showTutorFooter={false}
+              />
             ) : null}
 
             {!(pmqCourse && stats) && !pfqCourse

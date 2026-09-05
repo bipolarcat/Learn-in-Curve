@@ -19,6 +19,6 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-05** — PFQ lesson pathway gains **Apply** between Learn and Drill (Orient → Learn → Apply → Drill → Checkpoint). Common misconceptions + memory aids move off Learn onto shared `LoApplyStage` (PMQ dialect). `apply_reached_at` wired; learners who already reached Drill without Apply get Apply inferred on read. Progress units 10×5. (`lesson-stages.ts`, `PfqObjectiveLesson.tsx`, objective page selects).
+- **2026-09-05** — Dashboard PFQ course card uses the same chrome as PMQ (`DashboardPmqCourseCard` / `DashboardCourseCard`): title with orange “2 Days”, Pro badge, streak, completion %, exam deadline, Continue + Course overview. Tutor/Sly footer off for PFQ (`showTutorFooter={false}`). Resume + % from `getPfqDashboardCardState` (pathway stages × 10 LOs). (`dashboard/page.tsx`, `DashboardPmqCourseCard.tsx`, `lesson-actions.ts`)
 
 -
