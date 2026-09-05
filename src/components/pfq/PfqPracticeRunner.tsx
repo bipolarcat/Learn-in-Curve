@@ -193,7 +193,7 @@ export function PfqPracticeRunner({
           sample.
         </p>
         <p className={styles.lead}>
-          Pro adds the full practice bank, three timed mock papers, and a
+          Pro adds the full practice bank, three timed mock exams, and a
           per-outcome coverage report.
         </p>
         {error ? (

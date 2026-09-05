@@ -82,7 +82,7 @@ export function pfqMockSelectorState(
     return {
       status: null,
       tone: "plain",
-      action: `Finish paper ${activeOtherSet} first`,
+      action: `Finish exam ${activeOtherSet} first`,
       enabled: false,
       href: `${PFQ_MOCK_HREF}?set=${summary.mockSet}`,
     };

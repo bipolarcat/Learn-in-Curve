@@ -102,7 +102,7 @@ export function PfqMockConsole() {
           </h2>
           <p className={styles.subtitle}>
             {PFQ_QUESTION_COUNT} questions · {minutes} minutes · pass{" "}
-            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT} · three papers
+            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT} · three exams
           </p>
         </div>
         <div className={styles.list}>
@@ -114,7 +114,7 @@ export function PfqMockConsole() {
                 <div className={styles.rowMain}>
                   <div className="min-w-0 flex-1">
                     <p className={styles.rowTitle}>
-                      Mock paper {summary.mockSet}
+                      Mock exam {summary.mockSet}
                     </p>
                     {state.status ? (
                       <span
@@ -137,7 +137,7 @@ export function PfqMockConsole() {
                     type="button"
                     disabled={pending}
                     aria-busy={rowPending}
-                    aria-label={`${state.action} mock paper ${summary.mockSet}`}
+                    aria-label={`${state.action} mock exam ${summary.mockSet}`}
                     className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
                     onClick={() => openPath(state.href, summary.mockSet)}
                   >

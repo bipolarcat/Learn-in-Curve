@@ -117,7 +117,7 @@ export async function startPfqAttempt(input: {
     const userId = access.userId;
     const mockSet = parseMockSet(input.mockSet);
     if (!mockSet) {
-      return { ok: false, error: "Pick mock paper 1, 2, or 3." };
+      return { ok: false, error: "Pick mock exam 1, 2, or 3." };
     }
     // guest_token column retained for a possible future trial; unused while Pro-gated.
     const guestToken = null;
@@ -288,7 +288,7 @@ export async function listPfqMockSetSummaries(): Promise<
     return { ok: true, summaries };
   } catch (err) {
     console.error("[pfq] listMockSetSummaries", err);
-    return { ok: false, error: "Couldn’t load mock papers." };
+    return { ok: false, error: "Couldn’t load mock exams." };
   }
 }
 

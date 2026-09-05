@@ -349,11 +349,11 @@ export function PfqMockRunner({
   if (phase === "ready" && !resolvedMockSet) {
     return (
       <div className={styles.startCard}>
-        <h1 className={styles.title}>Choose a mock paper</h1>
+        <h1 className={styles.title}>Choose a mock exam</h1>
         <p className={styles.lead}>
-          Three timed papers. {PFQ_QUESTION_COUNT} questions · 60 minutes · pass
-          mark {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. Pick one paper to sit; you
-          stay on that paper until you submit.
+          Three timed exams. {PFQ_QUESTION_COUNT} questions · 60 minutes · pass
+          mark {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. Pick one exam to sit; you
+          stay on that exam until you submit.
         </p>
         {error ? (
           <p className={styles.error} role="alert">
@@ -368,7 +368,7 @@ export function PfqMockRunner({
                 <div className={consoleStyles.rowMain}>
                   <div className="min-w-0 flex-1">
                     <p className={consoleStyles.rowTitle}>
-                      Mock paper {summary.mockSet}
+                      Mock exam {summary.mockSet}
                     </p>
                     {state.status ? (
                       <span
@@ -417,7 +417,7 @@ export function PfqMockRunner({
 
     return (
       <div className={styles.startCard}>
-        <h1 className={styles.title}>Mock paper {resolvedMockSet}</h1>
+        <h1 className={styles.title}>Mock exam {resolvedMockSet}</h1>
         <p className={styles.lead}>
           {PFQ_QUESTION_COUNT} questions · 60 minutes · pass mark{" "}
           {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. One question per learning
@@ -449,7 +449,7 @@ export function PfqMockRunner({
             disabled={pending}
             onClick={() => router.replace(PFQ_MOCK_HREF)}
           >
-            Change paper
+            Change exam
           </button>
           {canResume ? (
             <button
@@ -719,7 +719,7 @@ export function PfqMockRunner({
               disabled={pending}
               onClick={requestSubmit}
             >
-              Submit paper
+              Submit exam
             </button>
           </aside>
         ) : null}

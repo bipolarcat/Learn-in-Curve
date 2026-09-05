@@ -434,8 +434,8 @@ export async function finishPfqFreeSampleSummary(
       missed,
       untestedCount,
       proBlurb: {
-        headline: "Unlock the full bank and three mock papers",
-        body: `You sampled ${PFQ_FREE_SAMPLE_SIZE} of ${PFQ_OUTCOME_COUNT} outcomes. Pro unlocks the full practice bank and three timed mock papers so you can finish the syllabus under exam conditions.`,
+        headline: "Unlock the full bank and three mock exams",
+        body: `You sampled ${PFQ_FREE_SAMPLE_SIZE} of ${PFQ_OUTCOME_COUNT} outcomes. Pro unlocks the full practice bank and three timed mock exams so you can finish the syllabus under exam conditions.`,
       },
     };
   } catch (err) {
