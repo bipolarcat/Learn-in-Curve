@@ -9,7 +9,7 @@ import {
   PFQ_MOCK_SETS,
   type PfqMockSet,
 } from "@/lib/pfq/generator";
-import { PFQ_DURATION_SECONDS, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
+import { PFQ_DURATION_SECONDS, PFQ_PASS_MARK, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
 import { buildPfqResults, isDisplayAnswerCorrect } from "@/lib/pfq/scoring";
 import { toPublicPfqQuestion, assertNoSecretsInPublicPayload } from "@/lib/pfq/public-question";
 import { getPfqTier } from "@/lib/pfq/entitlement";
@@ -202,10 +202,15 @@ export async function startPfqAttempt(input: {
 
 export type PfqMockSetSummary = {
   mockSet: PfqMockSet;
-  attempted: boolean;
+  /** Unsubmitted sitting for this paper, if any. */
+  activeAttemptId: string | null;
+  /** Absolute deadline ISO for the active sitting (drives console timer). */
+  endsAt: string | null;
+  /** Most recent submitted attempt (for View result). */
+  latestAttemptId: string | null;
   lastScore: number | null;
   lastSubmittedAt: string | null;
-  attemptId: string | null;
+  passed: boolean;
 };
 
 export async function listPfqMockSetSummaries(): Promise<
@@ -218,46 +223,66 @@ export async function listPfqMockSetSummaries(): Promise<
     const supabase = createServiceClient();
     const { data, error } = await supabase
       .from("pfq_attempts")
-      .select("id, mock_set, score, submitted_at")
+      .select("id, mock_set, score, submitted_at, started_at")
       .eq("user_id", access.userId)
-      .not("submitted_at", "is", null)
       .not("mock_set", "is", null)
-      .order("submitted_at", { ascending: false });
+      .order("started_at", { ascending: false });
     if (error) throw error;
 
-    const latestBySet = new Map<PfqMockSet, {
-      attemptId: string;
-      score: number | null;
-      submittedAt: string;
-    }>();
-    for (const row of data ?? []) {
-      const set = parseMockSet(row.mock_set);
-      if (!set || latestBySet.has(set)) continue;
-      latestBySet.set(set, {
-        attemptId: String(row.id),
-        score: typeof row.score === "number" ? row.score : null,
-        submittedAt: String(row.submitted_at),
-      });
+    type Row = {
+      activeAttemptId: string | null;
+      endsAt: string | null;
+      latestAttemptId: string | null;
+      lastScore: number | null;
+      lastSubmittedAt: string | null;
+      passed: boolean;
+    };
+    const bySet = new Map<PfqMockSet, Row>();
+
+    for (const raw of data ?? []) {
+      const set = parseMockSet(raw.mock_set);
+      if (!set) continue;
+      const cur = bySet.get(set) ?? {
+        activeAttemptId: null,
+        endsAt: null,
+        latestAttemptId: null,
+        lastScore: null,
+        lastSubmittedAt: null,
+        passed: false,
+      };
+
+      if (!raw.submitted_at) {
+        if (!cur.activeAttemptId) {
+          cur.activeAttemptId = String(raw.id);
+          cur.endsAt = new Date(
+            new Date(String(raw.started_at)).getTime() +
+              PFQ_DURATION_SECONDS * 1000,
+          ).toISOString();
+        }
+      } else if (!cur.latestAttemptId) {
+        const score = typeof raw.score === "number" ? raw.score : null;
+        cur.latestAttemptId = String(raw.id);
+        cur.lastScore = score;
+        cur.lastSubmittedAt = String(raw.submitted_at);
+        cur.passed = score != null && score >= PFQ_PASS_MARK;
+      }
+      bySet.set(set, cur);
     }
 
     const summaries: PfqMockSetSummary[] = PFQ_MOCK_SETS.map((mockSet) => {
-      const latest = latestBySet.get(mockSet);
-      if (!latest) {
+      const row = bySet.get(mockSet);
+      if (!row) {
         return {
           mockSet,
-          attempted: false,
+          activeAttemptId: null,
+          endsAt: null,
+          latestAttemptId: null,
           lastScore: null,
           lastSubmittedAt: null,
-          attemptId: null,
+          passed: false,
         };
       }
-      return {
-        mockSet,
-        attempted: true,
-        lastScore: latest.score,
-        lastSubmittedAt: latest.submittedAt,
-        attemptId: latest.attemptId,
-      };
+      return { mockSet, ...row };
     });
 
     return { ok: true, summaries };

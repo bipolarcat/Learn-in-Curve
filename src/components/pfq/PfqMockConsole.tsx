@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { CtaArrow } from "@/components/stamp-chip";
 import { productActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
 import {
-  PFQ_MOCK_HREF,
   PFQ_PRACTICE_HREF,
   PFQ_TRAP_SCHOOL_HREF,
 } from "@/lib/pfq/constants";
@@ -16,44 +15,57 @@ import {
 } from "@/lib/pfq/actions";
 import { PFQ_MOCK_SETS, type PfqMockSet } from "@/lib/pfq/generator";
 import {
+  emptyPfqMockSummary,
+  formatExamClock,
+  pfqMockConsoleSecondsRemaining,
+  pfqMockSelectorState,
+} from "@/lib/pfq/mock-console";
+import {
   PFQ_DURATION_SECONDS,
   PFQ_PASS_MARK,
   PFQ_QUESTION_COUNT,
 } from "@/lib/pfq/outcomes";
 import styles from "@/components/pmq/PmqMockExamsSection.module.css";
 
-function emptySummary(mockSet: PfqMockSet): PfqMockSetSummary {
-  return {
-    mockSet,
-    attempted: false,
-    lastScore: null,
-    lastSubmittedAt: null,
-    attemptId: null,
-  };
-}
+function PfqMockConsoleTimer({ summary }: { summary: PfqMockSetSummary }) {
+  const [now, setNow] = useState<number | null>(null);
 
-function statusLabel(summary: PfqMockSetSummary): string {
-  if (
-    summary.attempted &&
-    typeof summary.lastScore === "number"
-  ) {
-    return `Last score ${summary.lastScore}/${PFQ_QUESTION_COUNT}`;
-  }
-  if (summary.attempted) {
-    return "Attempted";
-  }
-  return "Not attempted yet";
+  useEffect(() => {
+    setNow(Date.now());
+  }, []);
+
+  useEffect(() => {
+    if (now == null) return;
+    if (pfqMockConsoleSecondsRemaining(summary, Date.now()) == null) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [now == null, summary.activeAttemptId, summary.endsAt]);
+
+  if (now == null) return null;
+  const seconds = pfqMockConsoleSecondsRemaining(summary, now);
+  if (seconds == null) return null;
+
+  const label = formatExamClock(seconds);
+  return (
+    <>
+      {" · "}
+      <span className={styles.rowTimer} aria-label={`Time remaining ${label}`}>
+        {label}
+      </span>
+    </>
+  );
 }
 
 /**
- * Three-paper Surpass-alike mock console — same chrome as PMQ mock exams panel.
- * Navigates to the runner with `?set=N`; does not start an attempt here.
+ * Three-paper Surpass-alike mock console — PMQ overview parity for status,
+ * live timer while in progress, and Start / Resume / View result actions.
  */
 export function PfqMockConsole() {
   const router = useRouter();
+  const [pendingSet, setPendingSet] = useState<PfqMockSet | "aux" | null>(null);
   const [pending, startTransition] = useTransition();
   const [summaries, setSummaries] = useState<PfqMockSetSummary[]>(() =>
-    PFQ_MOCK_SETS.map(emptySummary),
+    PFQ_MOCK_SETS.map(emptyPfqMockSummary),
   );
   const minutes = Math.round(PFQ_DURATION_SECONDS / 60);
 
@@ -69,7 +81,13 @@ export function PfqMockConsole() {
     };
   }, []);
 
-  function openPath(path: string) {
+  const activeOtherSet = useMemo(() => {
+    const active = summaries.find((s) => s.activeAttemptId);
+    return active?.mockSet ?? null;
+  }, [summaries]);
+
+  function openPath(path: string, key: PfqMockSet | "aux") {
+    setPendingSet(key);
     startTransition(() => {
       router.push(path);
     });
@@ -89,13 +107,8 @@ export function PfqMockConsole() {
         </div>
         <div className={styles.list}>
           {summaries.map((summary) => {
-            const status = statusLabel(summary);
-            const tone =
-              summary.attempted && typeof summary.lastScore === "number"
-                ? "done"
-                : summary.attempted
-                  ? "open"
-                  : "plain";
+            const state = pfqMockSelectorState(summary, activeOtherSet);
+            const rowPending = pending && pendingSet === summary.mockSet;
             return (
               <div key={summary.mockSet} className={styles.row}>
                 <div className={styles.rowMain}>
@@ -103,43 +116,48 @@ export function PfqMockConsole() {
                     <p className={styles.rowTitle}>
                       Mock paper {summary.mockSet}
                     </p>
-                    <span
-                      className={`${styles.rowStatus} ${
-                        tone === "done"
-                          ? styles.rowStatusDone
-                          : tone === "open"
-                            ? styles.rowStatusOpen
-                            : ""
-                      }`}
-                    >
-                      {status}
-                    </span>
+                    {state.status ? (
+                      <span
+                        className={`${styles.rowStatus} ${
+                          state.tone === "done"
+                            ? styles.rowStatusDone
+                            : state.tone === "open"
+                              ? styles.rowStatusOpen
+                              : ""
+                        }`}
+                      >
+                        {state.status}
+                        <PfqMockConsoleTimer summary={summary} />
+                      </span>
+                    ) : null}
                   </div>
                 </div>
-                <button
-                  type="button"
-                  disabled={pending}
-                  aria-busy={pending}
-                  aria-label={`Start mock paper ${summary.mockSet}`}
-                  className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
-                  onClick={() =>
-                    openPath(`${PFQ_MOCK_HREF}?set=${summary.mockSet}`)
-                  }
-                >
-                  {pending ? (
-                    <Spinner
-                      variant="bars"
-                      size={14}
-                      className="text-ink"
-                      aria-hidden
-                    />
-                  ) : (
-                    <>
-                      Start
-                      <CtaArrow />
-                    </>
-                  )}
-                </button>
+                {state.enabled ? (
+                  <button
+                    type="button"
+                    disabled={pending}
+                    aria-busy={rowPending}
+                    aria-label={`${state.action} mock paper ${summary.mockSet}`}
+                    className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
+                    onClick={() => openPath(state.href, summary.mockSet)}
+                  >
+                    {rowPending ? (
+                      <Spinner
+                        variant="bars"
+                        size={14}
+                        className="text-ink"
+                        aria-hidden
+                      />
+                    ) : (
+                      <>
+                        {state.action}
+                        <CtaArrow />
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <span className={styles.rowLock}>{state.action}</span>
+                )}
               </div>
             );
           })}
@@ -156,7 +174,7 @@ export function PfqMockConsole() {
               type="button"
               disabled={pending}
               className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
-              onClick={() => openPath(PFQ_PRACTICE_HREF)}
+              onClick={() => openPath(PFQ_PRACTICE_HREF, "aux")}
             >
               Practise
               <CtaArrow />
@@ -176,7 +194,7 @@ export function PfqMockConsole() {
               type="button"
               disabled={pending}
               className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
-              onClick={() => openPath(PFQ_TRAP_SCHOOL_HREF)}
+              onClick={() => openPath(PFQ_TRAP_SCHOOL_HREF, "aux")}
             >
               Open
               <CtaArrow />

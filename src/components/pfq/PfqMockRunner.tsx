@@ -20,6 +20,12 @@ import {
 } from "@/lib/pfq/outcomes";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 import { PFQ_MOCK_SETS, type PfqMockSet } from "@/lib/pfq/generator";
+import {
+  emptyPfqMockSummary,
+  formatExamClock,
+  pfqMockConsoleSecondsRemaining,
+  pfqMockSelectorState,
+} from "@/lib/pfq/mock-console";
 import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { PfqResults } from "@/components/pfq/PfqResults";
 import { Spinner } from "@/components/ui/spinner";
@@ -43,29 +49,34 @@ function parseMockSetParam(raw: string | null | undefined): PfqMockSet | null {
   return null;
 }
 
-function emptySummary(mockSet: PfqMockSet): PfqMockSetSummary {
-  return {
-    mockSet,
-    attempted: false,
-    lastScore: null,
-    lastSubmittedAt: null,
-    attemptId: null,
-  };
-}
-
-function paperStatusLabel(summary: PfqMockSetSummary): string {
-  if (summary.attempted && typeof summary.lastScore === "number") {
-    return `Last score ${summary.lastScore}/${PFQ_QUESTION_COUNT}`;
-  }
-  if (summary.attempted) return "Attempted";
-  return "Not attempted yet";
-}
-
 function formatClock(totalSeconds: number): string {
   const s = Math.max(0, totalSeconds);
   const m = Math.floor(s / 60);
   const r = s % 60;
   return `${String(m).padStart(2, "0")}:${String(r).padStart(2, "0")}`;
+}
+
+function RunnerPaperTimer({ summary }: { summary: PfqMockSetSummary }) {
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    setNow(Date.now());
+  }, []);
+  useEffect(() => {
+    if (now == null) return;
+    if (pfqMockConsoleSecondsRemaining(summary, Date.now()) == null) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [now == null, summary.activeAttemptId, summary.endsAt]);
+  if (now == null) return null;
+  const seconds = pfqMockConsoleSecondsRemaining(summary, now);
+  if (seconds == null) return null;
+  const label = formatExamClock(seconds);
+  return (
+    <>
+      {" · "}
+      <span aria-label={`Time remaining ${label}`}>{label}</span>
+    </>
+  );
 }
 
 async function ensureGuestToken(): Promise<string> {
@@ -104,12 +115,30 @@ export function PfqMockRunner({
     ReturnType<typeof submitPfqAttempt>
   > | null>(null);
   const [summaries, setSummaries] = useState<PfqMockSetSummary[]>(() =>
-    PFQ_MOCK_SETS.map(emptySummary),
+    PFQ_MOCK_SETS.map(emptyPfqMockSummary),
   );
   const [pending, startTransition] = useTransition();
   const autoSubmitted = useRef(false);
 
   const current = questions[index] ?? null;
+
+  const activeOtherSet = useMemo(() => {
+    const active = summaries.find((s) => s.activeAttemptId);
+    return active?.mockSet ?? null;
+  }, [summaries]);
+
+  const resolvedSummary = useMemo(
+    () =>
+      resolvedMockSet
+        ? summaries.find((s) => s.mockSet === resolvedMockSet) ??
+          emptyPfqMockSummary(resolvedMockSet)
+        : null,
+    [summaries, resolvedMockSet],
+  );
+
+  const resolvedState = resolvedSummary
+    ? pfqMockSelectorState(resolvedSummary, activeOtherSet)
+    : null;
 
   const counts = useMemo(() => {
     let attempted = 0;
@@ -164,7 +193,7 @@ export function PfqMockRunner({
   }, [initialAttemptId, hydrate]);
 
   useEffect(() => {
-    if (initialAttemptId || resolvedMockSet) return;
+    if (initialAttemptId) return;
     let cancelled = false;
     void (async () => {
       const result = await listPfqMockSetSummaries();
@@ -174,7 +203,7 @@ export function PfqMockRunner({
     return () => {
       cancelled = true;
     };
-  }, [initialAttemptId, resolvedMockSet]);
+  }, [initialAttemptId]);
 
   useEffect(() => {
     if (phase !== "exam" || !endsAt) return;
@@ -217,6 +246,22 @@ export function PfqMockRunner({
   }
 
   function choosePaper(mockSet: PfqMockSet) {
+    const summary =
+      summaries.find((s) => s.mockSet === mockSet) ??
+      emptyPfqMockSummary(mockSet);
+    const state = pfqMockSelectorState(summary, activeOtherSet);
+    if (!state.enabled) return;
+    if (summary.activeAttemptId) {
+      router.replace(`${PFQ_MOCK_HREF}/${summary.activeAttemptId}`);
+      return;
+    }
+    if (summary.latestAttemptId && !summary.activeAttemptId) {
+      // Prefer starting fresh only via Start; View result goes to attempt
+      if (state.action === "View result") {
+        router.replace(`${PFQ_MOCK_HREF}/${summary.latestAttemptId}`);
+        return;
+      }
+    }
     router.replace(`${PFQ_MOCK_HREF}?set=${mockSet}`);
   }
 
@@ -317,27 +362,43 @@ export function PfqMockRunner({
         ) : null}
         <div className={consoleStyles.list}>
           {summaries.map((summary) => {
-            const status = paperStatusLabel(summary);
+            const state = pfqMockSelectorState(summary, activeOtherSet);
             return (
-              <button
-                key={summary.mockSet}
-                type="button"
-                disabled={pending}
-                className={`${consoleStyles.row} ${consoleStyles.rowInteractive}`}
-                onClick={() => choosePaper(summary.mockSet)}
-              >
+              <div key={summary.mockSet} className={consoleStyles.row}>
                 <div className={consoleStyles.rowMain}>
-                  <p className={consoleStyles.rowTitle}>
-                    Mock paper {summary.mockSet}
-                  </p>
-                  <span className={consoleStyles.rowStatus}>{status}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className={consoleStyles.rowTitle}>
+                      Mock paper {summary.mockSet}
+                    </p>
+                    {state.status ? (
+                      <span
+                        className={`${consoleStyles.rowStatus} ${
+                          state.tone === "done"
+                            ? consoleStyles.rowStatusDone
+                            : state.tone === "open"
+                              ? consoleStyles.rowStatusOpen
+                              : ""
+                        }`}
+                      >
+                        {state.status}
+                        <RunnerPaperTimer summary={summary} />
+                      </span>
+                    ) : null}
+                  </div>
                 </div>
-                <div className={consoleStyles.rowAction}>
-                  <span className={consoleStyles.rowChevron} aria-hidden>
-                    →
-                  </span>
-                </div>
-              </button>
+                {state.enabled ? (
+                  <button
+                    type="button"
+                    disabled={pending}
+                    className={stampCtaSecondary}
+                    onClick={() => choosePaper(summary.mockSet)}
+                  >
+                    {state.action}
+                  </button>
+                ) : (
+                  <span className={consoleStyles.rowLock}>{state.action}</span>
+                )}
+              </div>
             );
           })}
         </div>
@@ -345,7 +406,15 @@ export function PfqMockRunner({
     );
   }
 
-  if (phase === "ready" && resolvedMockSet) {
+  if (phase === "ready" && resolvedMockSet && resolvedState) {
+    const canResume =
+      resolvedState.action === "Resume" && resolvedSummary?.activeAttemptId;
+    const canView =
+      resolvedState.action === "View result" &&
+      resolvedSummary?.latestAttemptId;
+    const canStart =
+      resolvedState.action === "Start" && resolvedState.enabled;
+
     return (
       <div className={styles.startCard}>
         <h1 className={styles.title}>Mock paper {resolvedMockSet}</h1>
@@ -354,6 +423,14 @@ export function PfqMockRunner({
           {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. One question per learning
           outcome, plus one doubled. Same shape as the real paper.
         </p>
+        {resolvedState.status ? (
+          <p className={styles.lead}>
+            {resolvedState.status}
+            {resolvedSummary ? (
+              <RunnerPaperTimer summary={resolvedSummary} />
+            ) : null}
+          </p>
+        ) : null}
         <ul className={styles.bullets}>
           <li>Flag questions and filter Unattempted / Attempted / Flagged.</li>
           <li>Pacing guide: about 1 minute per question.</li>
@@ -374,19 +451,49 @@ export function PfqMockRunner({
           >
             Change paper
           </button>
-          <button
-            type="button"
-            className={stampCtaPrimary}
-            disabled={pending}
-            aria-busy={pending}
-            onClick={() => void begin(resolvedMockSet)}
-          >
-            {pending ? (
-              <Spinner variant="bars" size={16} className="text-current" />
-            ) : (
-              "Start 60-minute mock"
-            )}
-          </button>
+          {canResume ? (
+            <button
+              type="button"
+              className={stampCtaPrimary}
+              disabled={pending}
+              onClick={() =>
+                router.replace(
+                  `${PFQ_MOCK_HREF}/${resolvedSummary!.activeAttemptId}`,
+                )
+              }
+            >
+              Resume
+            </button>
+          ) : canView ? (
+            <button
+              type="button"
+              className={stampCtaPrimary}
+              disabled={pending}
+              onClick={() =>
+                router.replace(
+                  `${PFQ_MOCK_HREF}/${resolvedSummary!.latestAttemptId}`,
+                )
+              }
+            >
+              View result
+            </button>
+          ) : canStart ? (
+            <button
+              type="button"
+              className={stampCtaPrimary}
+              disabled={pending}
+              aria-busy={pending}
+              onClick={() => void begin(resolvedMockSet)}
+            >
+              {pending ? (
+                <Spinner variant="bars" size={16} className="text-current" />
+              ) : (
+                "Start 60-minute mock"
+              )}
+            </button>
+          ) : (
+            <p className={styles.lead}>{resolvedState.action}</p>
+          )}
         </div>
       </div>
     );
