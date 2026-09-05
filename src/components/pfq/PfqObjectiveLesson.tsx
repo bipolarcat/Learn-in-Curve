@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useState, useTransition } from "react"
 import { useRouter } from "next/navigation";
 import {
   BookOpen,
-  Brain,
   CircleAlert,
   Compass,
   ListChecks,
@@ -12,10 +11,9 @@ import {
 } from "lucide-react";
 import { StudyJourney } from "@/components/course/StudyJourney";
 import { LoPageHeader } from "@/components/pmq/LoPageHeader";
+import { LoApplyStage } from "@/components/pmq/LoApplyStage";
 import { DefinitionsReveal } from "@/components/pmq/DefinitionsReveal";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
-import { MisconceptionsList } from "@/components/pmq/MisconceptionsList";
-import { MemoryAidsList } from "@/components/pmq/MemoryAidsList";
 import { PfqCheckpointList } from "@/components/pfq/PfqCheckpointList";
 import { PfqPracticeRunner } from "@/components/pfq/PfqPracticeRunner";
 import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
@@ -92,7 +90,8 @@ function OrientCard({
 }
 
 /**
- * PFQ objective pathway — 4 stages via shared StudyJourney.
+ * PFQ objective pathway — Orient → Learn → Apply → Drill → Checkpoint.
+ * Misconceptions + memory aids live on Apply (same dialect as PMQ).
  * Does not write pfq_coverage_signals.
  */
 export function PfqObjectiveLessonView({
@@ -314,43 +313,16 @@ export function PfqObjectiveLessonView({
                   ) : null}
                 </section>
               ))}
-
-              {lesson.misconceptions.length > 0 ? (
-                <section
-                  className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
-                  aria-labelledby="pfq-misconceptions"
-                >
-                  <div className="mb-3 flex items-center gap-2">
-                    <PathwayGlyph icon={CircleAlert} />
-                    <h2
-                      id="pfq-misconceptions"
-                      className="font-body text-lg font-semibold tracking-tight text-ink"
-                    >
-                      Common misconceptions
-                    </h2>
-                  </div>
-                  <MisconceptionsList items={lesson.misconceptions} />
-                </section>
-              ) : null}
-
-              {lesson.memory_aids.length > 0 ? (
-                <section
-                  className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
-                  aria-labelledby="pfq-memory"
-                >
-                  <div className="mb-3 flex items-center gap-2">
-                    <PathwayGlyph icon={Brain} />
-                    <h2
-                      id="pfq-memory"
-                      className="font-body text-lg font-semibold tracking-tight text-ink"
-                    >
-                      Memory aids
-                    </h2>
-                  </div>
-                  <MemoryAidsList items={lesson.memory_aids} />
-                </section>
-              ) : null}
             </div>
+          );
+        }
+
+        if (currentId === "apply") {
+          return (
+            <LoApplyStage
+              misconceptions={lesson.misconceptions}
+              memoryAids={lesson.memory_aids}
+            />
           );
         }
 

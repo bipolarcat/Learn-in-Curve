@@ -1,6 +1,6 @@
 /**
- * PFQ 4-stage pathway (parity §3a). Trap school stays a global module — no
- * per-objective traps stage.
+ * PFQ pathway stages (parity with PMQ Apply for misconceptions / memory aids).
+ * Trap school stays a global module — no per-objective traps stage.
  */
 
 import {
@@ -8,13 +8,19 @@ import {
   type CourseStageDef,
 } from "../course/stages.ts";
 
-export type PfqStageId = "orient" | "learn" | "drill" | "checkpoint";
+export type PfqStageId =
+  | "orient"
+  | "learn"
+  | "apply"
+  | "drill"
+  | "checkpoint";
 
 export type PfqStageDef = CourseStageDef<PfqStageId>;
 
 export const PFQ_STAGE_ORDER: PfqStageId[] = [
   "orient",
   "learn",
+  "apply",
   "drill",
   "checkpoint",
 ];
@@ -26,7 +32,8 @@ const STAGE_META: Record<
   { label: string; continueLabel: string }
 > = {
   orient: { label: "Orient", continueLabel: "Continue to Learn" },
-  learn: { label: "Learn", continueLabel: "Continue to Drill" },
+  learn: { label: "Learn", continueLabel: "Continue to Apply" },
+  apply: { label: "Apply", continueLabel: "Continue to Drill" },
   drill: { label: "Drill", continueLabel: "Continue to Checkpoint" },
   checkpoint: { label: "Checkpoint", continueLabel: "Done" },
 };
@@ -44,6 +51,7 @@ export const PFQ_STAGE_REACHED_COLUMN: Partial<
 > = {
   orient: "orient_reached_at",
   learn: "learn_reached_at",
+  apply: "apply_reached_at",
   drill: "quiz_completed_at",
 };
 
@@ -51,6 +59,7 @@ export type PfqStageSignalColumn =
   | "orient_reached_at"
   | "learn_reached_at"
   | "quiz_completed_at"
+  | "apply_reached_at"
   | "completed_at";
 
 export type PfqStageSignals = {
@@ -66,9 +75,12 @@ export type PfqStageSignals = {
 /**
  * Stages the DB confirms as reached for resume / optimistic progress.
  *
- * Legacy rule (parity §3a): a non-null `completed_at` means every stage was
- * reached — resolve on read, do not backfill columns. Covers pre-pathway rows
- * (e.g. section `f8a2c1e0-4d3b-4a9e-9c06-2e1d0b9a8c7d`).
+ * Legacy rule: a non-null `completed_at` means every stage was reached —
+ * resolve on read, do not backfill columns.
+ *
+ * Inserted-stage rule: if a later pre-checkpoint timestamp is set, earlier
+ * stages count as reached too. Covers learners who passed Learn → Drill
+ * before Apply existed between them.
  */
 export function getPfqReachedStageIds(
   row: PfqStageSignals | null | undefined,
@@ -76,11 +88,24 @@ export function getPfqReachedStageIds(
   if (!row) return [];
   if (row.completed_at) return [...PFQ_STAGE_ORDER];
 
-  const reached: PfqStageId[] = [];
-  if (row.orient_reached_at) reached.push("orient");
-  if (row.learn_reached_at) reached.push("learn");
-  if (row.quiz_completed_at) reached.push("drill");
-  return reached;
+  const explicit: Partial<Record<PfqStageId, boolean>> = {
+    orient: Boolean(row.orient_reached_at),
+    learn: Boolean(row.learn_reached_at),
+    apply: Boolean(row.apply_reached_at),
+    drill: Boolean(row.quiz_completed_at),
+  };
+
+  let furthest = -1;
+  for (let i = 0; i < PFQ_STAGE_ORDER.length; i++) {
+    const id = PFQ_STAGE_ORDER[i]!;
+    if (id === "checkpoint") continue;
+    if (explicit[id]) furthest = i;
+  }
+
+  if (furthest < 0) return [];
+  return PFQ_STAGE_ORDER.slice(0, furthest + 1).filter(
+    (id) => id !== "checkpoint",
+  );
 }
 
 export function getPfqReachedCountFromProgress(
@@ -88,14 +113,9 @@ export function getPfqReachedCountFromProgress(
 ): number {
   if (!row) return 0;
   if (row.completed_at) return PFQ_STAGE_COUNT;
-  return [
-    row.orient_reached_at,
-    row.learn_reached_at,
-    row.quiz_completed_at,
-    row.completed_at,
-  ].filter(Boolean).length;
+  return getPfqReachedStageIds(row).length;
 }
 
-/** 10 objectives × 4 stages. */
+/** 10 objectives × 5 stages. */
 export const PFQ_TOTAL_PROGRESS_UNITS = 10 * PFQ_STAGE_COUNT;
 export const PFQ_PROGRESS_UNIT_PERCENT = 100 / PFQ_TOTAL_PROGRESS_UNITS;

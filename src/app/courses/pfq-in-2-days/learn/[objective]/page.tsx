@@ -67,7 +67,7 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
   const { data: progress } = await supabase
     .from("section_progress")
     .select(
-      "checklist_state, completed_at, orient_reached_at, learn_reached_at, quiz_completed_at",
+      "checklist_state, completed_at, orient_reached_at, learn_reached_at, apply_reached_at, quiz_completed_at",
     )
     .eq("user_id", user.id)
     .eq("section_id", sectionId)
@@ -88,7 +88,7 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
   const { data: allProgress } = await supabase
     .from("section_progress")
     .select(
-      "section_id, completed_at, orient_reached_at, learn_reached_at, quiz_completed_at",
+      "section_id, completed_at, orient_reached_at, learn_reached_at, apply_reached_at, quiz_completed_at",
     )
     .eq("user_id", user.id)
     .eq("course_id", PFQ_COURSE_ID)
@@ -103,7 +103,7 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     const { data: legacy } = await supabase
       .from("section_progress")
       .select(
-        "section_id, completed_at, orient_reached_at, learn_reached_at, quiz_completed_at",
+        "section_id, completed_at, orient_reached_at, learn_reached_at, apply_reached_at, quiz_completed_at",
       )
       .eq("user_id", user.id)
       .in("section_id", sectionIds);

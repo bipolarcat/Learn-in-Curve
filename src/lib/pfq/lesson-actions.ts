@@ -50,7 +50,7 @@ function revalidateLesson(objective: number) {
 }
 
 /**
- * Persist that the learner left a pathway stage (orient / learn / drill).
+ * Persist that the learner left a pathway stage (orient / learn / apply / drill).
  * Idempotent. Does not touch pfq_coverage_signals.
  */
 export async function markPfqStageReached(input: {
