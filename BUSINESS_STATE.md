@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-07** — LO pathway: opening a partially complete learning objective always starts on Orient (no auto-jump to the next incomplete stage). Shared `StudyJourney` change; PMQ + PFQ. Progress ticks from `*_reached_at` unchanged.
 - **2026-09-05** — Site header: Home Page menu icon → house with chimney (replacing parked van) in `SiteHeaderMenuIcons`.
 - **2026-09-05** — Site header: Home menu item label **Home Page** + parked van icon (replacing porch light / "Back to Home") in `SiteHeaderMenu` / `SiteHeaderMenuIcons`.
 - **2026-09-05** — Site header: Back to Home menu icon → porch light (replacing house) in `SiteHeaderMenuIcons`.

@@ -73,7 +73,7 @@ export type PfqStageSignals = {
 };
 
 /**
- * Stages the DB confirms as reached for resume / optimistic progress.
+ * Stages the DB confirms as reached for optimistic progress / done ticks.
  *
  * Legacy rule: a non-null `completed_at` means every stage was reached —
  * resolve on read, do not backfill columns.

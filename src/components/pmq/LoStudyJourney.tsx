@@ -61,8 +61,8 @@ type LoStudyJourneyProps = {
   completionPercent?: number;
   /**
    * Pre-quiz pathway stages the DB confirms as reached (from
-   * `section_progress`'s `*_reached_at` columns). This is the *only*
-   * source of truth for "done" stages and which stage to resume on.
+   * `section_progress`'s `*_reached_at` columns). Source of truth for
+   * which stages count as done — the LO still opens on Orient.
    */
   dbReachedStageIds?: LoStageId[];
 };

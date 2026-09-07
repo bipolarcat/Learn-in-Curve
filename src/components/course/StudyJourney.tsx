@@ -96,7 +96,7 @@ export type StudyJourneyChromeContext<TId extends string> = {
 };
 
 type StudyJourneyProps<TId extends string> = {
-  /** Stable key for this unit (LO number / objective) — resume once per key. */
+  /** Stable key for this unit (LO number / objective) — init once per key. */
   unitKey: string | number;
   stages: CourseStageDef<TId>[];
   sealed: boolean;
@@ -131,9 +131,10 @@ type StudyJourneyProps<TId extends string> = {
 };
 
 /**
- * Course-agnostic pathway shell: unlock/resume, continue, scroll, optimistic %.
- * PMQ and PFQ supply stage lists and render functions — this file must not
- * import either course's content components.
+ * Course-agnostic pathway shell: unlock, continue, scroll, optimistic %.
+ * Opens on the first stage (Orient) every visit; DB reached stages still mark
+ * progress. PMQ and PFQ supply stage lists and render functions — this file
+ * must not import either course's content components.
  */
 export function StudyJourney<TId extends string>({
   unitKey,
@@ -173,14 +174,14 @@ export function StudyJourney<TId extends string>({
     () => new Set([stages[0]?.id].filter(Boolean) as TId[]),
   );
   const prevSealedRef = useRef<boolean | null>(null);
-  const resumedForUnitRef = useRef<string | number | null>(null);
+  const openedForUnitRef = useRef<string | number | null>(null);
   const dbDoneCountRef = useRef(0);
 
   useEffect(() => {
     const dbDone = dbReachedStageIds.filter((id) => stageIds.includes(id));
     const wasReset = dbDone.length < dbDoneCountRef.current;
     dbDoneCountRef.current = dbDone.length;
-    if (wasReset) resumedForUnitRef.current = null;
+    if (wasReset) openedForUnitRef.current = null;
 
     setDoneIds((prev) => {
       if (wasReset) return new Set(dbDone);
@@ -196,19 +197,15 @@ export function StudyJourney<TId extends string>({
       return next;
     });
 
-    if (resumedForUnitRef.current === unitKey) return;
-    resumedForUnitRef.current = unitKey;
-
-    const furthestDbIdx = dbDone.reduce((max, id) => {
-      const idx = stageIds.indexOf(id);
-      return idx > max ? idx : max;
-    }, -1);
-    const nextIdx = Math.min(
-      Math.max(furthestDbIdx + 1, 0),
-      stageIds.length - 1,
-    );
-    setCurrentId(stageIds[nextIdx] ?? stageIds[0]!);
-  }, [unitKey, stageIds, dbReachedStageIds]);
+    // Always land on the first pathway stage (Orient) when opening a unit.
+    // Do not jump to the next incomplete stage — progress ticks stay in doneIds.
+    // Sealed units: the seal effect sends them to Checkpoint instead.
+    if (openedForUnitRef.current === unitKey) return;
+    openedForUnitRef.current = unitKey;
+    if (!sealed) {
+      setCurrentId(stageIds[0]!);
+    }
+  }, [unitKey, stageIds, dbReachedStageIds, sealed]);
 
   useEffect(() => {
     if (sealed) {

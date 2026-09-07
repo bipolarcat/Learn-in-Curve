@@ -509,11 +509,12 @@ async function tryMarkSectionCompleteIfReady(
 /**
  * Persists that the learner has reached one of the 5 pre-quiz pathway
  * stages (Orient/Learn/Video/Audio/Apply) to `section_progress`, so
- * per-LO and overall course progress — and which stage to resume on —
- * are entirely DB-backed (the client-only sessionStorage journey cache
- * this used to sit alongside has been removed; see lo-stages.ts and
- * OPERATIONS.md). Idempotent: only sets the timestamp if it isn't
- * already set, so re-visiting a stage never resets its reached time.
+ * per-LO and overall course progress stay accurate (the LO still opens
+ * on Orient; these timestamps mark stages done in the chrome). The
+ * client-only sessionStorage journey cache this used to sit alongside
+ * has been removed; see lo-stages.ts and OPERATIONS.md. Idempotent:
+ * only sets the timestamp if it isn't already set, so re-visiting a
+ * stage never resets its reached time.
  */
 export async function markLoStageReached(input: {
   sectionId: string;
