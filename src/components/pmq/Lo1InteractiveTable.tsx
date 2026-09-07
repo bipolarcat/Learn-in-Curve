@@ -77,7 +77,7 @@ function RowExpandTable({
     <figure className="not-prose m-0 my-4 min-w-0">
       <div className="overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]">
         <div
-          className="grid grid-cols-[minmax(0,1fr)_1.25rem] gap-x-3 border-b border-black/[0.08] bg-ink/[0.04] px-3 py-2 font-body text-[11px] font-semibold tracking-tight text-ink/60 dark:border-white/[0.12]"
+          className="grid grid-cols-[minmax(0,1fr)_1.25rem] gap-x-3 border-b border-black/[0.08] bg-ink/[0.04] px-3 py-2 font-body text-[12px] font-semibold tracking-tight text-ink/75 dark:border-white/[0.12]"
           role="presentation"
         >
           <span>{headers[0]}</span>
@@ -100,7 +100,7 @@ function RowExpandTable({
                     setOpenRow((current) => (current === index ? null : index))
                   }
                   className={cn(
-                    "grid w-full grid-cols-[minmax(0,1fr)_1.25rem] items-start gap-x-3 px-3 py-2.5 text-left touch-manipulation [-webkit-tap-highlight-color:transparent] transition-colors duration-[220ms] ease-[var(--ease-out-quint)]",
+                    "grid w-full min-h-11 grid-cols-[minmax(0,1fr)_1.25rem] items-start gap-x-3 px-3 py-2.5 text-left touch-manipulation [-webkit-tap-highlight-color:transparent] transition-colors duration-[220ms] ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange/55",
                     open ? "bg-ink/[0.05]" : "[@media(hover:hover)]:hover:bg-ink/[0.04]",
                   )}
                 >
@@ -109,7 +109,7 @@ function RowExpandTable({
                   </span>
                   <ChevronDown
                     className={cn(
-                      "mt-0.5 size-4 shrink-0 text-ink/40 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+                      "mt-0.5 size-4 shrink-0 text-ink/55 transition-transform duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
                       open && "rotate-180",
                     )}
                     aria-hidden
@@ -120,7 +120,7 @@ function RowExpandTable({
                   hidden={!open}
                   className="border-t border-black/[0.08] bg-ink/[0.03] px-3 py-2.5 dark:border-white/[0.12]"
                 >
-                  <p className="m-0 font-body text-[11px] font-semibold tracking-tight text-ink/55">
+                  <p className="m-0 font-body text-[12px] font-semibold tracking-tight text-ink/75">
                     {headers[1]}
                   </p>
                   <p className="mt-1 font-body text-[13px] leading-[1.55] text-ink/90">
@@ -159,9 +159,9 @@ function ColumnPickerTable({
               aria-pressed={selected}
               onClick={() => setFocus(index)}
               className={cn(
-                "inline-flex min-h-8 items-center rounded-lg px-2.5 font-body text-[12px] font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
+                "inline-flex min-h-11 items-center rounded-lg px-2.5 font-body text-[12px] font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
                 selected
-                  ? "bg-ink/[0.05] text-orange"
+                  ? "bg-orange/15 text-ink"
                   : "text-ink hover:bg-ink/[0.04] hover:text-ink/80",
               )}
             >
@@ -173,7 +173,7 @@ function ColumnPickerTable({
       <ul className="mt-3 m-0 list-none divide-y divide-black/[0.08] overflow-hidden rounded-2xl border border-black/[0.08] p-0 dark:divide-white/[0.12] dark:border-white/[0.12]">
         {rows.map((row, index) => (
           <li key={`${row[0]}-${index}`} className="px-3.5 py-2.5">
-            <p className="m-0 font-body text-[11px] font-semibold tracking-tight text-ink/55">
+            <p className="m-0 font-body text-[12px] font-semibold tracking-tight text-ink/75">
               {row[0] || headers[0]}
             </p>
             <p className="mt-1 font-body text-[14px] leading-[1.55] text-ink/90">
@@ -212,7 +212,7 @@ function ColumnFocusTable({
                     <th
                       key="row-label"
                       scope="col"
-                      className="px-3 py-2 align-bottom font-body text-[11px] font-semibold tracking-tight text-ink/60"
+                      className="px-3 py-2 align-bottom font-body text-[12px] font-semibold tracking-tight text-ink/75"
                     >
                       {header || "Aspect"}
                     </th>
@@ -235,9 +235,9 @@ function ColumnFocusTable({
                         setFocus((current) => (current === index ? null : index))
                       }
                       className={cn(
-                        "flex w-full min-h-8 items-center rounded-lg px-2 text-left font-body text-[12px] font-medium tracking-tight leading-tight transition-colors duration-[220ms] ease-[var(--ease-out-quint)]",
+                        "flex w-full min-h-11 items-center rounded-lg px-2 text-left font-body text-[12px] font-medium tracking-tight leading-tight transition-colors duration-[220ms] ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
                         isFocused
-                          ? "bg-ink/[0.05] text-orange"
+                          ? "bg-orange/15 text-ink"
                           : "text-ink hover:bg-ink/[0.04] hover:text-ink/80",
                       )}
                     >
@@ -267,7 +267,7 @@ function ColumnFocusTable({
                     <td
                       key={index}
                       className={cn(
-                        "px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/85 transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+                        "px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/90 transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
                         columnTone(index),
                       )}
                     >
@@ -280,7 +280,7 @@ function ColumnFocusTable({
           </tbody>
         </table>
       </div>
-      <p className="mt-1.5 font-body text-[11.5px] font-semibold text-ink/50">
+      <p className="mt-1.5 font-body text-[12px] font-semibold text-ink/75">
         {focus === null ? (
           "Select a column heading to focus it."
         ) : (
@@ -290,7 +290,7 @@ function ColumnFocusTable({
             <button
               type="button"
               onClick={() => setFocus(null)}
-              className="rounded font-semibold text-ink/50 underline decoration-ink/25 underline-offset-2"
+              className="rounded font-semibold text-ink/75 underline decoration-ink/30 underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55"
             >
               Show all
             </button>

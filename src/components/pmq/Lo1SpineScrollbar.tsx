@@ -70,7 +70,7 @@ export function Lo1SpineScrollbar({ scrollRef }: Lo1SpineScrollbarProps) {
           aria-valuemax={100}
           aria-label="Reading progress"
           tabIndex={0}
-          className="absolute bottom-1 left-1/2 top-1 hidden w-[7px] -translate-x-1/2 cursor-pointer rounded-full bg-ink/[0.08] lg:block dark:bg-white/[0.12]"
+          className="absolute bottom-1 left-1/2 top-1 hidden w-3.5 -translate-x-1/2 cursor-pointer rounded-full bg-ink/[0.08] lg:block dark:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           onPointerDown={(event) => {
             event.preventDefault();
             const track = event.currentTarget;
@@ -90,7 +90,7 @@ export function Lo1SpineScrollbar({ scrollRef }: Lo1SpineScrollbarProps) {
         </div>
       ) : (
         <span
-          className="absolute bottom-1 left-1/2 top-1 hidden w-[3px] -translate-x-1/2 rounded-full bg-ink/[0.08] lg:block dark:bg-white/[0.12]"
+          className="absolute bottom-1 left-1/2 top-1 hidden w-1 -translate-x-1/2 rounded-full bg-ink/[0.08] lg:block dark:bg-white/[0.12]"
           aria-hidden
         />
       )}

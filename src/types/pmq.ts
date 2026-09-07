@@ -19,6 +19,23 @@ export type CoreContentBlock = {
     figure_number?: string;
     alt?: string;
   }[];
+  /**
+   * Exam coaching lifted out of the study prose so the two voices stay separate.
+   * Anchored to a body heading the same way diagrams are.
+   */
+  exam_tips?: ExamTip[];
+};
+
+export type ExamTipPlacement = "after_heading" | "after_section";
+
+export type ExamTip = {
+  id: string;
+  /** Exact `##` body heading this tip belongs to. */
+  heading: string;
+  placement: ExamTipPlacement;
+  /** Short label on the callout, e.g. "Exam tip", "Scenario trap", "Carry this in". */
+  label: string;
+  tip: string;
 };
 
 export type WorkedExample = {

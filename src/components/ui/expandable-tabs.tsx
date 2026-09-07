@@ -38,8 +38,11 @@ interface ExpandableTabsProps {
   clearOnOutsideClick?: boolean;
   /** Expand selected tab to show its title. Default true. */
   expandSelectedLabel?: boolean;
-  /** Compact hit targets for tight chrome (e.g. mobile LO header). */
-  size?: "default" | "compact";
+  /**
+   * Hit-target size. `compact` = tight LO pathway chrome;
+   * `touch` = ≥44px targets (e.g. LO1 mobile outcome switcher).
+   */
+  size?: "default" | "compact" | "touch";
   onChange?: (index: number | null) => void;
   /**
    * Fired when a disabled tab is activated (click / Enter / Space).
@@ -204,6 +207,8 @@ export function ExpandableTabs({
   const reduceMotion = motionReady && Boolean(reduceMotionPref);
   const enterTransition = reduceMotion ? { duration: 0 } : LABEL_ENTER;
   const compact = size === "compact";
+  const touch = size === "touch";
+  const dense = compact || touch;
 
   const clearHint = React.useCallback(() => {
     if (hintTimerRef.current) {
@@ -288,7 +293,7 @@ export function ExpandableTabs({
       ref={outsideClickRef}
       className={cn(
         "relative flex items-center rounded-xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]",
-        compact ? "flex-nowrap gap-0" : "flex-wrap gap-1",
+        dense ? "flex-nowrap gap-0" : "flex-wrap gap-1",
         className,
       )}
     >
@@ -320,22 +325,28 @@ export function ExpandableTabs({
               "relative inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
               compact
                 ? "h-7 min-w-0 rounded-md text-[11px]"
-                : "rounded-lg py-1.5 text-[12px]",
+                : touch
+                  ? "min-h-11 min-w-0 rounded-lg text-[12px]"
+                  : "rounded-lg py-1.5 text-[12px]",
               // Sizing is static, not animated — see the note at the top of this
               // file. One layout pass per switch instead of one per frame.
-              compact
+              dense
                 ? showLabel
-                  ? "gap-[.35rem] px-2"
-                  : "gap-0 px-1"
+                  ? touch
+                    ? "gap-1.5 px-2.5"
+                    : "gap-[.35rem] px-2"
+                  : touch
+                    ? "gap-0 px-1.5"
+                    : "gap-0 px-1"
                 : showLabel
                   ? "gap-2 px-3"
                   : "gap-0 px-2",
-              compact && !showLabel && "flex-1 px-0",
-              compact && showLabel && "shrink-0",
+              dense && !showLabel && "flex-1 px-0",
+              dense && showLabel && "shrink-0",
               isSelected
                 ? cn(
                     "bg-ink/[0.05]",
-                    compact && showLabel && "shrink-0",
+                    dense && showLabel && "shrink-0",
                     activeColor,
                   )
                 : isDisabled
@@ -358,7 +369,7 @@ export function ExpandableTabs({
                 <span
                   className={cn(
                     "absolute text-ink/40",
-                    compact ? "-right-0.5 -top-0.5" : "-right-1 -top-1",
+                    dense ? "-right-0.5 -top-0.5" : "-right-1 -top-1",
                   )}
                 >
                   {tab.trailing}

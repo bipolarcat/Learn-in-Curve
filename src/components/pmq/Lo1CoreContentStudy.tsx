@@ -61,11 +61,11 @@ function OutcomeLedger({
                 type="button"
                 onClick={() => onSelect(index)}
                 aria-current={isCurrent ? "step" : undefined}
-                className="group flex w-full items-baseline gap-2.5 py-2 pr-1 text-left touch-manipulation [-webkit-tap-highlight-color:transparent]"
+                className="group flex min-h-11 w-full items-center gap-2.5 py-2.5 pr-1 text-left touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-md"
               >
                 <span
                   className={cn(
-                    "absolute -left-[17px] top-[15px] block -translate-x-1/2 rounded-full border-[1.5px] transition-[background-color,border-color,width,height] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+                    "absolute -left-[17px] top-1/2 block -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] transition-[background-color,border-color,width,height] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
                     isCurrent
                       ? "size-[9px] border-orange bg-orange"
                       : isSeen
@@ -76,8 +76,10 @@ function OutcomeLedger({
                 />
                 <span
                   className={cn(
-                    "min-w-[18px] font-body text-[11.5px] font-bold uppercase tabular-nums leading-none transition-colors duration-[220ms] motion-reduce:transition-none",
-                    isCurrent ? "text-orange" : "text-teal",
+                    "inline-flex min-h-5 min-w-[1.75rem] items-center justify-center rounded-[0.2rem] px-1 font-body text-[12px] font-bold uppercase tabular-nums leading-none tracking-tight transition-colors duration-[220ms] motion-reduce:transition-none",
+                    isCurrent
+                      ? "bg-orange/15 text-ink"
+                      : "text-teal",
                   )}
                 >
                   {code}
@@ -88,17 +90,12 @@ function OutcomeLedger({
                     isCurrent
                       ? "font-bold text-ink"
                       : isSeen
-                        ? "font-semibold text-ink/70"
-                        : "font-semibold text-ink/50 group-hover:text-ink/75",
+                        ? "font-semibold text-ink/75"
+                        : "font-semibold text-ink/70 group-hover:text-ink",
                   )}
                 >
                   {shortTitle(block)}
                 </span>
-                {isCurrent ? (
-                  <span className="shrink-0 font-body text-[9.5px] font-bold uppercase tracking-[0.05em] text-orange">
-                    now
-                  </span>
-                ) : null}
                 <span className="sr-only">
                   {block.outcome_title}.{" "}
                   {isCurrent
@@ -150,7 +147,7 @@ function OutcomeMarginRail({
 
       {active.key_takeaway ? (
         <div className="mt-4 border-t-2 border-teal pt-3">
-          <p className="m-0 flex items-center gap-1.5 font-body text-[10.5px] font-bold uppercase tracking-[0.06em] text-teal">
+          <p className="m-0 flex items-center gap-1.5 font-body text-[12px] font-semibold tracking-tight text-teal">
             <Lightbulb
               className="size-3.5 shrink-0"
               strokeWidth={1.8}
@@ -158,7 +155,7 @@ function OutcomeMarginRail({
             />
             Key takeaway
           </p>
-          <p className="mt-1.5 font-body text-[12.5px] italic leading-[1.68] text-ink/80">
+          <p className="mt-1.5 font-body text-[13px] italic leading-[1.68] text-ink/90">
             {active.key_takeaway}
           </p>
         </div>
@@ -256,14 +253,17 @@ export function Lo1CoreContentStudy({
       aria-label="Core content"
     >
       <div className="lg:hidden">
-        <header className="sticky top-0 z-10 border-b border-black/[0.08] bg-paper/90 px-3 pb-2.5 pt-3 backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 dark:border-white/[0.12]">
-          <h2 className="m-0 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-none tracking-tight text-ink">
+        <header className="sticky top-0 z-10 border-b border-black/[0.08] bg-paper px-3 pb-2.5 pt-3 dark:border-white/[0.12]">
+          <h2 className="m-0 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
             <OutcomeCodeBadge code={active.outcome_code} />
             <span className="min-w-0 text-ink">
               <span className="sr-only">{active.outcome_code}: </span>
               {active.outcome_title}
             </span>
           </h2>
+          <p className="mt-1.5 font-body text-[12px] leading-snug text-ink/75">
+            One outcome at a time · tap to switch
+          </p>
           <nav aria-label="Learning outcomes" className="mt-2.5">
           <ExpandableTabs
             tabs={blocks.map((block, index) => ({
@@ -273,8 +273,8 @@ export function Lo1CoreContentStudy({
             value={activeIndex}
             clearOnOutsideClick={false}
             expandSelectedLabel
-            size="compact"
-            activeColor="text-orange"
+            size="touch"
+            activeColor="text-ink"
             className="w-full"
             onChange={(index) => {
               if (index == null) return;
@@ -286,8 +286,8 @@ export function Lo1CoreContentStudy({
 
         <div className="px-3.5 pb-6 pt-3.5">
           {active.key_takeaway ? (
-            <div className="rounded-2xl border border-black/[0.08] bg-teal/[0.08] px-3.5 py-3 dark:border-white/[0.12]">
-              <p className="m-0 flex items-center gap-1.5 font-body text-[11px] font-semibold tracking-tight text-teal">
+            <div className="border-t-2 border-teal bg-teal/[0.06] px-3.5 py-3 dark:bg-teal/10">
+              <p className="m-0 flex items-center gap-1.5 font-body text-[12px] font-semibold tracking-tight text-teal">
                 <Lightbulb
                   className="size-3.5 shrink-0"
                   strokeWidth={1.8}
@@ -319,13 +319,13 @@ export function Lo1CoreContentStudy({
             <h2 className="m-0 font-body text-[18px] font-semibold leading-tight tracking-tight text-ink">
               Core content
             </h2>
-            <p className="mt-px font-body text-xs leading-snug text-ink/55">
-              One scroll · click 1a-1d to jump
+            <p className="mt-px font-body text-xs leading-snug text-ink/75">
+              One scroll · click 1a–1d to jump
             </p>
           </div>
         </header>
 
-        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_40px_minmax(0,1fr)] lg:items-stretch">
+        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_44px_minmax(0,1fr)] lg:items-stretch">
           <div className="min-w-0">
             <div className="lg:sticky lg:top-4">
               <OutcomeMarginRail
@@ -358,10 +358,9 @@ export function Lo1CoreContentStudy({
                     }
                   >
                     <header className="mb-5">
-                      <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.06em] text-orange">
-                        {code}
-                      </p>
-                      <h3 className="mt-1 font-body text-[20px] font-semibold leading-tight tracking-tight text-ink">
+                      <OutcomeCodeBadge code={code} className="h-6 min-w-6 text-[11px]" />
+                      <h3 className="mt-2 font-body text-[20px] font-semibold leading-tight tracking-tight text-ink">
+                        <span className="sr-only">{code}: </span>
                         {block.outcome_title}
                       </h3>
                     </header>
