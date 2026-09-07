@@ -1,0 +1,42 @@
+--- a/src/lib/pmq/constants.ts
++++ b/src/lib/pmq/constants.ts
+@@ -125,17 +125,37 @@
+   return String(n).padStart(2, "0");
+ }
+ 
+-/** Explainer videos per LO — files live at `/videos/pmq/lo-NN.mp4`. */
++/**
++ * Explainer videos per LO.
++ *
++ * The MP4s are NOT in this repo. `.gitignore` blocks `*.mp4` (line 36) and the
++ * git history is already ~835MB because the 24 audio m4a files were committed.
++ * Videos live in the public Supabase bucket `public-assets`, under
++ * `videos/pmq/lo-NN.mp4`, and are served from NEXT_PUBLIC_VIDEO_BASE_URL.
++ *
++ * `PMQ_VIDEO_READY_LOS` is the ready list, and it is the only thing to edit when
++ * a video goes up. An LO not in the set gets `src: null`, which renders
++ * LoMediaPlaceholder ("Coming soon") instead of a player pointed at a 404.
++ * That 404 is what a paying user reported on 2026-09-07: poster paints, no play
++ * control, looks broken rather than pending.
++ *
++ * Add an LO number here only after its MP4 is uploaded and plays in a browser.
++ */
++export const PMQ_VIDEO_READY_LOS: ReadonlySet<number> = new Set([]);
++
++const VIDEO_BASE_URL = process.env.NEXT_PUBLIC_VIDEO_BASE_URL ?? "";
++
+ export const PMQ_LO_EXPLAINER_VIDEOS: Record<number, LoMediaAsset> =
+   Object.fromEntries(
+     Array.from({ length: PMQ_SECTION_COUNT }, (_, i) => {
+       const lo = i + 1;
+       const title = PMQ_LO_TITLES[lo] ?? `Learning Objective ${lo}`;
+       const pad = padLo(lo);
++      const videoReady = VIDEO_BASE_URL !== "" && PMQ_VIDEO_READY_LOS.has(lo);
+       return [
+         lo,
+         {
+-          src: `/videos/pmq/lo-${pad}.mp4`,
++          src: videoReady ? `${VIDEO_BASE_URL}/lo-${pad}.mp4` : null,
+           posterSrc: `/videos/pmq/posters/lo-${pad}.jpg`,
+           captionsSrc: null,
+           title: `${title} — video overview`,
