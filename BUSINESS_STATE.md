@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-09-07** — Hotfix: committed all 24 PMQ LO explainer videos (`public/videos/pmq/lo-01…24.mp4`, ~1.3GB) previously gitignored via blanket `*.mp4`; allowlisted with `!public/videos/pmq/*.mp4`. Deployed from `hotfix/pmq-lo-videos` off `master` only (WIP branch untouched) so lesson videos stop 404ing in production. Site version **2.44**.
+
 - **2026-08-09** — Site version **2.42**; free-mock results polish pushed to `origin/master` (CTA copy, no Weakest areas, header subcopy removed).
 
 - **2026-08-09** — Free mock page: removed header subcopy about score / 5-day plan.
