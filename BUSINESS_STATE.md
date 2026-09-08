@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-08** — Orient Key definitions: tighter gap under heading (`tightBody` mt-0.5) before the reveal helper (`LoOrientStage` / `DefinitionsReveal`).
 - **2026-09-08** — Orient Context body flush-left (no icon-column indent); heading row keeps gutter (`LoOrientStage` `flushBody`).
 - **2026-09-08** — Orient: centre-align pathway icon with section headings (Learning outcomes / Context / Key definitions) via `items-center` on the title row only (`LoOrientStage`).
 - **2026-09-08** — `OutcomeCodeBadge`: fixed square `size-7` for all LOs; type bumped to 11px (tighter tracking) so 1A–24C stay in the same box.

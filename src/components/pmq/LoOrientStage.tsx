@@ -69,6 +69,8 @@ function OrientCard({
   className = "",
   /** When true, body starts at the card’s left edge (no icon-column indent). */
   flushBody = false,
+  /** Tighter space under the heading (e.g. Key definitions). */
+  tightBody = false,
 }: {
   id: string;
   icon: LucideIcon;
@@ -76,7 +78,10 @@ function OrientCard({
   children: ReactNode;
   className?: string;
   flushBody?: boolean;
+  tightBody?: boolean;
 }) {
+  const bodyOffset = tightBody ? "mt-0.5" : "mt-1.5";
+
   return (
     <section
       className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5 ${className}`}
@@ -91,11 +96,11 @@ function OrientCard({
         </h2>
       </div>
       {flushBody ? (
-        <div className="mt-1.5 w-full min-w-0">{children}</div>
+        <div className={`${bodyOffset} w-full min-w-0`}>{children}</div>
       ) : (
-        <div className={`${orientGutter} mt-1.5`}>
+        <div className={`${orientGutter} ${bodyOffset}`}>
           <span aria-hidden className="block" />
-          <div className="flex min-w-0 flex-col gap-1.5">{children}</div>
+          <div className="flex min-w-0 flex-col">{children}</div>
         </div>
       )}
     </section>
@@ -193,6 +198,7 @@ export function LoOrientStage({
           icon={BookOpen}
           title="Key definitions"
           className="overflow-visible"
+          tightBody
         >
           <div className="w-full min-w-0 max-w-full">
             <DefinitionsReveal definitions={definitions} />

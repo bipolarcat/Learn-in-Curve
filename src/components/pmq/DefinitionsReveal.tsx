@@ -192,7 +192,7 @@ export function DefinitionsReveal({
 
   return (
     <div>
-      <p className="mb-3 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
+      <p className="mb-2.5 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
         Reveal a term to see its Plain English and APM definitions.
       </p>
       <div
