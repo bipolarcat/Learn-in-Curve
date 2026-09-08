@@ -169,13 +169,11 @@ function OutcomeMarginRail({
  */
 export function Lo1CoreContentStudy({
   blocks,
-  interactiveTables = false,
   studyTables = false,
   activities = false,
   shortTitles,
 }: {
   blocks: CoreContentBlockType[];
-  interactiveTables?: boolean;
   studyTables?: boolean;
   activities?: boolean;
   shortTitles?: Record<string, string>;
@@ -259,7 +257,6 @@ export function Lo1CoreContentStudy({
   if (blocks.length === 0 || !active) return null;
 
   const contentProps = {
-    interactiveTables,
     studyTables,
     activities,
   };

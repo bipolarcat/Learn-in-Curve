@@ -110,10 +110,6 @@ export function LoLearnStage({
         {coreContent.length > 0 ? (
           <Lo1CoreContentStudy
             blocks={coreContent}
-            // studyTables takes precedence in CoreContentBlock, so every LO
-            // now uses StudyTable. Lo1InteractiveTable is unreferenced and can
-            // be deleted.
-            interactiveTables={false}
             studyTables={studyTables}
             activities={activities}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}

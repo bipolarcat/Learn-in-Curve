@@ -4,7 +4,6 @@ import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
-import { Lo1InteractiveTable } from "@/components/pmq/Lo1InteractiveTable";
 import { StudyTable } from "@/components/pmq/StudyTable";
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
 import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
@@ -133,8 +132,6 @@ function diagramsFor(
 
 type CoreContentBlockProps = {
   block: CoreContentBlockType;
-  /** LO1 Learn: row-expand / column-focus instead of a static markdown table. */
-  interactiveTables?: boolean;
   /** Learn: study tables (visible by default, opt-in recall mode). */
   studyTables?: boolean;
   /**
@@ -188,7 +185,6 @@ function splitSections(
  */
 export function CoreContentBlock({
   block,
-  interactiveTables = false,
   studyTables = false,
   activities: activitiesEnabled = false,
 }: CoreContentBlockProps) {
@@ -272,9 +268,6 @@ export function CoreContentBlock({
                   {children}
                 </StudyTable>
               );
-            }
-            if (interactiveTables) {
-              return <Lo1InteractiveTable>{children}</Lo1InteractiveTable>;
             }
             return (
               <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">

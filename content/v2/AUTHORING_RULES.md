@@ -262,3 +262,40 @@ Limits, all learned on LO3:
 
 Both are **Pro** features, gated only through `canAccessRecallActivities()` in
 `src/lib/pmq/tiers.ts`. Starter sees the table with no icon and no padlock.
+
+---
+
+## Status: the full pass is complete
+
+**2026-09-08.** All 24 PMQ LOs now meet Rules 6, 7 and 8. Authored one LO per fresh context
+against a single written brief, then verified mechanically, specifically to avoid the drift that
+produced the original problem (bold density climbed from 3.5 spans per 100 words in LO1 to 7.6 in
+LO21 as the first pass wore on).
+
+| | Course total |
+|---|---|
+| Exam tips | 224 |
+| Recall activities | 231 (131 pair up, 44 lineup, 56 group up) |
+| Worked examples | 88 |
+| Em/en dashes in learner text | 0 |
+| Bold markers in learner text | 0 |
+| `key_takeaway` | removed from PMQ entirely |
+
+Drift check across the run, first third against last third: activities per LO 9.1 then 9.8, tips
+per LO 9.0 then 9.9, worked examples 3.6 then 3.8. No degradation.
+
+### The verification any future pass must repeat
+
+Per LO: JSON parses, key parity with lo1, zero dashes and bold in learner text, every tip,
+diagram, activity and worked example anchor resolves, activity size limits hold, max two
+activities and one tip per heading, and **no original sentence lacks a counterpart** (a
+difflib similarity sweep at 0.55, plus a content-word set difference). The last check is the
+one that matters: it is what proves a rewrite re-expressed the content rather than trimming it.
+
+Words the VOICE_GUIDE tells you to cut (`candidates`, `just`, `really`, `basically`,
+`obviously`, `actually`) are exempt from the content-word check. Their disappearance is the point.
+
+### Rendering
+
+`LoLearnStage` no longer branches per LO. `Lo1InteractiveTable` is superseded by `StudyTable`
+and has been removed from `src/`. One Learn layout, one table component, for all 24.
