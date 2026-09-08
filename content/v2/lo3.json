@@ -82,7 +82,7 @@
           "id": "lo3-triple-bottom-line",
           "figure_number": "3.1",
           "caption": "The triple bottom line: people, planet, profit",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "The frameworks to be able to name",
           "file": "lo3-triple-bottom-line.svg",
           "spec": "Three overlapping circles labelled economic (profit), social (people) and environmental (planet), with the centre overlap marked as sustainable. A v1 asset exists at `PMQ in 5 days/public/diagrams/sustainability-venn.svg` — note it is a four-circle Venn, so it will need reducing to three or the fourth dimension explaining, since BoK 8e frames the triple bottom line as three.",
@@ -94,7 +94,7 @@
           "id": "lo3-lifecycle-embedding",
           "figure_number": "3.2",
           "caption": "Sustainability embedded at every phase of the life cycle",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "Impact across the life cycle",
           "file": null,
           "spec": "A horizontal band of the six phases — Concept, Definition, Deployment, Transition, Adoption, Benefits realisation — sitting above a continuous bar listing the themes that run underneath all of them: leadership, governance, stakeholder engagement, collaboration, risk and opportunity management, monitoring and reporting, communication, continual improvement. The argument: sustainability is a continuous underlay, not a gate you pass once.",
@@ -103,31 +103,21 @@
       ],
       "exam_tips": [
         {
-          "id": "lo3-tip-benefits-why",
-          "heading": "The nine benefits",
-          "placement": "after_heading",
-          "label": "Exam tip",
-          "tip": "This is the highest-yield content in 3a. A question asking why sustainability is considered is asking for these nine."
-        },
-        {
-          "id": "lo3-tip-benefits-four",
+          "id": "lo3-tip-benefits",
           "heading": "The nine benefits",
           "placement": "after_section",
-          "label": "Carry this in",
-          "tip": "If you can only carry four, carry long-term value, regulatory compliance, risk management and cost savings. Between them they cover the commercial, legal and delivery angles."
+          "tip": "This is the highest-yield content in 3a: a question asking why sustainability is considered is asking for these nine. If you can only carry four, carry long-term value, regulatory compliance, risk management and cost savings. Between them they cover the commercial, legal and delivery angles."
         },
         {
           "id": "lo3-tip-lifecycle-counterintuitive",
           "heading": "Impact across the life cycle",
           "placement": "after_section",
-          "label": "Exam tip",
           "tip": "Two rows above cut against normal project instinct, which is exactly why they get examined. Challenge the brief if it is not ambitious enough: the team is not a passive recipient of the sustainability requirement. And be prepared to extend timescales for a better option, because sustainability can legitimately override schedule."
         },
         {
           "id": "lo3-tip-digital-not-green",
           "heading": "Physical versus digital products",
           "placement": "after_section",
-          "label": "Scenario trap",
           "tip": "The data-centre point is the detail a scenario uses to catch an answer that assumed software is automatically green. Name the energy and data footprint rather than treating digital as impact-free."
         }
       ]
@@ -143,7 +133,7 @@
           "id": "lo3-materiality",
           "figure_number": "3.3",
           "caption": "Materiality assessment: prioritising sustainability issues on two axes",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "How materiality actually works",
           "file": null,
           "spec": "A 2x2 grid, x-axis 'business impact' low to very high, y-axis 'importance to stakeholders' low to very high. Plot example issues across the space — climate action and labour conditions high on both, water use and waste reduction mid, anti-corruption and community engagement low. Colour-code the points by environmental / social / governance category. The argument: the top-right corner is where reporting and action concentrate.",
@@ -155,42 +145,30 @@
           "id": "lo3-tip-after-handover",
           "heading": "The measurement chain",
           "placement": "after_section",
-          "label": "Exam tip",
           "tip": "Step 5 is the one candidates drop. Measurement continues after handover, because the environmental and social outcomes of a project mostly arrive after the project team has gone."
         },
         {
           "id": "lo3-tip-self-declared",
           "heading": "What sustainability assessments are for",
           "placement": "after_section",
-          "label": "Scenario trap",
           "tip": "If a scenario describes a self-declared internal assessment being used to support an external claim, that is the weakness to name."
         },
         {
-          "id": "lo3-tip-scope",
-          "heading": "The six assessment types",
-          "placement": "after_heading",
-          "label": "Exam tip",
-          "tip": "Questions distinguish these by scope, so learn what each one measures rather than what each one is called."
-        },
-        {
-          "id": "lo3-tip-lca-eia",
+          "id": "lo3-tip-assessment-scope",
           "heading": "The six assessment types",
           "placement": "after_section",
-          "label": "Carry this in",
-          "tip": "If the scenario is a construction go/no-go decision, it is an EIA."
+          "tip": "Questions distinguish these by scope, so learn what each one measures rather than what each one is called. The shortcut that settles most of them: if the scenario is a construction go/no-go decision, it is an EIA."
         },
         {
           "id": "lo3-tip-materiality-answer",
           "heading": "How materiality actually works",
           "placement": "after_section",
-          "label": "Carry this in",
           "tip": "This is a strong scenario answer, because it converts “we should care about everything” into a defensible basis for prioritisation."
         },
         {
           "id": "lo3-tip-role-list",
           "heading": "The project professional's role in all of this",
-          "placement": "after_heading",
-          "label": "Exam tip",
+          "placement": "after_section",
           "tip": "Worth learning as a discrete list, because it converts a knowledge question into an action answer."
         }
       ]

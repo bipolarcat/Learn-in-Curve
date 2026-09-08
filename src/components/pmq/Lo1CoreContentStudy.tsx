@@ -325,7 +325,7 @@ export function Lo1CoreContentStudy({
           </div>
         </header>
 
-        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_64px_minmax(0,1fr)] lg:items-stretch">
+        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_48px_minmax(0,1fr)] lg:items-stretch">
           <div className="min-w-0">
             <div className="lg:sticky lg:top-4">
               <OutcomeMarginRail

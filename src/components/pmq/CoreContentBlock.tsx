@@ -120,12 +120,13 @@ function renderDiagram(
   );
 }
 
-function diagramsAfterHeading(
+function diagramsFor(
   diagrams: NonNullable<CoreContentBlockType["diagrams"]>,
   heading: string,
+  placement: "after_heading" | "after_section",
 ) {
   return diagrams.filter(
-    (d) => d.placement === "after_heading" && d.heading === heading,
+    (d) => d.placement === placement && d.heading === heading,
   );
 }
 
@@ -195,7 +196,7 @@ export function CoreContentBlock({
     children: ReactNode,
   ) {
     const raw = headingText(children);
-    const matched = diagramsAfterHeading(diagrams, raw);
+    const matched = diagramsFor(diagrams, raw, "after_heading");
     const tips = examTips.filter(
       (t) => t.placement === "after_heading" && t.heading === raw,
     );
@@ -243,6 +244,11 @@ export function CoreContentBlock({
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
       {sections.map((section, index) => {
+        // A section reads heading, prose, diagram, then tip.
+        const closingDiagrams =
+          section.heading === null
+            ? []
+            : diagramsFor(diagrams, section.heading, "after_section");
         const tips =
           section.heading === null
             ? []
@@ -260,6 +266,11 @@ export function CoreContentBlock({
             >
               {section.markdown}
             </ReactMarkdown>
+            {closingDiagrams.length > 0 ? (
+              <div className="not-prose min-w-0 max-w-full">
+                {closingDiagrams.map((d) => renderDiagram(d, loNumber))}
+              </div>
+            ) : null}
             <ExamTipList tips={tips} />
           </div>
         );

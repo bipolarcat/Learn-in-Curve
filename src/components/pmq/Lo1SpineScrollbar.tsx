@@ -25,8 +25,8 @@ type Lo1SpineScrollbarProps = {
 };
 
 /**
- * Notebook zipper spine: perforated stitch, ticket-punch outcome notches,
- * and an orange zip pull that scrubs the reader. Mobile keeps a thin bar.
+ * Notebook zipper spine as one piece: track + punched outcome codes + zip
+ * pull on the same axis. Mobile keeps a thin progress bar.
  */
 export function Lo1SpineScrollbar({
   scrollRef,
@@ -63,7 +63,7 @@ export function Lo1SpineScrollbar({
     const el = scrollRef.current;
     if (!el) return;
     const rect = track.getBoundingClientRect();
-    const pad = 18;
+    const pad = 20;
     const usable = Math.max(1, rect.height - pad * 2);
     const p = Math.min(1, Math.max(0, (clientY - rect.top - pad) / usable));
     el.scrollTop = p * (el.scrollHeight - el.clientHeight);
@@ -115,18 +115,16 @@ export function Lo1SpineScrollbar({
   };
 
   const count = Math.max(outcomes.length, 1);
-  const zipTop = `calc(18px + (100% - 36px - 28px) * ${progress})`;
+  const zipTop = `calc(20px + (100% - 40px - 30px) * ${progress})`;
 
   return (
     <div className="relative my-5 h-px bg-black/[0.08] dark:bg-white/[0.12] lg:my-0 lg:h-auto lg:bg-transparent">
-      {/* Mobile: quiet progress bar */}
       <div
         className="absolute inset-0 rounded-full bg-teal/70 lg:hidden"
         style={{ width: `${Math.round(progress * 100)}%` }}
         aria-hidden
       />
 
-      {/* Desktop: zipper / stitch spine */}
       <div
         role="scrollbar"
         aria-orientation="vertical"
@@ -135,7 +133,7 @@ export function Lo1SpineScrollbar({
         aria-valuemax={100}
         aria-labelledby={labelId}
         tabIndex={0}
-        className="absolute inset-y-0 left-1/2 hidden w-16 -translate-x-1/2 cursor-ns-resize touch-none select-none rounded-md lg:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        className="absolute inset-y-0 left-1/2 hidden w-11 -translate-x-1/2 cursor-ns-resize touch-none select-none rounded-full lg:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
         onPointerDown={onTrackPointerDown}
         onPointerMove={onTrackPointerMove}
         onPointerUp={endDrag}
@@ -146,26 +144,21 @@ export function Lo1SpineScrollbar({
           Notebook spine — drag the zip to scroll, or jump by outcome punch
         </span>
 
-        {/* Binding gutter */}
+        {/* Single binding track */}
         <span
-          className="pointer-events-none absolute inset-y-0 left-[58%] w-7 -translate-x-1/2 rounded-full bg-ink/[0.035] dark:bg-white/[0.05]"
+          className="pointer-events-none absolute inset-y-0 left-1/2 w-9 -translate-x-1/2 overflow-hidden rounded-full border border-ink/10 bg-ink/[0.06] shadow-[inset_0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/15 dark:bg-white/[0.08]"
           aria-hidden
-        />
+        >
+          {/* Solid progress fill (no gradient) */}
+          <span
+            className="absolute inset-x-0 top-0 bg-teal/55"
+            style={{ height: `${Math.round(progress * 100)}%` }}
+          />
+          {/* Stitch line through the track */}
+          <span className="absolute inset-y-2.5 left-1/2 w-0 -translate-x-1/2 border-l border-dashed border-ink/25 dark:border-white/30" />
+        </span>
 
-        {/* Perforated stitch */}
-        <span
-          className="pointer-events-none absolute inset-y-3 left-[58%] w-0 -translate-x-1/2 border-l-[1.5px] border-dashed border-ink/30 dark:border-white/30"
-          aria-hidden
-        />
-
-        {/* Progress fill along the stitch */}
-        <span
-          className="pointer-events-none absolute left-[58%] top-3 w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal to-orange shadow-[0_0_0_1px_rgb(var(--ink-rgb)_/_0.06)]"
-          style={{ height: `calc((100% - 24px) * ${progress})` }}
-          aria-hidden
-        />
-
-        {/* Ticket-punch notches (left of stitch) */}
+        {/* Outcome punches — inside the track */}
         {outcomes.map((outcome, index) => {
           const isActive = index === activeIndex;
           const isPast = index < activeIndex;
@@ -184,12 +177,12 @@ export function Lo1SpineScrollbar({
               }}
               onPointerDown={(event) => event.stopPropagation()}
               className={cn(
-                "absolute left-[6%] z-[1] flex h-7 min-w-7 -translate-y-1/2 items-center justify-center rounded-[0.35rem] border-2 bg-paper px-1 font-body text-[10px] font-bold uppercase tabular-nums leading-none tracking-tight transition-[transform,background-color,border-color,color,box-shadow] duration-200 ease-[var(--ease-out-quint)] motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-1 focus-visible:ring-offset-paper",
+                "absolute left-1/2 z-[1] flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 font-body text-[10px] font-bold uppercase tabular-nums leading-none tracking-tight shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.1)] transition-[transform,background-color,border-color,color] duration-200 ease-[var(--ease-out-quint)] motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-1 focus-visible:ring-offset-paper",
                 isActive
-                  ? "border-orange bg-orange/15 text-ink shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.12)] scale-110"
+                  ? "border-orange bg-paper text-ink scale-110"
                   : isPast
                     ? "border-teal bg-teal text-paper"
-                    : "border-teal/50 text-teal hover:border-teal hover:bg-teal/10",
+                    : "border-ink/15 bg-paper text-teal hover:border-teal/60",
               )}
               style={{ top: `${topPct}%` }}
             >
@@ -198,35 +191,26 @@ export function Lo1SpineScrollbar({
           );
         })}
 
-        {/* Zip pull on the stitch */}
+        {/* Zip pull — same axis, sits on the track */}
         <span
           className={cn(
-            "pointer-events-none absolute left-[58%] z-[2] flex -translate-x-1/2 flex-col items-center",
+            "pointer-events-none absolute left-1/2 z-[2] flex size-[30px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-orange bg-orange text-paper shadow-[0_2px_0_rgb(var(--ink-rgb)_/_0.16),0_6px_12px_rgb(var(--orange-rgb)_/_0.28)]",
             dragging && "scale-105",
             "transition-transform duration-150 ease-[var(--ease-out-quint)] motion-reduce:transition-none",
           )}
           style={{ top: zipTop }}
           aria-hidden
         >
-          <span className="flex size-7 items-center justify-center rounded-full border-2 border-orange bg-orange text-paper shadow-[0_2px_0_rgb(var(--ink-rgb)_/_0.18),0_6px_14px_rgb(var(--orange-rgb)_/_0.28)]">
-            <svg
-              width="12"
-              height="14"
-              viewBox="0 0 12 14"
-              fill="none"
-              aria-hidden
-            >
-              <path
-                d="M6 1.5v7.5M3.5 6.5 6 9l2.5-2.5"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="6" cy="12" r="1.2" fill="currentColor" />
-            </svg>
-          </span>
-          <span className="mt-0.5 h-2.5 w-[2px] rounded-full bg-orange/80" />
+          <svg width="11" height="13" viewBox="0 0 12 14" fill="none">
+            <path
+              d="M6 1.5v7.5M3.5 6.5 6 9l2.5-2.5"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="6" cy="12" r="1.2" fill="currentColor" />
+          </svg>
         </span>
       </div>
     </div>

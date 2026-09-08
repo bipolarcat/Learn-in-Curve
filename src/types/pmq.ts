@@ -32,9 +32,12 @@ export type ExamTip = {
   id: string;
   /** Exact `##` body heading this tip belongs to. */
   heading: string;
+  /**
+   * Tips sit at the end of their section by default, so a section reads
+   * heading, prose, diagram, tip. `after_heading` is kept for the rare tip that
+   * has to frame a section before it is read.
+   */
   placement: ExamTipPlacement;
-  /** Short label on the callout, e.g. "Exam tip", "Scenario trap", "Carry this in". */
-  label: string;
   tip: string;
 };
 
