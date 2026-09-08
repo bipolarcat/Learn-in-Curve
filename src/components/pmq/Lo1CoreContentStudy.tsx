@@ -325,7 +325,7 @@ export function Lo1CoreContentStudy({
           </div>
         </header>
 
-        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_44px_minmax(0,1fr)] lg:items-stretch">
+        <div className="mt-5 scroll-mt-4 lg:grid lg:grid-cols-[254px_64px_minmax(0,1fr)] lg:items-stretch">
           <div className="min-w-0">
             <div className="lg:sticky lg:top-4">
               <OutcomeMarginRail
@@ -337,7 +337,15 @@ export function Lo1CoreContentStudy({
             </div>
           </div>
 
-          <Lo1SpineScrollbar scrollRef={readerScrollRef} />
+          <Lo1SpineScrollbar
+            scrollRef={readerScrollRef}
+            activeIndex={activeIndex}
+            onSelectOutcome={handleSelect}
+            outcomes={blocks.map((block) => ({
+              code: block.outcome_code,
+              title: shortTitle(block),
+            }))}
+          />
 
           <div
             ref={readerScrollRef}
