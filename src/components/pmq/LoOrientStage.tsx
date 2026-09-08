@@ -79,16 +79,17 @@ function OrientCard({
       className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5 ${className}`}
       aria-labelledby={id}
     >
-      <div className={orientGutter}>
+      <div className={`${orientGutter} items-center`}>
         <IconCell>
           <PathwayGlyph icon={icon} />
         </IconCell>
-        <div className="flex min-w-0 flex-col gap-1.5">
-          <h2 id={id} className={headingClass}>
-            {title}
-          </h2>
-          {children}
-        </div>
+        <h2 id={id} className={headingClass}>
+          {title}
+        </h2>
+      </div>
+      <div className={`${orientGutter} mt-1.5`}>
+        <span aria-hidden className="block" />
+        <div className="flex min-w-0 flex-col gap-1.5">{children}</div>
       </div>
     </section>
   );
@@ -134,7 +135,7 @@ export function LoOrientStage({
           className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
           aria-labelledby="lo-orient-outcomes"
         >
-          <div className={orientGutter}>
+          <div className={`${orientGutter} items-center`}>
             <IconCell>
               <PathwayGlyph icon={ListChecks} />
             </IconCell>
