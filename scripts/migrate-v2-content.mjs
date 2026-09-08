@@ -22,6 +22,12 @@ import { config } from "dotenv";
 config({ path: join(process.cwd(), ".env.local") });
 
 const V2_DIR = join(process.cwd(), "content", "v2");
+/**
+ * PMQ course. Required: PFQ shares the sections table, so order_index alone
+ * matches two rows and .single() fails with "Cannot coerce the result to a
+ * single JSON object".
+ */
+const PMQ_COURSE_ID = "3b6e12c0-321f-41b2-8536-db39f5678301";
 const SNAPSHOT_DIR = join(process.cwd(), "content-snapshots");
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -79,6 +85,7 @@ async function loadLo(loNumber) {
   const { data: section, error: sErr } = await supabase
     .from("sections")
     .select("id, title, course_id, order_index, lo_code, day, theme")
+    .eq("course_id", PMQ_COURSE_ID)
     .eq("order_index", loNumber)
     .single();
   if (sErr) throw sErr;

@@ -12,11 +12,16 @@ import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
+import {
+  canAccessRecallActivities,
+  type PmqTier,
+} from "@/lib/pmq/tiers";
 
 type LoLearnStageProps = {
   loNumber: number;
   definitions: KeyDefinition[];
   coreContent: CoreContentBlockType[];
+  userTier?: PmqTier;
 };
 
 /**
@@ -66,8 +71,11 @@ export function LoLearnStage({
   loNumber,
   definitions,
   coreContent,
+  userTier = "starter",
 }: LoLearnStageProps) {
   const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
+  const activities =
+    studyTables && canAccessRecallActivities(userTier);
 
   if (loNumber === 1) {
     return (
@@ -131,6 +139,7 @@ export function LoLearnStage({
                     <CoreContentBlock
                       block={block}
                       studyTables={studyTables}
+                      activities={activities}
                     />
                   </div>
                 </article>

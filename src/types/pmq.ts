@@ -24,6 +24,66 @@ export type CoreContentBlock = {
    * Anchored to a body heading the same way diagrams are.
    */
   exam_tips?: ExamTip[];
+  /** Pro-only recall activities, anchored to a body heading. */
+  activities?: LoActivity[];
+  /** Pro-only worked examples, anchored to a single table row. */
+  worked_examples?: WorkedExampleCard[];
+};
+
+/* ── Recall activities (Pro) ─────────────────────────────────────────────
+ * Three types, deliberately. A learner cannot tell eight mechanics apart, and
+ * every extra one costs more in interface noise than it returns in variety.
+ * Display names are UI constants, not content: pair up, lineup, group up.
+ */
+
+export type LoActivityType = "pairup" | "lineup" | "groupup";
+
+type ActivityBase = {
+  id: string;
+  /** Exact `##` body heading this activity belongs to. Max two per heading. */
+  heading: string;
+  /** Instruction shown at the top of the panel. */
+  title: string;
+  /** Optional one-liner under the title. */
+  note?: string;
+};
+
+/** Term against meaning. Cards come straight from a two-column table.
+ *  Only viable where the right-hand cells average under ~20 words. */
+export type PairupActivity = ActivityBase & {
+  type: "pairup";
+  /** 3 to 6. Above six the learner scans instead of retrieving. */
+  pairs: { term: string; match: string }[];
+};
+
+/** A real sequence, shuffled. `items` is stored in the CORRECT order. */
+export type LineupActivity = ActivityBase & {
+  type: "lineup";
+  items: string[];
+};
+
+/** Items sorted into buckets. The buckets are the teaching, so they only earn
+ *  their place where the split is unarguable. */
+export type GroupupActivity = ActivityBase & {
+  type: "groupup";
+  buckets: { id: string; label: string; hint?: string }[];
+  items: { label: string; bucket: string }[];
+};
+
+export type LoActivity = PairupActivity | LineupActivity | GroupupActivity;
+
+/** One concrete situation, a question, and the answer with its reason.
+ *  Anchored to a table row rather than a heading, so the icon sits on the row
+ *  that caused the confusion. */
+export type WorkedExampleCard = {
+  id: string;
+  /** Exact `##` body heading the table sits under. */
+  heading: string;
+  /** Exact first-column cell text of the row this belongs to. */
+  row_label: string;
+  situation: string;
+  ask: string;
+  answer: string;
 };
 
 export type ExamTipPlacement = "after_heading" | "after_section";

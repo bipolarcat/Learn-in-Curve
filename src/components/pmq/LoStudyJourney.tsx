@@ -239,6 +239,7 @@ export function LoStudyJourney({
               loNumber={loNumber}
               definitions={loNumber === 1 ? [] : body.key_definitions}
               coreContent={body.core_content}
+              userTier={userTier}
             />
           );
         }

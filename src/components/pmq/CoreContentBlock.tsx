@@ -7,6 +7,7 @@ import { DiagramFigure } from "@/components/content/DiagramFigure";
 import { Lo1InteractiveTable } from "@/components/pmq/Lo1InteractiveTable";
 import { StudyTable } from "@/components/pmq/StudyTable";
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
+import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -136,6 +137,11 @@ type CoreContentBlockProps = {
   interactiveTables?: boolean;
   /** Learn: study tables (visible by default, opt-in recall mode). */
   studyTables?: boolean;
+  /**
+   * Pro recall activities + worked examples. Only pass true when
+   * `canAccessRecallActivities(userTier)` is true — Starter must see nothing.
+   */
+  activities?: boolean;
 };
 
 /**
@@ -184,67 +190,18 @@ export function CoreContentBlock({
   block,
   interactiveTables = false,
   studyTables = false,
+  activities: activitiesEnabled = false,
 }: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
   const examTips = block.exam_tips ?? [];
+  const blockActivities = activitiesEnabled ? (block.activities ?? []) : [];
+  const blockWorked = activitiesEnabled ? (block.worked_examples ?? []) : [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
   const sections = splitSections(block.body_markdown);
-
-  function renderHeading(
-    Tag: "h4" | "h5",
-    className: string,
-    children: ReactNode,
-  ) {
-    const raw = headingText(children);
-    const matched = diagramsFor(diagrams, raw, "after_heading");
-    const tips = examTips.filter(
-      (t) => t.placement === "after_heading" && t.heading === raw,
-    );
-
-    return (
-      <div className="not-prose min-w-0 max-w-full">
-        <Tag className={className}>{mapHeadingChildren(children)}</Tag>
-        {matched.map((d) => renderDiagram(d, loNumber))}
-        <ExamTipList tips={tips} />
-      </div>
-    );
-  }
-
-  const markdownComponents = {
-    h2: ({ children }: { children?: ReactNode }) =>
-      renderHeading(
-        "h4",
-        "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
-        children,
-      ),
-    h3: ({ children }: { children?: ReactNode }) =>
-      renderHeading(
-        "h5",
-        "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
-        children,
-      ),
-    table: ({ children }: { children?: ReactNode }) => {
-      if (studyTables) return <StudyTable>{children}</StudyTable>;
-      if (interactiveTables) {
-        return <Lo1InteractiveTable>{children}</Lo1InteractiveTable>;
-      }
-      return (
-        <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
-          <table>{children}</table>
-        </div>
-      );
-    },
-    pre: ({ children }: { children?: ReactNode }) => (
-      <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
-        <pre className="overflow-x-auto">{children}</pre>
-      </div>
-    ),
-  };
 
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
       {sections.map((section, index) => {
-        // A section reads heading, prose, diagram, then tip.
         const closingDiagrams =
           section.heading === null
             ? []
@@ -258,6 +215,80 @@ export function CoreContentBlock({
                   t.heading === section.heading,
               );
 
+        const sectionActivities =
+          section.heading === null
+            ? []
+            : blockActivities.filter(
+                (activity) => activity.heading === section.heading,
+              );
+        const sectionWorked =
+          section.heading === null
+            ? []
+            : blockWorked.filter(
+                (example) => example.heading === section.heading,
+              );
+        const sectionHasTable = /^\s*\|.+\|/m.test(section.markdown);
+
+        function renderHeading(
+          Tag: "h4" | "h5",
+          className: string,
+          children: ReactNode,
+        ) {
+          const raw = headingText(children);
+          const matched = diagramsFor(diagrams, raw, "after_heading");
+          const headingTips = examTips.filter(
+            (t) => t.placement === "after_heading" && t.heading === raw,
+          );
+
+          return (
+            <div className="not-prose min-w-0 max-w-full">
+              <Tag className={className}>{mapHeadingChildren(children)}</Tag>
+              {matched.map((d) => renderDiagram(d, loNumber))}
+              <ExamTipList tips={headingTips} />
+            </div>
+          );
+        }
+
+        const markdownComponents = {
+          h2: ({ children }: { children?: ReactNode }) =>
+            renderHeading(
+              "h4",
+              "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
+              children,
+            ),
+          h3: ({ children }: { children?: ReactNode }) =>
+            renderHeading(
+              "h5",
+              "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
+              children,
+            ),
+          table: ({ children }: { children?: ReactNode }) => {
+            if (studyTables) {
+              return (
+                <StudyTable
+                  activities={sectionActivities}
+                  workedExamples={sectionWorked}
+                >
+                  {children}
+                </StudyTable>
+              );
+            }
+            if (interactiveTables) {
+              return <Lo1InteractiveTable>{children}</Lo1InteractiveTable>;
+            }
+            return (
+              <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
+                <table>{children}</table>
+              </div>
+            );
+          },
+          pre: ({ children }: { children?: ReactNode }) => (
+            <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
+              <pre className="overflow-x-auto">{children}</pre>
+            </div>
+          ),
+        };
+
         return (
           <div key={section.heading ?? `section-${index}`} className="min-w-0">
             <ReactMarkdown
@@ -266,6 +297,14 @@ export function CoreContentBlock({
             >
               {section.markdown}
             </ReactMarkdown>
+            {/* Sections without a table still get activity icons (lineups on lists). */}
+            {!sectionHasTable && sectionActivities.length > 0 ? (
+              <div className="not-prose mt-2 flex flex-wrap items-center gap-1.5">
+                {sectionActivities.slice(0, 2).map((activity) => (
+                  <ActivityLauncher key={activity.id} activity={activity} />
+                ))}
+              </div>
+            ) : null}
             {closingDiagrams.length > 0 ? (
               <div className="not-prose min-w-0 max-w-full">
                 {closingDiagrams.map((d) => renderDiagram(d, loNumber))}

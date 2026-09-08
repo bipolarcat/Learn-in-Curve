@@ -141,6 +141,18 @@ export function canAccessSly(tier: PmqTier): boolean {
   return tierAtLeast(tier, "ai_pro");
 }
 
+/**
+ * Recall activities in Learn (pair up, lineup, group up): Pro and above.
+ *
+ * Starter sees the table as it always was, with no icon and no padlock. The
+ * teaser belongs on the pricing page, not scattered through every table in the
+ * course — a locked control on a row a Starter learner is mid-way through
+ * reading interrupts the lesson to sell to them.
+ */
+export function canAccessRecallActivities(tier: PmqTier): boolean {
+  return tierAtLeast(tier, "pro");
+}
+
 /** End-of-course report: AI Pro only. */
 export function canAccessCourseReport(tier: PmqTier): boolean {
   return tierAtLeast(tier, "ai_pro");

@@ -224,3 +224,41 @@ Rules:
    Example from 3b: "LCA is about a product, EIA is about a project or plan" stayed in the body;
    "if the scenario is a construction go/no-go decision, it is an EIA" became the tip.
 5. **One tip per heading.** Two tips on the same section stack into a wall. Merge them.
+
+---
+
+## Rule 8 — Recall activities and worked examples
+
+**Set 2026-09-08 by Sim.** Both live inside the `core_content` block, so they survive
+`toLessonBody` in `scripts/migrate-v2-content.mjs` without a schema change there.
+
+Three activity types, and no more. A learner cannot tell eight mechanics apart, and each
+extra one costs more in interface noise than it returns.
+
+| Type | Use it when | Authoring cost |
+|---|---|---|
+| `pairup` | A two-column table whose right-hand cells average **under ~20 words** | None, the cells already exist |
+| `lineup` | A genuine sequence, not a list that happens to be numbered | One ordered array |
+| `groupup` | The buckets are **unarguable**. A contestable bucket teaches a wrong model | Buckets plus a tag per item |
+
+Limits, all learned on LO3:
+
+1. **Max two activities per `##` heading.** More reads as a quiz, not a lesson.
+2. **Pair up: 3 to 6 pairs.** Above six the learner scans instead of retrieving. Chunk a
+   nine-row table rather than showing all nine.
+3. **Skip pair up where cells are long.** LO3's life cycle table averages 30 words a cell
+   and peaks at 47. Those become paragraphs on a card. That table is a `lineup` anyway.
+4. **Reject a contestable groupup.** The nine benefits could be split commercial / legal /
+   delivery, and it was dropped because several rows argue both ways. Sorting them wrong
+   teaches a model that is wrong.
+5. **Worked examples anchor to a table ROW**, via `row_label` matching the first-column
+   text exactly. Everything else anchors to a heading.
+6. **Worked examples run 60 to 70 words**, in three beats: situation, ask, answer with the
+   reason. The reason clause is the part that must never be cut, because it is the only
+   thing separating a worked example from an exam tip.
+7. **Voice.** Written in the Enthusiast register per `VOICE_GUIDE.md`. The Professional
+   register (passive, process-heavy) is the default trap when writing about project
+   management and has to be actively resisted. Read that file before authoring either.
+
+Both are **Pro** features, gated only through `canAccessRecallActivities()` in
+`src/lib/pmq/tiers.ts`. Starter sees the table with no icon and no padlock.

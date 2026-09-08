@@ -106,19 +106,125 @@
           "id": "lo3-tip-benefits",
           "heading": "The nine benefits",
           "placement": "after_section",
-          "tip": "This is the highest-yield content in 3a: a question asking why sustainability is considered is asking for these nine. If you can only carry four, carry long-term value, regulatory compliance, risk management and cost savings. Between them they cover the commercial, legal and delivery angles."
+          "tip": "If a question asks why sustainability gets considered at all, it wants these nine. You will not hold nine under time pressure, so hold four: long-term value, regulatory compliance, risk management and cost savings. Between them they cover the commercial angle, the legal angle and the delivery angle."
         },
         {
           "id": "lo3-tip-lifecycle-counterintuitive",
           "heading": "Impact across the life cycle",
           "placement": "after_section",
-          "tip": "Two rows above cut against normal project instinct, which is exactly why they get examined. Challenge the brief if it is not ambitious enough: the team is not a passive recipient of the sustainability requirement. And be prepared to extend timescales for a better option, because sustainability can legitimately override schedule."
+          "tip": "Two of those rows cut against everything the job trains you to do, which is why they get examined. You challenge the brief when it is not ambitious enough, and you take the longer programme when a better option turns up mid-delivery. However, sustainability outranking schedule is the one most people will not write down."
         },
         {
           "id": "lo3-tip-digital-not-green",
           "heading": "Physical versus digital products",
           "placement": "after_section",
-          "tip": "The data-centre point is the detail a scenario uses to catch an answer that assumed software is automatically green. Name the energy and data footprint rather than treating digital as impact-free."
+          "tip": "Software feels green, so people write that it is. The data centre is where a scenario catches you out. Name the energy and the data, not the absence of a factory."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo3-pairup-benefits",
+          "type": "pairup",
+          "heading": "The nine benefits",
+          "title": "Match the benefit to the argument",
+          "note": "Five of the nine. Enough to retrieve, not so many you end up scanning.",
+          "pairs": [
+            {
+              "term": "Long-term value",
+              "match": "Better outcomes and stakeholder satisfaction. Treated less as money spent and more as value created, which is the most useful angle for rebutting \"we can't afford it\""
+            },
+            {
+              "term": "Innovation",
+              "match": "Drives new low-carbon solutions and technologies, producing competitive advantage, efficiency, job creation and community benefit"
+            },
+            {
+              "term": "Cost savings",
+              "match": "Efficiency and resource conservation: less energy, fewer materials, less waste"
+            },
+            {
+              "term": "Regulatory compliance",
+              "match": "Keeps the project aligned with environmental law and standards, and preserves the licence to operate"
+            },
+            {
+              "term": "Future-proofing",
+              "match": "Anticipates coming regulatory change, technology shifts and societal expectations, so outputs stay relevant"
+            }
+          ]
+        },
+        {
+          "id": "lo3-lineup-phases",
+          "type": "lineup",
+          "heading": "Impact across the life cycle",
+          "title": "Put the life cycle phases back in order",
+          "items": [
+            "Concept",
+            "Definition",
+            "Deployment",
+            "Transition",
+            "Adoption"
+          ]
+        },
+        {
+          "id": "lo3-groupup-physical-digital",
+          "type": "groupup",
+          "heading": "Physical versus digital products",
+          "title": "Which side does each one sit on?",
+          "buckets": [
+            {
+              "id": "physical",
+              "label": "Physical products",
+              "hint": "Made, moved, installed"
+            },
+            {
+              "id": "digital",
+              "label": "Digital products",
+              "hint": "Built, hosted, used"
+            }
+          ],
+          "items": [
+            {
+              "label": "Higher impact overall",
+              "bucket": "physical"
+            },
+            {
+              "label": "Embodied carbon from extraction, transport, processing and assembly",
+              "bucket": "physical"
+            },
+            {
+              "label": "Extensive supply chains managed on environmental and ethical grounds",
+              "bucket": "physical"
+            },
+            {
+              "label": "Generally lower impact overall",
+              "bucket": "digital"
+            },
+            {
+              "label": "Data centre energy, data usage, AI and blockchain workloads",
+              "bucket": "digital"
+            },
+            {
+              "label": "Accessibility and inclusivity by design, replacing paper systems",
+              "bucket": "digital"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo3-we-benefits",
+          "heading": "The nine benefits",
+          "row_label": "Long-term value",
+          "situation": "Your sponsor pulls the £40k sustainability workstream out of a £1.2m warehouse fit-out. Calls it a nice to have.",
+          "ask": "Answer him without using the word “environment”.",
+          "answer": "Compliance is not optional, so that £40k comes back later as remediation. Efficiency cuts energy and materials for as long as the building runs. Essentially you are not defending a cost, you are showing him where the value sits."
+        },
+        {
+          "id": "lo3-we-deployment",
+          "heading": "Impact across the life cycle",
+          "row_label": "Deployment",
+          "situation": "Six weeks into a school extension your supplier offers a lower carbon frame. Cuts embodied carbon by 30%, adds five weeks. Handover is fixed for September term.",
+          "ask": "Do you turn it down on programme?",
+          "answer": "No, you assess it. The term date is real and it goes into the weighing. However, treating a fixed date as automatically final is the answer that loses marks, because sustainability can outrank schedule."
         }
       ]
     },
@@ -145,31 +251,176 @@
           "id": "lo3-tip-after-handover",
           "heading": "The measurement chain",
           "placement": "after_section",
-          "tip": "Step 5 is the one candidates drop. Measurement continues after handover, because the environmental and social outcomes of a project mostly arrive after the project team has gone."
+          "tip": "Step 5 is the one people drop. Measuring carries on after handover, because most of the environmental and social outcomes land long after your team has gone."
         },
         {
           "id": "lo3-tip-self-declared",
           "heading": "What sustainability assessments are for",
           "placement": "after_section",
-          "tip": "If a scenario describes a self-declared internal assessment being used to support an external claim, that is the weakness to name."
+          "tip": "Someone runs their own assessment in-house, then quotes it externally. That is the weakness to name, every time."
         },
         {
           "id": "lo3-tip-assessment-scope",
           "heading": "The six assessment types",
           "placement": "after_section",
-          "tip": "Questions distinguish these by scope, so learn what each one measures rather than what each one is called. The shortcut that settles most of them: if the scenario is a construction go/no-go decision, it is an EIA."
+          "tip": "These get separated by scope, not by name, so learn what each one measures. The shortcut that settles most of them: construction, go or no-go, it is an EIA."
         },
         {
           "id": "lo3-tip-materiality-answer",
           "heading": "How materiality actually works",
           "placement": "after_section",
-          "tip": "This is a strong scenario answer, because it converts “we should care about everything” into a defensible basis for prioritisation."
+          "tip": "This is what turns “we should care about everything” into something you can defend. High on both axes is what you act on, and that is the sentence that earns the mark."
         },
         {
           "id": "lo3-tip-role-list",
           "heading": "The project professional's role in all of this",
           "placement": "after_section",
-          "tip": "Worth learning as a discrete list, because it converts a knowledge question into an action answer."
+          "tip": "Learn these six as actions, not as knowledge. It turns a question about what assessments are into an answer about what you did."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo3-lineup-chain",
+          "type": "lineup",
+          "heading": "The measurement chain",
+          "title": "Put the five steps back in order",
+          "items": [
+            "Define what good looks like",
+            "Commission assessments",
+            "Monitor against the KPIs",
+            "Evaluate and certify at transition",
+            "Keep monitoring into adoption"
+          ]
+        },
+        {
+          "id": "lo3-pairup-assessments",
+          "type": "pairup",
+          "heading": "The six assessment types",
+          "title": "Match each assessment to what it evaluates",
+          "pairs": [
+            {
+              "term": "Materiality assessment",
+              "match": "Which sustainability issues are most significant to the business and its stakeholders, so strategy, operations, products and reporting can focus on them"
+            },
+            {
+              "term": "Life cycle assessment (LCA)",
+              "match": "Environmental impacts of a product across its whole life, raw material extraction to disposal. ISO 14040 series"
+            },
+            {
+              "term": "Environmental product declaration (EPD)",
+              "match": "Quantified environmental information about a product's life cycle, allowing comparison between products doing the same job"
+            },
+            {
+              "term": "Environmental impact assessment (EIA)",
+              "match": "Environmental consequences of a plan, policy or project before the decision to proceed. Common on construction"
+            },
+            {
+              "term": "Carbon footprint",
+              "match": "Quantification and reporting of a product's carbon footprint. ISO 14067:2018"
+            },
+            {
+              "term": "BREEAM and LEED",
+              "match": "Certification schemes assessing the sustainability of buildings"
+            }
+          ]
+        },
+        {
+          "id": "lo3-groupup-scope",
+          "type": "groupup",
+          "heading": "The six assessment types",
+          "title": "What is each assessment actually about?",
+          "note": "Get this split and the LCA versus EIA question stops being a coin toss.",
+          "buckets": [
+            {
+              "id": "product",
+              "label": "A product",
+              "hint": "One thing, made and used"
+            },
+            {
+              "id": "project",
+              "label": "A project or asset",
+              "hint": "A scheme, a plan, a building"
+            },
+            {
+              "id": "org",
+              "label": "The organisation",
+              "hint": "What the business reports on"
+            }
+          ],
+          "items": [
+            {
+              "label": "Life cycle assessment (LCA)",
+              "bucket": "product"
+            },
+            {
+              "label": "Environmental product declaration (EPD)",
+              "bucket": "product"
+            },
+            {
+              "label": "Carbon footprint",
+              "bucket": "product"
+            },
+            {
+              "label": "Environmental impact assessment (EIA)",
+              "bucket": "project"
+            },
+            {
+              "label": "BREEAM and LEED",
+              "bucket": "project"
+            },
+            {
+              "label": "Materiality assessment",
+              "bucket": "org"
+            }
+          ]
+        },
+        {
+          "id": "lo3-pairup-reporting",
+          "type": "pairup",
+          "heading": "Reporting",
+          "title": "Match the audience to what they get",
+          "pairs": [
+            {
+              "term": "Stakeholders, throughout",
+              "match": "Environmental and social performance against KPIs. Transparency through clear sustainability performance reporting improves credibility"
+            },
+            {
+              "term": "Investors and corporate",
+              "match": "Environmental, social and governance performance, integrated into investment decisions and corporate decision-making"
+            },
+            {
+              "term": "Externally, at and after transition",
+              "match": "Certifications achieved and outcomes delivered"
+            },
+            {
+              "term": "Internally, for future projects",
+              "match": "Lessons learned and continuous improvement opportunities, documented and shared"
+            }
+          ]
+        },
+        {
+          "id": "lo3-lineup-role",
+          "type": "lineup",
+          "heading": "The project professional's role in all of this",
+          "title": "Put the six actions in the order you would do them",
+          "items": [
+            "Plan for the assessments",
+            "Appoint expert consultants",
+            "Coordinate stakeholders through it",
+            "Develop plans to act on the results",
+            "Communicate the outcomes",
+            "Foster continuous improvement"
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo3-we-eia",
+          "heading": "The six assessment types",
+          "row_label": "Environmental impact assessment (EIA)",
+          "situation": "A council is deciding on 400 homes next to a river. The developer hands over a report covering flood risk, air quality, habitat loss and traffic.",
+          "ask": "Which assessment is that?",
+          "answer": "EIA. It looks at a project before anyone signs it off. An LCA would have tracked one product from raw material to disposal, which tells the council nothing about this site. Wrong scope, wrong decision."
         }
       ]
     }

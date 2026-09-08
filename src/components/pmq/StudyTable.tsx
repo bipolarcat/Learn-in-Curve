@@ -9,6 +9,12 @@ import {
   type ReactNode,
 } from "react";
 import { Eye, RotateCcw } from "lucide-react";
+import type { LoActivity, WorkedExampleCard } from "@/types/pmq";
+import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
+import {
+  WorkedExampleLauncher,
+  workedExampleForRow,
+} from "@/components/pmq/activities/WorkedExampleLauncher";
 import { cn } from "@/lib/utils";
 
 /**
@@ -22,6 +28,9 @@ import { cn } from "@/lib/utils";
  * Two-column tables (term / meaning) support recall mode. Wider comparison
  * tables are meant to be scanned side by side, so they stay fully visible and
  * only offer column focus.
+ *
+ * Pro recall activities (pair up / lineup / group up) and worked examples are
+ * opt-in icons — Starter never sees them.
  */
 
 function nodeText(node: ReactNode): string {
@@ -78,8 +87,25 @@ function parseMarkdownTable(children: ReactNode): Parsed | null {
   return { headers, rows };
 }
 
+type StudyExtras = {
+  activities?: LoActivity[];
+  workedExamples?: WorkedExampleCard[];
+};
+
+function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
+  if (!activities?.length) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {activities.slice(0, 2).map((activity) => (
+        <ActivityLauncher key={activity.id} activity={activity} />
+      ))}
+    </div>
+  );
+}
+
 const cardShell =
   "overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]";
+
 function RecallToggle({
   recall,
   onToggle,
@@ -110,7 +136,12 @@ function RecallToggle({
 }
 
 /** Term / meaning. Open by default; "Test yourself" turns it into recall practice. */
-function TwoColumnTable({ headers, rows }: Parsed) {
+function TwoColumnTable({
+  headers,
+  rows,
+  activities,
+  workedExamples,
+}: Parsed & StudyExtras) {
   const baseId = useId();
   const tableId = `study-table-${baseId}`;
   const [recall, setRecall] = useState(false);
@@ -132,10 +163,13 @@ function TwoColumnTable({ headers, rows }: Parsed) {
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
-      <div className="mb-1.5 flex items-center justify-between gap-2">
-        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
-          {headers[0]}
-        </span>
+      <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
+            {headers[0]}
+          </span>
+          <ActivityRowHead activities={activities} />
+        </div>
         <RecallToggle
           recall={recall}
           onToggle={toggleRecall}
@@ -148,15 +182,17 @@ function TwoColumnTable({ headers, rows }: Parsed) {
           {rows.map((row, index) => {
             const open = !recall || revealed.has(index);
             const label = nodeText(row[0]).trim();
+            const worked = workedExampleForRow(workedExamples, label);
             return (
               <li
                 key={`${label}-${index}`}
                 className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
               >
-                <div className="px-3.5 pb-1 pt-2.5">
-                  <p className="m-0 font-body text-[13.5px] font-semibold leading-[1.5] text-ink">
+                <div className="flex items-start gap-2 px-3.5 pb-1 pt-2.5">
+                  <p className="m-0 min-w-0 flex-1 font-body text-[13.5px] font-semibold leading-[1.5] text-ink">
                     {row[0]}
                   </p>
+                  {worked ? <WorkedExampleLauncher example={worked} /> : null}
                 </div>
 
                 {open ? (
@@ -192,13 +228,21 @@ function TwoColumnTable({ headers, rows }: Parsed) {
 }
 
 /** Narrow screens: one column of the comparison at a time. */
-function ColumnPickerTable({ headers, rows }: Parsed) {
+function ColumnPickerTable({
+  headers,
+  rows,
+  activities,
+  workedExamples,
+}: Parsed & StudyExtras) {
   const columnHeaders = headers.slice(1);
   const [focus, setFocus] = useState(0);
   const col = focus + 1;
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <ActivityRowHead activities={activities} />
+      </div>
       <div className="flex flex-wrap items-center gap-1 rounded-2xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]">
         {columnHeaders.map((header, index) => {
           const selected = focus === index;
@@ -221,23 +265,35 @@ function ColumnPickerTable({ headers, rows }: Parsed) {
         })}
       </div>
       <ul className="m-0 mt-3 list-none divide-y divide-black/[0.08] overflow-hidden rounded-2xl border border-black/[0.08] p-0 dark:divide-white/[0.12] dark:border-white/[0.12]">
-        {rows.map((row, index) => (
-          <li key={index} className="px-3.5 py-2.5">
-            <p className="m-0 font-body text-[11px] font-semibold tracking-tight text-ink/55">
-              {nodeText(row[0]).trim() || headers[0]}
-            </p>
-            <p className="mt-1 font-body text-[14px] leading-[1.55] text-ink/90">
-              {row[col] ?? ""}
-            </p>
-          </li>
-        ))}
+        {rows.map((row, index) => {
+          const label = nodeText(row[0]).trim() || headers[0];
+          const worked = workedExampleForRow(workedExamples, label);
+          return (
+            <li key={index} className="px-3.5 py-2.5">
+              <div className="flex items-start gap-2">
+                <p className="m-0 min-w-0 flex-1 font-body text-[11px] font-semibold tracking-tight text-ink/55">
+                  {label}
+                </p>
+                {worked ? <WorkedExampleLauncher example={worked} /> : null}
+              </div>
+              <p className="mt-1 font-body text-[14px] leading-[1.55] text-ink/90">
+                {row[col] ?? ""}
+              </p>
+            </li>
+          );
+        })}
       </ul>
     </figure>
   );
 }
 
 /** Wide screens: everything stays visible, a column can be brought forward. */
-function ColumnFocusTable({ headers, rows }: Parsed) {
+function ColumnFocusTable({
+  headers,
+  rows,
+  activities,
+  workedExamples,
+}: Parsed & StudyExtras) {
   const [focus, setFocus] = useState<number | null>(null);
 
   const columnTone = (index: number) => {
@@ -259,7 +315,10 @@ function ColumnFocusTable({ headers, rows }: Parsed) {
                       scope="col"
                       className="px-3 py-2 align-bottom font-body text-[11px] font-semibold tracking-tight text-ink/60"
                     >
-                      {header || "Aspect"}
+                      <span className="inline-flex flex-wrap items-center gap-2">
+                        <span>{header || "Aspect"}</span>
+                        <ActivityRowHead activities={activities} />
+                      </span>
                     </th>
                   );
                 }
@@ -294,34 +353,43 @@ function ColumnFocusTable({ headers, rows }: Parsed) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, rowIndex) => (
-              <tr
-                key={rowIndex}
-                className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
-              >
-                {row.map((cell, index) =>
-                  index === 0 ? (
-                    <th
-                      key="label"
-                      scope="row"
-                      className="px-3 py-2 align-top font-body text-[12.5px] font-semibold leading-[1.5] text-ink"
-                    >
-                      {cell}
-                    </th>
-                  ) : (
-                    <td
-                      key={index}
-                      className={cn(
-                        "px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/85 transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-                        columnTone(index),
-                      )}
-                    >
-                      {cell}
-                    </td>
-                  ),
-                )}
-              </tr>
-            ))}
+            {rows.map((row, rowIndex) => {
+              const label = nodeText(row[0]).trim();
+              const worked = workedExampleForRow(workedExamples, label);
+              return (
+                <tr
+                  key={rowIndex}
+                  className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
+                >
+                  {row.map((cell, index) =>
+                    index === 0 ? (
+                      <th
+                        key="label"
+                        scope="row"
+                        className="px-3 py-2 align-top font-body text-[12.5px] font-semibold leading-[1.5] text-ink"
+                      >
+                        <span className="inline-flex items-start gap-2">
+                          <span className="min-w-0">{cell}</span>
+                          {worked ? (
+                            <WorkedExampleLauncher example={worked} />
+                          ) : null}
+                        </span>
+                      </th>
+                    ) : (
+                      <td
+                        key={index}
+                        className={cn(
+                          "px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/85 transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+                          columnTone(index),
+                        )}
+                      >
+                        {cell}
+                      </td>
+                    ),
+                  )}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -346,8 +414,17 @@ function ColumnFocusTable({ headers, rows }: Parsed) {
   );
 }
 
-export function StudyTable({ children }: { children: ReactNode }) {
+export function StudyTable({
+  children,
+  activities,
+  workedExamples,
+}: {
+  children: ReactNode;
+  activities?: LoActivity[];
+  workedExamples?: WorkedExampleCard[];
+}) {
   const parsed = parseMarkdownTable(children);
+  const extras: StudyExtras = { activities, workedExamples };
 
   if (!parsed) {
     return (
@@ -358,16 +435,16 @@ export function StudyTable({ children }: { children: ReactNode }) {
   }
 
   if (parsed.headers.length === 2) {
-    return <TwoColumnTable {...parsed} />;
+    return <TwoColumnTable {...parsed} {...extras} />;
   }
 
   return (
     <>
       <div className="lg:hidden">
-        <ColumnPickerTable {...parsed} />
+        <ColumnPickerTable {...parsed} {...extras} />
       </div>
       <div className="hidden lg:block">
-        <ColumnFocusTable {...parsed} />
+        <ColumnFocusTable {...parsed} {...extras} />
       </div>
     </>
   );
