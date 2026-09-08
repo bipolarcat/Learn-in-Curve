@@ -7,7 +7,10 @@ import type {
   KeyDefinition,
 } from "@/types/pmq";
 import { DefinitionsReveal } from "@/components/pmq/DefinitionsReveal";
-import { Lo1CoreContentStudy } from "@/components/pmq/Lo1CoreContentStudy";
+import {
+  Lo1CoreContentStudy,
+  LO3_SHORT_TITLE,
+} from "@/components/pmq/Lo1CoreContentStudy";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
@@ -29,6 +32,9 @@ type LoLearnStageProps = {
  * tables. Add an LO number here once its content has had the style pass.
  */
 const STUDY_TREATMENT_LOS = new Set([3]);
+
+/** Notebook shell (LO1 Learn design). LO3 reuses this chrome. */
+const NOTEBOOK_LEARN_LOS = new Set([1, 3]);
 
 /** Same type for card titles and outcome codes (2a) / titles). */
 const headingClass =
@@ -64,8 +70,8 @@ function SectionTitle({
 }
 
 /**
- * Learn — LO1: notebook single-scroll core (definitions live on Orient).
- * Other LOs: definitions plates + stacked core blocks.
+ * Learn — LO1/LO3: notebook single-scroll core. LO1 definitions live on Orient;
+ * LO3 keeps definitions here. Other LOs: stacked core blocks.
  */
 export function LoLearnStage({
   loNumber,
@@ -76,12 +82,37 @@ export function LoLearnStage({
   const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
   const activities =
     studyTables && canAccessRecallActivities(userTier);
+  const useNotebook = NOTEBOOK_LEARN_LOS.has(loNumber);
 
-  if (loNumber === 1) {
+  if (useNotebook) {
     return (
-      <div className="lo-learn-stage min-w-0" aria-label="Learn">
+      <div
+        className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
+        aria-label="Learn"
+      >
+        {definitions.length > 0 ? (
+          <section
+            className={`${productSurfaceOpaque} ${motion.panel} min-w-0 overflow-visible p-4 sm:p-5`}
+            style={{ ["--i" as string]: 0 }}
+            aria-labelledby="lo-learn-definitions"
+          >
+            <SectionTitle id="lo-learn-definitions" icon={BookOpen}>
+              Key definitions
+            </SectionTitle>
+            <div className="mt-1.5 w-full min-w-0 max-w-full">
+              <DefinitionsReveal definitions={definitions} />
+            </div>
+          </section>
+        ) : null}
+
         {coreContent.length > 0 ? (
-          <Lo1CoreContentStudy blocks={coreContent} />
+          <Lo1CoreContentStudy
+            blocks={coreContent}
+            interactiveTables={loNumber === 1}
+            studyTables={studyTables}
+            activities={activities}
+            shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}
+          />
         ) : null}
       </div>
     );

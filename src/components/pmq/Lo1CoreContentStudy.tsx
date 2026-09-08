@@ -10,18 +10,27 @@ import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { cn } from "@/lib/utils";
 
 /** Short rail labels for LO1 outcomes (Magic Patterns demo). */
-const SHORT_TITLE: Record<string, string> = {
+const LO1_SHORT_TITLE: Record<string, string> = {
   "1a": "Life cycles",
   "1b": "Extended life cycle",
   "1c": "Context & culture",
   "1d": "Trade-offs",
 };
 
+/** Short rail labels for LO3 outcomes. */
+const LO3_SHORT_TITLE: Record<string, string> = {
+  "3a": "Why & impact",
+  "3b": "Monitor & report",
+};
+
 const OUTCOME_ICONS = [Layers, Milestone, Landmark, Scale] as const;
 
-function shortTitle(block: CoreContentBlockType): string {
+function shortTitleFor(
+  block: CoreContentBlockType,
+  map?: Record<string, string>,
+) {
   const code = block.outcome_code.toLowerCase();
-  return SHORT_TITLE[code] ?? block.outcome_title;
+  return map?.[code] ?? block.outcome_title;
 }
 
 function sectionTop(root: HTMLElement, el: HTMLElement) {
@@ -37,11 +46,13 @@ function OutcomeLedger({
   activeIndex,
   seen,
   onSelect,
+  shortTitles,
 }: {
   blocks: CoreContentBlockType[];
   activeIndex: number;
   seen: Set<number>;
   onSelect: (index: number) => void;
+  shortTitles?: Record<string, string>;
 }) {
   return (
     <nav aria-label="Learning outcomes" className="relative pl-5">
@@ -94,7 +105,7 @@ function OutcomeLedger({
                         : "font-semibold text-ink/70 group-hover:text-ink",
                   )}
                 >
-                  {shortTitle(block)}
+                  {shortTitleFor(block, shortTitles)}
                 </span>
                 <span className="sr-only">
                   {block.outcome_title}.{" "}
@@ -119,11 +130,13 @@ function OutcomeMarginRail({
   activeIndex,
   seen,
   onSelect,
+  shortTitles,
 }: {
   blocks: CoreContentBlockType[];
   activeIndex: number;
   seen: Set<number>;
   onSelect: (index: number) => void;
+  shortTitles?: Record<string, string>;
 }) {
   const active = blocks[activeIndex]!;
 
@@ -134,6 +147,7 @@ function OutcomeMarginRail({
         activeIndex={activeIndex}
         seen={seen}
         onSelect={onSelect}
+        shortTitles={shortTitles}
       />
 
       <div
@@ -165,14 +179,24 @@ function OutcomeMarginRail({
 }
 
 /**
- * LO1 core content: notebook spread from Magic Patterns. Outcome rail,
- * spine scrollbar, single scroll with jump-to 1a-1d.
+ * Notebook Learn shell (LO1 design): outcome rail, spine scrollbar, single
+ * scroll with jump-to. Table behaviour is opt-in so LO3 can keep study tables
+ * + recall activities while sharing this chrome.
  */
 export function Lo1CoreContentStudy({
   blocks,
+  interactiveTables = false,
+  studyTables = false,
+  activities = false,
+  shortTitles,
 }: {
   blocks: CoreContentBlockType[];
+  interactiveTables?: boolean;
+  studyTables?: boolean;
+  activities?: boolean;
+  shortTitles?: Record<string, string>;
 }) {
+  const titleMap = shortTitles ?? LO1_SHORT_TITLE;
   const [activeIndex, setActiveIndex] = useState(0);
   const [seen, setSeen] = useState<Set<number>>(() => new Set());
   const readerScrollRef = useRef<HTMLDivElement>(null);
@@ -180,6 +204,9 @@ export function Lo1CoreContentStudy({
   const jumping = useRef(false);
 
   const active = blocks[activeIndex];
+  const jumpHint = blocks
+    .map((block) => block.outcome_code.toLowerCase())
+    .join("–");
 
   const markSeen = useCallback((index: number) => {
     setSeen((current) => {
@@ -247,6 +274,12 @@ export function Lo1CoreContentStudy({
 
   if (blocks.length === 0 || !active) return null;
 
+  const contentProps = {
+    interactiveTables,
+    studyTables,
+    activities,
+  };
+
   return (
     <section
       className="min-w-0 overflow-hidden rounded-2xl border border-black/[0.08] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/[0.12]"
@@ -267,8 +300,8 @@ export function Lo1CoreContentStudy({
           <nav aria-label="Learning outcomes" className="mt-2.5">
           <ExpandableTabs
             tabs={blocks.map((block, index) => ({
-              title: shortTitle(block),
-              icon: OUTCOME_ICONS[index] ?? Layers,
+              title: shortTitleFor(block, titleMap),
+              icon: OUTCOME_ICONS[index % OUTCOME_ICONS.length] ?? Layers,
             }))}
             value={activeIndex}
             clearOnOutsideClick={false}
@@ -302,7 +335,7 @@ export function Lo1CoreContentStudy({
           ) : null}
 
           <div className="mt-2 min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-            <CoreContentBlock block={active} interactiveTables />
+            <CoreContentBlock block={active} {...contentProps} />
           </div>
         </div>
       </div>
@@ -320,7 +353,7 @@ export function Lo1CoreContentStudy({
               Core content
             </h2>
             <p className="mt-px font-body text-xs leading-snug text-ink/75">
-              One scroll · click 1a–1d to jump
+              One scroll · click {jumpHint} to jump
             </p>
           </div>
         </header>
@@ -333,6 +366,7 @@ export function Lo1CoreContentStudy({
                 activeIndex={activeIndex}
                 seen={seen}
                 onSelect={handleSelect}
+                shortTitles={titleMap}
               />
             </div>
           </div>
@@ -365,7 +399,7 @@ export function Lo1CoreContentStudy({
                       </h3>
                     </header>
                     <div className="min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-                      <CoreContentBlock block={block} interactiveTables />
+                      <CoreContentBlock block={block} {...contentProps} />
                     </div>
                   </article>
                 );
@@ -377,3 +411,5 @@ export function Lo1CoreContentStudy({
     </section>
   );
 }
+
+export { LO3_SHORT_TITLE };
