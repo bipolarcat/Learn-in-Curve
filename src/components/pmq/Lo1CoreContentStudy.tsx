@@ -361,7 +361,7 @@ export function Lo1CoreContentStudy({
                     }
                   >
                     <header className="mb-5">
-                      <OutcomeCodeBadge code={code} className="h-6 min-w-6 text-[11px]" />
+                      <OutcomeCodeBadge code={code} />
                       <h3 className="mt-2 font-body text-[20px] font-semibold leading-tight tracking-tight text-ink">
                         <span className="sr-only">{code}: </span>
                         {block.outcome_title}
