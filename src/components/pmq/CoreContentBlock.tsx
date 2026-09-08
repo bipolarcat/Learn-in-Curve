@@ -5,6 +5,8 @@ import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
 import { Lo1InteractiveTable } from "@/components/pmq/Lo1InteractiveTable";
+import { StudyTable } from "@/components/pmq/StudyTable";
+import { ExamTipList } from "@/components/pmq/ExamTipCallout";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -131,7 +133,47 @@ type CoreContentBlockProps = {
   block: CoreContentBlockType;
   /** LO1 Learn: row-expand / column-focus instead of a static markdown table. */
   interactiveTables?: boolean;
+  /** Learn: study tables (visible by default, opt-in recall mode). */
+  studyTables?: boolean;
 };
+
+/**
+ * Split the body at `##` headings so section-anchored tips can be placed at the
+ * end of the section they belong to. Fenced code is skipped so a `#` inside a
+ * fence never opens a section.
+ */
+function splitSections(
+  markdown: string,
+): { heading: string | null; markdown: string }[] {
+  const lines = markdown.split("\n");
+  const sections: { heading: string | null; lines: string[] }[] = [];
+  let current: { heading: string | null; lines: string[] } = {
+    heading: null,
+    lines: [],
+  };
+  let fenced = false;
+
+  for (const line of lines) {
+    if (/^\s*(```|~~~)/.test(line)) fenced = !fenced;
+    const match = fenced ? null : line.match(/^##\s+(.*)$/);
+    if (match) {
+      if (current.heading !== null || current.lines.some((l) => l.trim())) {
+        sections.push(current);
+      }
+      current = { heading: match[1].trim(), lines: [line] };
+      continue;
+    }
+    current.lines.push(line);
+  }
+  if (current.heading !== null || current.lines.some((l) => l.trim())) {
+    sections.push(current);
+  }
+
+  return sections.map((section) => ({
+    heading: section.heading,
+    markdown: section.lines.join("\n"),
+  }));
+}
 
 /**
  * Core lesson markdown. Heading levels are demoted (h4/h5) so they nest
@@ -140,9 +182,12 @@ type CoreContentBlockProps = {
 export function CoreContentBlock({
   block,
   interactiveTables = false,
+  studyTables = false,
 }: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
+  const examTips = block.exam_tips ?? [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
+  const sections = splitSections(block.body_markdown);
 
   function renderHeading(
     Tag: "h4" | "h5",
@@ -151,49 +196,74 @@ export function CoreContentBlock({
   ) {
     const raw = headingText(children);
     const matched = diagramsAfterHeading(diagrams, raw);
+    const tips = examTips.filter(
+      (t) => t.placement === "after_heading" && t.heading === raw,
+    );
 
     return (
       <div className="not-prose min-w-0 max-w-full">
         <Tag className={className}>{mapHeadingChildren(children)}</Tag>
         {matched.map((d) => renderDiagram(d, loNumber))}
+        <ExamTipList tips={tips} />
       </div>
     );
   }
 
+  const markdownComponents = {
+    h2: ({ children }: { children?: ReactNode }) =>
+      renderHeading(
+        "h4",
+        "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
+        children,
+      ),
+    h3: ({ children }: { children?: ReactNode }) =>
+      renderHeading(
+        "h5",
+        "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
+        children,
+      ),
+    table: ({ children }: { children?: ReactNode }) => {
+      if (studyTables) return <StudyTable>{children}</StudyTable>;
+      if (interactiveTables) {
+        return <Lo1InteractiveTable>{children}</Lo1InteractiveTable>;
+      }
+      return (
+        <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
+          <table>{children}</table>
+        </div>
+      );
+    },
+    pre: ({ children }: { children?: ReactNode }) => (
+      <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
+        <pre className="overflow-x-auto">{children}</pre>
+      </div>
+    ),
+  };
+
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h2: ({ children }) =>
-            renderHeading(
-              "h4",
-              "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
-              children,
-            ),
-          h3: ({ children }) =>
-            renderHeading(
-              "h5",
-              "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
-              children,
-            ),
-          table: ({ children }) =>
-            interactiveTables ? (
-              <Lo1InteractiveTable>{children}</Lo1InteractiveTable>
-            ) : (
-              <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
-                <table>{children}</table>
-              </div>
-            ),
-          pre: ({ children }) => (
-            <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
-              <pre className="overflow-x-auto">{children}</pre>
-            </div>
-          ),
-        }}
-      >
-        {block.body_markdown}
-      </ReactMarkdown>
+      {sections.map((section, index) => {
+        const tips =
+          section.heading === null
+            ? []
+            : examTips.filter(
+                (t) =>
+                  t.placement === "after_section" &&
+                  t.heading === section.heading,
+              );
+
+        return (
+          <div key={section.heading ?? `section-${index}`} className="min-w-0">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {section.markdown}
+            </ReactMarkdown>
+            <ExamTipList tips={tips} />
+          </div>
+        );
+      })}
     </div>
   );
 }

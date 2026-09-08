@@ -19,6 +19,12 @@ type LoLearnStageProps = {
   coreContent: CoreContentBlockType[];
 };
 
+/**
+ * LOs migrated to the new study treatment: separated exam tips plus study
+ * tables. Add an LO number here once its content has had the style pass.
+ */
+const STUDY_TREATMENT_LOS = new Set([3]);
+
 /** Same type for card titles and outcome codes (2a) / titles). */
 const headingClass =
   "w-full min-w-0 font-body text-lg font-semibold leading-snug tracking-tight text-ink";
@@ -61,6 +67,8 @@ export function LoLearnStage({
   definitions,
   coreContent,
 }: LoLearnStageProps) {
+  const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
+
   if (loNumber === 1) {
     return (
       <div className="lo-learn-stage min-w-0" aria-label="Learn">
@@ -120,7 +128,10 @@ export function LoLearnStage({
                     </span>
                   </h3>
                   <div className="mt-2 w-full min-w-0 max-w-full [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-                    <CoreContentBlock block={block} />
+                    <CoreContentBlock
+                      block={block}
+                      studyTables={studyTables}
+                    />
                   </div>
                 </article>
               );
