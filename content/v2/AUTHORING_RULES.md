@@ -168,3 +168,59 @@ Run all of these. LO2 failed three of them on first draft.
 4. Run the verification list.
 5. Hand to Sim with the `source_confidence` entries called out. One LO at a time — Sim reviews
    before the next starts (decided 2026-08-02).
+
+---
+
+## Rule 6 — Bold is structural only
+
+**Set 2026-09-08 by Sim, during the LO3 style pass.**
+
+Bold carries **no emphasis** in body prose. It appears in exactly three places, none of which
+are authored as `**` in `body_markdown`:
+
+| Where | How it gets bold |
+|---|---|
+| A key definition's term | `key_definitions[].term`, styled by `DefinitionsReveal` |
+| A section heading | `##` / `###`, styled by `CoreContentBlock` |
+| A table's first column | Styled by `StudyTable` / the markdown table shell |
+
+So: **no `**` anywhere in `body_markdown`, `exam_tips[].tip`, `misconceptions`, `memory_aids`,
+`where_this_fits` or `progress_checkpoint`.**
+
+Why: bold works by contrast. Density had drifted from 3.5 spans per 100 words in LO1 to 7.6 in
+LO21, at which point nothing is emphasised and the page reads as machine-generated. Two different
+jobs were also sharing one symbol: emphasis in prose, and the row-label convention in table first
+columns. The second is styling, and belongs to the component.
+
+Where a term genuinely needs to stand out mid-sentence, restructure the sentence so the term leads,
+or move it into a table or a definition. Italics stay available, used sparingly, for a genuine
+contrast of sense (*strategy* against *achievement*), not for emphasis.
+
+Check it mechanically: `grep -c '\*\*' content/v2/loN.json` must return 0.
+
+---
+
+## Rule 7 — Exam tips are separate from study prose
+
+**Set 2026-09-08 by Sim, during the LO3 style pass.**
+
+Coaching about the exam does not sit inside the explanation. It lives in `exam_tips[]` on the
+core content block:
+
+```json
+{ "id": "loN-tip-slug", "heading": "Exact ## body heading", "placement": "after_section", "tip": "…" }
+```
+
+Rules:
+
+1. **One label.** Everything renders as "Exam tip". Three labels were tried and two of ten were
+   misfiled inside a single LO.
+2. **`after_section` by default.** A section reads heading, prose, table, diagram, tip. Nothing
+   goes between a heading and its first sentence. `after_heading` exists for the rare tip that must
+   frame a section, and should be argued for.
+3. **Diagrams follow the same rule.** `placement: "after_section"`, rendered just before the tip.
+4. **Split per sentence, not per passage.** A distinction the learner needs in order to understand
+   the topic is teaching and stays in the flow. Only the how-the-exam-behaves half lifts out.
+   Example from 3b: "LCA is about a product, EIA is about a project or plan" stayed in the body;
+   "if the scenario is a construction go/no-go decision, it is an EIA" became the tip.
+5. **One tip per heading.** Two tips on the same section stack into a wall. Merge them.
