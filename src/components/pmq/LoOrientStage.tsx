@@ -60,19 +60,22 @@ function IconCell({ children }: { children: ReactNode }) {
   );
 }
 
-/** Icon + copy column (Context / Key definitions). */
+/** Icon + heading row; body can sit full-bleed under the title. */
 function OrientCard({
   id,
   icon,
   title,
   children,
   className = "",
+  /** When true, body starts at the card’s left edge (no icon-column indent). */
+  flushBody = false,
 }: {
   id: string;
   icon: LucideIcon;
   title: ReactNode;
   children: ReactNode;
   className?: string;
+  flushBody?: boolean;
 }) {
   return (
     <section
@@ -87,10 +90,14 @@ function OrientCard({
           {title}
         </h2>
       </div>
-      <div className={`${orientGutter} mt-1.5`}>
-        <span aria-hidden className="block" />
-        <div className="flex min-w-0 flex-col gap-1.5">{children}</div>
-      </div>
+      {flushBody ? (
+        <div className="mt-1.5 w-full min-w-0">{children}</div>
+      ) : (
+        <div className={`${orientGutter} mt-1.5`}>
+          <span aria-hidden className="block" />
+          <div className="flex min-w-0 flex-col gap-1.5">{children}</div>
+        </div>
+      )}
     </section>
   );
 }
@@ -170,7 +177,12 @@ export function LoOrientStage({
       ) : null}
 
       {hasContext ? (
-        <OrientCard id="lo-orient-context" icon={Compass} title="Context">
+        <OrientCard
+          id="lo-orient-context"
+          icon={Compass}
+          title="Context"
+          flushBody
+        >
           <p className={bodyClass}>{contextText}</p>
         </OrientCard>
       ) : null}
