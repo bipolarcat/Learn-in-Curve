@@ -12,7 +12,7 @@
     "16a) Understand how to establish scope through requirements management processes (such as gather, analysis, justifying requirements and baseline needs).",
     "16b) Understand how to manage scope through configuration management processes (such as planning, identification, control, status accounting and verification audit)."
   ],
-  "where_this_fits": "LO16 opens the delivery half of the course, and it is where the abstract becomes concrete: benefits and success criteria from LO4 and LO9 turn into requirements you can build against and test. Two processes, cleanly split — requirements management *establishes* scope, configuration management *controls* it once established. The distinction the exam most wants: success criteria and benefits are not the same thing, and a project can hit one while missing the other.",
+  "where_this_fits": "LO16 opens the delivery half of the course, and it is where the abstract becomes concrete: benefits and success criteria from LO4 and LO9 turn into requirements you can build against and test. Two processes, cleanly split. Requirements management *establishes* scope; configuration management *controls* it once established. The distinction the exam most wants: success criteria and benefits are not the same thing, and a project can hit one while missing the other.",
   "key_definitions": [
     {
       "term": "Requirements management",
@@ -36,7 +36,7 @@
     },
     {
       "term": "SMART",
-      "apm_definition": "A test applied to requirements — Specific, Measurable, Achievable, Relevant and Time-based.",
+      "apm_definition": "A test applied to requirements: Specific, Measurable, Achievable, Relevant and Time-based.",
       "plain_english": "Five checks on whether a requirement is written well enough to build and test against."
     },
     {
@@ -47,7 +47,7 @@
     {
       "term": "MoSCoW",
       "apm_definition": "A prioritisation technique classifying requirements as Must have, Should have, Could have, or Won't have, based on criteria such as value, benefit, cost, risk and size.",
-      "plain_english": "Four buckets for requirements. The fourth one — won't have — is a decision, not an omission."
+      "plain_english": "Four buckets for requirements. The fourth one (won't have) is a decision, not an omission."
     },
     {
       "term": "Requirements baseline",
@@ -57,7 +57,7 @@
     {
       "term": "Configuration management",
       "apm_definition": "The technical and administrative activities that manage the creation, maintenance, controlled change and quality control of the project's technical configuration, providing accuracy and alignment of the latest configuration with clear traceability between versions.",
-      "plain_english": "Keeping an accurate record of exactly what the thing being built currently is — and being able to show how it got that way."
+      "plain_english": "Keeping an accurate record of exactly what the thing being built currently is, and being able to show how it got that way."
     },
     {
       "term": "Configuration item",
@@ -74,15 +74,14 @@
     {
       "outcome_code": "16a",
       "outcome_title": "Establishing scope through requirements management",
-      "key_takeaway": "Requirements are gathered, analysed and validated, prioritised, then baselined — and reviewed regularly thereafter. Success criteria and benefits are different things, and requirements must be SMART, clear and unambiguous to be testable at handover.",
       "source_ref": "BoK 8e 5.1 (p227), 5.1.1 (p228-229), 5.1.2 (p230-231), 5.1.3 (p232-233)",
-      "body_markdown": "## What requirements management is for\n\nIt means finding out **what stakeholders want and need, working out which of it holds up, and ranking what remains**. Requirements that are both thorough and achievable become **the yardstick the project gets measured against** — they shape **the benefits, the objectives, and the acceptance criteria**.\n\n**Requirements and scope are inseparable.** You cannot describe the work to be done — the scope — without first knowing what the stakeholders are asking the project for. **Neither exists without the other.** That is the direct answer to how requirements management establishes scope.\n\n## Requirements evolve in detail through the life cycle\n\n| Stage | What requirements do |\n|---|---|\n| **Early life cycle** | **High-level requirements** show how the change aligns with organisational strategy and help define what success looks like. They help sponsoring stakeholders **draw out the benefits, confirming they are realistic, attainable and measurable** — feeding early decision-making and the **business case** |\n| **As the project progresses** | **Finer-grained requirements** emerge as project professionals work alongside subject-matter experts, defining **objectives and acceptance criteria** and linking back to the identified benefits and success criteria |\n\n**Rigour varies by life cycle.** **Heavy rigour up front suits some projects; others do better letting requirements evolve** — the same linear-versus-iterative split as everywhere else.\n\n## Success criteria versus benefits\n\nHighly examinable, and a genuine conceptual distinction.\n\n| | Success criteria | Benefits |\n|---|---|---|\n| **What** | The satisfaction of stakeholder needs, measured against criteria agreed at the start | **Positive and measurable improvements delivered by change**, focused on **strategic intent** |\n| **Example** | An office building is refurbished | Maintenance costs fall (**tangible**); staff morale improves (**intangible**) |\n| **When known** | At **project handover** | Often only once the product is **adopted and embedded into business as usual** (in a linear life cycle) |\n| **Accountable** | The **project manager** | The **project sponsor** |\n\nThat accountability split is the single most quotable fact in 16a.\n\n**And the consequence:** **a project can deliver its success criteria and fail to deliver the benefits.** **And the reverse happens too — benefits land, yet the project is remembered as a failure.** The two are measured separately, so they can diverge.\n\n**Stakeholders may have different views of success.** The project professional's role is to:\n\n- **draw out how different people are defining success and benefit**\n- **broker a shared position, so far as one is available**\n\n'As far as possible' is doing real work there — total agreement is not always available, and the job is to get as close as the situation allows and make the remaining differences visible.\n\n**Success criteria can change**, but only **subject to formal approval** — change control, per LO24. In an **iterative** environment, shifting success criteria are **easier to absorb**, because steady contact with end users lets the team **learn and adapt as it goes**.\n\n## What makes a good requirement\n\nProject professionals ensure that:\n\n- **benefits, success criteria, objectives and requirements all connect visibly to each other**\n- **the objectives are spelled out, and stakeholders have agreed them**\n- **each requirement is unambiguous, and put as plainly as it can be**\n\nThat chain — benefits → success criteria → objectives → requirements — is worth memorising as a chain. Every requirement should be traceable back up it.\n\n**The test: SMART.**\n\n| Letter | Meaning |\n|---|---|\n| **S** | Specific |\n| **M** | Measurable |\n| **A** | Achievable |\n| **R** | Relevant |\n| **T** | Time-based |\n\n**Measures make acceptance possible.** The source's example: a requirement (speed of ship) plus a measure (greater than 12 knots) is what lets a deliverable **actually be accepted when it transfers to users**. A requirement without a measure cannot be accepted or rejected — it can only be argued about.\n\n**But not everything measures easily.** A benefit the sponsor wants **can generate a requirement that resists easy measurement** — the example given being **delivering the work in an environmentally sustainable way**. Acknowledging that difficulty is better than pretending a soft requirement is hard.\n\n## The four-step process\n\nThe process **first establishes a requirements baseline, then regularly reviews it**.\n\n| Step | What happens |\n|---|---|\n| **1. Identify stakeholders and gather requirements** | Work out who the stakeholders are by **looking at which parts of the business gain from the change or are hit by it**. Settle how you will capture requirements — **workshops, surveys** — then go and get their first view |\n| **2. Analyse, validate and align** | **A proposed requirement is not automatically accepted.** Analyse thoroughly for **dependencies, risks and constraints**; validate each one; check it **aligns with project objectives and contributes to broader organisational aims** |\n| **3. Prioritise** | **The list almost always exceeds what can actually be built.** Use **MoSCoW**, ranking on **value, benefit, cost, risk and size**. Stakeholders agree the prioritisation, and **the initial baseline is set** |\n| **4. Review and reprioritise regularly** | As more information emerges, review and reprioritise. **New requirements follow the same analysis, validation and alignment** before being consolidated into an updated baseline |\n\nThe syllabus phrases this as **gather, analysis, justifying requirements and baseline needs** — the same four steps under different labels. 'Justifying' is step 2's validation: proving a requirement earns its place.\n\n**Step 2 is the one that carries the marks.** Stakeholders propose; the project analyses and validates. A requirements process that simply records what people asked for has skipped its most valuable step.\n\n## MoSCoW\n\n| Category | Meaning |\n|---|---|\n| **Must have** | Non-negotiable — the project fails without it |\n| **Should have** | Important but not vital; there is a workaround |\n| **Could have** | Desirable; included if capacity allows |\n| **Won't have** | Explicitly excluded **this time** |\n\nThe fourth category is the useful one. **Won't have is a decision that was taken and recorded**, not a requirement that got lost — which prevents it reappearing later as an assumed inclusion.\n\n## When reviews happen\n\n**Frequency should be project-specific**, though in practice they cluster around **the moments that already matter — a stage gate, the end of an iteration** — reusing existing control points, exactly as LO4 and LO6 recommend.\n\n**It runs for the whole life cycle**, absorbing **information that surfaces later and needs that shift as it goes.**\n\nAnd the handover to 16b: when requirements change or new ones are introduced, they have to be **brought into line with the configuration management and change management processes**, so **governance, control and the decision itself all happen properly.**\n\n## Requirements and acceptance: the V model\n\nDefining a requirement and designing the test that will judge it are the same act viewed from two ends. The **'V' depiction** of the life cycle shows this: requirements descend the left-hand side from user requirements through system requirements to design and build; testing ascends the right-hand side, with each test level **verifying or validating** its counterpart on the left.\n\n**Why the rigour matters commercially:** the level of rigour **mitigates the risk of a later dispute about acceptance and transition of deliverables into use**. For projects **delivered under a commercial contract this is particularly important, safeguarding both the investing and supplier organisations** — the LO5 link. It is **more achievable when the project is well understood and the commercial setting is steady**, which is precisely why uncertain projects need a different approach.\n\n## Requirements in iterative life cycles\n\n**Requirements get surfaced, then sharpened through analysis** until everyone agrees what is meant. Some methods write them as **user stories** — **a feature a stakeholder has asked for, written in ordinary language**, carrying **only enough detail to size the development effort roughly**.\n\nThat last phrase is the point of a user story. It is deliberately not a specification; it carries enough to estimate and to start a conversation.",
+      "body_markdown": "## What requirements management is for\n\nIt means finding out what stakeholders want and need, working out which of it holds up, and ranking what remains. Requirements that are both thorough and achievable become the yardstick the project gets measured against. They shape the benefits, the objectives, and the acceptance criteria.\n\nRequirements and scope are inseparable. The scope is the work to be done, and you cannot describe it without first knowing what the stakeholders are asking the project for. Neither exists without the other. That is the direct answer to how requirements management establishes scope.\n\n## Requirements evolve in detail through the life cycle\n\n| Stage | What requirements do |\n|---|---|\n| Early life cycle | High-level requirements show how the change aligns with organisational strategy and help define what success looks like. They help sponsoring stakeholders draw out the benefits, confirming they are realistic, attainable and measurable, feeding early decision-making and the business case |\n| As the project progresses | Finer-grained requirements emerge as project professionals work alongside subject-matter experts, defining objectives and acceptance criteria and linking back to the identified benefits and success criteria |\n\nRigour varies by life cycle. Heavy rigour up front suits some projects; others do better letting requirements evolve. It is the same linear-versus-iterative split as everywhere else.\n\n## Success criteria versus benefits\n\nTwo different things, measured at different moments, owned by different people.\n\n| | Success criteria | Benefits |\n|---|---|---|\n| What | The satisfaction of stakeholder needs, measured against criteria agreed at the start | Positive and measurable improvements delivered by change, focused on strategic intent |\n| Example | An office building is refurbished | Maintenance costs fall (tangible); staff morale improves (intangible) |\n| When known | At project handover | Often only once the product is adopted and embedded into business as usual (in a linear life cycle) |\n| Accountable | The project manager | The project sponsor |\n\nAnd the consequence: a project can deliver its success criteria and fail to deliver the benefits. The reverse happens too. Benefits land, yet the project is remembered as a failure. The two are measured separately, so they can diverge.\n\nStakeholders may have different views of success. The project professional's role is to:\n\n- draw out how different people are defining success and benefit\n- broker a shared position, so far as one is available\n\n'As far as possible' is doing real work there. Total agreement is not always available, and the job is to get as close as the situation allows and make the remaining differences visible.\n\nSuccess criteria can change, but only subject to formal approval, which means change control, per LO24. In an iterative environment, shifting success criteria are easier to absorb, because steady contact with end users lets the team learn and adapt as it goes.\n\n## What makes a good requirement\n\nProject professionals ensure that:\n\n- benefits, success criteria, objectives and requirements all connect visibly to each other\n- the objectives are spelled out, and stakeholders have agreed them\n- each requirement is unambiguous, and put as plainly as it can be\n\nThat chain, benefits then success criteria then objectives then requirements, is worth memorising as a chain. Every requirement should be traceable back up it.\n\nThe test is SMART.\n\n| Letter | Meaning |\n|---|---|\n| S | Specific |\n| M | Measurable |\n| A | Achievable |\n| R | Relevant |\n| T | Time-based |\n\nMeasures make acceptance possible. The source's example: a requirement (speed of ship) plus a measure (greater than 12 knots) is what lets a deliverable be accepted when it transfers to users. A requirement without a measure cannot be accepted or rejected. It can only be argued about.\n\nNot everything measures easily. A benefit the sponsor wants can generate a requirement that resists easy measurement. The example given is delivering the work in an environmentally sustainable way. Acknowledging that difficulty is better than pretending a soft requirement is hard.\n\n## The four-step process\n\nThe process first establishes a requirements baseline, then regularly reviews it.\n\n| Step | What happens |\n|---|---|\n| 1. Identify stakeholders and gather requirements | Work out who the stakeholders are by looking at which parts of the business gain from the change or are hit by it. Settle how you will capture requirements (workshops, surveys), then go and get their first view |\n| 2. Analyse, validate and align | A proposed requirement is not automatically accepted. Analyse thoroughly for dependencies, risks and constraints; validate each one; check it aligns with project objectives and contributes to broader organisational aims |\n| 3. Prioritise | The list almost always exceeds what can be built. Use MoSCoW, ranking on value, benefit, cost, risk and size. Stakeholders agree the prioritisation, and the initial baseline is set |\n| 4. Review and reprioritise regularly | As more information emerges, review and reprioritise. New requirements follow the same analysis, validation and alignment before being consolidated into an updated baseline |\n\nThe syllabus phrases this as gather, analysis, justifying requirements and baseline needs. Those are the same four steps under different labels. 'Justifying' is step 2's validation: proving a requirement earns its place.\n\nStakeholders propose; the project analyses and validates. A requirements process that records what people asked for and stops there has skipped its most valuable step.\n\n## MoSCoW\n\n| Category | Meaning |\n|---|---|\n| Must have | Non-negotiable, because the project fails without it |\n| Should have | Important but not vital; there is a workaround |\n| Could have | Desirable; included if capacity allows |\n| Won't have | Explicitly excluded this time |\n\nThe fourth category is the useful one. Won't have is a decision that was taken and recorded, not a requirement that got lost, and recording it prevents the requirement reappearing later as an assumed inclusion.\n\n## When reviews happen\n\nFrequency should be project-specific, though in practice they cluster around the moments that already matter: a stage gate, the end of an iteration, reusing existing control points, as LO4 and LO6 recommend.\n\nIt runs for the whole life cycle, absorbing information that surfaces later and needs that shift as it goes.\n\nAnd the handover to 16b: when requirements change or new ones are introduced, they have to be brought into line with the configuration management and change management processes, so governance, control and the decision itself all happen properly.\n\n## Requirements and acceptance: the V model\n\nDefining a requirement and designing the test that will judge it are the same act viewed from two ends. The 'V' depiction of the life cycle shows this: requirements descend the left-hand side from user requirements through system requirements to design and build; testing ascends the right-hand side, with each test level verifying or validating its counterpart on the left.\n\nWhy the rigour matters commercially: the level of rigour mitigates the risk of a later dispute about acceptance and transition of deliverables into use. For projects delivered under a commercial contract this is particularly important, safeguarding both the investing and supplier organisations. That is the LO5 link. It is more achievable when the project is well understood and the commercial setting is steady, which is precisely why uncertain projects need a different approach.\n\n## Requirements in iterative life cycles\n\nRequirements get surfaced, then sharpened through analysis until everyone agrees what is meant. Some methods write them as user stories: a feature a stakeholder has asked for, written in ordinary language, carrying only enough detail to size the development effort roughly.\n\nThat last phrase is the point of a user story. It is deliberately not a specification; it carries enough to estimate and to start a conversation.",
       "diagrams": [
         {
           "id": "lo16-requirements-process",
           "figure_number": "16.1",
           "caption": "The requirements management process",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "The four-step process",
           "file": null,
           "spec": "Four steps in sequence — identify stakeholders and gather, analyse and validate and align, prioritise, review and reprioritise — with the fourth step looping back into the second, because new requirements re-enter the analysis. Mark where the baseline is set (after prioritisation). The loop and the baseline marker are the two things the diagram must convey.",
@@ -92,7 +91,7 @@
           "id": "lo16-v-model",
           "figure_number": "16.2",
           "caption": "The V model: requirements on the left, testing on the right",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "Requirements and acceptance: the V model",
           "file": null,
           "spec": "A V shape. Descending left arm: user requirements, system requirements, system design, component design, unit design. Ascending right arm: build at the base, then unit integration and testing, component testing, system integration and testing, acceptance. Horizontal arrows across the V linking each requirement level to its corresponding test level, labelled verification for the lower pairs and validation for the top pair. The horizontal links are the argument — each requirement is written knowing how it will later be tested.",
@@ -102,32 +101,298 @@
           "id": "lo16-moscow",
           "figure_number": "16.3",
           "caption": "MoSCoW prioritisation",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "MoSCoW",
           "file": null,
           "spec": "Four bands — Must have, Should have, Could have, Won't have — descending in priority, with the criteria used to place a requirement (value, benefit, cost, risk, size) shown alongside. Give 'Won't have' equal visual weight rather than fading it out: the teaching point is that it is a recorded decision, not an omission.",
           "alt": "The four MoSCoW categories — must have, should have, could have and won't have — with the criteria used to prioritise requirements between them."
+        }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo16-tip-scope-question",
+          "heading": "What requirements management is for",
+          "placement": "after_section",
+          "tip": "Scope questions and requirements questions are the same question here. Give a scenario a project with nothing agreed and ask what the risk is, and the answer is that nobody can describe the work to be done, so nothing can be measured at acceptance."
+        },
+        {
+          "id": "lo16-tip-criteria-benefits",
+          "heading": "Success criteria versus benefits",
+          "placement": "after_section",
+          "tip": "Highly examinable, and a genuine conceptual distinction. That accountability split is the single most quotable fact in 16a: criteria to the project manager at handover, benefits to the sponsor after adoption."
+        },
+        {
+          "id": "lo16-tip-measure",
+          "heading": "What makes a good requirement",
+          "placement": "after_section",
+          "tip": "A scenario that hands you a requirement with no number is asking you to spot the missing measure. Write the measure you would add, then say it is what makes acceptance possible at transition."
+        },
+        {
+          "id": "lo16-tip-step-two",
+          "heading": "The four-step process",
+          "placement": "after_section",
+          "tip": "Step 2 is the one that carries the marks. However, where a scenario has a stakeholder pushing a new requirement, the examiner wants analysis, validation and alignment named, not a straight yes or no."
+        },
+        {
+          "id": "lo16-tip-wont-have",
+          "heading": "MoSCoW",
+          "placement": "after_section",
+          "tip": "Won't have is where the marks hide. If a stem describes someone re-raising an item the team excluded, the answer is the recorded decision and the route back through change control, not a fresh prioritisation exercise."
+        },
+        {
+          "id": "lo16-tip-v-model",
+          "heading": "Requirements and acceptance: the V model",
+          "placement": "after_section",
+          "tip": "A stem that ends in an argument at handover about whether a deliverable is acceptable is testing your requirements, not your testing. Say the requirement lacked a measure, and name the commercial contract if the scenario gives you one."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo16-groupup-criteria-benefits",
+          "type": "groupup",
+          "heading": "Success criteria versus benefits",
+          "title": "Which side of the split does each one sit on?",
+          "buckets": [
+            {
+              "id": "criteria",
+              "label": "Success criteria",
+              "hint": "Judged at handover"
+            },
+            {
+              "id": "benefits",
+              "label": "Benefits",
+              "hint": "Judged after adoption"
+            }
+          ],
+          "items": [
+            {
+              "label": "Known at project handover",
+              "bucket": "criteria"
+            },
+            {
+              "label": "The project manager is accountable",
+              "bucket": "criteria"
+            },
+            {
+              "label": "Measured against criteria agreed at the start",
+              "bucket": "criteria"
+            },
+            {
+              "label": "Often known only once the output is embedded in business as usual",
+              "bucket": "benefits"
+            },
+            {
+              "label": "The project sponsor is accountable",
+              "bucket": "benefits"
+            },
+            {
+              "label": "Improvements focused on strategic intent",
+              "bucket": "benefits"
+            }
+          ]
+        },
+        {
+          "id": "lo16-lineup-chain",
+          "type": "lineup",
+          "heading": "What makes a good requirement",
+          "title": "Rebuild the traceability chain, top down",
+          "items": [
+            "Benefits",
+            "Success criteria",
+            "Objectives",
+            "Requirements"
+          ]
+        },
+        {
+          "id": "lo16-lineup-four-steps",
+          "type": "lineup",
+          "heading": "The four-step process",
+          "title": "Put the four steps back in order",
+          "items": [
+            "Identify stakeholders and gather requirements",
+            "Analyse, validate and align",
+            "Prioritise",
+            "Review and reprioritise regularly"
+          ]
+        },
+        {
+          "id": "lo16-pairup-moscow",
+          "type": "pairup",
+          "heading": "MoSCoW",
+          "title": "Match the MoSCoW category to what it means",
+          "pairs": [
+            {
+              "term": "Must have",
+              "match": "Non-negotiable, because the project fails without it"
+            },
+            {
+              "term": "Should have",
+              "match": "Important but not vital; there is a workaround"
+            },
+            {
+              "term": "Could have",
+              "match": "Desirable; included if capacity allows"
+            },
+            {
+              "term": "Won't have",
+              "match": "Explicitly excluded this time, and recorded as a decision"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo16-we-analyse",
+          "heading": "The four-step process",
+          "row_label": "2. Analyse, validate and align",
+          "situation": "Three weeks into a £900k CRM rollout, the sales director asks for a live dashboard fed by a warehouse system nobody has integrated.",
+          "ask": "Do you add it to the requirements list?",
+          "answer": "Not as it stands. You analyse it for dependencies, risks and constraints, validate it, and check it aligns with the objectives. Essentially that missing integration is the dependency that decides it."
+        },
+        {
+          "id": "lo16-we-wont-have",
+          "heading": "MoSCoW",
+          "row_label": "Won't have",
+          "situation": "Your school extension has 46 requirements and budget for 31. Solar canopies went to won't have at the baseline, and in week nine the head teacher raises them again.",
+          "ask": "What do you point at?",
+          "answer": "The record. Won't have logged a decision taken, with a reason, so this is a change to the baseline rather than a correction. That is why it goes back through change control instead of quietly reappearing."
         }
       ]
     },
     {
       "outcome_code": "16b",
       "outcome_title": "Managing scope through configuration management",
-      "key_takeaway": "Configuration management keeps an accurate, traceable record of what the deliverable currently is. Five steps: plan, identify, control, status accounting, verification audit. It is version control at its simplest and asset control at its most complex.",
       "source_ref": "BoK 8e 5.11.3 (p324-325), 5.1.3 (p232), 3.5.5 (p156)",
-      "body_markdown": "## What configuration management does\n\nIt is the **technical and administrative work of creating, maintaining, controlling changes to, and quality-checking the project's technical configuration.**\n\nDone well, it delivers two things: **accuracy and alignment of the latest configuration**, and **clear traceability between versions**.\n\n**Why it exists:** on a technical project, **what change control approves lands straight in the specification of what gets built**. Once a change is agreed it must be **written into the project's configuration**, so that any change to the **functional and physical characteristics** of a deliverable is **documented and communicated to the entire team**.\n\nWithout it, a change is approved and half the team keeps building to the old specification.\n\n## It scales with complexity\n\n| Complexity | What configuration management looks like |\n|---|---|\n| **Simplest** | **Version control of documents and information**, keeping changes and knowledge up to date — the LO6 information management link |\n| **More complex** | Designs that are **many-sided, pull in several technical disciplines, and cover a spread of different assets** |\n| **Most complex** | **Asset control** — keeping every asset's configuration **within organisational and regulatory standards** |\n\n**Business information modelling (BIM)** sits alongside it: **digital representations of physical assets, created and maintained**. Those models **make a complicated configuration visible** and **let people decide about a technical asset — a building, an aircraft**.\n\n## The five steps\n\nThe syllabus names these explicitly — planning, identification, control, status accounting, verification audit. Learn what each actually does.\n\n| Step | What it involves |\n|---|---|\n| **1. Configuration management planning** | A **configuration management plan** describing the project-specific procedures, **how they are applied and who completes them** — the worked example being how a construction project's technical designs get updated and issued |\n| **2. Configuration identification** | Break the project into **configuration items**, giving each a **unique number or reference**. That becomes **the first baseline, and the one place the truth lives** |\n| **3. Configuration control** | Once **change control has approved something**, this is what gets it **into the current configuration version** — including **updating any dependencies between configuration items** that the change disturbs |\n| **4. Configuration status accounting** | **Regular reporting on the configuration's status**, so everyone has **the most up-to-date information**, and keeping **each configuration item traceable across its whole development** |\n| **5. Configuration verification audits** | **Check the deliverable actually matches the configuration on record.** Usually run **as a phase closes, once a deliverable is complete, or as the output passes into use** |\n\n**Step 3 is where the two processes meet.** Configuration control does not approve changes — **change control does that** (LO24). Configuration control makes sure an approved change actually lands in the record. Getting that division right is the difference between a good answer and a confused one.\n\n**Step 3 also carries an easily-missed detail:** interrelationships between configuration items get updated too. Changing one component can invalidate another that depended on it.\n\n## How the two processes divide the work\n\nThe cleanest way to hold 16a and 16b together:\n\n| | Requirements management | Configuration management |\n|---|---|---|\n| **Job** | **Establishes** scope | **Manages and controls** scope |\n| **Question it answers** | What are we building, and why? | What exactly is it right now, and how did it get that way? |\n| **Output** | An agreed, prioritised **requirements baseline** | An accurate, traceable **configuration** |\n| **When** | Heaviest early, continuing throughout | Throughout delivery, into transition |\n\n## Where verification audits sit\n\nThe timing of step 5 connects to three other LOs at once:\n\n- **At the end of a life cycle phase** — alongside the decision gates of LO6.\n- **When a deliverable is finished** — supporting the quality and acceptance work of LO18.\n- **As the output passes into use** — the acceptance sequence of LO8, where deliverables are tested against **acceptance criteria** before the sponsor signs off.\n\nThat last one closes the loop opened in 16a. Requirements defined a measure; the V model designed a test against it; configuration management recorded what was actually built; and the verification audit confirms the built thing matches the documented configuration before it is handed over.\n\n## Governance applies to requirement changes\n\nFrom 16a, restated because it is the bridge: a changed or newly-arrived requirement has to be **run through configuration management and change management**, so that **governance, control and the decision itself all happen properly**.\n\nA new requirement is not simply added to a list. It goes through analysis, validation and alignment; it is prioritised against everything already there; it goes through change control if it affects an approved baseline; and it lands in the configuration record.",
+      "body_markdown": "## What configuration management does\n\nIt is the technical and administrative work of creating, maintaining, controlling changes to, and quality-checking the project's technical configuration.\n\nDone well, it delivers two things: accuracy and alignment of the latest configuration, and clear traceability between versions.\n\nWhy it exists: on a technical project, what change control approves lands straight in the specification of what gets built. Once a change is agreed it must be written into the project's configuration, so that any change to the functional and physical characteristics of a deliverable is documented and communicated to the entire team.\n\nWithout it, a change is approved and half the team keeps building to the old specification.\n\n## It scales with complexity\n\n| Complexity | What configuration management looks like |\n|---|---|\n| Simplest | Version control of documents and information, keeping changes and knowledge up to date, which is the LO6 information management link |\n| More complex | Designs that are many-sided, pull in several technical disciplines, and cover a spread of different assets |\n| Most complex | Asset control, keeping every asset's configuration within organisational and regulatory standards |\n\nBusiness information modelling (BIM) sits alongside it: digital representations of physical assets, created and maintained. Those models make a complicated configuration visible and let people decide about a technical asset such as a building or an aircraft.\n\n## The five steps\n\nThe syllabus names these explicitly: planning, identification, control, status accounting, verification audit. Learn what each one does.\n\n| Step | What it involves |\n|---|---|\n| 1. Configuration management planning | A configuration management plan describing the project-specific procedures, how they are applied and who completes them. The worked example is how a construction project's technical designs get updated and issued |\n| 2. Configuration identification | Break the project into configuration items, giving each a unique number or reference. That becomes the first baseline, and the one place the truth lives |\n| 3. Configuration control | Once change control has approved something, this is what gets it into the current configuration version, including updating any dependencies between configuration items that the change disturbs |\n| 4. Configuration status accounting | Regular reporting on the configuration's status, so everyone has the most up-to-date information, and keeping each configuration item traceable across its whole development |\n| 5. Configuration verification audits | Check the deliverable matches the configuration on record. Usually run as a phase closes, once a deliverable is complete, or as the output passes into use |\n\nStep 3 is where the two processes meet. Configuration control does not approve changes; change control does that (LO24). Configuration control makes sure an approved change lands in the record.\n\nStep 3 also carries an easily-missed detail: interrelationships between configuration items get updated too. Changing one component can invalidate another that depended on it.\n\n## How the two processes divide the work\n\nThe cleanest way to hold 16a and 16b together:\n\n| | Requirements management | Configuration management |\n|---|---|---|\n| Job | Establishes scope | Manages and controls scope |\n| Question it answers | What are we building, and why? | What exactly is it right now, and how did it get that way? |\n| Output | An agreed, prioritised requirements baseline | An accurate, traceable configuration |\n| When | Heaviest early, continuing throughout | Throughout delivery, into transition |\n\n## Where verification audits sit\n\nThe timing of step 5 connects to three other LOs at once:\n\n- At the end of a life cycle phase, alongside the decision gates of LO6.\n- When a deliverable is finished, supporting the quality and acceptance work of LO18.\n- As the output passes into use. That is the acceptance sequence of LO8, where deliverables are tested against acceptance criteria before the sponsor signs off.\n\nThat last one closes the loop opened in 16a. Requirements defined a measure; the V model designed a test against it; configuration management recorded what was actually built; and the verification audit confirms the built thing matches the documented configuration before it is handed over.\n\n## Governance applies to requirement changes\n\nFrom 16a, restated because it is the bridge: a changed or newly-arrived requirement has to be run through configuration management and change management, so that governance, control and the decision itself all happen properly.\n\nA new requirement is not added straight to a list. It goes through analysis, validation and alignment; it is prioritised against everything already there; it goes through change control if it affects an approved baseline; and it lands in the configuration record.",
       "diagrams": [
         {
           "id": "lo16-configuration-cycle",
           "figure_number": "16.4",
           "caption": "The configuration management cycle",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "The five steps",
           "file": "lo16-configuration-cycle.svg",
           "spec": "Five stages as a closed cycle: plan the configuration management processes and activities; identify configuration items and dependencies; apply change control to configuration item changes; create records and reports demonstrating traceability; verify integrity of the configuration before use. Draw the change control step as an input arriving from outside the cycle, since approval happens in the change control process rather than inside configuration management — that boundary is the teaching point.",
           "alt": "A five-stage configuration management cycle from planning through identification, change control application, status reporting and verification of integrity before use.",
           "width": 1024,
           "height": 705
+        }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo16-tip-control-boundary",
+          "heading": "The five steps",
+          "placement": "after_section",
+          "tip": "Getting that division right is the difference between a good answer and a confused one. An approved change that never reached the drawings is a configuration control failure; a change nobody approved is a change control failure."
+        },
+        {
+          "id": "lo16-tip-which-process",
+          "heading": "How the two processes divide the work",
+          "placement": "after_section",
+          "tip": "Two stems look alike. What are we building and why is requirements management; what exactly is it right now is configuration management. Read which question the scenario is asking before you write a word."
+        },
+        {
+          "id": "lo16-tip-audit-timing",
+          "heading": "Where verification audits sit",
+          "placement": "after_section",
+          "tip": "Three timings, and a scenario hands you one of them: end of a phase, deliverable complete, output passing into use. Name the timing the stem describes rather than listing all three and hoping."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo16-pairup-complexity",
+          "type": "pairup",
+          "heading": "It scales with complexity",
+          "title": "Match the level of complexity to what configuration management becomes",
+          "pairs": [
+            {
+              "term": "Simplest",
+              "match": "Version control of documents and information, keeping changes and knowledge up to date"
+            },
+            {
+              "term": "More complex",
+              "match": "Designs that are many-sided, pull in several technical disciplines and cover a spread of assets"
+            },
+            {
+              "term": "Most complex",
+              "match": "Asset control, keeping every asset within organisational and regulatory standards"
+            }
+          ]
+        },
+        {
+          "id": "lo16-lineup-five-steps",
+          "type": "lineup",
+          "heading": "The five steps",
+          "title": "Put the five configuration management steps back in order",
+          "items": [
+            "Configuration management planning",
+            "Configuration identification",
+            "Configuration control",
+            "Configuration status accounting",
+            "Configuration verification audits"
+          ]
+        },
+        {
+          "id": "lo16-groupup-two-processes",
+          "type": "groupup",
+          "heading": "How the two processes divide the work",
+          "title": "Sort each one into the process it belongs to",
+          "buckets": [
+            {
+              "id": "req",
+              "label": "Requirements management",
+              "hint": "Establishes scope"
+            },
+            {
+              "id": "config",
+              "label": "Configuration management",
+              "hint": "Controls scope"
+            }
+          ],
+          "items": [
+            {
+              "label": "What are we building, and why?",
+              "bucket": "req"
+            },
+            {
+              "label": "An agreed, prioritised requirements baseline",
+              "bucket": "req"
+            },
+            {
+              "label": "Heaviest early, continuing throughout",
+              "bucket": "req"
+            },
+            {
+              "label": "Prioritising with MoSCoW",
+              "bucket": "req"
+            },
+            {
+              "label": "What exactly is it right now, and how did it get that way?",
+              "bucket": "config"
+            },
+            {
+              "label": "An accurate, traceable configuration",
+              "bucket": "config"
+            },
+            {
+              "label": "Throughout delivery, into transition",
+              "bucket": "config"
+            },
+            {
+              "label": "Verification audits before handover",
+              "bucket": "config"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo16-we-config-control",
+          "heading": "The five steps",
+          "row_label": "3. Configuration control",
+          "situation": "A £2.4m pumping station has an approved change lifting a pump from 40 to 55 kW. Two weeks later the electrical subcontractor installs cabling sized for 40 kW.",
+          "ask": "Which step failed?",
+          "answer": "Configuration control. The change was approved but never carried into the current version, and its dependencies were never updated. Cable sizing was one of those, which is why updating interrelationships between configuration items is the step people forget."
         }
       ]
     }
@@ -143,7 +408,7 @@
     },
     {
       "wrong": "A requirement proposed by a stakeholder should be captured as a requirement.",
-      "right": "Just because a stakeholder proposes something does not mean it should be accepted. It must be analysed for dependencies, risks and constraints, validated, and checked for alignment with project objectives and organisational aims."
+      "right": "When a stakeholder proposes something, that does not mean it should be accepted. It must be analysed for dependencies, risks and constraints, validated, and checked for alignment with project objectives and organisational aims."
     },
     {
       "wrong": "Requirements are captured once at the start of the project.",
@@ -155,7 +420,7 @@
     },
     {
       "wrong": "A requirement is complete once it is written down clearly.",
-      "right": "It needs a measure. A requirement plus its measure — speed of ship, greater than 12 knots — is what makes acceptance of the deliverable possible at transition."
+      "right": "It needs a measure. A requirement plus its measure (speed of ship, greater than 12 knots) is what makes acceptance of the deliverable possible at transition."
     },
     {
       "wrong": "Configuration management approves changes to the deliverable.",
@@ -167,7 +432,7 @@
     },
     {
       "wrong": "Requirements management and configuration management are two names for the same activity.",
-      "right": "Requirements management establishes scope — what are we building and why. Configuration management controls it — what exactly is it now, and how did it get that way."
+      "right": "Requirements management establishes scope: what are we building and why. Configuration management controls it: what exactly is it now, and how did it get that way."
     },
     {
       "wrong": "Every requirement can be made measurable if written well enough.",
@@ -193,7 +458,7 @@
     {
       "type": "cue",
       "acronym": "Plan, identify, control, account, audit",
-      "expansion": "The five configuration management steps in order — planning, identification, control, status accounting, verification audit."
+      "expansion": "The five configuration management steps in order: planning, identification, control, status accounting, verification audit."
     },
     {
       "type": "cue",

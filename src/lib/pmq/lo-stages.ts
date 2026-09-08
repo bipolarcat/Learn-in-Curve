@@ -8,6 +8,14 @@ import {
   type CourseStageDef,
 } from "@/lib/course/stages";
 
+/**
+ * Stage IDs are PERSISTED: `section_progress` has `orient_reached_at`,
+ * `learn_reached_at`, `video_reached_at`, `audio_reached_at`,
+ * `apply_reached_at` columns keyed to these strings. Display names are in
+ * STAGE_META and may be renamed freely; renaming an ID needs a migration.
+ * Current display names: apply = "Polish", practice = "Drill",
+ * checkpoint = "Lock in".
+ */
 export type LoStageId =
   | "orient"
   | "learn"
@@ -26,10 +34,10 @@ const STAGE_META: Record<
   orient: { label: "Orient", continueLabel: "Continue to Learn" },
   learn: { label: "Learn", continueLabel: "Continue to Video" },
   video: { label: "Video", continueLabel: "Continue to Audio" },
-  audio: { label: "Audio", continueLabel: "Continue to Apply" },
-  apply: { label: "Apply", continueLabel: "Continue to Quiz" },
-  practice: { label: "Quiz", continueLabel: "Continue to Checkpoint" },
-  checkpoint: { label: "Checkpoint", continueLabel: "Done" },
+  audio: { label: "Audio", continueLabel: "Continue to Polish" },
+  apply: { label: "Polish", continueLabel: "Continue to Drill" },
+  practice: { label: "Drill", continueLabel: "Continue to Lock in" },
+  checkpoint: { label: "Lock in", continueLabel: "Done" },
 };
 
 /** Every LO uses the full pathway — same interface as LO1. */

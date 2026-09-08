@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Layers, Landmark, Lightbulb, Milestone, Scale } from "lucide-react";
+import { Layers, Landmark, Milestone, Scale } from "lucide-react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { Lo1SpineScrollbar } from "@/components/pmq/Lo1SpineScrollbar";
@@ -158,22 +158,6 @@ function OutcomeMarginRail({
       <h3 className="font-body text-[22px] font-semibold leading-[1.3] tracking-tight text-ink lg:text-[23px]">
         {active.outcome_title}
       </h3>
-
-      {active.key_takeaway ? (
-        <div className="mt-4 border-t-2 border-teal pt-3">
-          <p className="m-0 flex items-center gap-1.5 font-body text-[12px] font-semibold tracking-tight text-teal">
-            <Lightbulb
-              className="size-3.5 shrink-0"
-              strokeWidth={1.8}
-              aria-hidden
-            />
-            Key takeaway
-          </p>
-          <p className="mt-1.5 font-body text-[13px] italic leading-[1.68] text-ink/90">
-            {active.key_takeaway}
-          </p>
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -318,21 +302,6 @@ export function Lo1CoreContentStudy({
         </header>
 
         <div className="px-3.5 pb-6 pt-3.5">
-          {active.key_takeaway ? (
-            <div className="border-t-2 border-teal bg-teal/[0.06] px-3.5 py-3 dark:bg-teal/10">
-              <p className="m-0 flex items-center gap-1.5 font-body text-[12px] font-semibold tracking-tight text-teal">
-                <Lightbulb
-                  className="size-3.5 shrink-0"
-                  strokeWidth={1.8}
-                  aria-hidden
-                />
-                Key takeaway
-              </p>
-              <p className="mt-1.5 font-body text-[14px] font-normal leading-[1.6] text-pretty text-ink/90">
-                {active.key_takeaway}
-              </p>
-            </div>
-          ) : null}
 
           <div className="mt-2 min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
             <CoreContentBlock block={active} {...contentProps} />

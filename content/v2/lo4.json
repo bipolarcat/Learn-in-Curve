@@ -12,17 +12,17 @@
     "4a) Knowledge of the tools and techniques used to determine factors which influence and impact a project's business case (including PESTLE, SWOT and VUCA).",
     "4b) Understand the importance of regularly reviewing the impact of any changes in a project to the business case, and know that the business case forms the baseline for the project."
   ],
-  "where_this_fits": "The business case is the project's licence to exist, and the only document that can withdraw it. It links directly to LO2 — the sponsor is accountable for it and the governance board approves it — and forwards into LO6 reviews, LO9 benefits and LO24 change control, all of which exist partly to test whether it still holds. The single most transferable idea in this LO is that the business case is a living document, not an approval artefact. Answers that treat it as something signed once and filed lose marks across several LOs, not just this one.",
+  "where_this_fits": "The business case is the project's licence to exist, and the only document that can withdraw it. It links directly to LO2, where the sponsor is accountable for it and the governance board approves it, and it forwards into LO6 reviews, LO9 benefits and LO24 change control, all of which exist partly to test whether it still holds. The single most transferable idea in this LO is that the business case is a living document, not an approval artefact. Answers that treat it as something signed once and filed lose marks across several LOs, not only this one.",
   "key_definitions": [
     {
       "term": "Business case",
       "apm_definition": "The justification for undertaking a particular project, programme or portfolio. It evaluates the time, cost, risks and benefit of different options before recommending the best solution to achieve the desired outcome.",
-      "plain_english": "The argument for spending the money — options weighed, one recommended, and the reasoning left visible so it can be re-tested later."
+      "plain_english": "The argument for spending the money: options weighed, one recommended, and the reasoning left visible so it can be re-tested later."
     },
     {
       "term": "Five case model",
       "apm_definition": "The five dimensions a well-rounded business case typically covers: strategic, economic, commercial, financial and management.",
-      "plain_english": "Five different questions a business case has to survive — is it worth doing, does it pay back, can we buy it, can we afford it now, and can we run it."
+      "plain_english": "Five different questions a business case has to survive: is it worth doing, does it pay back, can we buy it, can we afford it now, and can we run it."
     },
     {
       "term": "Living document",
@@ -41,17 +41,17 @@
     },
     {
       "term": "PESTLE",
-      "apm_definition": "Political, economic, societal, technological, legal and environmental — the categories of external pressure an organisation must respond to.",
+      "apm_definition": "Political, economic, societal, technological, legal and environmental: the categories of external pressure an organisation must respond to.",
       "plain_english": "A checklist for scanning the outside world. Six headings so you notice the threat that is not in your industry's usual line of sight."
     },
     {
       "term": "SWOT",
-      "apm_definition": "Strengths, weaknesses, opportunities and threats — an analysis pairing internal capability against external conditions.",
+      "apm_definition": "Strengths, weaknesses, opportunities and threats, an analysis pairing internal capability against external conditions.",
       "plain_english": "Two internal boxes, two external. What we are good and bad at, set against what the world is offering and threatening."
     },
     {
       "term": "VUCA",
-      "apm_definition": "Volatility, uncertainty, complexity and ambiguity — a term coined by the US military to describe conditions in an increasingly vulnerable and unpredictable world. Its key implication is that inherent uncertainty makes it difficult to predict and plan with great accuracy.",
+      "apm_definition": "Volatility, uncertainty, complexity and ambiguity, a term coined by the US military to describe conditions in an increasingly vulnerable and unpredictable world. Its key implication is that inherent uncertainty makes it difficult to predict and plan with great accuracy.",
       "plain_english": "A label for conditions where confident forecasting is not available. Naming it stops you writing plans that assume knowledge you do not have."
     },
     {
@@ -69,15 +69,14 @@
     {
       "outcome_code": "4a",
       "outcome_title": "What a business case contains, and the tools that shape it",
-      "key_takeaway": "A business case justifies investment by comparing options on time, cost, risk and benefit across five dimensions — strategic, economic, commercial, financial, management. PESTLE, SWOT and VUCA are the named techniques for identifying the external and internal factors that shape it.",
       "source_ref": "BoK 8e 1.1.1 (p22), 1.3.2 (p45), 2.3.1 (p76-77), 2.4 (p83), 2.4.1 (p84-85), 2.4.2 (p86-87)",
-      "body_markdown": "## What a business case is for\n\nEvery project costs money, so anyone proposing one has to show that the cost, effort and benefit add up to good value for the organisation. The business case is where that argument is made: options evaluated on **time, cost, risks and benefit**, then one recommended.\n\n**Accountability versus the work.** The sponsor is accountable for the business case. In practice, preparing it is usually delegated to project professionals working alongside subject-matter experts. That delegation is treated as good practice rather than a shortcut — it brings the project team into the shaping of the initiative and builds shared understanding early.\n\n## The five dimensions\n\nHigh-yield. Learn the question each one answers, because scenario questions usually attack one specific dimension.\n\n| Dimension | The question it answers |\n|---|---|\n| **Strategic** | Is there a compelling case for change, and does it align with the organisation's strategic objectives and other initiatives? |\n| **Economic** | Does the return justify the investment — time, cost and resources set against organisational, societal and environmental benefits? |\n| **Commercial** | How will it be paid for and how will resources be sourced? Is the deal achievable and attractive in the market? |\n| **Financial** | Can the organisation afford it **now**, in the timescales proposed — or should it wait? |\n| **Management** | How will the project actually be run — team roles, governance, choice of life cycle, ways of working? |\n\nThe distinction candidates most often blur is **economic versus financial**. Economic asks *is it worth it*. Financial asks *can we pay for it now*. A project can be excellent value and still unaffordable this year.\n\n## Business cases are storytelling documents\n\nAn unusual point in the source, and worth using because it sounds like judgement and is actually examinable content: the strongest business cases put the technical investment appraisal alongside a **narrative backed by evidence** — how this team, working this way, is going to make it succeed.\n\nThe reason is competitive. Most organisations have more problems and opportunities than funding, so decision makers are making trade-offs between viable initiatives. The case has to persuade, not merely calculate.\n\n**Without a clear business case**, decision makers risk funding unsound work — leading to financial losses, reduced productivity, environmental harm and damaged stakeholder confidence.\n\n## How a business case gets created\n\n1. **Define the business need.** Work with the sponsor to state the problem being solved or opportunity being exploited, and link it back to organisational strategy.\n2. **Analyse the options.** With subject-matter experts, gather high-level estimates of the work and duration, resources and costs, the risks, and the societal, environmental and sustainability impacts.\n3. **Handle the uncertainty.** The case is written early, when detail is thin. Counter that with proven estimating techniques, risk-based contingency planning and third-party assurance.\n4. **Agree a recommendation.** Project professionals and sponsor review the options together and put one forward, showing how the work will be achieved — governance approach, chosen life cycle, how sustainability will be managed.\n5. **Seek approval.** The sponsor submits it to a defined governance forum — an executive board or investment committee. Approval formally starts the project.\n\n**Rigour scales to the life cycle.** Linear projects tend towards detailed up-front analysis. Iterative approaches use a lighter business case, because the detail arrives as the project progresses. Ties straight back to LO1 and LO2 — and a scenario describing an iterative project buried under a 90-page business case is describing a mismatch.\n\n## The three named techniques\n\nThe syllabus names PESTLE, SWOT and VUCA specifically. Each does a different job.\n\n**One line each, before the detail:**\n\n- **PESTLE** — what is going on *outside* that could affect this project?\n- **SWOT** — what are we good and bad at, set against what the world is offering and threatening?\n- **VUCA** — how predictable are conditions, and therefore how firmly can we plan?\n\nThese are general management techniques rather than APM-specific ones. The Body of Knowledge does not set them out as business case tools, so learn them as standard practice the syllabus expects you to know — not as APM doctrine you could quote back.\n\n### PESTLE — scanning the external environment\n\nSix categories of external pressure an organisation must respond to:\n\n| Letter | Factor | Example impact on a business case |\n|---|---|---|\n| **P** | Political | Change of government policy alters funding or priority |\n| **E** | Economic | Interest rates or inflation change cost and affordability |\n| **S** | Societal | Shifting public expectations change what counts as an acceptable solution |\n| **T** | Technological | A new technology reduces the benefit of the proposed option |\n| **L** | Legal | New legislation makes an option non-compliant, or mandatory |\n| **E** | Environmental | Emissions targets or environmental regulation reshape the options |\n\nUse it to populate the **strategic and economic cases**, and to surface risks and assumptions early.\n\n**Spelling.** You may see **PESTEL** — identical six factors, letters in a different order. Both are correct. Longer variants exist (STEEPLE adds ethics; PESTLIED adds international and demographic), but PESTLE is what the syllabus names, so use it.\n\n**Using it in an answer:** do not list all six and stop. Pick the two or three the scenario actually turns on and say what each does to the case — 'new emissions legislation (legal, environmental) rules out option B, so the recommendation changes'.\n\n### SWOT — internal capability against external conditions\n\nFour boxes on two axes: internal versus external, helpful versus harmful.\n\n| | Helpful | Harmful |\n|---|---|---|\n| **Internal** | **Strengths** — capability, skills, assets the organisation already has | **Weaknesses** — gaps, constraints, things done badly |\n| **External** | **Opportunities** — conditions the organisation could exploit | **Threats** — conditions that could damage it |\n\nThe axis pair is the thing to remember: **strengths and weaknesses are yours; opportunities and threats belong to the world.** Candidates routinely file a competitor as a weakness rather than a threat.\n\nUse it to test whether the recommended option is one the organisation is actually equipped to deliver — which feeds the **management case**.\n\n**Spelling.** SWOT, not SWAT. Four letters, four boxes.\n\n**Using it in an answer:** the value is in the pairings, not the four lists. A strength that lets you seize a named opportunity is a reason to proceed. A weakness that leaves you exposed to a named threat is a risk the business case has to answer.\n\n### VUCA — naming the conditions you are planning under\n\n| Letter | Condition |\n|---|---|\n| **V** | Volatility |\n| **U** | Uncertainty |\n| **C** | Complexity |\n| **A** | Ambiguity |\n\nCoined by the US military to describe an increasingly vulnerable and unpredictable world. **The key implication: inherent uncertainty makes it difficult to predict and plan with great accuracy.**\n\nThe consequence for a business case is direct. Expecting full and perfect knowledge is unattainable in turbulent conditions, and forcing detailed planning and fixed-price contracting onto an uncertain future can be counterproductive and damaging. So under VUCA conditions the sensible responses are flexible plans, iterations, prototyping, options evaluation and scenario planning — and a business case that expects to be revisited.\n\n**Spelling.** VUCA, not VOCA. And the four terms are conditions, not actions.\n\n**Using it in an answer:** name which of the four the scenario shows, then say what it does to the plan. High volatility and ambiguity justify a lighter business case, shorter commitment horizons and iteration — the opposite of a fixed-price contract signed on a detailed up-front specification.\n\n**How the three fit together:** PESTLE finds the external factors, SWOT weighs them against internal capability, VUCA tells you how much confidence to place in either. PESTLE and SWOT populate the case; VUCA sets how firmly you are entitled to write it.\n\n## Investment appraisal — how the economic case gets tested\n\nInvestment decisions are part of governance, so they need robust justification. Decision makers balance:\n\n- **Strategic alignment** — do the outcomes fit organisational goals, policy, regulation and legislation?\n- **Affordability** — is there enough money both to carry the risks and to land the benefits?\n- **Value delivered** — will it return a decent financial figure, or other measurable value, across the economic life of the product?\n- **Portfolio effect** — how does this sit among everything else the organisation is already doing?\n\n| Measure type | Examples |\n|---|---|\n| **Simple** | Value ratio, net benefit, return on investment (ROI) |\n| **Time-adjusted** — money now is worth more than money later | Internal rate of return (IRR); net present value (NPV), and its social variant NPSV. All three come out of discounted cash flows (DCF) |\n| **Comparators** | Weighted average cost of capital (WACC); organisational **hurdle rates** |\n\n**Non-financial factors matter too** — practicality, maturity of definition, and **decision bias**. Private organisations usually decide on financial grounds; public and non-profit organisations weigh value for money, affordability and service.\n\nOne governance point worth carrying: independent review and scrutiny of the investment case should allow for **several possible outcomes rather than one** — particularly early in the life cycle, when uncertainty is at its highest.",
+      "body_markdown": "## What a business case is for\n\nEvery project costs money, so anyone proposing one has to show that the cost, effort and benefit add up to good value for the organisation. The business case is where that argument gets made: options evaluated on time, cost, risks and benefit, then one recommended.\n\nThe sponsor is accountable for the business case. In practice, preparing it is usually delegated to project professionals working alongside subject-matter experts. That delegation is treated as good practice rather than a shortcut, because it brings the project team into the shaping of the initiative and builds shared understanding early.\n\n## The five dimensions\n\nA business case has to survive five separate questions. Learn what each dimension asks, because a case can pass four of them and fail the fifth.\n\n| Dimension | The question it answers |\n|---|---|\n| Strategic | Is there a compelling case for change, and does it align with the organisation's strategic objectives and other initiatives? |\n| Economic | Does the return justify the investment: time, cost and resources set against organisational, societal and environmental benefits? |\n| Commercial | How will it be paid for and how will resources be sourced? Is the deal achievable and attractive in the market? |\n| Financial | Can the organisation afford it now, in the timescales proposed, or should it wait? |\n| Management | How will the project be run in practice: team roles, governance, choice of life cycle, ways of working? |\n\nThe distinction people blur most often is economic versus financial. Economic asks *is it worth it*. Financial asks *can we pay for it now*. A project can be excellent value and still unaffordable this year.\n\n## Business cases are storytelling documents\n\nThe strongest business cases put the technical investment appraisal alongside a narrative backed by evidence: how this team, working this way, is going to make it succeed. That is an unusual point to find in the source, and it is worth using, because it sounds like judgement and is examinable content.\n\nThe reason is competitive. Most organisations have more problems and opportunities than funding, so decision makers are making trade-offs between viable initiatives. The case has to persuade, not merely calculate.\n\nWithout a clear business case, decision makers risk funding unsound work, leading to financial losses, reduced productivity, environmental harm and damaged stakeholder confidence.\n\n## How a business case gets created\n\n1. Define the business need. Work with the sponsor to state the problem being solved or opportunity being exploited, and link it back to organisational strategy.\n2. Analyse the options. With subject-matter experts, gather high-level estimates of the work and duration, resources and costs, the risks, and the societal, environmental and sustainability impacts.\n3. Handle the uncertainty. The case is written early, when detail is thin. Counter that with proven estimating techniques, risk-based contingency planning and third-party assurance.\n4. Agree a recommendation. Project professionals and sponsor review the options together and put one forward, showing how the work will be achieved: governance approach, chosen life cycle, how sustainability will be managed.\n5. Seek approval. The sponsor submits it to a defined governance forum, an executive board or an investment committee. Approval formally starts the project.\n\nRigour scales to the life cycle. Linear projects tend towards detailed up-front analysis. Iterative approaches use a lighter business case, because the detail arrives as the project progresses. That ties straight back to LO1 and LO2.\n\n## The three named techniques\n\nThe syllabus names PESTLE, SWOT and VUCA specifically. Each does a different job.\n\nOne line each, before the detail:\n\n- PESTLE: what is going on *outside* that could affect this project?\n- SWOT: what are we good and bad at, set against what the world is offering and threatening?\n- VUCA: how predictable are conditions, and therefore how firmly can we plan?\n\nThese are general management techniques rather than APM-specific ones. The Body of Knowledge does not set them out as business case tools, so learn them as standard practice the syllabus expects you to know, not as APM doctrine you could quote back.\n\n## PESTLE: scanning the external environment\n\nSix categories of external pressure an organisation must respond to.\n\n| Letter | Factor | Example impact on a business case |\n|---|---|---|\n| P | Political | Change of government policy alters funding or priority |\n| E | Economic | Interest rates or inflation change cost and affordability |\n| S | Societal | Shifting public expectations change what counts as an acceptable solution |\n| T | Technological | A new technology reduces the benefit of the proposed option |\n| L | Legal | New legislation makes an option non-compliant, or mandatory |\n| E | Environmental | Emissions targets or environmental regulation reshape the options |\n\nUse it to populate the strategic and economic cases, and to surface risks and assumptions early.\n\n## SWOT: internal capability against external conditions\n\nFour boxes on two axes: internal versus external, helpful versus harmful.\n\n| | Helpful | Harmful |\n|---|---|---|\n| Internal | Strengths: capability, skills, assets the organisation already has | Weaknesses: gaps, constraints, things done badly |\n| External | Opportunities: conditions the organisation could exploit | Threats: conditions that could damage it |\n\nThe axis pair is the thing to remember: strengths and weaknesses are yours, opportunities and threats belong to the world.\n\nUse it to test whether the recommended option is one the organisation is equipped to deliver, which feeds the management case.\n\n## VUCA: naming the conditions you are planning under\n\n| Letter | Condition |\n|---|---|\n| V | Volatility |\n| U | Uncertainty |\n| C | Complexity |\n| A | Ambiguity |\n\nCoined by the US military to describe an increasingly vulnerable and unpredictable world. The key implication: inherent uncertainty makes it difficult to predict and plan with great accuracy.\n\nThe consequence for a business case is direct. Expecting full and perfect knowledge is unattainable in turbulent conditions, and forcing detailed planning and fixed-price contracting onto an uncertain future can be counterproductive and damaging. So under VUCA conditions the sensible responses are flexible plans, iterations, prototyping, options evaluation and scenario planning, plus a business case that expects to be revisited.\n\nHow the three fit together: PESTLE finds the external factors, SWOT weighs them against internal capability, VUCA tells you how much confidence to place in either. PESTLE and SWOT populate the case, and VUCA sets how firmly you are entitled to write it.\n\n## Investment appraisal: how the economic case gets tested\n\nInvestment decisions are part of governance, so they need robust justification. Decision makers balance:\n\n- Strategic alignment: do the outcomes fit organisational goals, policy, regulation and legislation?\n- Affordability: is there enough money both to carry the risks and to land the benefits?\n- Value delivered: will it return a decent financial figure, or other measurable value, across the economic life of the product?\n- Portfolio effect: how does this sit among everything else the organisation is already doing?\n\n| Measure type | Examples |\n|---|---|\n| Simple | Value ratio, net benefit, return on investment (ROI) |\n| Time-adjusted | Internal rate of return (IRR), net present value (NPV) and its social variant NPSV, all three built on discounted cash flows (DCF) |\n| Comparators | Weighted average cost of capital (WACC), organisational hurdle rates |\n\nTime-adjusted measures exist for one reason: money now is worth more than money later.\n\nNon-financial factors matter too: practicality, maturity of definition, and decision bias. Private organisations usually decide on financial grounds, while public and non-profit organisations weigh value for money, affordability and service.\n\nOne governance point worth carrying: independent review and scrutiny of the investment case should allow for several possible outcomes rather than one, particularly early in the life cycle, when uncertainty is at its highest.\n",
       "diagrams": [
         {
           "id": "lo4-five-case-model",
           "figure_number": "4.1",
           "caption": "The five dimensions of a business case",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "The five dimensions",
           "file": null,
           "spec": "Five linked elements — strategic, economic, commercial, financial, management — each labelled with the question it answers: compelling case for change? optimises value? deal achievable and attractive? affordable? deliverable? Arrangement should show them as five facets of one assessment rather than a sequence, since they are tested together. Note: BoK Figure 2.4.1 is adapted from HM Treasury (2018), so our version must be an original depiction of the same five factual dimensions, not that figure's arrangement.",
@@ -87,8 +86,8 @@
           "id": "lo4-swot",
           "figure_number": "4.2",
           "caption": "SWOT: internal capability against external conditions",
-          "placement": "after_heading",
-          "heading": "SWOT — internal capability against external conditions",
+          "placement": "after_section",
+          "heading": "SWOT: internal capability against external conditions",
           "file": "lo4-swot.svg",
           "spec": "Two-by-two grid. Rows internal / external, columns helpful / harmful. Cells: strengths (internal-helpful), weaknesses (internal-harmful), opportunities (external-helpful), threats (external-harmful). Label both axes explicitly — the axis pair is the teaching point, because learners misfile competitors as weaknesses rather than threats. A v1 asset exists at `PMQ in 5 days/public/diagrams/swot.svg`.",
           "alt": "A two-by-two grid with internal and external rows against helpful and harmful columns, placing strengths, weaknesses, opportunities and threats in the four cells.",
@@ -99,34 +98,368 @@
           "id": "lo4-vuca",
           "figure_number": "4.3",
           "caption": "VUCA conditions and what each one demands",
-          "placement": "after_heading",
-          "heading": "VUCA — naming the conditions you are planning under",
+          "placement": "after_section",
+          "heading": "VUCA: naming the conditions you are planning under",
           "file": "lo4-vuca.svg",
           "spec": "Four panels — volatility, uncertainty, complexity, ambiguity — each paired with the planning consequence rather than a generic definition: flexible plans, iterations and prototyping, options evaluation, scenario planning. The argument: VUCA is not a description to memorise, it is a reason to write the business case differently. A v1 asset exists at `PMQ in 5 days/public/diagrams/vuca.svg` — check whether it uses the vision/understanding/clarity/agility response pairing, which is a common framing but is not in BoK 8e and should not be presented as APM content.",
           "alt": "The four VUCA conditions — volatility, uncertainty, complexity and ambiguity — each paired with the planning response it calls for.",
           "width": 1024,
           "height": 705
         }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo4-tip-five-dimensions",
+          "heading": "The five dimensions",
+          "placement": "after_section",
+          "tip": "High-yield: scenario questions usually attack one specific dimension, so learn the question each one answers. Naming all five buys you nothing if you cannot say what each one asks."
+        },
+        {
+          "id": "lo4-tip-rigour-scales",
+          "heading": "How a business case gets created",
+          "placement": "after_section",
+          "tip": "A scenario describing an iterative project buried under a 90-page business case is describing a mismatch. That ties straight back to LO1 and LO2, so name the life cycle when you answer."
+        },
+        {
+          "id": "lo4-tip-pestle",
+          "heading": "PESTLE: scanning the external environment",
+          "placement": "after_section",
+          "tip": "Spelling: you may see PESTEL, the identical six factors with the letters in a different order, and both are correct. Longer variants exist (STEEPLE adds ethics, PESTLIED adds international and demographic), but PESTLE is what the syllabus names, so use it. Using it in an answer: do not list all six and stop. Pick the two or three the scenario turns on and say what each does to the case, along the lines of 'new emissions legislation (legal, environmental) rules out option B, so the recommendation changes'."
+        },
+        {
+          "id": "lo4-tip-swot",
+          "heading": "SWOT: internal capability against external conditions",
+          "placement": "after_section",
+          "tip": "Spelling: SWOT, not SWAT. Four letters, four boxes. Using it in an answer, the value is in the pairings, not the four lists. A strength that lets you seize a named opportunity is a reason to proceed. A weakness that leaves you exposed to a named threat is a risk the business case has to answer. Plenty of candidates routinely file a competitor as a weakness rather than a threat, and it costs the same mark every time."
+        },
+        {
+          "id": "lo4-tip-vuca",
+          "heading": "VUCA: naming the conditions you are planning under",
+          "placement": "after_section",
+          "tip": "Spelling: VUCA, not VOCA, and the four terms are conditions, not actions. Using it in an answer: name which of the four the scenario shows, then say what it does to the plan. High volatility and ambiguity justify a lighter business case, shorter commitment horizons and iteration, the opposite of a fixed-price contract signed on a detailed up-front specification."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo4-pairup-five-cases",
+          "type": "pairup",
+          "heading": "The five dimensions",
+          "title": "Match each dimension to the question it answers",
+          "pairs": [
+            {
+              "term": "Strategic",
+              "match": "Is there a compelling case for change, and does it align with organisational strategy and other initiatives?"
+            },
+            {
+              "term": "Economic",
+              "match": "Does the return justify the investment of time, cost and resources, set against the benefits?"
+            },
+            {
+              "term": "Commercial",
+              "match": "How will it be paid for, how will resources be sourced, and is the deal attractive in the market?"
+            },
+            {
+              "term": "Financial",
+              "match": "Can the organisation afford it now, in the timescales proposed, or should it wait?"
+            },
+            {
+              "term": "Management",
+              "match": "How will the project be run: team roles, governance, life cycle, ways of working?"
+            }
+          ]
+        },
+        {
+          "id": "lo4-groupup-economic-financial",
+          "type": "groupup",
+          "heading": "The five dimensions",
+          "title": "Economic case or financial case?",
+          "note": "The one pair in this LO that decides more marks than any other.",
+          "buckets": [
+            {
+              "id": "economic",
+              "label": "Economic case",
+              "hint": "Is it worth it?"
+            },
+            {
+              "id": "financial",
+              "label": "Financial case",
+              "hint": "Can we pay for it now?"
+            }
+          ],
+          "items": [
+            {
+              "label": "Does the return justify the time, cost and resources?",
+              "bucket": "economic"
+            },
+            {
+              "label": "Weighs societal and environmental benefits against what gets invested",
+              "bucket": "economic"
+            },
+            {
+              "label": "Is this good value for the money it consumes?",
+              "bucket": "economic"
+            },
+            {
+              "label": "Can the organisation afford it in the timescales proposed?",
+              "bucket": "financial"
+            },
+            {
+              "label": "Is the money there this year, or should it wait?",
+              "bucket": "financial"
+            },
+            {
+              "label": "Excellent value, but nothing left in this year's budget",
+              "bucket": "financial"
+            }
+          ]
+        },
+        {
+          "id": "lo4-lineup-creation",
+          "type": "lineup",
+          "heading": "How a business case gets created",
+          "title": "Put the five steps back in order",
+          "items": [
+            "Define the business need",
+            "Analyse the options",
+            "Handle the uncertainty",
+            "Agree a recommendation",
+            "Seek approval"
+          ]
+        },
+        {
+          "id": "lo4-pairup-techniques",
+          "type": "pairup",
+          "heading": "The three named techniques",
+          "title": "Match each technique to the job it does",
+          "pairs": [
+            {
+              "term": "PESTLE",
+              "match": "What is going on outside that could affect this project?"
+            },
+            {
+              "term": "SWOT",
+              "match": "What are we good and bad at, set against what the world is offering and threatening?"
+            },
+            {
+              "term": "VUCA",
+              "match": "How predictable are conditions, and therefore how firmly can we plan?"
+            }
+          ]
+        },
+        {
+          "id": "lo4-pairup-pestle",
+          "type": "pairup",
+          "heading": "PESTLE: scanning the external environment",
+          "title": "Match each PESTLE factor to what it does to a business case",
+          "pairs": [
+            {
+              "term": "Political",
+              "match": "Change of government policy alters funding or priority"
+            },
+            {
+              "term": "Economic",
+              "match": "Interest rates or inflation change cost and affordability"
+            },
+            {
+              "term": "Societal",
+              "match": "Shifting public expectations change what counts as an acceptable solution"
+            },
+            {
+              "term": "Technological",
+              "match": "A new technology reduces the benefit of the proposed option"
+            },
+            {
+              "term": "Legal",
+              "match": "New legislation makes an option non-compliant, or mandatory"
+            },
+            {
+              "term": "Environmental",
+              "match": "Emissions targets or environmental regulation reshape the options"
+            }
+          ]
+        },
+        {
+          "id": "lo4-groupup-swot",
+          "type": "groupup",
+          "heading": "SWOT: internal capability against external conditions",
+          "title": "Yours, or the world's?",
+          "note": "Get this axis right and the competitor question stops catching you.",
+          "buckets": [
+            {
+              "id": "internal",
+              "label": "Internal: strengths and weaknesses",
+              "hint": "Things the organisation owns"
+            },
+            {
+              "id": "external",
+              "label": "External: opportunities and threats",
+              "hint": "Conditions the organisation meets"
+            }
+          ],
+          "items": [
+            {
+              "label": "Capability, skills and assets the organisation already has",
+              "bucket": "internal"
+            },
+            {
+              "label": "Gaps, constraints and things done badly",
+              "bucket": "internal"
+            },
+            {
+              "label": "A shortage of in-house commercial expertise",
+              "bucket": "internal"
+            },
+            {
+              "label": "Conditions the organisation could exploit",
+              "bucket": "external"
+            },
+            {
+              "label": "Conditions that could damage it",
+              "bucket": "external"
+            },
+            {
+              "label": "A competitor selling into the same market",
+              "bucket": "external"
+            }
+          ]
+        },
+        {
+          "id": "lo4-pairup-appraisal",
+          "type": "pairup",
+          "heading": "Investment appraisal: how the economic case gets tested",
+          "title": "Match each measure type to its examples",
+          "pairs": [
+            {
+              "term": "Simple",
+              "match": "Value ratio, net benefit, return on investment (ROI)"
+            },
+            {
+              "term": "Time-adjusted",
+              "match": "Internal rate of return (IRR), net present value (NPV) and its social variant NPSV, all built on discounted cash flows (DCF)"
+            },
+            {
+              "term": "Comparators",
+              "match": "Weighted average cost of capital (WACC), organisational hurdle rates"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo4-we-financial",
+          "heading": "The five dimensions",
+          "row_label": "Financial",
+          "situation": "Your finance director likes the 2.4 million pound depot upgrade. Payback is three years, the return clears the hurdle rate, and 400,000 pounds is left this year.",
+          "ask": "Which case does it fail?",
+          "answer": "The financial one. The economic case holds, because the return justifies the investment. Affordability is the separate test, and 400,000 pounds does not start a 2.4 million pound scheme, so it waits for next year rather than being rejected."
+        },
+        {
+          "id": "lo4-we-appraisal",
+          "heading": "Investment appraisal: how the economic case gets tested",
+          "row_label": "Time-adjusted",
+          "situation": "Two options for a one million pound system. Option A returns 1.3 million spread over eight years. Option B returns 1.15 million, most of it inside year two.",
+          "ask": "Return on investment picks A. What would change your mind?",
+          "answer": "Net present value. Discounting pushes A's late money down in value, so B can win on NPV while losing on ROI. Timing is the thing a simple measure cannot see."
+        }
       ]
     },
     {
       "outcome_code": "4b",
       "outcome_title": "Reviewing the business case, and its role as the project's baseline",
-      "key_takeaway": "The business case is a living document providing ongoing evidence the project still delivers value for money. It is reassessed at existing control points — change control, project reviews, stage gates — and significant impacts go to the sponsor, who may seek reapproval or accept the project being stopped.",
       "source_ref": "BoK 8e 2.4 (p83), 2.4.3 (p88-89), 2.4.1 (p84)",
-      "body_markdown": "## Why it cannot be a one-off document\n\nProjects run in complex environments where internal and external change happens daily. A case approved on day one describes conditions that no longer exist by month six. So the business case is maintained as a **living document**, continuing to show that the money is still being well spent.\n\nThe framing to carry into the exam: the business case does not justify **starting** the project, it justifies **continuing** it, and it has to keep doing that.\n\n## What can undermine a business case\n\nLearn these as five recognisable scenario triggers — a question will describe one of them and ask what you do.\n\n| Event | Effect on the case |\n|---|---|\n| **New stakeholder requirements** | Additional work and cost |\n| **Economic instability** | Changes the cost and availability of resources |\n| **Technological advances** | Reduce the benefit of the proposed solution — the option chosen is no longer the best one |\n| **Organisational restructuring** | Creates additional risk and uncertainty |\n| **Project team changes** | Delays, additional cost, changes in approach |\n\nThe technological one is the least intuitive and the most examinable: **the project can be running perfectly and the business case can still collapse**, because something better appeared elsewhere.\n\n## When to review it — use the control points you already have\n\nA project professional cannot spend their time continuously re-examining the business case. Good practice is to reassess viability at governance and control points that already exist:\n\n| Control point | What it tests |\n|---|---|\n| **Change control** | The impact of requested changes assessed against the project's baseline |\n| **Project reviews** | Schedule, resources, scope and budget performance against forecast |\n| **Phase / stage-gate reviews** | Whether the project is approved to proceed into the next phase |\n\nThat is an efficiency argument, and it is the reason 4b exists as a distinct sub-outcome. Continuous re-justification is not affordable; **piggy-backing the check onto existing decision points is**.\n\n## What happens when something significant lands\n\n1. The project professional brings it to the **sponsor's** attention. This is not a decision to take alone.\n2. If the impact is significant, the sponsor may need to update the business case, or return to decision makers for **renewed approval**.\n3. Decision makers decide whether the project should **continue or not**.\n\nThe hard-edged point, and one that separates a strong answer from an average one: a project may be **asked to pause even when its business case still delivers benefits**, if other initiatives competing for the same resources are considered better value for money. Being worthwhile is not the same as being the best use of constrained resources.\n\n## The business case as baseline\n\nThe syllabus asks you to know that the business case forms the baseline for the project. What that means in practice:\n\n- It records the **approved** position — the expected time, cost, risks and benefits at the point of approval.\n- Change control assesses proposed changes **against that baseline**, so the case is the reference point for whether a change is acceptable.\n- Variance is measured against it. Reviews compare where the project actually is with what was approved.\n- In extended life cycles it becomes the yardstick for **benefits realisation** — whether the anticipated benefits actually appeared.\n\nA useful precision, because the exam distinguishes these: the business case baselines **why the project is worth doing and what it will return**. The project management plan baselines **how it will be delivered**. Both are baselines; they answer different questions.\n\n## Feeding lessons back\n\nWhere benefits over- or under-perform against the case, the variance is reviewed with the sponsor and the business case updated. Project professionals should then **share lessons learned**, so the next business case rests on better assumptions and sharper estimates.\n\nThat closes a loop worth naming in an answer: business cases are written under uncertainty, so the only way they get more accurate as an organisational capability is by feeding real outcomes back into the next one.",
+      "body_markdown": "## Why it cannot be a one-off document\n\nProjects run in complex environments where internal and external change happens daily. A case approved on day one describes conditions that no longer exist by month six. So the business case is maintained as a living document, continuing to show that the money is still being well spent.\n\n## What can undermine a business case\n\nFive events come up again and again, and each one hits the case in a different place.\n\n| Event | Effect on the case |\n|---|---|\n| New stakeholder requirements | Additional work and cost |\n| Economic instability | Changes the cost and availability of resources |\n| Technological advances | Reduce the benefit of the proposed solution, so the option chosen is no longer the best one |\n| Organisational restructuring | Creates additional risk and uncertainty |\n| Project team changes | Delays, additional cost, changes in approach |\n\nThe technological one is the least intuitive: the project can be running perfectly and the business case can still collapse, because something better appeared elsewhere.\n\n## When to review it: use the control points you already have\n\nA project professional cannot spend their time continuously re-examining the business case. Good practice is to reassess viability at governance and control points that already exist.\n\n| Control point | What it tests |\n|---|---|\n| Change control | The impact of requested changes assessed against the project's baseline |\n| Project reviews | Schedule, resources, scope and budget performance against forecast |\n| Phase and stage-gate reviews | Whether the project is approved to proceed into the next phase |\n\nThat is an efficiency argument, and it is the reason 4b exists as a distinct sub-outcome. Continuous re-justification is not affordable. Piggy-backing the check onto existing decision points is.\n\n## What happens when something significant lands\n\n1. The project professional brings it to the sponsor's attention. This is not a decision to take alone.\n2. If the impact is significant, the sponsor may need to update the business case, or return to decision makers for renewed approval.\n3. Decision makers decide whether the project should continue or not.\n\nA project may be asked to pause even when its business case still delivers benefits, if other initiatives competing for the same resources are considered better value for money. Being worthwhile is not the same as being the best use of constrained resources.\n\n## The business case as baseline\n\nThe syllabus asks you to know that the business case forms the baseline for the project. What that means in practice:\n\n- It records the approved position: the expected time, cost, risks and benefits at the point of approval.\n- Change control assesses proposed changes against that baseline, so the case is the reference point for whether a change is acceptable.\n- Variance is measured against it. Reviews compare where the project actually is with what was approved.\n- In extended life cycles it becomes the yardstick for benefits realisation, meaning whether the anticipated benefits appeared.\n\nA useful precision, and one the exam distinguishes: the business case baselines why the project is worth doing and what it will return. The project management plan baselines how it will be delivered. Both are baselines, and they answer different questions.\n\n## Feeding lessons back\n\nWhere benefits over- or under-perform against the case, the variance is reviewed with the sponsor and the business case updated. Project professionals should then share lessons learned, so the next business case rests on better assumptions and sharper estimates.\n\nEssentially, that closes a loop worth naming in an answer: business cases are written under uncertainty, so the only way they get more accurate as an organisational capability is by feeding real outcomes back into the next one.\n",
       "diagrams": [
         {
           "id": "lo4-business-case-gates",
           "figure_number": "4.4",
           "caption": "The business case verified at each stage gate across the life cycle",
-          "placement": "after_heading",
-          "heading": "When to review it — use the control points you already have",
+          "placement": "after_section",
+          "heading": "When to review it: use the control points you already have",
           "file": "lo4-business-case-gates.svg",
           "spec": "Life cycle phases left to right — Concept, Definition, Deployment, Transition, Adoption — with verification points marked between them: outline business case verified after concept, detailed business case verified after definition, updated business case verified later. The argument: the same document is re-tested repeatedly at points that already exist, rather than reviewed continuously. Note BoK Figure 2.4.3 is adapted from a third-party PRINCE2 wiki source, so our version must be original.",
           "alt": "The life cycle phases in sequence with business case verification points between them, showing the outline case verified after concept, the detailed case after definition, and updated cases verified later.",
           "width": 1024,
           "height": 705
+        }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo4-tip-continuing",
+          "heading": "Why it cannot be a one-off document",
+          "placement": "after_section",
+          "tip": "The framing to carry into the exam: the business case does not justify starting the project, it justifies continuing it, and it has to keep doing that."
+        },
+        {
+          "id": "lo4-tip-triggers",
+          "heading": "What can undermine a business case",
+          "placement": "after_section",
+          "tip": "Learn these five as recognisable scenario triggers, because a question will describe one of them and ask what you do. Technological advances is the most examinable of the five."
+        },
+        {
+          "id": "lo4-tip-pause",
+          "heading": "What happens when something significant lands",
+          "placement": "after_section",
+          "tip": "However, the hard-edged point here, and what separates a strong answer from an average one, is naming the competition for resources: a healthy business case does not protect a project when another initiative is judged better value for money."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo4-pairup-undermine",
+          "type": "pairup",
+          "heading": "What can undermine a business case",
+          "title": "Match the event to what it does to the case",
+          "pairs": [
+            {
+              "term": "New stakeholder requirements",
+              "match": "Additional work and cost"
+            },
+            {
+              "term": "Economic instability",
+              "match": "Changes the cost and availability of resources"
+            },
+            {
+              "term": "Technological advances",
+              "match": "Reduce the benefit of the proposed solution, so the option chosen is no longer the best one"
+            },
+            {
+              "term": "Organisational restructuring",
+              "match": "Creates additional risk and uncertainty"
+            },
+            {
+              "term": "Project team changes",
+              "match": "Delays, additional cost, changes in approach"
+            }
+          ]
+        },
+        {
+          "id": "lo4-pairup-control-points",
+          "type": "pairup",
+          "heading": "When to review it: use the control points you already have",
+          "title": "Match the control point to what it tests",
+          "pairs": [
+            {
+              "term": "Change control",
+              "match": "The impact of requested changes assessed against the project's baseline"
+            },
+            {
+              "term": "Project reviews",
+              "match": "Schedule, resources, scope and budget performance against forecast"
+            },
+            {
+              "term": "Phase and stage-gate reviews",
+              "match": "Whether the project is approved to proceed into the next phase"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo4-we-technological",
+          "heading": "What can undermine a business case",
+          "row_label": "Technological advances",
+          "situation": "Month seven of a 12-month document rollout, zero variance on cost or schedule. A vendor releases a tool doing 80 per cent of it for a fifth of the licence fee.",
+          "ask": "Delivery is perfect, so is the case safe?",
+          "answer": "No. The benefit of your chosen option has dropped, so you take it to the sponsor. The case justifies continuing, not starting, and a flawless project can stop being the best use of the money."
         }
       ]
     }
@@ -166,14 +499,14 @@
     },
     {
       "wrong": "A business case is a financial calculation.",
-      "right": "It combines investment appraisal with an evidence-based narrative, and decision makers weigh non-financial factors too — practicality, maturity of definition and decision bias."
+      "right": "It combines investment appraisal with an evidence-based narrative, and decision makers weigh non-financial factors too: practicality, maturity of definition and decision bias."
     }
   ],
   "memory_aids": [
     {
       "type": "cue",
       "acronym": "Worth it, pays back, can buy it, can afford it, can run it",
-      "expansion": "The five cases in order — strategic (worth doing), economic (returns), commercial (procurable), financial (affordable now), management (deliverable)."
+      "expansion": "The five cases in order: strategic (worth doing), economic (returns), commercial (procurable), financial (affordable now), management (deliverable)."
     },
     {
       "type": "cue",

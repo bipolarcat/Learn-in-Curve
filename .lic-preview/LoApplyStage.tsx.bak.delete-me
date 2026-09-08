@@ -64,7 +64,7 @@ export function LoApplyStage({
     return (
       <div
         className={`${productSurfaceOpaque} ${motion.panel} lo-apply-stage p-4 sm:p-5`}
-        aria-label="Polish"
+        aria-label="Apply"
       >
         <p className={bodyClass}>
           Apply content for this learning objective isn&apos;t available yet.
@@ -76,7 +76,7 @@ export function LoApplyStage({
   return (
     <div
       className="lo-apply-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
-      aria-label="Polish"
+      aria-label="Apply"
     >
       {hasMisconceptions ? (
         <section

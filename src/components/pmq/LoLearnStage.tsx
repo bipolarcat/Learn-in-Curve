@@ -28,13 +28,15 @@ type LoLearnStageProps = {
 };
 
 /**
- * LOs migrated to the new study treatment: separated exam tips plus study
- * tables. Add an LO number here once its content has had the style pass.
+ * Every LO has now had the style pass and carries exam tips, activities and
+ * worked examples, so both of these are the whole course. They are kept as
+ * predicates rather than deleted outright so a single LO can be rolled back
+ * if its content ever regresses; once that stops being a worry, delete both
+ * and the branch below with them.
  */
-const STUDY_TREATMENT_LOS = new Set([3]);
-
-/** Notebook shell (LO1 Learn design). LO3 reuses this chrome. */
-const NOTEBOOK_LEARN_LOS = new Set([1, 3]);
+const ALL_LOS = (n: number) => n >= 1 && n <= 24;
+const STUDY_TREATMENT_LOS = { has: ALL_LOS };
+const NOTEBOOK_LEARN_LOS = { has: ALL_LOS };
 
 /** Same type for card titles and outcome codes (2a) / titles). */
 const headingClass =
@@ -108,7 +110,10 @@ export function LoLearnStage({
         {coreContent.length > 0 ? (
           <Lo1CoreContentStudy
             blocks={coreContent}
-            interactiveTables={loNumber === 1}
+            // studyTables takes precedence in CoreContentBlock, so every LO
+            // now uses StudyTable. Lo1InteractiveTable is unreferenced and can
+            // be deleted.
+            interactiveTables={false}
             studyTables={studyTables}
             activities={activities}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}

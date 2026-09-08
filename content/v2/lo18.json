@@ -12,7 +12,7 @@
     "18a) Understand what is meant by quality planning, including an understanding of quality indicators and how these relate to the business case.",
     "18b) Knowledge of how quality control techniques are used to determine whether success criteria are met."
   ],
-  "where_this_fits": "LO16 captured the requirements and LO17 chose the solution; LO18 makes sure what gets built actually matches. The distinction the whole LO turns on is QA versus QC — assurance prevents defects, control detects them — and it is the single most confused pair in this part of the syllabus. Quality planning also links straight back to LO4, because acceptance criteria must reconcile with the quality statements in the business case.",
+  "where_this_fits": "LO16 captured the requirements and LO17 chose the solution; LO18 makes sure what gets built actually matches. The distinction the whole LO turns on is QA versus QC. Assurance prevents defects, control detects them, and it is the single most confused pair in this part of the syllabus. Quality planning also links straight back to LO4, because acceptance criteria must reconcile with the quality statements in the business case.",
   "key_definitions": [
     {
       "term": "Quality",
@@ -69,15 +69,14 @@
     {
       "outcome_code": "18a",
       "outcome_title": "Quality planning, quality indicators and the business case",
-      "key_takeaway": "Quality planning sets acceptance criteria — the quality indicators — and decides how the project will assure and verify against them. Those criteria must reconcile with the business case's quality statements, and QA and QC both cost time and money that has to be scheduled.",
       "source_ref": "BoK 8e 5.3 (p245), 5.3.1 (p246-247), 5.3.2 (p248-249)",
-      "body_markdown": "## What quality means here\n\nAPM's definition: quality is **being fit for the purpose intended, or how closely a process's outputs — or the process itself — conform to what was required.**\n\nNote that the definition covers **the process as well as the output**. That is why QA exists at all: a sound process is part of what quality means, not merely a route to it.\n\n**And the scope boundary worth fixing early:** assurance and audit (LO7) look at **the overall governance and management** of the work. **Quality planning looks at how the outputs meet the customer's standards.** Different targets.\n\n## Whose job it is\n\n**Anyone leading project work owns quality**, and their task is to **build a culture where the team owns it too.**\n\nThat framing matters for scenario answers: quality is not delegated to a quality function. It is led.\n\n## What quality planning determines\n\nFive things, and this list answers 18a directly:\n\n| Determination | What it settles |\n|---|---|\n| **The organisation's attitude to quality** | How much conformance is expected, and at what cost |\n| **The acceptance criteria** — the **quality indicators** — against which quality will be assessed | The pass mark |\n| **How the project will ensure output quality meets the criteria** | The **QA** approach |\n| **How the project will verify output quality meets the criteria** | The **QC** approach |\n| **How the project will communicate with stakeholders about quality** | Reporting and confidence |\n\n**The acceptance criteria, and the plan for hitting them, are what a quality plan is really about.**\n\n## Quality indicators and the business case\n\nThe syllabus asks specifically how quality indicators relate to the business case, and the source answers it in one line: acceptance criteria have to **square with whatever the business case said about quality.**\n\nThe logic runs both ways:\n\n- **Downwards.** The business case promised a certain standard of output in order to justify the investment. Acceptance criteria have to deliver on that promise, or the case was overstated.\n- **Upwards.** QA and QC **eat time and resource, and both have to be scheduled and priced**, so the quality regime feeds back into the cost side of the business case. Higher conformance is not free.\n\nThat second point is the more examinable one. **Quality is a cost decision, not only a standards decision** — which is why 'the organisation's attitude to quality' is the first thing quality planning determines.\n\n**Timing:** acceptance criteria are set **after scope definition and before further planning**. After scope, because you cannot write criteria for deliverables you have not defined. Before further planning, because the QA and QC activity has to be scheduled and resourced like any other work.\n\n## What the acceptance criteria reference\n\n| Source | Why it constrains quality |\n|---|---|\n| **Customer requirements** | The primary input |\n| **Legislation, regulations and standards** applicable to the products | Non-negotiable — the LO15 link |\n| **Values and policies of the investing organisation** | Internal expectations above the legal minimum |\n| **Quality management standards and methodologies** | How the organisation does quality |\n| **Testing and assurance methodologies and toolsets** | What verification is practically available |\n\nAnd the **external constraints** the team must understand: **industry standards, regulatory or legal requirements, organisational policies.**\n\n## What the quality plan documents\n\nA high-yield list, because it is concrete:\n\n- **a pass/fail line for every output**\n- **the QA process itself**\n- **how conformance to specification will be verified**\n- **test scripts**\n- **how often testing, checking or auditing happens**\n- **how much gets sampled, and at what percentage**\n- **how much failure is tolerable**\n- **what it needs** — outside facilities, test kit, people\n- **the governance around it** — formal sign-off, stakeholder approval\n\n**'Levels of failure the project can tolerate' is the one candidates skip.** Deciding in advance how much non-conformance is acceptable is what makes a QC result actionable rather than arguable.\n\n**Handover goes far more smoothly where stakeholders already agree, and planning for that agreement is itself a success factor** — the LO8 link.\n\n## QA: preventing defects\n\n**QA is what keeps the quality plan's procedures and standards being applied consistently**, so that people can be **confident the relevant standards will actually be met.**\n\n**A regular cycle of reviewing project work** assesses conformance to:\n\n- the product specification, and the quality standards set for it\n- the project's own procedures and processes\n- organisational policy, procedure and values\n- industry standards, and anything required by law or regulator\n\n**QA covers the work's outputs and the processes that produced them alike.** After evaluations, **a lessons-learned review identifies actions to remedy issues and strengthen project processes.**\n\n**What effective QA actually needs.** The source is unusually direct: a good QA team is indispensable and **clear roles and responsibilities are necessary**, **but attitudes are more important.** Where quality is genuinely valued you get **more awareness, more problem solving, more knowledge shared, and steady improvement** — and **everyone comes to expect their work to be looked at properly.**\n\nThat last phrase is the practical test of a quality culture: nobody is surprised or offended by being checked.\n\n**QA versus project assurance.** An important boundary. **QA is a project or programme activity**, whereas **project assurance and audit are imposed on the project by the organisation** (LO7). Doing QA well **reduces the risk of external scrutiny uncovering issues.**\n\n## Life cycle differences\n\n| | Linear | Iterative |\n|---|---|---|\n| **Scope and acceptance criteria** | **Documented and signed off before project planning** | Evolve with the backlog |\n| **QA** | Throughout delivery | **Throughout each iteration** |\n| **QC** | At defined test points | **At the end of each iteration** |\n| **Who signs off** | Usually **the project sponsor or client** | **On behalf of the user** — sponsor, client or **product owner** |\n\n**Sign-off on the quality plan comes from the sponsor or client, together with any governance board above them**, and it then **sits inside the integrated project management plan** — the LO19 link.\n\n**Inside a programme**, the higher-level quality requirements **can be planned and controlled by the programme**, with **individual projects working to programme standards.**",
+      "body_markdown": "## What quality means here\n\nAPM's definition: quality is being fit for the purpose intended, or how closely a process's outputs, or the process itself, conform to what was required.\n\nNote that the definition covers the process as well as the output. That is why QA exists at all: a sound process is part of what quality means, not merely a route to it.\n\nOne scope boundary is worth fixing early. Assurance and audit (LO7) look at the overall governance and management of the work. Quality planning looks at how the outputs meet the customer's standards. Different targets.\n\n## Whose job it is\n\nAnyone leading project work owns quality, and their task is to build a culture where the team owns it too.\n\n## What quality planning determines\n\nFive things, and this list answers 18a directly:\n\n| Determination | What it settles |\n|---|---|\n| The organisation's attitude to quality | How much conformance is expected, and at what cost |\n| The acceptance criteria, the quality indicators, against which quality will be assessed | The pass mark |\n| How the project will ensure output quality meets the criteria | The QA approach |\n| How the project will verify output quality meets the criteria | The QC approach |\n| How the project will communicate with stakeholders about quality | Reporting and confidence |\n\nThe acceptance criteria, and the plan for hitting them, are what a quality plan is really about.\n\n## Quality indicators and the business case\n\nThe syllabus asks specifically how quality indicators relate to the business case, and the source answers it in one line: acceptance criteria have to square with whatever the business case said about quality.\n\nThe logic runs both ways:\n\n- Downwards. The business case promised a certain standard of output in order to justify the investment. Acceptance criteria have to deliver on that promise, or the case was overstated.\n- Upwards. QA and QC eat time and resource, and both have to be scheduled and priced, so the quality regime feeds back into the cost side of the business case. Higher conformance is not free.\n\nQuality is a cost decision, not only a standards decision, which is why 'the organisation's attitude to quality' is the first thing quality planning determines.\n\nTiming matters just as much. Acceptance criteria are set after scope definition and before further planning. After scope, because you cannot write criteria for deliverables you have not defined. Before further planning, because the QA and QC activity has to be scheduled and resourced like any other work.\n\n## What the acceptance criteria reference\n\n| Source | Why it constrains quality |\n|---|---|\n| Customer requirements | The primary input |\n| Legislation, regulations and standards applicable to the products | Non-negotiable, and the LO15 link |\n| Values and policies of the investing organisation | Internal expectations above the legal minimum |\n| Quality management standards and methodologies | How the organisation does quality |\n| Testing and assurance methodologies and toolsets | What verification is practically available |\n\nThe team also has to understand the external constraints: industry standards, regulatory or legal requirements, organisational policies.\n\n## What the quality plan documents\n\nA high-yield list, because it is concrete:\n\n- a pass/fail line for every output\n- the QA process itself\n- how conformance to specification will be verified\n- test scripts\n- how often testing, checking or auditing happens\n- how much gets sampled, and at what percentage\n- how much failure is tolerable\n- what it needs: outside facilities, test kit, people\n- the governance around it: formal sign-off, stakeholder approval\n\nDeciding in advance how much non-conformance is acceptable is what makes a QC result actionable rather than arguable.\n\nHandover goes far more smoothly where stakeholders already agree, and planning for that agreement is itself a success factor, which is the LO8 link.\n\n## QA: preventing defects\n\nQA is what keeps the quality plan's procedures and standards being applied consistently, so that people can be confident the relevant standards will actually be met.\n\nA regular cycle of reviewing project work assesses conformance to:\n\n- the product specification, and the quality standards set for it\n- the project's own procedures and processes\n- organisational policy, procedure and values\n- industry standards, and anything required by law or regulator\n\nQA covers the work's outputs and the processes that produced them alike. After evaluations, a lessons-learned review identifies actions to remedy issues and strengthen project processes.\n\nWhat effective QA actually needs is worth stating plainly. The source is unusually direct: a good QA team is indispensable and clear roles and responsibilities are necessary, but attitudes are more important. Where quality is valued you get more awareness, more problem solving, more knowledge shared, and steady improvement. Everyone comes to expect their work to be looked at properly.\n\nThat last phrase is the practical test of a quality culture: nobody is surprised or offended by being checked.\n\nQA and project assurance sit on either side of an important boundary. QA is a project or programme activity, whereas project assurance and audit are imposed on the project by the organisation (LO7). Doing QA well reduces the risk of external scrutiny uncovering issues.\n\n## Life cycle differences\n\n| | Linear | Iterative |\n|---|---|---|\n| Scope and acceptance criteria | Documented and signed off before project planning | Evolve with the backlog |\n| QA | Throughout delivery | Throughout each iteration |\n| QC | At defined test points | At the end of each iteration |\n| Who signs off | Usually the project sponsor or client | On behalf of the user: sponsor, client or product owner |\n\nSign-off on the quality plan comes from the sponsor or client, together with any governance board above them, and it then sits inside the integrated project management plan, which is the LO19 link.\n\nInside a programme, the higher-level quality requirements can be planned and controlled by the programme, with individual projects working to programme standards.",
       "diagrams": [
         {
           "id": "lo18-quality-context",
           "figure_number": "18.1",
           "caption": "Quality planning in the context of wider quality management",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "What quality planning determines",
           "file": null,
           "spec": "Standards and acceptance criteria feeding into quality plans at the top. Below, two parallel routes: quality assurance labelled 'providing confidence' operating on the process, and quality control labelled 'verifying compliance' operating on the deliverables. Show improvement loops feeding back from both into the plans. Assurance and audit shown as a separate outer layer, since they act on governance rather than on output quality. The two labels — providing confidence versus verifying compliance — are the teaching point.",
@@ -87,26 +86,133 @@
           "id": "lo18-qa-context",
           "figure_number": "18.2",
           "caption": "Quality assurance in context",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "QA: preventing defects",
           "file": null,
           "spec": "The quality plan and team training feeding into the project delivery process, which produces deliverables. Quality assurance reviewing the process, quality control checking the deliverables, and a continuous process improvement loop returning findings to the plan. Draw 'a culture of quality' as the surrounding field rather than a box in the flow — the source says attitudes matter more than roles, and the diagram should show that.",
           "alt": "The quality plan and team training feeding the delivery process and deliverables, with quality assurance reviewing the process and quality control checking outputs, all set within a culture of quality and looped back through continuous improvement."
+        }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo18-tip-quality-is-led",
+          "heading": "Whose job it is",
+          "placement": "after_section",
+          "tip": "That framing matters for scenario answers: quality is not delegated to a quality function. It is led."
+        },
+        {
+          "id": "lo18-tip-five-determinations",
+          "heading": "What quality planning determines",
+          "placement": "after_section",
+          "tip": "Five determinations is the shape of a full answer here: attitude, criteria, assurance, verification, communication. Give three of them and you have given half a plan."
+        },
+        {
+          "id": "lo18-tip-cost-of-quality",
+          "heading": "Quality indicators and the business case",
+          "placement": "after_section",
+          "tip": "That second point is the more examinable one. A scenario that offers a higher standard as an option is testing whether you cost it before you agree to it."
+        },
+        {
+          "id": "lo18-tip-tolerable-failure",
+          "heading": "What the quality plan documents",
+          "placement": "after_section",
+          "tip": "'Levels of failure the project can tolerate' is the one people skip. Name it and you separate yourself from an answer that only lists test scripts and sign-off."
+        },
+        {
+          "id": "lo18-tip-qa-vs-assurance",
+          "heading": "QA: preventing defects",
+          "placement": "after_section",
+          "tip": "Where a scenario contrasts a review the team runs with one the organisation sends in, QA is the project's own activity and assurance or audit is imposed from outside."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo18-pairup-determinations",
+          "type": "pairup",
+          "heading": "What quality planning determines",
+          "title": "Match each determination to what it settles",
+          "pairs": [
+            {
+              "term": "The organisation's attitude to quality",
+              "match": "How much conformance is expected, and at what cost"
+            },
+            {
+              "term": "The acceptance criteria, the quality indicators, against which quality will be assessed",
+              "match": "The pass mark"
+            },
+            {
+              "term": "How the project will ensure output quality meets the criteria",
+              "match": "The QA approach"
+            },
+            {
+              "term": "How the project will verify output quality meets the criteria",
+              "match": "The QC approach"
+            },
+            {
+              "term": "How the project will communicate with stakeholders about quality",
+              "match": "Reporting and confidence"
+            }
+          ]
+        },
+        {
+          "id": "lo18-pairup-criteria-sources",
+          "type": "pairup",
+          "heading": "What the acceptance criteria reference",
+          "title": "Match each source to why it constrains quality",
+          "pairs": [
+            {
+              "term": "Customer requirements",
+              "match": "The primary input"
+            },
+            {
+              "term": "Legislation, regulations and standards applicable to the products",
+              "match": "Non-negotiable, and the LO15 link"
+            },
+            {
+              "term": "Values and policies of the investing organisation",
+              "match": "Internal expectations above the legal minimum"
+            },
+            {
+              "term": "Quality management standards and methodologies",
+              "match": "How the organisation does quality"
+            },
+            {
+              "term": "Testing and assurance methodologies and toolsets",
+              "match": "What verification is practically available"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo18-we-values",
+          "heading": "What the acceptance criteria reference",
+          "row_label": "Values and policies of the investing organisation",
+          "situation": "Your client's own policy sets a 15% recycled content target for fit-out materials. Building regulations require nothing at all.",
+          "ask": "The contractor asks whether 15% goes into the acceptance criteria.",
+          "answer": "Yes. Acceptance criteria reference the investing organisation's values and policies, not only the legal minimum, so 15% becomes the pass mark. Leave it out and you have agreed a lower standard than your client's own published policy."
+        },
+        {
+          "id": "lo18-we-signoff",
+          "heading": "Life cycle differences",
+          "row_label": "Who signs off",
+          "situation": "You are running a 12-week iterative build of a booking system. After iteration four the product owner accepts the release.",
+          "ask": "Your sponsor asks why she was not the one signing it off.",
+          "answer": "Because sign-off happens on behalf of the user, and in iterative work that is the product owner. On a linear project it would be the sponsor or client. The approach decides who holds the pen."
         }
       ]
     },
     {
       "outcome_code": "18b",
       "outcome_title": "Quality control techniques and determining whether success criteria are met",
-      "key_takeaway": "QC verifies outputs against acceptance criteria through inspection, measurement and testing. It needs configuration management, test plans, defect documentation and a remediation process — and the response to non-conformance depends on how much deviation the product can tolerate.",
       "source_ref": "BoK 8e 5.3.3 (p250-251), 5.3.4 (p252-253), 5.3.1 (p246)",
-      "body_markdown": "## What QC is for\n\n**QC exists to prove that what the project produced actually meets the acceptance criteria set during quality planning** — and it does that by **inspecting, measuring and testing.**\n\nThe clean contrast with QA, worth stating exactly:\n\n| | Quality assurance | Quality control |\n|---|---|---|\n| **Focus** | **Preventing** defects, errors and waste | **Detecting and rectifying** defects |\n| **How** | **Puts quality into the delivery itself**, through standard process and procedure backed by training and feedback | **Catches whatever slipped through production before the customer sees it** |\n| **Acts on** | The process (and the outputs) | The outputs |\n| **Timing** | Throughout | At verification points |\n\n**QA builds it in; QC catches what got through.** If you can only remember one line about this LO, that is the one.\n\n## The four things effective QC needs\n\n| Requirement | Why |\n|---|---|\n| **Configuration management of specifications** | You cannot verify against a specification you cannot pin down — the LO16 link |\n| **Test plans and an inspection regime** | The what and how of checking |\n| **Documentation of defects** | Undocumented defects cannot be tracked or trended |\n| **An implementation process to remedy defects** | Finding a defect achieves nothing without a route to fix it |\n\n## Test plans\n\n**Test plans carry a lot of weight.** They should cover:\n\n- **how much gets tested** — everything, or a random sample\n- **the protocols** — precisely what is tested, and by what method\n- **what it takes** — facilities, people, expertise, equipment\n- **who runs or watches the test independently** — a regulator, or the operational owner\n\nThat last one is the mark-earner. **Independent witnessing** connects QC to the independence principle from LO7: a test the delivering team ran and marked itself is weaker evidence than one a regulator or the operational owner observed.\n\n## QC applies everywhere, not just to technical products\n\n**In many projects, products are complex and technical**, and verifying conformance is a large task where **testing is well understood**. But **every project has to hand over something fit for purpose, so QC never stops mattering.**\n\n**Interim outputs count as much as final ones** — and the source names them: **reports, communication materials and financial models.**\n\nA useful corrective. A change project producing no physical product still has deliverables that can be checked against criteria.\n\n## Deciding what to do about non-conformance\n\n**How closely the customer needs the output to conform is always the central question.** It gets answered during **quality planning**, which sets both **the acceptance criteria** and **what happens when something falls short.**\n\nTwo ends of the spectrum, and the exam will use one of them:\n\n| Situation | Response |\n|---|---|\n| **Safety-critical products** | **A non-compliant item simply cannot be used.** Rework follows, and that **changes the plan** |\n| **User acceptance testing of a system** | **Early use can absorb some deviation.** Decision makers may **go live knowing about the issues**, with remedial work after handover as **part of BAU maintenance**. These appear on a **snagging list** |\n\nThe reasoning to show in an answer: the right response is not a fixed rule, it follows from **what the product is** and **how much deviation the customer can tolerate** — both of which were decided at planning, not discovered at testing.\n\n**Note the knock-on:** rework **triggers a change to the plan**. A QC failure is not contained within QC; it consumes schedule and budget, and goes through change control (LO24).\n\n## How QC determines whether success criteria are met\n\nThis is the exact wording of 18b, so worth answering directly. The chain:\n\n1. **Success criteria** are agreed with stakeholders at the start (LO16).\n2. **Quality planning** converts them into **acceptance criteria** — formal, pass/fail statements for each deliverable, reconciled to the business case.\n3. Those criteria then **shape which measurements and tests get planned** to check the output against specification.\n4. **QC executes those measurements and tests** — inspection, measurement, testing — against the criteria.\n5. Results are **assessed and documented**, unacceptable issues **referred for remediation**, and verified products **signed off**.\n6. Sign-off against acceptance criteria is what allows **transition into use** (LO8), where the sponsor accepts the deliverables.\n\nSo QC is the mechanism that turns 'we think this is finished' into evidence. **Without measurable acceptance criteria, QC has nothing to test against** — which is why LO16's insistence on requirements having measures matters here.\n\n## The QC sequence\n\nThe activities, in order:\n\n| Step | What happens |\n|---|---|\n| **Define the requirements and acceptable levels of deviation** | Set at quality planning |\n| **Work with stakeholders** | Draw on what they know, and keep them confident in the process |\n| **Assess defects and write them down** | The record matters as much as the finding |\n| **Refer unacceptable issues for remediation** | The route out for anything beyond tolerance |\n| **Sign off verification of products** | The formal outcome |\n\nWith **continuous improvement** running alongside throughout.\n\n## Continuous improvement\n\n**A standing effort to make products, services or processes better.** The gains can arrive **gradually, or as a single large step change.** The Japanese term is **kaizen**.\n\n| Goal | What it means |\n|---|---|\n| **Immediate** | Improve **efficiency and reliability**, and **reduce waste** |\n| **Ultimate** | Deliver **greater value by increasing benefits and reducing cost** |\n\n**The loop:** gather performance data (quantitative and qualitative) → analyse it → identify opportunities for improvement → implement changes → evaluate the outcomes.\n\n**It operates at two levels:** on **organisational project, programme or portfolio management processes**, and on **how the project professional runs this project, and how this team works together on it.**\n\n### The Shewhart cycle\n\n| Stage | What happens |\n|---|---|\n| **Plan** | Set the standards, put procedures in place, assign the resource |\n| **Do** | Run the processes and watch what comes out |\n| **Check** | Measure how the project performed against those standards |\n| **Act** | Take the lessons on board and correct what needs correcting |\n\n### The tools\n\n- **performance indicators** — quality standards, KPIs, or objectives and key results (OKRs)\n- **prototyping and piloting** anything innovative\n- **numbers** — gathering data and analysing it\n- **judgement** — surveys, interviews, watching how things go\n- **the team looking at itself** — lessons-learned reviews, retrospectives\n\nWider frameworks drawn from manufacturing: **total quality management (TQM), Lean and Six Sigma.**\n\n### What makes it work\n\n**Both iterative and linear approaches can adopt continuous improvement equally**, though it **turns up most naturally in iterative work** — indeed **some argue that working iteratively simply is continuous improvement.**\n\n**Where it works, it is systematic and leadership treats it as a priority** — and that combination **signals a mature project management capability.**\n\nIt is **a choice about culture**, and it **thrives where curiosity, ongoing learning and developing people are valued** — and where **problems get solved and learned from instead of pinned on someone.**\n\nThat closes a circle running through LO11, LO12 and LO14: a blame culture suppresses the information every one of those processes depends on.",
+      "body_markdown": "## What QC is for\n\nQC exists to prove that what the project produced actually meets the acceptance criteria set during quality planning, and it does that by inspecting, measuring and testing.\n\nThe clean contrast with QA, worth stating exactly:\n\n| | Quality assurance | Quality control |\n|---|---|---|\n| Focus | Preventing defects, errors and waste | Detecting and rectifying defects |\n| How | Puts quality into the delivery itself, through standard process and procedure backed by training and feedback | Catches whatever slipped through production before the customer sees it |\n| Acts on | The process (and the outputs) | The outputs |\n| Timing | Throughout | At verification points |\n\nQA builds it in; QC catches what got through.\n\n## The four things effective QC needs\n\n| Requirement | Why |\n|---|---|\n| Configuration management of specifications | You cannot verify against a specification you cannot pin down, which is the LO16 link |\n| Test plans and an inspection regime | The what and how of checking |\n| Documentation of defects | Undocumented defects cannot be tracked or trended |\n| An implementation process to remedy defects | Finding a defect achieves nothing without a route to fix it |\n\n## Test plans\n\nTest plans carry a lot of weight. They should cover:\n\n- how much gets tested: everything, or a random sample\n- the protocols: precisely what is tested, and by what method\n- what it takes: facilities, people, expertise, equipment\n- who runs or watches the test independently: a regulator, or the operational owner\n\nIndependent witnessing connects QC to the independence principle from LO7: a test the delivering team ran and marked itself is weaker evidence than one a regulator or the operational owner observed.\n\n## QC applies everywhere, not just to technical products\n\nIn many projects, products are complex and technical, and verifying conformance is a large task where testing is well understood. However, every project has to hand over something fit for purpose, so QC never stops mattering.\n\nInterim outputs count as much as final ones, and the source names them: reports, communication materials and financial models.\n\nA useful corrective. A change project producing no physical product still has deliverables that can be checked against criteria.\n\n## Deciding what to do about non-conformance\n\nHow closely the customer needs the output to conform is always the central question. It gets answered during quality planning, which sets both the acceptance criteria and what happens when something falls short.\n\nTwo ends of the spectrum:\n\n| Situation | Response |\n|---|---|\n| Safety-critical products | A non-compliant item simply cannot be used. Rework follows, and that changes the plan |\n| User acceptance testing of a system | Early use can absorb some deviation. Decision makers may go live knowing about the issues, with remedial work after handover as part of BAU maintenance. These appear on a snagging list |\n\nThe reasoning to show in an answer: the right response is not a fixed rule, it follows from what the product is and how much deviation the customer can tolerate, both of which were decided at planning, not discovered at testing.\n\nNote the knock-on. Rework triggers a change to the plan. A QC failure is not contained within QC; it consumes schedule and budget, and goes through change control (LO24).\n\n## How QC determines whether success criteria are met\n\nThe chain:\n\n1. Success criteria are agreed with stakeholders at the start (LO16).\n2. Quality planning converts them into acceptance criteria, formal pass/fail statements for each deliverable, reconciled to the business case.\n3. Those criteria then shape which measurements and tests get planned to check the output against specification.\n4. QC executes those measurements and tests, inspection, measurement and testing, against the criteria.\n5. Results are assessed and documented, unacceptable issues referred for remediation, and verified products signed off.\n6. Sign-off against acceptance criteria is what allows transition into use (LO8), where the sponsor accepts the deliverables.\n\nSo QC is the mechanism that turns 'we think this is finished' into evidence. Without measurable acceptance criteria, QC has nothing to test against, which is why LO16's insistence on requirements having measures matters here.\n\n## The QC sequence\n\nThe activities, in order:\n\n| Step | What happens |\n|---|---|\n| Define the requirements and acceptable levels of deviation | Set at quality planning |\n| Work with stakeholders | Draw on what they know, and keep them confident in the process |\n| Assess defects and write them down | The record matters as much as the finding |\n| Refer unacceptable issues for remediation | The route out for anything beyond tolerance |\n| Sign off verification of products | The formal outcome |\n\nWith continuous improvement running alongside throughout.\n\n## Continuous improvement\n\nA standing effort to make products, services or processes better. The gains can arrive gradually, or as a single large step change. The Japanese term is kaizen.\n\n| Goal | What it means |\n|---|---|\n| Immediate | Improve efficiency and reliability, and reduce waste |\n| Ultimate | Deliver greater value by increasing benefits and reducing cost |\n\nThe loop: gather performance data (quantitative and qualitative) → analyse it → identify opportunities for improvement → implement changes → evaluate the outcomes.\n\nIt operates at two levels: on organisational project, programme or portfolio management processes, and on how the project professional runs this project, and how this team works together on it.\n\n## The Shewhart cycle\n\n| Stage | What happens |\n|---|---|\n| Plan | Set the standards, put procedures in place, assign the resource |\n| Do | Run the processes and watch what comes out |\n| Check | Measure how the project performed against those standards |\n| Act | Take the lessons on board and correct what needs correcting |\n\n## The tools\n\n- performance indicators: quality standards, KPIs, or objectives and key results (OKRs)\n- prototyping and piloting anything innovative\n- numbers: gathering data and analysing it\n- judgement: surveys, interviews, watching how things go\n- the team looking at itself: lessons-learned reviews, retrospectives\n\nWider frameworks drawn from manufacturing: total quality management (TQM), Lean and Six Sigma.\n\n## What makes it work\n\nBoth iterative and linear approaches can adopt continuous improvement equally, though it turns up most naturally in iterative work. Indeed some argue that working iteratively is itself continuous improvement.\n\nWhere it works, it is systematic and leadership treats it as a priority, and that combination signals a mature project management capability.\n\nIt is a choice about culture, and it thrives where curiosity, ongoing learning and developing people are valued, and where problems get solved and learned from instead of pinned on someone.\n\nThat closes a circle running through LO11, LO12 and LO14: a blame culture suppresses the information every one of those processes depends on.",
       "diagrams": [
         {
           "id": "lo18-qa-qc-split",
           "figure_number": "18.3",
           "caption": "Quality assurance prevents, quality control detects",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "What QC is for",
           "file": null,
           "spec": "A delivery pipeline running left to right from process to finished output to customer. Quality assurance shown acting on the process upstream, labelled 'prevents defects, errors and waste'. Quality control shown as a gate just before the customer, labelled 'detects and rectifies what got through'. Include a rework arrow from the QC gate back into the process, marked 'triggers a change to the plan'. The upstream/downstream positioning is the entire teaching point.",
@@ -116,11 +222,254 @@
           "id": "lo18-shewhart",
           "figure_number": "18.4",
           "caption": "The Shewhart cycle",
-          "placement": "after_heading",
+          "placement": "after_section",
           "heading": "The Shewhart cycle",
           "file": null,
           "spec": "A four-stage closed loop — plan, do, check, act — with what happens at each stage labelled: plan (define standards, establish procedures, allocate resources), do (implement processes, monitor outcomes), check (evaluate performance against standards), act (incorporate lessons learned, implement corrective actions). Draw it as a spiral rather than a flat circle if possible, so successive cycles visibly improve rather than returning to the same point.",
           "alt": "The plan-do-check-act Shewhart cycle with the activities at each stage, drawn so that successive cycles build on each other."
+        }
+      ],
+      "exam_tips": [
+        {
+          "id": "lo18-tip-one-line",
+          "heading": "What QC is for",
+          "placement": "after_section",
+          "tip": "If you can only remember one line about this LO, make it that one. QA builds it in, QC catches what got through, and almost every quality question in the paper rests on that split."
+        },
+        {
+          "id": "lo18-tip-witnessing",
+          "heading": "Test plans",
+          "placement": "after_section",
+          "tip": "That last one is the mark-earner. Say who ran or witnessed the test and your answer stops being a description of testing and becomes evidence."
+        },
+        {
+          "id": "lo18-tip-two-ends",
+          "heading": "Deciding what to do about non-conformance",
+          "placement": "after_section",
+          "tip": "Two ends of the spectrum, and the exam will use one of them. Safety-critical means rework and a change to the plan; user acceptance can go live with a snagging list."
+        },
+        {
+          "id": "lo18-tip-18b-wording",
+          "heading": "How QC determines whether success criteria are met",
+          "placement": "after_section",
+          "tip": "This is the exact wording of 18b, so worth answering it directly as a chain rather than as a definition of QC."
+        }
+      ],
+      "activities": [
+        {
+          "id": "lo18-groupup-qa-qc",
+          "type": "groupup",
+          "heading": "What QC is for",
+          "title": "Which side of the split does each one sit on?",
+          "note": "Get this and the most confused pair in the syllabus stops being confusing.",
+          "buckets": [
+            {
+              "id": "qa",
+              "label": "Quality assurance",
+              "hint": "Upstream, on the process"
+            },
+            {
+              "id": "qc",
+              "label": "Quality control",
+              "hint": "Downstream, on the output"
+            }
+          ],
+          "items": [
+            {
+              "label": "Preventing defects, errors and waste",
+              "bucket": "qa"
+            },
+            {
+              "label": "Standard process and procedure, backed by training and feedback",
+              "bucket": "qa"
+            },
+            {
+              "label": "Reviewing whether the project follows its own procedures",
+              "bucket": "qa"
+            },
+            {
+              "label": "Detecting and rectifying defects",
+              "bucket": "qc"
+            },
+            {
+              "label": "Inspecting, measuring and testing",
+              "bucket": "qc"
+            },
+            {
+              "label": "Checking a deliverable against its acceptance criteria",
+              "bucket": "qc"
+            }
+          ]
+        },
+        {
+          "id": "lo18-pairup-qc-needs",
+          "type": "pairup",
+          "heading": "The four things effective QC needs",
+          "title": "Match each requirement to why QC needs it",
+          "pairs": [
+            {
+              "term": "Configuration management of specifications",
+              "match": "You cannot verify against a specification you cannot pin down"
+            },
+            {
+              "term": "Test plans and an inspection regime",
+              "match": "The what and how of checking"
+            },
+            {
+              "term": "Documentation of defects",
+              "match": "Undocumented defects cannot be tracked or trended"
+            },
+            {
+              "term": "An implementation process to remedy defects",
+              "match": "Finding a defect achieves nothing without a route to fix it"
+            }
+          ]
+        },
+        {
+          "id": "lo18-pairup-test-plans",
+          "type": "pairup",
+          "heading": "Test plans",
+          "title": "Match each part of a test plan to what it settles",
+          "pairs": [
+            {
+              "term": "How much gets tested",
+              "match": "Everything, or a random sample"
+            },
+            {
+              "term": "The protocols",
+              "match": "Precisely what is tested, and by what method"
+            },
+            {
+              "term": "What it takes",
+              "match": "Facilities, people, expertise, equipment"
+            },
+            {
+              "term": "Independent witnessing",
+              "match": "Whether a regulator or the operational owner runs or watches the test"
+            }
+          ]
+        },
+        {
+          "id": "lo18-groupup-nonconformance",
+          "type": "groupup",
+          "heading": "Deciding what to do about non-conformance",
+          "title": "Which response belongs to which situation?",
+          "buckets": [
+            {
+              "id": "safety",
+              "label": "Safety-critical product",
+              "hint": "No tolerance at all"
+            },
+            {
+              "id": "uat",
+              "label": "System at user acceptance testing",
+              "hint": "Some deviation is survivable"
+            }
+          ],
+          "items": [
+            {
+              "label": "The non-compliant item cannot be used",
+              "bucket": "safety"
+            },
+            {
+              "label": "Rework, and a change to the plan",
+              "bucket": "safety"
+            },
+            {
+              "label": "Decision makers go live knowing about the issues",
+              "bucket": "uat"
+            },
+            {
+              "label": "Known issues recorded on a snagging list",
+              "bucket": "uat"
+            },
+            {
+              "label": "Remedial work after handover as part of BAU maintenance",
+              "bucket": "uat"
+            }
+          ]
+        },
+        {
+          "id": "lo18-lineup-success-chain",
+          "type": "lineup",
+          "heading": "How QC determines whether success criteria are met",
+          "title": "Put the chain back in order",
+          "items": [
+            "Success criteria agreed with stakeholders at the start",
+            "Quality planning converts them into acceptance criteria",
+            "The criteria shape which measurements and tests get planned",
+            "QC executes those measurements and tests",
+            "Results assessed and documented, unacceptable issues referred for remediation",
+            "Sign-off allows transition into use"
+          ]
+        },
+        {
+          "id": "lo18-lineup-qc-sequence",
+          "type": "lineup",
+          "heading": "The QC sequence",
+          "title": "Put the QC activities back in order",
+          "items": [
+            "Define the requirements and acceptable levels of deviation",
+            "Work with stakeholders",
+            "Assess defects and write them down",
+            "Refer unacceptable issues for remediation",
+            "Sign off verification of products"
+          ]
+        },
+        {
+          "id": "lo18-lineup-improvement-loop",
+          "type": "lineup",
+          "heading": "Continuous improvement",
+          "title": "Put the improvement loop back in order",
+          "items": [
+            "Gather performance data, quantitative and qualitative",
+            "Analyse it",
+            "Identify opportunities for improvement",
+            "Implement changes",
+            "Evaluate the outcomes"
+          ]
+        },
+        {
+          "id": "lo18-pairup-shewhart",
+          "type": "pairup",
+          "heading": "The Shewhart cycle",
+          "title": "Match each stage to what happens in it",
+          "pairs": [
+            {
+              "term": "Plan",
+              "match": "Set the standards, put procedures in place, assign the resource"
+            },
+            {
+              "term": "Do",
+              "match": "Run the processes and watch what comes out"
+            },
+            {
+              "term": "Check",
+              "match": "Measure how the project performed against those standards"
+            },
+            {
+              "term": "Act",
+              "match": "Take the lessons on board and correct what needs correcting"
+            }
+          ]
+        }
+      ],
+      "worked_examples": [
+        {
+          "id": "lo18-we-config",
+          "heading": "The four things effective QC needs",
+          "row_label": "Configuration management of specifications",
+          "situation": "A pump specification changes from 40 to 45 litres per second three weeks before factory testing. The test plan still quotes 40.",
+          "ask": "What do you fix first?",
+          "answer": "The configuration record, before anyone tests anything. QC verifies against a controlled specification, so testing to the superseded figure would pass a pump the project no longer wants. Pin the version down, then test."
+        },
+        {
+          "id": "lo18-we-uat",
+          "heading": "Deciding what to do about non-conformance",
+          "row_label": "User acceptance testing of a system",
+          "situation": "User acceptance testing on a new HR system finds 23 defects. Nineteen are cosmetic, four affect payroll reporting. Go-live is in nine days.",
+          "ask": "Do you delay it?",
+          "answer": "No. Fix the four touching payroll, and put the nineteen cosmetic ones on a snagging list for BAU maintenance after handover. Early use absorbs deviation the customer can tolerate, and a payroll error is the part she cannot."
         }
       ]
     }
