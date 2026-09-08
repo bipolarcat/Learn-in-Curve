@@ -229,7 +229,7 @@ export function LoStudyJourney({
             <LoOrientStage
               context={body.where_this_fits}
               outcomes={body.learning_outcomes}
-              definitions={loNumber === 1 ? body.key_definitions : undefined}
+              definitions={body.key_definitions}
             />
           );
         }
@@ -237,7 +237,7 @@ export function LoStudyJourney({
           return (
             <LoLearnStage
               loNumber={loNumber}
-              definitions={loNumber === 1 ? [] : body.key_definitions}
+              definitions={[]}
               coreContent={body.core_content}
               userTier={userTier}
             />

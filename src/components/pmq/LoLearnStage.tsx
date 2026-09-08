@@ -72,8 +72,8 @@ function SectionTitle({
 }
 
 /**
- * Learn — LO1/LO3: notebook single-scroll core. LO1 definitions live on Orient;
- * LO3 keeps definitions here. Other LOs: stacked core blocks.
+ * Learn — LO1/LO3: notebook single-scroll core. Key definitions live on Orient
+ * for every LO. Other LOs: stacked core blocks.
  */
 export function LoLearnStage({
   loNumber,

@@ -14,7 +14,7 @@ import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 type LoOrientStageProps = {
   context: string;
   outcomes: string[];
-  /** LO1: lexicon lives on Orient (Outcomes → Context → Definitions). */
+  /** Lexicon on Orient for every LO (Outcomes → Context → Definitions). */
   definitions?: KeyDefinition[];
 };
 
