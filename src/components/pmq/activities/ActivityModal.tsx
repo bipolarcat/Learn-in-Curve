@@ -61,7 +61,7 @@ export function ActivityModal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/45 p-0 backdrop-blur-[2px] motion-reduce:backdrop-blur-none sm:items-center sm:p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/45 p-4 backdrop-blur-[2px] motion-reduce:backdrop-blur-none"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -72,7 +72,7 @@ export function ActivityModal({
         aria-modal="true"
         aria-labelledby={titleId}
         className={cn(
-          "flex max-h-[min(92vh,44rem)] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl border border-black/[0.08] bg-paper shadow-[0_12px_40px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12] sm:rounded-2xl",
+          "flex max-h-[min(88vh,44rem)] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-black/[0.08] bg-paper shadow-[0_12px_40px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12]",
         )}
       >
         <header className="relative shrink-0 border-b border-black/[0.08] px-4 pb-3 pt-4 pr-12 dark:border-white/[0.12] sm:px-5">
