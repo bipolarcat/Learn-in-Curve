@@ -29,7 +29,7 @@ export function OutcomeCodeBadge({
       className={cn(
         "inline-flex size-7 shrink-0 items-center justify-center rounded-[0.2rem] font-body text-[11px] font-semibold leading-none tabular-nums tracking-[-0.02em]",
         variant === "stamp"
-          ? "border border-teal bg-teal text-cream shadow-[inset_0_0_0_1px_rgb(0_0_0_/_0.12)]"
+          ? "border border-teal bg-teal text-cream"
           : "border-2 border-teal bg-transparent text-teal",
         className,
       )}

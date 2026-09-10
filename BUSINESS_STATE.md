@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-10** — LO2 stamp badge: removed inset ring; flat teal fill + cream type only (`OutcomeCodeBadge`).
 - **2026-09-10** — LO2 only: trial ink-stamp `OutcomeCodeBadge` (`variant="stamp"` — filled teal, cream type) on Orient + Learn; other LOs keep outline. Flip `loNumber === 2` when rolling out.
 - **2026-09-10** — LO2 Learn study tables only: Pair up + “Test yourself” sit on the section `##` heading row; removed the uppercase first-column label (e.g. LEVEL) above the table (`StudyTable` heading chrome + `CoreContentBlock` `loNumber === 2`). Other LOs unchanged until rolled out.
 - **2026-09-08** — Orient Key definitions: tighter gap under heading (`tightBody` mt-0.5) before the reveal helper (`LoOrientStage` / `DefinitionsReveal`).
