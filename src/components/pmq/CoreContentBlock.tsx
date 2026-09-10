@@ -10,6 +10,7 @@ import {
   StudyTable,
 } from "@/components/pmq/StudyTable";
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
+import { InsightsDisclosureList } from "@/components/pmq/InsightsDisclosure";
 import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
@@ -200,6 +201,9 @@ export function CoreContentBlock({
   const sections = splitSections(block.body_markdown);
   /** LO2 only — hoist study-table tools onto ##; drop LEVEL label. */
   const toolbarOnHeading = loNumber === 2 && studyTables;
+  /** LO2 only — Insights disclosure instead of exam-tip cards. */
+  const insightsDisclosure = loNumber === 2;
+  const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
 
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
@@ -258,7 +262,7 @@ export function CoreContentBlock({
                 <Tag className={className}>{mapHeadingChildren(children)}</Tag>
               )}
               {matched.map((d) => renderDiagram(d, loNumber))}
-              <ExamTipList tips={headingTips} />
+              <TipList tips={headingTips} />
             </div>
           );
         }
@@ -324,7 +328,7 @@ export function CoreContentBlock({
                 {closingDiagrams.map((d) => renderDiagram(d, loNumber))}
               </div>
             ) : null}
-            <ExamTipList tips={tips} />
+            <TipList tips={tips} />
           </>
         );
 
