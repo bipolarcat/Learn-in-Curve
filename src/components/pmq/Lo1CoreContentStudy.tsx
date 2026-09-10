@@ -5,7 +5,10 @@ import { Layers, Landmark, Milestone, Scale } from "lucide-react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
 import { Lo1SpineScrollbar } from "@/components/pmq/Lo1SpineScrollbar";
-import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
+import {
+  OutcomeCodeBadge,
+  type OutcomeCodeBadgeVariant,
+} from "@/components/pmq/OutcomeCodeBadge";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 import { cn } from "@/lib/utils";
 
@@ -172,11 +175,14 @@ export function Lo1CoreContentStudy({
   studyTables = false,
   activities = false,
   shortTitles,
+  badgeVariant = "outline",
 }: {
   blocks: CoreContentBlockType[];
   studyTables?: boolean;
   activities?: boolean;
   shortTitles?: Record<string, string>;
+  /** LO2 trial: ink-stamp outcome codes. */
+  badgeVariant?: OutcomeCodeBadgeVariant;
 }) {
   const titleMap = shortTitles ?? LO1_SHORT_TITLE;
   const [activeIndex, setActiveIndex] = useState(0);
@@ -269,7 +275,10 @@ export function Lo1CoreContentStudy({
       <div className="lg:hidden">
         <header className="sticky top-0 z-10 border-b border-black/[0.08] bg-paper px-3 pb-2.5 pt-3 dark:border-white/[0.12]">
           <h2 className="m-0 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
-            <OutcomeCodeBadge code={active.outcome_code} />
+            <OutcomeCodeBadge
+              code={active.outcome_code}
+              variant={badgeVariant}
+            />
             <span className="min-w-0 text-ink">
               <span className="sr-only">{active.outcome_code}: </span>
               {active.outcome_title}
@@ -358,7 +367,7 @@ export function Lo1CoreContentStudy({
                     }
                   >
                     <header className="mb-5">
-                      <OutcomeCodeBadge code={code} />
+                      <OutcomeCodeBadge code={code} variant={badgeVariant} />
                       <h3 className="mt-2 font-body text-[20px] font-semibold leading-tight tracking-tight text-ink">
                         <span className="sr-only">{code}: </span>
                         {block.outcome_title}

@@ -9,13 +9,18 @@ import type { KeyDefinition } from "@/types/pmq";
 import { DefinitionsReveal } from "@/components/pmq/DefinitionsReveal";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
-import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
+import {
+  OutcomeCodeBadge,
+  type OutcomeCodeBadgeVariant,
+} from "@/components/pmq/OutcomeCodeBadge";
 
 type LoOrientStageProps = {
   context: string;
   outcomes: string[];
   /** Lexicon on Orient for every LO (Outcomes → Context → Definitions). */
   definitions?: KeyDefinition[];
+  /** LO2 trial: ink-stamp badges. Default outline everywhere else. */
+  badgeVariant?: OutcomeCodeBadgeVariant;
 };
 
 /** Shared type — headings, body, and outcome codes all Figtree at these sizes. */
@@ -117,6 +122,7 @@ export function LoOrientStage({
   context,
   outcomes,
   definitions = [],
+  badgeVariant = "outline",
 }: LoOrientStageProps) {
   const contextText = context.trim();
   const hasContext = contextText.length > 0;
@@ -167,7 +173,11 @@ export function LoOrientStage({
                 >
                   <IconCell>
                     {code ? (
-                      <OutcomeCodeBadge code={code} className="mt-0.5" />
+                      <OutcomeCodeBadge
+                        code={code}
+                        variant={badgeVariant}
+                        className="mt-0.5"
+                      />
                     ) : null}
                   </IconCell>
                   <p className={bodyClass}>

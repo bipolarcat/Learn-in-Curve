@@ -6,18 +6,31 @@ export function formatOutcomeBadge(code: string): string {
   return `${match[1]}${match[2]!.toUpperCase()}`;
 }
 
-/** Teal outline outcome code, e.g. 1A / 18A. One square size for every LO. Decorative: pair with sr-only text. */
+export type OutcomeCodeBadgeVariant = "outline" | "stamp";
+
+/**
+ * Outcome code mark, e.g. 1A / 18A. One square size for every LO.
+ * Decorative: pair with sr-only text.
+ *
+ * - `outline` — teal border, transparent fill (default; all LOs today)
+ * - `stamp` — filled teal ink stamp, cream type (trying on LO2 first)
+ */
 export function OutcomeCodeBadge({
   code,
+  variant = "outline",
   className,
 }: {
   code: string;
+  variant?: OutcomeCodeBadgeVariant;
   className?: string;
 }) {
   return (
     <span
       className={cn(
-        "inline-flex size-7 shrink-0 items-center justify-center rounded-[0.2rem] border-2 border-teal bg-transparent font-body text-[11px] font-semibold leading-none tabular-nums tracking-[-0.02em] text-teal",
+        "inline-flex size-7 shrink-0 items-center justify-center rounded-[0.2rem] font-body text-[11px] font-semibold leading-none tabular-nums tracking-[-0.02em]",
+        variant === "stamp"
+          ? "border border-teal bg-teal text-cream shadow-[inset_0_0_0_1px_rgb(0_0_0_/_0.12)]"
+          : "border-2 border-teal bg-transparent text-teal",
         className,
       )}
       aria-hidden

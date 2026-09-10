@@ -85,6 +85,7 @@ export function LoLearnStage({
   const activities =
     studyTables && canAccessRecallActivities(userTier);
   const useNotebook = NOTEBOOK_LEARN_LOS.has(loNumber);
+  const badgeVariant = loNumber === 2 ? "stamp" : "outline";
 
   if (useNotebook) {
     return (
@@ -113,6 +114,7 @@ export function LoLearnStage({
             studyTables={studyTables}
             activities={activities}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}
+            badgeVariant={badgeVariant}
           />
         ) : null}
       </div>
@@ -161,7 +163,11 @@ export function LoLearnStage({
                   <h3
                     className={`flex min-w-0 items-start gap-2.5 ${headingClass}`}
                   >
-                    <OutcomeCodeBadge code={code} className="mt-0.5" />
+                    <OutcomeCodeBadge
+                      code={code}
+                      variant={badgeVariant}
+                      className="mt-0.5"
+                    />
                     <span className="min-w-0 flex-1">
                       <span className="sr-only">{code}: </span>
                       {block.outcome_title}

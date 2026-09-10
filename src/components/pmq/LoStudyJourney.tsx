@@ -230,6 +230,7 @@ export function LoStudyJourney({
               context={body.where_this_fits}
               outcomes={body.learning_outcomes}
               definitions={body.key_definitions}
+              badgeVariant={loNumber === 2 ? "stamp" : "outline"}
             />
           );
         }
