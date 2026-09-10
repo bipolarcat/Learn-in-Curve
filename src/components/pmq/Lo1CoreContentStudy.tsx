@@ -275,30 +275,42 @@ export function Lo1CoreContentStudy({
     >
       <div className="lg:hidden">
         <header className="sticky top-0 z-10 border-b border-black/[0.08] bg-paper px-3 pb-2.5 pt-3 dark:border-white/[0.12]">
-          <h2 className="m-0 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
-            <OutcomeCodeBadge
-              code={active.outcome_code}
-              variant={badgeVariant}
-            />
-            <span className="min-w-0 text-ink">
-              <span className="sr-only">{active.outcome_code}: </span>
-              {active.outcome_title}
-            </span>
-          </h2>
           {badgeVariant === "stamp" ? (
-            <nav aria-label="Learning outcomes" className="mt-3">
-              <OutcomeStampSwitcher
-                options={blocks.map((block) => ({
-                  code: block.outcome_code,
-                  title: block.outcome_title,
-                }))}
-                value={activeIndex}
-                onChange={handleSelect}
-                badgeVariant={badgeVariant}
-              />
-            </nav>
+            <>
+              <nav aria-label="Learning outcomes">
+                <OutcomeStampSwitcher
+                  options={blocks.map((block) => ({
+                    code: block.outcome_code,
+                    title: block.outcome_title,
+                  }))}
+                  value={activeIndex}
+                  onChange={handleSelect}
+                  badgeVariant={badgeVariant}
+                />
+              </nav>
+              <h2 className="m-0 mt-3 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
+                <OutcomeCodeBadge
+                  code={active.outcome_code}
+                  variant={badgeVariant}
+                />
+                <span className="min-w-0 text-ink">
+                  <span className="sr-only">{active.outcome_code}: </span>
+                  {active.outcome_title}
+                </span>
+              </h2>
+            </>
           ) : (
             <>
+              <h2 className="m-0 flex min-w-0 items-center gap-2 font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
+                <OutcomeCodeBadge
+                  code={active.outcome_code}
+                  variant={badgeVariant}
+                />
+                <span className="min-w-0 text-ink">
+                  <span className="sr-only">{active.outcome_code}: </span>
+                  {active.outcome_title}
+                </span>
+              </h2>
               <p className="mt-1.5 font-body text-[12px] leading-snug text-ink/75">
                 One outcome at a time · tap to switch
               </p>
