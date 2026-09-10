@@ -289,10 +289,22 @@ export function Lo1CoreContentStudy({
           </p>
           <nav aria-label="Learning outcomes" className="mt-2.5">
           <ExpandableTabs
-            tabs={blocks.map((block, index) => ({
-              title: shortTitleFor(block, titleMap),
-              icon: OUTCOME_ICONS[index % OUTCOME_ICONS.length] ?? Layers,
-            }))}
+            tabs={blocks.map((block, index) =>
+              badgeVariant === "stamp"
+                ? {
+                    title: shortTitleFor(block, titleMap),
+                    mark: (
+                      <OutcomeCodeBadge
+                        code={block.outcome_code}
+                        variant="stamp"
+                      />
+                    ),
+                  }
+                : {
+                    title: shortTitleFor(block, titleMap),
+                    icon: OUTCOME_ICONS[index % OUTCOME_ICONS.length] ?? Layers,
+                  },
+            )}
             value={activeIndex}
             clearOnOutsideClick={false}
             expandSelectedLabel

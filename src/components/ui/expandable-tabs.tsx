@@ -9,7 +9,13 @@ import { cn } from "@/lib/utils";
 
 interface Tab {
   title: string;
-  icon: LucideIcon;
+  /** Lucide glyph — used when `mark` is omitted. */
+  icon?: LucideIcon;
+  /**
+   * Custom leading mark (e.g. outcome code badge). Replaces `icon` when set.
+   * LO2 mobile switcher uses stamp badges here.
+   */
+  mark?: React.ReactNode;
   type?: never;
   disabled?: boolean;
   /** Optional trailing glyph (e.g. Pro lock) — no wrapper chrome. */
@@ -20,6 +26,7 @@ interface Separator {
   type: "separator";
   title?: never;
   icon?: never;
+  mark?: never;
   disabled?: never;
   trailing?: never;
 }
@@ -356,15 +363,19 @@ export function ExpandableTabs({
             )}
           >
             <span className="relative inline-flex shrink-0 items-center justify-center">
-              <Icon
-                size={compact ? 15 : 18}
-                strokeWidth={isSelected ? 2.25 : 1.75}
-                className={cn(
-                  "transition-[fill,color] duration-150",
-                  isSelected ? "fill-current" : "fill-none",
-                )}
-                aria-hidden
-              />
+              {tab.mark ? (
+                tab.mark
+              ) : Icon ? (
+                <Icon
+                  size={compact ? 15 : 18}
+                  strokeWidth={isSelected ? 2.25 : 1.75}
+                  className={cn(
+                    "transition-[fill,color] duration-150",
+                    isSelected ? "fill-current" : "fill-none",
+                  )}
+                  aria-hidden
+                />
+              ) : null}
               {tab.trailing ? (
                 <span
                   className={cn(
