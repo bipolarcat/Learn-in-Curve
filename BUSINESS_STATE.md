@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-10** — LO2 mobile Learn header: drop duplicate stamp beside title; larger outcome title (17px); no sticky header divider under switcher (`Lo1CoreContentStudy`).
 - **2026-09-10** — LO2 mobile Learn header: outcome switcher above the outcome title (`Lo1CoreContentStudy`).
 - **2026-09-10** — LO2 `OutcomeStampSwitcher`: selected thumb is teal with cream type (Apple segment shape kept).
 - **2026-09-10** — LO2 `OutcomeStampSwitcher`: reverted ticket/stamp chrome; Apple-like segmented control (soft track, white sliding thumb, quiet type). Keeps spring thumb motion.
