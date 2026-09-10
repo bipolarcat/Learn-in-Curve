@@ -10,6 +10,7 @@ import {
   type OutcomeCodeBadgeVariant,
 } from "@/components/pmq/OutcomeCodeBadge";
 import { ExpandableTabs } from "@/components/ui/expandable-tabs";
+import { OutcomeStampSwitcher } from "@/components/pmq/OutcomeStampSwitcher";
 import { cn } from "@/lib/utils";
 
 /** Short rail labels for LO1 outcomes (Magic Patterns demo). */
@@ -284,39 +285,43 @@ export function Lo1CoreContentStudy({
               {active.outcome_title}
             </span>
           </h2>
-          <p className="mt-1.5 font-body text-[12px] leading-snug text-ink/75">
-            One outcome at a time · tap to switch
-          </p>
-          <nav aria-label="Learning outcomes" className="mt-2.5">
-          <ExpandableTabs
-            tabs={blocks.map((block, index) =>
-              badgeVariant === "stamp"
-                ? {
-                    title: shortTitleFor(block, titleMap),
-                    mark: (
-                      <OutcomeCodeBadge
-                        code={block.outcome_code}
-                        variant="stamp"
-                      />
-                    ),
-                  }
-                : {
+          {badgeVariant === "stamp" ? (
+            <nav aria-label="Learning outcomes" className="mt-3">
+              <OutcomeStampSwitcher
+                options={blocks.map((block) => ({
+                  code: block.outcome_code,
+                  title: block.outcome_title,
+                }))}
+                value={activeIndex}
+                onChange={handleSelect}
+                badgeVariant={badgeVariant}
+              />
+            </nav>
+          ) : (
+            <>
+              <p className="mt-1.5 font-body text-[12px] leading-snug text-ink/75">
+                One outcome at a time · tap to switch
+              </p>
+              <nav aria-label="Learning outcomes" className="mt-2.5">
+                <ExpandableTabs
+                  tabs={blocks.map((block, index) => ({
                     title: shortTitleFor(block, titleMap),
                     icon: OUTCOME_ICONS[index % OUTCOME_ICONS.length] ?? Layers,
-                  },
-            )}
-            value={activeIndex}
-            clearOnOutsideClick={false}
-            expandSelectedLabel
-            size="touch"
-            activeColor="text-ink"
-            className="w-full"
-            onChange={(index) => {
-              if (index == null) return;
-              handleSelect(index);
-            }}
-          />
-          </nav>
+                  }))}
+                  value={activeIndex}
+                  clearOnOutsideClick={false}
+                  expandSelectedLabel
+                  size="touch"
+                  activeColor="text-ink"
+                  className="w-full"
+                  onChange={(index) => {
+                    if (index == null) return;
+                    handleSelect(index);
+                  }}
+                />
+              </nav>
+            </>
+          )}
         </header>
 
         <div className="px-3.5 pb-6 pt-3.5">

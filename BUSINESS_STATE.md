@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-10** — LO2 mobile outcome switcher reimagined: 21st.dev segmented-control style (`OutcomeStampSwitcher`) — equal segments, spring sliding teal thumb, stamp codes only (no expandable title clutter). Other LOs keep ExpandableTabs.
 - **2026-09-10** — LO2 mobile Learn outcome switcher: ExpandableTabs use stamp `OutcomeCodeBadge` marks instead of Lucide icons (`expandable-tabs` `mark` slot + `Lo1CoreContentStudy`).
 - **2026-09-10** — LO2 Learn: replaced exam-tip callout cards with **Insights** disclosure (bulb + label, click expands tip). Animated Lucide bulb from 21st.dev / `@animateicons/react` (`InsightsDisclosure`); other LOs keep `ExamTipCallout`.
 - **2026-09-10** — LO2 stamp badge: removed inset ring; flat teal fill + cream type only (`OutcomeCodeBadge`).
