@@ -204,6 +204,9 @@ export function CoreContentBlock({
   /** LO2 only — Insights disclosure instead of exam-tip cards. */
   const insightsDisclosure = loNumber === 2;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
+  const sectionH2Class = insightsDisclosure
+    ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-medium tracking-tight text-balance text-ink/70 first:mt-0"
+    : "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0";
 
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
@@ -250,8 +253,13 @@ export function CoreContentBlock({
           return (
             <div className="not-prose min-w-0 max-w-full">
               {withChromeSlot ? (
-                <div className="mt-5 mb-2 flex min-w-0 items-start justify-between gap-2 first:mt-0">
-                  <Tag
+                <div
+                  className={
+                    insightsDisclosure
+                      ? "mt-5 mb-1.5 flex min-w-0 items-start justify-between gap-2 first:mt-0"
+                      : "mt-5 mb-2 flex min-w-0 items-start justify-between gap-2 first:mt-0"
+                  }
+                >                  <Tag
                     className={`${className} mt-0 mb-0 min-w-0 flex-1 first:mt-0`}
                   >
                     {mapHeadingChildren(children)}
@@ -271,7 +279,7 @@ export function CoreContentBlock({
           h2: ({ children }: { children?: ReactNode }) =>
             renderHeading(
               "h4",
-              "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
+              sectionH2Class,
               children,
               toolbarOnHeading,
             ),

@@ -295,7 +295,7 @@ export function Lo1CoreContentStudy({
                   badgeVariant={badgeVariant}
                 />
               </nav>
-              <h2 className="m-0 mt-3 min-w-0 font-body text-[17px] font-semibold leading-snug tracking-tight text-ink">
+              <h2 className="m-0 mt-3.5 min-w-0 font-body text-[20px] font-semibold leading-[1.25] tracking-tight text-balance text-ink">
                 <span className="sr-only">{active.outcome_code}: </span>
                 {active.outcome_title}
               </h2>
@@ -337,9 +337,20 @@ export function Lo1CoreContentStudy({
           )}
         </header>
 
-        <div className="px-3.5 pb-6 pt-3.5">
-
-          <div className="mt-2 min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
+        <div
+          className={cn(
+            "px-3.5 pb-6",
+            badgeVariant === "stamp" ? "pt-2" : "pt-3.5",
+          )}
+        >
+          <div
+            className={cn(
+              "min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full",
+              badgeVariant === "stamp"
+                ? "mt-0 [&_.not-prose:first-child]:mt-0"
+                : "mt-2",
+            )}
+          >
             <CoreContentBlock block={active} {...contentProps} />
           </div>
         </div>
