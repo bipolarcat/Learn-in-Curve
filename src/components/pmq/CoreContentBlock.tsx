@@ -205,7 +205,7 @@ export function CoreContentBlock({
   const insightsDisclosure = loNumber === 2;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
   const sectionH2Class = insightsDisclosure
-    ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-medium tracking-tight text-balance text-ink/70 first:mt-0"
+    ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0"
     : "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0";
 
   return (
