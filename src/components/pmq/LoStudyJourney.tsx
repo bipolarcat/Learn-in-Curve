@@ -135,6 +135,8 @@ export function LoStudyJourney({
   const [checkpointReady, setCheckpointReady] = useState(
     () => sealed || sealReady || checkpointTotal <= 0,
   );
+  /** Orient badge → Learn: which sub-outcome to open (e.g. "2a"). */
+  const [learnFocusCode, setLearnFocusCode] = useState<string | null>(null);
 
   useEffect(() => {
     if (sealed || sealReady || checkpointTotal <= 0) {
@@ -223,7 +225,7 @@ export function LoStudyJourney({
           completionPercent={ctx.optimisticCompletionPercent}
         />
       )}
-      renderStage={(currentId, { selectStage }) => {
+      renderStage={(currentId, { selectStage, jumpToStage }) => {
         if (currentId === "orient") {
           return (
             <LoOrientStage
@@ -231,6 +233,14 @@ export function LoStudyJourney({
               outcomes={body.learning_outcomes}
               definitions={body.key_definitions}
               badgeVariant={loNumber === 2 ? "stamp" : "outline"}
+              onJumpToOutcome={
+                loNumber === 2
+                  ? (code) => {
+                      setLearnFocusCode(code);
+                      jumpToStage("learn");
+                    }
+                  : undefined
+              }
             />
           );
         }
@@ -241,6 +251,8 @@ export function LoStudyJourney({
               definitions={[]}
               coreContent={body.core_content}
               userTier={userTier}
+              focusOutcomeCode={learnFocusCode}
+              onFocusOutcomeConsumed={() => setLearnFocusCode(null)}
             />
           );
         }

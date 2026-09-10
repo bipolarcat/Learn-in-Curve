@@ -21,6 +21,11 @@ type LoOrientStageProps = {
   definitions?: KeyDefinition[];
   /** LO2 trial: ink-stamp badges. Default outline everywhere else. */
   badgeVariant?: OutcomeCodeBadgeVariant;
+  /**
+   * When set, outcome badges jump into Learn at that sub-outcome
+   * (skips Continue to Learn).
+   */
+  onJumpToOutcome?: (code: string) => void;
 };
 
 /** Shared type — headings, body, and outcome codes all Figtree at these sizes. */
@@ -123,6 +128,7 @@ export function LoOrientStage({
   outcomes,
   definitions = [],
   badgeVariant = "outline",
+  onJumpToOutcome,
 }: LoOrientStageProps) {
   const contextText = context.trim();
   const hasContext = contextText.length > 0;
@@ -173,11 +179,22 @@ export function LoOrientStage({
                 >
                   <IconCell>
                     {code ? (
-                      <OutcomeCodeBadge
-                        code={code}
-                        variant={badgeVariant}
-                        className="mt-0.5"
-                      />
+                      onJumpToOutcome ? (
+                        <button
+                          type="button"
+                          onClick={() => onJumpToOutcome(code)}
+                          aria-label={`Open ${code.toUpperCase()} in Learn`}
+                          className="mt-0.5 rounded-[0.25rem] transition-transform duration-150 ease-[var(--ease-out-quint)] hover:scale-[1.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:scale-[0.96]"
+                        >
+                          <OutcomeCodeBadge code={code} variant={badgeVariant} />
+                        </button>
+                      ) : (
+                        <OutcomeCodeBadge
+                          code={code}
+                          variant={badgeVariant}
+                          className="mt-0.5"
+                        />
+                      )
                     ) : null}
                   </IconCell>
                   <p className={bodyClass}>

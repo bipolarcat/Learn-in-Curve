@@ -177,6 +177,8 @@ export function Lo1CoreContentStudy({
   activities = false,
   shortTitles,
   badgeVariant = "outline",
+  focusOutcomeCode = null,
+  onFocusOutcomeConsumed,
 }: {
   blocks: CoreContentBlockType[];
   studyTables?: boolean;
@@ -184,9 +186,19 @@ export function Lo1CoreContentStudy({
   shortTitles?: Record<string, string>;
   /** LO2 trial: ink-stamp outcome codes. */
   badgeVariant?: OutcomeCodeBadgeVariant;
+  /** Orient badge jump target (e.g. "2a"). */
+  focusOutcomeCode?: string | null;
+  onFocusOutcomeConsumed?: () => void;
 }) {
   const titleMap = shortTitles ?? LO1_SHORT_TITLE;
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    if (!focusOutcomeCode) return 0;
+    const idx = blocks.findIndex(
+      (block) =>
+        block.outcome_code.toLowerCase() === focusOutcomeCode.toLowerCase(),
+    );
+    return idx >= 0 ? idx : 0;
+  });
   const [seen, setSeen] = useState<Set<number>>(() => new Set());
   const readerScrollRef = useRef<HTMLDivElement>(null);
   const sectionEls = useRef(new Map<string, HTMLElement>());
@@ -233,6 +245,38 @@ export function Lo1CoreContentStudy({
     },
     [activeIndex, blocks, markSeen],
   );
+
+  useEffect(() => {
+    if (!focusOutcomeCode) return;
+    const code = focusOutcomeCode.toLowerCase();
+    const idx = blocks.findIndex(
+      (block) => block.outcome_code.toLowerCase() === code,
+    );
+    onFocusOutcomeConsumed?.();
+    if (idx < 0) return;
+
+    setActiveIndex(idx);
+    // Desktop notebook sections register after paint; retry scroll once.
+    const scrollToFocused = () => {
+      const root = readerScrollRef.current;
+      const el = sectionEls.current.get(code);
+      if (!root || root.clientHeight === 0 || !el) return false;
+      jumping.current = true;
+      root.scrollTo({
+        top: Math.max(0, sectionTop(root, el) - 8),
+        behavior: "smooth",
+      });
+      window.setTimeout(() => {
+        jumping.current = false;
+      }, 560);
+      return true;
+    };
+    if (!scrollToFocused()) {
+      requestAnimationFrame(() => {
+        scrollToFocused();
+      });
+    }
+  }, [focusOutcomeCode, blocks, onFocusOutcomeConsumed]);
 
   useEffect(() => {
     const root = readerScrollRef.current;

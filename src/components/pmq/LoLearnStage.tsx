@@ -25,6 +25,9 @@ type LoLearnStageProps = {
   definitions: KeyDefinition[];
   coreContent: CoreContentBlockType[];
   userTier?: PmqTier;
+  /** Orient badge jump — select this outcome code on mount. */
+  focusOutcomeCode?: string | null;
+  onFocusOutcomeConsumed?: () => void;
 };
 
 /**
@@ -80,6 +83,8 @@ export function LoLearnStage({
   definitions,
   coreContent,
   userTier = "starter",
+  focusOutcomeCode = null,
+  onFocusOutcomeConsumed,
 }: LoLearnStageProps) {
   const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
   const activities =
@@ -115,6 +120,8 @@ export function LoLearnStage({
             activities={activities}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}
             badgeVariant={badgeVariant}
+            focusOutcomeCode={focusOutcomeCode}
+            onFocusOutcomeConsumed={onFocusOutcomeConsumed}
           />
         ) : null}
       </div>

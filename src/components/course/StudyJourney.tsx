@@ -126,7 +126,15 @@ type StudyJourneyProps<TId extends string> = {
   renderChrome: (ctx: StudyJourneyChromeContext<TId>) => ReactNode;
   renderStage: (
     stageId: TId,
-    helpers: { selectStage: (id: TId) => void },
+    helpers: {
+      selectStage: (id: TId) => void;
+      /**
+       * Jump to a later stage, marking every stage from the current one up to
+       * (but not including) the target as Continue-done — same unlock effect as
+       * tapping Continue, without requiring the bottom button.
+       */
+      jumpToStage: (id: TId) => void;
+    },
   ) => ReactNode;
 };
 
@@ -251,6 +259,48 @@ export function StudyJourney<TId extends string>({
     [unlockedIds],
   );
 
+  const jumpToStage = useCallback(
+    (id: TId) => {
+      const targetIdx = stageIds.indexOf(id);
+      const currentIdx = stageIds.indexOf(currentId);
+      if (targetIdx < 0 || currentIdx < 0) return;
+      if (targetIdx === currentIdx) {
+        setCurrentId(id);
+        return;
+      }
+      if (targetIdx < currentIdx) {
+        // Only revisit already-unlocked earlier stages.
+        if (unlockedIds.has(id)) setCurrentId(id);
+        return;
+      }
+
+      const newlyDone: TId[] = [];
+      for (let i = currentIdx; i < targetIdx; i++) {
+        const stage = stageIds[i];
+        if (stage) newlyDone.push(stage);
+      }
+
+      setDoneIds((prev) => {
+        const next = new Set(prev);
+        for (const doneId of newlyDone) next.add(doneId);
+        return next;
+      });
+      setCurrentId(id);
+      onStagesMarkedDone?.(newlyDone);
+
+      requestAnimationFrame(() => {
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        window.scrollTo({
+          top: 0,
+          behavior: reduceMotion ? "auto" : "smooth",
+        });
+      });
+    },
+    [stageIds, currentId, unlockedIds, onStagesMarkedDone],
+  );
+
   const advance = useCallback(() => {
     const idx = stageIds.indexOf(currentId);
     if (idx < 0 || idx >= stageIds.length - 1) return;
@@ -349,7 +399,7 @@ export function StudyJourney<TId extends string>({
       <main className="w-full px-3 pb-28 pt-4 sm:px-5 sm:pb-24 sm:pt-6">
         <h1 className="sr-only">{srTitle}</h1>
         <div className="mx-auto w-full min-w-0 max-w-wrap">
-          {renderStage(currentId, { selectStage })}
+          {renderStage(currentId, { selectStage, jumpToStage })}
 
           {isLast ? (
             <StageContinueButton
