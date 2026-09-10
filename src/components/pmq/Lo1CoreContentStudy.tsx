@@ -339,7 +339,7 @@ export function Lo1CoreContentStudy({
                   badgeVariant={badgeVariant}
                 />
               </nav>
-              <h2 className="m-0 mt-3.5 min-w-0 font-body text-[20px] font-semibold leading-[1.25] tracking-tight text-balance text-ink">
+              <h2 className="m-0 mt-3.5 min-w-0 font-body text-[20px] font-semibold leading-[1.25] tracking-tight text-ink">
                 <span className="sr-only">{active.outcome_code}: </span>
                 {active.outcome_title}
               </h2>
