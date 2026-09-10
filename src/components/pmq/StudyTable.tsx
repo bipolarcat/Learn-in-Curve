@@ -2,8 +2,13 @@
 
 import {
   Children,
+  createContext,
   isValidElement,
+  useCallback,
+  useContext,
+  useEffect,
   useId,
+  useMemo,
   useState,
   type ReactElement,
   type ReactNode,
@@ -16,6 +21,73 @@ import {
   workedExampleForRow,
 } from "@/components/pmq/activities/WorkedExampleLauncher";
 import { cn } from "@/lib/utils";
+
+/**
+ * LO2 (for now): Pair up / Test yourself sit on the section ## heading row.
+ * Table no longer shows the uppercase first-column label (e.g. LEVEL).
+ * Roll out to other LOs by flipping the same flag in CoreContentBlock.
+ */
+type HeadingChromeState = {
+  activities?: LoActivity[];
+  recall: boolean;
+  onToggle: () => void;
+  tableId: string;
+} | null;
+
+type HeadingChromeContextValue = {
+  chrome: HeadingChromeState;
+  setChrome: (next: HeadingChromeState) => void;
+  slotMounted: boolean;
+  setSlotMounted: (mounted: boolean) => void;
+};
+
+const HeadingChromeContext = createContext<HeadingChromeContextValue | null>(
+  null,
+);
+
+export function StudyHeadingChromeProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const [chrome, setChromeState] = useState<HeadingChromeState>(null);
+  const [slotMounted, setSlotMountedState] = useState(false);
+  const setChrome = useCallback((next: HeadingChromeState) => {
+    setChromeState(next);
+  }, []);
+  const setSlotMounted = useCallback((mounted: boolean) => {
+    setSlotMountedState(mounted);
+  }, []);
+  const value = useMemo(
+    () => ({ chrome, setChrome, slotMounted, setSlotMounted }),
+    [chrome, setChrome, slotMounted, setSlotMounted],
+  );
+  return (
+    <HeadingChromeContext.Provider value={value}>
+      {children}
+    </HeadingChromeContext.Provider>
+  );
+}
+
+/** Renders registered table tools on the section heading row (LO2). */
+export function StudyHeadingChromeSlot() {
+  const ctx = useContext(HeadingChromeContext);
+  const setSlotMounted = ctx?.setSlotMounted;
+  useEffect(() => {
+    if (!setSlotMounted) return;
+    setSlotMounted(true);
+    return () => setSlotMounted(false);
+  }, [setSlotMounted]);
+
+  if (!ctx?.chrome) return null;
+  const { activities, recall, onToggle, tableId } = ctx.chrome;
+  return (
+    <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5">
+      <ActivityRowHead activities={activities} />
+      <RecallToggle recall={recall} onToggle={onToggle} controls={tableId} />
+    </div>
+  );
+}
 
 /**
  * Study tables for Learn.
@@ -90,6 +162,8 @@ function parseMarkdownTable(children: ReactNode): Parsed | null {
 type StudyExtras = {
   activities?: LoActivity[];
   workedExamples?: WorkedExampleCard[];
+  /** LO2: hoist Pair up / Test yourself onto the ## heading; drop LEVEL label. */
+  toolbarOnHeading?: boolean;
 };
 
 function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
@@ -141,16 +215,33 @@ function TwoColumnTable({
   rows,
   activities,
   workedExamples,
+  toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
   const baseId = useId();
   const tableId = `study-table-${baseId}`;
   const [recall, setRecall] = useState(false);
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
+  const headingChrome = useContext(HeadingChromeContext);
+  const setChrome = headingChrome?.setChrome;
+  const slotMounted = headingChrome?.slotMounted ?? false;
 
-  function toggleRecall() {
+  const toggleRecall = useCallback(() => {
     setRecall((current) => !current);
     setRevealed(new Set());
-  }
+  }, []);
+
+  const hoistToHeading = toolbarOnHeading && slotMounted && Boolean(setChrome);
+
+  useEffect(() => {
+    if (!hoistToHeading || !setChrome) return;
+    setChrome({
+      activities,
+      recall,
+      onToggle: toggleRecall,
+      tableId,
+    });
+    return () => setChrome(null);
+  }, [hoistToHeading, setChrome, activities, recall, toggleRecall, tableId]);
 
   function reveal(index: number) {
     setRevealed((current) => {
@@ -163,19 +254,23 @@ function TwoColumnTable({
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
-      <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
-            {headers[0]}
-          </span>
-          <ActivityRowHead activities={activities} />
+      {!hoistToHeading ? (
+        <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            {!toolbarOnHeading ? (
+              <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
+                {headers[0]}
+              </span>
+            ) : null}
+            <ActivityRowHead activities={activities} />
+          </div>
+          <RecallToggle
+            recall={recall}
+            onToggle={toggleRecall}
+            controls={tableId}
+          />
         </div>
-        <RecallToggle
-          recall={recall}
-          onToggle={toggleRecall}
-          controls={tableId}
-        />
-      </div>
+      ) : null}
 
       <div id={tableId} className={cardShell}>
         <ul className="m-0 list-none p-0">
@@ -418,13 +513,16 @@ export function StudyTable({
   children,
   activities,
   workedExamples,
+  toolbarOnHeading = false,
 }: {
   children: ReactNode;
   activities?: LoActivity[];
   workedExamples?: WorkedExampleCard[];
+  /** LO2 only for now — see CoreContentBlock. */
+  toolbarOnHeading?: boolean;
 }) {
   const parsed = parseMarkdownTable(children);
-  const extras: StudyExtras = { activities, workedExamples };
+  const extras: StudyExtras = { activities, workedExamples, toolbarOnHeading };
 
   if (!parsed) {
     return (

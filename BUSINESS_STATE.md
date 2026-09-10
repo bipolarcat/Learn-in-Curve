@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-08** — The Shelf library art: swapped all hub plates/group icons/hero to Gamma-style cream + black line art (`libraryIllustrations.tsx`). Same slug API; no content file changes. Inspired by Gamma slide samples (desk studier, archery target).
+- **2026-09-10** — LO2 Learn study tables only: Pair up + “Test yourself” sit on the section `##` heading row; removed the uppercase first-column label (e.g. LEVEL) above the table (`StudyTable` heading chrome + `CoreContentBlock` `loNumber === 2`). Other LOs unchanged until rolled out.
 - **2026-09-08** — Orient Key definitions: tighter gap under heading (`tightBody` mt-0.5) before the reveal helper (`LoOrientStage` / `DefinitionsReveal`).
 - **2026-09-08** — Orient Context body flush-left (no icon-column indent); heading row keeps gutter (`LoOrientStage` `flushBody`).
 - **2026-09-08** — Orient: centre-align pathway icon with section headings (Learning outcomes / Context / Key definitions) via `items-center` on the title row only (`LoOrientStage`).

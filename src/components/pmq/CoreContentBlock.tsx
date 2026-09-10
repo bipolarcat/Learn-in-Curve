@@ -4,7 +4,11 @@ import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
-import { StudyTable } from "@/components/pmq/StudyTable";
+import {
+  StudyHeadingChromeProvider,
+  StudyHeadingChromeSlot,
+  StudyTable,
+} from "@/components/pmq/StudyTable";
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
 import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
 
@@ -194,6 +198,8 @@ export function CoreContentBlock({
   const blockWorked = activitiesEnabled ? (block.worked_examples ?? []) : [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
   const sections = splitSections(block.body_markdown);
+  /** LO2 only — hoist study-table tools onto ##; drop LEVEL label. */
+  const toolbarOnHeading = loNumber === 2 && studyTables;
 
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
@@ -229,6 +235,7 @@ export function CoreContentBlock({
           Tag: "h4" | "h5",
           className: string,
           children: ReactNode,
+          withChromeSlot: boolean,
         ) {
           const raw = headingText(children);
           const matched = diagramsFor(diagrams, raw, "after_heading");
@@ -238,7 +245,18 @@ export function CoreContentBlock({
 
           return (
             <div className="not-prose min-w-0 max-w-full">
-              <Tag className={className}>{mapHeadingChildren(children)}</Tag>
+              {withChromeSlot ? (
+                <div className="mt-5 mb-2 flex min-w-0 items-start justify-between gap-2 first:mt-0">
+                  <Tag
+                    className={`${className} mt-0 mb-0 min-w-0 flex-1 first:mt-0`}
+                  >
+                    {mapHeadingChildren(children)}
+                  </Tag>
+                  <StudyHeadingChromeSlot />
+                </div>
+              ) : (
+                <Tag className={className}>{mapHeadingChildren(children)}</Tag>
+              )}
               {matched.map((d) => renderDiagram(d, loNumber))}
               <ExamTipList tips={headingTips} />
             </div>
@@ -251,12 +269,14 @@ export function CoreContentBlock({
               "h4",
               "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0",
               children,
+              toolbarOnHeading,
             ),
           h3: ({ children }: { children?: ReactNode }) =>
             renderHeading(
               "h5",
               "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
               children,
+              false,
             ),
           table: ({ children }: { children?: ReactNode }) => {
             if (studyTables) {
@@ -264,6 +284,7 @@ export function CoreContentBlock({
                 <StudyTable
                   activities={sectionActivities}
                   workedExamples={sectionWorked}
+                  toolbarOnHeading={toolbarOnHeading}
                 >
                   {children}
                 </StudyTable>
@@ -282,8 +303,8 @@ export function CoreContentBlock({
           ),
         };
 
-        return (
-          <div key={section.heading ?? `section-${index}`} className="min-w-0">
+        const sectionBody = (
+          <>
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={markdownComponents}
@@ -304,6 +325,16 @@ export function CoreContentBlock({
               </div>
             ) : null}
             <ExamTipList tips={tips} />
+          </>
+        );
+
+        return (
+          <div key={section.heading ?? `section-${index}`} className="min-w-0">
+            {toolbarOnHeading ? (
+              <StudyHeadingChromeProvider>{sectionBody}</StudyHeadingChromeProvider>
+            ) : (
+              sectionBody
+            )}
           </div>
         );
       })}
