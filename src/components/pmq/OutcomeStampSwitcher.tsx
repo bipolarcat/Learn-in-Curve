@@ -96,14 +96,14 @@ export function OutcomeStampSwitcher({
                 "transition-colors duration-150 ease-[var(--ease-out-quint)]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-paper",
                 selected
-                  ? "text-ink"
+                  ? "text-[rgb(var(--avatar-plate-rgb))]"
                   : "text-ink/45 hover:text-ink/70",
               )}
             >
               {selected ? (
                 <motion.span
                   layoutId={thumbId}
-                  className="absolute inset-0 -z-10 rounded-[8px] bg-paper shadow-[0_1px_1px_rgb(var(--ink-rgb)_/_0.06),0_1px_3px_rgb(var(--ink-rgb)_/_0.08),0_0_0_0.5px_rgb(var(--ink-rgb)_/_0.04)] dark:bg-paper dark:shadow-[0_1px_2px_rgb(0_0_0_/_0.35),0_0_0_0.5px_rgb(255_255_255_/_0.06)]"
+                  className="absolute inset-0 -z-10 rounded-[8px] bg-teal shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.12),0_1px_3px_rgb(var(--teal-rgb)_/_0.25)] dark:shadow-[0_1px_2px_rgb(0_0_0_/_0.35)]"
                   transition={
                     reduceMotion
                       ? { duration: 0 }
