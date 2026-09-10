@@ -1,19 +1,31 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { LayoutGrid, Link2, ListOrdered, type LucideIcon } from "lucide-react";
+import { useRef, useState, type ComponentType } from "react";
 import type { LoActivity } from "@/types/pmq";
 import { ActivityModal } from "@/components/pmq/activities/ActivityModal";
 import { ACTIVITY_DISPLAY_NAMES } from "@/components/pmq/activities/names";
 import { Pairup } from "@/components/pmq/activities/Pairup";
 import { Lineup } from "@/components/pmq/activities/Lineup";
 import { Groupup } from "@/components/pmq/activities/Groupup";
+import {
+  ActivityGroupupIcon,
+  ActivityLineupIcon,
+  ActivityPairupIcon,
+} from "@/components/pmq/activities/ActivityIcons";
 import { cn } from "@/lib/utils";
 
-const ICONS: Record<LoActivity["type"], LucideIcon> = {
-  pairup: Link2,
-  lineup: ListOrdered,
-  groupup: LayoutGrid,
+type ActivityIconProps = {
+  active?: boolean;
+  className?: string;
+};
+
+const ICONS: Record<
+  LoActivity["type"],
+  ComponentType<ActivityIconProps>
+> = {
+  pairup: ActivityPairupIcon,
+  lineup: ActivityLineupIcon,
+  groupup: ActivityGroupupIcon,
 };
 
 type ActivityLauncherProps = {
@@ -24,9 +36,11 @@ type ActivityLauncherProps = {
 /** Icon in a study table rowhead — opens the recall activity modal. */
 export function ActivityLauncher({ activity, className }: ActivityLauncherProps) {
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const label = ACTIVITY_DISPLAY_NAMES[activity.type];
   const Icon = ICONS[activity.type];
+  const morphActive = open || hovered;
 
   return (
     <>
@@ -34,14 +48,18 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
         ref={buttonRef}
         type="button"
         onClick={() => setOpen(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         title={label}
         aria-label={`${label}: ${activity.title}`}
+        aria-expanded={open}
         className={cn(
-          "inline-flex size-8 shrink-0 items-center justify-center rounded-lg border border-teal/30 bg-teal/10 text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation hover:border-teal/50 hover:bg-teal/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          "group inline-flex size-8 shrink-0 items-center justify-center rounded-lg border border-teal/30 bg-teal/10 text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation hover:border-teal/50 hover:bg-teal/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          open && "border-teal/55 bg-teal/20",
           className,
         )}
       >
-        <Icon className="size-3.5" strokeWidth={2} aria-hidden />
+        <Icon active={morphActive} />
       </button>
 
       <ActivityModal

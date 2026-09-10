@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-10** — Recall activity launchers: replaced Lucide Link2/ListOrdered/LayoutGrid with custom monoline glyphs (`ActivityIcons`, same language as header menu) + MenuToggle-style morph on hover/open (`ActivityLauncher`).
 - **2026-09-10** — LO2 section `##` headings: restored `font-semibold` + full ink (kept 15px so they stay below the 20px outcome title).
 - **2026-09-10** — LO2 mobile outcome title: dropped `text-balance` so the first line fills the row instead of balancing wraps (`Lo1CoreContentStudy`).
 - **2026-09-10** — LO2 Orient: outcome badges jump straight to Learn at that sub-outcome (`jumpToStage` marks Orient done — same as Continue). Wired via `LoOrientStage` → `LoStudyJourney` → `Lo1CoreContentStudy` `focusOutcomeCode`.
