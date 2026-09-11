@@ -104,14 +104,11 @@ export function WorkedExampleLauncher({
             <h3 className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-orange">
               Ask
             </h3>
-            <p className="mt-1.5 font-body text-[14px] font-semibold leading-relaxed text-ink">
+            <p className="mt-1.5 font-body text-[14px] leading-relaxed text-ink">
               {example.ask}
             </p>
           </motion.section>
-          <motion.section
-            variants={answerVariants}
-            className="rounded-xl border border-teal/25 bg-teal/[0.06] px-3.5 py-3 dark:bg-teal/10"
-          >
+          <motion.section variants={answerVariants}>
             <h3 className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-teal">
               Answer
             </h3>
