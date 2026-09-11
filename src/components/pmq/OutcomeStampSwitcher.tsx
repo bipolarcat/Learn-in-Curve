@@ -54,7 +54,7 @@ export function OutcomeStampSwitcher({
       <div
         role="radiogroup"
         aria-labelledby={labelId}
-        className="relative flex w-full items-stretch gap-0 rounded-[8px] bg-ink/[0.06] p-0.5 dark:bg-white/[0.08]"
+        className="relative flex w-full items-stretch gap-0 rounded-[7px] bg-ink/[0.06] p-px dark:bg-white/[0.08]"
         onKeyDown={(event) => {
           if (event.key === "ArrowRight" || event.key === "ArrowDown") {
             event.preventDefault();
@@ -92,7 +92,7 @@ export function OutcomeStampSwitcher({
               tabIndex={selected ? 0 : -1}
               onClick={() => onChange(index)}
               className={cn(
-                "relative z-0 flex min-h-8 min-w-0 flex-1 items-center justify-center rounded-[6px] px-1.5 font-body text-[12px] font-semibold tabular-nums tracking-[-0.01em] touch-manipulation [-webkit-tap-highlight-color:transparent]",
+                "relative z-0 flex min-h-7 min-w-0 flex-1 items-center justify-center rounded-[6px] px-1.5 font-body text-[11.5px] font-semibold tabular-nums tracking-[-0.01em] touch-manipulation [-webkit-tap-highlight-color:transparent]",
                 "transition-colors duration-150 ease-[var(--ease-out-quint)]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-paper",
                 selected
