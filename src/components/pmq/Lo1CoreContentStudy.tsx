@@ -328,6 +328,17 @@ export function Lo1CoreContentStudy({
         >
           {badgeVariant === "stamp" ? (
             <>
+              <div className="mb-2.5 flex min-w-0 items-center gap-2">
+                <span
+                  className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-teal/10"
+                  aria-hidden
+                >
+                  <Layers className="size-3.5 text-teal" strokeWidth={1.8} />
+                </span>
+                <h2 className="m-0 font-body text-[14px] font-semibold leading-none tracking-tight text-ink">
+                  Core content
+                </h2>
+              </div>
               <nav aria-label="Learning outcomes">
                 <OutcomeStampSwitcher
                   options={blocks.map((block) => ({
@@ -339,10 +350,10 @@ export function Lo1CoreContentStudy({
                   badgeVariant={badgeVariant}
                 />
               </nav>
-              <h2 className="m-0 mt-3.5 min-w-0 font-body text-[20px] font-semibold leading-[1.25] tracking-tight text-ink">
+              <h3 className="m-0 mt-3 min-w-0 font-body text-[20px] font-semibold leading-[1.25] tracking-tight text-ink">
                 <span className="sr-only">{active.outcome_code}: </span>
                 {active.outcome_title}
-              </h2>
+              </h3>
             </>
           ) : (
             <>
