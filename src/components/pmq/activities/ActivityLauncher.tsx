@@ -60,6 +60,7 @@ export function ActivityLauncher({
 }: ActivityLauncherProps) {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [playKey, setPlayKey] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
   const label = ACTIVITY_DISPLAY_NAMES[activity.type];
@@ -94,6 +95,7 @@ export function ActivityLauncher({
       <ActivityModal
         open={open}
         onClose={() => setOpen(false)}
+        onRetry={() => setPlayKey((n) => n + 1)}
         returnFocusRef={buttonRef}
         eyebrow={label}
         eyebrowIcon={<Icon active className="size-4" />}
@@ -104,11 +106,11 @@ export function ActivityLauncher({
       >
         {open ? (
           activity.type === "pairup" ? (
-            <Pairup key={activity.id} activity={activity} />
+            <Pairup key={`${activity.id}-${playKey}`} activity={activity} />
           ) : activity.type === "lineup" ? (
-            <Lineup key={activity.id} activity={activity} />
+            <Lineup key={`${activity.id}-${playKey}`} activity={activity} />
           ) : (
-            <Groupup key={activity.id} activity={activity} />
+            <Groupup key={`${activity.id}-${playKey}`} activity={activity} />
           )
         ) : null}
       </ActivityModal>

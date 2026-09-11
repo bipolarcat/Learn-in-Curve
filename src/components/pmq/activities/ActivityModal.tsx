@@ -13,7 +13,7 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { X } from "lucide-react";
+import { RotateCcw, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -33,6 +33,8 @@ const panelSpring = {
 type ActivityModalProps = {
   open: boolean;
   onClose: () => void;
+  /** Reset the play surface without closing the sheet. */
+  onRetry?: () => void;
   title: string;
   note?: string;
   eyebrow?: string;
@@ -54,6 +56,7 @@ type ActivityModalProps = {
 export function ActivityModal({
   open,
   onClose,
+  onRetry,
   title,
   note,
   eyebrow,
@@ -160,7 +163,7 @@ export function ActivityModal({
               size === "wide" ? "max-w-2xl" : "max-w-xl",
             )}
           >
-            <header className="relative shrink-0 px-5 pb-1.5 pt-5 pr-12 sm:px-6">
+            <header className="relative shrink-0 px-5 pb-1.5 pt-5 pr-[4.75rem] sm:px-6">
               {eyebrow ? (
                 <p className="m-0 flex items-center gap-1.5 font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-teal/90">
                   {eyebrowIcon ? (
@@ -182,15 +185,28 @@ export function ActivityModal({
                   {note}
                 </p>
               ) : null}
-              <button
-                ref={closeRef}
-                type="button"
-                onClick={onClose}
-                aria-label="Close"
-                className="absolute right-3.5 top-3.5 inline-flex size-8 items-center justify-center rounded-full text-ink/35 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
-              >
-                <X className="size-4" strokeWidth={2} aria-hidden />
-              </button>
+              <div className="absolute right-3.5 top-3.5 flex items-center gap-0.5">
+                {onRetry ? (
+                  <button
+                    type="button"
+                    onClick={onRetry}
+                    aria-label="Retry"
+                    title="Retry"
+                    className="inline-flex size-8 items-center justify-center rounded-full text-ink/35 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
+                  >
+                    <RotateCcw className="size-3.5" strokeWidth={2} aria-hidden />
+                  </button>
+                ) : null}
+                <button
+                  ref={closeRef}
+                  type="button"
+                  onClick={onClose}
+                  aria-label="Close"
+                  className="inline-flex size-8 items-center justify-center rounded-full text-ink/35 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
+                >
+                  <X className="size-4" strokeWidth={2} aria-hidden />
+                </button>
+              </div>
             </header>
 
             <div
