@@ -43,7 +43,7 @@
 .meta {
   display: grid;
   gap: 0.35rem;
-  padding: 0 0.75rem 0.55rem;
+  padding: 0 0.75rem 0.15rem;
 }
 
 .notice {
@@ -60,7 +60,7 @@
 .list {
   display: grid;
   gap: 0;
-  padding: 0.1rem 0.45rem 0.45rem;
+  padding: 0 0.45rem 0.45rem;
 }
 
 .row {
@@ -263,7 +263,7 @@
   }
 
   .meta {
-    padding: 0 0.85rem 0.6rem;
+    padding: 0 0.85rem 0.2rem;
   }
 
   .notice {
@@ -271,7 +271,7 @@
   }
 
   .list {
-    padding: 0.15rem 0.65rem 0.55rem;
+    padding: 0 0.65rem 0.55rem;
   }
 
   .row {
