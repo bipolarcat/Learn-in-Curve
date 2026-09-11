@@ -400,7 +400,7 @@ function MultiColumnTable({
         </table>
       </div>
       {needsSideScroll ? (
-        <p className="m-0 mt-1.5 font-body text-[11px] leading-snug tracking-tight text-ink/45">
+        <p className="m-0 mt-1.5 text-right font-body text-[11px] leading-snug tracking-tight text-ink/45">
           Swipe sideways to see all columns.
         </p>
       ) : null}
