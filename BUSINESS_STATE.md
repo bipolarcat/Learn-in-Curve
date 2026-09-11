@@ -21,6 +21,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 - **2026-09-12** — PMQ mock rows: tighter vertical spacing between papers (`row` min-height + padding).
 - **2026-09-12** — PMQ mock rows: more space between “Mock exam N” and status (`rowStatus` margin-inline-start).
+- **2026-09-12** — Command words: compact two-column rows + “Command word / Question type” headers; tighter line-height (`PmqCommandWords.module.css`).
 - **2026-09-12** — Command words: sleeker single list (verbs + quiet type + action); dropped mobile/desktop dual table (`PmqOverviewSections`, `PmqCommandWords.module.css`).
 - **2026-09-12** — PMQ mock action buttons: drop pill border; smaller arrow (`PmqMockExamsSection`).
 - **2026-09-12** — PMQ mock action buttons: shift right, lighter ink/50 type at 11px (`PmqMockExamsSection`).

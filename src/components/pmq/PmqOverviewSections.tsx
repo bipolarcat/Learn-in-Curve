@@ -151,8 +151,8 @@ export function PmqWhatsIncluded() {
 }
 
 /**
- * Examiner command-word reference. One quiet list at every breakpoint —
- * verbs first, type + action secondary (no desktop table chrome).
+ * Examiner command-word reference. Two-column rows: command words left,
+ * question type right; action under the verbs.
  */
 export function PmqCommandWordsTable() {
   return (
@@ -168,14 +168,19 @@ export function PmqCommandWordsTable() {
           for before you write.
         </p>
 
+        <div className={styles.colHead} aria-hidden>
+          <span className={styles.colLabel}>Command word</span>
+          <span className={styles.colLabel}>Question type</span>
+        </div>
+
         <ul className={styles.list} aria-label="Command words">
           {COMMAND_WORD_GROUPS.map((row, i) => (
             <li key={`${row.type}-${row.verbs}-${i}`} className={styles.row}>
-              <div className={styles.rowHead}>
+              <div className={styles.left}>
                 <p className={styles.verbs}>{row.verbs}</p>
-                <span className={styles.type}>{row.type}</span>
+                <p className={styles.action}>{row.action}</p>
               </div>
-              <p className={styles.action}>{row.action}</p>
+              <span className={styles.type}>{row.type}</span>
             </li>
           ))}
         </ul>
