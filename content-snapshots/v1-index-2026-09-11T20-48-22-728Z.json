@@ -1,0 +1,658 @@
+[
+  {
+    "order_index": 1,
+    "lo_code": "1a, 1b, 1c, 1d",
+    "title": "Life cycles",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Life cycles",
+        "lesson_type": "content",
+        "body_bytes": 34218,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 1,
+    "lo_code": "PFQ-OBJ-01",
+    "title": "Project management and the operating environment",
+    "day": 1,
+    "theme": "Day 1",
+    "lessons": []
+  },
+  {
+    "order_index": 2,
+    "lo_code": "PFQ-OBJ-02",
+    "title": "Project life cycles",
+    "day": 1,
+    "theme": "Day 1",
+    "lessons": []
+  },
+  {
+    "order_index": 2,
+    "lo_code": "2a, 2b, 2c, 2d",
+    "title": "Governance Arrangements",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Governance arrangements",
+        "lesson_type": "content",
+        "body_bytes": 50910,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 3,
+    "lo_code": "PFQ-OBJ-03",
+    "title": "Roles and responsibilities",
+    "day": 1,
+    "theme": "Day 1",
+    "lessons": []
+  },
+  {
+    "order_index": 3,
+    "lo_code": "3a, 3b",
+    "title": "Sustainability",
+    "day": 1,
+    "theme": "Foundations",
+    "lessons": [
+      {
+        "title": "Sustainability",
+        "lesson_type": "content",
+        "body_bytes": 31811,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 4,
+    "lo_code": "4a, 4b",
+    "title": "Business Case",
+    "day": 1,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Business case",
+        "lesson_type": "content",
+        "body_bytes": 36476,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 4,
+    "lo_code": "PFQ-OBJ-04",
+    "title": "Project management planning",
+    "day": 1,
+    "theme": "Day 1",
+    "lessons": []
+  },
+  {
+    "order_index": 5,
+    "lo_code": "5a, 5b, 5c",
+    "title": "Procurement",
+    "day": 1,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Procurement",
+        "lesson_type": "content",
+        "body_bytes": 39580,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 5,
+    "lo_code": "PFQ-OBJ-05",
+    "title": "Project scope management",
+    "day": 1,
+    "theme": "Day 1",
+    "lessons": []
+  },
+  {
+    "order_index": 6,
+    "lo_code": "PFQ-OBJ-06",
+    "title": "Resource, scheduling and optimisation",
+    "day": 2,
+    "theme": "Day 2",
+    "lessons": []
+  },
+  {
+    "order_index": 6,
+    "lo_code": "6a, 6b, 6c, 6d",
+    "title": "Reviews",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Reviews",
+        "lesson_type": "content",
+        "body_bytes": 41264,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 7,
+    "lo_code": "7a",
+    "title": "Assurance",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Assurance",
+        "lesson_type": "content",
+        "body_bytes": 27448,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 7,
+    "lo_code": "PFQ-OBJ-07",
+    "title": "Project risk and issue management",
+    "day": 2,
+    "theme": "Day 2",
+    "lessons": []
+  },
+  {
+    "order_index": 8,
+    "lo_code": "8a, 8b, 8c",
+    "title": "Transition Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Transition management",
+        "lesson_type": "content",
+        "body_bytes": 37348,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 8,
+    "lo_code": "PFQ-OBJ-08",
+    "title": "Quality",
+    "day": 2,
+    "theme": "Day 2",
+    "lessons": []
+  },
+  {
+    "order_index": 9,
+    "lo_code": "PFQ-OBJ-09",
+    "title": "Communication",
+    "day": 2,
+    "theme": "Day 2",
+    "lessons": []
+  },
+  {
+    "order_index": 9,
+    "lo_code": "9a, 9b",
+    "title": "Benefits Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Benefits management",
+        "lesson_type": "content",
+        "body_bytes": 33295,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 10,
+    "lo_code": "PFQ-OBJ-10",
+    "title": "Leadership and teamwork",
+    "day": 2,
+    "theme": "Day 2",
+    "lessons": []
+  },
+  {
+    "order_index": 10,
+    "lo_code": "10a, 10b, 10c, 10d, 10e, 10f",
+    "title": "Stakeholder Engagement and Communications Management",
+    "day": 2,
+    "theme": "Setting Up",
+    "lessons": [
+      {
+        "title": "Stakeholder engagement and communication management",
+        "lesson_type": "content",
+        "body_bytes": 49776,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 11,
+    "lo_code": "11a, 11b, 11c",
+    "title": "Conflict Resolution",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Conflict resolution",
+        "lesson_type": "content",
+        "body_bytes": 34537,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 12,
+    "lo_code": "12a, 12b, 12c",
+    "title": "Leadership",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Leadership",
+        "lesson_type": "content",
+        "body_bytes": 42949,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 13,
+    "lo_code": "13a, 13b, 13c",
+    "title": "Team Management",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Team management",
+        "lesson_type": "content",
+        "body_bytes": 39210,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 14,
+    "lo_code": "14a, 14b, 14c",
+    "title": "Diversity and Inclusion",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Diversity and inclusion",
+        "lesson_type": "content",
+        "body_bytes": 37775,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 15,
+    "lo_code": "15a, 15b, 15c",
+    "title": "Ethics, Compliance and Professionalism",
+    "day": 3,
+    "theme": "People",
+    "lessons": [
+      {
+        "title": "Ethics, compliance and professionalism",
+        "lesson_type": "content",
+        "body_bytes": 39970,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 16,
+    "lo_code": "16a, 16b",
+    "title": "Requirements Management",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Requirements management",
+        "lesson_type": "content",
+        "body_bytes": 34412,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 17,
+    "lo_code": "17a",
+    "title": "Solutions Development",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Solutions development",
+        "lesson_type": "content",
+        "body_bytes": 31741,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 18,
+    "lo_code": "18a, 18b",
+    "title": "Quality Management",
+    "day": 4,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Quality management",
+        "lesson_type": "content",
+        "body_bytes": 36948,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 19,
+    "lo_code": "19a, 19b",
+    "title": "Integrated Planning",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Integrated planning",
+        "lesson_type": "content",
+        "body_bytes": 37050,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 20,
+    "lo_code": "20a, 20b, 20c",
+    "title": "Schedule Management",
+    "day": 4,
+    "theme": "Planning",
+    "lessons": [
+      {
+        "title": "Schedule management",
+        "lesson_type": "content",
+        "body_bytes": 41795,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 21,
+    "lo_code": "21a, 21b, 21c, 21d",
+    "title": "Resource Management",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Resource management",
+        "lesson_type": "content",
+        "body_bytes": 37379,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 22,
+    "lo_code": "22a, 22b, 22c, 22d",
+    "title": "Budgeting and Cost Control",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Budgeting and cost control",
+        "lesson_type": "content",
+        "body_bytes": 35217,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 23,
+    "lo_code": "23a, 23b, 23c, 23d",
+    "title": "Risk and Issue Management",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Risk and issue management",
+        "lesson_type": "content",
+        "body_bytes": 43582,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  },
+  {
+    "order_index": 24,
+    "lo_code": "24a, 24b, 24c, 24d, 24e",
+    "title": "Change Control",
+    "day": 5,
+    "theme": "Delivery",
+    "lessons": [
+      {
+        "title": "Change control",
+        "lesson_type": "content",
+        "body_bytes": 43904,
+        "body_keys": [
+          "apm_learning_objective",
+          "core_content",
+          "key_definitions",
+          "learning_outcomes",
+          "memory_aids",
+          "misconceptions",
+          "progress_checkpoint",
+          "where_this_fits"
+        ]
+      }
+    ]
+  }
+]

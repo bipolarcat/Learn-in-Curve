@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ClipboardList } from "lucide-react";
 import type { WorkedExampleCard } from "@/types/pmq";
 import { ActivityModal } from "@/components/pmq/activities/ActivityModal";
+import { WorkedExampleIcon } from "@/components/pmq/activities/WorkedExampleIcon";
 import { cn } from "@/lib/utils";
 
 type WorkedExampleLauncherProps = {
@@ -30,11 +30,11 @@ export function WorkedExampleLauncher({
         className={cn(
           // Negative margin keeps a ≥44px hit target without kicking the glyph
           // off the text baseline next to the row label.
-          "inline-flex size-9 shrink-0 -m-1.5 items-center justify-center rounded-md text-orange transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:text-orange/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          "inline-flex size-9 shrink-0 -m-1.5 items-center justify-center rounded-md transition-opacity duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
           className,
         )}
       >
-        <ClipboardList className="size-3.5" strokeWidth={2} aria-hidden />
+        <WorkedExampleIcon className="size-4" />
       </button>
 
       <ActivityModal
