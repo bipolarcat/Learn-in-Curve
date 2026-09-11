@@ -21,6 +21,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 - **2026-09-12** — PMQ mock rows: tighter vertical spacing between papers (`row` min-height + padding).
 - **2026-09-12** — PMQ mock rows: more space between “Mock exam N” and status (`rowStatus` margin-inline-start).
+- **2026-09-12** — Plan Continue CTA: label includes destination LO — `Continue · LO N` / `Start · LO N` (`PmqPlanContinue`).
 - **2026-09-12** — Plan Continue CTA: show **Continue** (not Start) once any LO pathway stage is reached — e.g. Orient alone (`PmqPlanContinue` + `stageReachedBySectionId`).
 - **2026-09-12** — PMQ mock console: tighter gap between title bar and “One sitting only…” notice (`PmqMockExamsSection.module.css`).
 - **2026-09-12** — Reverted course-overview heading→subtitle tighten (back to prior gaps on day plan, mocks, command words, more resources, exam guide).

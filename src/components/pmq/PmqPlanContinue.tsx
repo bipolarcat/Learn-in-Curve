@@ -42,7 +42,8 @@ export function PmqPlanContinue({
   const started =
     completedSectionIds.length > 0 || nextPathwayStarted || anyPathwayStarted;
   const href = next ? pmqLoHref(next.order_index) : pmqMockHref("lite", 1);
-  const label = next ? (started ? "Continue" : "Start") : "Open Mock";
+  const verb = started ? "Continue" : "Start";
+  const label = next ? `${verb} · LO ${next.order_index}` : "Open Mock";
 
   return (
     <button
