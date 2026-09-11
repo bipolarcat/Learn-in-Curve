@@ -130,6 +130,12 @@
   color: rgb(var(--ink-rgb));
 }
 
+.rowActionBtn {
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: -0.012em;
+}
+
 .rowLockIcon {
   width: 0.75rem;
   height: 0.75rem;
