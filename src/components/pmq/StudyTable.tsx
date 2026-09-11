@@ -177,12 +177,6 @@ function ActivityRowHead({
           key={activity.id}
           activity={activity}
           className={compact ? "!size-7" : undefined}
-          iconClassName={
-            compact &&
-            (activity.type === "pairup" || activity.type === "groupup")
-              ? "!size-5"
-              : undefined
-          }
         />
       ))}
     </div>
