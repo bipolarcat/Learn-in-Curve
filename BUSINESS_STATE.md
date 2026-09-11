@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-12** — FAQs: tighter title→subtitle gap (`FaqAccordion.module.css`).
 - **2026-09-12** — FAQs: all-ink title + subtitle “Frequently asked questions” (`PmqFaqSection`, `FaqAccordion`).
 - **2026-09-12** — Exam essentials Syllabus tab: Area stays one line; Learning objectives + Share of exam headings stack 2 lines with centred values (`PmqExamGuideSections`).
 - **2026-09-12** — More resources: tighter gap between title and lede (`PmqMoreResources.module.css`).
