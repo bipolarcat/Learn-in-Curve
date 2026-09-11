@@ -90,10 +90,10 @@ export function PmqOverview({
           summaries={mockExamSummaries}
         />
 
+        <PmqCommandWordsTable />
         <PmqExamStructureSection />
         <PmqMarksBreakdownSection />
         <PmqSyllabusWeightSection />
-        <PmqCommandWordsTable />
         <PmqMarkingGuidanceSection />
         <PmqPassMarkSection />
         <PmqGlobalFurtherReading />
