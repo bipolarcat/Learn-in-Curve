@@ -364,6 +364,9 @@ export function PmqDayPlan({
           <h2 id="pmq-plan-heading" className={styles.title}>
             Your <span className={styles.titleAccent}>5-day</span> plan
           </h2>
+          <p className={styles.subtitle}>
+            24 learning objectives to explore. Start with any one.
+          </p>
         </div>
         {titleAction ? (
           <div className={styles.titleAction}>{titleAction}</div>

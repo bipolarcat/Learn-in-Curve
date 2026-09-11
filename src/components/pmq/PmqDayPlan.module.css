@@ -43,6 +43,16 @@
   color: rgb(var(--ink-rgb));
 }
 
+.subtitle {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.65);
+}
+
 .titleAccent {
   color: var(--orange);
 }
