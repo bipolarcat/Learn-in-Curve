@@ -8,10 +8,11 @@ type DiagramFigureProps = {
 };
 
 /**
- * Cream-background figure for v2 course diagrams.
+ * Cream-background figure box for v2 course diagrams.
  *
- * Full content width (capped on very wide screens); diagram SVG should be
- * cropped tight in the asset — this shell stays quiet (no extra frame).
+ * Fixed at max 620 px on desktop (centred); shrinks fluidly below that.
+ * Reserves the 1024×705 aspect ratio so there is no layout shift while
+ * the SVG loads.
  */
 export function DiagramFigure({
   src,
@@ -20,7 +21,7 @@ export function DiagramFigure({
   figureNumber,
 }: DiagramFigureProps) {
   return (
-    <figure className="mx-auto my-6 w-full max-w-[720px]">
+    <figure className="mx-auto my-8 w-full max-w-[620px] rounded-lg border border-ink/10 bg-cream p-4">
       <Image
         src={src}
         alt={alt}
@@ -29,7 +30,7 @@ export function DiagramFigure({
         className="block h-auto w-full"
         loading="lazy"
       />
-      <figcaption className="mt-2.5 text-center text-sm italic text-ink/60">
+      <figcaption className="mt-3 text-center text-sm italic text-ink/60">
         Figure {figureNumber} — {caption}
       </figcaption>
     </figure>
