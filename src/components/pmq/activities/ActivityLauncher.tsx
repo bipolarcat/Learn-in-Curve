@@ -43,9 +43,7 @@ function playHowTo(
       ? "Tap two rows to swap them."
       : "Drag by the handle to reorder.";
   }
-  return reduceMotion
-    ? "Select a card, then tap its tray."
-    : "Drag each card into its tray.";
+  return "Drag each card into its tray.";
 }
 
 type ActivityLauncherProps = {

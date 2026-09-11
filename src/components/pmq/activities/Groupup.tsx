@@ -54,7 +54,7 @@ const POCKET_TONES = [
 ] as const;
 
 /**
- * Group up — drag chips into character pockets (Crouton/Matter folder metaphor).
+ * Group up — drag chips into trays. Pointer drag only (no tap-to-select).
  * Correct drops swallow into the pocket; invite is teal wash, never orange outline.
  */
 export function Groupup({ activity }: GroupupProps) {
@@ -71,7 +71,6 @@ export function Groupup({ activity }: GroupupProps) {
   const [placement, setPlacement] = useState<Record<string, string>>({});
   const [locked, setLocked] = useState<Set<string>>(() => new Set());
   const [wrongTurns, setWrongTurns] = useState(0);
-  const [selected, setSelected] = useState<string | null>(null);
   const [hotBucket, setHotBucket] = useState<string | null>(null);
   const [shakeBucket, setShakeBucket] = useState<string | null>(null);
   const [drag, setDrag] = useState<DragState | null>(null);
@@ -113,7 +112,6 @@ export function Groupup({ activity }: GroupupProps) {
     setPlacement((current) => ({ ...current, [label]: bucketId }));
     setLocked((current) => new Set(current).add(label));
     setPool((current) => current.filter((item) => item !== label));
-    setSelected(null);
     setHotBucket(null);
     setShakeBucket(null);
     setSwallow(null);
@@ -131,7 +129,6 @@ export function Groupup({ activity }: GroupupProps) {
         return;
       }
       setPool((current) => current.filter((item) => item !== label));
-      setSelected(null);
       setHotBucket(bucketId);
       setSwallow({
         label,
@@ -148,34 +145,8 @@ export function Groupup({ activity }: GroupupProps) {
     window.setTimeout(() => setShakeBucket(null), 360);
   }
 
-  function onChipActivate(label: string) {
-    if (done || locked.has(label) || !pool.includes(label) || swallow) return;
-    setSelected((current) => (current === label ? null : label));
-  }
-
-  function onBucketActivate(bucketId: string) {
-    if (!selected || swallow) return;
-    const el = chipRefs.current.get(selected);
-    const r = el?.getBoundingClientRect();
-    commitDrop(
-      selected,
-      bucketId,
-      r
-        ? {
-            x: r.left + r.width / 2,
-            y: r.top + r.height / 2,
-            width: r.width,
-          }
-        : undefined,
-    );
-  }
-
   function startDrag(label: string, event: ReactPointerEvent) {
     if (done || locked.has(label) || event.button !== 0 || swallow) return;
-    if (reduceMotion) {
-      onChipActivate(label);
-      return;
-    }
     if (!pool.includes(label)) return;
     const el = chipRefs.current.get(label);
     if (!el) return;
@@ -222,10 +193,7 @@ export function Groupup({ activity }: GroupupProps) {
         event.clientX - current.startX,
         event.clientY - current.startY,
       );
-      if (moved < TAP_SLOP_PX) {
-        onChipActivate(current.label);
-        return;
-      }
+      if (moved < TAP_SLOP_PX) return;
       const bucketId = hitBucket(event.clientX, event.clientY);
       if (bucketId) {
         commitDrop(current.label, bucketId, {
@@ -268,7 +236,6 @@ export function Groupup({ activity }: GroupupProps) {
           <div className="flex min-h-[2.25rem] flex-wrap gap-1.5">
             <AnimatePresence initial={false} mode="popLayout">
               {pool.map((label) => {
-                const isSelected = selected === label;
                 const isDragging = drag?.label === label && dragging;
                 return (
                   <motion.button
@@ -284,7 +251,7 @@ export function Groupup({ activity }: GroupupProps) {
                     }
                     animate={{
                       opacity: isDragging ? 0.2 : 1,
-                      scale: isSelected ? 1.015 : 1,
+                      scale: 1,
                     }}
                     exit={
                       reduceMotion
@@ -293,13 +260,10 @@ export function Groupup({ activity }: GroupupProps) {
                     }
                     transition={softSpring}
                     onPointerDown={(event) => startDrag(label, event)}
-                    aria-pressed={isSelected}
                     className={cn(
-                      "max-w-full touch-none select-none rounded-full px-3 py-1.5 text-left font-body text-[12.5px] font-medium leading-snug tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
+                      "max-w-full touch-none select-none rounded-full bg-ink/[0.045] px-3 py-1.5 text-left font-body text-[12.5px] font-medium leading-snug tracking-tight text-ink/90 transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] dark:bg-white/[0.06] dark:hover:bg-white/[0.09]",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
-                      isSelected
-                        ? "bg-teal/[0.12] text-ink shadow-[inset_0_0_0_1px_rgb(var(--teal-rgb)_/_0.28)]"
-                        : "bg-ink/[0.045] text-ink/90 hover:bg-ink/[0.07] dark:bg-white/[0.06] dark:hover:bg-white/[0.09]",
+                      "cursor-grab active:cursor-grabbing",
                     )}
                   >
                     {label}
@@ -326,8 +290,7 @@ export function Groupup({ activity }: GroupupProps) {
               .filter((label) => placement[label] === bucket.id);
             const isHot = hotBucket === bucket.id || swallow?.bucketId === bucket.id;
             const isShake = shakeBucket === bucket.id;
-            const isTapTarget = Boolean(selected) && !swallow;
-            const inviting = (isHot || isTapTarget) && !isShake;
+            const inviting = isHot && !isShake;
             const tone = POCKET_TONES[index % POCKET_TONES.length]!;
             const isSwallowing = swallow?.bucketId === bucket.id;
             const dense = activity.buckets.length >= 3;
@@ -338,15 +301,6 @@ export function Groupup({ activity }: GroupupProps) {
                 ref={(node) => {
                   if (node) bucketRefs.current.set(bucket.id, node);
                   else bucketRefs.current.delete(bucket.id);
-                }}
-                role={isTapTarget ? "button" : undefined}
-                tabIndex={isTapTarget ? 0 : undefined}
-                onClick={() => onBucketActivate(bucket.id)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    onBucketActivate(bucket.id);
-                  }
                 }}
                 animate={
                   isShake && !reduceMotion
