@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 /**
  * Recall activity glyphs.
  *
- * Pair up: iPhone-app-thumbnail mark (squircle) — LIC orange plate, teal pillars.
+ * Pair up: iPhone-app-thumbnail mark (squircle) — LIC orange plate, cream pillars, teal arrow.
  * Lineup / Group up: monoline marks with hover morphs.
  */
 
@@ -22,7 +22,7 @@ const baseSvg =
 /**
  * Pair up — iPhone-style squircle thumbnail.
  * Structure: twin pillars + bridge arrow (inspired by a pairing app mark);
- * LIC orange plate; teal pillars + cream bridge arrow.
+ * LIC orange plate; cream pillars + teal bridge arrow.
  */
 export function ActivityPairupIcon({
   active = false,
@@ -48,7 +48,7 @@ export function ActivityPairupIcon({
       {...props}
     >
       <defs>
-        <linearGradient id={barGrad} x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={barGrad} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#2A7A74" />
           <stop offset="100%" stopColor="#1B6560" />
         </linearGradient>
@@ -92,14 +92,14 @@ export function ActivityPairupIcon({
         strokeWidth="1"
       />
 
-      {/* Twin pillars */}
+      {/* Twin pillars — cream */}
       <rect
         x="14"
         y="16"
         width="14"
         height="32"
         rx="4"
-        fill={`url(#${barGrad})`}
+        fill="rgb(var(--avatar-plate-rgb))"
         className={cn(
           "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
           active && "translate-x-px",
@@ -112,7 +112,7 @@ export function ActivityPairupIcon({
         width="14"
         height="32"
         rx="4"
-        fill={`url(#${barGrad})`}
+        fill="rgb(var(--avatar-plate-rgb))"
         className={cn(
           "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
           active && "-translate-x-px",
@@ -120,10 +120,10 @@ export function ActivityPairupIcon({
         style={{ transitionDuration: duration }}
       />
 
-      {/* Bridge arrow — cream cut across both pillars */}
+      {/* Bridge arrow — teal across both pillars */}
       <path
         d="M18 27.5H38.5V22.5L50 32 38.5 41.5V36.5H18Z"
-        fill="rgb(var(--avatar-plate-rgb))"
+        fill={`url(#${barGrad})`}
         filter={`url(#${arrowShadow})`}
         className={cn(
           "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
