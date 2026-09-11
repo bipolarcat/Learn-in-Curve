@@ -10,7 +10,7 @@
 }
 
 .titleBar {
-  padding: 0.7rem 0.75rem 0.25rem;
+  padding: 0.7rem 0.75rem 0.05rem;
 }
 
 .title {
@@ -107,7 +107,7 @@
 
 @media (min-width: 40rem) {
   .titleBar {
-    padding: 0.8rem 0.85rem 0.3rem;
+    padding: 0.8rem 0.85rem 0.1rem;
   }
 
   .title {
