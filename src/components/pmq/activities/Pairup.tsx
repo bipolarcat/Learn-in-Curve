@@ -195,12 +195,6 @@ export function Pairup({ activity }: PairupProps) {
   return (
     <LayoutGroup>
       <div className="grid gap-5">
-        <p className="m-0 font-body text-[13px] font-medium leading-snug tracking-tight text-ink/50">
-          {reduceMotion
-            ? "Select a meaning, then tap its term."
-            : "Drag a meaning onto its term."}
-        </p>
-
         {/* Continuous list — hairlines, not stacked cards */}
         <ul className="m-0 list-none overflow-hidden rounded-[1.15rem] bg-ink/[0.035] p-0 dark:bg-white/[0.04]">
           {terms.map((term, index) => {
@@ -246,26 +240,13 @@ export function Pairup({ activity }: PairupProps) {
                     isShake && "bg-rust/[0.07]",
                   )}
                 >
-                  <div className="flex min-w-0 items-center gap-2.5">
-                    <span
-                      className={cn(
-                        "size-1.5 shrink-0 rounded-full transition-colors duration-200",
-                        match
-                          ? "bg-teal"
-                          : isHot
-                            ? "bg-orange"
-                            : "bg-ink/20",
-                      )}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 font-body text-[13.5px] font-semibold leading-snug tracking-[-0.01em] text-ink">
-                      {term}
-                    </span>
-                  </div>
+                  <span className="min-w-0 font-body text-[13.5px] font-semibold leading-snug tracking-[-0.01em] text-ink">
+                    {term}
+                  </span>
 
                   <div
                     className={cn(
-                      "relative flex min-h-[2.65rem] items-center rounded-[0.7rem] px-3 py-2 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out-quint)]",
+                      "relative flex min-h-[2.65rem] items-center rounded-[0.7rem] px-3 py-2 transition-[background-color,box-shadow] duration-200 ease-[var(--ease-out-quint)]",
                       match
                         ? "bg-paper/80 dark:bg-paper/40"
                         : isHot
@@ -317,7 +298,6 @@ export function Pairup({ activity }: PairupProps) {
           })}
         </ul>
 
-        {/* Pool — loose pills, no stamped tray chrome */}
         <div className="grid gap-2.5">
           <div className="flex items-center justify-between gap-3 px-0.5">
             <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
@@ -371,22 +351,27 @@ export function Pairup({ activity }: PairupProps) {
           </div>
         </div>
 
-        <p
-          className={cn(
-            "m-0 font-body text-[12px] font-medium tracking-tight",
-            done ? "text-teal" : "text-ink/45",
-          )}
-          role="status"
-          aria-live="polite"
-        >
-          {done
-            ? wrongTurns === 0
-              ? "Perfect"
-              : `Done · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
-            : wrongTurns > 0
-              ? `${filledCount} of ${total} · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
-              : `${filledCount} of ${total}`}
-        </p>
+        {/* Dots already show progress — status only when done or after a miss */}
+        {done || wrongTurns > 0 ? (
+          <p
+            className={cn(
+              "m-0 font-body text-[12px] font-medium tracking-tight",
+              done ? "text-teal" : "text-ink/45",
+            )}
+            role="status"
+            aria-live="polite"
+          >
+            {done
+              ? wrongTurns === 0
+                ? "Perfect"
+                : `Done · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
+              : `${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`}
+          </p>
+        ) : (
+          <span className="sr-only" role="status" aria-live="polite">
+            {filledCount} of {total} paired
+          </span>
+        )}
 
         {dragging && drag ? (
           <motion.div

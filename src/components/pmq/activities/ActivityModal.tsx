@@ -142,7 +142,7 @@ export function ActivityModal({
               "relative flex max-h-[min(90vh,48rem)] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-black/[0.08] bg-paper shadow-[0_12px_40px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12]",
             )}
           >
-            <header className="relative shrink-0 border-b border-black/[0.08] px-4 pb-3 pt-4 pr-12 dark:border-white/[0.12] sm:px-5">
+            <header className="relative shrink-0 px-4 pb-2 pt-4 pr-12 sm:px-5">
               {eyebrow ? (
                 <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-teal">
                   {eyebrow}
@@ -155,7 +155,7 @@ export function ActivityModal({
                 {title}
               </h2>
               {note ? (
-                <p className="mt-1 font-body text-[13px] leading-snug text-ink/70">
+                <p className="mt-1 font-body text-[13px] font-medium leading-snug tracking-tight text-ink/50">
                   {note}
                 </p>
               ) : null}

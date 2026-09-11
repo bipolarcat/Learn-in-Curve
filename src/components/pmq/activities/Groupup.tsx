@@ -17,7 +17,6 @@ import type { GroupupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 import {
-  ActivityPlayHint,
   ActivityPlayStatus,
   activityChipClass,
 } from "@/components/pmq/activities/ActivityPlayChrome";
@@ -187,12 +186,6 @@ export function Groupup({ activity }: GroupupProps) {
 
   return (
     <div className="grid gap-4">
-      <ActivityPlayHint>
-        {reduceMotion
-          ? "Select a card, then tap the tray it belongs in."
-          : "Drag each card into its tray. Wrong trays bounce it back."}
-      </ActivityPlayHint>
-
       <div className="rounded-2xl border border-dashed border-ink/20 bg-ink/[0.02] p-2.5 dark:border-white/20">
         <p className="mb-2 px-0.5 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-ink/40">
           Cards

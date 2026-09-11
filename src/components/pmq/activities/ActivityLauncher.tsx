@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type ComponentType } from "react";
+import { useReducedMotion } from "framer-motion";
 import type { LoActivity } from "@/types/pmq";
 import { ActivityModal } from "@/components/pmq/activities/ActivityModal";
 import { ACTIVITY_DISPLAY_NAMES } from "@/components/pmq/activities/names";
@@ -28,6 +29,25 @@ const ICONS: Record<
   groupup: ActivityGroupupIcon,
 };
 
+function playHowTo(
+  type: LoActivity["type"],
+  reduceMotion: boolean | null,
+): string {
+  if (type === "pairup") {
+    return reduceMotion
+      ? "Select a meaning, then tap its term."
+      : "Drag a meaning onto its term.";
+  }
+  if (type === "lineup") {
+    return reduceMotion
+      ? "Tap two rows to swap them."
+      : "Drag by the handle to reorder.";
+  }
+  return reduceMotion
+    ? "Select a card, then tap its tray."
+    : "Drag each card into its tray.";
+}
+
 type ActivityLauncherProps = {
   activity: LoActivity;
   className?: string;
@@ -38,9 +58,11 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const reduceMotion = useReducedMotion();
   const label = ACTIVITY_DISPLAY_NAMES[activity.type];
   const Icon = ICONS[activity.type];
   const morphActive = open || hovered;
+  const note = playHowTo(activity.type, reduceMotion);
 
   return (
     <>
@@ -72,9 +94,8 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
         returnFocusRef={buttonRef}
         eyebrow={label}
         title={activity.title}
-        note={activity.note}
+        note={note}
       >
-        {/* Remount on each open so shuffle runs again */}
         {open ? (
           activity.type === "pairup" ? (
             <Pairup key={activity.id} activity={activity} />

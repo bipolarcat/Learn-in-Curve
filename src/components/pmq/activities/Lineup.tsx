@@ -12,7 +12,6 @@ import type { LineupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 import {
-  ActivityPlayHint,
   ActivityPlayStatus,
 } from "@/components/pmq/activities/ActivityPlayChrome";
 
@@ -88,12 +87,6 @@ export function Lineup({ activity }: LineupProps) {
 
   return (
     <div className="grid gap-4">
-      <ActivityPlayHint>
-        {reduceMotion
-          ? "Tap two rows to swap them, then Check seats."
-          : "Drag by the handle to reorder. Correct seats click into place — or hit Check seats."}
-      </ActivityPlayHint>
-
       {reduceMotion ? (
         <ol className="m-0 flex list-none flex-col gap-2 p-0">
           {order.map((item, index) => {
