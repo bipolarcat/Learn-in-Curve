@@ -151,8 +151,8 @@ export function PmqWhatsIncluded() {
 }
 
 /**
- * Examiner command-word reference. Copy is locked; chrome matches plan/mock consoles.
- * Desktop = quiet table. Mobile = dense definition stack (no per-row glass cards).
+ * Examiner command-word reference. One quiet list at every breakpoint —
+ * verbs first, type + action secondary (no desktop table chrome).
  */
 export function PmqCommandWordsTable() {
   return (
@@ -168,42 +168,17 @@ export function PmqCommandWordsTable() {
           for before you write.
         </p>
 
-        <dl className={styles.mobileList}>
+        <ul className={styles.list} aria-label="Command words">
           {COMMAND_WORD_GROUPS.map((row, i) => (
-            <div key={`${row.type}-${i}`} className={styles.mobileItem}>
-              <p className={styles.mobileType}>{row.type}</p>
-              <dt className={styles.mobileWord}>{row.verbs}</dt>
-              <dd className={styles.mobileExpectation}>{row.action}</dd>
-            </div>
+            <li key={`${row.type}-${row.verbs}-${i}`} className={styles.row}>
+              <div className={styles.rowHead}>
+                <p className={styles.verbs}>{row.verbs}</p>
+                <span className={styles.type}>{row.type}</span>
+              </div>
+              <p className={styles.action}>{row.action}</p>
+            </li>
           ))}
-        </dl>
-
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.th} scope="col">
-                  Question type
-                </th>
-                <th className={styles.th} scope="col">
-                  Verbs
-                </th>
-                <th className={styles.th} scope="col">
-                  What to do
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {COMMAND_WORD_GROUPS.map((row, i) => (
-                <tr key={`${row.type}-${i}`} className={styles.tr}>
-                  <td className={styles.tdType}>{row.type}</td>
-                  <td className={styles.tdVerbs}>{row.verbs}</td>
-                  <td className={styles.tdExpectation}>{row.action}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        </ul>
       </div>
     </section>
   );

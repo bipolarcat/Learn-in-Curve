@@ -1,4 +1,4 @@
-/* Command words — flat SaaS console; dense mobile list + quiet desktop table */
+/* Command words — quiet console list (verbs first; no dual table/stack) */
 
 .panel {
   position: relative;
@@ -31,7 +31,7 @@
 .lede {
   margin: 0;
   max-width: 42rem;
-  padding: 0 0.75rem 0.55rem;
+  padding: 0 0.75rem 0.4rem;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.45;
@@ -40,46 +40,62 @@
   text-wrap: pretty;
 }
 
-/* —— Mobile: compact definition stack —— */
-.mobileList {
+.list {
   display: grid;
   gap: 0;
   margin: 0;
-  padding: 0.05rem 0.65rem 0.55rem;
+  padding: 0.05rem 0.55rem 0.45rem;
   list-style: none;
 }
 
-.mobileItem {
+.row {
   margin: 0;
-  padding: 0.5rem 0.2rem;
-  border-bottom: 1px solid rgb(var(--ink-rgb) / 0.07);
+  padding: 0.55rem 0.2rem;
+  border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06);
 }
 
-.mobileItem:last-child {
+.row:last-child {
   border-bottom: none;
-  padding-bottom: 0.35rem;
+  padding-bottom: 0.4rem;
 }
 
-.mobileWord {
+.rowHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 0.75rem;
+}
+
+.verbs {
   margin: 0;
+  min-width: 0;
+  flex: 1 1 auto;
   font-size: 0.8125rem;
-  font-weight: 650;
-  letter-spacing: -0.015em;
-  color: var(--orange);
+  font-weight: 550;
+  letter-spacing: -0.012em;
+  color: rgb(var(--ink-rgb));
+  text-wrap: pretty;
 }
 
-.mobileExpectation {
-  margin: 0.15rem 0 0;
+.type {
+  flex: 0 0 auto;
+  font-size: 0.6875rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.4);
+  white-space: nowrap;
+}
+
+.action {
+  margin: 0.2rem 0 0;
+  max-width: 40rem;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: rgb(var(--ink-rgb) / 0.62);
+  color: rgb(var(--ink-rgb) / 0.55);
   text-wrap: pretty;
-}
-
-.tableWrap {
-  display: none;
 }
 
 @media (min-width: 40rem) {
@@ -92,100 +108,28 @@
   }
 
   .lede {
-    padding: 0 0.85rem 0.65rem;
+    padding: 0 0.85rem 0.5rem;
     font-size: 0.8125rem;
   }
 
-  .mobileList {
-    display: none;
+  .list {
+    padding: 0.1rem 0.7rem 0.55rem;
   }
 
-  .tableWrap {
-    display: block;
-    padding: 0 0.35rem 0.45rem;
+  .row {
+    padding: 0.5rem 0.15rem;
   }
 
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+  .verbs {
+    font-size: 0.875rem;
   }
 
-  .tdWord {
-    width: 7.5rem;
-    padding: 0.55rem 0.65rem;
-    border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06);
-    vertical-align: top;
+  .type {
+    font-size: 0.75rem;
+  }
+
+  .action {
     font-size: 0.8125rem;
-    font-weight: 650;
-    letter-spacing: -0.015em;
-    color: var(--orange);
-    white-space: nowrap;
-  }
-
-  .tdExpectation {
-    padding: 0.55rem 0.65rem;
-    border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06);
-    vertical-align: top;
-    font-size: 0.8125rem;
-    font-weight: 500;
     line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: rgb(var(--ink-rgb) / 0.72);
-    text-wrap: pretty;
   }
-
-  .tr:last-child .tdWord,
-  .tr:last-child .tdExpectation {
-    border-bottom: none;
-  }
-
-  .th {
-    padding: 0.4rem 0.65rem;
-    border-bottom: 1px solid rgb(var(--ink-rgb) / 0.1);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: rgb(var(--ink-rgb) / 0.45);
-    white-space: nowrap;
-  }
-
-  .tdType {
-    width: 9.5rem;
-    padding: 0.55rem 0.65rem;
-    border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06);
-    vertical-align: top;
-    font-size: 0.8125rem;
-    font-weight: 650;
-    letter-spacing: -0.015em;
-    color: rgb(var(--ink-rgb) / 0.85);
-    text-wrap: pretty;
-  }
-
-  .tdVerbs {
-    width: 11rem;
-    padding: 0.55rem 0.65rem;
-    border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06);
-    vertical-align: top;
-    font-size: 0.8125rem;
-    font-weight: 650;
-    letter-spacing: -0.015em;
-    color: var(--orange);
-    text-wrap: pretty;
-  }
-
-  .tr:last-child .tdType,
-  .tr:last-child .tdVerbs {
-    border-bottom: none;
-  }
-}
-
-.mobileType {
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: rgb(var(--ink-rgb) / 0.45);
 }
