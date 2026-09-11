@@ -45,12 +45,12 @@ const TAP_SLOP_PX = 10;
 const appleEase = [0.22, 1, 0.36, 1] as const;
 const softSpring = { type: "spring" as const, bounce: 0.08, duration: 0.36 };
 
-/** LIC-tinted pocket accents — Matter/Crouton-style character without rainbow noise. */
+/** Pocket accent ink — teal / olive / gold / ink (no light wash fills). */
 const POCKET_TONES = [
-  { fill: "rgba(27, 101, 96, 0.14)", ink: "rgb(27, 101, 96)" },
-  { fill: "rgba(79, 143, 46, 0.16)", ink: "rgb(79, 143, 46)" },
-  { fill: "rgba(217, 164, 65, 0.2)", ink: "rgb(184, 132, 40)" },
-  { fill: "rgba(36, 26, 18, 0.08)", ink: "rgba(36, 26, 18, 0.55)" },
+  { ink: "rgb(27, 101, 96)" },
+  { ink: "rgb(79, 143, 46)" },
+  { ink: "rgb(184, 132, 40)" },
+  { ink: "rgba(36, 26, 18, 0.55)" },
 ] as const;
 
 /**
@@ -504,7 +504,7 @@ export function Groupup({ activity }: GroupupProps) {
   );
 }
 
-/** Folder-pocket mark — lid lifts when inviting / swallowing (Crouton pocket vibe). */
+/** Folder-pocket mark — lid + body only; lid lifts on invite / swallow. */
 function PocketMark({
   open,
   swallowing,
@@ -527,16 +527,17 @@ function PocketMark({
       transition={{ duration: 0.42, ease: appleEase }}
     >
       <svg viewBox="0 0 48 48" className="size-12 overflow-visible" aria-hidden>
-        {/* Back panel */}
+        {/* Body — solid rounded rect, no light wash */}
         <rect
           x="6"
-          y="14"
+          y="18"
           width="36"
-          height="26"
+          height="22"
           rx="7"
-          fill={tone.fill}
+          fill={tone.ink}
+          opacity={0.85}
         />
-        {/* Lid — pivots open */}
+        {/* Cap / lid — pivots open */}
         <motion.g
           style={{ transformOrigin: "10px 16px" }}
           animate={
@@ -549,27 +550,9 @@ function PocketMark({
           <path
             d="M8 16h14c1.2 0 2.2-.6 2.8-1.5L27 10c.4-.6 1.1-1 1.9-1H38c2.2 0 4 1.8 4 4v3H8v-0z"
             fill={tone.ink}
-            opacity={0.9}
           />
           <rect x="8" y="14" width="34" height="5" rx="2" fill={tone.ink} />
         </motion.g>
-        {/* Front pocket flap */}
-        <path
-          d="M6 24c4 6 10 10 18 10s14-4 18-10v12c0 3.3-2.7 6-6 6H12c-3.3 0-6-2.7-6-6V24z"
-          fill={tone.ink}
-          opacity={0.22}
-        />
-        <rect
-          x="6"
-          y="22"
-          width="36"
-          height="18"
-          rx="7"
-          fill="none"
-          stroke={tone.ink}
-          strokeWidth="1.5"
-          opacity={0.35}
-        />
       </svg>
     </motion.div>
   );
