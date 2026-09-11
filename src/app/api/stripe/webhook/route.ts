@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { trackPurchaseCompleted } from "@/lib/analytics/purchase";
 import { createServiceClient } from "@/lib/supabase/admin";
 import {
   SLY_UNLOCK_CREDIT_GBP_CENTS,
@@ -73,6 +74,12 @@ export async function POST(request: Request) {
       typeof session.payment_intent === "string"
         ? session.payment_intent
         : session.id;
+
+    try {
+      await trackPurchaseCompleted(session);
+    } catch (err) {
+      console.error("PostHog purchase_completed failed", err);
+    }
 
     if (!userId || !courseId) {
       return NextResponse.json({ received: true });

@@ -23,6 +23,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-09-11** — PostHog instrumentation: server-side `purchase_completed` from the Stripe webhook (`src/app/api/stripe/webhook/route.ts`, `src/lib/analytics/server.ts`, `src/lib/analytics/purchase.ts`; distinct_id = buyer user UUID). Client `free_mock_started` on `/free-mock-exam` mount (`FreeMockExamClient`). Tutor/LO helpers stamp `course` (`pmq`) + existing `surface` (`guest` | `course` | `dashboard`) on `tutor_opened`, `tutor_message_sent`, and `lo_opened` (`src/lib/analytics/events.ts`). Did not change identify/email person properties.
+
 - **2026-09-07** — Hotfix: committed all 24 PMQ LO explainer videos (`public/videos/pmq/lo-01…24.mp4`, ~1.3GB) previously gitignored via blanket `*.mp4`; allowlisted with `!public/videos/pmq/*.mp4`. Deployed from `hotfix/pmq-lo-videos` off `master` only (WIP branch untouched) so lesson videos stop 404ing in production. Site version **2.44**.
 
 - **2026-08-09** — Site version **2.42**; free-mock results polish pushed to `origin/master` (CTA copy, no Weakest areas, header subcopy removed).
