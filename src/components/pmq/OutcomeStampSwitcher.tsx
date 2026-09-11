@@ -12,7 +12,7 @@ type OutcomeOption = {
 
 /**
  * LO2 mobile outcome switcher — Apple-like segmented control.
- * Soft track, white sliding thumb, quiet type. No ticket/stamp chrome.
+ * Compact track + quiet type; soft sliding thumb. No ticket/stamp chrome.
  */
 export function OutcomeStampSwitcher({
   options,
@@ -54,7 +54,7 @@ export function OutcomeStampSwitcher({
       <div
         role="radiogroup"
         aria-labelledby={labelId}
-        className="relative flex w-full items-stretch gap-0 rounded-[10px] bg-ink/[0.06] p-[3px] dark:bg-white/[0.08]"
+        className="relative mx-auto flex w-full max-w-[19.5rem] items-stretch gap-0 rounded-[8px] bg-ink/[0.06] p-0.5 dark:bg-white/[0.08]"
         onKeyDown={(event) => {
           if (event.key === "ArrowRight" || event.key === "ArrowDown") {
             event.preventDefault();
@@ -92,7 +92,7 @@ export function OutcomeStampSwitcher({
               tabIndex={selected ? 0 : -1}
               onClick={() => onChange(index)}
               className={cn(
-                "relative z-0 flex min-h-9 min-w-0 flex-1 items-center justify-center rounded-[8px] px-2 font-body text-[13px] font-semibold tabular-nums tracking-[-0.01em] touch-manipulation [-webkit-tap-highlight-color:transparent]",
+                "relative z-0 flex min-h-8 min-w-0 flex-1 items-center justify-center rounded-[6px] px-1.5 font-body text-[12px] font-semibold tabular-nums tracking-[-0.01em] touch-manipulation [-webkit-tap-highlight-color:transparent]",
                 "transition-colors duration-150 ease-[var(--ease-out-quint)]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-paper",
                 selected
@@ -103,7 +103,7 @@ export function OutcomeStampSwitcher({
               {selected ? (
                 <motion.span
                   layoutId={thumbId}
-                  className="absolute inset-0 -z-10 rounded-[8px] bg-teal shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.12),0_1px_3px_rgb(var(--teal-rgb)_/_0.25)] dark:shadow-[0_1px_2px_rgb(0_0_0_/_0.35)]"
+                  className="absolute inset-0 -z-10 rounded-[6px] bg-teal shadow-[0_1px_1px_rgb(var(--ink-rgb)_/_0.08),0_1px_2px_rgb(var(--teal-rgb)_/_0.18)] dark:shadow-[0_1px_2px_rgb(0_0_0_/_0.3)]"
                   transition={
                     reduceMotion
                       ? { duration: 0 }
