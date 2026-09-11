@@ -120,10 +120,10 @@ export function ActivityPairupIcon({
         style={{ transitionDuration: duration }}
       />
 
-      {/* Bridge arrow — cream cut across both pillars */}
+      {/* Bridge arrow — brand orange across both pillars */}
       <path
         d="M19 29.5h19.5V26L47 32l-8.5 6v-3.5H19Z"
-        fill="rgb(var(--avatar-plate-rgb))"
+        fill="var(--orange)"
         filter={`url(#${arrowShadow})`}
         className={cn(
           "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
