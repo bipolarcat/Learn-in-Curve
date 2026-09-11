@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Recall activities reimagined as distinct Apple-in-LIC play: Pair up = drag meaning onto term line; Lineup = grip reorder (tap-swap if reduced motion); Group up = drag into trays with instant lock/bounce. Shared `ActivityPlayChrome`; wider play modal (`ActivityModal` max-w-xl).
 - **2026-09-11** — Activity modal open/close: Apple-style spring (21st.dev Motion Primitives — bounce 0.05) + separate backdrop fade; static blur to avoid choppiness (`ActivityModal`).
 - **2026-09-11** — Removed study-table “Test yourself” / recall hide-reveal (`RecallToggle`); Pair up covers the same retrieval outcome. Two-column tables always show meanings (`StudyTable`).
 - **2026-09-11** — Pair up bridge arrow thickened (heavier shaft + head) (`ActivityPairupIcon`).

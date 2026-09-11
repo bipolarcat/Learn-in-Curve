@@ -139,7 +139,7 @@ export function ActivityModal({
             }
             style={{ transformOrigin: "50% 50%" }}
             className={cn(
-              "relative flex max-h-[min(88vh,44rem)] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-black/[0.08] bg-paper shadow-[0_12px_40px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12]",
+              "relative flex max-h-[min(90vh,48rem)] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-black/[0.08] bg-paper shadow-[0_12px_40px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12]",
             )}
           >
             <header className="relative shrink-0 border-b border-black/[0.08] px-4 pb-3 pt-4 pr-12 dark:border-white/[0.12] sm:px-5">
