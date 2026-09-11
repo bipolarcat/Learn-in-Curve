@@ -220,7 +220,7 @@ export function Groupup({ activity }: GroupupProps) {
 
   return (
     <LayoutGroup>
-      <div className="grid gap-4">
+      <div className="grid gap-4 [-webkit-text-size-adjust:100%] [text-size-adjust:100%]">
         <div className="grid gap-2">
           <div className="flex items-center justify-between gap-3 px-0.5">
             <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
@@ -346,8 +346,9 @@ export function Groupup({ activity }: GroupupProps) {
                     {bucket.hint ? (
                       <p
                         className={cn(
-                          "mt-0.5 font-body font-medium text-ink/45",
-                          dense ? "text-[10.5px] leading-snug" : "text-[11.5px]",
+                          "mt-0.5 font-body font-medium leading-snug text-ink/45",
+                          // ≥12px so iOS Safari won't auto-inflate smaller type on mobile
+                          dense ? "text-xs" : "text-[12px]",
                         )}
                       >
                         {bucket.hint}

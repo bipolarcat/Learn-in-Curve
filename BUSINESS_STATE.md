@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Group up tray hints: use ≥12px + text-size-adjust so iOS Safari doesn’t inflate the dense caption on mobile (`Groupup`).
 - **2026-09-11** — Group up: drag-only (removed tap card → tap tray); how-to copy matches (`Groupup`, `ActivityLauncher`).
 - **2026-09-11** — Group up: no modal body scroll (drag can't auto-scroll); wide sheet + always 3-up trays when ≥3 buckets so the play fits the window (`ActivityModal`, `ActivityLauncher`, `Groupup`).
 - **2026-09-11** — Group up pocket marks: body is stroke-only with a gap under the cap (`Groupup`).
