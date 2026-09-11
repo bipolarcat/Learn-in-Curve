@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * LO2 trial: exam coaching as an Insights disclosure — no callout card.
+ * Inline footnote chrome: body-sized control, tight bulb↔label, prose rhythm.
  * Bulb motion from 21st.dev / AnimateIcons Lucide (`LightbulbIcon`).
  */
 export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
@@ -39,20 +40,25 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
           if (!reduceMotion && !open) bulbRef.current?.stopAnimation();
         }}
         className={cn(
-          "group inline-flex min-h-10 items-center gap-2 rounded-lg px-1.5 py-1.5 font-body text-[13px] font-semibold tracking-tight text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
-          "hover:bg-teal/[0.08] hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
-          open && "bg-teal/[0.1] text-teal",
+          "group inline-flex items-center gap-1 rounded-md py-0.5 font-body text-[13px] font-semibold leading-none tracking-tight text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
+          // Expand hit area without bloating the optical size in the prose flow.
+          "-mx-1 px-1",
+          "hover:text-teal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
+          open && "text-teal",
         )}
       >
         <LightbulbIcon
           ref={bulbRef}
-          size={18}
+          size={15}
           duration={0.85}
           isAnimated={!reduceMotion}
-          className="shrink-0 text-teal"
+          // AnimateIcons viewBox runs a touch wide — pull in toward the label.
+          className="-mr-0.5 shrink-0 text-teal"
           aria-hidden
         />
-        <span>{open ? "Hide insights" : "Insights"}</span>
+        <span className="leading-snug">
+          {open ? "Hide insights" : "Insights"}
+        </span>
       </button>
 
       <AnimatePresence initial={false}>
@@ -77,7 +83,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
             }}
             className="overflow-hidden"
           >
-            <p className="m-0 mt-1.5 w-full min-w-0 pl-1 font-body text-[13.5px] leading-[1.6] text-ink/85">
+            <p className="m-0 mt-1.5 w-full min-w-0 font-body text-[13.5px] leading-[1.6] text-ink/85">
               {tip.tip}
             </p>
           </motion.div>
@@ -90,7 +96,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
 export function InsightsDisclosureList({ tips }: { tips: ExamTip[] }) {
   if (tips.length === 0) return null;
   return (
-    <div className="not-prose flex min-w-0 flex-col gap-1">
+    <div className="not-prose flex min-w-0 flex-col gap-0.5">
       {tips.map((tip) => (
         <InsightsDisclosure key={tip.id} tip={tip} />
       ))}
