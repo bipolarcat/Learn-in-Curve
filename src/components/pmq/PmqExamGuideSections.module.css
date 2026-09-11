@@ -1,5 +1,5 @@
-/* Exam-guide sections on the course overview page — same quiet console chrome
-   as the command-words panel, generalised for prose lists and wider tables. */
+/* Exam-guide sections — quiet console chrome shared by PMQ (tabbed essentials)
+   and PFQ (standalone panels). */
 
 .panel {
   position: relative;
@@ -11,7 +11,11 @@
 }
 
 .titleBar {
-  padding: 0.7rem 0.75rem 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  padding: 0.7rem 0.75rem 0.35rem;
 }
 
 .title {
@@ -29,6 +33,14 @@
   color: var(--orange);
 }
 
+.subtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.42);
+}
+
 .lede {
   margin: 0;
   max-width: 42rem;
@@ -43,6 +55,73 @@
 
 .body {
   padding: 0 0.75rem 0.75rem;
+}
+
+/* Segmented control — Copilot Money / v0 Mobbin pattern */
+.segmentTrack {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.15rem;
+  margin: 0 0.75rem 0.55rem;
+  padding: 0.2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  border-radius: 0.65rem;
+  background: rgb(var(--ink-rgb) / 0.05);
+  -webkit-overflow-scrolling: touch;
+}
+
+.segmentTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.segment {
+  flex: 1 0 auto;
+  min-height: 1.85rem;
+  margin: 0;
+  padding: 0.3rem 0.55rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: rgb(var(--ink-rgb) / 0.55);
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 120ms var(--ease-out-quint),
+    color 120ms var(--ease-out-quint),
+    box-shadow 120ms var(--ease-out-quint);
+}
+
+.segment:hover {
+  color: rgb(var(--ink-rgb) / 0.78);
+}
+
+.segment:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--paper-rgb)), 0 0 0 4px var(--orange);
+}
+
+.segmentActive {
+  background: rgb(var(--paper-rgb));
+  color: rgb(var(--ink-rgb));
+  box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 0.08);
+}
+
+.tabPanel {
+  min-height: 8rem;
+}
+
+.panelHeading {
+  margin: 0 0.75rem 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: rgb(var(--ink-rgb) / 0.78);
 }
 
 .callout {
@@ -143,15 +222,39 @@
 
 @media (min-width: 40rem) {
   .titleBar {
-    padding: 0.8rem 0.85rem 0.3rem;
+    padding: 0.8rem 0.85rem 0.4rem;
   }
 
   .title {
     font-size: 1.65rem;
   }
 
+  .subtitle {
+    font-size: 0.8125rem;
+  }
+
   .lede {
     padding: 0 0.85rem 0.65rem;
     font-size: 0.8125rem;
+  }
+
+  .segmentTrack {
+    margin: 0 0.85rem 0.65rem;
+  }
+
+  .segment {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .panelHeading {
+    margin: 0 0.85rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .segment {
+    transition: none;
   }
 }

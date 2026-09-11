@@ -1,3 +1,6 @@
+"use client";
+
+import { useId, useState } from "react";
 import styles from "@/components/pmq/PmqExamGuideSections.module.css";
 
 const HOW_EXAM_WORKS = [
@@ -51,162 +54,207 @@ const PASS_MARK_NOTES = [
   "A borderline fail (within 3 marks of the pass mark) is automatically re-marked.",
 ];
 
-export function PmqExamStructureSection() {
+type TabId = "structure" | "marks" | "syllabus" | "marking" | "pass";
+
+const TABS: { id: TabId; label: string; heading: string }[] = [
+  { id: "structure", label: "Structure", heading: "How the exam works" },
+  { id: "marks", label: "Marks", heading: "Where the marks are" },
+  { id: "syllabus", label: "Syllabus", heading: "Where the syllabus weight sits" },
+  { id: "marking", label: "Marking", heading: "How written answers are marked" },
+  { id: "pass", label: "Pass mark", heading: "About the pass mark" },
+];
+
+function BulletList({ items }: { items: string[] }) {
   return (
-    <section aria-labelledby="pmq-exam-structure-heading">
-      <div className={styles.panel}>
-        <div className={styles.titleBar}>
-          <h2 id="pmq-exam-structure-heading" className={styles.title}>
-            How the <span className={styles.titleAccent}>exam</span> works
-          </h2>
-        </div>
-        <ul className={styles.list}>
-          {HOW_EXAM_WORKS.map((item) => (
-            <li key={item} className={styles.listItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <ul className={styles.list}>
+      {items.map((item) => (
+        <li key={item} className={styles.listItem}>
+          {item}
+        </li>
+      ))}
+    </ul>
   );
 }
 
-export function PmqMarksBreakdownSection() {
+function MarksTable() {
   const totalNumber = MARKS_BREAKDOWN.reduce((sum, r) => sum + r.number, 0);
   const totalMarks = MARKS_BREAKDOWN.reduce((sum, r) => sum + r.total, 0);
 
   return (
-    <section aria-labelledby="pmq-marks-breakdown-heading">
-      <div className={styles.panel}>
-        <div className={styles.titleBar}>
-          <h2 id="pmq-marks-breakdown-heading" className={styles.title}>
-            Where the <span className={styles.titleAccent}>marks</span> are
-          </h2>
-        </div>
-        <p className={styles.callout}>
-          67% of the marks come from typed written answers.
-        </p>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.th} scope="col">
-                  Question type
-                </th>
-                <th className={`${styles.th} ${styles.thRight}`} scope="col">
-                  Number
-                </th>
-                <th className={`${styles.th} ${styles.thRight}`} scope="col">
-                  Marks each
-                </th>
-                <th className={`${styles.th} ${styles.thRight}`} scope="col">
-                  Total
-                </th>
+    <>
+      <p className={styles.callout}>
+        67% of the marks come from typed written answers.
+      </p>
+      <div className={styles.tableWrap}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th className={styles.th} scope="col">
+                Question type
+              </th>
+              <th className={`${styles.th} ${styles.thRight}`} scope="col">
+                Number
+              </th>
+              <th className={`${styles.th} ${styles.thRight}`} scope="col">
+                Marks each
+              </th>
+              <th className={`${styles.th} ${styles.thRight}`} scope="col">
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {MARKS_BREAKDOWN.map((row) => (
+              <tr key={row.type} className={styles.tr}>
+                <td className={`${styles.td} ${styles.tdStrong}`}>{row.type}</td>
+                <td className={`${styles.td} ${styles.tdRight}`}>{row.number}</td>
+                <td className={`${styles.td} ${styles.tdRight}`}>
+                  {row.marksEach}
+                </td>
+                <td className={`${styles.td} ${styles.tdRight}`}>{row.total}</td>
               </tr>
-            </thead>
-            <tbody>
-              {MARKS_BREAKDOWN.map((row) => (
-                <tr key={row.type} className={styles.tr}>
-                  <td className={`${styles.td} ${styles.tdStrong}`}>{row.type}</td>
-                  <td className={`${styles.td} ${styles.tdRight}`}>{row.number}</td>
-                  <td className={`${styles.td} ${styles.tdRight}`}>{row.marksEach}</td>
-                  <td className={`${styles.td} ${styles.tdRight}`}>{row.total}</td>
-                </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr className={styles.tfootRow}>
-                <td className={styles.td}>Total</td>
-                <td className={`${styles.td} ${styles.tdRight}`}>{totalNumber}</td>
-                <td className={styles.td} />
-                <td className={`${styles.td} ${styles.tdRight}`}>{totalMarks}</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr className={styles.tfootRow}>
+              <td className={styles.td}>Total</td>
+              <td className={`${styles.td} ${styles.tdRight}`}>{totalNumber}</td>
+              <td className={styles.td} />
+              <td className={`${styles.td} ${styles.tdRight}`}>{totalMarks}</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
-    </section>
+    </>
   );
 }
 
-export function PmqSyllabusWeightSection() {
+function SyllabusTable() {
   return (
-    <section aria-labelledby="pmq-syllabus-weight-heading">
-      <div className={styles.panel}>
-        <div className={styles.titleBar}>
-          <h2 id="pmq-syllabus-weight-heading" className={styles.title}>
-            Where the <span className={styles.titleAccent}>syllabus weight</span> sits
-          </h2>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.th} scope="col">
-                  Area
-                </th>
-                <th className={styles.th} scope="col">
-                  Learning objectives
-                </th>
-                <th className={`${styles.th} ${styles.thRight}`} scope="col">
-                  Share of exam
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {SYLLABUS_WEIGHT.map((row) => (
-                <tr key={row.area} className={styles.tr}>
-                  <td className={`${styles.td} ${styles.tdStrong}`}>{row.area}</td>
-                  <td className={styles.td}>{row.los}</td>
-                  <td className={`${styles.td} ${styles.tdRight}`}>{row.share}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function PmqMarkingGuidanceSection() {
-  return (
-    <section aria-labelledby="pmq-marking-guidance-heading">
-      <div className={styles.panel}>
-        <div className={styles.titleBar}>
-          <h2 id="pmq-marking-guidance-heading" className={styles.title}>
-            How written answers are <span className={styles.titleAccent}>marked</span>
-          </h2>
-        </div>
-        <ul className={styles.list}>
-          {MARKING_GUIDANCE.map((item) => (
-            <li key={item} className={styles.listItem}>
-              {item}
-            </li>
+    <div className={styles.tableWrap}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th className={styles.th} scope="col">
+              Area
+            </th>
+            <th className={styles.th} scope="col">
+              Learning objectives
+            </th>
+            <th className={`${styles.th} ${styles.thRight}`} scope="col">
+              Share of exam
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {SYLLABUS_WEIGHT.map((row) => (
+            <tr key={row.area} className={styles.tr}>
+              <td className={`${styles.td} ${styles.tdStrong}`}>{row.area}</td>
+              <td className={styles.td}>{row.los}</td>
+              <td className={`${styles.td} ${styles.tdRight}`}>{row.share}</td>
+            </tr>
           ))}
-        </ul>
-      </div>
-    </section>
+        </tbody>
+      </table>
+    </div>
   );
 }
 
-export function PmqPassMarkSection() {
+function TabPanel({ tab }: { tab: TabId }) {
+  switch (tab) {
+    case "structure":
+      return <BulletList items={HOW_EXAM_WORKS} />;
+    case "marks":
+      return <MarksTable />;
+    case "syllabus":
+      return <SyllabusTable />;
+    case "marking":
+      return <BulletList items={MARKING_GUIDANCE} />;
+    case "pass":
+      return <BulletList items={PASS_MARK_NOTES} />;
+  }
+}
+
+/**
+ * Single quiet console for all PMQ exam-reference facts — segmented tabs
+ * (Mobbin / 21st.dev settings-panel pattern) instead of five stacked cards.
+ */
+export function PmqExamGuideSection() {
+  const [active, setActive] = useState<TabId>("structure");
+  const baseId = useId();
+  const activeMeta = TABS.find((t) => t.id === active) ?? TABS[0];
+
   return (
-    <section aria-labelledby="pmq-pass-mark-heading">
-      <div className={styles.panel}>
+    <section aria-labelledby={`${baseId}-heading`}>
+      <div className={styles.panel} data-exam-guide="">
         <div className={styles.titleBar}>
-          <h2 id="pmq-pass-mark-heading" className={styles.title}>
-            About the <span className={styles.titleAccent}>pass mark</span>
+          <h2 id={`${baseId}-heading`} className={styles.title}>
+            Exam <span className={styles.titleAccent}>essentials</span>
           </h2>
+          <p className={styles.subtitle}>
+            Structure, marks, syllabus weight, marking, and the pass mark.
+          </p>
         </div>
-        <ul className={styles.list}>
-          {PASS_MARK_NOTES.map((item) => (
-            <li key={item} className={styles.listItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
+
+        <div
+          className={styles.segmentTrack}
+          role="tablist"
+          aria-label="Exam essentials topics"
+        >
+          {TABS.map((tab) => {
+            const selected = tab.id === active;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                id={`${baseId}-tab-${tab.id}`}
+                aria-selected={selected}
+                aria-controls={`${baseId}-panel-${tab.id}`}
+                tabIndex={selected ? 0 : -1}
+                className={`${styles.segment} ${selected ? styles.segmentActive : ""}`}
+                onClick={() => setActive(tab.id)}
+                onKeyDown={(event) => {
+                  const i = TABS.findIndex((t) => t.id === tab.id);
+                  let next: TabId | null = null;
+                  if (event.key === "ArrowRight") {
+                    event.preventDefault();
+                    next = TABS[(i + 1) % TABS.length].id;
+                  } else if (event.key === "ArrowLeft") {
+                    event.preventDefault();
+                    next = TABS[(i - 1 + TABS.length) % TABS.length].id;
+                  } else if (event.key === "Home") {
+                    event.preventDefault();
+                    next = TABS[0].id;
+                  } else if (event.key === "End") {
+                    event.preventDefault();
+                    next = TABS[TABS.length - 1].id;
+                  }
+                  if (next) {
+                    setActive(next);
+                    requestAnimationFrame(() => {
+                      document
+                        .getElementById(`${baseId}-tab-${next}`)
+                        ?.focus();
+                    });
+                  }
+                }}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          role="tabpanel"
+          id={`${baseId}-panel-${active}`}
+          aria-labelledby={`${baseId}-tab-${active}`}
+          className={styles.tabPanel}
+        >
+          <h3 className={styles.panelHeading}>{activeMeta.heading}</h3>
+          <TabPanel tab={active} />
+        </div>
       </div>
     </section>
   );

@@ -4,13 +4,7 @@ import {
   PmqCommandWordsTable,
   PmqGlobalFurtherReading,
 } from "@/components/pmq/PmqOverviewSections";
-import {
-  PmqExamStructureSection,
-  PmqMarksBreakdownSection,
-  PmqSyllabusWeightSection,
-  PmqMarkingGuidanceSection,
-  PmqPassMarkSection,
-} from "@/components/pmq/PmqExamGuideSections";
+import { PmqExamGuideSection } from "@/components/pmq/PmqExamGuideSections";
 import { PmqMockExamsSection } from "@/components/pmq/PmqMockExamsSection";
 import { PmqDayPlan } from "@/components/pmq/PmqDayPlan";
 import { PmqPlanContinue } from "@/components/pmq/PmqPlanContinue";
@@ -91,11 +85,7 @@ export function PmqOverview({
         />
 
         <PmqCommandWordsTable />
-        <PmqExamStructureSection />
-        <PmqMarksBreakdownSection />
-        <PmqSyllabusWeightSection />
-        <PmqMarkingGuidanceSection />
-        <PmqPassMarkSection />
+        <PmqExamGuideSection />
         <PmqGlobalFurtherReading />
         <PmqFaqSection />
       </div>
