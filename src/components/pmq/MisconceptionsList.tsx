@@ -18,7 +18,7 @@ const fieldLabelClass =
 const trapClass =
   "mt-1 block w-full min-w-0 font-body text-[15px] font-medium leading-snug tracking-tight text-pretty text-ink";
 const rightClass =
-  "mt-1 w-full min-w-0 font-body text-[15px] font-normal leading-[1.65] text-pretty text-ink/90";
+  "mt-1 w-full min-w-0 font-body text-[15px] font-normal italic leading-snug text-pretty text-ink/90";
 
 /** Soft disclosure curve — same family as Insights. */
 const panelEase = [0.22, 1, 0.36, 1] as const;
@@ -157,12 +157,18 @@ function MisconceptionPlate({
             transition={panelTransition}
             className="overflow-hidden"
           >
-            <div className="px-3 pb-2.5 pl-[1.625rem] pr-2.5">
-              <p className={fieldLabelClass}>
-                Right{" "}
-                <span className="tabular-nums text-ink/40">{number}</span>
+            <div className="px-3 pb-2.5 pr-2.5">
+              <p className="m-0 flex items-center gap-2">
+                <span
+                  className="block size-1.5 shrink-0 rounded-full bg-olive"
+                  aria-hidden
+                />
+                <span className={fieldLabelClass}>
+                  Right{" "}
+                  <span className="tabular-nums text-ink/40">{number}</span>
+                </span>
               </p>
-              <p className={rightClass}>{rightText}</p>
+              <p className={`${rightClass} pl-3.5`}>{rightText}</p>
             </div>
           </motion.div>
         ) : null}
