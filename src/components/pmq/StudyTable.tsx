@@ -174,7 +174,7 @@ function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
 const cardShell =
   "overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]";
 
-/** Term / meaning — always open; retrieval practice is Pair up. */
+/** True two-column study table — header + side-by-side cells (not stacked cards). */
 function TwoColumnTable({
   headers,
   rows,
@@ -196,44 +196,57 @@ function TwoColumnTable({
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
-      {!hoistToHeading &&
-      (!toolbarOnHeading || (activities?.length ?? 0) > 0) ? (
-        <div className="mb-1.5 flex flex-wrap items-center gap-2">
-          {!toolbarOnHeading ? (
-            <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
-              {headers[0]}
-            </span>
-          ) : null}
+      {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
+        <div className="mb-1.5 flex flex-wrap items-center justify-end gap-2">
           <ActivityRowHead activities={activities} />
         </div>
       ) : null}
 
       <div className={cardShell}>
-        <ul className="m-0 list-none p-0">
-          {rows.map((row, index) => {
-            const label = nodeText(row[0]).trim();
-            const worked = workedExampleForRow(workedExamples, label);
-            return (
-              <li
-                key={`${label}-${index}`}
-                className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
+        <table className="m-0 w-full min-w-0 border-collapse font-body text-[13.5px] leading-[1.5] text-ink">
+          <thead>
+            <tr className="border-b border-black/[0.08] dark:border-white/[0.12]">
+              <th
+                scope="col"
+                className="w-[38%] border-r border-black/[0.08] px-3.5 py-2.5 text-left align-top font-semibold tracking-tight dark:border-white/[0.12]"
               >
-                <div className="flex items-start gap-2 px-3.5 pb-1 pt-2.5">
-                  <p className="m-0 min-w-0 flex-1 font-body text-[13.5px] font-semibold leading-[1.5] text-ink">
-                    {row[0]}
-                  </p>
-                  {worked ? <WorkedExampleLauncher example={worked} /> : null}
-                </div>
-
-                <div className="px-3.5 pb-2.5 pt-0.5">
-                  <p className="m-0 font-body text-[13.5px] leading-[1.6] text-ink/85">
+                {headers[0]}
+              </th>
+              <th
+                scope="col"
+                className="px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
+              >
+                {headers[1]}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => {
+              const label = nodeText(row[0]).trim();
+              const worked = workedExampleForRow(workedExamples, label);
+              return (
+                <tr
+                  key={`${label}-${index}`}
+                  className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
+                >
+                  <td className="border-r border-black/[0.08] px-3.5 py-2.5 align-top dark:border-white/[0.12]">
+                    <div className="flex items-start gap-2">
+                      <span className="min-w-0 flex-1 font-semibold leading-[1.5]">
+                        {row[0]}
+                      </span>
+                      {worked ? (
+                        <WorkedExampleLauncher example={worked} />
+                      ) : null}
+                    </div>
+                  </td>
+                  <td className="px-3.5 py-2.5 align-top text-ink/85">
                     {row[1]}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </figure>
   );
