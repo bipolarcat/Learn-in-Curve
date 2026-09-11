@@ -8,6 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactElement,
   type ReactNode,
@@ -294,6 +295,27 @@ function MultiColumnTable({
   workedExamples?: WorkedExampleCard[];
   hoistToHeading?: boolean;
 }) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [needsSideScroll, setNeedsSideScroll] = useState(false);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const sync = () => {
+      setNeedsSideScroll(el.scrollWidth > el.clientWidth + 1);
+    };
+
+    sync();
+    const ro = new ResizeObserver(sync);
+    ro.observe(el);
+    window.addEventListener("resize", sync);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", sync);
+    };
+  }, [headers.length, rows.length]);
+
   return (
     <figure className={cn(styles.figure, "not-prose min-w-0")}>
       {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
@@ -301,7 +323,10 @@ function MultiColumnTable({
           <ActivityRowHead activities={activities} />
         </div>
       ) : null}
-      <div className="min-w-0 overflow-x-auto rounded-2xl border border-black/[0.08] dark:border-white/[0.12]">
+      <div
+        ref={scrollerRef}
+        className="min-w-0 overflow-x-auto rounded-2xl border border-black/[0.08] dark:border-white/[0.12]"
+      >
         <table
           className={cn(
             styles.table,
@@ -374,6 +399,11 @@ function MultiColumnTable({
           </tbody>
         </table>
       </div>
+      {needsSideScroll ? (
+        <p className="m-0 mt-1.5 font-body text-[11px] leading-snug tracking-tight text-ink/45">
+          Swipe sideways to see all columns.
+        </p>
+      ) : null}
     </figure>
   );
 }
