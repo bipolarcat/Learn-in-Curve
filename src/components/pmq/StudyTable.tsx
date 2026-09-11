@@ -230,6 +230,7 @@ function TwoColumnTable({
         <table
           className={cn(
             styles.table,
+            styles.tableTwoCol,
             "w-full min-w-0 border-collapse font-body text-[13.5px] leading-[1.5] text-ink [&_p]:m-0",
           )}
         >
@@ -294,14 +295,19 @@ function MultiColumnTable({
   hoistToHeading?: boolean;
 }) {
   return (
-    <figure className="not-prose m-0 my-4 min-w-0">
+    <figure className={cn(styles.figure, "not-prose min-w-0")}>
       {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
         <div className="mb-2 flex flex-wrap items-center gap-2">
           <ActivityRowHead activities={activities} />
         </div>
       ) : null}
       <div className="min-w-0 overflow-x-auto rounded-2xl border border-black/[0.08] dark:border-white/[0.12]">
-        <table className="w-full min-w-[520px] border-collapse text-left font-body">
+        <table
+          className={cn(
+            styles.table,
+            "w-full min-w-[520px] border-collapse text-left font-body [&_p]:m-0",
+          )}
+        >
           <thead>
             <tr className="border-b border-black/[0.08] bg-ink/[0.04] dark:border-white/[0.12]">
               {headers.map((header, index) =>
