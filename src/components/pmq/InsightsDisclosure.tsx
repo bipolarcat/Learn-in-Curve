@@ -47,7 +47,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
 
   return (
     <LayoutGroup id={railId}>
-      <div className="not-prose my-2 min-w-0 max-w-full">
+      <div className="not-prose mt-0.5 mb-2 min-w-0 max-w-full">
         <button
           type="button"
           aria-expanded={open}
@@ -130,7 +130,8 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
 export function InsightsDisclosureList({ tips }: { tips: ExamTip[] }) {
   if (tips.length === 0) return null;
   return (
-    <div className="not-prose flex min-w-0 flex-col gap-0">
+    {/* Pull toward the paragraph/table above (markdown still keeps its own mb). */}
+    <div className="not-prose -mt-1.5 flex min-w-0 flex-col gap-0">
       {tips.map((tip) => (
         <InsightsDisclosure key={tip.id} tip={tip} />
       ))}
