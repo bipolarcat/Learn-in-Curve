@@ -72,7 +72,7 @@ function IconCell({ children }: { children: ReactNode }) {
 
 /** Quiet line under an Orient card title (e.g. handbook mapping). */
 const subtitleClass =
-  "mt-1 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65";
+  "mt-0.5 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65";
 
 /** Icon + heading row; body can sit full-bleed under the title. */
 function OrientCard({
