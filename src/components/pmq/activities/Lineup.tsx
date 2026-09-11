@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Reorder,
   useDragControls,
@@ -14,6 +14,14 @@ import { ActivityPlayStatus } from "@/components/pmq/activities/ActivityPlayChro
 
 type LineupProps = {
   activity: LineupActivity;
+  wrongTurns?: number;
+  onWrongTurn?: (detail: {
+    item: string | null;
+    chosen: string | null;
+    expected: string | null;
+    detail?: Record<string, unknown> | null;
+  }) => void;
+  onComplete?: (moves: number) => void;
 };
 
 function ordersMatch(a: string[], b: string[]) {
@@ -25,18 +33,25 @@ function ordersMatch(a: string[], b: string[]) {
  * Seat numbers stay fixed outside the cards. No mid-play locking.
  * Each failed Check is one wrong turn.
  */
-export function Lineup({ activity }: LineupProps) {
+export function Lineup({
+  activity,
+  wrongTurns = 0,
+  onWrongTurn,
+  onComplete,
+}: LineupProps) {
   const correct = activity.items;
   const reduceMotion = useReducedMotion();
   const [order, setOrder] = useState(() => shuffleUntilDifferent(correct));
   const [done, setDone] = useState(false);
   const [tryAgain, setTryAgain] = useState(false);
   const [shaking, setShaking] = useState(false);
-  const [wrongTurns, setWrongTurns] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
+  const movesRef = useRef(0);
+  const completedSentRef = useRef(false);
 
   function onCheck() {
     if (done) return;
+    movesRef.current += 1;
     if (ordersMatch(order, correct)) {
       setDone(true);
       setTryAgain(false);
@@ -44,11 +59,25 @@ export function Lineup({ activity }: LineupProps) {
       setSelected(null);
       return;
     }
-    setWrongTurns((n) => n + 1);
+    const wrongPositions = order
+      .map((item, index) => (item === correct[index] ? -1 : index))
+      .filter((index) => index >= 0);
+    onWrongTurn?.({
+      item: null,
+      chosen: order.join(" | "),
+      expected: correct.join(" | "),
+      detail: { submitted: order, wrong_positions: wrongPositions },
+    });
     setTryAgain(true);
     setShaking(true);
     window.setTimeout(() => setShaking(false), 420);
   }
+
+  useEffect(() => {
+    if (!done || completedSentRef.current) return;
+    completedSentRef.current = true;
+    onComplete?.(movesRef.current);
+  }, [done, onComplete]);
 
   function onTapSwap(index: number) {
     if (done) return;

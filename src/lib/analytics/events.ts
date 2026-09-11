@@ -303,6 +303,36 @@ export function trackExamDateSet(props: { days_until_exam: number }): void {
   capture("exam_date_set", props);
 }
 
+// —— Recall activities (Pair up / Lineup / Group up) ————————————————
+
+type ActivityAnalyticsBase = {
+  activity_id: string;
+  activity_type: "pairup" | "lineup" | "groupup";
+  lo_number: number;
+  attempt_number: number;
+  wrong_turns: number;
+};
+
+const PMQ_COURSE = { course: "pmq" as const };
+
+export function trackActivityOpened(
+  props: ActivityAnalyticsBase & { input_mode: "drag" | "tap"; device: "mobile" | "desktop" },
+): void {
+  capture("activity_opened", { ...PMQ_COURSE, ...props });
+}
+
+export function trackActivityWrongTurn(props: ActivityAnalyticsBase): void {
+  capture("activity_wrong_turn", { ...PMQ_COURSE, ...props });
+}
+
+export function trackActivityCompleted(props: ActivityAnalyticsBase & { moves: number }): void {
+  capture("activity_completed", { ...PMQ_COURSE, ...props });
+}
+
+export function trackActivityAbandoned(props: ActivityAnalyticsBase & { moves: number }): void {
+  capture("activity_abandoned", { ...PMQ_COURSE, ...props });
+}
+
 // —— Growth: free mock / leads ——————————————————————————————————————
 
 export function trackFreeMockCompleted(props: {

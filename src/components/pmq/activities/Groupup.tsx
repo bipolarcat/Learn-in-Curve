@@ -24,6 +24,14 @@ import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 
 type GroupupProps = {
   activity: GroupupActivity;
+  wrongTurns?: number;
+  onWrongTurn?: (detail: {
+    item: string | null;
+    chosen: string | null;
+    expected: string | null;
+    detail?: Record<string, unknown> | null;
+  }) => void;
+  onComplete?: (moves: number) => void;
 };
 
 type DragState = {
@@ -60,7 +68,12 @@ const POCKET_TONES = [
  * Group up — drag chips into trays. Pointer drag only (no tap-to-select).
  * Correct drops swallow into the pocket; invite is teal wash, never orange outline.
  */
-export function Groupup({ activity }: GroupupProps) {
+export function Groupup({
+  activity,
+  wrongTurns = 0,
+  onWrongTurn,
+  onComplete,
+}: GroupupProps) {
   const reduceMotion = useReducedMotion();
   const answer = useMemo(() => {
     const map = new Map<string, string>();
@@ -73,7 +86,6 @@ export function Groupup({ activity }: GroupupProps) {
   );
   const [placement, setPlacement] = useState<Record<string, string>>({});
   const [locked, setLocked] = useState<Set<string>>(() => new Set());
-  const [wrongTurns, setWrongTurns] = useState(0);
   const [hotBucket, setHotBucket] = useState<string | null>(null);
   const [shakeBucket, setShakeBucket] = useState<string | null>(null);
   const [drag, setDrag] = useState<DragState | null>(null);
@@ -83,6 +95,8 @@ export function Groupup({ activity }: GroupupProps) {
   const chipRefs = useRef<Map<string, HTMLElement>>(new Map());
   const dragRef = useRef<DragState | null>(null);
   const swallowFinishingRef = useRef(false);
+  const movesRef = useRef(0);
+  const completedSentRef = useRef(false);
 
   const done =
     locked.size === activity.items.length && activity.items.length > 0;
@@ -128,6 +142,7 @@ export function Groupup({ activity }: GroupupProps) {
     from?: { x: number; y: number; width: number },
   ) {
     if (locked.has(label) || swallow || swallowFinishingRef.current) return;
+    movesRef.current += 1;
     if (answer.get(label) === bucketId) {
       if (reduceMotion || !from) {
         finishCorrect(label, bucketId);
@@ -151,7 +166,11 @@ export function Groupup({ activity }: GroupupProps) {
       }, 700);
       return;
     }
-    setWrongTurns((n) => n + 1);
+    onWrongTurn?.({
+      item: label,
+      chosen: bucketId,
+      expected: answer.get(label) ?? null,
+    });
     setShakeBucket(bucketId);
     setHotBucket(null);
     window.setTimeout(() => setShakeBucket(null), 360);
@@ -225,6 +244,12 @@ export function Groupup({ activity }: GroupupProps) {
       window.removeEventListener("pointercancel", onUp);
     };
   }, [drag, hitBucket]);
+
+  useEffect(() => {
+    if (!done || completedSentRef.current) return;
+    completedSentRef.current = true;
+    onComplete?.(movesRef.current);
+  }, [done, onComplete]);
 
   const swallowTarget = swallow
     ? bucketRefs.current.get(swallow.bucketId)?.getBoundingClientRect()
@@ -420,8 +445,8 @@ export function Groupup({ activity }: GroupupProps) {
             {done
               ? wrongTurns === 0
                 ? "Perfect"
-                : `Done · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
-              : `${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`}
+                : `Done · Wrong turns: ${wrongTurns}`
+              : `Wrong turns: ${wrongTurns}`}
           </p>
         ) : (
           <span className="sr-only" role="status" aria-live="polite">

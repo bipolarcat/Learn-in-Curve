@@ -19,9 +19,12 @@ import {
   canAccessRecallActivities,
   type PmqTier,
 } from "@/lib/pmq/tiers";
+import { PMQ_COURSE_ID } from "@/lib/pmq/constants";
+import { ActivityPlayCourseProvider } from "@/components/pmq/activities/ActivityPlayCourseContext";
 
 type LoLearnStageProps = {
   loNumber: number;
+  courseId?: string;
   definitions: KeyDefinition[];
   coreContent: CoreContentBlockType[];
   userTier?: PmqTier;
@@ -80,6 +83,7 @@ function SectionTitle({
  */
 export function LoLearnStage({
   loNumber,
+  courseId = PMQ_COURSE_ID,
   definitions,
   coreContent,
   userTier = "starter",
@@ -94,6 +98,7 @@ export function LoLearnStage({
 
   if (useNotebook) {
     return (
+      <ActivityPlayCourseProvider loNumber={loNumber} courseId={courseId}>
       <div
         className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
         aria-label="Learn"
@@ -125,10 +130,12 @@ export function LoLearnStage({
           />
         ) : null}
       </div>
+      </ActivityPlayCourseProvider>
     );
   }
 
   return (
+    <ActivityPlayCourseProvider loNumber={loNumber} courseId={courseId}>
     <div
       className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
       aria-label="Learn"
@@ -194,5 +201,6 @@ export function LoLearnStage({
         </section>
       ) : null}
     </div>
+    </ActivityPlayCourseProvider>
   );
 }

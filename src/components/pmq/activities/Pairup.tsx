@@ -21,6 +21,14 @@ import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 
 type PairupProps = {
   activity: PairupActivity;
+  wrongTurns?: number;
+  onWrongTurn?: (detail: {
+    item: string | null;
+    chosen: string | null;
+    expected: string | null;
+    detail?: Record<string, unknown> | null;
+  }) => void;
+  onComplete?: (moves: number) => void;
 };
 
 type DragState = {
@@ -42,7 +50,12 @@ const softSpring = { type: "spring" as const, bounce: 0.06, duration: 0.34 };
  * Highlight language is teal/ink lift only — never orange outlines
  * (orange reads as error next to rust).
  */
-export function Pairup({ activity }: PairupProps) {
+export function Pairup({
+  activity,
+  wrongTurns = 0,
+  onWrongTurn,
+  onComplete,
+}: PairupProps) {
   const reduceMotion = useReducedMotion();
   const answer = useMemo(() => {
     const map = new Map<string, string>();
@@ -58,7 +71,6 @@ export function Pairup({ activity }: PairupProps) {
     shuffleUntilDifferent(activity.pairs.map((pair) => pair.match)),
   );
   const [filled, setFilled] = useState<Record<string, string>>({});
-  const [wrongTurns, setWrongTurns] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [hotTerm, setHotTerm] = useState<string | null>(null);
   const [shakeTerm, setShakeTerm] = useState<string | null>(null);
@@ -67,6 +79,8 @@ export function Pairup({ activity }: PairupProps) {
   const lineRefs = useRef<Map<string, HTMLElement>>(new Map());
   const chipRefs = useRef<Map<string, HTMLElement>>(new Map());
   const dragRef = useRef<DragState | null>(null);
+  const movesRef = useRef(0);
+  const completedSentRef = useRef(false);
 
   const filledCount = Object.keys(filled).length;
   const total = activity.pairs.length;
@@ -100,6 +114,7 @@ export function Pairup({ activity }: PairupProps) {
 
   function commitPair(term: string, match: string) {
     if (filled[term]) return;
+    movesRef.current += 1;
     if (answer.get(term) === match) {
       setFilled((current) => ({ ...current, [term]: match }));
       setPool((current) => current.filter((item) => item !== match));
@@ -108,7 +123,11 @@ export function Pairup({ activity }: PairupProps) {
       setShakeTerm(null);
       return;
     }
-    setWrongTurns((n) => n + 1);
+    onWrongTurn?.({
+      item: term,
+      chosen: match,
+      expected: answer.get(term) ?? null,
+    });
     setShakeTerm(term);
     setHotTerm(null);
     window.setTimeout(() => setShakeTerm(null), 360);
@@ -192,6 +211,12 @@ export function Pairup({ activity }: PairupProps) {
       window.removeEventListener("pointercancel", onUp);
     };
   }, [drag, hitTerm]);
+
+  useEffect(() => {
+    if (!done || completedSentRef.current) return;
+    completedSentRef.current = true;
+    onComplete?.(movesRef.current);
+  }, [done, onComplete]);
 
   return (
     <LayoutGroup>
@@ -362,8 +387,8 @@ export function Pairup({ activity }: PairupProps) {
             {done
               ? wrongTurns === 0
                 ? "Perfect"
-                : `Done · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
-              : `${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`}
+                : `Done · Wrong turns: ${wrongTurns}`
+              : `Wrong turns: ${wrongTurns}`}
           </p>
         ) : (
           <span className="sr-only" role="status" aria-live="polite">

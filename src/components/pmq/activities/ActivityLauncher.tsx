@@ -1,6 +1,12 @@
 "use client";
 
-import { useRef, useState, type ComponentType } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ComponentType,
+} from "react";
 import { useReducedMotion } from "framer-motion";
 import type { LoActivity } from "@/types/pmq";
 import { ActivityModal } from "@/components/pmq/activities/ActivityModal";
@@ -13,6 +19,19 @@ import {
   ActivityLineupIcon,
   ActivityPairupIcon,
 } from "@/components/pmq/activities/ActivityIcons";
+import { useActivityPlayCourse } from "@/components/pmq/activities/ActivityPlayCourseContext";
+import type { ActivityWrongTurnDetail } from "@/components/pmq/activities/persistence-types";
+import {
+  finishActivityAttempt,
+  recordWrongTurn,
+  startActivityAttempt,
+} from "@/lib/pmq/activity-progress";
+import {
+  trackActivityAbandoned,
+  trackActivityCompleted,
+  trackActivityOpened,
+  trackActivityWrongTurn,
+} from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
 
 type ActivityIconProps = {
@@ -46,6 +65,35 @@ function playHowTo(
   return "Drag each card into its tray.";
 }
 
+function detectDevice(): "mobile" | "desktop" {
+  if (typeof window === "undefined") return "desktop";
+  return window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop";
+}
+
+function beaconFinish(body: {
+  attemptId: string;
+  outcome: "completed" | "abandoned";
+  moves: number;
+  durationMs: number | null;
+}) {
+  const payload = JSON.stringify(body);
+  const url = "/api/pmq/activity-attempt/finish";
+  try {
+    if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+      const blob = new Blob([payload], { type: "application/json" });
+      if (navigator.sendBeacon(url, blob)) return;
+    }
+  } catch {
+    /* fall through */
+  }
+  void fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload,
+    keepalive: true,
+  });
+}
+
 type ActivityLauncherProps = {
   activity: LoActivity;
   className?: string;
@@ -58,15 +106,221 @@ export function ActivityLauncher({
   className,
   iconClassName,
 }: ActivityLauncherProps) {
+  const { loNumber, courseId } = useActivityPlayCourse();
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [playKey, setPlayKey] = useState(0);
+  const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [attemptNumber, setAttemptNumber] = useState(1);
+  const [wrongTurns, setWrongTurns] = useState(0);
+  const [completed, setCompleted] = useState(false);
+
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const startedAtRef = useRef<number>(0);
+  const movesRef = useRef(0);
+  const attemptIdRef = useRef<string | null>(null);
+  const completedRef = useRef(false);
+  const wrongTurnsRef = useRef(0);
+  const attemptNumberRef = useRef(1);
+  const finishingRef = useRef(false);
+
   const reduceMotion = useReducedMotion();
   const label = ACTIVITY_DISPLAY_NAMES[activity.type];
   const Icon = ICONS[activity.type];
   const morphActive = open || hovered;
   const note = playHowTo(activity.type, reduceMotion);
+  const inputMode = reduceMotion ? "tap" : "drag";
+
+  attemptIdRef.current = attemptId;
+  completedRef.current = completed;
+  wrongTurnsRef.current = wrongTurns;
+  attemptNumberRef.current = attemptNumber;
+
+  const beginAttempt = useCallback(async () => {
+    startedAtRef.current = Date.now();
+    movesRef.current = 0;
+    finishingRef.current = false;
+    setCompleted(false);
+    setAttemptId(null);
+    setWrongTurns(0);
+
+    const result = await startActivityAttempt({
+      activity,
+      courseId,
+      loNumber,
+      inputMode,
+      device: detectDevice(),
+    });
+
+    if (!result.ok) {
+      console.error("startActivityAttempt:", result.error);
+      return;
+    }
+
+    setAttemptId(result.data.attemptId);
+    setAttemptNumber(result.data.attemptNumber);
+    setWrongTurns(result.data.totalWrongTurns);
+    trackActivityOpened({
+      activity_id: activity.id,
+      activity_type: activity.type,
+      lo_number: loNumber,
+      attempt_number: result.data.attemptNumber,
+      wrong_turns: result.data.totalWrongTurns,
+      input_mode: inputMode,
+      device: detectDevice(),
+    });
+  }, [activity, courseId, inputMode, loNumber]);
+
+  useEffect(() => {
+    if (!open) return;
+    void beginAttempt();
+  }, [open, playKey, beginAttempt]);
+
+  const endAttempt = useCallback(
+    async (
+      outcome: "completed" | "abandoned",
+      opts?: { beacon?: boolean; moves?: number },
+    ) => {
+      const id = attemptIdRef.current;
+      if (!id || finishingRef.current) return;
+      if (outcome === "abandoned" && completedRef.current) return;
+      finishingRef.current = true;
+
+      const moves = opts?.moves ?? movesRef.current;
+      const durationMs = startedAtRef.current
+        ? Math.max(0, Date.now() - startedAtRef.current)
+        : null;
+      const turns = wrongTurnsRef.current;
+      const number = attemptNumberRef.current;
+
+      if (outcome === "completed") {
+        trackActivityCompleted({
+          activity_id: activity.id,
+          activity_type: activity.type,
+          lo_number: loNumber,
+          attempt_number: number,
+          wrong_turns: turns,
+          moves,
+        });
+      } else {
+        trackActivityAbandoned({
+          activity_id: activity.id,
+          activity_type: activity.type,
+          lo_number: loNumber,
+          attempt_number: number,
+          wrong_turns: turns,
+          moves,
+        });
+      }
+
+      if (opts?.beacon) {
+        beaconFinish({
+          attemptId: id,
+          outcome,
+          moves,
+          durationMs,
+        });
+        return;
+      }
+
+      await finishActivityAttempt({
+        attemptId: id,
+        outcome,
+        moves,
+        durationMs,
+      });
+    },
+    [activity.id, activity.type, loNumber],
+  );
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onPageHide() {
+      if (!attemptIdRef.current || completedRef.current) return;
+      void endAttempt("abandoned", { beacon: true });
+    }
+
+    window.addEventListener("pagehide", onPageHide);
+    return () => window.removeEventListener("pagehide", onPageHide);
+  }, [open, endAttempt]);
+
+  function handleClose() {
+    void endAttempt("abandoned");
+    setOpen(false);
+  }
+
+  function handleRetry() {
+    void (async () => {
+      await endAttempt("abandoned");
+      setPlayKey((n) => n + 1);
+    })();
+  }
+
+  const handleWrongTurn = useCallback(
+    (detail: ActivityWrongTurnDetail) => {
+      setWrongTurns((n) => n + 1);
+
+      const id = attemptIdRef.current;
+      const msSinceStart = startedAtRef.current
+        ? Math.max(0, Date.now() - startedAtRef.current)
+        : null;
+
+      trackActivityWrongTurn({
+        activity_id: activity.id,
+        activity_type: activity.type,
+        lo_number: loNumber,
+        attempt_number: attemptNumberRef.current,
+        wrong_turns: wrongTurnsRef.current + 1,
+      });
+
+      const payload = {
+        attemptId: id ?? "",
+        item: detail.item,
+        chosen: detail.chosen,
+        expected: detail.expected,
+        detail: detail.detail ?? null,
+        msSinceStart,
+      };
+
+      void (async () => {
+        // Wait briefly if start is still in flight.
+        let attemptId = id;
+        if (!attemptId) {
+          for (let i = 0; i < 20 && !attemptIdRef.current; i += 1) {
+            await new Promise((r) => window.setTimeout(r, 50));
+          }
+          attemptId = attemptIdRef.current;
+        }
+        if (!attemptId) return;
+
+        const body = { ...payload, attemptId };
+        let result = await recordWrongTurn(body);
+        if (!result.ok) {
+          result = await recordWrongTurn(body);
+        }
+        if (result.ok) {
+          setWrongTurns(result.totalWrongTurns);
+        }
+      })();
+    },
+    [activity.id, activity.type, loNumber],
+  );
+
+  const handleComplete = useCallback(
+    (moves: number) => {
+      movesRef.current = Math.max(movesRef.current, moves);
+      setCompleted(true);
+      void endAttempt("completed", { moves: movesRef.current });
+    },
+    [endAttempt],
+  );
+
+  const persistence = {
+    wrongTurns,
+    onWrongTurn: handleWrongTurn,
+    onComplete: handleComplete,
+  };
 
   return (
     <>
@@ -94,8 +348,8 @@ export function ActivityLauncher({
 
       <ActivityModal
         open={open}
-        onClose={() => setOpen(false)}
-        onRetry={() => setPlayKey((n) => n + 1)}
+        onClose={handleClose}
+        onRetry={handleRetry}
         returnFocusRef={buttonRef}
         eyebrow={label}
         eyebrowIcon={<Icon active className="size-4" />}
@@ -106,11 +360,23 @@ export function ActivityLauncher({
       >
         {open ? (
           activity.type === "pairup" ? (
-            <Pairup key={`${activity.id}-${playKey}`} activity={activity} />
+            <Pairup
+              key={`${activity.id}-${playKey}`}
+              activity={activity}
+              {...persistence}
+            />
           ) : activity.type === "lineup" ? (
-            <Lineup key={`${activity.id}-${playKey}`} activity={activity} />
+            <Lineup
+              key={`${activity.id}-${playKey}`}
+              activity={activity}
+              {...persistence}
+            />
           ) : (
-            <Groupup key={`${activity.id}-${playKey}`} activity={activity} />
+            <Groupup
+              key={`${activity.id}-${playKey}`}
+              activity={activity}
+              {...persistence}
+            />
           )
         ) : null}
       </ActivityModal>
