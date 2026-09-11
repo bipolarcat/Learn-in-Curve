@@ -371,23 +371,29 @@ export function Groupup({ activity }: GroupupProps) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={softSpring}
                         className={cn(
-                          "relative rounded-xl bg-paper/85 dark:bg-paper/40",
-                          dense ? "px-2 pb-1.5 pt-1.5 pr-5" : "px-3 pb-2 pt-2 pr-6",
+                          "relative w-full min-w-0 rounded-xl bg-paper/85 dark:bg-paper/40",
+                          // Explicit pl/pr (not px + pr) so the tick gutter never loses to px on mobile
+                          dense
+                            ? "pb-1.5 pl-2 pr-6 pt-1.5"
+                            : "pb-2 pl-3 pr-7 pt-2",
                         )}
                       >
                         <span
                           className={cn(
-                            "block w-full font-body font-medium leading-snug tracking-tight text-ink/90",
-                            dense ? "text-[11px]" : "text-[12.5px]",
+                            "block w-full min-w-0 break-words font-body font-medium leading-snug tracking-tight text-ink/90",
+                            // ≥12px — iOS won't inflate; keeps wrap width predictable
+                            "text-xs",
                           )}
                         >
                           {label}
                         </span>
-                        <span className="absolute right-1.5 top-1.5 inline-flex size-3.5 items-center justify-center rounded-full bg-teal text-paper">
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute right-1.5 top-1.5 inline-flex size-3.5 items-center justify-center rounded-full bg-teal text-paper"
+                        >
                           <Check
                             className="size-2"
                             strokeWidth={3}
-                            aria-hidden
                           />
                         </span>
                       </motion.li>
