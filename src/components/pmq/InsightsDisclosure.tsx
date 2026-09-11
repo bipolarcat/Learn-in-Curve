@@ -10,9 +10,8 @@ import type { ExamTip } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
 /**
- * LO2 trial: exam coaching as an Insights disclosure — no callout card.
- * Inline footnote chrome: body-sized control, tight bulb↔label, prose rhythm.
- * Bulb motion from 21st.dev / AnimateIcons Lucide (`LightbulbIcon`).
+ * LO2 trial: Insights as an inline footnote chip — quiet annotation in the
+ * prose flow, not a control strip. Bulb motion from AnimateIcons Lucide.
  */
 export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
   const panelId = useId();
@@ -27,7 +26,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
   }, [open, reduceMotion]);
 
   return (
-    <div className="not-prose my-3 min-w-0 max-w-full">
+    <div className="not-prose my-2 min-w-0 max-w-full">
       <button
         type="button"
         aria-expanded={open}
@@ -40,23 +39,22 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
           if (!reduceMotion && !open) bulbRef.current?.stopAnimation();
         }}
         className={cn(
-          "group inline-flex items-center gap-1 rounded-md py-0.5 font-body text-[13px] font-semibold leading-none tracking-tight text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
-          // Expand hit area without bloating the optical size in the prose flow.
-          "-mx-1 px-1",
-          "hover:text-teal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
+          "group inline-flex items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-teal/80 transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
+          // Optical hit target without bloating the footnote line.
+          "-mx-0.5 px-0.5 py-0.5",
+          "hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
           open && "text-teal",
         )}
       >
         <LightbulbIcon
           ref={bulbRef}
-          size={15}
+          size={14}
           duration={0.85}
           isAnimated={!reduceMotion}
-          // AnimateIcons viewBox runs a touch wide — pull in toward the label.
-          className="-mr-0.5 shrink-0 text-teal"
+          className="-mr-px shrink-0 text-current"
           aria-hidden
         />
-        <span className="leading-snug">
+        <span className="leading-snug underline decoration-teal/25 underline-offset-[3px] group-hover:decoration-teal/50">
           {open ? "Hide insights" : "Insights"}
         </span>
       </button>
@@ -69,21 +67,22 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
             role="region"
             aria-label="Insights"
             initial={
-              reduceMotion ? false : { height: 0, opacity: 0, y: -4 }
+              reduceMotion ? false : { height: 0, opacity: 0, y: -3 }
             }
             animate={{ height: "auto", opacity: 1, y: 0 }}
             exit={
               reduceMotion
                 ? { opacity: 0 }
-                : { height: 0, opacity: 0, y: -4 }
+                : { height: 0, opacity: 0, y: -3 }
             }
             transition={{
-              duration: reduceMotion ? 0.01 : 0.22,
+              duration: reduceMotion ? 0.01 : 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="overflow-hidden"
           >
-            <p className="m-0 mt-1.5 w-full min-w-0 font-body text-[13.5px] leading-[1.6] text-ink/85">
+            {/* Indent to the label edge so the tip reads as a footnote under the chip */}
+            <p className="m-0 mt-1.5 w-full min-w-0 border-l border-teal/20 pl-3 font-body text-[13px] leading-[1.55] text-ink/75">
               {tip.tip}
             </p>
           </motion.div>
@@ -96,7 +95,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
 export function InsightsDisclosureList({ tips }: { tips: ExamTip[] }) {
   if (tips.length === 0) return null;
   return (
-    <div className="not-prose flex min-w-0 flex-col gap-0.5">
+    <div className="not-prose flex min-w-0 flex-col gap-0">
       {tips.map((tip) => (
         <InsightsDisclosure key={tip.id} tip={tip} />
       ))}
