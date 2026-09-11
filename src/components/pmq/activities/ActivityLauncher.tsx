@@ -54,12 +54,13 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
         aria-label={`${label}: ${activity.title}`}
         aria-expanded={open}
         className={cn(
-          "group inline-flex size-8 shrink-0 items-center justify-center rounded-lg border border-teal/30 bg-teal/10 text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation hover:border-teal/50 hover:bg-teal/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
-          open && "border-teal/55 bg-teal/20",
+          "group inline-flex size-9 shrink-0 items-center justify-center rounded-md text-teal transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
+          "hover:text-teal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          open && "text-teal",
           className,
         )}
       >
-        <Icon active={morphActive} />
+        <Icon active={morphActive} className="size-4" />
       </button>
 
       <ActivityModal
