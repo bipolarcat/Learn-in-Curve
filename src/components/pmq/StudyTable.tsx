@@ -315,7 +315,7 @@ function MultiColumnTable({
                   <th
                     key="row-label"
                     scope="col"
-                    className="px-3 py-2.5 align-bottom font-body text-[11px] font-semibold tracking-tight text-ink/60"
+                    className="px-3 py-2.5 align-bottom font-body text-[12.5px] font-semibold tracking-tight text-ink/60"
                   >
                     <span className="inline-flex flex-wrap items-center gap-2">
                       <span>{header || "Aspect"}</span>
@@ -328,7 +328,7 @@ function MultiColumnTable({
                   <th
                     key={`${header}-${index}`}
                     scope="col"
-                    className="px-3 py-2.5 align-bottom font-body text-[12px] font-semibold tracking-tight text-ink"
+                    className="px-3 py-2.5 align-bottom font-body text-[12.5px] font-semibold tracking-tight text-ink"
                   >
                     {header}
                   </th>
