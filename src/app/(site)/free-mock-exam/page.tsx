@@ -15,10 +15,6 @@ const PAGE_TITLE = "Free APM PMQ Mock Exam — 15-Question Readiness Check";
 const PAGE_DESCRIPTION =
   "Take a free 15-question APM PMQ readiness check in real exam format. See which learning objectives to revise first — no account required.";
 
-/** Page-local disclaimer: no em dash, no Privacy Policy link (Terms footer still carries site-wide copy). */
-const FREE_MOCK_APM_DISCLAIMER =
-  "Not affiliated with, endorsed by, or acting on behalf of APM (the Association for Project Management). Revision material is our own, aimed at their published syllabus, not official APM content.";
-
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
@@ -121,10 +117,6 @@ export default async function FreeMockExamPage({
             idPrefix="free-mock-faq"
           />
         </div>
-
-        <p className="mx-auto mt-12 w-full max-w-[46rem] border-t border-ink/10 pt-6 font-body text-[12px] leading-snug text-ink/50">
-          {FREE_MOCK_APM_DISCLAIMER}
-        </p>
       </div>
     </div>
   );

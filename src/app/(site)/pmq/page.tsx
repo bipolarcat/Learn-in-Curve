@@ -22,7 +22,6 @@ import {
   PmqPathwayView,
   TrackedOverviewLink,
 } from "@/components/course-overview/PmqOverviewTracked";
-import { APM_DISCLAIMER } from "@/lib/legal-copy";
 import { PMQ_SECTION_COUNT } from "@/lib/pmq/constants";
 import {
   buildLoStages,
@@ -384,8 +383,6 @@ export default async function PmqMarketingOverviewPage() {
           </TrackedOverviewLink>
         </div>
       </div>
-
-      <p className={styles.legal}>{APM_DISCLAIMER}</p>
     </div>
   );
 }

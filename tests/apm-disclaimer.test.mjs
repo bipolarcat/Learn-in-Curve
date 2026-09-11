@@ -9,8 +9,10 @@
  * Project Management's trade marks and we charge money for material aimed at
  * their syllabus, so this is a legal exposure, not a copy nit.
  *
- * Placement (2026-07-30): disclaimer is opt-in on `SiteFooter` and enabled only
- * for `/courses/pmq-in-5-days` via `CoursesSiteFooter` — not site-wide.
+ * Placement (2026-07-30, tightened 2026-09-12): disclaimer is opt-in on
+ * `SiteFooter` and enabled only for `/courses/pmq-in-5-days` via
+ * `CoursesSiteFooter` — not site-wide, and not duplicated on marketing
+ * page bottoms (`/pmq`, `/free-mock-exam`).
  *
  * There's no DOM renderer in this repo (tests are plain `node --test`), so these
  * are source-level assertions. That's sufficient for the failure mode we've
@@ -94,12 +96,21 @@ test("PMQ course overview footer enables the APM disclaimer", async () => {
   );
 });
 
-test("public PMQ marketing overview imports the APM disclaimer", async () => {
-  const page = await read("src/app/(site)/pmq/page.tsx");
-  assert.match(
-    page,
+test("APM_DISCLAIMER is not duplicated on marketing page bottoms", async () => {
+  const [pmq, freeMock] = await Promise.all([
+    read("src/app/(site)/pmq/page.tsx"),
+    read("src/app/(site)/free-mock-exam/page.tsx"),
+  ]);
+
+  assert.doesNotMatch(
+    pmq,
     /APM_DISCLAIMER/,
-    "public /pmq overview must import APM_DISCLAIMER",
+    "public /pmq must not render APM_DISCLAIMER — SiteFooter (courses overview) is the sole footer home",
+  );
+  assert.doesNotMatch(
+    freeMock,
+    /Not affiliated with, endorsed by, or acting on behalf of APM/,
+    "free-mock-exam must not duplicate the SiteFooter APM disclaimer line",
   );
 });
 
