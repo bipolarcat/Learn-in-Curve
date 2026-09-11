@@ -146,8 +146,13 @@ function SyllabusTable() {
               <br />
               objectives
             </th>
-            <th className={`${styles.th} ${styles.thRight}`} scope="col">
-              Share of exam
+            <th
+              className={`${styles.th} ${styles.thCenter} ${styles.thStack}`}
+              scope="col"
+            >
+              Share
+              <br />
+              of exam
             </th>
           </tr>
         </thead>
@@ -158,7 +163,7 @@ function SyllabusTable() {
                 {row.area}
               </td>
               <td className={`${styles.td} ${styles.tdCenter}`}>{row.los}</td>
-              <td className={`${styles.td} ${styles.tdRight}`}>{row.share}</td>
+              <td className={`${styles.td} ${styles.tdCenter}`}>{row.share}</td>
             </tr>
           ))}
         </tbody>
