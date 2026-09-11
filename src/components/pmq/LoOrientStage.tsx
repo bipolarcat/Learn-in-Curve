@@ -159,13 +159,18 @@ export function LoOrientStage({
           className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
           aria-labelledby="lo-orient-outcomes"
         >
-          <div className={`${orientGutter} items-center`}>
+          <div className={`${orientGutter} items-start`}>
             <IconCell>
               <PathwayGlyph icon={ListChecks} />
             </IconCell>
-            <h2 id="lo-orient-outcomes" className={headingClass}>
-              Learning outcomes
-            </h2>
+            <div className="min-w-0">
+              <h2 id="lo-orient-outcomes" className={headingClass}>
+                Learning outcomes
+              </h2>
+              <p className="mt-1 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65">
+                Mapped to the APM PMQ Handbook
+              </p>
+            </div>
           </div>
 
           <ul className="mt-1.5 w-full min-w-0 list-none">
