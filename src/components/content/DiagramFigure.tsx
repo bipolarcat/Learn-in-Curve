@@ -21,7 +21,7 @@ export function DiagramFigure({
   figureNumber,
 }: DiagramFigureProps) {
   return (
-    <figure className="mx-auto my-8 w-full max-w-[620px] rounded-lg border border-ink/10 bg-cream p-4">
+    <figure className="mx-auto mt-8 mb-8 w-full max-w-[620px] rounded-lg border border-ink/10 bg-cream p-4">
       <Image
         src={src}
         alt={alt}

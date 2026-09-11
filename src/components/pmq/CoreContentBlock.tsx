@@ -12,6 +12,7 @@ import {
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
 import { InsightsDisclosureList } from "@/components/pmq/InsightsDisclosure";
 import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
+import { cn } from "@/lib/utils";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
 
@@ -253,8 +254,18 @@ export function CoreContentBlock({
             (t) => t.placement === "after_heading" && t.heading === raw,
           );
 
+          const tipsFollowHeadingMedia =
+            insightsDisclosure &&
+            headingTips.length > 0 &&
+            matched.length > 0;
+
           return (
-            <div className="not-prose min-w-0 max-w-full">
+            <div
+              className={cn(
+                "not-prose min-w-0 max-w-full",
+                tipsFollowHeadingMedia && "insights-after-media [&_figure]:!mb-1.5",
+              )}
+            >
               {withChromeSlot ? (
                 <div
                   className={
@@ -346,8 +357,19 @@ export function CoreContentBlock({
           </>
         );
 
+        const tipsFollowMedia =
+          insightsDisclosure &&
+          tips.length > 0 &&
+          (closingDiagrams.length > 0 || sectionHasTable);
+
         return (
-          <div key={section.heading ?? `section-${index}`} className="min-w-0">
+          <div
+            key={section.heading ?? `section-${index}`}
+            className={cn(
+              "min-w-0",
+              tipsFollowMedia && "insights-after-media [&_figure]:!mb-1.5",
+            )}
+          >
             {toolbarOnHeading ? (
               <StudyHeadingChromeProvider>{sectionBody}</StudyHeadingChromeProvider>
             ) : (
