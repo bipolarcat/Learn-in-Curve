@@ -27,7 +27,7 @@ export function OutcomeCodeBadge({
   return (
     <span
       className={cn(
-        "inline-flex size-7 shrink-0 items-center justify-center rounded-[0.2rem] font-body text-[11px] font-bold leading-none tabular-nums tracking-[-0.02em]",
+        "inline-flex size-7 shrink-0 items-center justify-center rounded-[0.2rem] font-body text-[11px] font-extrabold leading-none tabular-nums tracking-[-0.02em]",
         variant === "stamp"
           ? "border border-teal bg-teal text-cream"
           : "border-2 border-teal bg-transparent text-teal",
