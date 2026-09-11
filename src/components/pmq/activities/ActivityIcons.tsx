@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 /**
  * Recall activity glyphs.
  *
- * Pair up: iPhone-app-thumbnail mark (squircle) — LIC teal/cream, soft depth.
+ * Pair up: iPhone-app-thumbnail mark (squircle) — LIC orange plate, teal pillars.
  * Lineup / Group up: monoline marks with hover morphs.
  */
 
@@ -22,7 +22,7 @@ const baseSvg =
 /**
  * Pair up — iPhone-style squircle thumbnail.
  * Structure: twin pillars + bridge arrow (inspired by a pairing app mark);
- * LIC teal/cream, not the reference’s bright blue.
+ * LIC orange plate; teal pillars + cream bridge arrow.
  */
 export function ActivityPairupIcon({
   active = false,
@@ -69,14 +69,14 @@ export function ActivityPairupIcon({
         </filter>
       </defs>
 
-      {/* App thumbnail squircle — hardcoded dark plate (was .dark --paper-rgb) */}
+      {/* App thumbnail squircle — brand orange plate */}
       <rect
         x="2"
         y="2"
         width="60"
         height="60"
         rx="14"
-        fill="rgb(42 34 28)"
+        fill="var(--orange, #D5501F)"
         style={{
           filter: "drop-shadow(0 1.5px 3px rgb(36 26 18 / 0.14))",
         }}
@@ -88,7 +88,7 @@ export function ActivityPairupIcon({
         height="59"
         rx="13.5"
         fill="none"
-        stroke="rgb(244 233 214 / 0.14)"
+        stroke="rgb(251 243 225 / 0.28)"
         strokeWidth="1"
       />
 
