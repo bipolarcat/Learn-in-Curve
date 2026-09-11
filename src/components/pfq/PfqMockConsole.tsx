@@ -27,6 +27,8 @@ import {
 } from "@/lib/pfq/outcomes";
 import styles from "@/components/pmq/PmqMockExamsSection.module.css";
 
+const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:cursor-wait disabled:opacity-70`;
+
 function PfqMockConsoleTimer({ summary }: { summary: PfqMockSetSummary }) {
   const [now, setNow] = useState<number | null>(null);
 
@@ -98,24 +100,28 @@ export function PfqMockConsole() {
       <div className={styles.panel}>
         <div className={styles.titleBar}>
           <h2 id="pfq-mock-heading" className={styles.title}>
-            Sit the <span className={styles.titleAccent}>mock</span>
+            Mock <span className={styles.titleAccent}>exams</span>
           </h2>
           <p className={styles.subtitle}>
             {PFQ_QUESTION_COUNT} questions · {minutes} minutes · pass{" "}
-            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT} · three exams
+            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT} · three papers
           </p>
         </div>
-        <div className={styles.list}>
+        <div className={styles.meta}>
+          <p className={styles.notice}>
+            One sitting only. Block enough time before you start. Once the timer
+            ends, your exam is over.
+          </p>
+        </div>
+        <ul className={styles.list} aria-label="Mock exam papers">
           {summaries.map((summary) => {
             const state = pfqMockSelectorState(summary, activeOtherSet);
             const rowPending = pending && pendingSet === summary.mockSet;
             return (
-              <div key={summary.mockSet} className={styles.row}>
+              <li key={summary.mockSet} className={styles.row}>
                 <div className={styles.rowMain}>
-                  <div className="min-w-0 flex-1">
-                    <p className={styles.rowTitle}>
-                      Mock exam {summary.mockSet}
-                    </p>
+                  <p className={styles.rowTitle}>
+                    Mock exam {summary.mockSet}
                     {state.status ? (
                       <span
                         className={`${styles.rowStatus} ${
@@ -130,7 +136,7 @@ export function PfqMockConsole() {
                         <PfqMockConsoleTimer summary={summary} />
                       </span>
                     ) : null}
-                  </div>
+                  </p>
                 </div>
                 {state.enabled ? (
                   <button
@@ -138,30 +144,30 @@ export function PfqMockConsole() {
                     disabled={pending}
                     aria-busy={rowPending}
                     aria-label={`${state.action} mock exam ${summary.mockSet}`}
-                    className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
+                    className={rowActionClass}
                     onClick={() => openPath(state.href, summary.mockSet)}
                   >
                     {rowPending ? (
                       <Spinner
                         variant="bars"
                         size={14}
-                        className="text-ink"
+                        className="text-ink/50"
                         aria-hidden
                       />
                     ) : (
                       <>
                         {state.action}
-                        <CtaArrow />
+                        <CtaArrow className="!h-2.5 !w-2.5" />
                       </>
                     )}
                   </button>
                 ) : (
                   <span className={styles.rowLock}>{state.action}</span>
                 )}
-              </div>
+              </li>
             );
           })}
-          <div className={styles.row}>
+          <li className={styles.row}>
             <div className={styles.rowMain}>
               <div className="min-w-0 flex-1">
                 <p className={styles.rowTitle}>Practise by objective</p>
@@ -173,14 +179,14 @@ export function PfqMockConsole() {
             <button
               type="button"
               disabled={pending}
-              className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
+              className={rowActionClass}
               onClick={() => openPath(PFQ_PRACTICE_HREF, "aux")}
             >
               Practise
-              <CtaArrow />
+              <CtaArrow className="!h-2.5 !w-2.5" />
             </button>
-          </div>
-          <div className={styles.row}>
+          </li>
+          <li className={styles.row}>
             <div className={styles.rowMain}>
               <div className="min-w-0 flex-1">
                 <p className={styles.rowTitle}>Trap School</p>
@@ -193,14 +199,14 @@ export function PfqMockConsole() {
             <button
               type="button"
               disabled={pending}
-              className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`}
+              className={rowActionClass}
               onClick={() => openPath(PFQ_TRAP_SCHOOL_HREF, "aux")}
             >
               Open
-              <CtaArrow />
+              <CtaArrow className="!h-2.5 !w-2.5" />
             </button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
   );

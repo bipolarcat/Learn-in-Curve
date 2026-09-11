@@ -33,9 +33,9 @@ const STAGE_META: Record<
 > = {
   orient: { label: "Orient", continueLabel: "Continue to Learn" },
   learn: { label: "Learn", continueLabel: "Continue to Apply" },
-  apply: { label: "Apply", continueLabel: "Continue to Drill" },
-  drill: { label: "Drill", continueLabel: "Continue to Checkpoint" },
-  checkpoint: { label: "Checkpoint", continueLabel: "Done" },
+  apply: { label: "Polish", continueLabel: "Continue to Drill" },
+  drill: { label: "Drill", continueLabel: "Continue to Lock in" },
+  checkpoint: { label: "Lock in", continueLabel: "Done" },
 };
 
 export function buildPfqStages(): PfqStageDef[] {

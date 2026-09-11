@@ -2,24 +2,23 @@
 
 import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import {
-  BookOpen,
-  CircleAlert,
-  Compass,
-  ListChecks,
-  type LucideIcon,
-} from "lucide-react";
+import { Flag } from "lucide-react";
 import { StudyJourney } from "@/components/course/StudyJourney";
 import { LoPageHeader } from "@/components/pmq/LoPageHeader";
 import { LoApplyStage } from "@/components/pmq/LoApplyStage";
-import { DefinitionsReveal } from "@/components/pmq/DefinitionsReveal";
-import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
+import { LoOrientStage } from "@/components/pmq/LoOrientStage";
+import { Lo1CoreContentStudy } from "@/components/pmq/Lo1CoreContentStudy";
 import { PfqCheckpointList } from "@/components/pfq/PfqCheckpointList";
 import { PfqPracticeRunner } from "@/components/pfq/PfqPracticeRunner";
-import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
-import { productSurfaceOpaque } from "@/components/ui/semantic";
+import {
+  productActionSecondary,
+  productSurfaceOpaque,
+} from "@/components/ui/semantic";
+import { Spinner } from "@/components/ui/spinner";
+import { CtaArrow, CtaArrowLeft } from "@/components/stamp-chip";
 import motion from "@/components/pmq/PmqMotion.module.css";
 import type { PfqObjectiveLesson } from "@/lib/pfq/content";
+import type { CoreContentBlock as PmqCoreBlock } from "@/types/pmq";
 import {
   buildPfqStages,
   PFQ_PROGRESS_UNIT_PERCENT,
@@ -27,9 +26,7 @@ import {
   type PfqStageId,
 } from "@/lib/pfq/lesson-stages";
 import { markPfqStageReached } from "@/lib/pfq/lesson-actions";
-import {
-  PFQ_LEARN_HREF,
-} from "@/lib/pfq/constants";
+import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
 import { canSealLo } from "@/lib/pmq/lo-stages";
 
 type Props = {
@@ -40,57 +37,44 @@ type Props = {
   completionPercent?: number;
 };
 
-const headingClass =
-  "min-w-0 w-full text-left font-body text-lg font-semibold leading-none tracking-tight text-balance text-ink";
-const bodyClass =
-  "w-full min-w-0 text-left font-body text-[15px] font-normal leading-[1.65] text-pretty text-ink/85";
-const orientGutter =
-  "grid w-full min-w-0 grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-1.5 sm:gap-x-2";
-
-function PathwayGlyph({ icon: Icon }: { icon: LucideIcon }) {
-  return (
-    <Icon
-      className="size-7 shrink-0 text-orange sm:size-8"
-      strokeWidth={1.75}
-      aria-hidden
-    />
-  );
+function firstMarkdownHeading(md: string): string | null {
+  const match = /^##\s+(.+)$/m.exec(md);
+  return match?.[1]?.trim() ?? null;
 }
 
-function OrientCard({
-  id,
-  icon,
-  title,
-  children,
-}: {
-  id: string;
-  icon: LucideIcon;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section
-      className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
-      aria-labelledby={id}
-    >
-      <div className={orientGutter}>
-        <span className="flex items-center justify-center self-start">
-          <PathwayGlyph icon={icon} />
-        </span>
-        <div className="flex min-w-0 flex-col gap-1.5">
-          <h2 id={id} className={headingClass}>
-            {title}
-          </h2>
-          {children}
-        </div>
-      </div>
-    </section>
-  );
+function toPmqCoreBlocks(
+  blocks: PfqObjectiveLesson["core_content"],
+): PmqCoreBlock[] {
+  return blocks.map((block) => {
+    let body = block.body_markdown;
+    let tipHeading = firstMarkdownHeading(body);
+    if (block.watch_for && !tipHeading) {
+      tipHeading = block.outcome_title || "Key points";
+      body = `## ${tipHeading}\n\n${body}`;
+    }
+    return {
+      outcome_code: block.outcome_code,
+      outcome_title: block.outcome_title,
+      key_takeaway: block.key_takeaway,
+      body_markdown: body,
+      exam_tips:
+        block.watch_for && tipHeading
+          ? [
+              {
+                id: `watch-${block.outcome_code}`,
+                heading: tipHeading,
+                placement: "after_section" as const,
+                tip: block.watch_for,
+              },
+            ]
+          : undefined,
+    };
+  });
 }
 
 /**
- * PFQ objective pathway — Orient → Learn → Apply → Drill → Checkpoint.
- * Misconceptions + memory aids live on Apply (same dialect as PMQ).
+ * PFQ objective pathway — Orient → Learn → Polish → Drill → Lock in.
+ * Misconceptions + memory aids live on Polish (same dialect as PMQ).
  * Does not write pfq_coverage_signals.
  */
 export function PfqObjectiveLessonView({
@@ -111,6 +95,7 @@ export function PfqObjectiveLessonView({
   const [checkpointReady, setCheckpointReady] = useState(
     () => sealed || sealReady || checkpointTotal <= 0,
   );
+  const [focusOutcomeCode, setFocusOutcomeCode] = useState<string | null>(null);
 
   useEffect(() => {
     if (sealed || sealReady || checkpointTotal <= 0) {
@@ -123,19 +108,34 @@ export function PfqObjectiveLessonView({
   }, []);
 
   const router = useRouter();
-  const [, startTransition] = useTransition();
-  const nextObjective = lesson.objective_number < 10
-    ? lesson.objective_number + 1
-    : null;
+  const [navPending, startTransition] = useTransition();
+  const [pendingHref, setPendingHref] = useState<string | null>(null);
+
+  const prevObjective =
+    lesson.objective_number > 1 ? lesson.objective_number - 1 : null;
+  const nextObjective =
+    lesson.objective_number < 10 ? lesson.objective_number + 1 : null;
   const nextHref = nextObjective
     ? `${PFQ_LEARN_HREF}/${nextObjective}`
     : PFQ_LEARN_HREF;
+  const prevHref = prevObjective
+    ? `${PFQ_LEARN_HREF}/${prevObjective}`
+    : null;
+
+  const go = useCallback(
+    (href: string) => {
+      if (pendingHref) return;
+      setPendingHref(href);
+      startTransition(() => {
+        router.push(href);
+      });
+    },
+    [pendingHref, router, startTransition],
+  );
 
   const goNext = useCallback(() => {
-    startTransition(() => {
-      router.push(nextHref);
-    });
-  }, [nextHref, router, startTransition]);
+    go(nextHref);
+  }, [go, nextHref]);
 
   const checkpointContinueLabel = nextObjective
     ? `Continue to LO${nextObjective}`
@@ -174,6 +174,22 @@ export function PfqObjectiveLessonView({
     [lesson.key_definitions],
   );
 
+  const orientOutcomes = useMemo(
+    () =>
+      lesson.learning_outcomes.map((code) => {
+        const title =
+          lesson.core_content.find((b) => b.outcome_code === code)
+            ?.outcome_title ?? code;
+        return `${code}) ${title}`;
+      }),
+    [lesson.learning_outcomes, lesson.core_content],
+  );
+
+  const coreBlocks = useMemo(
+    () => toPmqCoreBlocks(lesson.core_content),
+    [lesson.core_content],
+  );
+
   return (
     <StudyJourney<PfqStageId>
       unitKey={lesson.objective_number}
@@ -209,109 +225,39 @@ export function PfqObjectiveLessonView({
           completionPercent={ctx.optimisticCompletionPercent}
         />
       )}
-      renderStage={(currentId) => {
+      renderStage={(currentId, { jumpToStage }) => {
         if (currentId === "orient") {
           return (
-            <div
-              className="flex min-w-0 flex-col gap-3 sm:gap-3.5"
-              aria-label="Orient"
-            >
-              <OrientCard id="pfq-where" icon={Compass} title="Where this fits">
-                <p className={bodyClass}>{lesson.where_this_fits}</p>
-              </OrientCard>
-              {definitions.length > 0 ? (
-                <OrientCard
-                  id="pfq-defs"
-                  icon={BookOpen}
-                  title="Key definitions"
-                >
-                  <DefinitionsReveal definitions={definitions} />
-                </OrientCard>
-              ) : null}
-              {lesson.learning_outcomes.length > 0 ? (
-                <OrientCard
-                  id="pfq-outcomes"
-                  icon={ListChecks}
-                  title="Learning outcomes"
-                >
-                  <ul className="m-0 list-none space-y-2 p-0">
-                    {lesson.learning_outcomes.map((code) => {
-                      const title =
-                        lesson.core_content.find(
-                          (b) => b.outcome_code === code,
-                        )?.outcome_title ?? code;
-                      return (
-                        <li
-                          key={code}
-                          className="flex min-w-0 items-start gap-2"
-                        >
-                          <OutcomeCodeBadge code={code} />
-                          <span className={bodyClass}>{title}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </OrientCard>
-              ) : null}
-            </div>
+            <LoOrientStage
+              context={lesson.where_this_fits}
+              outcomes={orientOutcomes}
+              definitions={definitions}
+              badgeVariant="stamp"
+              outcomesSubtitle="Mapped to the APM PFQ syllabus"
+              onJumpToOutcome={(code) => {
+                setFocusOutcomeCode(code);
+                jumpToStage("learn");
+              }}
+            />
           );
         }
 
         if (currentId === "learn") {
           return (
             <div
-              className="flex min-w-0 flex-col gap-3 sm:gap-3.5"
+              className="lo-learn-stage flex min-w-0 flex-col gap-3 sm:gap-3.5"
               aria-label="Learn"
             >
-              {lesson.core_content.map((block) => (
-                <section
-                  key={block.outcome_code}
-                  id={block.outcome_code}
-                  className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 scroll-mt-24 p-4 sm:p-5`}
-                  aria-labelledby={`pfq-core-${block.outcome_code}`}
-                >
-                  <div className="mb-3 flex min-w-0 items-center gap-2">
-                    <OutcomeCodeBadge code={block.outcome_code} />
-                    <h3
-                      id={`pfq-core-${block.outcome_code}`}
-                      className="min-w-0 font-body text-lg font-semibold leading-snug tracking-tight text-ink"
-                    >
-                      {block.outcome_title || block.outcome_code}
-                    </h3>
-                  </div>
-                  {block.key_takeaway ? (
-                    <p className="mb-3 font-body text-[14px] font-medium leading-snug text-ink/80">
-                      {block.key_takeaway}
-                    </p>
-                  ) : null}
-                  <CoreContentBlock
-                    block={{
-                      outcome_code: block.outcome_code,
-                      outcome_title: block.outcome_title,
-                      body_markdown: block.body_markdown,
-                      key_takeaway: block.key_takeaway,
-                    }}
-                  />
-                  {block.watch_for ? (
-                    <aside
-                      className="mt-4 rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 py-3 dark:border-white/12 dark:bg-white/[0.04]"
-                      aria-label="Watch for"
-                    >
-                      <p className="m-0 flex items-center gap-1.5 font-body text-[12px] font-semibold tracking-tight text-ink/60">
-                        <CircleAlert
-                          className="size-3.5 text-orange"
-                          strokeWidth={2}
-                          aria-hidden
-                        />
-                        Watch for
-                      </p>
-                      <p className="mt-1.5 m-0 font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90">
-                        {block.watch_for}
-                      </p>
-                    </aside>
-                  ) : null}
-                </section>
-              ))}
+              {coreBlocks.length > 0 ? (
+                <Lo1CoreContentStudy
+                  blocks={coreBlocks}
+                  studyTables
+                  activities={false}
+                  badgeVariant="stamp"
+                  focusOutcomeCode={focusOutcomeCode}
+                  onFocusOutcomeConsumed={() => setFocusOutcomeCode(null)}
+                />
+              ) : null}
             </div>
           );
         }
@@ -339,20 +285,29 @@ export function PfqObjectiveLessonView({
           return (
             <section
               className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
-              aria-labelledby="pfq-checkpoint"
+              aria-labelledby="pfq-lock-in"
             >
-              <h2
-                id="pfq-checkpoint"
-                className="font-body text-lg font-semibold tracking-tight text-ink"
-              >
-                Progress checkpoint
-              </h2>
-              <p className="mt-2 mb-4 font-body text-[14px] leading-relaxed text-ink/70">
-                Tick when you can do each of these. Completing every item marks
-                this objective done. Self-assessment stays off the coverage map,
-                that number only moves when you answer practice or mock
-                questions.
-              </p>
+              <div className="mb-3 flex min-w-0 items-start gap-2">
+                <Flag
+                  className="mt-0.5 size-7 shrink-0 text-orange sm:size-8"
+                  strokeWidth={1.75}
+                  aria-hidden
+                />
+                <div className="min-w-0">
+                  <h2
+                    id="pfq-lock-in"
+                    className="font-body text-lg font-semibold leading-none tracking-tight text-ink"
+                  >
+                    Lock in
+                  </h2>
+                  <p className="mt-1.5 m-0 font-body text-[14px] leading-relaxed text-ink/70">
+                    Tick when you can do each of these. Completing every item
+                    marks this objective done. Self-assessment stays off the
+                    coverage map; that number only moves when you answer
+                    practice or mock questions.
+                  </p>
+                </div>
+              </div>
               <PfqCheckpointList
                 objective={lesson.objective_number}
                 items={lesson.progress_checkpoint}
@@ -360,6 +315,59 @@ export function PfqObjectiveLessonView({
                 initiallyComplete={completed}
                 onReadyChange={onChecklistReadyChange}
               />
+              <nav
+                className="mt-6 flex flex-wrap items-center justify-between gap-3 sm:mt-8"
+                aria-label="Learning objective navigation"
+              >
+                {prevHref ? (
+                  <button
+                    type="button"
+                    disabled={navPending}
+                    aria-busy={pendingHref === prevHref}
+                    className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90`}
+                    onClick={() => go(prevHref)}
+                  >
+                    {pendingHref === prevHref ? (
+                      <Spinner
+                        variant="bars"
+                        size={14}
+                        className="text-ink/55"
+                        aria-hidden
+                      />
+                    ) : (
+                      <>
+                        <CtaArrowLeft className="!h-2.5 !w-2.5" />
+                        Previous: LO{prevObjective}
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <span />
+                )}
+                <button
+                  type="button"
+                  disabled={navPending || (sealed ? false : !checkpointReady)}
+                  aria-busy={pendingHref === nextHref}
+                  className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90`}
+                  onClick={() => go(nextHref)}
+                >
+                  {pendingHref === nextHref ? (
+                    <Spinner
+                      variant="bars"
+                      size={14}
+                      className="text-ink/55"
+                      aria-hidden
+                    />
+                  ) : (
+                    <>
+                      {nextObjective
+                        ? `Next: LO${nextObjective}`
+                        : "Back to overview"}
+                      <CtaArrow className="!h-2.5 !w-2.5" />
+                    </>
+                  )}
+                </button>
+              </nav>
             </section>
           );
         }

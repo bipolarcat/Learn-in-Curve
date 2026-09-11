@@ -26,6 +26,8 @@ type LoOrientStageProps = {
    * (skips Continue to Learn).
    */
   onJumpToOutcome?: (code: string) => void;
+  /** Quiet line under “Learning outcomes” (default: PMQ handbook). */
+  outcomesSubtitle?: string;
 };
 
 /** Shared type — headings, body, and outcome codes all Figtree at these sizes. */
@@ -42,14 +44,24 @@ const bodyClass =
 const orientGutter =
   "grid w-full min-w-0 grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-1.5 sm:gap-x-2";
 
-/** Parse "1a) …" / "1A. …" into a display code + body. */
+/** Parse "1a) …" / "1A. …" / "4.10) …" into a display code + body. */
 function splitOutcome(raw: string): { code: string | null; text: string } {
-  const match = /^(\d+[a-z])[).:\-\u2013\u2014]\s*(.+)$/i.exec(raw.trim());
-  if (!match) return { code: null, text: raw.trim() };
-  return {
-    code: match[1]!.toLowerCase(),
-    text: match[2]!.trim(),
-  };
+  const trimmed = raw.trim();
+  const letter = /^(\d+[a-z])[).:\-\u2013\u2014]\s*(.+)$/i.exec(trimmed);
+  if (letter) {
+    return {
+      code: letter[1]!.toLowerCase(),
+      text: letter[2]!.trim(),
+    };
+  }
+  const dotted = /^(\d+\.\d+)\s*[).:\-\u2013\u2014]\s*(.+)$/.exec(trimmed);
+  if (dotted) {
+    return {
+      code: dotted[1]!,
+      text: dotted[2]!.trim(),
+    };
+  }
+  return { code: null, text: trimmed };
 }
 
 function PathwayGlyph({ icon: Icon }: { icon: LucideIcon }) {
@@ -138,6 +150,7 @@ export function LoOrientStage({
   definitions = [],
   badgeVariant = "stamp",
   onJumpToOutcome,
+  outcomesSubtitle = "Mapped to the APM PMQ Handbook",
 }: LoOrientStageProps) {
   const contextText = context.trim();
   const hasContext = contextText.length > 0;
@@ -177,7 +190,7 @@ export function LoOrientStage({
                 Learning outcomes
               </h2>
               <p className={subtitleClass}>
-                Mapped to the APM PMQ Handbook
+                {outcomesSubtitle}
               </p>
             </div>
           </div>

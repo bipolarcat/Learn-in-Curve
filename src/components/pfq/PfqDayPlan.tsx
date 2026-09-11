@@ -172,6 +172,9 @@ export function PfqDayPlan({
           <h2 id="pfq-plan-heading" className={styles.title}>
             Your <span className={styles.titleAccent}>2-day</span> plan
           </h2>
+          <p className={styles.subtitle}>
+            10 learning objectives to explore. Start with any one.
+          </p>
         </div>
         {titleAction ? (
           <div className={styles.titleAction}>{titleAction}</div>
