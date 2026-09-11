@@ -40,6 +40,13 @@ type ActivityModalProps = {
   footer?: ReactNode;
   /** Element that opened the modal — focus returns here on close. */
   returnFocusRef?: React.RefObject<HTMLElement | null>;
+  /** Wider sheet for multi-column play (e.g. Group up with 3 trays). */
+  size?: "default" | "wide";
+  /**
+   * When false, the body never scrolls — content must fit the sheet.
+   * Required for drag play where auto-scroll isn't available.
+   */
+  scrollable?: boolean;
 };
 
 export function ActivityModal({
@@ -51,6 +58,8 @@ export function ActivityModal({
   children,
   footer,
   returnFocusRef,
+  size = "default",
+  scrollable = true,
 }: ActivityModalProps) {
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -139,7 +148,8 @@ export function ActivityModal({
             }
             style={{ transformOrigin: "50% 50%" }}
             className={cn(
-              "relative flex max-h-[min(90vh,48rem)] w-full max-w-xl flex-col overflow-hidden rounded-[1.35rem] border border-black/[0.06] bg-paper shadow-[0_24px_64px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.04)] dark:border-white/[0.1]",
+              "relative flex max-h-[min(90vh,48rem)] w-full flex-col overflow-hidden rounded-[1.35rem] border border-black/[0.06] bg-paper shadow-[0_24px_64px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.04)] dark:border-white/[0.1]",
+              size === "wide" ? "max-w-2xl" : "max-w-xl",
             )}
           >
             <header className="relative shrink-0 px-5 pb-1.5 pt-5 pr-12 sm:px-6">
@@ -170,7 +180,12 @@ export function ActivityModal({
               </button>
             </header>
 
-            <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-5 pt-4 sm:px-6">
+            <div
+              className={cn(
+                "min-h-0 flex-1 px-5 pb-5 pt-4 sm:px-6",
+                scrollable ? "overflow-y-auto" : "overflow-hidden",
+              )}
+            >
               {children}
             </div>
 

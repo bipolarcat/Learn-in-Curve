@@ -252,8 +252,8 @@ export function Groupup({ activity }: GroupupProps) {
 
   return (
     <LayoutGroup>
-      <div className="grid gap-6">
-        <div className="grid gap-3">
+      <div className="grid gap-4">
+        <div className="grid gap-2">
           <div className="flex items-center justify-between gap-3 px-0.5">
             <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
               {pool.length === 0 ? "All sorted" : "Cards"}
@@ -265,7 +265,7 @@ export function Groupup({ activity }: GroupupProps) {
             />
           </div>
 
-          <div className="flex min-h-[2.75rem] flex-wrap gap-2">
+          <div className="flex min-h-[2.25rem] flex-wrap gap-1.5">
             <AnimatePresence initial={false} mode="popLayout">
               {pool.map((label) => {
                 const isSelected = selected === label;
@@ -295,7 +295,7 @@ export function Groupup({ activity }: GroupupProps) {
                     onPointerDown={(event) => startDrag(label, event)}
                     aria-pressed={isSelected}
                     className={cn(
-                      "max-w-full touch-none select-none rounded-full px-3.5 py-2 text-left font-body text-[13px] font-medium leading-snug tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
+                      "max-w-full touch-none select-none rounded-full px-3 py-1.5 text-left font-body text-[12.5px] font-medium leading-snug tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
                       isSelected
                         ? "bg-teal/[0.12] text-ink shadow-[inset_0_0_0_1px_rgb(var(--teal-rgb)_/_0.28)]"
@@ -312,10 +312,12 @@ export function Groupup({ activity }: GroupupProps) {
 
         <div
           className={cn(
-            "grid gap-3",
-            activity.buckets.length > 2
-              ? "sm:grid-cols-2 lg:grid-cols-3"
-              : "sm:grid-cols-2",
+            "grid gap-2.5",
+            activity.buckets.length === 3
+              ? "grid-cols-3"
+              : activity.buckets.length >= 4
+                ? "grid-cols-2"
+                : "grid-cols-1 sm:grid-cols-2",
           )}
         >
           {activity.buckets.map((bucket, index) => {
@@ -328,6 +330,7 @@ export function Groupup({ activity }: GroupupProps) {
             const inviting = (isHot || isTapTarget) && !isShake;
             const tone = POCKET_TONES[index % POCKET_TONES.length]!;
             const isSwallowing = swallow?.bucketId === bucket.id;
+            const dense = activity.buckets.length >= 3;
 
             return (
               <motion.div
@@ -354,33 +357,52 @@ export function Groupup({ activity }: GroupupProps) {
                 }
                 transition={{ duration: 0.28, ease: appleEase }}
                 className={cn(
-                  "relative flex min-h-[10.5rem] flex-col overflow-hidden rounded-[1.25rem] px-3.5 pb-3 pt-3.5 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                  "relative flex flex-col overflow-hidden rounded-[1.15rem] transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                  dense
+                    ? "min-h-[7.5rem] px-2.5 pb-2.5 pt-2.5"
+                    : "min-h-[9rem] px-3.5 pb-3 pt-3.5",
                   inviting
                     ? "bg-teal/[0.07]"
                     : "bg-ink/[0.03] dark:bg-white/[0.035]",
                   isShake && "bg-rust/[0.08]",
                 )}
               >
-                <div className="mb-2.5 flex items-start gap-2.5">
+                <div
+                  className={cn(
+                    "mb-2 flex items-start",
+                    dense ? "flex-col gap-1.5" : "gap-2.5",
+                  )}
+                >
                   <PocketMark
                     open={inviting || isSwallowing}
                     swallowing={isSwallowing}
                     tone={tone}
                     reduceMotion={Boolean(reduceMotion)}
+                    size={dense ? "sm" : "md"}
                   />
-                  <div className="min-w-0 flex-1 pt-0.5">
-                    <p className="m-0 font-body text-[14px] font-semibold leading-snug tracking-[-0.015em] text-ink">
+                  <div className="min-w-0 flex-1">
+                    <p
+                      className={cn(
+                        "m-0 font-body font-semibold leading-snug tracking-[-0.015em] text-ink",
+                        dense ? "text-[12.5px]" : "text-[14px]",
+                      )}
+                    >
                       {bucket.label}
                     </p>
                     {bucket.hint ? (
-                      <p className="mt-0.5 font-body text-[11.5px] font-medium text-ink/45">
+                      <p
+                        className={cn(
+                          "mt-0.5 font-body font-medium text-ink/45",
+                          dense ? "text-[10.5px] leading-snug" : "text-[11.5px]",
+                        )}
+                      >
                         {bucket.hint}
                       </p>
                     ) : null}
                   </div>
                 </div>
 
-                <ul className="m-0 mt-auto flex list-none flex-col gap-1.5 p-0">
+                <ul className="m-0 mt-auto flex list-none flex-col gap-1 p-0">
                   <AnimatePresence initial={false}>
                     {inBucket.map((label) => (
                       <motion.li
@@ -393,9 +415,17 @@ export function Groupup({ activity }: GroupupProps) {
                         }
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={softSpring}
-                        className="flex items-center gap-2 rounded-xl bg-paper/85 px-3 py-2 dark:bg-paper/40"
+                        className={cn(
+                          "flex items-center gap-1.5 rounded-xl bg-paper/85 dark:bg-paper/40",
+                          dense ? "px-2 py-1.5" : "px-3 py-2",
+                        )}
                       >
-                        <span className="min-w-0 flex-1 font-body text-[12.5px] font-medium leading-snug tracking-tight text-ink/90">
+                        <span
+                          className={cn(
+                            "min-w-0 flex-1 font-body font-medium leading-snug tracking-tight text-ink/90",
+                            dense ? "text-[11px]" : "text-[12.5px]",
+                          )}
+                        >
                           {label}
                         </span>
                         <span className="inline-flex size-3.5 shrink-0 items-center justify-center rounded-full bg-teal text-paper">
@@ -411,7 +441,8 @@ export function Groupup({ activity }: GroupupProps) {
                   {inBucket.length === 0 && !isSwallowing ? (
                     <li
                       className={cn(
-                        "rounded-xl px-3 py-3 text-center font-body text-[12px] font-medium tracking-tight transition-colors duration-200",
+                        "rounded-xl text-center font-body font-medium tracking-tight transition-colors duration-200",
+                        dense ? "px-2 py-2 text-[11px]" : "px-3 py-3 text-[12px]",
                         inviting ? "text-teal/70" : "text-ink/30",
                       )}
                     >
@@ -479,8 +510,8 @@ export function Groupup({ activity }: GroupupProps) {
                 opacity: 1,
               }}
               animate={{
-                left: swallowTarget.left + swallowTarget.width * 0.22,
-                top: swallowTarget.top + 52,
+                left: swallowTarget.left + swallowTarget.width / 2,
+                top: swallowTarget.top + Math.min(40, swallowTarget.height * 0.35),
                 x: "-50%",
                 y: "-50%",
                 scale: 0.22,
@@ -504,21 +535,24 @@ export function Groupup({ activity }: GroupupProps) {
   );
 }
 
-/** Folder-pocket mark — lid + body only; lid lifts on invite / swallow. */
+/** Folder-pocket mark — lid + outline body; lid lifts on invite / swallow. */
 function PocketMark({
   open,
   swallowing,
   tone,
   reduceMotion,
+  size = "md",
 }: {
   open: boolean;
   swallowing: boolean;
   tone: (typeof POCKET_TONES)[number];
   reduceMotion: boolean;
+  size?: "sm" | "md";
 }) {
+  const box = size === "sm" ? "size-9" : "size-12";
   return (
     <motion.div
-      className="relative size-12 shrink-0"
+      className={cn("relative shrink-0", box)}
       animate={
         swallowing && !reduceMotion
           ? { scale: [1, 1.08, 1] }
@@ -526,7 +560,7 @@ function PocketMark({
       }
       transition={{ duration: 0.42, ease: appleEase }}
     >
-      <svg viewBox="0 0 48 48" className="size-12 overflow-visible" aria-hidden>
+      <svg viewBox="0 0 48 48" className={cn(box, "overflow-visible")} aria-hidden>
         {/* Body — outline only */}
         <rect
           x="6"

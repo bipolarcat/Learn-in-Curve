@@ -95,6 +95,8 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
         eyebrow={label}
         title={activity.title}
         note={note}
+        size={activity.type === "groupup" ? "wide" : "default"}
+        scrollable={activity.type !== "groupup"}
       >
         {open ? (
           activity.type === "pairup" ? (
