@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Lightbulb } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import type { WorkedExampleCard } from "@/types/pmq";
 import { ActivityModal } from "@/components/pmq/activities/ActivityModal";
 import { cn } from "@/lib/utils";
@@ -28,11 +28,11 @@ export function WorkedExampleLauncher({
         title="Worked example"
         aria-label={`Worked example: ${example.row_label}`}
         className={cn(
-          "inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-orange/35 bg-orange/10 text-orange transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation hover:border-orange/55 hover:bg-orange/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          "inline-flex size-7 shrink-0 items-center justify-center rounded-md text-orange transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:text-orange/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
           className,
         )}
       >
-        <Lightbulb className="size-3.5" strokeWidth={2} aria-hidden />
+        <ClipboardList className="size-3.5" strokeWidth={2} aria-hidden />
       </button>
 
       <ActivityModal
