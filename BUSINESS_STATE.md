@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-12** — Command words mobile: full-width lede; left column (verbs + action) at 2/3 width so action lines don’t wrap early (`PmqCommandWords.module.css`).
 - **2026-09-12** — APM affiliation disclaimer: keep sole footer home in `SiteFooter` (PMQ overview via `CoursesSiteFooter`); remove duplicate page-bottom copies from `/pmq` and `/free-mock-exam`.
 - **2026-09-12** — PMQ exam guide: collapse five stacked cards into one **Exam essentials** console with segmented tabs (Structure / Marks / Syllabus / Marking / Pass mark) — Mobbin + 21st.dev settings-panel pattern (`PmqExamGuideSections`, `PmqOverview`).
 - **2026-09-12** — PMQ mock console: tighter gap between “One sitting only…” notice and first paper row (`PmqMockExamsSection.module.css`).
