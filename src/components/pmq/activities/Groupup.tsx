@@ -14,8 +14,11 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { Check } from "lucide-react";
 import type { GroupupActivity } from "@/types/pmq";
+import {
+  ACTIVITY_CORRECT_MARK_PX,
+  ActivityCorrectMark,
+} from "@/components/pmq/activities/ActivityCorrectMark";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 
@@ -376,18 +379,13 @@ export function Groupup({ activity }: GroupupProps) {
                         aria-hidden
                         style={{
                           float: "right",
-                          width: 14,
-                          height: 14,
+                          width: ACTIVITY_CORRECT_MARK_PX,
+                          height: ACTIVITY_CORRECT_MARK_PX,
                           marginLeft: 3,
                         }}
                       />
-                      {/* Visible tick painted on top of that spacer — not inside the float. */}
-                      <span
-                        aria-hidden
-                        className="pointer-events-none absolute right-1.5 top-1 inline-flex size-[14px] items-center justify-center rounded-full bg-teal text-paper"
-                      >
-                        <Check className="size-2" strokeWidth={3} />
-                      </span>
+                      {/* Same mark as Pair up — absolute over the spacer, not inside the float. */}
+                      <ActivityCorrectMark className="pointer-events-none absolute right-1.5 top-1" />
                       {label}
                     </li>
                   ))}

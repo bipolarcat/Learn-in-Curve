@@ -14,8 +14,8 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { Check } from "lucide-react";
 import type { PairupActivity } from "@/types/pmq";
+import { ActivityCorrectMark } from "@/components/pmq/activities/ActivityCorrectMark";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
 
@@ -274,13 +274,7 @@ export function Pairup({ activity }: PairupProps) {
                           <span className="min-w-0 flex-1 font-body text-[13.5px] font-medium leading-snug tracking-tight text-ink/90">
                             {match}
                           </span>
-                          <span className="inline-flex size-[1.125rem] shrink-0 items-center justify-center rounded-full bg-teal text-paper">
-                            <Check
-                              className="size-2.5"
-                              strokeWidth={3}
-                              aria-hidden
-                            />
-                          </span>
+                          <ActivityCorrectMark />
                         </motion.div>
                       ) : (
                         <motion.span

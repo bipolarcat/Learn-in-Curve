@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Shared `ActivityCorrectMark` for Pair up + Group up correct ticks (one size/stroke); Group up float spacer uses `ACTIVITY_CORRECT_MARK_PX` so they can’t drift (`ActivityCorrectMark`, `Pairup`, `Groupup`).
 - **2026-09-11** — Group up chips: empty float spacer for wrap-under + absolute Lucide check (data-URI tick wasn’t painting); swallow finish guarded once (`Groupup`).
 - **2026-09-11** — Group up chips: float tick is a fixed 14×14 painted spacer (no flex/SVG children — iOS was inflating the float and blocking wrap-under). Activity modal focuses the panel, not the X, so no stale teal focus ring (`Groupup`, `ActivityModal`).
 - **2026-09-11** — Group up placed chips: plain `li` + inline `float:right` tick (Framer was breaking float → tick left / huge gaps); `rounded-sm`, line-height 1.25 (`Groupup`).
