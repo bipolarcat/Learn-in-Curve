@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-11** — Outcome stamp switcher: narrower/sleeker — `max-w-[19.5rem]`, `min-h-8`, 12px type, tighter pad/radius, quieter thumb shadow (`OutcomeStampSwitcher`).
+- **2026-09-11** — Outcome stamp switcher: shorter height only (full card width kept) — `min-h-8`, 12px type, tighter pad/radius, quieter thumb shadow (`OutcomeStampSwitcher`).
 - **2026-09-11** — Reverted LO2 Fig 2.1 enlarge / frame-removal + DiagramFigure chrome change (back to cream bordered 620px figure + original SVG).
 - **2026-09-11** — Recall launcher icons: quieter plate chrome (lighter dual shadow, softer sheen/shade/rim) for Pair up / Lineup / Group up (`ActivityIcons`).
 - **2026-09-11** — Insights open/close: underline is a separate motion rail (21st underline pattern) that `layoutId`-morphs into the vertical tip rule; Disclosure-style height expand; reduced-motion skips the morph (`InsightsDisclosure`).
