@@ -527,19 +527,20 @@ function PocketMark({
       transition={{ duration: 0.42, ease: appleEase }}
     >
       <svg viewBox="0 0 48 48" className="size-12 overflow-visible" aria-hidden>
-        {/* Body — solid rounded rect, no light wash */}
+        {/* Body — outline only */}
         <rect
           x="6"
-          y="18"
+          y="20"
           width="36"
-          height="22"
+          height="20"
           rx="7"
-          fill={tone.ink}
-          opacity={0.85}
+          fill="none"
+          stroke={tone.ink}
+          strokeWidth="1.75"
         />
-        {/* Cap / lid — pivots open */}
+        {/* Cap / lid — pivots open; sits above body with a clear gap */}
         <motion.g
-          style={{ transformOrigin: "10px 16px" }}
+          style={{ transformOrigin: "10px 14px" }}
           animate={
             reduceMotion
               ? { rotate: 0 }
@@ -548,10 +549,10 @@ function PocketMark({
           transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
         >
           <path
-            d="M8 16h14c1.2 0 2.2-.6 2.8-1.5L27 10c.4-.6 1.1-1 1.9-1H38c2.2 0 4 1.8 4 4v3H8v-0z"
+            d="M8 14h14c1.2 0 2.2-.6 2.8-1.5L27 8c.4-.6 1.1-1 1.9-1H38c2.2 0 4 1.8 4 4v3H8z"
             fill={tone.ink}
           />
-          <rect x="8" y="14" width="34" height="5" rx="2" fill={tone.ink} />
+          <rect x="8" y="12" width="34" height="5" rx="2" fill={tone.ink} />
         </motion.g>
       </svg>
     </motion.div>
