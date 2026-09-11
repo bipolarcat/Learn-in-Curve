@@ -79,7 +79,7 @@ export function StudyHeadingChromeSlot() {
   const { activities } = ctx.chrome;
   if (!activities?.length) return null;
   return (
-    <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5">
+    <div className="flex shrink-0 flex-nowrap items-center justify-end gap-1.5">
       <ActivityRowHead activities={activities} />
     </div>
   );
@@ -164,7 +164,7 @@ type StudyExtras = {
 function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
   if (!activities?.length) return null;
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
+    <div className="flex shrink-0 flex-nowrap items-center gap-1.5">
       {activities.slice(0, 2).map((activity) => (
         <ActivityLauncher key={activity.id} activity={activity} />
       ))}
