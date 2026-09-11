@@ -19,7 +19,7 @@ type LoOrientStageProps = {
   outcomes: string[];
   /** Lexicon on Orient for every LO (Outcomes → Context → Definitions). */
   definitions?: KeyDefinition[];
-  /** LO2 trial: ink-stamp badges. Default outline everywhere else. */
+  /** Ink-stamp badges (default from LoStudyJourney). */
   badgeVariant?: OutcomeCodeBadgeVariant;
   /**
    * When set, outcome badges jump into Learn at that sub-outcome
@@ -136,7 +136,7 @@ export function LoOrientStage({
   context,
   outcomes,
   definitions = [],
-  badgeVariant = "outline",
+  badgeVariant = "stamp",
   onJumpToOutcome,
 }: LoOrientStageProps) {
   const contextText = context.trim();

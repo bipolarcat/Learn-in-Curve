@@ -12,8 +12,8 @@ export type OutcomeCodeBadgeVariant = "outline" | "stamp";
  * Outcome code mark, e.g. 1A / 18A. One square size for every LO.
  * Decorative: pair with sr-only text.
  *
- * - `outline` — teal border, transparent fill (default; all LOs today)
- * - `stamp` — filled teal ink stamp, cream type (trying on LO2 first)
+ * - `outline` — teal border, transparent fill
+ * - `stamp` — filled teal ink stamp, cream type (default on PMQ LOs)
  */
 export function OutcomeCodeBadge({
   code,

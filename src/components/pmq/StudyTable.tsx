@@ -23,9 +23,8 @@ import { cn } from "@/lib/utils";
 import styles from "@/components/pmq/StudyTable.module.css";
 
 /**
- * LO2 (for now): Pair up (and other activity launchers) sit on the section ##
- * heading row. Table no longer shows the uppercase first-column label (e.g. LEVEL).
- * Roll out to other LOs by flipping the same flag in CoreContentBlock.
+ * Pair up / Group up sit on the section ## heading row when CoreContentBlock
+ * enables heading chrome. Table no longer shows the uppercase first-column label.
  */
 type HeadingChromeState = {
   activities?: LoActivity[];
@@ -417,7 +416,7 @@ export function StudyTable({
   children: ReactNode;
   activities?: LoActivity[];
   workedExamples?: WorkedExampleCard[];
-  /** LO2 only for now — see CoreContentBlock. */
+  /** When true, hoist activity launchers onto the section ## heading. */
   toolbarOnHeading?: boolean;
 }) {
   const parsed = parseMarkdownTable(children);

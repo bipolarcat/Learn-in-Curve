@@ -110,7 +110,11 @@ export function LoApplyStage({
           style={{ ["--i" as string]: 1 }}
           aria-labelledby="lo-apply-memory"
         >
-          <SectionTitle id="lo-apply-memory" icon={Brain}>
+          <SectionTitle
+            id="lo-apply-memory"
+            icon={Brain}
+            subtitle="Flip a card to reveal the expansion"
+          >
             Memory aids
           </SectionTitle>
           <div className="mt-3 w-full min-w-0 sm:mt-3.5">

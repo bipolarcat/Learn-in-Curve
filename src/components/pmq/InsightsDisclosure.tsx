@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 const disclosureEase = [0.22, 1, 0.36, 1] as const;
 
 /**
- * LO2 Insights — inline footnote chip.
+ * Insights — inline footnote chip (all PMQ Learn LOs).
  * Underline is a separate motion element (21st.dev underline-animation pattern),
  * not CSS text-decoration. On open it layout-morphs into the vertical tip rail
  * (Motion shared `layoutId`); on close it re-plants under the label.

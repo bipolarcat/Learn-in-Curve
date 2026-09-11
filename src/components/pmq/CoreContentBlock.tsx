@@ -200,10 +200,10 @@ export function CoreContentBlock({
   const blockWorked = activitiesEnabled ? (block.worked_examples ?? []) : [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
   const sections = splitSections(block.body_markdown);
-  /** LO2 only — hoist study-table tools onto ##; drop LEVEL label. */
-  const toolbarOnHeading = loNumber === 2 && studyTables;
-  /** LO2 only — Insights disclosure instead of exam-tip cards. */
-  const insightsDisclosure = loNumber === 2;
+  /** Hoist Pair up / Group up onto ##; drop LEVEL column label. */
+  const toolbarOnHeading = studyTables;
+  /** Insights disclosure instead of exam-tip cards. */
+  const insightsDisclosure = true;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
   const sectionH2Class = insightsDisclosure
     ? "font-body text-[15px] font-semibold tracking-tight text-ink"

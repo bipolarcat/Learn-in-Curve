@@ -176,7 +176,7 @@ export function Lo1CoreContentStudy({
   studyTables = false,
   activities = false,
   shortTitles,
-  badgeVariant = "outline",
+  badgeVariant = "stamp",
   focusOutcomeCode = null,
   onFocusOutcomeConsumed,
 }: {
@@ -184,7 +184,7 @@ export function Lo1CoreContentStudy({
   studyTables?: boolean;
   activities?: boolean;
   shortTitles?: Record<string, string>;
-  /** LO2 trial: ink-stamp outcome codes. */
+  /** Ink-stamp outcome codes (default). Pass `outline` only to opt out. */
   badgeVariant?: OutcomeCodeBadgeVariant;
   /** Orient badge jump target (e.g. "2a"). */
   focusOutcomeCode?: string | null;
@@ -411,18 +411,17 @@ export function Lo1CoreContentStudy({
       </div>
 
       <div className="hidden px-5 pb-4 pt-5 sm:px-8 sm:pt-6 lg:block">
-        <header className="flex items-center gap-2.5 border-b border-black/[0.08] pb-3.5 dark:border-white/[0.12]">
-          <span
-            className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-teal/10"
+        <header className="flex items-start gap-1.5 border-b border-black/[0.08] pb-3.5 dark:border-white/[0.12] sm:gap-2">
+          <Layers
+            className="size-7 shrink-0 text-orange sm:size-8"
+            strokeWidth={1.75}
             aria-hidden
-          >
-            <Layers className="size-[18px] text-teal" strokeWidth={1.8} />
-          </span>
+          />
           <div className="min-w-0">
-            <h2 className="m-0 font-body text-[18px] font-semibold leading-tight tracking-tight text-ink">
+            <h2 className="m-0 font-body text-lg font-semibold leading-none tracking-tight text-ink">
               Core content
             </h2>
-            <p className="mt-px font-body text-xs leading-snug text-ink/75">
+            <p className="mt-0.5 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65">
               One scroll · click {jumpHint} to jump
             </p>
           </div>

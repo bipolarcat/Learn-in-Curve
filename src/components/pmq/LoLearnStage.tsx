@@ -44,9 +44,9 @@ const ALL_LOS = (n: number) => n >= 1 && n <= 24;
 const STUDY_TREATMENT_LOS = { has: ALL_LOS };
 const NOTEBOOK_LEARN_LOS = { has: ALL_LOS };
 
-/** Same type for card titles and outcome codes (2a) / titles). */
+/** Same type for card titles — matches Orient heading rhythm. */
 const headingClass =
-  "w-full min-w-0 font-body text-lg font-semibold leading-snug tracking-tight text-ink";
+  "min-w-0 w-full font-body text-lg font-semibold leading-none tracking-tight text-balance text-ink";
 
 function PathwayGlyph({ icon: Icon }: { icon: LucideIcon }) {
   return (
@@ -68,7 +68,7 @@ function SectionTitle({
   children: ReactNode;
 }) {
   return (
-    <div className="flex w-full min-w-0 items-center gap-1.5 sm:gap-2">
+    <div className="flex w-full min-w-0 items-start gap-1.5 sm:gap-2">
       <PathwayGlyph icon={icon} />
       <h2 id={id} className={`min-w-0 flex-1 ${headingClass}`}>
         {children}
@@ -94,7 +94,8 @@ export function LoLearnStage({
   const activities =
     studyTables && canAccessRecallActivities(userTier);
   const useNotebook = NOTEBOOK_LEARN_LOS.has(loNumber);
-  const badgeVariant = loNumber === 2 ? "stamp" : "outline";
+  /** Ink-stamp outcome marks — all LOs (rolled out from LO2 trial). */
+  const badgeVariant = "stamp" as const;
 
   if (useNotebook) {
     return (
