@@ -14,7 +14,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.35rem 0.75rem;
-  padding: 0.7rem 0.75rem 0.35rem;
+  padding: 0.7rem 0.75rem 0.1rem;
 }
 
 .title {
@@ -43,7 +43,7 @@
 .meta {
   display: grid;
   gap: 0.35rem;
-  padding: 0.15rem 0.75rem 0.55rem;
+  padding: 0 0.75rem 0.55rem;
 }
 
 .notice {
@@ -242,7 +242,7 @@
 
 @media (min-width: 40rem) {
   .titleBar {
-    padding: 0.8rem 0.85rem 0.4rem;
+    padding: 0.8rem 0.85rem 0.1rem;
   }
 
   .title {
@@ -254,7 +254,7 @@
   }
 
   .meta {
-    padding: 0.2rem 0.85rem 0.6rem;
+    padding: 0 0.85rem 0.6rem;
   }
 
   .notice {
