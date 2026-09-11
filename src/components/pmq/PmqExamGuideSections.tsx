@@ -132,14 +132,19 @@ function MarksTable() {
 function SyllabusTable() {
   return (
     <div className={styles.tableWrap}>
-      <table className={styles.table}>
+      <table className={`${styles.table} ${styles.syllabusTable}`}>
         <thead>
           <tr>
             <th className={styles.th} scope="col">
               Area
             </th>
-            <th className={styles.th} scope="col">
-              Learning objectives
+            <th
+              className={`${styles.th} ${styles.thCenter} ${styles.thStack}`}
+              scope="col"
+            >
+              Learning
+              <br />
+              objectives
             </th>
             <th className={`${styles.th} ${styles.thRight}`} scope="col">
               Share of exam
@@ -149,8 +154,10 @@ function SyllabusTable() {
         <tbody>
           {SYLLABUS_WEIGHT.map((row) => (
             <tr key={row.area} className={styles.tr}>
-              <td className={`${styles.td} ${styles.tdStrong}`}>{row.area}</td>
-              <td className={styles.td}>{row.los}</td>
+              <td className={`${styles.td} ${styles.tdStrong} ${styles.tdNowrap}`}>
+                {row.area}
+              </td>
+              <td className={`${styles.td} ${styles.tdCenter}`}>{row.los}</td>
               <td className={`${styles.td} ${styles.tdRight}`}>{row.share}</td>
             </tr>
           ))}
