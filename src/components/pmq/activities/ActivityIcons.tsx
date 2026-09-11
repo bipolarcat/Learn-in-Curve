@@ -69,14 +69,14 @@ export function ActivityPairupIcon({
         </filter>
       </defs>
 
-      {/* App thumbnail squircle */}
+      {/* App thumbnail squircle — avatar-plate cream (never flips in .dark) */}
       <rect
         x="2"
         y="2"
         width="60"
         height="60"
         rx="14"
-        className="fill-[rgb(var(--paper-rgb))]"
+        fill="rgb(var(--avatar-plate-rgb))"
         style={{
           filter: "drop-shadow(0 1.5px 3px rgb(36 26 18 / 0.14))",
         }}
@@ -88,7 +88,7 @@ export function ActivityPairupIcon({
         height="59"
         rx="13.5"
         fill="none"
-        className="stroke-[rgb(var(--ink-rgb)/0.08)] dark:stroke-[rgb(var(--ink-rgb)/0.18)]"
+        stroke="rgb(36 26 18 / 0.1)"
         strokeWidth="1"
       />
 
