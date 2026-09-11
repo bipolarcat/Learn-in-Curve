@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   InlineDropdownResponseFields,
   McqResponseFields,
@@ -21,6 +21,7 @@ import {
 import { getAttribution } from "@/lib/analytics/attribution";
 import {
   trackFreeMockCompleted,
+  trackFreeMockStarted,
   trackLeadCaptured,
 } from "@/lib/analytics/events";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
@@ -73,6 +74,13 @@ export function FreeMockExamClient() {
   const [navPending, setNavPending] = useState<NavAction | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<ResultsPayload | null>(null);
+  const startedTracked = useRef(false);
+
+  useEffect(() => {
+    if (startedTracked.current) return;
+    startedTracked.current = true;
+    trackFreeMockStarted();
+  }, []);
 
   const question = FREE_MOCK_QUESTIONS[qi];
   const locked = Boolean(answers[question.id]);

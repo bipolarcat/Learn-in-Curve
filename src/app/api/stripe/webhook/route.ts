@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { trackPurchaseCompleted } from "@/lib/analytics/purchase";
 import { createServiceClient } from "@/lib/supabase/admin";
 import {
   SLY_UNLOCK_CREDIT_GBP_CENTS,
@@ -237,6 +238,13 @@ export async function POST(request: Request) {
         paymentId,
       });
       return NextResponse.json({ error: message }, { status: 500 });
+    }
+
+    // After a successful grant/credit only — PostHog uuid dedupes webhook retries.
+    try {
+      await trackPurchaseCompleted(session, event.created);
+    } catch (err) {
+      console.error("PostHog purchase_completed failed", err);
     }
   }
 

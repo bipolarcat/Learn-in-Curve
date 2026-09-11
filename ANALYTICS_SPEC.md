@@ -81,7 +81,7 @@ second flag (next experiment, TBD) can reuse the same pattern.
 ## 6. Explicitly out of scope for v1, not forgotten
 
 - Self-hosting PostHog — use PostHog Cloud's free tier (1M events/month).
-- Server-side capture — client-side only for v1.
+- Server-side capture — **superseded 2026-09-11 for `purchase_completed` only.** The Stripe webhook fires that event via `src/lib/analytics/server.ts` + `purchase.ts` (distinct_id = Supabase user UUID, matching `identify()`). A client-only paid event is not a substitute. Other events stay client-side behind consent.
 - ~~Session replay~~ — **superseded 2026-08-07. Replay is intentionally
   live.** See §7.
 

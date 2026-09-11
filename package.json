@@ -1,6 +1,6 @@
 {
   "name": "learn-in-curve",
-  "version": "2.43.0",
+  "version": "2.46.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -19,7 +19,8 @@
     "seed:pfq": "node scripts/seed-pfq-questions.mjs",
     "captions:generate": "node scripts/captions/generate.mjs",
     "captions:validate": "node scripts/captions/validate.mjs",
-    "captions:release-check": "node scripts/captions/validate.mjs --require-approved"
+    "captions:release-check": "node scripts/captions/validate.mjs --require-approved",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@animateicons/react": "^0.5.0",

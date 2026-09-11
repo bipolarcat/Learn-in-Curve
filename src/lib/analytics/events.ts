@@ -12,7 +12,15 @@ import { getAttribution } from "@/lib/analytics/attribution";
  *
  * Naming: snake_case, object_pastTenseVerb. No PII in any property — Supabase
  * UUIDs only; never email, name, or learner-typed text.
+ *
+ * `purchase_completed` is server-only (Stripe webhook) — see
+ * `src/lib/analytics/purchase.ts`. Do not add a client substitute.
  */
+
+/** Product key stamped on tutor / LO events. Not the course UUID. */
+export const ANALYTICS_COURSE_PMQ = "pmq";
+
+export type AnalyticsSurface = "guest" | "course" | "dashboard";
 
 function bucketMessageLength(length: number): "short" | "medium" | "long" {
   if (length < 40) return "short";
@@ -80,8 +88,16 @@ export function trackCourseStarted(props: { course_id: string }): void {
   capture("course_started", props);
 }
 
-export function trackLoOpened(props: { lo_number: number }): void {
-  capture("lo_opened", props);
+export function trackLoOpened(props: {
+  lo_number: number;
+  course?: string;
+  surface?: AnalyticsSurface;
+}): void {
+  capture("lo_opened", {
+    lo_number: props.lo_number,
+    course: props.course ?? ANALYTICS_COURSE_PMQ,
+    surface: props.surface ?? "course",
+  });
 }
 
 export function trackLoStageReached(props: {
@@ -233,24 +249,31 @@ export function trackMockReviewOpened(props: {
 // —— Group E: Sly / monetisation ————————————————————————————————————
 
 export function trackTutorOpened(props: {
-  surface: "guest" | "course" | "dashboard";
+  surface: AnalyticsSurface;
   lo_number?: number;
+  course?: string;
 }): void {
-  capture("tutor_opened", props);
+  capture("tutor_opened", {
+    surface: props.surface,
+    course: props.course ?? ANALYTICS_COURSE_PMQ,
+    ...(props.lo_number != null ? { lo_number: props.lo_number } : {}),
+  });
 }
 
 export function trackTutorMessageSent(props: {
-  surface: "guest" | "course" | "dashboard";
+  surface: AnalyticsSurface;
   message_length: number;
+  course?: string;
 }): void {
   capture("tutor_message_sent", {
     surface: props.surface,
+    course: props.course ?? ANALYTICS_COURSE_PMQ,
     message_length_bucket: bucketMessageLength(props.message_length),
   });
 }
 
 export function trackTutorLimitHit(props: {
-  surface: "guest" | "course" | "dashboard";
+  surface: AnalyticsSurface;
   limit_type: string;
 }): void {
   capture("tutor_limit_hit", props);
@@ -334,6 +357,13 @@ export function trackActivityAbandoned(props: ActivityAnalyticsBase & { moves: n
 }
 
 // —— Growth: free mock / leads ——————————————————————————————————————
+
+export function trackFreeMockStarted(): void {
+  capture("free_mock_started", {
+    ...attributionProps(),
+    course: ANALYTICS_COURSE_PMQ,
+  });
+}
 
 export function trackFreeMockCompleted(props: {
   score: number;
