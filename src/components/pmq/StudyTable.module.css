@@ -2,8 +2,9 @@
    stacks margin and cell borders on StudyTable layouts. */
 
 .figure {
-  /* Component owns spacing via heading margins — no extra figure my-* */
-  margin-block: 0 !important;
+  /* Match .pmq-markdown p { mb-3 } so space above and below the table is equal.
+     Keep table itself at 0 so .pmq-markdown table { my-4 } can’t stack. */
+  margin-block: 0.75rem !important;
   margin-inline: 0;
 }
 

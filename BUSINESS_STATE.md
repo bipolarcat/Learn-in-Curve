@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Study tables: equal space above/below (`figure` `margin-block: 0.75rem` to match paragraph `mb-3`) (`StudyTable.module.css`).
 - **2026-09-11** — Worked example modal: drop Answer teal plate; Ask body regular weight (`WorkedExampleLauncher`).
 - **2026-09-11** — Worked example modal: stagger Situation → Ask → Answer on open; sheet exit scale/fade (`WorkedExampleLauncher`, `ActivityModal`).
 - **2026-09-11** — Worked example puzzle icon: real interlocking silhouettes (tab faces socket on every shared edge; no tab-to-tab) (`WorkedExampleIcon`).
