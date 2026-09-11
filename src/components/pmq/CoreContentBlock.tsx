@@ -205,6 +205,9 @@ export function CoreContentBlock({
   const insightsDisclosure = loNumber === 2;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
   const sectionH2Class = insightsDisclosure
+    ? "font-body text-[15px] font-semibold tracking-tight text-balance text-ink"
+    : "font-body text-base font-semibold tracking-tight text-balance text-ink";
+  const sectionH2SoloClass = insightsDisclosure
     ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0"
     : "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0";
 
@@ -256,22 +259,21 @@ export function CoreContentBlock({
                 <div
                   className={
                     insightsDisclosure
-                      ? "mt-5 mb-1.5 flex min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
-                      : "mt-5 mb-2 flex min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
+                      ? "mt-5 mb-1.5 flex h-9 min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
+                      : "mt-5 mb-2 flex h-9 min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
                   }
                 >
                   <Tag
-                    className={`${className
-                      .replace(/\bw-full\b/g, "")
-                      .replace(/\s+/g, " ")
-                      .trim()} mt-0 mb-0 min-w-0 flex-1 first:mt-0`}
+                    className={`${sectionH2Class} m-0 min-w-0 flex-1 leading-9`}
                   >
                     {mapHeadingChildren(children)}
                   </Tag>
                   <StudyHeadingChromeSlot />
                 </div>
               ) : (
-                <Tag className={className}>{mapHeadingChildren(children)}</Tag>
+                <Tag className={sectionH2SoloClass}>
+                  {mapHeadingChildren(children)}
+                </Tag>
               )}
               {matched.map((d) => renderDiagram(d, loNumber))}
               <TipList tips={headingTips} />
@@ -283,7 +285,7 @@ export function CoreContentBlock({
           h2: ({ children }: { children?: ReactNode }) =>
             renderHeading(
               "h4",
-              sectionH2Class,
+              sectionH2SoloClass,
               children,
               toolbarOnHeading,
             ),
