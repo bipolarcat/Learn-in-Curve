@@ -16,7 +16,9 @@ type LoApplyStageProps = {
 };
 
 const headingClass =
-  "min-w-0 flex-1 font-body text-lg font-semibold leading-snug tracking-tight text-ink";
+  "min-w-0 flex-1 font-body text-lg font-semibold leading-none tracking-tight text-balance text-ink";
+const subtitleClass =
+  "mt-0.5 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65";
 const bodyClass =
   "w-full min-w-0 font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
 
@@ -34,17 +36,22 @@ function SectionTitle({
   id,
   icon,
   children,
+  subtitle,
 }: {
   id: string;
   icon: LucideIcon;
   children: ReactNode;
+  subtitle?: string;
 }) {
   return (
-    <div className="flex w-full min-w-0 items-center gap-1.5 sm:gap-2">
+    <div className="flex w-full min-w-0 items-start gap-1.5 sm:gap-2">
       <PathwayGlyph icon={icon} />
-      <h2 id={id} className={headingClass}>
-        {children}
-      </h2>
+      <div className="min-w-0 flex-1">
+        <h2 id={id} className={headingClass}>
+          {children}
+        </h2>
+        {subtitle ? <p className={subtitleClass}>{subtitle}</p> : null}
+      </div>
     </div>
   );
 }
@@ -84,7 +91,11 @@ export function LoApplyStage({
           style={{ ["--i" as string]: 0 }}
           aria-labelledby="lo-apply-misconceptions"
         >
-          <SectionTitle id="lo-apply-misconceptions" icon={CircleAlert}>
+          <SectionTitle
+            id="lo-apply-misconceptions"
+            icon={CircleAlert}
+            subtitle="Spot the trap · open for the right take"
+          >
             Common misconceptions
           </SectionTitle>
           <div className="mt-3 w-full min-w-0 sm:mt-3.5">
