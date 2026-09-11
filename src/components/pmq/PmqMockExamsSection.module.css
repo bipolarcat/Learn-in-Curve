@@ -69,8 +69,8 @@
   align-items: center;
   gap: 0.6rem 0.85rem;
   width: 100%;
-  min-height: 2.75rem;
-  padding: 0.4rem 0.55rem;
+  min-height: 2.35rem;
+  padding: 0.25rem 0.55rem;
   border: none;
   border-radius: 0.5rem;
   background: transparent;
@@ -267,8 +267,8 @@
   }
 
   .row {
-    min-height: 2.85rem;
-    padding: 0.45rem 0.65rem;
+    min-height: 2.45rem;
+    padding: 0.3rem 0.65rem;
   }
 
   .rowTitle {
