@@ -11,6 +11,12 @@ export async function captureServer(
   distinctId: string,
   event: string,
   properties?: Record<string, unknown>,
+  opts?: {
+    /** Stable event id for PostHog dedupe (top-level `uuid` on /i/v0/e/). */
+    uuid?: string;
+    /** Event time as ISO string (defaults to now). */
+    timestamp?: string;
+  },
 ): Promise<void> {
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   const host = (
@@ -19,25 +25,30 @@ export async function captureServer(
 
   if (!apiKey || !distinctId) return;
 
+  const body: Record<string, unknown> = {
+    api_key: apiKey,
+    event,
+    distinct_id: distinctId,
+    timestamp: opts?.timestamp ?? new Date().toISOString(),
+    properties: {
+      ...properties,
+      $lib: "lic-server",
+    },
+  };
+  if (opts?.uuid) {
+    body.uuid = opts.uuid;
+  }
+
   const response = await fetch(`${host}/i/v0/e/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      api_key: apiKey,
-      event,
-      distinct_id: distinctId,
-      timestamp: new Date().toISOString(),
-      properties: {
-        ...properties,
-        $lib: "lic-server",
-      },
-    }),
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {
-    const body = await response.text().catch(() => "");
+    const text = await response.text().catch(() => "");
     throw new Error(
-      `PostHog capture failed (${response.status})${body ? `: ${body}` : ""}`,
+      `PostHog capture failed (${response.status})${text ? `: ${text}` : ""}`,
     );
   }
 }

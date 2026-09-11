@@ -23,6 +23,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 ## Decision log
 
+- **2026-09-11** — Hotfix **v2.46** (LIC-148 / LIC-144): `after_section` PMQ diagrams render at end of each `##` section (`splitSections` in `CoreContentBlock`); PostHog `purchase_completed` uses deterministic top-level `uuid` + Stripe `event.created` timestamp and fires only after a successful grant/credit (`analytics/purchase`, `analytics/server`, Stripe webhook).
 - **2026-09-11** — PostHog instrumentation: server-side `purchase_completed` from the Stripe webhook (`src/app/api/stripe/webhook/route.ts`, `src/lib/analytics/server.ts`, `src/lib/analytics/purchase.ts`; distinct_id = buyer user UUID). Client `free_mock_started` on `/free-mock-exam` mount (`FreeMockExamClient`). Tutor/LO helpers stamp `course` (`pmq`) + existing `surface` (`guest` | `course` | `dashboard`) on `tutor_opened`, `tutor_message_sent`, and `lo_opened` (`src/lib/analytics/events.ts`). Did not change identify/email person properties.
 
 - **2026-09-07** — Hotfix: committed all 24 PMQ LO explainer videos (`public/videos/pmq/lo-01…24.mp4`, ~1.3GB) previously gitignored via blanket `*.mp4`; allowlisted with `!public/videos/pmq/*.mp4`. Deployed from `hotfix/pmq-lo-videos` off `master` only (WIP branch untouched) so lesson videos stop 404ing in production. Site version **2.44**.

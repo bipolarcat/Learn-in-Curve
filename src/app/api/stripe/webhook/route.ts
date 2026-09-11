@@ -75,12 +75,6 @@ export async function POST(request: Request) {
         ? session.payment_intent
         : session.id;
 
-    try {
-      await trackPurchaseCompleted(session);
-    } catch (err) {
-      console.error("PostHog purchase_completed failed", err);
-    }
-
     if (!userId || !courseId) {
       return NextResponse.json({ received: true });
     }
@@ -151,6 +145,13 @@ export async function POST(request: Request) {
       const message = err instanceof Error ? err.message : "Credit insert failed";
       console.error(message, err);
       return NextResponse.json({ error: message }, { status: 500 });
+    }
+
+    // After a successful grant/credit only — PostHog uuid dedupes webhook retries.
+    try {
+      await trackPurchaseCompleted(session, event.created);
+    } catch (err) {
+      console.error("PostHog purchase_completed failed", err);
     }
   }
 

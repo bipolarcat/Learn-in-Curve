@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import { captureServer } from "@/lib/analytics/server";
 import { PMQ_COURSE_ID } from "@/lib/pmq/constants";
 
@@ -16,8 +17,31 @@ export type CheckoutSessionForPurchase = {
 
 export type PurchaseCompletedCapture = {
   distinctId: string;
+  /** Deterministic PostHog event uuid — same session always → same uuid. */
+  uuid: string;
+  /** ISO timestamp from Stripe `event.created`. */
+  timestamp: string;
   properties: Record<string, unknown>;
 };
+
+/** Fixed LIC namespace for purchase_completed UUIDv5-style ids. */
+const PURCHASE_UUID_NAMESPACE = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+
+/**
+ * Deterministic UUID from a Stripe Checkout Session id.
+ * SHA-256 of `purchase_completed:${sessionId}` formatted as a UUID (version 5 bits).
+ */
+export function purchaseCompletedEventUuid(sessionId: string): string {
+  const digest = createHash("sha256")
+    .update(`purchase_completed:${sessionId}`)
+    .update(PURCHASE_UUID_NAMESPACE)
+    .digest();
+  const bytes = Buffer.from(digest.subarray(0, 16));
+  bytes[6] = (bytes[6]! & 0x0f) | 0x50;
+  bytes[8] = (bytes[8]! & 0x3f) | 0x80;
+  const hex = bytes.toString("hex");
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
+}
 
 function productFromFeature(feature: string | undefined): string | undefined {
   if (!feature) return undefined;
@@ -41,9 +65,12 @@ function paymentId(session: CheckoutSessionForPurchase): string {
 /**
  * Map a paid Checkout Session to a PostHog `purchase_completed` payload.
  * Returns null when we cannot identify the buyer or the session is not paid.
+ *
+ * @param eventCreatedSeconds Stripe `event.created` (unix seconds).
  */
 export function purchaseCompletedFromCheckoutSession(
   session: CheckoutSessionForPurchase,
+  eventCreatedSeconds: number,
 ): PurchaseCompletedCapture | null {
   if (session.payment_status && session.payment_status !== "paid") {
     return null;
@@ -57,7 +84,6 @@ export function purchaseCompletedFromCheckoutSession(
   const stripePaymentId = paymentId(session);
 
   const properties: Record<string, unknown> = {
-    $insert_id: `purchase_completed:${session.id}`,
     stripe_session_id: session.id,
     stripe_payment_id: stripePaymentId,
   };
@@ -66,7 +92,7 @@ export function purchaseCompletedFromCheckoutSession(
     properties.amount_cents = session.amount_total;
   }
   if (session.currency) {
-    properties.currency = session.currency;
+    properties.currency = session.currency.toUpperCase();
   }
   if (product) {
     properties.product = product;
@@ -75,7 +101,12 @@ export function purchaseCompletedFromCheckoutSession(
     properties.course = course;
   }
 
-  return { distinctId, properties };
+  return {
+    distinctId,
+    uuid: purchaseCompletedEventUuid(session.id),
+    timestamp: new Date(eventCreatedSeconds * 1000).toISOString(),
+    properties,
+  };
 }
 
 /**
@@ -84,12 +115,17 @@ export function purchaseCompletedFromCheckoutSession(
  */
 export async function trackPurchaseCompleted(
   session: CheckoutSessionForPurchase,
+  eventCreatedSeconds: number,
 ): Promise<void> {
-  const payload = purchaseCompletedFromCheckoutSession(session);
+  const payload = purchaseCompletedFromCheckoutSession(
+    session,
+    eventCreatedSeconds,
+  );
   if (!payload) return;
   await captureServer(
     payload.distinctId,
     "purchase_completed",
     payload.properties,
+    { uuid: payload.uuid, timestamp: payload.timestamp },
   );
 }

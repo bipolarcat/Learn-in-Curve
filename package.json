@@ -17,7 +17,8 @@
     "migrate:mock": "node scripts/migrate-mock-content.mjs",
     "captions:generate": "node scripts/captions/generate.mjs",
     "captions:validate": "node scripts/captions/validate.mjs",
-    "captions:release-check": "node scripts/captions/validate.mjs --require-approved"
+    "captions:release-check": "node scripts/captions/validate.mjs --require-approved",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.15",
