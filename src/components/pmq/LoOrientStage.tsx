@@ -103,7 +103,7 @@ function OrientCard({
       className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5 ${className}`}
       aria-labelledby={id}
     >
-      <div className={`${orientGutter} ${subtitle ? "items-start" : "items-center"}`}>
+      <div className={`${orientGutter} items-start`}>
         <IconCell>
           <PathwayGlyph icon={icon} />
         </IconCell>
@@ -238,11 +238,11 @@ export function LoOrientStage({
           id="lo-orient-definitions"
           icon={BookOpen}
           title="Key definitions"
+          subtitle="Reveal a term to see its Plain English and APM definitions."
           className="overflow-visible"
-          tightBody
         >
           <div className="w-full min-w-0 max-w-full">
-            <DefinitionsReveal definitions={definitions} />
+            <DefinitionsReveal definitions={definitions} showLead={false} />
           </div>
         </OrientCard>
       ) : null}

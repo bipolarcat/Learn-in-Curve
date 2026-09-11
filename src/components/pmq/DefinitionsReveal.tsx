@@ -156,8 +156,11 @@ function DefinitionPlate({
  */
 export function DefinitionsReveal({
   definitions,
+  /** Intro line under the section title. Orient moves it into the card subtitle. */
+  showLead = true,
 }: {
   definitions: KeyDefinition[];
+  showLead?: boolean;
 }) {
   const baseId = useId();
   const [openTerm, setOpenTerm] = useState<string | null>(null);
@@ -192,9 +195,11 @@ export function DefinitionsReveal({
 
   return (
     <div>
-      <p className="mb-2.5 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
-        Reveal a term to see its Plain English and APM definitions.
-      </p>
+      {showLead ? (
+        <p className="mb-2.5 font-body text-sm font-medium leading-snug text-pretty text-ink/70">
+          Reveal a term to see its Plain English and APM definitions.
+        </p>
+      ) : null}
       <div
         className="grid grid-cols-2 gap-2.5"
         aria-label="Key definitions"
