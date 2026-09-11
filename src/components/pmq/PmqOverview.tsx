@@ -79,6 +79,7 @@ export function PmqOverview({
               <PmqPlanContinue
                 sections={sections}
                 completedSectionIds={completedSectionIds}
+                stageReachedBySectionId={stageReachedBySectionId}
               />
             }
           />

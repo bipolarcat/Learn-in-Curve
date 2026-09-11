@@ -12,6 +12,11 @@ import { getNextIncompleteSection } from "@/lib/pmq/progress";
 type PmqPlanContinueProps = {
   sections: PmqSection[];
   completedSectionIds: string[];
+  /**
+   * Pathway stages reached per section (0…LO_STAGE_COUNT). Orient alone
+   * counts as started — Continue, not Start.
+   */
+  stageReachedBySectionId?: Record<string, number>;
 };
 
 /**
@@ -20,6 +25,7 @@ type PmqPlanContinueProps = {
 export function PmqPlanContinue({
   sections,
   completedSectionIds,
+  stageReachedBySectionId = {},
 }: PmqPlanContinueProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -27,7 +33,14 @@ export function PmqPlanContinue({
   if (sections.length === 0) return null;
 
   const next = getNextIncompleteSection(sections, completedSectionIds);
-  const started = completedSectionIds.length > 0;
+  const nextPathwayStarted = next
+    ? (stageReachedBySectionId[next.id] ?? 0) > 0
+    : false;
+  const anyPathwayStarted = Object.values(stageReachedBySectionId).some(
+    (n) => n > 0,
+  );
+  const started =
+    completedSectionIds.length > 0 || nextPathwayStarted || anyPathwayStarted;
   const href = next ? pmqLoHref(next.order_index) : pmqMockHref("lite", 1);
   const label = next ? (started ? "Continue" : "Start") : "Open Mock";
 
