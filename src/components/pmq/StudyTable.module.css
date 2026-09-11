@@ -1,0 +1,34 @@
+/* Resets .pmq-markdown / learn-core table chrome that otherwise
+   stacks margin and cell borders on StudyTable two-col layouts. */
+
+.figure {
+  margin-block: 0.75rem;
+}
+
+.table {
+  margin-block: 0 !important;
+}
+
+.table :is(p) {
+  margin: 0 !important;
+}
+
+.table th,
+.table td {
+  background-color: transparent !important;
+}
+
+/* Kill learn-core’s default full grid borders — component owns dividers. */
+.table :is(th, td) {
+  border-style: none !important;
+}
+
+.table thead th:first-child,
+.table tbody td:first-child {
+  border-right: 1px solid rgb(0 0 0 / 0.08) !important;
+}
+
+:global(.dark) .table thead th:first-child,
+:global(.dark) .table tbody td:first-child {
+  border-right-color: rgb(255 255 255 / 0.12) !important;
+}

@@ -19,6 +19,7 @@ import {
   workedExampleForRow,
 } from "@/components/pmq/activities/WorkedExampleLauncher";
 import { cn } from "@/lib/utils";
+import styles from "@/components/pmq/StudyTable.module.css";
 
 /**
  * LO2 (for now): Pair up (and other activity launchers) sit on the section ##
@@ -195,7 +196,7 @@ function TwoColumnTable({
   }, [hoistToHeading, setChrome, activities]);
 
   return (
-    <figure className="not-prose m-0 my-4 min-w-0">
+    <figure className={cn(styles.figure, "not-prose min-w-0")}>
       {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
         <div className="mb-1.5 flex flex-wrap items-center justify-end gap-2">
           <ActivityRowHead activities={activities} />
@@ -203,18 +204,23 @@ function TwoColumnTable({
       ) : null}
 
       <div className={cardShell}>
-        <table className="study-two-col-table !my-0 w-full min-w-0 border-collapse font-body text-[13.5px] leading-[1.5] text-ink [&_p]:m-0">
+        <table
+          className={cn(
+            styles.table,
+            "w-full min-w-0 border-collapse font-body text-[13.5px] leading-[1.5] text-ink [&_p]:m-0",
+          )}
+        >
           <thead>
             <tr className="border-b border-black/[0.08] dark:border-white/[0.12]">
               <th
                 scope="col"
-                className="w-[38%] !border-0 !border-r !border-solid !border-black/[0.08] !bg-transparent px-3.5 py-2.5 text-left align-top font-semibold tracking-tight dark:!border-white/[0.12]"
+                className="w-[38%] px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
               >
                 {headers[0]}
               </th>
               <th
                 scope="col"
-                className="!border-0 !bg-transparent px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
+                className="px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
               >
                 {headers[1]}
               </th>
@@ -229,7 +235,7 @@ function TwoColumnTable({
                   key={`${label}-${index}`}
                   className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
                 >
-                  <td className="!border-0 !border-r !border-solid !border-black/[0.08] !bg-transparent px-3.5 py-2.5 align-top dark:!border-white/[0.12]">
+                  <td className="px-3.5 py-2.5 align-top">
                     <div className="flex items-start gap-2">
                       <span className="min-w-0 flex-1 font-semibold leading-[1.5]">
                         {row[0]}
@@ -239,7 +245,7 @@ function TwoColumnTable({
                       ) : null}
                     </div>
                   </td>
-                  <td className="!border-0 !bg-transparent px-3.5 py-2.5 align-top text-ink/85">
+                  <td className="px-3.5 py-2.5 align-top text-ink/85">
                     {row[1]}
                   </td>
                 </tr>
