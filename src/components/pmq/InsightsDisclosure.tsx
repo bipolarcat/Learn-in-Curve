@@ -130,7 +130,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
 export function InsightsDisclosureList({ tips }: { tips: ExamTip[] }) {
   if (tips.length === 0) return null;
   return (
-    {/* Pull toward the paragraph/table above (markdown still keeps its own mb). */}
+    // Pull toward the paragraph/table above (markdown still keeps its own mb).
     <div className="not-prose -mt-1.5 flex min-w-0 flex-col gap-0">
       {tips.map((tip) => (
         <InsightsDisclosure key={tip.id} tip={tip} />
