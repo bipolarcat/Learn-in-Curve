@@ -79,8 +79,8 @@ export function StudyHeadingChromeSlot() {
   const { activities } = ctx.chrome;
   if (!activities?.length) return null;
   return (
-    <div className="flex shrink-0 flex-nowrap items-center justify-end gap-1.5">
-      <ActivityRowHead activities={activities} />
+    <div className="flex shrink-0 flex-nowrap items-center justify-end gap-1">
+      <ActivityRowHead activities={activities} compact />
     </div>
   );
 }
@@ -161,12 +161,29 @@ type StudyExtras = {
   toolbarOnHeading?: boolean;
 };
 
-function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
+function ActivityRowHead({
+  activities,
+  compact = false,
+}: {
+  activities?: LoActivity[];
+  /** Heading chrome — smaller hit box so title + icons share one tight line. */
+  compact?: boolean;
+}) {
   if (!activities?.length) return null;
   return (
-    <div className="flex shrink-0 flex-nowrap items-center gap-1.5">
+    <div className="flex shrink-0 flex-nowrap items-center gap-1">
       {activities.slice(0, 2).map((activity) => (
-        <ActivityLauncher key={activity.id} activity={activity} />
+        <ActivityLauncher
+          key={activity.id}
+          activity={activity}
+          className={compact ? "!size-7" : undefined}
+          iconClassName={
+            compact &&
+            (activity.type === "pairup" || activity.type === "groupup")
+              ? "!size-5"
+              : undefined
+          }
+        />
       ))}
     </div>
   );

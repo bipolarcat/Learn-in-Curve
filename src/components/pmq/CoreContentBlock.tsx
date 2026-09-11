@@ -259,12 +259,12 @@ export function CoreContentBlock({
                 <div
                   className={
                     insightsDisclosure
-                      ? "mt-5 mb-1.5 flex h-9 min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
-                      : "mt-5 mb-2 flex h-9 min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
+                      ? "mt-5 mb-0.5 flex min-w-0 flex-nowrap items-center justify-between gap-1.5 first:mt-0"
+                      : "mt-5 mb-1 flex min-w-0 flex-nowrap items-center justify-between gap-1.5 first:mt-0"
                   }
                 >
                   <Tag
-                    className={`${sectionH2Class} m-0 min-w-0 flex-1 leading-9`}
+                    className={`${sectionH2Class} m-0 min-w-0 flex-1 leading-snug`}
                   >
                     {mapHeadingChildren(children)}
                   </Tag>

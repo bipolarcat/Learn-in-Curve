@@ -49,10 +49,15 @@ function playHowTo(
 type ActivityLauncherProps = {
   activity: LoActivity;
   className?: string;
+  iconClassName?: string;
 };
 
 /** Icon in a study table rowhead — opens the recall activity modal. */
-export function ActivityLauncher({ activity, className }: ActivityLauncherProps) {
+export function ActivityLauncher({
+  activity,
+  className,
+  iconClassName,
+}: ActivityLauncherProps) {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -61,6 +66,8 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
   const Icon = ICONS[activity.type];
   const morphActive = open || hovered;
   const note = playHowTo(activity.type, reduceMotion);
+  const isAppIcon =
+    activity.type === "pairup" || activity.type === "groupup";
 
   return (
     <>
@@ -82,11 +89,7 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
       >
         <Icon
           active={morphActive}
-          className={
-            activity.type === "pairup" || activity.type === "groupup"
-              ? "size-6"
-              : "size-4"
-          }
+          className={cn(isAppIcon ? "size-6" : "size-4", iconClassName)}
         />
       </button>
 
