@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Group up launcher: app-squircle icon (ink plate + teal/olive/gold/cream tiles; tiles converge on hover/open); sized like Pair up (`ActivityGroupupIcon`, `ActivityLauncher`).
 - **2026-09-11** — Pair up icon: cream pillars + teal arrow (swapped) on orange plate (`ActivityPairupIcon`).
 - **2026-09-11** — Pair up launcher icon: squircle plate fill → brand orange (`ActivityPairupIcon`).
 - **2026-09-11** — Shared `ActivityCorrectMark` for Pair up + Group up correct ticks (one size/stroke); Group up float spacer uses `ACTIVITY_CORRECT_MARK_PX` so they can’t drift (`ActivityCorrectMark`, `Pairup`, `Groupup`).

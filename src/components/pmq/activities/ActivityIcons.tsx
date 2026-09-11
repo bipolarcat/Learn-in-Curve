@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 /**
  * Recall activity glyphs.
  *
- * Pair up: iPhone-app-thumbnail mark (squircle) — LIC orange plate, cream pillars, teal arrow.
- * Lineup / Group up: monoline marks with hover morphs.
+ * Pair up / Group up: iPhone-app-thumbnail squircles with LIC color + soft morphs.
+ * Lineup: monoline mark with hover morph.
  */
 
 type ActivityIconProps = SVGProps<SVGSVGElement> & {
@@ -185,52 +185,94 @@ export function ActivityLineupIcon({
 }
 
 /**
- * Group up — 2×2 cells; idle is slightly scattered, hover/open snaps to a grid.
+ * Group up — app squircle with four colored tiles (teal / olive / gold / cream).
+ * Idle: tiles gently apart; hover/open: they slide together (group).
  */
 export function ActivityGroupupIcon({
   active = false,
-  durationMs = 420,
+  durationMs = 400,
   className,
   ...props
 }: ActivityIconProps) {
   const duration = `${durationMs}ms`;
   const cells = [
-    { x: 3, y: 3, idle: "-translate-x-px -translate-y-px" },
-    { x: 13, y: 3, idle: "translate-x-px -translate-y-px" },
-    { x: 3, y: 13, idle: "-translate-x-px translate-y-px" },
-    { x: 13, y: 13, idle: "translate-x-px translate-y-px" },
+    {
+      x: 13,
+      y: 13,
+      fill: "#1B6560", // teal
+      idle: "-translate-x-1 -translate-y-1",
+    },
+    {
+      x: 33,
+      y: 13,
+      fill: "#5F7A3D", // olive
+      idle: "translate-x-1 -translate-y-1",
+    },
+    {
+      x: 13,
+      y: 33,
+      fill: "#D9A441", // gold
+      idle: "-translate-x-1 translate-y-1",
+    },
+    {
+      x: 33,
+      y: 33,
+      fill: "rgb(var(--avatar-plate-rgb))", // cream
+      idle: "translate-x-1 translate-y-1",
+    },
   ] as const;
 
   return (
     <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      viewBox="0 0 64 64"
       aria-hidden
       className={cn(
-        baseSvg,
-        "transition-transform ease-in-out",
-        active && "rotate-3",
+        "size-8 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+        active && "scale-[1.04]",
         className,
       )}
       style={{ transitionDuration: duration }}
       {...props}
     >
+      {/* App thumbnail squircle — ink plate so colored tiles read clearly */}
+      <rect
+        x="2"
+        y="2"
+        width="60"
+        height="60"
+        rx="14"
+        fill="rgb(36 26 18)"
+        style={{
+          filter: "drop-shadow(0 1.5px 3px rgb(36 26 18 / 0.14))",
+        }}
+      />
+      <rect
+        x="2.5"
+        y="2.5"
+        width="59"
+        height="59"
+        rx="13.5"
+        fill="none"
+        stroke="rgb(251 243 225 / 0.18)"
+        strokeWidth="1"
+      />
+
       {cells.map((cell) => (
         <rect
           key={`${cell.x}-${cell.y}`}
           x={cell.x}
           y={cell.y}
-          width="8"
-          height="8"
-          rx="1.5"
+          width="18"
+          height="18"
+          rx="5"
+          fill={cell.fill}
           className={cn(
-            "origin-center transition-transform ease-in-out motion-reduce:transition-none",
-            active ? "translate-x-0 translate-y-0" : cell.idle,
-            !active && "group-hover:translate-x-0 group-hover:translate-y-0",
+            "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+            active
+              ? "translate-x-0 translate-y-0"
+              : cell.idle,
+            !active &&
+              "group-hover:translate-x-0 group-hover:translate-y-0",
           )}
           style={{ transitionDuration: duration }}
         />

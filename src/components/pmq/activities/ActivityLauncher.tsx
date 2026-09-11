@@ -82,7 +82,11 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
       >
         <Icon
           active={morphActive}
-          className={activity.type === "pairup" ? "size-8" : "size-4"}
+          className={
+            activity.type === "pairup" || activity.type === "groupup"
+              ? "size-8"
+              : "size-4"
+          }
         />
       </button>
 
