@@ -350,51 +350,48 @@ export function Groupup({ activity }: GroupupProps) {
                 </div>
 
                 <ul className="m-0 flex w-full list-none flex-col justify-start gap-1 p-0">
-                  <AnimatePresence initial={false}>
-                    {inBucket.map((label) => (
-                      <motion.li
-                        key={label}
-                        layout={false}
-                        initial={
-                          reduceMotion
-                            ? false
-                            : { opacity: 0, y: -8, scale: 0.96 }
-                        }
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={softSpring}
-                        className={cn(
-                          // Less rounded so small type isn't pinched by the curve
-                          "w-full min-w-0 rounded-md bg-paper/85 dark:bg-paper/40",
-                          dense ? "px-1.5 py-1" : "px-3 py-2",
-                        )}
+                  {inBucket.map((label) => (
+                    <li
+                      key={label}
+                      className={cn(
+                        "w-full min-w-0 overflow-hidden rounded-sm bg-paper/85 font-body font-medium text-ink/90 dark:bg-paper/40",
+                        dense ? "px-1.5 py-1" : "px-2.5 py-1.5",
+                      )}
+                      style={{
+                        fontSize: dense ? 10 : 12,
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {/*
+                        Plain block + float:right (not Framer/grid). Tick sits on
+                        the first line’s top-right; later lines run full width under it.
+                      */}
+                      <span
+                        aria-hidden
+                        className="bg-teal text-paper"
+                        style={{
+                          float: "right",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: 12,
+                          height: 12,
+                          marginLeft: 4,
+                          marginBottom: 1,
+                          borderRadius: 9999,
+                        }}
                       >
-                        {/*
-                          Float tick top-right: first line clears it, later lines
-                          use the full card width underneath (not a left column).
-                        */}
-                        <span
-                          aria-hidden
-                          className="float-right mb-0.5 ml-1 inline-flex size-3 items-center justify-center rounded-full bg-teal text-paper sm:size-3.5"
-                        >
-                          <Check className="size-1.5 sm:size-2" strokeWidth={3} />
-                        </span>
-                        <span
-                          className={cn(
-                            "font-body font-medium leading-tight tracking-tight text-ink/90",
-                            dense ? "text-[9px] sm:text-[10px]" : "text-xs",
-                          )}
-                        >
-                          {label}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </AnimatePresence>
+                        <Check width={8} height={8} strokeWidth={3} />
+                      </span>
+                      {label}
+                    </li>
+                  ))}
                   {inBucket.length === 0 && !isSwallowing ? (
                     <li
                       className={cn(
-                        "rounded-lg text-left font-body font-medium tracking-tight transition-colors duration-200",
+                        "rounded-sm text-left font-body font-medium tracking-tight transition-colors duration-200",
                         dense
-                          ? "py-0.5 text-[9px] sm:text-[10px]"
+                          ? "py-0.5 text-[10px]"
                           : "px-3 py-3 text-[12px]",
                         inviting ? "text-teal/70" : "text-ink/30",
                       )}
