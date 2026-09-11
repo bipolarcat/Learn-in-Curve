@@ -172,6 +172,25 @@ function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
   );
 }
 
+/** LO2: register Pair up / Group up on the ## heading row when the slot is live. */
+function useHoistActivitiesToHeading(
+  toolbarOnHeading: boolean,
+  activities?: LoActivity[],
+) {
+  const headingChrome = useContext(HeadingChromeContext);
+  const setChrome = headingChrome?.setChrome;
+  const slotMounted = headingChrome?.slotMounted ?? false;
+  const hoistToHeading = toolbarOnHeading && slotMounted && Boolean(setChrome);
+
+  useEffect(() => {
+    if (!hoistToHeading || !setChrome) return;
+    setChrome({ activities });
+    return () => setChrome(null);
+  }, [hoistToHeading, setChrome, activities]);
+
+  return hoistToHeading;
+}
+
 const cardShell =
   "overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]";
 
@@ -183,17 +202,10 @@ function TwoColumnTable({
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
-  const headingChrome = useContext(HeadingChromeContext);
-  const setChrome = headingChrome?.setChrome;
-  const slotMounted = headingChrome?.slotMounted ?? false;
-
-  const hoistToHeading = toolbarOnHeading && slotMounted && Boolean(setChrome);
-
-  useEffect(() => {
-    if (!hoistToHeading || !setChrome) return;
-    setChrome({ activities });
-    return () => setChrome(null);
-  }, [hoistToHeading, setChrome, activities]);
+  const hoistToHeading = useHoistActivitiesToHeading(
+    toolbarOnHeading,
+    activities,
+  );
 
   return (
     <figure className={cn(styles.figure, "not-prose min-w-0")}>
@@ -264,16 +276,23 @@ function ColumnPickerTable({
   rows,
   activities,
   workedExamples,
-}: Parsed & StudyExtras) {
+  hoistToHeading = false,
+}: Parsed & {
+  activities?: LoActivity[];
+  workedExamples?: WorkedExampleCard[];
+  hoistToHeading?: boolean;
+}) {
   const columnHeaders = headers.slice(1);
   const [focus, setFocus] = useState(0);
   const col = focus + 1;
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <ActivityRowHead activities={activities} />
-      </div>
+      {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
+        <div className="mb-2 flex flex-wrap items-center gap-2">
+          <ActivityRowHead activities={activities} />
+        </div>
+      ) : null}
       <div className="flex flex-wrap items-center gap-1 rounded-2xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]">
         {columnHeaders.map((header, index) => {
           const selected = focus === index;
@@ -324,7 +343,12 @@ function ColumnFocusTable({
   rows,
   activities,
   workedExamples,
-}: Parsed & StudyExtras) {
+  hoistToHeading = false,
+}: Parsed & {
+  activities?: LoActivity[];
+  workedExamples?: WorkedExampleCard[];
+  hoistToHeading?: boolean;
+}) {
   const [focus, setFocus] = useState<number | null>(null);
 
   const columnTone = (index: number) => {
@@ -348,7 +372,9 @@ function ColumnFocusTable({
                     >
                       <span className="inline-flex flex-wrap items-center gap-2">
                         <span>{header || "Aspect"}</span>
-                        <ActivityRowHead activities={activities} />
+                        {!hoistToHeading ? (
+                          <ActivityRowHead activities={activities} />
+                        ) : null}
                       </span>
                     </th>
                   );
@@ -472,13 +498,36 @@ export function StudyTable({
     return <TwoColumnTable {...parsed} {...extras} />;
   }
 
+  return <MultiColumnStudyTables {...parsed} {...extras} />;
+}
+
+/** Hoist once — both breakpoints stay mounted (CSS hide), so don't double-register. */
+function MultiColumnStudyTables({
+  headers,
+  rows,
+  activities,
+  workedExamples,
+  toolbarOnHeading = false,
+}: Parsed & StudyExtras) {
+  const hoistToHeading = useHoistActivitiesToHeading(
+    toolbarOnHeading,
+    activities,
+  );
+  const shared = {
+    headers,
+    rows,
+    activities,
+    workedExamples,
+    hoistToHeading,
+  };
+
   return (
     <>
       <div className="lg:hidden">
-        <ColumnPickerTable {...parsed} {...extras} />
+        <ColumnPickerTable {...shared} />
       </div>
       <div className="hidden lg:block">
-        <ColumnFocusTable {...parsed} {...extras} />
+        <ColumnFocusTable {...shared} />
       </div>
     </>
   );
