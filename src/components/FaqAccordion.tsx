@@ -17,6 +17,7 @@ export function FaqAccordion({
   headingId,
   title,
   titleAccent,
+  subtitle,
   defaultOpenIndex = null,
   idPrefix = "faq",
 }: {
@@ -25,6 +26,8 @@ export function FaqAccordion({
   title: ReactNode;
   /** Optional accent span content after title (e.g. PMQ "s"). */
   titleAccent?: ReactNode;
+  /** Quiet line under the title (e.g. “Frequently asked questions”). */
+  subtitle?: ReactNode;
   defaultOpenIndex?: number | null;
   idPrefix?: string;
 }) {
@@ -40,6 +43,9 @@ export function FaqAccordion({
               <span className={styles.titleAccent}>{titleAccent}</span>
             ) : null}
           </h2>
+          {subtitle != null ? (
+            <p className={styles.subtitle}>{subtitle}</p>
+          ) : null}
         </div>
 
         <ul className={styles.list}>

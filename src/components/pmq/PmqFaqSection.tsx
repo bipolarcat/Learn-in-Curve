@@ -98,8 +98,8 @@ export function PmqFaqSection({
     <FaqAccordion
       items={[...leadingItems, ...FAQ_ITEMS]}
       headingId="pmq-faqs-heading"
-      title="FAQ"
-      titleAccent="s"
+      title="FAQs"
+      subtitle="Frequently asked questions"
       defaultOpenIndex={null}
       idPrefix="pmq-faq"
     />
