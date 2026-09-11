@@ -256,15 +256,15 @@ export function CoreContentBlock({
                 <div
                   className={
                     insightsDisclosure
-                      ? "mt-5 mb-1.5 flex min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
-                      : "mt-5 mb-2 flex min-w-0 flex-nowrap items-center justify-between gap-2 first:mt-0"
+                      ? "mt-5 mb-1.5 flex min-w-0 flex-nowrap items-center justify-center gap-2 first:mt-0"
+                      : "mt-5 mb-2 flex min-w-0 flex-nowrap items-center justify-center gap-2 first:mt-0"
                   }
                 >
                   <Tag
                     className={`${className
                       .replace(/\bw-full\b/g, "")
                       .replace(/\s+/g, " ")
-                      .trim()} mt-0 mb-0 min-w-0 flex-1 first:mt-0`}
+                      .trim()} mt-0 mb-0 min-w-0 text-center first:mt-0`}
                   >
                     {mapHeadingChildren(children)}
                   </Tag>
