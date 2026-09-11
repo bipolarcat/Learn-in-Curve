@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Insights tip body: italic (`InsightsDisclosure`).
 - **2026-09-11** — Insights option 1 (inline footnote chip): quieter 12.5px underline label, 14px bulb, `my-2`, open tip with teal hairline indent (`InsightsDisclosure`).
 - **2026-09-11** — Insights chrome tighten (option 5): body-sized control, `gap-1` + smaller bulb, drop hover fill / min-h-10 / tip indent; keep after_heading / after_section placement (`InsightsDisclosure`).
 - **2026-09-11** — Multi-col study tables: side-scroll hint right-aligned under the table (`StudyTable`).

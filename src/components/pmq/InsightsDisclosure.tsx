@@ -82,7 +82,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
             className="overflow-hidden"
           >
             {/* Indent to the label edge so the tip reads as a footnote under the chip */}
-            <p className="m-0 mt-1.5 w-full min-w-0 border-l border-teal/20 pl-3 font-body text-[13px] leading-[1.55] text-ink/75">
+            <p className="m-0 mt-1.5 w-full min-w-0 border-l border-teal/20 pl-3 font-body text-[13px] italic leading-[1.55] text-ink/75">
               {tip.tip}
             </p>
           </motion.div>
