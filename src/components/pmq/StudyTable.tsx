@@ -93,8 +93,8 @@ export function StudyHeadingChromeSlot() {
  * is worst. Retrieval practice for term/meaning pairs is Pair up (and other Pro
  * recall activities) — not an in-table hide/reveal toggle.
  *
- * Wider comparison tables are meant to be scanned side by side, so they stay
- * fully visible and only offer column focus.
+ * Wider comparison tables stay fully visible (horizontal scroll on narrow
+ * screens). No column-focus / column-picker chrome.
  *
  * Pro recall activities (pair up / lineup / group up) and worked examples are
  * opt-in icons — Starter never sees them.
@@ -281,8 +281,8 @@ function TwoColumnTable({
   );
 }
 
-/** Narrow screens: one column of the comparison at a time. */
-function ColumnPickerTable({
+/** Multi-column comparison — every column visible; scroll sideways if needed. */
+function MultiColumnTable({
   headers,
   rows,
   activities,
@@ -293,10 +293,6 @@ function ColumnPickerTable({
   workedExamples?: WorkedExampleCard[];
   hoistToHeading?: boolean;
 }) {
-  const columnHeaders = headers.slice(1);
-  const [focus, setFocus] = useState(0);
-  const col = focus + 1;
-
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
       {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
@@ -304,120 +300,34 @@ function ColumnPickerTable({
           <ActivityRowHead activities={activities} />
         </div>
       ) : null}
-      <div className="flex flex-wrap items-center gap-1 rounded-2xl border border-black/[0.08] bg-paper/80 p-1 dark:border-white/[0.12]">
-        {columnHeaders.map((header, index) => {
-          const selected = focus === index;
-          return (
-            <button
-              key={`${header}-${index}`}
-              type="button"
-              aria-pressed={selected}
-              onClick={() => setFocus(index)}
-              className={cn(
-                "inline-flex min-h-8 items-center rounded-lg px-2.5 font-body text-[12px] font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
-                selected
-                  ? "bg-ink/[0.05] text-orange"
-                  : "text-ink hover:bg-ink/[0.04] hover:text-ink/80",
-              )}
-            >
-              {header || `Col ${index + 1}`}
-            </button>
-          );
-        })}
-      </div>
-      <ul className="m-0 mt-3 list-none divide-y divide-black/[0.08] overflow-hidden rounded-2xl border border-black/[0.08] p-0 dark:divide-white/[0.12] dark:border-white/[0.12]">
-        {rows.map((row, index) => {
-          const label = nodeText(row[0]).trim() || headers[0];
-          const worked = workedExampleForRow(workedExamples, label);
-          return (
-            <li key={index} className="px-3.5 py-2.5">
-              <div className="flex items-start gap-2">
-                <p className="m-0 min-w-0 flex-1 font-body text-[11px] font-semibold tracking-tight text-ink/55">
-                  {label}
-                </p>
-                {worked ? <WorkedExampleLauncher example={worked} /> : null}
-              </div>
-              <p className="mt-1 font-body text-[14px] leading-[1.55] text-ink/90">
-                {row[col] ?? ""}
-              </p>
-            </li>
-          );
-        })}
-      </ul>
-    </figure>
-  );
-}
-
-/** Wide screens: everything stays visible, a column can be brought forward. */
-function ColumnFocusTable({
-  headers,
-  rows,
-  activities,
-  workedExamples,
-  hoistToHeading = false,
-}: Parsed & {
-  activities?: LoActivity[];
-  workedExamples?: WorkedExampleCard[];
-  hoistToHeading?: boolean;
-}) {
-  const [focus, setFocus] = useState<number | null>(null);
-
-  const columnTone = (index: number) => {
-    if (focus === null) return "";
-    return focus === index ? "bg-ink/[0.05]" : "opacity-45";
-  };
-
-  return (
-    <figure className="not-prose m-0 my-4 min-w-0">
       <div className="min-w-0 overflow-x-auto rounded-2xl border border-black/[0.08] dark:border-white/[0.12]">
         <table className="w-full min-w-[520px] border-collapse text-left font-body">
           <thead>
             <tr className="border-b border-black/[0.08] bg-ink/[0.04] dark:border-white/[0.12]">
-              {headers.map((header, index) => {
-                if (index === 0) {
-                  return (
-                    <th
-                      key="row-label"
-                      scope="col"
-                      className="px-3 py-2 align-bottom font-body text-[11px] font-semibold tracking-tight text-ink/60"
-                    >
-                      <span className="inline-flex flex-wrap items-center gap-2">
-                        <span>{header || "Aspect"}</span>
-                        {!hoistToHeading ? (
-                          <ActivityRowHead activities={activities} />
-                        ) : null}
-                      </span>
-                    </th>
-                  );
-                }
-                const isFocused = focus === index;
-                return (
+              {headers.map((header, index) =>
+                index === 0 ? (
+                  <th
+                    key="row-label"
+                    scope="col"
+                    className="px-3 py-2.5 align-bottom font-body text-[11px] font-semibold tracking-tight text-ink/60"
+                  >
+                    <span className="inline-flex flex-wrap items-center gap-2">
+                      <span>{header || "Aspect"}</span>
+                      {!hoistToHeading ? (
+                        <ActivityRowHead activities={activities} />
+                      ) : null}
+                    </span>
+                  </th>
+                ) : (
                   <th
                     key={`${header}-${index}`}
                     scope="col"
-                    className={cn(
-                      "px-1.5 py-1.5 align-bottom transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-                      columnTone(index),
-                    )}
+                    className="px-3 py-2.5 align-bottom font-body text-[12px] font-semibold tracking-tight text-ink"
                   >
-                    <button
-                      type="button"
-                      aria-pressed={isFocused}
-                      onClick={() =>
-                        setFocus((current) => (current === index ? null : index))
-                      }
-                      className={cn(
-                        "flex min-h-8 w-full items-center rounded-lg px-2 text-left font-body text-[12px] font-medium leading-tight tracking-tight transition-colors duration-[220ms] ease-[var(--ease-out-quint)]",
-                        isFocused
-                          ? "bg-ink/[0.05] text-orange"
-                          : "text-ink hover:bg-ink/[0.04] hover:text-ink/80",
-                      )}
-                    >
-                      {header}
-                    </button>
+                    {header}
                   </th>
-                );
-              })}
+                ),
+              )}
             </tr>
           </thead>
           <tbody>
@@ -446,10 +356,7 @@ function ColumnFocusTable({
                     ) : (
                       <td
                         key={index}
-                        className={cn(
-                          "px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/85 transition-[background-color,opacity] duration-[220ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-                          columnTone(index),
-                        )}
+                        className="px-3 py-2 align-top font-body text-[12.5px] leading-[1.5] text-ink/85"
                       >
                         {cell}
                       </td>
@@ -461,23 +368,6 @@ function ColumnFocusTable({
           </tbody>
         </table>
       </div>
-      <p className="mt-1.5 font-body text-[11.5px] font-semibold text-ink/50">
-        {focus === null ? (
-          "Select a column heading to focus it."
-        ) : (
-          <>
-            <span className="text-teal">Focus: {headers[focus]}</span>
-            {" · "}
-            <button
-              type="button"
-              onClick={() => setFocus(null)}
-              className="rounded font-semibold text-ink/50 underline decoration-ink/25 underline-offset-2"
-            >
-              Show all
-            </button>
-          </>
-        )}
-      </p>
     </figure>
   );
 }
@@ -512,7 +402,7 @@ export function StudyTable({
   return <MultiColumnStudyTables {...parsed} {...extras} />;
 }
 
-/** Hoist once — both breakpoints stay mounted (CSS hide), so don't double-register. */
+/** Hoist once — single table for all breakpoints. */
 function MultiColumnStudyTables({
   headers,
   rows,
@@ -524,22 +414,15 @@ function MultiColumnStudyTables({
     toolbarOnHeading,
     activities,
   );
-  const shared = {
-    headers,
-    rows,
-    activities,
-    workedExamples,
-    hoistToHeading,
-  };
 
   return (
-    <>
-      <div className="lg:hidden">
-        <ColumnPickerTable {...shared} />
-      </div>
-      <div className="hidden lg:block">
-        <ColumnFocusTable {...shared} />
-      </div>
-    </>
+    <MultiColumnTable
+      headers={headers}
+      rows={rows}
+      activities={activities}
+      workedExamples={workedExamples}
+      hoistToHeading={hoistToHeading}
+    />
   );
 }
+
