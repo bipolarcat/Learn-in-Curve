@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Apply misconceptions polish: align Wrong bullet with label; tighter padding; drop divider + teal Right plate; Framer height/opacity expand (`MisconceptionsList`).
 - **2026-09-11** — Apply misconceptions: Apple-soft plates matching Key definitions — `rounded-2xl`, measured 220ms height expand, rust status dot, teal “Right” plate; Orient-style section subtitle (`MisconceptionsList`, `LoApplyStage`).
 - **2026-09-11** — Orient Key definitions: move reveal hint into card subtitle (same `mt-0.5` as Learning outcomes); `DefinitionsReveal` `showLead={false}` on Orient.
 - **2026-09-11** — Outcome code badges: type `font-extrabold` (`OutcomeCodeBadge`).
