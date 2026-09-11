@@ -260,7 +260,7 @@ function TwoColumnTable({
                   className="border-b border-black/[0.08] last:border-b-0 dark:border-white/[0.12]"
                 >
                   <td className="px-3.5 py-2.5 align-top">
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-center gap-1.5">
                       <span className="min-w-0 flex-1 font-semibold leading-[1.5]">
                         {row[0]}
                       </span>
@@ -352,7 +352,7 @@ function MultiColumnTable({
                         scope="row"
                         className="px-3 py-2 align-top font-body text-[12.5px] font-semibold leading-[1.5] text-ink"
                       >
-                        <span className="inline-flex items-start gap-2">
+                        <span className="inline-flex items-center gap-1.5">
                           <span className="min-w-0">{cell}</span>
                           {worked ? (
                             <WorkedExampleLauncher example={worked} />

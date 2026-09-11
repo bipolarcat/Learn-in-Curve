@@ -28,7 +28,9 @@ export function WorkedExampleLauncher({
         title="Worked example"
         aria-label={`Worked example: ${example.row_label}`}
         className={cn(
-          "inline-flex size-7 shrink-0 items-center justify-center rounded-md text-orange transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:text-orange/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+          // Negative margin keeps a ≥44px hit target without kicking the glyph
+          // off the text baseline next to the row label.
+          "inline-flex size-9 shrink-0 -m-1.5 items-center justify-center rounded-md text-orange transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:text-orange/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
           className,
         )}
       >

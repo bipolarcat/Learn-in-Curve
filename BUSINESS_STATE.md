@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Worked example launcher: sit icon on the same row as the label (`items-center` + padded hit target with negative margin) (`StudyTable`, `WorkedExampleLauncher`).
 - **2026-09-11** — Study multi-col table: column headers match body at `12.5px` (corner label was `11px`) (`StudyTable` MultiColumnTable).
 - **2026-09-11** — Learn subheadings: drop `text-balance` on ##/### so titles use the full section width; Insights tip drops `max-w-prose` / `text-pretty` for the same (`CoreContentBlock`, `InsightsDisclosure`).
 - **2026-09-11** — Worked example launcher: `ClipboardList` (no border/fill chip) so it doesn’t collide with Insights bulb (`WorkedExampleLauncher`).
