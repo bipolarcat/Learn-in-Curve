@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — LO2 mobile Learn: Core content header matches Orient “Learning outcomes” size — `size-7` orange Layers + `text-lg` (`Lo1CoreContentStudy`).
 - **2026-09-11** — LO2 mobile Learn: add compact Core content icon + label above the outcome switcher (`Lo1CoreContentStudy`).
 - **2026-09-11** — Outcome stamp switcher: shorter again (`min-h-7`, 11.5px type, `p-px` track); full card width (`OutcomeStampSwitcher`).
 - **2026-09-11** — Outcome stamp switcher: shorter height only (full card width kept) — `min-h-8`, 12px type, tighter pad/radius, quieter thumb shadow (`OutcomeStampSwitcher`).

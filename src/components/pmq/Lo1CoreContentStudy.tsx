@@ -328,14 +328,13 @@ export function Lo1CoreContentStudy({
         >
           {badgeVariant === "stamp" ? (
             <>
-              <div className="mb-2.5 flex min-w-0 items-center gap-2">
-                <span
-                  className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-teal/10"
+              <div className="mb-2.5 flex min-w-0 items-center gap-1.5">
+                <Layers
+                  className="size-7 shrink-0 text-orange"
+                  strokeWidth={1.75}
                   aria-hidden
-                >
-                  <Layers className="size-3.5 text-teal" strokeWidth={1.8} />
-                </span>
-                <h2 className="m-0 font-body text-[14px] font-semibold leading-none tracking-tight text-ink">
+                />
+                <h2 className="m-0 min-w-0 font-body text-lg font-semibold leading-none tracking-tight text-ink">
                   Core content
                 </h2>
               </div>
