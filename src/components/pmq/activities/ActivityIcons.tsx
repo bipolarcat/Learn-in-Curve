@@ -40,7 +40,7 @@ export function ActivityPairupIcon({
       viewBox="0 0 64 64"
       aria-hidden
       className={cn(
-        "size-8 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+        "size-6 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
         active && "scale-[1.04]",
         className,
       )}
@@ -227,7 +227,7 @@ export function ActivityGroupupIcon({
       viewBox="0 0 64 64"
       aria-hidden
       className={cn(
-        "size-8 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+        "size-6 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
         active && "scale-[1.04]",
         className,
       )}

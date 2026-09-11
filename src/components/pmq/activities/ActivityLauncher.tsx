@@ -84,7 +84,7 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
           active={morphActive}
           className={
             activity.type === "pairup" || activity.type === "groupup"
-              ? "size-8"
+              ? "size-6"
               : "size-4"
           }
         />
