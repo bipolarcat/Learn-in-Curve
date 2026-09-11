@@ -40,8 +40,8 @@ function playHowTo(
   }
   if (type === "lineup") {
     return reduceMotion
-      ? "Tap two rows to swap them."
-      : "Drag by the handle to reorder.";
+      ? "Tap two cards to swap, then check your answer."
+      : "Drag cards into order, then check your answer.";
   }
   return "Drag each card into its tray.";
 }

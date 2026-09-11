@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import {
   Reorder,
   useDragControls,
@@ -8,131 +8,46 @@ import {
 } from "framer-motion";
 import { GripVertical } from "lucide-react";
 import type { LineupActivity } from "@/types/pmq";
-import { ActivityCorrectMark } from "@/components/pmq/activities/ActivityCorrectMark";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
-import { ActivityPlayStatus } from "@/components/pmq/activities/ActivityPlayChrome";
 
 type LineupProps = {
   activity: LineupActivity;
 };
 
-/**
- * Keep locked items on their correct seats. Unlocked items fill the
- * remaining seats in the order Framer (or a tap-swap) proposed.
- */
-function orderWithLockedSeats(
-  proposed: string[],
-  locked: Set<string>,
-  correct: string[],
-): string[] {
-  if (locked.size === 0) return proposed;
-  const unlockedQueue = proposed.filter((item) => !locked.has(item));
-  let u = 0;
-  return correct.map((item) => {
-    if (locked.has(item)) return item;
-    const next = unlockedQueue[u++];
-    return next ?? item;
-  });
-}
-
-function seatsCorrectInOrder(
-  order: string[],
-  locked: Set<string>,
-  correct: string[],
-): Set<string> {
-  const next = new Set(locked);
-  order.forEach((item, index) => {
-    if (next.has(item)) return;
-    if (item === correct[index]) next.add(item);
-  });
-  return next;
+function ordersMatch(a: string[], b: string[]) {
+  return a.length === b.length && a.every((item, i) => item === b[i]);
 }
 
 /**
- * Lineup — drag rows into the correct order (Apple Reminders reorder).
- * Locked seats stay put; new locks only settle after a finished move
- * (drag end / swap / Check), never mid-drag.
+ * Lineup — free reorder into numbered seats, then Check answer.
+ * Seat numbers stay fixed outside the cards. No mid-play locking.
  */
 export function Lineup({ activity }: LineupProps) {
   const correct = activity.items;
   const reduceMotion = useReducedMotion();
   const [order, setOrder] = useState(() => shuffleUntilDifferent(correct));
-  const [locked, setLocked] = useState<Set<string>>(() => new Set());
-  const [wrongTurns, setWrongTurns] = useState(0);
-  const [justChecked, setJustChecked] = useState(false);
-  const [shakeKeys, setShakeKeys] = useState<Set<string>>(() => new Set());
+  const [done, setDone] = useState(false);
+  const [tryAgain, setTryAgain] = useState(false);
+  const [shaking, setShaking] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
-  const lockedRef = useRef(locked);
-  const draggingRef = useRef(false);
-
-  lockedRef.current = locked;
-
-  const done = locked.size === correct.length && correct.length > 0;
-
-  const commitLocks = useCallback(
-    (nextOrder: string[]) => {
-      setLocked((prev) => seatsCorrectInOrder(nextOrder, prev, correct));
-      setJustChecked(false);
-      setShakeKeys(new Set());
-      setSelected(null);
-    },
-    [correct],
-  );
-
-  const onReorder = useCallback(
-    (proposed: string[]) => {
-      // Order only while dragging — never lock here (locking mid-drag
-      // flips drag={false} on the active item and fights Reorder).
-      setOrder(orderWithLockedSeats(proposed, lockedRef.current, correct));
-      setJustChecked(false);
-      setShakeKeys(new Set());
-    },
-    [correct],
-  );
-
-  const onDragStart = useCallback(() => {
-    draggingRef.current = true;
-  }, []);
-
-  const onDragEnd = useCallback(() => {
-    draggingRef.current = false;
-    setOrder((current) => {
-      const pinned = orderWithLockedSeats(
-        current,
-        lockedRef.current,
-        correct,
-      );
-      // Let Reorder finish its layout pass before locking (lock flips
-      // drag={false}; doing it in the same tick as drop is glitchy).
-      queueMicrotask(() => commitLocks(pinned));
-      return pinned;
-    });
-  }, [commitLocks, correct]);
 
   function onCheck() {
-    if (draggingRef.current) return;
-    const newly = seatsCorrectInOrder(order, locked, correct);
-    const wrong = new Set<string>();
-    order.forEach((item, index) => {
-      if (newly.has(item)) return;
-      if (item !== correct[index]) wrong.add(item);
-    });
-    setLocked(newly);
-    setSelected(null);
-    if (wrong.size > 0) {
-      setWrongTurns((n) => n + 1);
-      setJustChecked(true);
-      setShakeKeys(wrong);
-      window.setTimeout(() => setShakeKeys(new Set()), 420);
-    } else {
-      setJustChecked(false);
-      setShakeKeys(new Set());
+    if (done) return;
+    if (ordersMatch(order, correct)) {
+      setDone(true);
+      setTryAgain(false);
+      setShaking(false);
+      setSelected(null);
+      return;
     }
+    setTryAgain(true);
+    setShaking(true);
+    window.setTimeout(() => setShaking(false), 420);
   }
 
   function onTapSwap(index: number) {
-    if (locked.has(order[index]!)) return;
+    if (done) return;
     if (selected == null) {
       setSelected(index);
       return;
@@ -141,105 +56,104 @@ export function Lineup({ activity }: LineupProps) {
       setSelected(null);
       return;
     }
-    if (locked.has(order[selected]!)) {
-      setSelected(index);
-      return;
-    }
     const next = [...order];
     const a = next[selected]!;
     next[selected] = next[index]!;
     next[index] = a;
-    const pinned = orderWithLockedSeats(next, locked, correct);
-    setOrder(pinned);
-    commitLocks(pinned);
+    setOrder(next);
+    setSelected(null);
+    setTryAgain(false);
   }
-
-  const progressHint = useMemo(() => {
-    if (done) return null;
-    return justChecked ? "Keep moving — some seats are still wrong" : null;
-  }, [done, justChecked]);
 
   return (
     <div className="grid gap-4">
-      {reduceMotion ? (
-        <ol className="m-0 flex list-none flex-col gap-2 p-0">
-          {order.map((item, index) => {
-            const isLocked = locked.has(item);
-            return (
-              <li key={item}>
+      <div className="flex min-w-0 items-start gap-2.5">
+        {/* Fixed seat numbers — not part of the drag list */}
+        <ol
+          className="m-0 flex list-none flex-col gap-2 p-0"
+          aria-hidden
+        >
+          {correct.map((_, index) => (
+            <li
+              key={index}
+              className="flex h-11 w-7 shrink-0 items-center justify-center"
+            >
+              <span className="inline-flex size-6 items-center justify-center rounded-md bg-ink/[0.06] font-body text-[11px] font-bold tabular-nums text-ink/65">
+                {index + 1}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        {reduceMotion ? (
+          <ol className="m-0 flex min-w-0 flex-1 list-none flex-col gap-2 p-0">
+            {order.map((item, index) => (
+              <li key={item} className="min-w-0">
                 <button
                   type="button"
-                  disabled={isLocked || done}
+                  disabled={done}
                   onClick={() => onTapSwap(index)}
                   className={cn(
-                    "flex w-full items-start gap-2 rounded-xl border px-3 py-2.5 text-left transition-colors duration-150",
-                    isLocked
+                    "flex h-11 w-full items-center rounded-xl border px-3 text-left transition-colors duration-150",
+                    done
                       ? "border-teal/35 bg-teal/[0.08]"
                       : selected === index
                         ? "border-teal/45 bg-teal/[0.06]"
                         : "border-black/[0.08] bg-paper dark:border-white/[0.12]",
-                    shakeKeys.has(item) &&
+                    shaking &&
                       "animate-[activity-shake_0.4s_ease-in-out]",
                   )}
                 >
-                  <span
-                    className={cn(
-                      "mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-md font-body text-[11px] font-bold tabular-nums",
-                      isLocked
-                        ? "bg-teal text-paper"
-                        : "bg-ink/[0.06] text-ink/65",
-                    )}
-                  >
-                    {index + 1}
-                  </span>
-                  <span className="min-w-0 flex-1 font-body text-[13.5px] font-semibold leading-snug text-ink">
+                  <span className="min-w-0 flex-1 truncate font-body text-[13.5px] font-semibold leading-snug text-ink">
                     {item}
                   </span>
-                  {isLocked ? <ActivityCorrectMark className="mt-0.5" /> : null}
                 </button>
               </li>
-            );
-          })}
-        </ol>
-      ) : (
-        <Reorder.Group
-          axis="y"
-          values={order}
-          onReorder={onReorder}
-          className="m-0 flex list-none flex-col gap-2 p-0"
-          as="ol"
-        >
-          {order.map((item, index) => (
-            <LineupRow
-              key={item}
-              item={item}
-              index={index}
-              locked={locked.has(item)}
-              shaking={shakeKeys.has(item)}
-              dragEnabled={!locked.has(item) && !done}
-              onDragStart={onDragStart}
-              onDragEnd={onDragEnd}
-            />
-          ))}
-        </Reorder.Group>
-      )}
+            ))}
+          </ol>
+        ) : (
+          <Reorder.Group
+            axis="y"
+            values={order}
+            onReorder={(next) => {
+              if (done) return;
+              setOrder(next);
+              setTryAgain(false);
+            }}
+            className="m-0 flex min-w-0 flex-1 list-none flex-col gap-2 p-0"
+            as="ol"
+          >
+            {order.map((item) => (
+              <LineupCard
+                key={item}
+                item={item}
+                dragEnabled={!done}
+                shaking={shaking}
+                done={done}
+              />
+            ))}
+          </Reorder.Group>
+        )}
+      </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <ActivityPlayStatus
-          done={done}
-          doneLabel="In order"
-          wrongTurns={wrongTurns}
-          current={locked.size}
-          total={correct.length}
-          hint={progressHint}
-        />
+        <p
+          className={cn(
+            "m-0 font-body text-[12px] font-medium tracking-tight",
+            done ? "text-teal" : tryAgain ? "text-ink/70" : "text-ink/60",
+          )}
+          role="status"
+          aria-live="polite"
+        >
+          {done ? "In order" : tryAgain ? "Try again." : null}
+        </p>
         {!done ? (
           <button
             type="button"
             onClick={onCheck}
             className="inline-flex min-h-10 items-center rounded-xl bg-orange px-3.5 font-body text-[13px] font-semibold text-paper transition-colors duration-150 hover:bg-orange-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
-            Check seats
+            Check answer
           </button>
         ) : null}
       </div>
@@ -247,22 +161,16 @@ export function Lineup({ activity }: LineupProps) {
   );
 }
 
-function LineupRow({
+function LineupCard({
   item,
-  index,
-  locked,
-  shaking,
   dragEnabled,
-  onDragStart,
-  onDragEnd,
+  shaking,
+  done,
 }: {
   item: string;
-  index: number;
-  locked: boolean;
-  shaking: boolean;
   dragEnabled: boolean;
-  onDragStart: () => void;
-  onDragEnd: () => void;
+  shaking: boolean;
+  done: boolean;
 }) {
   const controls = useDragControls();
 
@@ -273,12 +181,10 @@ function LineupRow({
       dragControls={controls}
       drag={dragEnabled}
       as="li"
-      layout={false}
-      onDragStart={onDragStart}
-      onDragEnd={onDragEnd}
+      layout
       className={cn(
-        "flex items-start gap-2 rounded-xl border px-2 py-2 transition-[border-color,background-color,opacity] duration-150 ease-[var(--ease-out-quint)]",
-        locked
+        "flex h-11 min-w-0 items-center gap-1 rounded-xl border px-1.5 transition-[border-color,background-color] duration-150 ease-[var(--ease-out-quint)]",
+        done
           ? "border-teal/35 bg-teal/[0.08]"
           : "border-black/[0.08] bg-paper dark:border-white/[0.12]",
         shaking && "animate-[activity-shake_0.4s_ease-in-out]",
@@ -292,7 +198,7 @@ function LineupRow({
             }
           : undefined
       }
-      transition={{ type: "spring", bounce: 0.12, duration: 0.28 }}
+      transition={{ type: "spring", bounce: 0.1, duration: 0.28 }}
     >
       <button
         type="button"
@@ -304,7 +210,7 @@ function LineupRow({
           controls.start(event);
         }}
         className={cn(
-          "mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-ink/40 touch-none select-none",
+          "inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-ink/40 touch-none select-none",
           dragEnabled
             ? "cursor-grab active:cursor-grabbing hover:bg-ink/[0.05] hover:text-ink/70"
             : "opacity-30",
@@ -312,21 +218,9 @@ function LineupRow({
       >
         <GripVertical className="size-4" strokeWidth={2} aria-hidden />
       </button>
-
-      <span
-        className={cn(
-          "mt-1 inline-flex size-6 shrink-0 items-center justify-center rounded-md font-body text-[11px] font-bold tabular-nums",
-          locked ? "bg-teal text-paper" : "bg-ink/[0.06] text-ink/65",
-        )}
-      >
-        {index + 1}
-      </span>
-
-      <span className="min-w-0 flex-1 py-1 font-body text-[13.5px] font-semibold leading-snug text-ink">
+      <span className="min-w-0 flex-1 truncate pr-2 font-body text-[13.5px] font-semibold leading-snug text-ink">
         {item}
       </span>
-
-      {locked ? <ActivityCorrectMark className="mt-1.5 mr-1" /> : null}
     </Reorder.Item>
   );
 }
