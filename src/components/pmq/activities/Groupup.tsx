@@ -45,17 +45,17 @@ const TAP_SLOP_PX = 10;
 const appleEase = [0.22, 1, 0.36, 1] as const;
 const softSpring = { type: "spring" as const, bounce: 0.08, duration: 0.36 };
 
-/** Soft category stamps — teal / olive / gold / ink, quiet enough for study chrome. */
+/** LIC-tinted pocket accents — Matter/Crouton-style character without rainbow noise. */
 const POCKET_TONES = [
-  { fill: "rgba(27, 101, 96, 0.16)", ink: "rgb(27, 101, 96)" },
-  { fill: "rgba(95, 122, 61, 0.18)", ink: "rgb(95, 122, 61)" },
-  { fill: "rgba(217, 164, 65, 0.22)", ink: "rgb(184, 132, 40)" },
-  { fill: "rgba(36, 26, 18, 0.1)", ink: "rgba(36, 26, 18, 0.55)" },
+  { fill: "rgba(27, 101, 96, 0.14)", ink: "rgb(27, 101, 96)" },
+  { fill: "rgba(79, 143, 46, 0.16)", ink: "rgb(79, 143, 46)" },
+  { fill: "rgba(217, 164, 65, 0.2)", ink: "rgb(184, 132, 40)" },
+  { fill: "rgba(36, 26, 18, 0.08)", ink: "rgba(36, 26, 18, 0.55)" },
 ] as const;
 
 /**
- * Group up — drag chips into trays with a tone header stripe + minimal cap-tab mark.
- * Correct drops swallow into the mark; invite is teal wash, never orange outline.
+ * Group up — drag chips into character pockets (Crouton/Matter folder metaphor).
+ * Correct drops swallow into the pocket; invite is teal wash, never orange outline.
  */
 export function Groupup({ activity }: GroupupProps) {
   const reduceMotion = useReducedMotion();
@@ -354,28 +354,15 @@ export function Groupup({ activity }: GroupupProps) {
                 }
                 transition={{ duration: 0.28, ease: appleEase }}
                 className={cn(
-                  "relative flex min-h-[10.5rem] flex-col overflow-hidden rounded-[1.25rem] px-3.5 pb-3 pt-4 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                  "relative flex min-h-[10.5rem] flex-col overflow-hidden rounded-[1.25rem] px-3.5 pb-3 pt-3.5 transition-colors duration-200 ease-[var(--ease-out-quint)]",
                   inviting
                     ? "bg-teal/[0.07]"
                     : "bg-ink/[0.03] dark:bg-white/[0.035]",
                   isShake && "bg-rust/[0.08]",
                 )}
               >
-                {/* Tone header stripe — category colour, thickens on invite */}
-                <motion.div
-                  aria-hidden
-                  className="absolute inset-x-0 top-0 rounded-t-[1.25rem]"
-                  style={{ backgroundColor: tone.ink }}
-                  initial={false}
-                  animate={{
-                    height: inviting || isSwallowing ? 5 : 3,
-                    opacity: inviting || isSwallowing ? 0.55 : 0.32,
-                  }}
-                  transition={{ duration: 0.22, ease: appleEase }}
-                />
-
                 <div className="mb-2.5 flex items-start gap-2.5">
-                  <CapTabMark
+                  <PocketMark
                     open={inviting || isSwallowing}
                     swallowing={isSwallowing}
                     tone={tone}
@@ -492,13 +479,13 @@ export function Groupup({ activity }: GroupupProps) {
                 opacity: 1,
               }}
               animate={{
-                left: swallowTarget.left + 22,
-                top: swallowTarget.top + 28,
+                left: swallowTarget.left + swallowTarget.width * 0.22,
+                top: swallowTarget.top + 52,
                 x: "-50%",
                 y: "-50%",
-                scale: 0.2,
+                scale: 0.22,
                 opacity: 0,
-                rotate: -6,
+                rotate: -8,
               }}
               transition={{
                 duration: 0.42,
@@ -517,10 +504,8 @@ export function Groupup({ activity }: GroupupProps) {
   );
 }
 
-/**
- * Minimal folder mark — soft body + top cap tab that lifts on invite (no hinged lid).
- */
-function CapTabMark({
+/** Folder-pocket mark — lid lifts when inviting / swallowing (Crouton pocket vibe). */
+function PocketMark({
   open,
   swallowing,
   tone,
@@ -533,38 +518,59 @@ function CapTabMark({
 }) {
   return (
     <motion.div
-      className="relative size-11 shrink-0"
+      className="relative size-12 shrink-0"
       animate={
         swallowing && !reduceMotion
-          ? { scale: [1, 1.05, 1] }
+          ? { scale: [1, 1.08, 1] }
           : { scale: 1 }
       }
       transition={{ duration: 0.42, ease: appleEase }}
-      aria-hidden
     >
-      {/* Body */}
-      <div
-        className={cn(
-          "absolute inset-x-0 bottom-0 top-[10px] rounded-[0.65rem] transition-[box-shadow] duration-200 ease-[var(--ease-out-quint)]",
-          open &&
-            "shadow-[inset_0_0_0_1.5px_rgb(var(--teal-rgb)_/_0.28)]",
-        )}
-        style={{ backgroundColor: tone.fill }}
-      />
-      {/* Cap tab — lifts a few px when inviting */}
-      <motion.div
-        className="absolute left-[6px] h-[11px] w-[18px] rounded-t-[0.45rem]"
-        style={{ backgroundColor: tone.ink, opacity: 0.85 }}
-        initial={false}
-        animate={
-          reduceMotion
-            ? { top: 4 }
-            : { top: open ? 1 : 4 }
-        }
-        transition={{ type: "spring", bounce: 0.18, duration: 0.36 }}
-      />
-      {/* Soft paper face on body */}
-      <div className="pointer-events-none absolute inset-x-[5px] bottom-[5px] top-[16px] rounded-[0.4rem] bg-paper/75 dark:bg-paper/30" />
+      <svg viewBox="0 0 48 48" className="size-12 overflow-visible" aria-hidden>
+        {/* Back panel */}
+        <rect
+          x="6"
+          y="14"
+          width="36"
+          height="26"
+          rx="7"
+          fill={tone.fill}
+        />
+        {/* Lid — pivots open */}
+        <motion.g
+          style={{ transformOrigin: "10px 16px" }}
+          animate={
+            reduceMotion
+              ? { rotate: 0 }
+              : { rotate: open ? -28 : 0 }
+          }
+          transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+        >
+          <path
+            d="M8 16h14c1.2 0 2.2-.6 2.8-1.5L27 10c.4-.6 1.1-1 1.9-1H38c2.2 0 4 1.8 4 4v3H8v-0z"
+            fill={tone.ink}
+            opacity={0.9}
+          />
+          <rect x="8" y="14" width="34" height="5" rx="2" fill={tone.ink} />
+        </motion.g>
+        {/* Front pocket flap */}
+        <path
+          d="M6 24c4 6 10 10 18 10s14-4 18-10v12c0 3.3-2.7 6-6 6H12c-3.3 0-6-2.7-6-6V24z"
+          fill={tone.ink}
+          opacity={0.22}
+        />
+        <rect
+          x="6"
+          y="22"
+          width="36"
+          height="18"
+          rx="7"
+          fill="none"
+          stroke={tone.ink}
+          strokeWidth="1.5"
+          opacity={0.35}
+        />
+      </svg>
     </motion.div>
   );
 }

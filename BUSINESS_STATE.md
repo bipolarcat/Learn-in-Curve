@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Group up marks: reverted to original hinged-lid pocket SVGs (dropped arch niche + cap-tab/stripe experiments) (`Groupup`).
 - **2026-09-11** — Group up marks: cap-tab folder (tab lifts on invite) + tone header stripe per tray; dropped arch niche (`Groupup`).
 - **2026-09-11** — Group up category marks: dropped cartoon folder SVGs for LIC stamp niches (soft tone plate + opening arch well); swallow animation kept (`Groupup`).
 - **2026-09-11** — Group up: removed per-pocket item count; miss/done status stays at the bottom like Pair up (`Groupup`).
