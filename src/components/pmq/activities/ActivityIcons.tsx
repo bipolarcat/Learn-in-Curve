@@ -131,7 +131,7 @@ export function ActivityPairupIcon({
 
 /**
  * Lineup — app squircle with ranked bars.
- * Idle: bars scrambled; hover/open: they settle into short→medium→long order.
+ * Idle: bars in short→medium→long order; hover/open: they scramble.
  */
 export function ActivityLineupIcon({
   active = false,
@@ -140,24 +140,24 @@ export function ActivityLineupIcon({
   ...props
 }: ActivityIconProps) {
   const duration = `${durationMs}ms`;
-  // Seat rail is left-aligned; widths morph from scrambled → ordered.
+  // Seat rail is left-aligned; widths morph from ordered → scrambled on hover/open.
   const bars = [
     {
       y: 16,
-      idleW: 34,
-      activeW: 18,
+      idleW: 18,
+      activeW: 34,
       fill: "rgb(var(--avatar-plate-rgb))",
     },
     {
       y: 28,
-      idleW: 16,
-      activeW: 26,
+      idleW: 26,
+      activeW: 16,
       fill: "#D9A441", // gold accent (matches Group up tile)
     },
     {
       y: 40,
-      idleW: 26,
-      activeW: 34,
+      idleW: 34,
+      activeW: 26,
       fill: "rgb(var(--avatar-plate-rgb))",
     },
   ] as const;
