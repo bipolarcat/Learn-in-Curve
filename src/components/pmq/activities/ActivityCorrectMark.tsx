@@ -4,8 +4,8 @@ import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Shared correct-tick for Pair up + Group up.
- * One definition only — do not restyle inline in either activity.
+ * Shared correct-tick for Pair up / Group up / Lineup.
+ * One definition only — do not restyle inline in the activities.
  */
 export const ACTIVITY_CORRECT_MARK_PX = 18;
 
