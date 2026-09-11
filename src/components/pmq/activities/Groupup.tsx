@@ -311,22 +311,15 @@ export function Groupup({ activity }: GroupupProps) {
                 }
                 transition={{ duration: 0.28, ease: appleEase }}
                 className={cn(
-                  "relative flex flex-col overflow-hidden rounded-[1.15rem] transition-colors duration-200 ease-[var(--ease-out-quint)]",
-                  dense
-                    ? "min-h-[7.5rem] px-2.5 pb-2.5 pt-2.5"
-                    : "min-h-[9rem] px-3.5 pb-3 pt-3.5",
+                  "relative flex flex-col justify-start overflow-hidden rounded-[1.15rem] transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                  dense ? "gap-1.5 p-2" : "min-h-[9rem] gap-2 px-3.5 pb-3 pt-3.5",
                   inviting
                     ? "bg-teal/[0.07]"
                     : "bg-ink/[0.03] dark:bg-white/[0.035]",
                   isShake && "bg-rust/[0.08]",
                 )}
               >
-                <div
-                  className={cn(
-                    "mb-2 flex items-start",
-                    dense ? "flex-col gap-1.5" : "gap-2.5",
-                  )}
-                >
+                <div className="flex shrink-0 items-start gap-1.5">
                   <PocketMark
                     open={inviting || isSwallowing}
                     swallowing={isSwallowing}
@@ -337,8 +330,8 @@ export function Groupup({ activity }: GroupupProps) {
                   <div className="min-w-0 flex-1">
                     <p
                       className={cn(
-                        "m-0 font-body font-semibold leading-snug tracking-[-0.015em] text-ink",
-                        dense ? "text-[12.5px]" : "text-[14px]",
+                        "m-0 font-body font-semibold leading-tight tracking-[-0.015em] text-ink",
+                        dense ? "text-[11px] sm:text-[12px]" : "text-[14px]",
                       )}
                     >
                       {bucket.label}
@@ -346,9 +339,8 @@ export function Groupup({ activity }: GroupupProps) {
                     {bucket.hint ? (
                       <p
                         className={cn(
-                          "mt-0.5 font-body font-medium leading-snug text-ink/45",
-                          // ≥12px so iOS Safari won't auto-inflate smaller type on mobile
-                          dense ? "text-xs" : "text-[12px]",
+                          "mt-0.5 font-body font-medium leading-tight text-ink/45",
+                          dense ? "text-[9px] sm:text-[10px]" : "text-[12px]",
                         )}
                       >
                         {bucket.hint}
@@ -357,44 +349,38 @@ export function Groupup({ activity }: GroupupProps) {
                   </div>
                 </div>
 
-                <ul className="m-0 flex list-none flex-col gap-1 p-0">
+                <ul className="m-0 flex w-full list-none flex-col justify-start gap-1 p-0">
                   <AnimatePresence initial={false}>
                     {inBucket.map((label) => (
                       <motion.li
                         key={label}
-                        layout={!reduceMotion}
+                        layout={false}
                         initial={
                           reduceMotion
                             ? false
-                            : { opacity: 0, y: -10, scale: 0.92 }
+                            : { opacity: 0, y: -8, scale: 0.96 }
                         }
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={softSpring}
                         className={cn(
-                          "relative w-full min-w-0 rounded-xl bg-paper/85 dark:bg-paper/40",
-                          // Explicit pl/pr (not px + pr) so the tick gutter never loses to px on mobile
-                          dense
-                            ? "pb-1.5 pl-2 pr-6 pt-1.5"
-                            : "pb-2 pl-3 pr-7 pt-2",
+                          // Grid = tick top-right without absolute (Framer transforms break absolute on mobile)
+                          "grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-1 rounded-lg bg-paper/85 dark:bg-paper/40",
+                          dense ? "px-1.5 py-1" : "px-3 py-2",
                         )}
                       >
                         <span
                           className={cn(
-                            "block w-full min-w-0 break-words font-body font-medium leading-snug tracking-tight text-ink/90",
-                            // ≥12px — iOS won't inflate; keeps wrap width predictable
-                            "text-xs",
+                            "min-w-0 font-body font-medium leading-tight tracking-tight text-ink/90",
+                            dense ? "text-[9px] sm:text-[10px]" : "text-xs",
                           )}
                         >
                           {label}
                         </span>
                         <span
                           aria-hidden
-                          className="pointer-events-none absolute right-1.5 top-1.5 inline-flex size-3.5 items-center justify-center rounded-full bg-teal text-paper"
+                          className="mt-px inline-flex size-3 shrink-0 items-center justify-center rounded-full bg-teal text-paper sm:size-3.5"
                         >
-                          <Check
-                            className="size-2"
-                            strokeWidth={3}
-                          />
+                          <Check className="size-1.5 sm:size-2" strokeWidth={3} />
                         </span>
                       </motion.li>
                     ))}
@@ -402,8 +388,10 @@ export function Groupup({ activity }: GroupupProps) {
                   {inBucket.length === 0 && !isSwallowing ? (
                     <li
                       className={cn(
-                        "rounded-xl text-center font-body font-medium tracking-tight transition-colors duration-200",
-                        dense ? "px-2 py-2 text-[11px]" : "px-3 py-3 text-[12px]",
+                        "rounded-lg text-left font-body font-medium tracking-tight transition-colors duration-200",
+                        dense
+                          ? "py-0.5 text-[9px] sm:text-[10px]"
+                          : "px-3 py-3 text-[12px]",
                         inviting ? "text-teal/70" : "text-ink/30",
                       )}
                     >
