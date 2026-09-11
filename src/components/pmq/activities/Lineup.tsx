@@ -10,6 +10,7 @@ import { GripVertical } from "lucide-react";
 import type { LineupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
+import { ActivityPlayStatus } from "@/components/pmq/activities/ActivityPlayChrome";
 
 type LineupProps = {
   activity: LineupActivity;
@@ -22,6 +23,7 @@ function ordersMatch(a: string[], b: string[]) {
 /**
  * Lineup — free reorder into numbered seats, then Check answer.
  * Seat numbers stay fixed outside the cards. No mid-play locking.
+ * Each failed Check is one wrong turn.
  */
 export function Lineup({ activity }: LineupProps) {
   const correct = activity.items;
@@ -30,6 +32,7 @@ export function Lineup({ activity }: LineupProps) {
   const [done, setDone] = useState(false);
   const [tryAgain, setTryAgain] = useState(false);
   const [shaking, setShaking] = useState(false);
+  const [wrongTurns, setWrongTurns] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
 
   function onCheck() {
@@ -41,6 +44,7 @@ export function Lineup({ activity }: LineupProps) {
       setSelected(null);
       return;
     }
+    setWrongTurns((n) => n + 1);
     setTryAgain(true);
     setShaking(true);
     window.setTimeout(() => setShaking(false), 420);
@@ -137,16 +141,16 @@ export function Lineup({ activity }: LineupProps) {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p
-          className={cn(
-            "m-0 font-body text-[12px] font-medium tracking-tight",
-            done ? "text-teal" : tryAgain ? "text-ink/70" : "text-ink/60",
-          )}
-          role="status"
-          aria-live="polite"
-        >
-          {done ? "In order" : tryAgain ? "Try again." : null}
-        </p>
+        {done || wrongTurns > 0 || tryAgain ? (
+          <ActivityPlayStatus
+            done={done}
+            doneLabel="In order"
+            wrongTurns={wrongTurns}
+            hint={tryAgain && !done ? "Try again." : null}
+          />
+        ) : (
+          <span />
+        )}
         {!done ? (
           <button
             type="button"
