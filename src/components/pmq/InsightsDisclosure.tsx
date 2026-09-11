@@ -77,7 +77,7 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
             }}
             className="overflow-hidden"
           >
-            <p className="m-0 mt-1.5 max-w-prose pl-1 font-body text-[13.5px] leading-[1.6] text-pretty text-ink/85">
+            <p className="m-0 mt-1.5 w-full min-w-0 pl-1 font-body text-[13.5px] leading-[1.6] text-ink/85">
               {tip.tip}
             </p>
           </motion.div>

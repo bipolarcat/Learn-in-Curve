@@ -205,11 +205,11 @@ export function CoreContentBlock({
   const insightsDisclosure = loNumber === 2;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
   const sectionH2Class = insightsDisclosure
-    ? "font-body text-[15px] font-semibold tracking-tight text-balance text-ink"
-    : "font-body text-base font-semibold tracking-tight text-balance text-ink";
+    ? "font-body text-[15px] font-semibold tracking-tight text-ink"
+    : "font-body text-base font-semibold tracking-tight text-ink";
   const sectionH2SoloClass = insightsDisclosure
-    ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0"
-    : "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-balance text-ink first:mt-0";
+    ? "mt-5 mb-2 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-ink first:mt-0"
+    : "mt-5 mb-2 w-full min-w-0 font-body text-base font-semibold tracking-tight text-ink first:mt-0";
 
   return (
     <div className="pmq-markdown pmq-markdown--learn-core min-w-0 max-w-full">
@@ -292,7 +292,7 @@ export function CoreContentBlock({
           h3: ({ children }: { children?: ReactNode }) =>
             renderHeading(
               "h5",
-              "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-balance text-ink first:mt-0",
+              "mt-4 mb-1.5 w-full min-w-0 font-body text-[15px] font-semibold tracking-tight text-ink first:mt-0",
               children,
               false,
             ),
