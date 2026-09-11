@@ -145,6 +145,11 @@ export function ActivityModal({
                 : { opacity: 0, scale: 0.96, y: 12 }
             }
             animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, scale: 0.97, y: 8 }
+            }
             transition={
               reduceMotion
                 ? { duration: 0.08 }
