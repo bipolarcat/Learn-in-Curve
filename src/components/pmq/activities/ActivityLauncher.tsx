@@ -60,7 +60,10 @@ export function ActivityLauncher({ activity, className }: ActivityLauncherProps)
           className,
         )}
       >
-        <Icon active={morphActive} className="size-4" />
+        <Icon
+          active={morphActive}
+          className={activity.type === "pairup" ? "size-8" : "size-4"}
+        />
       </button>
 
       <ActivityModal
