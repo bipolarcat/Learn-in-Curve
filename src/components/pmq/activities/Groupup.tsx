@@ -357,7 +357,7 @@ export function Groupup({ activity }: GroupupProps) {
                   </div>
                 </div>
 
-                <ul className="m-0 mt-auto flex list-none flex-col gap-1 p-0">
+                <ul className="m-0 flex list-none flex-col gap-1 p-0">
                   <AnimatePresence initial={false}>
                     {inBucket.map((label) => (
                       <motion.li
