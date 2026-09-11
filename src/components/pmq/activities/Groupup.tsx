@@ -14,6 +14,7 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
+import { Check } from "lucide-react";
 import type { GroupupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
@@ -78,6 +79,7 @@ export function Groupup({ activity }: GroupupProps) {
   const bucketRefs = useRef<Map<string, HTMLElement>>(new Map());
   const chipRefs = useRef<Map<string, HTMLElement>>(new Map());
   const dragRef = useRef<DragState | null>(null);
+  const swallowFinishingRef = useRef(false);
 
   const done =
     locked.size === activity.items.length && activity.items.length > 0;
@@ -114,6 +116,7 @@ export function Groupup({ activity }: GroupupProps) {
     setHotBucket(null);
     setShakeBucket(null);
     setSwallow(null);
+    swallowFinishingRef.current = false;
   }
 
   function commitDrop(
@@ -121,12 +124,13 @@ export function Groupup({ activity }: GroupupProps) {
     bucketId: string,
     from?: { x: number; y: number; width: number },
   ) {
-    if (locked.has(label) || swallow) return;
+    if (locked.has(label) || swallow || swallowFinishingRef.current) return;
     if (answer.get(label) === bucketId) {
       if (reduceMotion || !from) {
         finishCorrect(label, bucketId);
         return;
       }
+      swallowFinishingRef.current = true;
       setPool((current) => current.filter((item) => item !== label));
       setHotBucket(bucketId);
       setSwallow({
@@ -136,6 +140,12 @@ export function Groupup({ activity }: GroupupProps) {
         fromY: from.y,
         width: from.width,
       });
+      // Fallback if Framer never fires onAnimationComplete
+      window.setTimeout(() => {
+        if (swallowFinishingRef.current) {
+          finishCorrect(label, bucketId);
+        }
+      }, 700);
       return;
     }
     setWrongTurns((n) => n + 1);
@@ -353,7 +363,7 @@ export function Groupup({ activity }: GroupupProps) {
                     <li
                       key={label}
                       className={cn(
-                        "w-full min-w-0 rounded-sm bg-paper/85 font-body font-medium text-ink/90 dark:bg-paper/40",
+                        "relative w-full min-w-0 rounded-sm bg-paper/85 font-body font-medium text-ink/90 dark:bg-paper/40",
                         dense ? "px-1.5 py-1" : "px-2.5 py-1.5",
                       )}
                       style={{
@@ -361,11 +371,7 @@ export function Groupup({ activity }: GroupupProps) {
                         lineHeight: 1.2,
                       }}
                     >
-                      {/*
-                        Empty float spacer only (no flex/SVG children — those
-                        inflate the float on iOS and block wrap-under). Tick is
-                        painted via background so the exclusion box stays 14×14.
-                      */}
+                      {/* Empty float = wrap-under exclusion (must stay childless on iOS). */}
                       <span
                         aria-hidden
                         style={{
@@ -373,16 +379,15 @@ export function Groupup({ activity }: GroupupProps) {
                           width: 14,
                           height: 14,
                           marginLeft: 3,
-                          borderRadius: "50%",
-                          backgroundColor: "rgb(27, 101, 96)",
-                          backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(
-                            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23FBF3E1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
-                          )}")`,
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center",
-                          backgroundSize: "9px 9px",
                         }}
                       />
+                      {/* Visible tick painted on top of that spacer — not inside the float. */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute right-1.5 top-1 inline-flex size-[14px] items-center justify-center rounded-full bg-teal text-paper"
+                      >
+                        <Check className="size-2" strokeWidth={3} />
+                      </span>
                       {label}
                     </li>
                   ))}
@@ -473,6 +478,7 @@ export function Groupup({ activity }: GroupupProps) {
                 ease: appleEase,
               }}
               onAnimationComplete={() => {
+                if (!swallowFinishingRef.current) return;
                 finishCorrect(swallow.label, swallow.bucketId);
               }}
             >
