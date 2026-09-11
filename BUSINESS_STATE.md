@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Group up pockets: item count sits top-right as a quiet numeral (drops “N items” under the title) so the header stays narrow (`Groupup`).
 - **2026-09-11** — Group up: Pair-up-level sleek chrome + Crouton/Matter pocket vessels (lid opens on hover); correct drops fly-and-swallow into the pocket (`Groupup`). Refs: Mobbin Crouton folders, Matter category tiles.
 - **2026-09-11** — Pair up highlight: drop orange outlines (read as error); teal/ink wash + soft scale instead. Sheet chrome quieter (deeper shadow, rounder, capsule progress) (`Pairup`, `ActivityModal`).
 - **2026-09-11** — Pair up chrome tidy: no modal header divider; how-to sits under title; drop term bullets; progress = dots only (status text only on miss/done) (`ActivityModal`, `ActivityLauncher`, `Pairup`).

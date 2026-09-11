@@ -361,7 +361,7 @@ export function Groupup({ activity }: GroupupProps) {
                   isShake && "bg-rust/[0.08]",
                 )}
               >
-                <div className="mb-3 flex items-start gap-3">
+                <div className="relative mb-2.5 flex items-start gap-2.5 pr-8">
                   <PocketMark
                     open={inviting || isSwallowing}
                     swallowing={isSwallowing}
@@ -377,11 +377,10 @@ export function Groupup({ activity }: GroupupProps) {
                         {bucket.hint}
                       </p>
                     ) : null}
-                    <p className="mt-1 font-body text-[11px] font-medium tabular-nums text-ink/35">
-                      {inBucket.length}{" "}
-                      {inBucket.length === 1 ? "item" : "items"}
-                    </p>
                   </div>
+                  <span className="absolute right-0 top-0 font-body text-[11px] font-medium tabular-nums tracking-tight text-ink/35">
+                    {inBucket.length}
+                  </span>
                 </div>
 
                 <ul className="m-0 mt-auto flex list-none flex-col gap-1.5 p-0">
