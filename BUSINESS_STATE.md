@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Removed study-table “Test yourself” / recall hide-reveal (`RecallToggle`); Pair up covers the same retrieval outcome. Two-column tables always show meanings (`StudyTable`).
 - **2026-09-11** — Pair up bridge arrow thickened (heavier shaft + head) (`ActivityPairupIcon`).
 - **2026-09-11** — Pair up thumbnail: cream arrow restored; squircle plate hardcoded to dark-mode paper `rgb(42 34 28)` so light + dark match the mobile dark look (`ActivityPairupIcon`).
 - **2026-09-11** — Pair up squircle fill locked to `--avatar-plate-rgb` (not `--paper-rgb`) so dark mode on LO pages doesn’t turn the thumbnail plate near-black (`ActivityPairupIcon`).

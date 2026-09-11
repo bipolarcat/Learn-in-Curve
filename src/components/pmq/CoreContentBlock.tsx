@@ -137,7 +137,7 @@ function diagramsFor(
 
 type CoreContentBlockProps = {
   block: CoreContentBlockType;
-  /** Learn: study tables (visible by default, opt-in recall mode). */
+  /** Learn: study tables (meanings always visible; Pair up for retrieval). */
   studyTables?: boolean;
   /**
    * Pro recall activities + worked examples. Only pass true when

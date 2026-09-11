@@ -7,13 +7,11 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useId,
   useMemo,
   useState,
   type ReactElement,
   type ReactNode,
 } from "react";
-import { Eye, RotateCcw } from "lucide-react";
 import type { LoActivity, WorkedExampleCard } from "@/types/pmq";
 import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
 import {
@@ -23,15 +21,12 @@ import {
 import { cn } from "@/lib/utils";
 
 /**
- * LO2 (for now): Pair up / Test yourself sit on the section ## heading row.
- * Table no longer shows the uppercase first-column label (e.g. LEVEL).
+ * LO2 (for now): Pair up (and other activity launchers) sit on the section ##
+ * heading row. Table no longer shows the uppercase first-column label (e.g. LEVEL).
  * Roll out to other LOs by flipping the same flag in CoreContentBlock.
  */
 type HeadingChromeState = {
   activities?: LoActivity[];
-  recall: boolean;
-  onToggle: () => void;
-  tableId: string;
 } | null;
 
 type HeadingChromeContextValue = {
@@ -80,11 +75,11 @@ export function StudyHeadingChromeSlot() {
   }, [setSlotMounted]);
 
   if (!ctx?.chrome) return null;
-  const { activities, recall, onToggle, tableId } = ctx.chrome;
+  const { activities } = ctx.chrome;
+  if (!activities?.length) return null;
   return (
     <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5">
       <ActivityRowHead activities={activities} />
-      <RecallToggle recall={recall} onToggle={onToggle} controls={tableId} />
     </div>
   );
 }
@@ -94,12 +89,11 @@ export function StudyHeadingChromeSlot() {
  *
  * Design rule, deliberately: nothing is hidden on the first read. Hiding content
  * behind clicks before a learner has seen it adds friction exactly where drop-off
- * is worst. Retrieval practice is opt-in via "Test yourself", which flips a
- * two-column table into recall mode once the learner has read it.
+ * is worst. Retrieval practice for term/meaning pairs is Pair up (and other Pro
+ * recall activities) — not an in-table hide/reveal toggle.
  *
- * Two-column tables (term / meaning) support recall mode. Wider comparison
- * tables are meant to be scanned side by side, so they stay fully visible and
- * only offer column focus.
+ * Wider comparison tables are meant to be scanned side by side, so they stay
+ * fully visible and only offer column focus.
  *
  * Pro recall activities (pair up / lineup / group up) and worked examples are
  * opt-in icons — Starter never sees them.
@@ -162,7 +156,7 @@ function parseMarkdownTable(children: ReactNode): Parsed | null {
 type StudyExtras = {
   activities?: LoActivity[];
   workedExamples?: WorkedExampleCard[];
-  /** LO2: hoist Pair up / Test yourself onto the ## heading; drop LEVEL label. */
+  /** LO2: hoist Pair up onto the ## heading; drop LEVEL label. */
   toolbarOnHeading?: boolean;
 };
 
@@ -180,36 +174,7 @@ function ActivityRowHead({ activities }: { activities?: LoActivity[] }) {
 const cardShell =
   "overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]";
 
-function RecallToggle({
-  recall,
-  onToggle,
-  controls,
-}: {
-  recall: boolean;
-  onToggle: () => void;
-  controls: string;
-}) {
-  const Icon = recall ? RotateCcw : Eye;
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-pressed={recall}
-      aria-controls={controls}
-      className={cn(
-        "inline-flex min-h-8 items-center gap-1.5 rounded-lg px-2.5 font-body text-[12px] font-semibold tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50",
-        recall
-          ? "bg-ink/[0.05] text-orange"
-          : "text-ink/60 hover:bg-ink/[0.04] hover:text-ink",
-      )}
-    >
-      <Icon className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
-      {recall ? "Show answers" : "Test yourself"}
-    </button>
-  );
-}
-
-/** Term / meaning. Open by default; "Test yourself" turns it into recall practice. */
+/** Term / meaning — always open; retrieval practice is Pair up. */
 function TwoColumnTable({
   headers,
   rows,
@@ -217,65 +182,35 @@ function TwoColumnTable({
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
-  const baseId = useId();
-  const tableId = `study-table-${baseId}`;
-  const [recall, setRecall] = useState(false);
-  const [revealed, setRevealed] = useState<Set<number>>(new Set());
   const headingChrome = useContext(HeadingChromeContext);
   const setChrome = headingChrome?.setChrome;
   const slotMounted = headingChrome?.slotMounted ?? false;
-
-  const toggleRecall = useCallback(() => {
-    setRecall((current) => !current);
-    setRevealed(new Set());
-  }, []);
 
   const hoistToHeading = toolbarOnHeading && slotMounted && Boolean(setChrome);
 
   useEffect(() => {
     if (!hoistToHeading || !setChrome) return;
-    setChrome({
-      activities,
-      recall,
-      onToggle: toggleRecall,
-      tableId,
-    });
+    setChrome({ activities });
     return () => setChrome(null);
-  }, [hoistToHeading, setChrome, activities, recall, toggleRecall, tableId]);
-
-  function reveal(index: number) {
-    setRevealed((current) => {
-      const next = new Set(current);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
-  }
+  }, [hoistToHeading, setChrome, activities]);
 
   return (
     <figure className="not-prose m-0 my-4 min-w-0">
-      {!hoistToHeading ? (
-        <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
-          <div className="flex min-w-0 flex-wrap items-center gap-2">
-            {!toolbarOnHeading ? (
-              <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
-                {headers[0]}
-              </span>
-            ) : null}
-            <ActivityRowHead activities={activities} />
-          </div>
-          <RecallToggle
-            recall={recall}
-            onToggle={toggleRecall}
-            controls={tableId}
-          />
+      {!hoistToHeading &&
+      (!toolbarOnHeading || (activities?.length ?? 0) > 0) ? (
+        <div className="mb-1.5 flex flex-wrap items-center gap-2">
+          {!toolbarOnHeading ? (
+            <span className="font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/40">
+              {headers[0]}
+            </span>
+          ) : null}
+          <ActivityRowHead activities={activities} />
         </div>
       ) : null}
 
-      <div id={tableId} className={cardShell}>
+      <div className={cardShell}>
         <ul className="m-0 list-none p-0">
           {rows.map((row, index) => {
-            const open = !recall || revealed.has(index);
             const label = nodeText(row[0]).trim();
             const worked = workedExampleForRow(workedExamples, label);
             return (
@@ -290,34 +225,16 @@ function TwoColumnTable({
                   {worked ? <WorkedExampleLauncher example={worked} /> : null}
                 </div>
 
-                {open ? (
-                  <div className="px-3.5 pb-2.5 pt-0.5">
-                    <p className="m-0 font-body text-[13.5px] leading-[1.6] text-ink/85">
-                      {row[1]}
-                    </p>
-                  </div>
-                ) : (
-                  <div className="px-3.5 pb-2.5 pt-0.5">
-                    <button
-                      type="button"
-                      onClick={() => reveal(index)}
-                      className="w-full rounded-lg border border-dashed border-ink/20 px-3 py-1.5 text-left font-body text-[12.5px] font-medium text-ink/45 transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent] hover:border-ink/35 hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50"
-                    >
-                      Recall it, then tap to check
-                    </button>
-                  </div>
-                )}
+                <div className="px-3.5 pb-2.5 pt-0.5">
+                  <p className="m-0 font-body text-[13.5px] leading-[1.6] text-ink/85">
+                    {row[1]}
+                  </p>
+                </div>
               </li>
             );
           })}
         </ul>
       </div>
-
-      {recall ? (
-        <p className="mt-1.5 font-body text-[11.5px] font-medium text-ink/45">
-          {revealed.size} of {rows.length} checked
-        </p>
-      ) : null}
     </figure>
   );
 }
