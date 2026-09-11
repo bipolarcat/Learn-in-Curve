@@ -4,10 +4,7 @@ import { useId, type SVGProps } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Recall activity glyphs.
- *
- * Pair up / Group up: iPhone-app-thumbnail squircles with LIC color + soft morphs.
- * Lineup: monoline mark with hover morph.
+ * Recall activity glyphs — iPhone-app-thumbnail squircles with LIC color + soft morphs.
  */
 
 type ActivityIconProps = SVGProps<SVGSVGElement> & {
@@ -15,9 +12,6 @@ type ActivityIconProps = SVGProps<SVGSVGElement> & {
   active?: boolean;
   durationMs?: number;
 };
-
-const baseSvg =
-  "size-3.5 shrink-0 overflow-visible motion-reduce:transition-none";
 
 /**
  * Pair up — iPhone-style squircle thumbnail.
@@ -136,47 +130,86 @@ export function ActivityPairupIcon({
 }
 
 /**
- * Lineup — ranked bars; strokes grow into 1→2→3 order on hover/open.
+ * Lineup — app squircle with ranked bars.
+ * Idle: bars scrambled; hover/open: they settle into short→medium→long order.
  */
 export function ActivityLineupIcon({
   active = false,
-  durationMs = 420,
+  durationMs = 400,
   className,
   ...props
 }: ActivityIconProps) {
   const duration = `${durationMs}ms`;
-  const rows = [
-    { y: 6, full: 16 },
-    { y: 12, full: 12 },
-    { y: 18, full: 8 },
+  // Seat rail is left-aligned; widths morph from scrambled → ordered.
+  const bars = [
+    {
+      y: 16,
+      idleW: 34,
+      activeW: 18,
+      fill: "rgb(var(--avatar-plate-rgb))",
+    },
+    {
+      y: 28,
+      idleW: 16,
+      activeW: 26,
+      fill: "#D9A441", // gold accent (matches Group up tile)
+    },
+    {
+      y: 40,
+      idleW: 26,
+      activeW: 34,
+      fill: "rgb(var(--avatar-plate-rgb))",
+    },
   ] as const;
 
   return (
     <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      viewBox="0 0 64 64"
       aria-hidden
-      className={cn(baseSvg, className)}
+      className={cn(
+        "size-6 shrink-0 overflow-visible transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
+        active && "scale-[1.04]",
+        className,
+      )}
+      style={{ transitionDuration: duration }}
       {...props}
     >
-      {rows.map((row) => (
-        <path
-          key={row.y}
-          d={`M4 ${row.y}h${row.full}`}
-          className={cn(
-            "transition-all ease-in-out motion-reduce:transition-none",
-            active
-              ? "[stroke-dashoffset:0] opacity-100"
-              : "opacity-55 group-hover:opacity-100",
-          )}
+      {/* App thumbnail squircle — teal plate (Pair up orange, Group up ink) */}
+      <rect
+        x="2"
+        y="2"
+        width="60"
+        height="60"
+        rx="14"
+        fill="#1B6560"
+        style={{
+          filter: "drop-shadow(0 1.5px 3px rgb(36 26 18 / 0.14))",
+        }}
+      />
+      <rect
+        x="2.5"
+        y="2.5"
+        width="59"
+        height="59"
+        rx="13.5"
+        fill="none"
+        stroke="rgb(251 243 225 / 0.22)"
+        strokeWidth="1"
+      />
+
+      {bars.map((bar) => (
+        <rect
+          key={bar.y}
+          x={15}
+          y={bar.y}
+          width={34}
+          height="8"
+          rx="4"
+          fill={bar.fill}
+          className="origin-left transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none"
           style={{
             transitionDuration: duration,
-            strokeDasharray: row.full,
-            strokeDashoffset: active ? 0 : row.full * 0.45,
+            transform: `scaleX(${(active ? bar.activeW : bar.idleW) / 34})`,
           }}
         />
       ))}

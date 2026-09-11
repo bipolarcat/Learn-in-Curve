@@ -66,8 +66,6 @@ export function ActivityLauncher({
   const Icon = ICONS[activity.type];
   const morphActive = open || hovered;
   const note = playHowTo(activity.type, reduceMotion);
-  const isAppIcon =
-    activity.type === "pairup" || activity.type === "groupup";
 
   return (
     <>
@@ -89,7 +87,7 @@ export function ActivityLauncher({
       >
         <Icon
           active={morphActive}
-          className={cn(isAppIcon ? "size-6" : "size-4", iconClassName)}
+          className={cn("size-6", iconClassName)}
         />
       </button>
 
