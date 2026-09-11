@@ -363,24 +363,28 @@ export function Groupup({ activity }: GroupupProps) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={softSpring}
                         className={cn(
-                          // Grid = tick top-right without absolute (Framer transforms break absolute on mobile)
-                          "grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-1 rounded-lg bg-paper/85 dark:bg-paper/40",
+                          // Less rounded so small type isn't pinched by the curve
+                          "w-full min-w-0 rounded-md bg-paper/85 dark:bg-paper/40",
                           dense ? "px-1.5 py-1" : "px-3 py-2",
                         )}
                       >
+                        {/*
+                          Float tick top-right: first line clears it, later lines
+                          use the full card width underneath (not a left column).
+                        */}
+                        <span
+                          aria-hidden
+                          className="float-right mb-0.5 ml-1 inline-flex size-3 items-center justify-center rounded-full bg-teal text-paper sm:size-3.5"
+                        >
+                          <Check className="size-1.5 sm:size-2" strokeWidth={3} />
+                        </span>
                         <span
                           className={cn(
-                            "min-w-0 font-body font-medium leading-tight tracking-tight text-ink/90",
+                            "font-body font-medium leading-tight tracking-tight text-ink/90",
                             dense ? "text-[9px] sm:text-[10px]" : "text-xs",
                           )}
                         >
                           {label}
-                        </span>
-                        <span
-                          aria-hidden
-                          className="mt-px inline-flex size-3 shrink-0 items-center justify-center rounded-full bg-teal text-paper sm:size-3.5"
-                        >
-                          <Check className="size-1.5 sm:size-2" strokeWidth={3} />
                         </span>
                       </motion.li>
                     ))}

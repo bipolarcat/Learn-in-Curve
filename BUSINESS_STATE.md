@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Group up placed chips: softer `rounded-md`; tick `float-right` so line 2+ uses full width under the mark (`Groupup`).
 - **2026-09-11** — Group up mobile trays: grid chip (tick top-right, no absolute), smaller type, no min-height / top-aligned so chips stay slim (`Groupup`).
 - **2026-09-11** — Group up placed chips: mobile-safe tick gutter (`pl`/`pr` not `px`+`pr`), full-width `text-xs` label so wrap matches desktop (`Groupup`).
 - **2026-09-11** — Group up placed chips: tick absolute top-right; label uses full row width so trays stay slim (`Groupup`).
