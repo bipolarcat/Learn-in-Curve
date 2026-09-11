@@ -122,7 +122,7 @@ export function ActivityPairupIcon({
 
       {/* Bridge arrow — cream cut across both pillars */}
       <path
-        d="M19 29.5h19.5V26L47 32l-8.5 6v-3.5H19Z"
+        d="M18 27.5H38.5V22.5L50 32 38.5 41.5V36.5H18Z"
         fill="rgb(var(--avatar-plate-rgb))"
         filter={`url(#${arrowShadow})`}
         className={cn(
