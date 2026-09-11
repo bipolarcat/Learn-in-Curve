@@ -10,18 +10,14 @@ import {
 } from "react";
 import {
   AnimatePresence,
+  LayoutGroup,
   motion,
   useReducedMotion,
 } from "framer-motion";
+import { Check } from "lucide-react";
 import type { PairupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
-import {
-  ActivityPlayHint,
-  ActivityPlayStatus,
-  activityChipClass,
-  activityDockClass,
-} from "@/components/pmq/activities/ActivityPlayChrome";
 
 type PairupProps = {
   activity: PairupActivity;
@@ -38,10 +34,12 @@ type DragState = {
 };
 
 const TAP_SLOP_PX = 10;
+const appleEase = [0.22, 1, 0.36, 1] as const;
+const softSpring = { type: "spring" as const, bounce: 0.08, duration: 0.38 };
 
 /**
- * Pair up — drag a meaning onto a term’s line (Apple Reminders / Files snap).
- * Short press selects; drag drops onto a line. Wrong drops bounce home.
+ * Pair up — drag a meaning onto a term’s line.
+ * Visual: continuous Apple list + quiet wells (not boxed game chrome).
  */
 export function Pairup({ activity }: PairupProps) {
   const reduceMotion = useReducedMotion();
@@ -69,7 +67,13 @@ export function Pairup({ activity }: PairupProps) {
   const chipRefs = useRef<Map<string, HTMLElement>>(new Map());
   const dragRef = useRef<DragState | null>(null);
 
-  const done = Object.keys(filled).length === activity.pairs.length;
+  const filledCount = Object.keys(filled).length;
+  const total = activity.pairs.length;
+  const done = filledCount === total;
+  const dragging = Boolean(
+    drag &&
+      Math.hypot(drag.x - drag.startX, drag.y - drag.startY) >= TAP_SLOP_PX,
+  );
 
   const hitTerm = useCallback(
     (clientX: number, clientY: number) => {
@@ -78,11 +82,12 @@ export function Pairup({ activity }: PairupProps) {
         const el = lineRefs.current.get(term);
         if (!el) continue;
         const r = el.getBoundingClientRect();
+        const pad = 4;
         if (
-          clientX >= r.left &&
-          clientX <= r.right &&
-          clientY >= r.top &&
-          clientY <= r.bottom
+          clientX >= r.left - pad &&
+          clientX <= r.right + pad &&
+          clientY >= r.top - pad &&
+          clientY <= r.bottom + pad
         ) {
           return term;
         }
@@ -105,7 +110,7 @@ export function Pairup({ activity }: PairupProps) {
     setWrongTurns((n) => n + 1);
     setShakeTerm(term);
     setHotTerm(null);
-    window.setTimeout(() => setShakeTerm(null), 420);
+    window.setTimeout(() => setShakeTerm(null), 380);
   }
 
   function onChipActivate(match: string) {
@@ -188,192 +193,247 @@ export function Pairup({ activity }: PairupProps) {
   }, [drag, hitTerm]);
 
   return (
-    <div className="grid gap-4">
-      <ActivityPlayHint>
-        {reduceMotion
-          ? "Select a meaning, then tap the matching term line."
-          : "Drag a meaning onto a term’s line to pair them. Or tap both."}
-      </ActivityPlayHint>
-
-      <ul className="m-0 flex list-none flex-col gap-2 p-0">
-        {terms.map((term) => {
-          const match = filled[term];
-          const isHot = hotTerm === term && !match;
-          const isShake = shakeTerm === term;
-          const isTapTarget = Boolean(selected) && !match;
-          return (
-            <li key={term}>
-              <motion.div
-                ref={(node) => {
-                  if (node) lineRefs.current.set(term, node);
-                  else lineRefs.current.delete(term);
-                }}
-                role={isTapTarget ? "button" : undefined}
-                tabIndex={isTapTarget ? 0 : undefined}
-                onClick={() => onLineActivate(term)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    onLineActivate(term);
-                  }
-                }}
-                animate={
-                  isShake && !reduceMotion
-                    ? { x: [0, -5, 5, -3, 3, 0] }
-                    : { x: 0 }
-                }
-                transition={{ duration: 0.42, ease: "easeOut" }}
-                className={cn(
-                  "grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-stretch gap-2 rounded-2xl border p-1.5 transition-[border-color,background-color,box-shadow] duration-150 ease-[var(--ease-out-quint)] motion-reduce:transition-none",
-                  match
-                    ? "border-teal/35 bg-teal/[0.07]"
-                    : isHot
-                      ? "border-orange bg-orange/[0.08] shadow-[0_0_0_3px_rgb(var(--orange-rgb)_/_0.18)]"
-                      : isTapTarget
-                        ? "border-orange/50 bg-orange/[0.04]"
-                        : "border-black/[0.08] bg-ink/[0.015] dark:border-white/[0.12]",
-                  isShake && "border-rust bg-rust/[0.08]",
-                )}
-              >
-                <div className="flex items-center px-2.5 py-2">
-                  <span className="font-body text-[13px] font-semibold leading-snug tracking-tight text-ink">
-                    {term}
-                  </span>
-                </div>
-
-                <div
-                  className={cn(
-                    activityDockClass,
-                    "min-h-[3rem]",
-                    match
-                      ? "border-solid border-teal/30 bg-teal/10"
-                      : isHot
-                        ? "border-orange bg-orange/10"
-                        : null,
-                  )}
-                >
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    {match ? (
-                      <motion.span
-                        key={match}
-                        initial={
-                          reduceMotion
-                            ? { opacity: 1 }
-                            : { opacity: 0, scale: 0.92 }
-                        }
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          type: "spring",
-                          bounce: 0.15,
-                          duration: 0.35,
-                        }}
-                        className="font-body text-[13px] font-medium leading-snug text-ink"
-                      >
-                        {match}
-                      </motion.span>
-                    ) : (
-                      <motion.span
-                        key="empty"
-                        initial={false}
-                        className="font-body text-[12px] font-medium text-ink/35"
-                      >
-                        {isHot ? "Release to pair" : "Drop here"}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            </li>
-          );
-        })}
-      </ul>
-
-      <div className="rounded-2xl border border-black/[0.06] bg-ink/[0.02] p-2.5 dark:border-white/[0.1]">
-        <p className="mb-2 px-0.5 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-ink/40">
-          Meanings
+    <LayoutGroup>
+      <div className="grid gap-5">
+        <p className="m-0 font-body text-[13px] font-medium leading-snug tracking-tight text-ink/50">
+          {reduceMotion
+            ? "Select a meaning, then tap its term."
+            : "Drag a meaning onto its term."}
         </p>
-        <div className="flex min-h-[3rem] flex-wrap gap-2">
-          <AnimatePresence initial={false}>
-            {pool.map((match) => {
-              const isSelected = selected === match;
-              const isDragging = drag?.match === match;
-              return (
-                <motion.button
-                  key={match}
+
+        {/* Continuous list — hairlines, not stacked cards */}
+        <ul className="m-0 list-none overflow-hidden rounded-[1.15rem] bg-ink/[0.035] p-0 dark:bg-white/[0.04]">
+          {terms.map((term, index) => {
+            const match = filled[term];
+            const isHot = hotTerm === term && !match;
+            const isShake = shakeTerm === term;
+            const isTapTarget = Boolean(selected) && !match;
+            const isLast = index === terms.length - 1;
+
+            return (
+              <li key={term} className="relative">
+                {!isLast ? (
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-3 bottom-0 h-px bg-ink/[0.06] dark:bg-white/[0.08]"
+                  />
+                ) : null}
+                <motion.div
                   ref={(node) => {
-                    if (node) chipRefs.current.set(match, node);
-                    else chipRefs.current.delete(match);
+                    if (node) lineRefs.current.set(term, node);
+                    else lineRefs.current.delete(term);
                   }}
-                  type="button"
-                  layout={!reduceMotion}
-                  initial={
-                    reduceMotion ? false : { opacity: 0, scale: 0.94 }
+                  role={isTapTarget ? "button" : undefined}
+                  tabIndex={isTapTarget ? 0 : undefined}
+                  onClick={() => onLineActivate(term)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onLineActivate(term);
+                    }
+                  }}
+                  animate={
+                    isShake && !reduceMotion
+                      ? { x: [0, -4, 4, -2, 2, 0] }
+                      : { x: 0 }
                   }
-                  animate={{
-                    opacity: isDragging ? 0.35 : 1,
-                    scale: 1,
-                  }}
-                  exit={
-                    reduceMotion
-                      ? { opacity: 0 }
-                      : { opacity: 0, scale: 0.9 }
-                  }
-                  transition={{
-                    type: "spring",
-                    bounce: 0.12,
-                    duration: 0.3,
-                  }}
-                  onPointerDown={(event) => startDrag(match, event)}
-                  aria-pressed={isSelected}
+                  transition={{ duration: 0.36, ease: appleEase }}
                   className={cn(
-                    activityChipClass,
-                    "max-w-full touch-none select-none",
-                    isSelected &&
-                      "border-orange bg-orange/10 ring-2 ring-orange/30",
-                    "hover:border-ink/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
+                    "grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] items-center gap-3 px-3.5 py-2.5 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                    match && "bg-teal/[0.06]",
+                    isHot && "bg-orange/[0.07]",
+                    isTapTarget && !isHot && "bg-orange/[0.04]",
+                    isShake && "bg-rust/[0.07]",
                   )}
                 >
-                  {match}
-                </motion.button>
-              );
-            })}
-          </AnimatePresence>
-          {pool.length === 0 ? (
-            <p className="m-0 px-1 py-2 font-body text-[12px] text-ink/45">
-              All paired
-            </p>
-          ) : null}
+                  <div className="flex min-w-0 items-center gap-2.5">
+                    <span
+                      className={cn(
+                        "size-1.5 shrink-0 rounded-full transition-colors duration-200",
+                        match
+                          ? "bg-teal"
+                          : isHot
+                            ? "bg-orange"
+                            : "bg-ink/20",
+                      )}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 font-body text-[13.5px] font-semibold leading-snug tracking-[-0.01em] text-ink">
+                      {term}
+                    </span>
+                  </div>
+
+                  <div
+                    className={cn(
+                      "relative flex min-h-[2.65rem] items-center rounded-[0.7rem] px-3 py-2 transition-[background-color,box-shadow,transform] duration-200 ease-[var(--ease-out-quint)]",
+                      match
+                        ? "bg-paper/80 dark:bg-paper/40"
+                        : isHot
+                          ? "bg-paper shadow-[0_0_0_1.5px_rgb(var(--orange-rgb)_/_0.55)]"
+                          : isTapTarget
+                            ? "bg-paper/90 shadow-[inset_0_0_0_1px_rgb(var(--orange-rgb)_/_0.35)]"
+                            : "bg-paper/55 shadow-[inset_0_0_0_1px_rgb(var(--ink-rgb)_/_0.06)] dark:bg-paper/25",
+                    )}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      {match ? (
+                        <motion.div
+                          key={match}
+                          initial={
+                            reduceMotion
+                              ? { opacity: 1 }
+                              : { opacity: 0, y: 4 }
+                          }
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={softSpring}
+                          className="flex w-full items-center gap-2"
+                        >
+                          <span className="min-w-0 flex-1 font-body text-[13px] font-medium leading-snug tracking-tight text-ink/90">
+                            {match}
+                          </span>
+                          <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-teal text-paper">
+                            <Check
+                              className="size-2.5"
+                              strokeWidth={3}
+                              aria-hidden
+                            />
+                          </span>
+                        </motion.div>
+                      ) : (
+                        <motion.span
+                          key="empty"
+                          initial={false}
+                          animate={{ opacity: isHot ? 1 : 0.45 }}
+                          className="font-body text-[12.5px] font-medium tracking-tight text-ink/40"
+                        >
+                          {isHot ? "Release" : "\u00a0"}
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Pool — loose pills, no stamped tray chrome */}
+        <div className="grid gap-2.5">
+          <div className="flex items-center justify-between gap-3 px-0.5">
+            <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
+              {pool.length === 0 ? "All paired" : "Meanings"}
+            </span>
+            <ProgressDots current={filledCount} total={total} done={done} />
+          </div>
+
+          <div className="flex min-h-[2.75rem] flex-wrap gap-2">
+            <AnimatePresence initial={false} mode="popLayout">
+              {pool.map((match) => {
+                const isSelected = selected === match;
+                const isDragging = drag?.match === match && dragging;
+                return (
+                  <motion.button
+                    key={match}
+                    ref={(node) => {
+                      if (node) chipRefs.current.set(match, node);
+                      else chipRefs.current.delete(match);
+                    }}
+                    type="button"
+                    layout={!reduceMotion}
+                    initial={
+                      reduceMotion ? false : { opacity: 0, scale: 0.96 }
+                    }
+                    animate={{
+                      opacity: isDragging ? 0.25 : 1,
+                      scale: isSelected ? 1.02 : 1,
+                    }}
+                    exit={
+                      reduceMotion
+                        ? { opacity: 0 }
+                        : { opacity: 0, scale: 0.94 }
+                    }
+                    transition={softSpring}
+                    onPointerDown={(event) => startDrag(match, event)}
+                    aria-pressed={isSelected}
+                    className={cn(
+                      "max-w-full touch-none select-none rounded-full border px-3.5 py-2 text-left font-body text-[13px] font-medium leading-snug tracking-tight transition-[border-color,background-color,box-shadow,color] duration-150 ease-[var(--ease-out-quint)]",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/45",
+                      isSelected
+                        ? "border-orange/40 bg-orange/[0.09] text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04)]"
+                        : "border-black/[0.06] bg-paper text-ink/90 hover:border-ink/15 hover:bg-paper dark:border-white/[0.1]",
+                    )}
+                  >
+                    {match}
+                  </motion.button>
+                );
+              })}
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
 
-      <ActivityPlayStatus
-        done={done}
-        doneLabel="Paired"
-        wrongTurns={wrongTurns}
-        current={Object.keys(filled).length}
-        total={activity.pairs.length}
-      />
-
-      {drag &&
-      Math.hypot(drag.x - drag.startX, drag.y - drag.startY) >= TAP_SLOP_PX ? (
-        <motion.div
-          aria-hidden
+        <p
           className={cn(
-            activityChipClass,
-            "pointer-events-none fixed z-[120] max-w-[min(18rem,70vw)] border-orange bg-paper shadow-[0_8px_28px_rgb(var(--ink-rgb)_/_0.18)] ring-2 ring-orange/35",
+            "m-0 font-body text-[12px] font-medium tracking-tight",
+            done ? "text-teal" : "text-ink/45",
           )}
-          style={{
-            left: drag.x,
-            top: drag.y,
-            width: drag.width,
-            x: "-50%",
-            y: "-50%",
-          }}
-          initial={false}
+          role="status"
+          aria-live="polite"
         >
-          {drag.match}
-        </motion.div>
-      ) : null}
+          {done
+            ? wrongTurns === 0
+              ? "Perfect"
+              : `Done · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
+            : wrongTurns > 0
+              ? `${filledCount} of ${total} · ${wrongTurns} miss${wrongTurns === 1 ? "" : "es"}`
+              : `${filledCount} of ${total}`}
+        </p>
+
+        {dragging && drag ? (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full border border-black/[0.06] bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/[0.1]"
+            style={{
+              left: drag.x,
+              top: drag.y,
+              width: Math.max(drag.width, 72),
+              x: "-50%",
+              y: "-50%",
+            }}
+            initial={{ scale: 1, opacity: 0.9 }}
+            animate={{ scale: 1.04, opacity: 1 }}
+            transition={{ duration: 0.16, ease: appleEase }}
+          >
+            {drag.match}
+          </motion.div>
+        ) : null}
+      </div>
+    </LayoutGroup>
+  );
+}
+
+function ProgressDots({
+  current,
+  total,
+  done,
+}: {
+  current: number;
+  total: number;
+  done: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-1" aria-hidden>
+      {Array.from({ length: total }, (_, i) => {
+        const on = i < current;
+        return (
+          <span
+            key={i}
+            className={cn(
+              "size-1.5 rounded-full transition-colors duration-200 ease-[var(--ease-out-quint)]",
+              on ? (done ? "bg-teal" : "bg-ink/55") : "bg-ink/15",
+            )}
+          />
+        );
+      })}
     </div>
   );
 }
