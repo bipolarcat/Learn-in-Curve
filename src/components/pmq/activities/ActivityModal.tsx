@@ -62,6 +62,7 @@ export function ActivityModal({
   scrollable = true,
 }: ActivityModalProps) {
   const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
@@ -74,8 +75,10 @@ export function ActivityModal({
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Focus the dialog panel — not the close button — so mobile doesn't
+    // leave a stale :focus-visible teal ring on the X.
     const focusTimer = window.setTimeout(() => {
-      closeRef.current?.focus();
+      panelRef.current?.focus({ preventScroll: true });
     }, reduceMotion ? 0 : 40);
 
     function onKeyDown(event: KeyboardEvent) {
@@ -125,9 +128,11 @@ export function ActivityModal({
           />
 
           <motion.div
+            ref={panelRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
+            tabIndex={-1}
             initial={
               reduceMotion
                 ? { opacity: 0 }
@@ -148,7 +153,7 @@ export function ActivityModal({
             }
             style={{ transformOrigin: "50% 50%" }}
             className={cn(
-              "relative flex max-h-[min(90vh,48rem)] w-full flex-col overflow-hidden rounded-[1.35rem] border border-black/[0.06] bg-paper shadow-[0_24px_64px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.04)] dark:border-white/[0.1]",
+              "relative flex max-h-[min(90vh,48rem)] w-full flex-col overflow-hidden rounded-[1.35rem] border border-black/[0.06] bg-paper shadow-[0_24px_64px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.04)] outline-none dark:border-white/[0.1]",
               size === "wide" ? "max-w-2xl" : "max-w-xl",
             )}
           >
@@ -174,7 +179,7 @@ export function ActivityModal({
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
-                className="absolute right-3.5 top-3.5 inline-flex size-8 items-center justify-center rounded-full text-ink/35 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40"
+                className="absolute right-3.5 top-3.5 inline-flex size-8 items-center justify-center rounded-full text-ink/35 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/25"
               >
                 <X className="size-4" strokeWidth={2} aria-hidden />
               </button>

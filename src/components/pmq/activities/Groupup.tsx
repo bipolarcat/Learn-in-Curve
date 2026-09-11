@@ -14,7 +14,6 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { Check } from "lucide-react";
 import type { GroupupActivity } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 import { shuffleUntilDifferent } from "@/components/pmq/activities/shuffle";
@@ -354,35 +353,36 @@ export function Groupup({ activity }: GroupupProps) {
                     <li
                       key={label}
                       className={cn(
-                        "w-full min-w-0 overflow-hidden rounded-sm bg-paper/85 font-body font-medium text-ink/90 dark:bg-paper/40",
+                        "w-full min-w-0 rounded-sm bg-paper/85 font-body font-medium text-ink/90 dark:bg-paper/40",
                         dense ? "px-1.5 py-1" : "px-2.5 py-1.5",
                       )}
                       style={{
                         fontSize: dense ? 10 : 12,
-                        lineHeight: 1.25,
+                        lineHeight: 1.2,
                       }}
                     >
                       {/*
-                        Plain block + float:right (not Framer/grid). Tick sits on
-                        the first line’s top-right; later lines run full width under it.
+                        Empty float spacer only (no flex/SVG children — those
+                        inflate the float on iOS and block wrap-under). Tick is
+                        painted via background so the exclusion box stays 14×14.
                       */}
                       <span
                         aria-hidden
-                        className="bg-teal text-paper"
                         style={{
                           float: "right",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          width: 12,
-                          height: 12,
-                          marginLeft: 4,
-                          marginBottom: 1,
-                          borderRadius: 9999,
+                          width: 14,
+                          height: 14,
+                          marginLeft: 3,
+                          borderRadius: "50%",
+                          backgroundColor: "rgb(27, 101, 96)",
+                          backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(
+                            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23FBF3E1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+                          )}")`,
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                          backgroundSize: "9px 9px",
                         }}
-                      >
-                        <Check width={8} height={8} strokeWidth={3} />
-                      </span>
+                      />
                       {label}
                     </li>
                   ))}
