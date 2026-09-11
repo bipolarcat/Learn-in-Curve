@@ -69,14 +69,14 @@ export function ActivityPairupIcon({
         </filter>
       </defs>
 
-      {/* App thumbnail squircle — avatar-plate cream (never flips in .dark) */}
+      {/* App thumbnail squircle — hardcoded dark plate (was .dark --paper-rgb) */}
       <rect
         x="2"
         y="2"
         width="60"
         height="60"
         rx="14"
-        fill="rgb(var(--avatar-plate-rgb))"
+        fill="rgb(42 34 28)"
         style={{
           filter: "drop-shadow(0 1.5px 3px rgb(36 26 18 / 0.14))",
         }}
@@ -88,7 +88,7 @@ export function ActivityPairupIcon({
         height="59"
         rx="13.5"
         fill="none"
-        stroke="rgb(36 26 18 / 0.1)"
+        stroke="rgb(244 233 214 / 0.14)"
         strokeWidth="1"
       />
 
@@ -120,10 +120,10 @@ export function ActivityPairupIcon({
         style={{ transitionDuration: duration }}
       />
 
-      {/* Bridge arrow — brand orange across both pillars */}
+      {/* Bridge arrow — cream cut across both pillars */}
       <path
         d="M19 29.5h19.5V26L47 32l-8.5 6v-3.5H19Z"
-        fill="var(--orange)"
+        fill="rgb(var(--avatar-plate-rgb))"
         filter={`url(#${arrowShadow})`}
         className={cn(
           "origin-center transition-transform ease-[var(--ease-out-quint)] motion-reduce:transition-none",
