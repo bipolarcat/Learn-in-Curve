@@ -70,11 +70,16 @@ function IconCell({ children }: { children: ReactNode }) {
   );
 }
 
+/** Quiet line under an Orient card title (e.g. handbook mapping). */
+const subtitleClass =
+  "mt-1 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65";
+
 /** Icon + heading row; body can sit full-bleed under the title. */
 function OrientCard({
   id,
   icon,
   title,
+  subtitle,
   children,
   className = "",
   /** When true, body starts at the card’s left edge (no icon-column indent). */
@@ -85,6 +90,7 @@ function OrientCard({
   id: string;
   icon: LucideIcon;
   title: ReactNode;
+  subtitle?: ReactNode;
   children: ReactNode;
   className?: string;
   flushBody?: boolean;
@@ -97,13 +103,16 @@ function OrientCard({
       className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5 ${className}`}
       aria-labelledby={id}
     >
-      <div className={`${orientGutter} items-center`}>
+      <div className={`${orientGutter} ${subtitle ? "items-start" : "items-center"}`}>
         <IconCell>
           <PathwayGlyph icon={icon} />
         </IconCell>
-        <h2 id={id} className={headingClass}>
-          {title}
-        </h2>
+        <div className="min-w-0">
+          <h2 id={id} className={headingClass}>
+            {title}
+          </h2>
+          {subtitle ? <p className={subtitleClass}>{subtitle}</p> : null}
+        </div>
       </div>
       {flushBody ? (
         <div className={`${bodyOffset} w-full min-w-0`}>{children}</div>
@@ -167,7 +176,7 @@ export function LoOrientStage({
               <h2 id="lo-orient-outcomes" className={headingClass}>
                 Learning outcomes
               </h2>
-              <p className="mt-1 font-body text-[13px] font-normal leading-snug tracking-tight text-ink/65">
+              <p className={subtitleClass}>
                 Mapped to the APM PMQ Handbook
               </p>
             </div>
@@ -218,6 +227,7 @@ export function LoOrientStage({
           id="lo-orient-context"
           icon={Compass}
           title="Context"
+          subtitle="Put it into perspective"
           flushBody
         >
           <p className={bodyClass}>{contextText}</p>
