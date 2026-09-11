@@ -54,8 +54,8 @@ const POCKET_TONES = [
 ] as const;
 
 /**
- * Group up — drag chips into stamp niches (LIC arch/ticket language, not cartoon baskets).
- * Correct drops swallow into the niche; invite is teal wash, never orange outline.
+ * Group up — drag chips into trays with a tone header stripe + minimal cap-tab mark.
+ * Correct drops swallow into the mark; invite is teal wash, never orange outline.
  */
 export function Groupup({ activity }: GroupupProps) {
   const reduceMotion = useReducedMotion();
@@ -354,15 +354,28 @@ export function Groupup({ activity }: GroupupProps) {
                 }
                 transition={{ duration: 0.28, ease: appleEase }}
                 className={cn(
-                  "relative flex min-h-[10.5rem] flex-col overflow-hidden rounded-[1.25rem] px-3.5 pb-3 pt-3.5 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                  "relative flex min-h-[10.5rem] flex-col overflow-hidden rounded-[1.25rem] px-3.5 pb-3 pt-4 transition-colors duration-200 ease-[var(--ease-out-quint)]",
                   inviting
                     ? "bg-teal/[0.07]"
                     : "bg-ink/[0.03] dark:bg-white/[0.035]",
                   isShake && "bg-rust/[0.08]",
                 )}
               >
+                {/* Tone header stripe — category colour, thickens on invite */}
+                <motion.div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 rounded-t-[1.25rem]"
+                  style={{ backgroundColor: tone.ink }}
+                  initial={false}
+                  animate={{
+                    height: inviting || isSwallowing ? 5 : 3,
+                    opacity: inviting || isSwallowing ? 0.55 : 0.32,
+                  }}
+                  transition={{ duration: 0.22, ease: appleEase }}
+                />
+
                 <div className="mb-2.5 flex items-start gap-2.5">
-                  <NicheMark
+                  <CapTabMark
                     open={inviting || isSwallowing}
                     swallowing={isSwallowing}
                     tone={tone}
@@ -505,10 +518,9 @@ export function Groupup({ activity }: GroupupProps) {
 }
 
 /**
- * Category stamp niche — flat arch on a soft plate (LIC ticket/arch language).
- * Mouth widens on invite / swallow; no cartoon lid.
+ * Minimal folder mark — soft body + top cap tab that lifts on invite (no hinged lid).
  */
-function NicheMark({
+function CapTabMark({
   open,
   swallowing,
   tone,
@@ -524,42 +536,35 @@ function NicheMark({
       className="relative size-11 shrink-0"
       animate={
         swallowing && !reduceMotion
-          ? { scale: [1, 1.06, 1] }
+          ? { scale: [1, 1.05, 1] }
           : { scale: 1 }
       }
       transition={{ duration: 0.42, ease: appleEase }}
       aria-hidden
     >
-      {/* Stamp plate */}
+      {/* Body */}
       <div
         className={cn(
-          "absolute inset-0 rounded-[0.9rem] transition-[box-shadow] duration-200 ease-[var(--ease-out-quint)]",
+          "absolute inset-x-0 bottom-0 top-[10px] rounded-[0.65rem] transition-[box-shadow] duration-200 ease-[var(--ease-out-quint)]",
           open &&
             "shadow-[inset_0_0_0_1.5px_rgb(var(--teal-rgb)_/_0.28)]",
         )}
         style={{ backgroundColor: tone.fill }}
       />
-      {/* Arch niche — paper well that opens wider when inviting */}
+      {/* Cap tab — lifts a few px when inviting */}
       <motion.div
-        className="absolute left-1/2 -translate-x-1/2 overflow-hidden rounded-t-full bg-paper shadow-[inset_0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] dark:bg-paper/40"
+        className="absolute left-[6px] h-[11px] w-[18px] rounded-t-[0.45rem]"
+        style={{ backgroundColor: tone.ink, opacity: 0.85 }}
         initial={false}
         animate={
           reduceMotion
-            ? { top: 9, width: 18, height: 22 }
-            : {
-                top: open ? 7 : 9,
-                width: open ? 22 : 18,
-                height: open ? 26 : 22,
-              }
+            ? { top: 4 }
+            : { top: open ? 1 : 4 }
         }
-        transition={{ type: "spring", bounce: 0.12, duration: 0.38 }}
-      >
-        {/* Soft floor inside the niche */}
-        <div
-          className="absolute inset-x-[3px] bottom-[3px] h-[3px] rounded-full transition-opacity duration-200"
-          style={{ backgroundColor: tone.ink, opacity: open ? 0.35 : 0.22 }}
-        />
-      </motion.div>
+        transition={{ type: "spring", bounce: 0.18, duration: 0.36 }}
+      />
+      {/* Soft paper face on body */}
+      <div className="pointer-events-none absolute inset-x-[5px] bottom-[5px] top-[16px] rounded-[0.4rem] bg-paper/75 dark:bg-paper/30" />
     </motion.div>
   );
 }
