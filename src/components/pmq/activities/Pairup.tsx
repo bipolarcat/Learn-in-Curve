@@ -35,11 +35,12 @@ type DragState = {
 
 const TAP_SLOP_PX = 10;
 const appleEase = [0.22, 1, 0.36, 1] as const;
-const softSpring = { type: "spring" as const, bounce: 0.08, duration: 0.38 };
+const softSpring = { type: "spring" as const, bounce: 0.06, duration: 0.34 };
 
 /**
  * Pair up — drag a meaning onto a term’s line.
- * Visual: continuous Apple list + quiet wells (not boxed game chrome).
+ * Highlight language is teal/ink lift only — never orange outlines
+ * (orange reads as error next to rust).
  */
 export function Pairup({ activity }: PairupProps) {
   const reduceMotion = useReducedMotion();
@@ -82,7 +83,7 @@ export function Pairup({ activity }: PairupProps) {
         const el = lineRefs.current.get(term);
         if (!el) continue;
         const r = el.getBoundingClientRect();
-        const pad = 4;
+        const pad = 6;
         if (
           clientX >= r.left - pad &&
           clientX <= r.right + pad &&
@@ -110,7 +111,7 @@ export function Pairup({ activity }: PairupProps) {
     setWrongTurns((n) => n + 1);
     setShakeTerm(term);
     setHotTerm(null);
-    window.setTimeout(() => setShakeTerm(null), 380);
+    window.setTimeout(() => setShakeTerm(null), 360);
   }
 
   function onChipActivate(match: string) {
@@ -194,24 +195,17 @@ export function Pairup({ activity }: PairupProps) {
 
   return (
     <LayoutGroup>
-      <div className="grid gap-5">
-        {/* Continuous list — hairlines, not stacked cards */}
-        <ul className="m-0 list-none overflow-hidden rounded-[1.15rem] bg-ink/[0.035] p-0 dark:bg-white/[0.04]">
-          {terms.map((term, index) => {
+      <div className="grid gap-6">
+        <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
+          {terms.map((term) => {
             const match = filled[term];
             const isHot = hotTerm === term && !match;
             const isShake = shakeTerm === term;
             const isTapTarget = Boolean(selected) && !match;
-            const isLast = index === terms.length - 1;
+            const inviting = isHot || isTapTarget;
 
             return (
-              <li key={term} className="relative">
-                {!isLast ? (
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-3 bottom-0 h-px bg-ink/[0.06] dark:bg-white/[0.08]"
-                  />
-                ) : null}
+              <li key={term}>
                 <motion.div
                   ref={(node) => {
                     if (node) lineRefs.current.set(term, node);
@@ -228,32 +222,40 @@ export function Pairup({ activity }: PairupProps) {
                   }}
                   animate={
                     isShake && !reduceMotion
-                      ? { x: [0, -4, 4, -2, 2, 0] }
-                      : { x: 0 }
+                      ? { x: [0, -3, 3, -2, 2, 0] }
+                      : inviting && !reduceMotion
+                        ? { scale: 1.01 }
+                        : { scale: 1, x: 0 }
                   }
-                  transition={{ duration: 0.36, ease: appleEase }}
+                  transition={{ duration: 0.28, ease: appleEase }}
                   className={cn(
-                    "grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] items-center gap-3 px-3.5 py-2.5 transition-colors duration-200 ease-[var(--ease-out-quint)]",
-                    match && "bg-teal/[0.06]",
-                    isHot && "bg-orange/[0.07]",
-                    isTapTarget && !isHot && "bg-orange/[0.04]",
-                    isShake && "bg-rust/[0.07]",
+                    "grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 rounded-2xl px-3.5 py-3 transition-[background-color] duration-200 ease-[var(--ease-out-quint)]",
+                    match
+                      ? "bg-teal/[0.08]"
+                      : inviting
+                        ? "bg-teal/[0.06]"
+                        : "bg-ink/[0.03] dark:bg-white/[0.035]",
+                    isShake && "bg-rust/[0.08]",
                   )}
                 >
-                  <span className="min-w-0 font-body text-[13.5px] font-semibold leading-snug tracking-[-0.01em] text-ink">
+                  <span className="min-w-0 font-body text-[14px] font-semibold leading-snug tracking-[-0.015em] text-ink">
                     {term}
                   </span>
 
-                  <div
+                  <motion.div
+                    animate={
+                      inviting && !match && !reduceMotion
+                        ? { backgroundColor: "rgb(var(--teal-rgb) / 0.1)" }
+                        : {}
+                    }
+                    transition={{ duration: 0.2, ease: appleEase }}
                     className={cn(
-                      "relative flex min-h-[2.65rem] items-center rounded-[0.7rem] px-3 py-2 transition-[background-color,box-shadow] duration-200 ease-[var(--ease-out-quint)]",
+                      "relative flex min-h-[2.75rem] items-center rounded-xl px-3.5 py-2 transition-colors duration-200 ease-[var(--ease-out-quint)]",
                       match
-                        ? "bg-paper/80 dark:bg-paper/40"
-                        : isHot
-                          ? "bg-paper shadow-[0_0_0_1.5px_rgb(var(--orange-rgb)_/_0.55)]"
-                          : isTapTarget
-                            ? "bg-paper/90 shadow-[inset_0_0_0_1px_rgb(var(--orange-rgb)_/_0.35)]"
-                            : "bg-paper/55 shadow-[inset_0_0_0_1px_rgb(var(--ink-rgb)_/_0.06)] dark:bg-paper/25",
+                        ? "bg-paper/90 dark:bg-paper/50"
+                        : inviting
+                          ? "bg-paper/95 dark:bg-paper/45"
+                          : "bg-paper/70 dark:bg-paper/30",
                     )}
                   >
                     <AnimatePresence mode="wait" initial={false}>
@@ -263,16 +265,16 @@ export function Pairup({ activity }: PairupProps) {
                           initial={
                             reduceMotion
                               ? { opacity: 1 }
-                              : { opacity: 0, y: 4 }
+                              : { opacity: 0, y: 3 }
                           }
                           animate={{ opacity: 1, y: 0 }}
                           transition={softSpring}
-                          className="flex w-full items-center gap-2"
+                          className="flex w-full items-center gap-2.5"
                         >
-                          <span className="min-w-0 flex-1 font-body text-[13px] font-medium leading-snug tracking-tight text-ink/90">
+                          <span className="min-w-0 flex-1 font-body text-[13.5px] font-medium leading-snug tracking-tight text-ink/90">
                             {match}
                           </span>
-                          <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-teal text-paper">
+                          <span className="inline-flex size-[1.125rem] shrink-0 items-center justify-center rounded-full bg-teal text-paper">
                             <Check
                               className="size-2.5"
                               strokeWidth={3}
@@ -283,27 +285,30 @@ export function Pairup({ activity }: PairupProps) {
                       ) : (
                         <motion.span
                           key="empty"
-                          initial={false}
-                          animate={{ opacity: isHot ? 1 : 0.45 }}
-                          className="font-body text-[12.5px] font-medium tracking-tight text-ink/40"
-                        >
-                          {isHot ? "Release" : "\u00a0"}
-                        </motion.span>
+                          aria-hidden
+                          className="block h-2 w-8 rounded-full bg-ink/[0.08]"
+                          animate={{
+                            opacity: inviting ? 0.35 : 0.2,
+                            scaleX: inviting ? 1.15 : 1,
+                          }}
+                          transition={{ duration: 0.2, ease: appleEase }}
+                          style={{ transformOrigin: "left center" }}
+                        />
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </li>
             );
           })}
         </ul>
 
-        <div className="grid gap-2.5">
+        <div className="grid gap-3">
           <div className="flex items-center justify-between gap-3 px-0.5">
             <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
               {pool.length === 0 ? "All paired" : "Meanings"}
             </span>
-            <ProgressDots current={filledCount} total={total} done={done} />
+            <ProgressTrack current={filledCount} total={total} done={done} />
           </div>
 
           <div className="flex min-h-[2.75rem] flex-wrap gap-2">
@@ -321,26 +326,26 @@ export function Pairup({ activity }: PairupProps) {
                     type="button"
                     layout={!reduceMotion}
                     initial={
-                      reduceMotion ? false : { opacity: 0, scale: 0.96 }
+                      reduceMotion ? false : { opacity: 0, scale: 0.97 }
                     }
                     animate={{
-                      opacity: isDragging ? 0.25 : 1,
-                      scale: isSelected ? 1.02 : 1,
+                      opacity: isDragging ? 0.2 : 1,
+                      scale: isSelected ? 1.015 : 1,
                     }}
                     exit={
                       reduceMotion
                         ? { opacity: 0 }
-                        : { opacity: 0, scale: 0.94 }
+                        : { opacity: 0, scale: 0.96 }
                     }
                     transition={softSpring}
                     onPointerDown={(event) => startDrag(match, event)}
                     aria-pressed={isSelected}
                     className={cn(
-                      "max-w-full touch-none select-none rounded-full border px-3.5 py-2 text-left font-body text-[13px] font-medium leading-snug tracking-tight transition-[border-color,background-color,box-shadow,color] duration-150 ease-[var(--ease-out-quint)]",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/45",
+                      "max-w-full touch-none select-none rounded-full px-3.5 py-2 text-left font-body text-[13px] font-medium leading-snug tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)]",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
                       isSelected
-                        ? "border-orange/40 bg-orange/[0.09] text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04)]"
-                        : "border-black/[0.06] bg-paper text-ink/90 hover:border-ink/15 hover:bg-paper dark:border-white/[0.1]",
+                        ? "bg-teal/[0.12] text-ink shadow-[inset_0_0_0_1px_rgb(var(--teal-rgb)_/_0.28)]"
+                        : "bg-ink/[0.045] text-ink/90 hover:bg-ink/[0.07] dark:bg-white/[0.06] dark:hover:bg-white/[0.09]",
                     )}
                   >
                     {match}
@@ -351,12 +356,11 @@ export function Pairup({ activity }: PairupProps) {
           </div>
         </div>
 
-        {/* Dots already show progress — status only when done or after a miss */}
         {done || wrongTurns > 0 ? (
           <p
             className={cn(
               "m-0 font-body text-[12px] font-medium tracking-tight",
-              done ? "text-teal" : "text-ink/45",
+              done ? "text-teal" : "text-ink/40",
             )}
             role="status"
             aria-live="polite"
@@ -376,7 +380,7 @@ export function Pairup({ activity }: PairupProps) {
         {dragging && drag ? (
           <motion.div
             aria-hidden
-            className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full border border-black/[0.06] bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.16),0_2px_6px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/[0.1]"
+            className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_10px_40px_rgb(var(--ink-rgb)_/_0.18),0_2px_8px_rgb(var(--ink-rgb)_/_0.06)] ring-1 ring-black/[0.04] dark:ring-white/[0.08]"
             style={{
               left: drag.x,
               top: drag.y,
@@ -384,9 +388,9 @@ export function Pairup({ activity }: PairupProps) {
               x: "-50%",
               y: "-50%",
             }}
-            initial={{ scale: 1, opacity: 0.9 }}
-            animate={{ scale: 1.04, opacity: 1 }}
-            transition={{ duration: 0.16, ease: appleEase }}
+            initial={{ scale: 1, opacity: 0.92 }}
+            animate={{ scale: 1.05, opacity: 1 }}
+            transition={{ duration: 0.14, ease: appleEase }}
           >
             {drag.match}
           </motion.div>
@@ -396,7 +400,8 @@ export function Pairup({ activity }: PairupProps) {
   );
 }
 
-function ProgressDots({
+/** Quiet capsule progress — reads as modern SaaS, not game HUD. */
+function ProgressTrack({
   current,
   total,
   done,
@@ -405,20 +410,21 @@ function ProgressDots({
   total: number;
   done: boolean;
 }) {
+  const pct = total === 0 ? 0 : (current / total) * 100;
   return (
-    <div className="flex items-center gap-1" aria-hidden>
-      {Array.from({ length: total }, (_, i) => {
-        const on = i < current;
-        return (
-          <span
-            key={i}
-            className={cn(
-              "size-1.5 rounded-full transition-colors duration-200 ease-[var(--ease-out-quint)]",
-              on ? (done ? "bg-teal" : "bg-ink/55") : "bg-ink/15",
-            )}
-          />
-        );
-      })}
+    <div
+      className="h-1 w-14 overflow-hidden rounded-full bg-ink/[0.08]"
+      aria-hidden
+    >
+      <motion.div
+        className={cn(
+          "h-full rounded-full",
+          done ? "bg-teal" : "bg-ink/45",
+        )}
+        initial={false}
+        animate={{ width: `${pct}%` }}
+        transition={{ duration: 0.28, ease: appleEase }}
+      />
     </div>
   );
 }

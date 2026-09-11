@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-11** — Pair up highlight: drop orange outlines (read as error); teal/ink wash + soft scale instead. Sheet chrome quieter (deeper shadow, rounder, capsule progress) (`Pairup`, `ActivityModal`).
 - **2026-09-11** — Pair up chrome tidy: no modal header divider; how-to sits under title; drop term bullets; progress = dots only (status text only on miss/done) (`ActivityModal`, `ActivityLauncher`, `Pairup`).
 - **2026-09-11** — Pair up visual polish: continuous Apple-style list (hairlines, inset wells, pill chips) instead of nested bordered cards; quieter copy/status + progress dots (`Pairup`).
 - **2026-09-11** — Recall activities reimagined as distinct Apple-in-LIC play: Pair up = drag meaning onto term line; Lineup = grip reorder (tap-swap if reduced motion); Group up = drag into trays with instant lock/bounce. Shared `ActivityPlayChrome`; wider play modal (`ActivityModal` max-w-xl).
