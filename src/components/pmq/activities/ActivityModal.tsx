@@ -36,6 +36,8 @@ type ActivityModalProps = {
   title: string;
   note?: string;
   eyebrow?: string;
+  /** Small activity glyph before the eyebrow (Pair up / Lineup / Group up). */
+  eyebrowIcon?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
   /** Element that opened the modal — focus returns here on close. */
@@ -55,6 +57,7 @@ export function ActivityModal({
   title,
   note,
   eyebrow,
+  eyebrowIcon,
   children,
   footer,
   returnFocusRef,
@@ -159,7 +162,12 @@ export function ActivityModal({
           >
             <header className="relative shrink-0 px-5 pb-1.5 pt-5 pr-12 sm:px-6">
               {eyebrow ? (
-                <p className="m-0 font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-teal/90">
+                <p className="m-0 flex items-center gap-1.5 font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-teal/90">
+                  {eyebrowIcon ? (
+                    <span className="inline-flex shrink-0" aria-hidden>
+                      {eyebrowIcon}
+                    </span>
+                  ) : null}
                   {eyebrow}
                 </p>
               ) : null}

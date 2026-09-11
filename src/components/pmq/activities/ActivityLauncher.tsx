@@ -96,6 +96,7 @@ export function ActivityLauncher({
         onClose={() => setOpen(false)}
         returnFocusRef={buttonRef}
         eyebrow={label}
+        eyebrowIcon={<Icon active className="size-4" />}
         title={activity.title}
         note={note}
         size={activity.type === "groupup" ? "wide" : "default"}
