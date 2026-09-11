@@ -74,14 +74,14 @@
       "outcome_code": "17a",
       "outcome_title": "Evaluating and prioritising requirements to deliver the optimal solution",
       "source_ref": "BoK 8e 5.2 (p235), 5.2.1 (p236-237), 5.2.2 (p238-239), 5.2.3 (p240-241), 5.2.4 (p242-243), 5.1.3 (p232-233); MMP from general practice — see source_confidence",
-      "body_markdown": "## Where solutions development starts\n\nRequirements management dealt with what stakeholders need or want to be able to do. Solutions development explores how to meet them, determining the optimal solution to satisfy the agreed requirements.\n\nIt begins by getting clear on what problem is actually being solved, which forces you to rank the competing requirements different stakeholders brought. From there the team produces several options and works through them before settling on one, and that choice then goes through refinement and change control.\n\nIt mixes two modes of thinking: finding options needs creative thinking, good facilitation and technical expertise, while choosing between them needs rigorous analysis to find the option offering greatest value.\n\n## Solutions must meet both kinds of requirement\n\n| Type | What it covers |\n|---|---|\n| Functional | The things it has to be able to do |\n| Non-functional | The qualities it must have: how it looks, how long it lasts, how sustainable, reliable, secure and safe it is, how it performs, how it is maintained |\n\nNon-functional requirements are the ones that get under-specified and then become acceptance disputes. A solution that does everything asked of it but cannot be maintained has failed a real requirement.\n\n## Build in time to explore options\n\nCarve out time at the start purely for producing options and alternatives. The source is blunt about why: too often there is a rush to solutions.\n\nOn a larger, more complex project, dedicating a phase to option generation demonstrates good governance and improves transparency, clarifying to others why the eventual approach was taken.\n\n## Framing determines what options exist\n\nThe single most useful idea in LO17, and worth learning with the source's own example:\n\n| Framing | Options it permits |\n|---|---|\n| 'Build a bridge between A and B' | Location and type of bridge |\n| 'Facilitate the movement of people between A and B' | Bridge, tunnel, ferry, relocating the destination, removing the need to travel |\n\nFrame it as the problem needing solved, and the outcomes you want and the benefits behind them follow naturally from there. Frame it as a solution and you have chosen before you started.\n\n## The dimensions options should cover\n\n| Dimension | The question |\n|---|---|\n| Doing nothing | What happens if we do not proceed? Always an option |\n| Minimum viable solution to complete solution | How much of the possible scope do we build? |\n| Single-phased or multi-phased | Do we do it in one pass or several? |\n| Level of technology maturity | How proven does the technology need to be? |\n\nOn minimum viable solution: it should always be considered as an option. It is the cheapest and quickest to deliver, and makes designers work out the least that has to be true for the project to have succeeded at all. However, stakeholders may want to go further and add features for greater benefits in the longer term.\n\nOn phasing: a simple short project can be single-phase. More complicated ones need thought. Should there be a pilot for proof of concept? Should it be trialled in one area, evaluated, and rolled out once the lessons are in? Or does the clock, or a need to show commitment across the board, force it all into one phase? And where the details are not known at the outset, a discovery phase may be needed to reach full clarity, after which the project is either terminated or replanned in light of what was learned.\n\nOn technology maturity: most stakeholders dislike depending on ageing technology, but anything not yet properly proven, or whose standards are still unsettled, deserves an argument before it is adopted. Different options carry different risks.\n\nOn the strategic dimension: starting a project cuts off other options and future opportunities. Some options allow a wider variety of future opportunities; others take the organisation down a tightly defined path. So projects must be considered in line with the organisation's broader strategic direction, not evaluated in isolation, which is the LO4 and LO9 link.\n\n## How options get evaluated\n\nWorking every option up into a full solution is not realistic, but each should at least be named and roughly assessed, leaving a shortlist worth pursuing. Assess on:\n\n- what the project is for, meaning the problem being solved\n- what it does for the organisation's future\n- the risk it carries, and how likely it is to succeed or fail\n- whether we can deliver it\n- cost, time and quality, as always\n\nThe critical sequencing point: the assessment holds up best when the criteria were settled with stakeholders before anyone listed an option. Criteria written after the options are on the table can be shaped, consciously or not, to favour a preferred answer.\n\nCriteria might take in a cost-benefit analysis tied back to the business case, plus impacts that are commercial, operational, technical, environmental and strategic.\n\n## The six-component process\n\n| Step | What happens |\n|---|---|\n| 1. Identify options | More options increase the likelihood of project success. Engage the team to research and think creatively. Every option has to speak to what stakeholders have prioritised and be able to return value to the organisation funding it |\n| 2. Evaluate options | Against criteria agreed with stakeholders beforehand |\n| 3. Select | The best option to meet requirements and deliver value |\n| 4. Governance framework | Wraps the whole process. Document the option selected, the decision process followed, and the specification for the solution, then communicate the choice to stakeholders |\n| 5. Monitoring | A monitoring and control cycle during delivery, including quality assurance and quality control. Run plan-do-check-act, the Shewhart cycle, to adjust the process and tighten efficiency. Decide what data to collect to understand progress and anticipate issues |\n| 6. Change control | Ensures all requests for change to features or functionality get a robust assessment. Once approved, record the new solution configuration in full and tell stakeholders what changed |\n\nIt ends with sign-off ahead of handover, the final piece of governance in the process.\n\n## Turning the solution into scope\n\nWith a solution chosen, develop a scope that articulates its parts, aiming to maximise clarity and minimise ambiguity.\n\nIn scope and out of scope both get stated. Recording assumptions and exclusions is the main lever for mitigating the risk of scope creep. The source's examples of exclusions: transition resources drawn from BAU rather than funded by the project; customised reporting in a software implementation; ground-source heating left out of a building refurbishment.\n\nStating both sides cuts the risk of misunderstanding and gives you something to judge change requests against. Scope defined badly is a well-known route to delay, cost overrun and benefits that never arrive.\n\nInterfaces matter too. Understanding interfaces with other work is critical to avoid duplication, conflicts or omission, whether that is inside a programme or portfolio, across to other standalone projects, or against BAU work.\n\n## The four breakdown structures\n\nIn linear life cycles, breakdown structures formally define scope:\n\n| Structure | Defines |\n|---|---|\n| PBS (product breakdown structure) | Things to create |\n| WBS (work breakdown structure) | Activities to complete |\n| OBS (organisation breakdown structure) | Allocation of people |\n| CBS (cost breakdown structure) | Project budget |\n\nA work package is the part of a WBS allocated to a team member. Combining the WBS and OBS produces the responsibility assignment matrix, which is the LO2 link.\n\n## Linear versus iterative\n\nThis is the second half of 17a, and the distinction the exam wants.\n\n| | Linear | Iterative |\n|---|---|---|\n| When scope is fixed | Approval of the scope definition fixes it. Planning then optimises time, cost and quality | Solutions selected and scope fixed later, and in stages |\n| How scope is held | Breakdown structures | A product backlog of potential scope elements, often as user stories |\n| How scope changes | Only through formal change control | The team draws down the highest-priority items each iteration |\n| When it stops | At the agreed scope | Iterations keep adding until the next increment of benefit costs more than it returns |\n\nIterative approaches identify options in much the same way, and the difference is when they commit. Deferring the commitment suits situations where committing early would be a mistake:\n\n- requirements that keep moving\n- technology still under development\n- a build process you expect to learn from\n\nStop when the next increment costs more than it returns, an economic rule rather than a fixed list.\n\n## MVP and MMP\n\nThe syllabus names both. They answer different questions.\n\n| | Minimum viable product (MVP) | Minimum marketable product (MMP) |\n|---|---|---|\n| Question | What is the smallest thing that works and lets us learn? | What is the smallest thing customers would accept or pay for? |\n| Purpose | Validate assumptions, gather feedback, reduce wasted build | Reach the market, or reach real users, with the least scope necessary |\n| Audience | Often internal or a limited user group | The market or the full user base |\n| Risk it addresses | Building the wrong thing | Building more than the market needed before earning anything back |\n\nHow they work together in an iterative life cycle: early iterations produce an MVP to test whether the solution is right at all. Later iterations build towards an MMP, the point at which the output is good enough to release and start generating outcomes and benefits. Iterations carry on past that point, adding value right up until the next increment stops paying for itself.\n\nThis connects straight to LO1 and LO9: iterative projects realise benefits incrementally, and the MMP is the point where that realisation can begin.\n\nNote on sourcing: MVP is covered in the Body of Knowledge. MMP is not. It is standard iterative practice named by the syllabus, and is presented here as such rather than as APM content.",
+      "body_markdown": "## Solutions development: where it starts\nRequirements management dealt with what stakeholders need or want to be able to do. Solutions development explores how to meet them, determining the optimal solution to satisfy the agreed requirements.\n\nIt begins by getting clear on what problem is actually being solved, which forces you to rank the competing requirements different stakeholders brought. From there the team produces several options and works through them before settling on one, and that choice then goes through refinement and change control.\n\nIt mixes two modes of thinking: finding options needs creative thinking, good facilitation and technical expertise, while choosing between them needs rigorous analysis to find the option offering greatest value.\n\n## Functional and non-functional requirements: solutions must meet both\n| Type | What it covers |\n|---|---|\n| Functional | The things it has to be able to do |\n| Non-functional | The qualities it must have: how it looks, how long it lasts, how sustainable, reliable, secure and safe it is, how it performs, how it is maintained |\n\nNon-functional requirements are the ones that get under-specified and then become acceptance disputes. A solution that does everything asked of it but cannot be maintained has failed a real requirement.\n\n## Exploring options: build in the time\nCarve out time at the start purely for producing options and alternatives. APM is blunt about why: too often there is a rush to solutions.\n\nOn a larger, more complex project, dedicating a phase to option generation demonstrates good governance and improves transparency, clarifying to others why the eventual approach was taken.\n\n## Framing: it determines what options exist\nThe single most useful idea in LO17, best learned through APM's own example:\n\n| Framing | Options it permits |\n|---|---|\n| 'Build a bridge between A and B' | Location and type of bridge |\n| 'Facilitate the movement of people between A and B' | Bridge, tunnel, ferry, relocating the destination, removing the need to travel |\n\nFrame it as the problem needing solved, and the outcomes you want and the benefits behind them follow naturally from there. Frame it as a solution and you have chosen before you started.\n\n## Option dimensions: what options should cover\n| Dimension | The question |\n|---|---|\n| Doing nothing | What happens if we do not proceed? Always an option |\n| Minimum viable solution to complete solution | How much of the possible scope do we build? |\n| Single-phased or multi-phased | Do we do it in one pass or several? |\n| Level of technology maturity | How proven does the technology need to be? |\n\nOn minimum viable solution: it should always be considered as an option. It is the cheapest and quickest to deliver, and makes designers work out the least that has to be true for the project to have succeeded at all. However, stakeholders may want to go further and add features for greater benefits in the longer term.\n\nOn phasing: a simple short project can be single-phase. More complicated ones need thought. Should there be a pilot for proof of concept? Should it be trialled in one area, evaluated, and rolled out once the lessons are in? Or does the clock, or a need to show commitment across the board, force it all into one phase? And where the details are not known at the outset, a discovery phase may be needed to reach full clarity, after which the project is either terminated or replanned in light of what was learned.\n\nOn technology maturity: most stakeholders dislike depending on ageing technology, but anything not yet properly proven, or whose standards are still unsettled, deserves an argument before it is adopted. Different options carry different risks.\n\nOn the strategic dimension: starting a project cuts off other options and future opportunities. Some options allow a wider variety of future opportunities; others take the organisation down a tightly defined path. So projects must be considered in line with the organisation's broader strategic direction, not evaluated in isolation, which is the LO4 and LO9 link.\n\n## Option evaluation: how it works\nWorking every option up into a full solution is not realistic, but each should at least be named and roughly assessed, leaving a shortlist worth pursuing. Assess on:\n\n- what the project is for, meaning the problem being solved\n- what it does for the organisation's future\n- the risk it carries, and how likely it is to succeed or fail\n- whether we can deliver it\n- cost, time and quality, as always\n\nThe critical sequencing point: the assessment holds up best when the criteria were settled with stakeholders before anyone listed an option. Criteria written after the options are on the table can be shaped, consciously or not, to favour a preferred answer.\n\nCriteria might take in a cost-benefit analysis tied back to the business case, plus impacts that are commercial, operational, technical, environmental and strategic.\n\n## Solutions development: the six-component process\n| Step | What happens |\n|---|---|\n| 1. Identify options | More options increase the likelihood of project success. Engage the team to research and think creatively. Every option has to speak to what stakeholders have prioritised and be able to return value to the organisation funding it |\n| 2. Evaluate options | Against criteria agreed with stakeholders beforehand |\n| 3. Select | The best option to meet requirements and deliver value |\n| 4. Governance framework | Wraps the whole process. Document the option selected, the decision process followed, and the specification for the solution, then communicate the choice to stakeholders |\n| 5. Monitoring | A monitoring and control cycle during delivery, including quality assurance and quality control. Run plan-do-check-act, the Shewhart cycle, to adjust the process and tighten efficiency. Decide what data to collect to understand progress and anticipate issues |\n| 6. Change control | Ensures all requests for change to features or functionality get a robust assessment. Once approved, record the new solution configuration in full and tell stakeholders what changed |\n\nIt ends with sign-off ahead of handover, the final piece of governance in the process.\n\n## Scope: turning the solution into it\nWith a solution chosen, develop a scope that articulates its parts, aiming to maximise clarity and minimise ambiguity.\n\nIn scope and out of scope both get stated. Recording assumptions and exclusions is the main lever for mitigating the risk of scope creep. APM's examples of exclusions: transition resources drawn from BAU rather than funded by the project; customised reporting in a software implementation; ground-source heating left out of a building refurbishment.\n\nStating both sides cuts the risk of misunderstanding and gives you something to judge change requests against. Scope defined badly is a well-known route to delay, cost overrun and benefits that never arrive.\n\nInterfaces matter too. Understanding interfaces with other work is critical to avoid duplication, conflicts or omission, whether that is inside a programme or portfolio, across to other standalone projects, or against BAU work.\n\n## Breakdown structures: the four to know\nIn linear life cycles, breakdown structures formally define scope:\n\n| Structure | Defines |\n|---|---|\n| PBS (product breakdown structure) | Things to create |\n| WBS (work breakdown structure) | Activities to complete |\n| OBS (organisation breakdown structure) | Allocation of people |\n| CBS (cost breakdown structure) | Project budget |\n\nA work package is the part of a WBS allocated to a team member. Combining the WBS and OBS produces the responsibility assignment matrix, which is the LO2 link.\n\n## Linear vs iterative: how scope is defined\nThis is the distinction the exam wants.\n\n| | Linear | Iterative |\n|---|---|---|\n| When scope is fixed | Approval of the scope definition fixes it. Planning then optimises time, cost and quality | Solutions selected and scope fixed later, and in stages |\n| How scope is held | Breakdown structures | A product backlog of potential scope elements, often as user stories |\n| How scope changes | Only through formal change control | The team draws down the highest-priority items each iteration |\n| When it stops | At the agreed scope | Iterations keep adding until the next increment of benefit costs more than it returns |\n\nIterative approaches identify options in much the same way, and the difference is when they commit. Deferring the commitment suits situations where committing early would be a mistake:\n\n- requirements that keep moving\n- technology still under development\n- a build process you expect to learn from\n\nStop when the next increment costs more than it returns, an economic rule rather than a fixed list.\n\n## MVP and MMP: two different questions\nThe syllabus names both. They answer different questions.\n\n| | Minimum viable product (MVP) | Minimum marketable product (MMP) |\n|---|---|---|\n| Question | What is the smallest thing that works and lets us learn? | What is the smallest thing customers would accept or pay for? |\n| Purpose | Validate assumptions, gather feedback, reduce wasted build | Reach the market, or reach real users, with the least scope necessary |\n| Audience | Often internal or a limited user group | The market or the full user base |\n| Risk it addresses | Building the wrong thing | Building more than the market needed before earning anything back |\n\nHow they work together in an iterative life cycle: early iterations produce an MVP to test whether the solution is right at all. Later iterations build towards an MMP, the point at which the output is good enough to release and start generating outcomes and benefits. Iterations carry on past that point, adding value right up until the next increment stops paying for itself.\n\nThis connects straight to LO1 and LO9: iterative projects realise benefits incrementally, and the MMP is the point where that realisation can begin.\n\nMVP comes from the APM Body of Knowledge. MMP does not: it is standard iterative practice that the syllabus names, so present it as general practice rather than APM content.",
       "diagrams": [
         {
           "id": "lo17-option-generation",
           "figure_number": "17.1",
           "caption": "Generating options across multiple dimensions",
           "placement": "after_section",
-          "heading": "The dimensions options should cover",
+          "heading": "Option dimensions: what options should cover",
           "file": null,
           "spec": "A central 'option generation' node fed by the problem to be solved and the intended outcomes and benefits, radiating out to the option dimensions: do nothing, minimum viable solution, single project, multi-phased project, technology maturity — with risk and constraints shown as a band across all of them. The argument: options are generated deliberately across dimensions, not brainstormed at random.",
           "alt": "Option generation driven by the problem to be solved and intended outcomes, radiating across dimensions including doing nothing, a minimum viable solution, single or multi-phased delivery, and technology maturity, all bounded by risk and constraints."
@@ -91,7 +91,7 @@
           "figure_number": "17.2",
           "caption": "The six components of the solutions development process",
           "placement": "after_section",
-          "heading": "The six-component process",
+          "heading": "Solutions development: the six-component process",
           "file": null,
           "spec": "A flow from statement of requirements through identify options, evaluate options, select — then into project delivery with monitoring and change control. Draw the governance framework as a band running underneath all six components rather than as a step in sequence, with document decisions, sign-off and handover marked on it. The governance layer wrapping the process is the structural point.",
           "alt": "The solutions development process running from requirements through identifying, evaluating and selecting options into delivery monitoring and change control, with a governance framework spanning all six components."
@@ -101,7 +101,7 @@
           "figure_number": "17.3",
           "caption": "How the breakdown structures relate",
           "placement": "after_section",
-          "heading": "The four breakdown structures",
+          "heading": "Breakdown structures: the four to know",
           "file": "lo17-breakdown-structures.svg",
           "spec": "Show the WBS descending from the project into elements and work packages, the OBS descending from project director through project managers, and the two meeting to form the responsibility assignment matrix. Add PBS and CBS as related structures with a note on what each defines. The intersection producing the RAM is the relationship the diagram exists to show.",
           "alt": "A work breakdown structure and an organisation breakdown structure intersecting to form a responsibility assignment matrix, with product and cost breakdown structures shown alongside.",
@@ -113,7 +113,7 @@
           "figure_number": "17.4",
           "caption": "MVP and MMP across iterations",
           "placement": "after_section",
-          "heading": "MVP and MMP",
+          "heading": "MVP and MMP: two different questions",
           "file": null,
           "spec": "A horizontal sequence of iterations with two milestones marked: MVP early ('smallest thing that works — validates the assumption'), MMP later ('smallest thing the market will accept — benefits can start'). Continue the iterations past MMP with a diminishing-value curve, ending where marginal benefit meets cost of work. Add a caption noting MVP appears in BoK 8e and MMP is standard iterative practice named by the syllabus.",
           "alt": "A sequence of iterations marking the minimum viable product early and the minimum marketable product later, with value continuing to accrue until marginal benefit no longer exceeds the cost of the work."
@@ -122,55 +122,55 @@
       "exam_tips": [
         {
           "id": "lo17-tip-nonfunctional",
-          "heading": "Solutions must meet both kinds of requirement",
+          "heading": "Functional and non-functional requirements: solutions must meet both",
           "placement": "after_section",
           "tip": "Scenarios rarely use the phrase non-functional. They hand you a complaint about maintenance, security or how long something lasts, and the mark is for naming it as a requirement the solution still had to meet."
         },
         {
           "id": "lo17-tip-options-phase",
-          "heading": "Build in time to explore options",
+          "heading": "Exploring options: build in the time",
           "placement": "after_section",
           "tip": "That is a strong scenario answer. The value of an options phase is not only a better solution, it is a defensible decision, so write both halves and not only the first."
         },
         {
           "id": "lo17-tip-framing",
-          "heading": "Framing determines what options exist",
+          "heading": "Framing: it determines what options exist",
           "placement": "after_section",
           "tip": "Where a scenario hands you an objective already worded as a solution, that is the flaw to name. Restate it as the problem to be solved and the alternatives appear on their own."
         },
         {
           "id": "lo17-tip-dimensions",
-          "heading": "The dimensions options should cover",
+          "heading": "Option dimensions: what options should cover",
           "placement": "after_section",
           "tip": "Two of these four get dropped under time pressure. Doing nothing is always on the list, and the minimum viable solution is a benchmark to reason from, not automatically the recommendation."
         },
         {
           "id": "lo17-tip-criteria-order",
-          "heading": "How options get evaluated",
+          "heading": "Option evaluation: how it works",
           "placement": "after_section",
           "tip": "If a scenario has the criteria drawn up after the shortlist appears, that is what you attack. Whoever wrote them could bend them towards the answer they already wanted."
         },
         {
           "id": "lo17-tip-governance-layer",
-          "heading": "The six-component process",
+          "heading": "Solutions development: the six-component process",
           "placement": "after_section",
           "tip": "Governance is the component people leave out. Say that it wraps the process rather than sitting in the sequence, name what it documents, and you separate yourself from an answer that lists five steps."
         },
         {
           "id": "lo17-tip-exclusions",
-          "heading": "Turning the solution into scope",
+          "heading": "Scope: turning the solution into it",
           "placement": "after_section",
           "tip": "Scope answers are won on the out of scope half. Name one exclusion that fits the scenario in front of you, then say it is the baseline every change request gets judged against."
         },
         {
           "id": "lo17-tip-stopping-rule",
-          "heading": "Linear versus iterative",
+          "heading": "Linear vs iterative: how scope is defined",
           "placement": "after_section",
           "tip": "Stop when the next increment costs more than it returns. That is the phrase worth memorising, the iterative equivalent of a scope boundary."
         },
         {
           "id": "lo17-tip-mvp-mmp",
-          "heading": "MVP and MMP",
+          "heading": "MVP and MMP: two different questions",
           "placement": "after_section",
           "tip": "If both turn up in one scenario, the split is validate against release. An MVP proves the thing works, an MMP is the first version you would put in front of the market and start counting benefits from."
         }
@@ -179,7 +179,7 @@
         {
           "id": "lo17-groupup-requirement-types",
           "type": "groupup",
-          "heading": "Solutions must meet both kinds of requirement",
+          "heading": "Functional and non-functional requirements: solutions must meet both",
           "title": "Which kind of requirement is each one?",
           "buckets": [
             {
@@ -227,7 +227,7 @@
         {
           "id": "lo17-pairup-dimensions",
           "type": "pairup",
-          "heading": "The dimensions options should cover",
+          "heading": "Option dimensions: what options should cover",
           "title": "Match each dimension to the question it asks",
           "pairs": [
             {
@@ -251,7 +251,7 @@
         {
           "id": "lo17-lineup-process",
           "type": "lineup",
-          "heading": "The six-component process",
+          "heading": "Solutions development: the six-component process",
           "title": "Put the process back in the order it runs",
           "items": [
             "Identify options",
@@ -265,7 +265,7 @@
         {
           "id": "lo17-pairup-breakdowns",
           "type": "pairup",
-          "heading": "The four breakdown structures",
+          "heading": "Breakdown structures: the four to know",
           "title": "Match each breakdown structure to what it defines",
           "pairs": [
             {
@@ -289,7 +289,7 @@
         {
           "id": "lo17-groupup-linear-iterative",
           "type": "groupup",
-          "heading": "Linear versus iterative",
+          "heading": "Linear vs iterative: how scope is defined",
           "title": "Linear or iterative?",
           "buckets": [
             {
@@ -341,7 +341,7 @@
         {
           "id": "lo17-groupup-mvp-mmp",
           "type": "groupup",
-          "heading": "MVP and MMP",
+          "heading": "MVP and MMP: two different questions",
           "title": "MVP or MMP?",
           "buckets": [
             {
@@ -394,7 +394,7 @@
       "worked_examples": [
         {
           "id": "lo17-we-framing",
-          "heading": "Framing determines what options exist",
+          "heading": "Framing: it determines what options exist",
           "row_label": "'Facilitate the movement of people between A and B'",
           "situation": "Your sponsor's objective reads 'build a 200-space car park at the new depot'. Staff parking overflows onto the street twice a week.",
           "ask": "How do you reframe it?",
@@ -402,7 +402,7 @@
         },
         {
           "id": "lo17-we-do-nothing",
-          "heading": "The dimensions options should cover",
+          "heading": "Option dimensions: what options should cover",
           "row_label": "Doing nothing",
           "situation": "Your sponsor asks you to recommend one of three suppliers for a £2m warehouse system. The options paper prices all three and stops there.",
           "ask": "What is missing?",
@@ -410,7 +410,7 @@
         },
         {
           "id": "lo17-we-change-control",
-          "heading": "The six-component process",
+          "heading": "Solutions development: the six-component process",
           "row_label": "6. Change control",
           "situation": "Three weeks before handover, the operations lead asks for two extra fields on the daily report. It looks like an hour of work.",
           "ask": "Do you add it?",
@@ -418,7 +418,7 @@
         },
         {
           "id": "lo17-we-stopping",
-          "heading": "Linear versus iterative",
+          "heading": "Linear vs iterative: how scope is defined",
           "row_label": "When it stops",
           "situation": "Your iterative team has shipped eight releases. The ninth would add a reporting module costing £40,000, and the client values the admin it saves at £8,000.",
           "ask": "Do you build it?",

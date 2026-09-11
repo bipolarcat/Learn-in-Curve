@@ -299,3 +299,18 @@ Words the VOICE_GUIDE tells you to cut (`candidates`, `just`, `really`, `basical
 
 `LoLearnStage` no longer branches per LO. `Lo1InteractiveTable` is superseded by `StudyTable`
 and has been removed from `src/`. One Learn layout, one table component, for all 24.
+
+## Rule 9: Learner-facing voice and headings
+
+**Set 2026-09-11 (LIC-151).** Provenance belongs in `source_ref`, `source_confidence` and diagram `spec`, never in text a learner reads.
+
+**Banned in learner-facing fields** (`body_markdown`, `tip`, `where_this_fits`, `misconceptions`, `key_definitions`, `memory_aids`, `progress_checkpoint`, activity and worked-example text):
+- "the source", "the source's", "BoK", "BoK 8e". Attribute to "APM" or "the APM Body of Knowledge", or just state the point.
+- Remarks about the text's own structure: "the second half of 2a", "this sub-outcome", "this chapter", "restated because", "easy to skip".
+- Research or drafting notes: "Note on sourcing", "return zero occurrences", "the example below is ours", "every figure has been checked".
+
+**Headings (`##`) use topic, colon, takeaway**, with the topic first so learners can scan:
+- Good: "Delegation: the point of governance, not a compromise", "Earned value: the four base measures".
+- Complete phrases only. Never end on a dangling possessive or a list lead-in ("…constrains the project's", "The transition process also includes").
+- Colons, not dashes. No en or em dashes anywhere.
+- A heading is also a join key: every `exam_tips`, `diagrams`, `activities` and `worked_examples` item anchors to it by exact text. Rename the `##` line and every anchor together, and check no anchor is left pointing at a missing heading.

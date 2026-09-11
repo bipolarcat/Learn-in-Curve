@@ -77,29 +77,29 @@
       "outcome_code": "23a",
       "outcome_title": "The benefits of risk and issue management, and the role of contingency",
       "source_ref": "BoK 8e 5.10 (p309), 5.10.1 (p310-311), 5.4.4 (p262-263), 5.8.3 (p296-297)",
-      "body_markdown": "## The two disciplines\n\n| | Risk management | Issue management |\n|---|---|---|\n| What it handles | Uncertainty that has not happened yet: threats and opportunities | Something that has happened and exceeded tolerance |\n| Process | Identify, assess and respond appropriately | React appropriately, including escalation to the relevant authority |\n| Who resolves it | Risk owner, within the plan | Requires support from the sponsor to agree a resolution |\n\nOne definition decides which process applies: an issue arises the moment delegated work breaches its tolerances, or is certain to.\n\nIssues are different to problems, and that is the distinction most people miss. A problem is dealt with day to day by the project manager and the team. An issue needs the sponsor. The dividing line is tolerance, not severity or inconvenience.\n\nThey are related but not the same.\n\n- A risk, or a cluster of them, materialising is often what produces an issue.\n- An issue running now can itself generate fresh risks, and can force you to re-score how likely and how damaging risks you had already logged now look.\n\nSo a materialised risk becomes an issue, and that issue seeds new risks. The two registers talk to each other.\n\n## The benefits\n\nDirect answer to 23a:\n\n| Benefit | How it arises |\n|---|---|\n| Minimises the effects of uncertainty | The core purpose. All projects bring change and therefore uncertainty |\n| A more robust deployment baseline and PMP | Stated directly as the result |\n| Confidence to stakeholders | They can see risk is being got ahead of rather than reacted to |\n| Protects organisational reputation | Named explicitly |\n| Realistic plans and appropriate contingency | Analysis sizes the contingency rather than guessing it |\n| Prioritisation | It is unrealistic to believe every risk can be managed, so prioritisation lets the top risks be addressed |\n| Better escalation | Analysis reveals which risks warrant the sponsor's or the board's attention |\n| Opportunities captured | Uncertainty sometimes helps you hit your objectives rather than hindering |\n| Decisions at the right level | Issue management keeps people inside the authority they were given, and puts each resolution decision at the level that should be taking it |\n\nThat last one is the strongest argument for issue management specifically, and it links straight to LO2.\n\n## A diagnostic worth knowing\n\nWhere issues keep arriving, the plans and the controls themselves are probably the problem. Repeated issues are a symptom rather than a run of bad luck: the tolerances, the plan or the controls are probably wrong.\n\nA related bias sits underneath that. Project professionals understandably prioritise issues over risks, because issues are happening now whereas risks are only potential. Understandable, but it is how a project ends up permanently firefighting.\n\n## Contingency\n\nContingency planning means putting resource aside that exists for one purpose only: responding to risk and uncertainty. It bridges the gap that risk creates, covering:\n\n- known risks\n- unknown risks\n- the uncertainty of early-project estimates\n\nThat third category is the one people forget: contingency covers estimating uncertainty as well as identified risk events.\n\nTwo types:\n\n| Type | Covers | Released by |\n|---|---|---|\n| Planned contingency | Known risks and anticipated events | Authority to draw down when the risk occurs |\n| Management or project reserve | Unanticipated issues | The governance board |\n\nContingency is time as well as money: buffers in the schedule as much as reserve in the budget. References to budget contingency apply equally to schedule contingency.\n\nOne framing matters more than any other. Contingency is not a secret stash that makes problems disappear. Governance controls it, as a management tool.\n\nThe drawdown route (LO22): risk previously identified goes to planned contingency. Not identified goes to management reserve, released by the board. Reserve insufficient means a change request for additional funding.\n\nAnalysis sizes it. Probabilistic analysis is what lets you settle how much contingency buys the confidence level you need, which is why no business case or plan is complete without risk analysis behind it.",
+      "body_markdown": "## Risk vs issue management: the two disciplines\n| | Risk management | Issue management |\n|---|---|---|\n| What it handles | Uncertainty that has not happened yet: threats and opportunities | Something that has happened and exceeded tolerance |\n| Process | Identify, assess and respond appropriately | React appropriately, including escalation to the relevant authority |\n| Who resolves it | Risk owner, within the plan | Requires support from the sponsor to agree a resolution |\n\nOne definition decides which process applies: an issue arises the moment delegated work breaches its tolerances, or is certain to.\n\nIssues are different to problems, and that is the distinction most people miss. A problem is dealt with day to day by the project manager and the team. An issue needs the sponsor. The dividing line is tolerance, not severity or inconvenience.\n\nThey are related but not the same.\n\n- A risk, or a cluster of them, materialising is often what produces an issue.\n- An issue running now can itself generate fresh risks, and can force you to re-score how likely and how damaging risks you had already logged now look.\n\nSo a materialised risk becomes an issue, and that issue seeds new risks. The two registers talk to each other.\n\n## Risk and issue management: the benefits\nDirect answer to 23a:\n\n| Benefit | How it arises |\n|---|---|\n| Minimises the effects of uncertainty | The core purpose. All projects bring change and therefore uncertainty |\n| A more robust deployment baseline and PMP | Stated directly as the result |\n| Confidence to stakeholders | They can see risk is being got ahead of rather than reacted to |\n| Protects organisational reputation | Named explicitly |\n| Realistic plans and appropriate contingency | Analysis sizes the contingency rather than guessing it |\n| Prioritisation | It is unrealistic to believe every risk can be managed, so prioritisation lets the top risks be addressed |\n| Better escalation | Analysis reveals which risks warrant the sponsor's or the board's attention |\n| Opportunities captured | Uncertainty sometimes helps you hit your objectives rather than hindering |\n| Decisions at the right level | Issue management keeps people inside the authority they were given, and puts each resolution decision at the level that should be taking it |\n\nThat last one is the strongest argument for issue management specifically, and it links straight to LO2.\n\n## A diagnostic: when issues keep arriving\nWhere issues keep arriving, the plans and the controls themselves are probably the problem. Repeated issues are a symptom rather than a run of bad luck: the tolerances, the plan or the controls are probably wrong.\n\nA related bias sits underneath that. Project professionals understandably prioritise issues over risks, because issues are happening now whereas risks are only potential. Understandable, but it is how a project ends up permanently firefighting.\n\n## Contingency: resource set aside for one purpose\nContingency planning means putting resource aside that exists for one purpose only: responding to risk and uncertainty. It bridges the gap that risk creates, covering:\n\n- known risks\n- unknown risks\n- the uncertainty of early-project estimates\n\nThat third category is the one people forget: contingency covers estimating uncertainty as well as identified risk events.\n\nTwo types:\n\n| Type | Covers | Released by |\n|---|---|---|\n| Planned contingency | Known risks and anticipated events | Authority to draw down when the risk occurs |\n| Management or project reserve | Unanticipated issues | The governance board |\n\nContingency is time as well as money: buffers in the schedule as much as reserve in the budget. References to budget contingency apply equally to schedule contingency.\n\nOne framing matters more than any other. Contingency is not a secret stash that makes problems disappear. Governance controls it, as a management tool.\n\nThe drawdown route (LO22): risk previously identified goes to planned contingency. Not identified goes to management reserve, released by the board. Reserve insufficient means a change request for additional funding.\n\nAnalysis sizes it. Probabilistic analysis is what lets you settle how much contingency buys the confidence level you need, which is why no business case or plan is complete without risk analysis behind it.",
       "exam_tips": [
         {
           "id": "lo23-tip-risk-or-issue",
-          "heading": "The two disciplines",
+          "heading": "Risk vs issue management: the two disciplines",
           "placement": "after_section",
           "tip": "A scenario will not tell you whether it is handing you a risk or an issue. It tells you what happened and what the project manager was allowed to absorb. Read the tolerance first, then name the process."
         },
         {
           "id": "lo23-tip-benefits-four",
-          "heading": "The benefits",
+          "heading": "Risk and issue management: the benefits",
           "placement": "after_section",
           "tip": "Nine benefits will not survive the clock. Hold four: it minimises the effects of uncertainty, it produces realistic plans and appropriate contingency, it gives stakeholders confidence, and it puts decisions at the right level. Between them they cover the purpose, the plan, the people and the governance."
         },
         {
           "id": "lo23-tip-repeat-issues",
-          "heading": "A diagnostic worth knowing",
+          "heading": "A diagnostic: when issues keep arriving",
           "placement": "after_section",
           "tip": "That diagnosis is a useful scenario answer. Where a case describes a project firefighting one issue after another, say the plans and the controls are wrong before you say the team is unlucky."
         },
         {
           "id": "lo23-tip-drawdown",
-          "heading": "Contingency",
+          "heading": "Contingency: resource set aside for one purpose",
           "placement": "after_section",
           "tip": "Learn the drawdown route as three questions: was the risk identified, is there enough reserve, and who releases it. That order answers most contingency scenarios on its own."
         }
@@ -108,7 +108,7 @@
         {
           "id": "lo23-groupup-risk-issue",
           "type": "groupup",
-          "heading": "The two disciplines",
+          "heading": "Risk vs issue management: the two disciplines",
           "title": "Risk desk or issue desk?",
           "buckets": [
             {
@@ -152,7 +152,7 @@
         {
           "id": "lo23-pairup-benefits",
           "type": "pairup",
-          "heading": "The benefits",
+          "heading": "Risk and issue management: the benefits",
           "title": "Match the benefit to how it arises",
           "note": "Five of the nine. Enough to retrieve without scanning.",
           "pairs": [
@@ -181,7 +181,7 @@
         {
           "id": "lo23-groupup-contingency",
           "type": "groupup",
-          "heading": "Contingency",
+          "heading": "Contingency: resource set aside for one purpose",
           "title": "Which pot does it come out of?",
           "buckets": [
             {
@@ -226,7 +226,7 @@
       "worked_examples": [
         {
           "id": "lo23-we-reserve",
-          "heading": "Contingency",
+          "heading": "Contingency: resource set aside for one purpose",
           "row_label": "Management or project reserve",
           "situation": "A £3m school build. Ground conditions you logged in month two hit, and the £120k planned contingency covers them. In month five an unlogged supplier collapse costs £200k.",
           "ask": "Which pot pays for the supplier?",
@@ -238,14 +238,14 @@
       "outcome_code": "23b",
       "outcome_title": "The risk and issue management processes, and how they differ by life cycle",
       "source_ref": "BoK 8e 5.10 (p309), 5.10.1 (p310-311), 5.10.2 (p312-313), 5.10.3 (p314-315), 5.4.3 (p260-261)",
-      "body_markdown": "## The risk management process\n\n| Stage | Purpose and why it matters |\n|---|---|\n| Identification | Surface every risk to the objectives that can be known about, using stakeholder expertise to do it. Describe each as cause, event and impact so opinions align and group bias is addressed. Assign a risk owner, the individual or group best placed to assess and manage it. Document in the risk register |\n| Analysis | Assess probability and impact to prioritise. It is unrealistic to believe every risk can be managed, so this is what makes the top risks visible |\n| Response | Decide and plan the response, proactive or reactive (23c). If investing time and money is justified, resources are planned and agreed and the deployment baseline and PMP updated |\n| Monitoring | Keeping the risk conversation alive is crucial. The process captures and manages emerging risks; new knowledge is acted upon and contingency estimates refined |\n| Escalation | Priority risks go up to the sponsor or the governance board, which is how expectations get managed and decisions get made on evidence |\n| Closure | Close a risk once it has happened, or once it no longer can |\n\nIt cycles rather than concludes, because project work itself keeps moving. Not a stage you complete.\n\nClosure is the stage most often skipped. A register full of risks that can no longer happen buries the ones that still can.\n\n## Risk analysis in more detail\n\nTwo techniques:\n\n| Technique | What it does | When |\n|---|---|---|\n| Qualitative | Ranks risk events on how likely they are and how hard they would hit schedule, cost, benefits and any other objective at stake | As a minimum, always. For many projects a qualitative approach is sufficient |\n| Quantitative | Focuses on specific risk-based decisions using decision trees, sensitivity analysis, or a holistic view of overall project risk | For large or complex projects, and to support the investment decision |\n\nProbabilistic analysis predicts the probability of a variety of outcomes, and Monte Carlo simulation is the example given. Its outputs help you:\n\n- see how likely a given end date, final cost or benefit level actually is\n- put odds on delivering the business case and the plan, and decide accordingly\n- fix contingency at the level that buys the confidence required\n\nTwo points about people, not technique:\n\n- Focus on the objectives that are at risk, then fine-tune project-specific impact scales. Generic scales produce generic prioritisation.\n- What looks risky, and why, varies from person to person, so get a spread of project professionals into the analysis. Their different perspectives add value and integrity to the process.\n\n## The issue management process\n\nWherever the issue came from, you run the same process:\n\n| Stage | What happens |\n|---|---|\n| Log and analyse | Straight into the issue register, then analysed fast: what caused it, and what it costs if left |\n| Escalate | To the sponsor, who may in turn escalate to the governance board for resolution |\n| Assign actions | To whoever is genuinely best placed to own it |\n| Apply change control | An issue can end up changing scope, and when it does the agreed change control process applies |\n| Track to closure | Management is tracked from identification through to resolution |\n| Update risk analysis | Because a current issue may cause new risks or change existing assessments |\n\nSpeed is part of the process. 'Analysis takes place quickly' is stated for issues and not for risks, because an unresolved issue is actively consuming the project.\n\n## The two barriers\n\nSimple enough as a concept, but two things reliably stop it working:\n\n1. Reluctance to escalate issues early. That connects to LO12 and LO14, because a blame culture guarantees late escalation.\n2. The governance board treating the symptom rather than addressing the root cause.\n\n## How the stages differ by life cycle\n\n| | Linear | Iterative |\n|---|---|---|\n| Identification | Concentrated in the early stages, often through group workshops, feeding the initial risk register | Continuous, since each iteration surfaces risks as scope is drawn down |\n| Analysis | Fuller up-front analysis supporting a business case approved once | Lighter, repeated. Detail arrives with the work |\n| Response | Responses planned into the baseline; changing them means change control | Responses can be absorbed into the next iteration's plan |\n| Monitoring | At defined review points and gates | At the end of every iteration, alongside the value-proposition test |\n| Escalation | Through the governance structure at gates or by exception | More frequent and lower ceremony, but the same tolerance principle |\n| Closure | At review points | Each iteration closes risks that can no longer occur |\n| Contingency | Held as budget and schedule buffers | Can appear as additional timeboxed iterations |\n\nThe structural reason for the difference: an iterative project re-justifies itself every cycle, so risk review is built into the rhythm. A linear project reviews at gates, and between them the machinery is change control.\n\nHowever, the principle holds either way. No business case and no plan, project or programme, whichever life cycle, is complete without risk analysis behind it. Iterative does not mean less rigorous. It means more often and closer to the work.",
+      "body_markdown": "## Risk management: the process\n| Stage | Purpose and why it matters |\n|---|---|\n| Identification | Surface every risk to the objectives that can be known about, using stakeholder expertise to do it. Describe each as cause, event and impact so opinions align and group bias is addressed. Assign a risk owner, the individual or group best placed to assess and manage it. Document in the risk register |\n| Analysis | Assess probability and impact to prioritise. It is unrealistic to believe every risk can be managed, so this is what makes the top risks visible |\n| Response | Decide and plan the response, proactive or reactive (23c). If investing time and money is justified, resources are planned and agreed and the deployment baseline and PMP updated |\n| Monitoring | Keeping the risk conversation alive is crucial. The process captures and manages emerging risks; new knowledge is acted upon and contingency estimates refined |\n| Escalation | Priority risks go up to the sponsor or the governance board, which is how expectations get managed and decisions get made on evidence |\n| Closure | Close a risk once it has happened, or once it no longer can |\n\nIt cycles rather than concludes, because project work itself keeps moving. Not a stage you complete.\n\nClosure is the stage most often skipped. A register full of risks that can no longer happen buries the ones that still can.\n\n## Risk analysis: qualitative and quantitative\nTwo techniques:\n\n| Technique | What it does | When |\n|---|---|---|\n| Qualitative | Ranks risk events on how likely they are and how hard they would hit schedule, cost, benefits and any other objective at stake | As a minimum, always. For many projects a qualitative approach is sufficient |\n| Quantitative | Focuses on specific risk-based decisions using decision trees, sensitivity analysis, or a holistic view of overall project risk | For large or complex projects, and to support the investment decision |\n\nProbabilistic analysis predicts the probability of a variety of outcomes, and Monte Carlo simulation is the example given. Its outputs help you:\n\n- see how likely a given end date, final cost or benefit level actually is\n- put odds on delivering the business case and the plan, and decide accordingly\n- fix contingency at the level that buys the confidence required\n\nTwo points about people, not technique:\n\n- Focus on the objectives that are at risk, then fine-tune project-specific impact scales. Generic scales produce generic prioritisation.\n- What looks risky, and why, varies from person to person, so get a spread of project professionals into the analysis. Their different perspectives add value and integrity to the process.\n\n## Issue management: the process\nWherever the issue came from, you run the same process:\n\n| Stage | What happens |\n|---|---|\n| Log and analyse | Straight into the issue register, then analysed fast: what caused it, and what it costs if left |\n| Escalate | To the sponsor, who may in turn escalate to the governance board for resolution |\n| Assign actions | To whoever is genuinely best placed to own it |\n| Apply change control | An issue can end up changing scope, and when it does the agreed change control process applies |\n| Track to closure | Management is tracked from identification through to resolution |\n| Update risk analysis | Because a current issue may cause new risks or change existing assessments |\n\nSpeed is part of the process. 'Analysis takes place quickly' is stated for issues and not for risks, because an unresolved issue is actively consuming the project.\n\n## The two barriers: what stops it working\nSimple enough as a concept, but two things reliably stop it working:\n\n1. Reluctance to escalate issues early. That connects to LO12 and LO14, because a blame culture guarantees late escalation.\n2. The governance board treating the symptom rather than addressing the root cause.\n\n## Life cycle differences: how the stages vary\n| | Linear | Iterative |\n|---|---|---|\n| Identification | Concentrated in the early stages, often through group workshops, feeding the initial risk register | Continuous, since each iteration surfaces risks as scope is drawn down |\n| Analysis | Fuller up-front analysis supporting a business case approved once | Lighter, repeated. Detail arrives with the work |\n| Response | Responses planned into the baseline; changing them means change control | Responses can be absorbed into the next iteration's plan |\n| Monitoring | At defined review points and gates | At the end of every iteration, alongside the value-proposition test |\n| Escalation | Through the governance structure at gates or by exception | More frequent and lower ceremony, but the same tolerance principle |\n| Closure | At review points | Each iteration closes risks that can no longer occur |\n| Contingency | Held as budget and schedule buffers | Can appear as additional timeboxed iterations |\n\nThe structural reason for the difference: an iterative project re-justifies itself every cycle, so risk review is built into the rhythm. A linear project reviews at gates, and between them the machinery is change control.\n\nHowever, the principle holds either way. No business case and no plan, project or programme, whichever life cycle, is complete without risk analysis behind it. Iterative does not mean less rigorous. It means more often and closer to the work.",
       "diagrams": [
         {
           "id": "lo23-risk-process",
           "figure_number": "23.1",
           "caption": "The risk management process as an iterative cycle",
           "placement": "after_section",
-          "heading": "The risk management process",
+          "heading": "Risk management: the process",
           "file": null,
           "spec": "Six stages drawn as a closed loop rather than a line: identification, analysis, response, monitoring, escalation, closure — with monitoring feeding back into identification to show emerging risks re-entering. Mark escalation as a branch upward to sponsor and governance board rather than a step in sequence, since it happens from several stages. The loop and the upward branch are both structural points.",
           "alt": "The risk management process drawn as a loop through identification, analysis, response, monitoring and closure, with escalation branching upward to the sponsor and governance board and monitoring feeding emerging risks back into identification."
@@ -255,7 +255,7 @@
           "figure_number": "23.2",
           "caption": "Key aspects of issue resolution",
           "placement": "after_section",
-          "heading": "The issue management process",
+          "heading": "Issue management: the process",
           "file": null,
           "spec": "A cycle of issue resolution steps: log and analyse the issue quickly, escalate the analysis to the sponsor, assign actions to the relevant team member, apply change control if tolerances are breached and replan, update the risk analysis, track management of the issue through to closure. Draw as a connected cycle rather than a straight line, because updating risk analysis feeds back into the risk process. Mark the change control step as handing off to LO24.",
           "alt": "The issue resolution cycle from logging and rapid analysis through escalation to the sponsor, assignment of actions, application of change control, updating risk analysis, and tracking through to closure."
@@ -265,7 +265,7 @@
           "figure_number": "23.3",
           "caption": "Prioritising risks by probability and impact",
           "placement": "after_section",
-          "heading": "Risk analysis in more detail",
+          "heading": "Risk analysis: qualitative and quantitative",
           "file": "lo23-probability-impact.svg",
           "spec": "A probability against impact grid with graded bands — very low to very high on both axes — so that the product of the two determines priority. Show the high-probability high-impact corner as the escalation zone. Note that BoK Figure 5.10.3 uses a numeric probability scale; ours should convey the same factual relationship without reproducing that figure's specific values or colour scheme. The v1 library has a five-by-five matrix asset that the diagram audit flagged as unconvertible to Mermaid — check it before drawing new.",
           "alt": "A grid plotting risk probability against impact with graded bands, showing that priority rises with the combination of the two and that the highest corner is the escalation zone.",
@@ -276,31 +276,31 @@
       "exam_tips": [
         {
           "id": "lo23-tip-closure",
-          "heading": "The risk management process",
+          "heading": "Risk management: the process",
           "placement": "after_section",
           "tip": "Closure is the stage people leave off the list. If a question asks for the stages and your answer stops at monitoring, you have dropped a mark that was sitting there waiting."
         },
         {
           "id": "lo23-tip-analysis-choice",
-          "heading": "Risk analysis in more detail",
+          "heading": "Risk analysis: qualitative and quantitative",
           "placement": "after_section",
           "tip": "Scenarios pick the technique for you. Large, complex, or an investment decision at stake means quantitative. Everything else is qualitative, and saying so is the right answer rather than a lazy one."
         },
         {
           "id": "lo23-tip-issue-speed",
-          "heading": "The issue management process",
+          "heading": "Issue management: the process",
           "placement": "after_section",
           "tip": "Speed is examinable. Where a scenario leaves an issue sitting in the register for three weeks, the fault to name is the delay itself, not the resolution that was eventually chosen."
         },
         {
           "id": "lo23-tip-two-barriers",
-          "heading": "The two barriers",
+          "heading": "The two barriers: what stops it working",
           "placement": "after_section",
           "tip": "Naming either barrier in a scenario answer is worth more than reciting the process steps."
         },
         {
           "id": "lo23-tip-lifecycle",
-          "heading": "How the stages differ by life cycle",
+          "heading": "Life cycle differences: how the stages vary",
           "placement": "after_section",
           "tip": "The syllabus asks for this comparison specifically, which makes it a likely question. Answer it on frequency and ceremony, not on rigour, because writing that iterative projects manage risk more loosely is the trap."
         }
@@ -309,7 +309,7 @@
         {
           "id": "lo23-lineup-risk-process",
           "type": "lineup",
-          "heading": "The risk management process",
+          "heading": "Risk management: the process",
           "title": "Put the five sequential stages in order",
           "items": [
             "Identification",
@@ -322,7 +322,7 @@
         {
           "id": "lo23-groupup-analysis",
           "type": "groupup",
-          "heading": "Risk analysis in more detail",
+          "heading": "Risk analysis: qualitative and quantitative",
           "title": "Qualitative or quantitative?",
           "buckets": [
             {
@@ -370,7 +370,7 @@
         {
           "id": "lo23-lineup-issue-process",
           "type": "lineup",
-          "heading": "The issue management process",
+          "heading": "Issue management: the process",
           "title": "Put the issue process in order",
           "items": [
             "Log and analyse",
@@ -383,7 +383,7 @@
         {
           "id": "lo23-pairup-issue-process",
           "type": "pairup",
-          "heading": "The issue management process",
+          "heading": "Issue management: the process",
           "title": "Match each stage to what happens",
           "pairs": [
             {
@@ -415,7 +415,7 @@
         {
           "id": "lo23-groupup-lifecycle",
           "type": "groupup",
-          "heading": "How the stages differ by life cycle",
+          "heading": "Life cycle differences: how the stages vary",
           "title": "Linear or iterative?",
           "buckets": [
             {
@@ -460,7 +460,7 @@
       "worked_examples": [
         {
           "id": "lo23-we-quantitative",
-          "heading": "Risk analysis in more detail",
+          "heading": "Risk analysis: qualitative and quantitative",
           "row_label": "Quantitative",
           "situation": "A board is deciding whether to commit £18m to a rail depot. The register holds 60 risks ranked high, medium and low, and the sponsor wants a completion date he can defend.",
           "ask": "Is the ranking enough?",
@@ -472,17 +472,17 @@
       "outcome_code": "23c",
       "outcome_title": "Proactive and reactive responses to threats and opportunities",
       "source_ref": "BoK 8e 5.10.2 (p312-313), 5.10.4 (p316-317)",
-      "body_markdown": "## The two modes\n\n| Mode | Definition |\n|---|---|\n| Proactive | A planned and implemented response: we do something now |\n| Reactive | The response gets worked out now and sits unused unless the risk happens |\n\nThe distinction is *when you act*, not how serious the risk is. A reactive response is still a planned response, and the plan sits waiting.\n\n## The six proactive responses\n\n| | Threats | Opportunities |\n|---|---|---|\n| Change the scope | Avoid: change the scope to eliminate the cause | Exploit: change the scope to make sure the opportunity happens |\n| Change probability or impact | Reduce how likely the threat is, how much it would hurt, or both | Enhance: push up how likely the opportunity is, how much it would gain, or both |\n| Involve another party | Transfer the cost: insure against it, or hand it to someone better equipped to carry it | Share the benefit, possibly through a joint venture |\n\nLearn them as three mirrored pairs, not six items. Avoid mirrors exploit; reduce mirrors enhance; transfer mirrors share. Each pair uses the same mechanism, pointed in opposite directions.\n\n## The two reactive responses\n\n| Side | Response | Meaning |\n|---|---|---|\n| Threat | Accept | The threat is accepted with a contingent response, so you carry it with a plan ready |\n| Opportunity | Reject | The opportunity may not be worthwhile pursuing |\n\nAccept is not the same as ignore. It is a decision, recorded, usually with contingency behind it. Reject is not pessimism either. It is a judgement that chasing this opportunity costs more than it returns.\n\n## Choosing a response\n\nSomeone has to decide whether spending time and money up front to cut exposure is worth it, and how much exposure is tolerable is set by what the investors and wider stakeholders are willing to carry.\n\nThat is the deciding factor, and it is not the project manager's to set. LO1's risk appetite reappears here as the thing that determines how much response is warranted.\n\nWhere investing is justified:\n\n- the resources it takes get planned and agreed\n- the deployment baseline and the PMP both get updated\n\nA risk response is scheduled, resourced work. It is not free, and it changes the plan.\n\n## Perception shapes response\n\nPeople perceive risk in different ways. Plenty of factors shape how someone reads risk and what attitude they take to it: some conscious, some not, some purely emotional. So you have to talk to a spread of stakeholders to find out where each of them stands.\n\nWithout that engagement the responses you design will not be ones anybody adopts. You end up with responses that are technically correct and that nobody will implement.\n\n## Opportunity management\n\nThe half of risk that gets forgotten. Uncertainty sometimes helps you hit your objectives, and that is risk's positive face.\n\nLook for opportunities across the whole life cycle, and run them through exactly the process and tools you use on threats.\n\nSame identification, same analysis, same register, same owner, same monitoring. The only thing that changes is the direction of the impact and which three responses apply.",
+      "body_markdown": "## Risk responses: the two modes\n| Mode | Definition |\n|---|---|\n| Proactive | A planned and implemented response: we do something now |\n| Reactive | The response gets worked out now and sits unused unless the risk happens |\n\nThe distinction is *when you act*, not how serious the risk is. A reactive response is still a planned response, and the plan sits waiting.\n\n## Proactive responses: the six options\n| | Threats | Opportunities |\n|---|---|---|\n| Change the scope | Avoid: change the scope to eliminate the cause | Exploit: change the scope to make sure the opportunity happens |\n| Change probability or impact | Reduce how likely the threat is, how much it would hurt, or both | Enhance: push up how likely the opportunity is, how much it would gain, or both |\n| Involve another party | Transfer the cost: insure against it, or hand it to someone better equipped to carry it | Share the benefit, possibly through a joint venture |\n\nLearn them as three mirrored pairs, not six items. Avoid mirrors exploit; reduce mirrors enhance; transfer mirrors share. Each pair uses the same mechanism, pointed in opposite directions.\n\n## Reactive responses: the two options\n| Side | Response | Meaning |\n|---|---|---|\n| Threat | Accept | The threat is accepted with a contingent response, so you carry it with a plan ready |\n| Opportunity | Reject | The opportunity may not be worthwhile pursuing |\n\nAccept is not the same as ignore. It is a decision, recorded, usually with contingency behind it. Reject is not pessimism either. It is a judgement that chasing this opportunity costs more than it returns.\n\n## Choosing a response: weighing the cost\nSomeone has to decide whether spending time and money up front to cut exposure is worth it, and how much exposure is tolerable is set by what the investors and wider stakeholders are willing to carry.\n\nThat is the deciding factor, and it is not the project manager's to set. LO1's risk appetite reappears here as the thing that determines how much response is warranted.\n\nWhere investing is justified:\n\n- the resources it takes get planned and agreed\n- the deployment baseline and the PMP both get updated\n\nA risk response is scheduled, resourced work. It is not free, and it changes the plan.\n\n## Perception: how it shapes response\nPeople perceive risk in different ways. Plenty of factors shape how someone reads risk and what attitude they take to it: some conscious, some not, some purely emotional. So you have to talk to a spread of stakeholders to find out where each of them stands.\n\nWithout that engagement the responses you design will not be ones anybody adopts. You end up with responses that are technically correct and that nobody will implement.\n\n## Opportunity management: the forgotten half of risk\nThe half of risk that gets forgotten. Uncertainty sometimes helps you hit your objectives, and that is risk's positive face.\n\nLook for opportunities across the whole life cycle, and run them through exactly the process and tools you use on threats.\n\nSame identification, same analysis, same register, same owner, same monitoring. The only thing that changes is the direction of the impact and which three responses apply.",
       "exam_tips": [
         {
           "id": "lo23-tip-accept-reject",
-          "heading": "The two reactive responses",
+          "heading": "Reactive responses: the two options",
           "placement": "after_section",
           "tip": "Accept and reject both read as doing nothing on paper, so say what makes each of them a decision. An accepted threat has a contingent response behind it and a named owner. A rejected opportunity was priced and turned down."
         },
         {
           "id": "lo23-tip-opportunity-test",
-          "heading": "Opportunity management",
+          "heading": "Opportunity management: the forgotten half of risk",
           "placement": "after_section",
           "tip": "A useful test in a scenario: if a project's risk register contains only threats, opportunity management is not happening. That is a finding worth stating."
         }
@@ -491,7 +491,7 @@
         {
           "id": "lo23-pairup-proactive",
           "type": "pairup",
-          "heading": "The six proactive responses",
+          "heading": "Proactive responses: the six options",
           "title": "Match each response to what it does",
           "pairs": [
             {
@@ -523,7 +523,7 @@
         {
           "id": "lo23-groupup-sides",
           "type": "groupup",
-          "heading": "The six proactive responses",
+          "heading": "Proactive responses: the six options",
           "title": "Which side is each response on?",
           "buckets": [
             {
@@ -568,7 +568,7 @@
       "worked_examples": [
         {
           "id": "lo23-we-transfer",
-          "heading": "The six proactive responses",
+          "heading": "Proactive responses: the six options",
           "row_label": "Involve another party",
           "situation": "Your fit-out carries a £250k exposure to water damage during the works, and a specialist subcontractor offers to take the wet trades on a fixed price.",
           "ask": "Transfer or share?",
@@ -580,17 +580,17 @@
       "outcome_code": "23d",
       "outcome_title": "Why governance matters in risk and issue management",
       "source_ref": "BoK 8e 5.10 (p309), 5.10.1 (p310-311), 5.10.2 (p312), 5.8.3 (p296-297), 5.10.3 (p315)",
-      "body_markdown": "## Tolerances are the mechanism\n\nGet the tolerance levels agreed, or issue management has nothing to stand on.\n\nThat sentence carries the whole sub-outcome. Tolerance is what converts a judgement call into a rule: inside it, the project manager acts; outside it, someone else decides. It is LO2's delegated limits of authority, applied to uncertainty.\n\nWhat escalation buys is stated directly. An issue goes up to people who:\n\n- see the organisation more strategically than the project can\n- can put more resource behind it if that is what it takes\n- have the authority to change scope\n\nThey also hold the ultimate power: where an issue leaves the project unviable, it can be cancelled.\n\nThat is the strongest single reason governance matters here. No amount of project-level effort can cancel a project that should be cancelled.\n\n## What governance provides\n\n| Governance function | Why risk and issue management needs it |\n|---|---|\n| Sets risk appetite | How much exposure is tolerable comes from what the investors and wider stakeholders will carry, not from the project |\n| Sets tolerances | Defines the boundary between a problem and an issue |\n| Receives escalation | Priority risks travel up to the sponsor or the governance board |\n| Releases contingency | Planned contingency is drawn down with authority; management reserve is released by the governance board |\n| Authorises scope change | Issues may result in changes to scope, so change control must be followed |\n| Decides continuation | Including cancelling an initiative made unviable |\n| Provides confidence | Stakeholders can see risk is being got ahead of rather than reacted to, which also protects the organisation's reputation |\n\nThree things shape how risk management is set up: the organisation's appetite for risk, the governance already in place, and how big and complicated the change is. Governance is an explicit input to how risk management is designed, not only a recipient of its outputs.\n\n## Why this keeps decisions at the right level\n\nIssue management is a genuine project control. Run properly, it keeps people inside the authority they were given and puts each resolution decision at the level that should be taking it.\n\nBoth halves matter:\n\n- Working within delegated authority means the project manager does not quietly absorb something they were not authorised to absorb.\n- Decisions at the appropriate level means the sponsor or board is not asked to adjudicate on day-to-day problems either.\n\nEscalating too little and escalating everything are both governance failures.\n\n## What governance enables in the analysis\n\nEscalating is what lets expectations be managed and decisions be taken on evidence. The words doing the work are *on evidence*, which is why analysis, the risk register and clear risk descriptions matter. A board asked to decide on an unanalysed risk is guessing.\n\nAnd since no business case or plan is complete without risk analysis behind it, governance leans on it at approval as much as during delivery.\n\n## Where governance fails\n\nThe five failures worth knowing by name:\n\n| Failure | Consequence |\n|---|---|\n| Reluctance to escalate issues early | Problems arrive at the board too late to be solved cheaply |\n| The board treating the symptom rather than the root cause | The same issue recurs |\n| Tolerances not agreed | No basis for deciding what escalates, so escalation becomes personality-driven |\n| Continual issues | May indicate an underlying problem with project plans and controls |\n| Contingency treated as spare money | Undermines the control it was meant to provide |\n\n## The connection to the wider governance triangle\n\nFrom LO7: governance leans on assurance to make its decisions sound, risk analysis points assurance at the greatest vulnerabilities, and what assurance finds sharpens the risk picture. Weakness in any one compromises the others.\n\nSo risk management is not merely governed. It is one of the three legs holding governance up.",
+      "body_markdown": "## Tolerances: the mechanism\nGet the tolerance levels agreed, or issue management has nothing to stand on.\n\nThat sentence carries the whole sub-outcome. Tolerance is what converts a judgement call into a rule: inside it, the project manager acts; outside it, someone else decides. It is LO2's delegated limits of authority, applied to uncertainty.\n\nWhat escalation buys is stated directly. An issue goes up to people who:\n\n- see the organisation more strategically than the project can\n- can put more resource behind it if that is what it takes\n- have the authority to change scope\n\nThey also hold the ultimate power: where an issue leaves the project unviable, it can be cancelled.\n\nThat is the strongest single reason governance matters here. No amount of project-level effort can cancel a project that should be cancelled.\n\n## Governance: what it provides\n| Governance function | Why risk and issue management needs it |\n|---|---|\n| Sets risk appetite | How much exposure is tolerable comes from what the investors and wider stakeholders will carry, not from the project |\n| Sets tolerances | Defines the boundary between a problem and an issue |\n| Receives escalation | Priority risks travel up to the sponsor or the governance board |\n| Releases contingency | Planned contingency is drawn down with authority; management reserve is released by the governance board |\n| Authorises scope change | Issues may result in changes to scope, so change control must be followed |\n| Decides continuation | Including cancelling an initiative made unviable |\n| Provides confidence | Stakeholders can see risk is being got ahead of rather than reacted to, which also protects the organisation's reputation |\n\nThree things shape how risk management is set up: the organisation's appetite for risk, the governance already in place, and how big and complicated the change is. Governance is an explicit input to how risk management is designed, not only a recipient of its outputs.\n\n## Decision levels: why issue management keeps them right\nIssue management is a genuine project control. Run properly, it keeps people inside the authority they were given and puts each resolution decision at the level that should be taking it.\n\nBoth halves matter:\n\n- Working within delegated authority means the project manager does not quietly absorb something they were not authorised to absorb.\n- Decisions at the appropriate level means the sponsor or board is not asked to adjudicate on day-to-day problems either.\n\nEscalating too little and escalating everything are both governance failures.\n\n## Escalation: what governance enables\nEscalating is what lets expectations be managed and decisions be taken on evidence. The words doing the work are *on evidence*, which is why analysis, the risk register and clear risk descriptions matter. A board asked to decide on an unanalysed risk is guessing.\n\nAnd since no business case or plan is complete without risk analysis behind it, governance leans on it at approval as much as during delivery.\n\n## Governance failures: the five to know\nThe five failures worth knowing by name:\n\n| Failure | Consequence |\n|---|---|\n| Reluctance to escalate issues early | Problems arrive at the board too late to be solved cheaply |\n| The board treating the symptom rather than the root cause | The same issue recurs |\n| Tolerances not agreed | No basis for deciding what escalates, so escalation becomes personality-driven |\n| Continual issues | May indicate an underlying problem with project plans and controls |\n| Contingency treated as spare money | Undermines the control it was meant to provide |\n\n## The governance triangle: the connection\nFrom LO7: governance leans on assurance to make its decisions sound, risk analysis points assurance at the greatest vulnerabilities, and what assurance finds sharpens the risk picture. Weakness in any one compromises the others.\n\nSo risk management is not merely governed. It is one of the three legs holding governance up.",
       "exam_tips": [
         {
           "id": "lo23-tip-both-directions",
-          "heading": "Why this keeps decisions at the right level",
+          "heading": "Decision levels: why issue management keeps them right",
           "placement": "after_section",
           "tip": "Marks go both ways here. A project manager quietly absorbing a tolerance breach and a board being asked to settle a day-to-day problem are both wrong, so work out which direction the scenario is failing in before you write."
         },
         {
           "id": "lo23-tip-governance-failure",
-          "heading": "Where governance fails",
+          "heading": "Governance failures: the five to know",
           "placement": "after_section",
           "tip": "Be able to name these, because a scenario will describe one rather than announce it. Pick the one the case shows and say what it costs, instead of listing all five."
         }
@@ -599,7 +599,7 @@
         {
           "id": "lo23-pairup-governance",
           "type": "pairup",
-          "heading": "What governance provides",
+          "heading": "Governance: what it provides",
           "title": "Match the governance function to why risk management needs it",
           "note": "Six of the seven functions.",
           "pairs": [
@@ -632,7 +632,7 @@
         {
           "id": "lo23-pairup-failures",
           "type": "pairup",
-          "heading": "Where governance fails",
+          "heading": "Governance failures: the five to know",
           "title": "Match the failure to what it costs you",
           "pairs": [
             {
@@ -661,7 +661,7 @@
       "worked_examples": [
         {
           "id": "lo23-we-continuation",
-          "heading": "What governance provides",
+          "heading": "Governance: what it provides",
           "row_label": "Decides continuation",
           "situation": "A £6m ERP rollout hits an issue: the vendor cannot meet a regulatory deadline, and the fix adds 14 months and £2m. The benefits case rested on that deadline.",
           "ask": "What can the board do that you cannot?",

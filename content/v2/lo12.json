@@ -71,14 +71,14 @@
       "outcome_code": "12a",
       "outcome_title": "How leadership affects team performance and motivation",
       "source_ref": "BoK 8e 4.3 (p189), 4.3.1 (p190-191), 4.3.2 (p192-193), 4.3.3 (p194-195); motivation models from general management theory — see source_confidence",
-      "body_markdown": "## What leadership is, in the syllabus's terms\n\nLeadership means setting a vision and a direction, pulling people into line behind a shared purpose, and giving them the power and the appetite to succeed. Note how much of that is about other people's state of mind rather than the leader's own activity, which is why motivation sits inside this sub-outcome.\n\nA useful framing before the detail: leadership requirements split into two groups.\n\n| Group | What it covers |\n|---|---|\n| Hardware, the visible half | Governance processes, project management tools and techniques, a capable team, resources such as finance and equipment |\n| Software, the intangible half | The leader's personal qualities, an appropriate culture, good working relationships |\n\nThe software half is the part you cannot see, and its effects are entirely visible. Most of 12a lives in the software half.\n\n## Vision drives motivation\n\nThe most direct performance mechanism in the source: a team gives its best when the leader has communicated not only the vision but what it actually means for them.\n\nPurpose and value are what motivate people. Take away the 'why' and commitment becomes very hard to sustain.\n\nThere is a second, practical effect. Grasping the context lets people reach for better-fitting solutions and decide more soundly, because they can judge what matters when the plan does not cover the situation.\n\nWhat to set out when sharing a vision:\n\n| Element | The question it answers |\n|---|---|\n| Vision | Where is the project going? |\n| Goal, objective or mission | What do we need to achieve? |\n| Users, customers, stakeholders, beneficiaries | Who are we working for? |\n| Purpose, benefit or value | Why are we doing it? |\n\nCraft it short, precise and in simple language, because nothing crushes enthusiasm like management-speak, and then share it at every opportunity.\n\n## Culture is a leadership output\n\nSetting the team's culture early is the leader's job. Five principles:\n\n| Principle | Why it affects performance |\n|---|---|\n| Valuing all employees | People who doubt their work is valued, or that they are being dealt with fairly, take no ownership and hold something back |\n| Allowing a level of freedom to operate | Give people a clear role, guidelines and boundaries, then let them work in their own way |\n| Encouraging freedom of expression | Nobody has a monopoly on good ideas. And talking openly about problems keeps pressure from building up |\n| Actively promoting learning | Motivates individuals and enhances capability |\n| Setting standards but tolerating failure | In a blame culture, few will admit errors or voice opinions for fear of sanction |\n\nA blame culture does not merely feel unpleasant. It removes the information the leader needs, and it connects straight to groupthink in LO11.\n\nThe culture also needs the right measure of safety, both physical and psychological, empowerment and autonomy, inclusiveness and belonging, and care and resilience. Underneath sits the team's values: accountability, integrity, collaboration, respect. The best values are those the team sets for itself, with skilled facilitation.\n\n## The three motivation models\n\nRead this first. Maslow, Herzberg and McGregor are named in the syllabus, but they do not appear in the Body of Knowledge. They are long-established general management theory that the exam expects you to know. Learn them as standard theory, not as APM doctrine.\n\n### Maslow, hierarchy of needs\n\nNeeds are satisfied roughly in order; a need that is met stops motivating, and attention moves up.\n\n| Level | The need | In a project team |\n|---|---|---|\n| Physiological | Food, rest, basic conditions | Sane hours, somewhere workable to sit |\n| Safety | Security, stability | Job security, physical and psychological safety |\n| Social and belonging | Connection, acceptance | Being part of the team, included |\n| Esteem | Recognition, status, achievement | Work acknowledged, contribution valued |\n| Self-actualisation | Growth, fulfilling potential | Stretching work, development, autonomy |\n\nThe usable point: offering a development opportunity to someone worried about their job after the project ends addresses the wrong level. Lower needs dominate until they are met.\n\n### Herzberg, two-factor theory\n\nSatisfaction and dissatisfaction are not opposite ends of one scale. They have different causes.\n\n| Factor type | Examples | Effect |\n|---|---|---|\n| Hygiene factors | Pay, working conditions, job security, company policy, supervision, relationships | Their absence causes dissatisfaction. Their presence prevents dissatisfaction but does not motivate |\n| Motivators | Achievement, recognition, the work itself, responsibility, advancement, growth | These create satisfaction and drive performance |\n\nThe usable point: fixing pay and conditions removes a complaint; it does not produce motivation. That requires meaningful work, recognition and responsibility.\n\n### McGregor, Theory X and Theory Y\n\nAbout the assumptions a leader holds, and how those assumptions shape behaviour.\n\n| Aspect | Theory X | Theory Y |\n|---|---|---|\n| Assumption | People inherently dislike work, avoid responsibility, need direction | People find work natural, will seek responsibility, are self-motivated given the right conditions |\n| Resulting style | Control, close supervision, direction, extrinsic reward and sanction | Empowerment, delegation, autonomy, participation |\n| Effect | Can become self-fulfilling, because supervised people behave as if they need supervising | Can become self-fulfilling, because trusted people behave as if they can be trusted |\n\nThe usable point: the assumption itself changes the outcome. This maps neatly onto BoK's own principle of allowing a level of freedom to operate, and onto the blame-culture warning.\n\n## Judgement and decision-making as a performance factor\n\nLeadership affects performance through the quality of decisions as well as motivation. A good decision requires:\n\n- sufficient authority and expertise\n- good information, meaning sufficient and reliable\n- a sound process, including analysis and interpretation, considering alternative interpretations and comparing options\n- a process where people who disagree can say so, and be taken seriously when they do\n\nNobody can know their choice is the right one at the moment they make it, because knowing the optimum with certainty would remove the need for a decision. The best available is a *good* decision, which is more likely than the alternative to turn out to be the right one.\n\nThe biggest threat is decision bias: anchoring, salience, framing, confirmation, among many others.\n\nA group can outperform an individual given varied thinking and skilled facilitation, but only where every member can get at the raw data, judge it themselves, and reason independently. The Delphi technique is one formal way of engineering those conditions.\n\nWith poor leadership or facilitation, the risk is groupthink, and beyond it risky shift, which is the LO11 link and is stated in the leadership chapter too.",
+      "body_markdown": "## Leadership: what it is, in the syllabus's terms\nLeadership means setting a vision and a direction, pulling people into line behind a shared purpose, and giving them the power and the appetite to succeed. Note how much of that is about other people's state of mind rather than the leader's own activity, which is why motivation is part of leadership.\n\nA useful framing before the detail: leadership requirements split into two groups.\n\n| Group | What it covers |\n|---|---|\n| Hardware, the visible half | Governance processes, project management tools and techniques, a capable team, resources such as finance and equipment |\n| Software, the intangible half | The leader's personal qualities, an appropriate culture, good working relationships |\n\nThe software half is the part you cannot see, and its effects are entirely visible. Most of 12a lives in the software half.\n\n## Vision: what drives motivation\nThe most direct performance mechanism: a team gives its best when the leader has communicated not only the vision but what it actually means for them.\n\nPurpose and value are what motivate people. Take away the 'why' and commitment becomes very hard to sustain.\n\nThere is a second, practical effect. Grasping the context lets people reach for better-fitting solutions and decide more soundly, because they can judge what matters when the plan does not cover the situation.\n\nWhat to set out when sharing a vision:\n\n| Element | The question it answers |\n|---|---|\n| Vision | Where is the project going? |\n| Goal, objective or mission | What do we need to achieve? |\n| Users, customers, stakeholders, beneficiaries | Who are we working for? |\n| Purpose, benefit or value | Why are we doing it? |\n\nCraft it short, precise and in simple language, because nothing crushes enthusiasm like management-speak, and then share it at every opportunity.\n\n## Culture: a leadership output\nSetting the team's culture early is the leader's job. Five principles:\n\n| Principle | Why it affects performance |\n|---|---|\n| Valuing all employees | People who doubt their work is valued, or that they are being dealt with fairly, take no ownership and hold something back |\n| Allowing a level of freedom to operate | Give people a clear role, guidelines and boundaries, then let them work in their own way |\n| Encouraging freedom of expression | Nobody has a monopoly on good ideas. And talking openly about problems keeps pressure from building up |\n| Actively promoting learning | Motivates individuals and enhances capability |\n| Setting standards but tolerating failure | In a blame culture, few will admit errors or voice opinions for fear of sanction |\n\nA blame culture does not merely feel unpleasant. It removes the information the leader needs, and it connects straight to groupthink in LO11.\n\nThe culture also needs the right measure of safety, both physical and psychological, empowerment and autonomy, inclusiveness and belonging, and care and resilience. Underneath sits the team's values: accountability, integrity, collaboration, respect. The best values are those the team sets for itself, with skilled facilitation.\n\n## Motivation models: Maslow, Herzberg and McGregor\nRead this first. Maslow, Herzberg and McGregor are named in the syllabus, but they do not appear in the Body of Knowledge. They are long-established general management theory that the exam expects you to know. Learn them as standard theory, not as APM doctrine.\n\n### Maslow, hierarchy of needs\n\nNeeds are satisfied roughly in order; a need that is met stops motivating, and attention moves up.\n\n| Level | The need | In a project team |\n|---|---|---|\n| Physiological | Food, rest, basic conditions | Sane hours, somewhere workable to sit |\n| Safety | Security, stability | Job security, physical and psychological safety |\n| Social and belonging | Connection, acceptance | Being part of the team, included |\n| Esteem | Recognition, status, achievement | Work acknowledged, contribution valued |\n| Self-actualisation | Growth, fulfilling potential | Stretching work, development, autonomy |\n\nThe usable point: offering a development opportunity to someone worried about their job after the project ends addresses the wrong level. Lower needs dominate until they are met.\n\n### Herzberg, two-factor theory\n\nSatisfaction and dissatisfaction are not opposite ends of one scale. They have different causes.\n\n| Factor type | Examples | Effect |\n|---|---|---|\n| Hygiene factors | Pay, working conditions, job security, company policy, supervision, relationships | Their absence causes dissatisfaction. Their presence prevents dissatisfaction but does not motivate |\n| Motivators | Achievement, recognition, the work itself, responsibility, advancement, growth | These create satisfaction and drive performance |\n\nThe usable point: fixing pay and conditions removes a complaint; it does not produce motivation. That requires meaningful work, recognition and responsibility.\n\n### McGregor, Theory X and Theory Y\n\nAbout the assumptions a leader holds, and how those assumptions shape behaviour.\n\n| Aspect | Theory X | Theory Y |\n|---|---|---|\n| Assumption | People inherently dislike work, avoid responsibility, need direction | People find work natural, will seek responsibility, are self-motivated given the right conditions |\n| Resulting style | Control, close supervision, direction, extrinsic reward and sanction | Empowerment, delegation, autonomy, participation |\n| Effect | Can become self-fulfilling, because supervised people behave as if they need supervising | Can become self-fulfilling, because trusted people behave as if they can be trusted |\n\nThe usable point: the assumption itself changes the outcome. This maps neatly onto APM's own principle of allowing a level of freedom to operate, and onto the blame-culture warning.\n\n## Judgement and decision-making: a performance factor\nLeadership affects performance through the quality of decisions as well as motivation. A good decision requires:\n\n- sufficient authority and expertise\n- good information, meaning sufficient and reliable\n- a sound process, including analysis and interpretation, considering alternative interpretations and comparing options\n- a process where people who disagree can say so, and be taken seriously when they do\n\nNobody can know their choice is the right one at the moment they make it, because knowing the optimum with certainty would remove the need for a decision. The best available is a *good* decision, which is more likely than the alternative to turn out to be the right one.\n\nThe biggest threat is decision bias: anchoring, salience, framing, confirmation, among many others.\n\nA group can outperform an individual given varied thinking and skilled facilitation, but only where every member can get at the raw data, judge it themselves, and reason independently. The Delphi technique is one formal way of engineering those conditions.\n\nWith poor leadership or facilitation, the risk is groupthink, and beyond it risky shift, which is the LO11 link and is stated in the leadership chapter too.",
       "diagrams": [
         {
           "id": "lo12-motivation-models",
           "figure_number": "12.1",
           "caption": "Three motivation models compared",
           "placement": "after_section",
-          "heading": "The three motivation models",
+          "heading": "Motivation models: Maslow, Herzberg and McGregor",
           "file": "lo12-motivation-models.svg",
           "spec": "Three panels side by side. Maslow as a five-level ascending sequence (physiological, safety, social, esteem, self-actualisation) — deliberately NOT drawn as a pyramid if that duplicates the existing v1 `maslow-hierarchy.svg`; check that asset first. Herzberg as two separate bars, hygiene factors ending at 'no dissatisfaction' and motivators continuing into 'satisfaction', so the reader sees they are not one scale. McGregor as two contrasting assumption sets with arrows showing each becoming self-fulfilling. Add a visible caption noting these are general management models, not APM Body of Knowledge content.",
           "alt": "Three motivation models compared: Maslow's levels of need, Herzberg's separate hygiene factors and motivators, and McGregor's Theory X and Theory Y assumptions.",
@@ -90,7 +90,7 @@
           "figure_number": "12.2",
           "caption": "What a good decision requires",
           "placement": "after_section",
-          "heading": "Judgement and decision-making as a performance factor",
+          "heading": "Judgement and decision-making: a performance factor",
           "file": null,
           "spec": "Central node 'a good decision' surrounded by its requirements: authority, expertise, information, analysis, group, facilitation — with 'beware: bias' marked as a threat cutting across all of them. The argument: every input can be sound and bias still spoils the output.",
           "alt": "The requirements of a good decision — authority, expertise, information, analysis, group input and facilitation — with decision bias shown as a threat to all of them."
@@ -99,25 +99,25 @@
       "exam_tips": [
         {
           "id": "lo12-tip-hardware-software",
-          "heading": "What leadership is, in the syllabus's terms",
+          "heading": "Leadership: what it is, in the syllabus's terms",
           "placement": "after_section",
           "tip": "Asked what project leadership requires, split the answer into hardware and software and give two or three items each. It reads as structure, and the software half is where the marks sit, because that is the half a weak answer leaves out."
         },
         {
           "id": "lo12-tip-blame-culture",
-          "heading": "Culture is a leadership output",
+          "heading": "Culture: a leadership output",
           "placement": "after_section",
           "tip": "That last one is the highest-value item for a scenario. If a scenario has someone hiding a problem, the marks are in naming the blame culture and what it costs you in information, not in tightening the standard."
         },
         {
           "id": "lo12-tip-motivation-models",
-          "heading": "The three motivation models",
+          "heading": "Motivation models: Maslow, Herzberg and McGregor",
           "placement": "after_section",
           "tip": "Herzberg is the model most likely to be tested, with a scenario where a team is well paid and disengaged. Say pay is a hygiene factor, then name the motivators. And keep all three of these models out of any sentence that starts “the Body of Knowledge says”."
         },
         {
           "id": "lo12-tip-decision-bias",
-          "heading": "Judgement and decision-making as a performance factor",
+          "heading": "Judgement and decision-making: a performance factor",
           "placement": "after_section",
           "tip": "If a question gives you sound information and a sound process and still asks what threatens the decision, the answer is bias. Name one of the four: anchoring, salience, framing or confirmation."
         }
@@ -126,7 +126,7 @@
         {
           "id": "lo12-groupup-hardware-software",
           "type": "groupup",
-          "heading": "What leadership is, in the syllabus's terms",
+          "heading": "Leadership: what it is, in the syllabus's terms",
           "title": "Sort the leadership requirements",
           "buckets": [
             {
@@ -174,7 +174,7 @@
         {
           "id": "lo12-pairup-vision",
           "type": "pairup",
-          "heading": "Vision drives motivation",
+          "heading": "Vision: what drives motivation",
           "title": "Match each element of a vision to the question it answers",
           "pairs": [
             {
@@ -198,7 +198,7 @@
         {
           "id": "lo12-pairup-culture",
           "type": "pairup",
-          "heading": "Culture is a leadership output",
+          "heading": "Culture: a leadership output",
           "title": "Match each culture principle to what it does for performance",
           "pairs": [
             {
@@ -226,7 +226,7 @@
         {
           "id": "lo12-lineup-maslow",
           "type": "lineup",
-          "heading": "The three motivation models",
+          "heading": "Motivation models: Maslow, Herzberg and McGregor",
           "title": "Put Maslow's levels back in order, lowest first",
           "items": [
             "Physiological",
@@ -239,7 +239,7 @@
         {
           "id": "lo12-groupup-herzberg",
           "type": "groupup",
-          "heading": "The three motivation models",
+          "heading": "Motivation models: Maslow, Herzberg and McGregor",
           "title": "Herzberg: hygiene factor or motivator?",
           "buckets": [
             {
@@ -291,7 +291,7 @@
         {
           "id": "lo12-pairup-decisions",
           "type": "pairup",
-          "heading": "Judgement and decision-making as a performance factor",
+          "heading": "Judgement and decision-making: a performance factor",
           "title": "Match the decision term to what it means",
           "pairs": [
             {
@@ -320,7 +320,7 @@
       "worked_examples": [
         {
           "id": "lo12-we-hygiene",
-          "heading": "The three motivation models",
+          "heading": "Motivation models: Maslow, Herzberg and McGregor",
           "row_label": "Hygiene factors",
           "situation": "Your test team is on the best rates in the programme and has missed two of the last three sprint dates. The sponsor offers a 5% bonus pot.",
           "ask": "Do you take it?",
@@ -328,7 +328,7 @@
         },
         {
           "id": "lo12-we-blame",
-          "heading": "Culture is a leadership output",
+          "heading": "Culture: a leadership output",
           "row_label": "Setting standards but tolerating failure",
           "situation": "A junior engineer tells you on Friday that a drawing error reached site nine days ago. Rework will cost £18,000.",
           "ask": "What do you do first?",
@@ -340,14 +340,14 @@
       "outcome_code": "12b",
       "outcome_title": "Why leadership style changes with the situation",
       "source_ref": "BoK 8e 4.3.5 (p198-199), 4.3.1 (p190), 1.2.2 (p34-35)",
-      "body_markdown": "## Why one style cannot work\n\nA single formula would make this easy. None exists. What works instead is grasping the principles that point to the right style for the situation in front of you, which is situational leadership.\n\nThe reason sits in the nature of project work: teams are temporary, assembled from people with different capabilities and confidence levels, doing tasks that vary in difficulty and familiarity. A style that suits one person on one task suits neither the person next to them nor the same person next month.\n\n## The two-step process\n\nWhat the situational models have in common:\n\n1. Assess the maturity of the team and of the individual team members.\n2. Select a leadership style that matches that maturity.\n\nWhat matters most is the relationship between the person and the work: how competent they are at this particular task, and how they feel about picking it up.\n\n| Dimension | Range |\n|---|---|\n| Capability | Anywhere from no idea what the task involves through to real mastery |\n| Attitude | Keen and self-assured at one end, reluctant and unsure at the other, most people somewhere between |\n\n## The four states and four styles\n\nDirection is set by capability (instructing versus coaching style), support by enthusiasm (high versus low).\n\n| Team member | Style | What the leader does |\n|---|---|---|\n| Enthusiastic but lacks skills | Instructing | A lot of instruction, little support, because they already have the will |\n| Unskilled and hesitant to take it on | Persuading | A lot of instruction and a lot of support |\n| Able but does not yet trust their own ability | Encouraging | Coaching-style direction, a lot of support |\n| Capable and confident | Trusting | Minimal guidance, because they want to be left to get on with it |\n\nThe pattern worth memorising: instruction tracks capability, support tracks confidence. Two independent dials, not one.\n\nThe best-known version is the Hersey-Blanchard Model of Situational Leadership, which broadly tracks a journey from direction (telling) through selling and coaching to delegating.\n\n## The point most people miss\n\nGive that same individual a different task, one where their skill and their appetite sit elsewhere, and they will need leading differently.\n\nSituational leadership is not a way of classifying people. It is a way of reading a person-plus-task combination. A senior engineer who is expert at their discipline may be a nervous beginner at chairing a governance meeting, and needs a different style for each.\n\n## And the honest caveat\n\nReal people do not sort themselves tidily into four boxes. Judgement is required, weighing what an individual prefers, the cultural norms in play, this particular context, and plenty else besides, then adapting as you come to know the people you are leading.\n\n## Other things that shift the appropriate style\n\n- Project type. The Turner and Cochrane framework and Obeng project types from LO1 should inform leadership style for different types of project. High uncertainty in goals or methods calls for a different approach from a well-understood build.\n- Crisis versus normal operation. From LO10: there are moments, a crisis above all, when being directive is the right call, and others where facilitating serves far better.\n- Team maturity over time. As a team develops through its stages (LO13), the leader's role and priorities change with it, ending in something closer to servant leadership, providing resources to a team that is largely self-managing.\n\n## Why getting it right pays back\n\nLead an individual well and you grow both their skill and their confidence. That meets the duty to develop people, and it hardens the team, because those new skills let someone step in when a colleague cannot.\n\nEssentially, situational leadership is not only about today's task being done well. Matching style to maturity is how maturity increases.\n\n## Supporting skills\n\n| Skill | What it involves |\n|---|---|\n| Individual goal setting | Settling on the performance standard to aim at |\n| Delegating | Handing over assignments chosen to stretch someone |\n| Coaching | Getting people to work out for themselves how a thing is done |\n| Feedback | Performance information good enough to learn from |",
+      "body_markdown": "## Leadership style: why one style cannot work\nA single formula would make this easy. None exists. What works instead is grasping the principles that point to the right style for the situation in front of you, which is situational leadership.\n\nThe reason sits in the nature of project work: teams are temporary, assembled from people with different capabilities and confidence levels, doing tasks that vary in difficulty and familiarity. A style that suits one person on one task suits neither the person next to them nor the same person next month.\n\n## Situational leadership: the two-step process\nWhat the situational models have in common:\n\n1. Assess the maturity of the team and of the individual team members.\n2. Select a leadership style that matches that maturity.\n\nWhat matters most is the relationship between the person and the work: how competent they are at this particular task, and how they feel about picking it up.\n\n| Dimension | Range |\n|---|---|\n| Capability | Anywhere from no idea what the task involves through to real mastery |\n| Attitude | Keen and self-assured at one end, reluctant and unsure at the other, most people somewhere between |\n\n## Situational leadership: four states, four styles\nDirection is set by capability (instructing versus coaching style), support by enthusiasm (high versus low).\n\n| Team member | Style | What the leader does |\n|---|---|---|\n| Enthusiastic but lacks skills | Instructing | A lot of instruction, little support, because they already have the will |\n| Unskilled and hesitant to take it on | Persuading | A lot of instruction and a lot of support |\n| Able but does not yet trust their own ability | Encouraging | Coaching-style direction, a lot of support |\n| Capable and confident | Trusting | Minimal guidance, because they want to be left to get on with it |\n\nThe pattern worth memorising: instruction tracks capability, support tracks confidence. Two independent dials, not one.\n\nThe best-known version is the Hersey-Blanchard Model of Situational Leadership, which broadly tracks a journey from direction (telling) through selling and coaching to delegating.\n\n## The point most people miss: capability is task-specific\nGive that same individual a different task, one where their skill and their appetite sit elsewhere, and they will need leading differently.\n\nSituational leadership is not a way of classifying people. It is a way of reading a person-plus-task combination. A senior engineer who is expert at their discipline may be a nervous beginner at chairing a governance meeting, and needs a different style for each.\n\n## The caveat: people are not four boxes\nReal people do not sort themselves tidily into four boxes. Judgement is required, weighing what an individual prefers, the cultural norms in play, this particular context, and plenty else besides, then adapting as you come to know the people you are leading.\n\n## Other factors: what else shifts the style\n- Project type. The Turner and Cochrane framework and Obeng project types from LO1 should inform leadership style for different types of project. High uncertainty in goals or methods calls for a different approach from a well-understood build.\n- Crisis versus normal operation. From LO10: there are moments, a crisis above all, when being directive is the right call, and others where facilitating serves far better.\n- Team maturity over time. As a team develops through its stages (LO13), the leader's role and priorities change with it, ending in something closer to servant leadership, providing resources to a team that is largely self-managing.\n\n## Getting it right: why it pays back\nLead an individual well and you grow both their skill and their confidence. That meets the duty to develop people, and it hardens the team, because those new skills let someone step in when a colleague cannot.\n\nEssentially, situational leadership is not only about today's task being done well. Matching style to maturity is how maturity increases.\n\n## Supporting skills: what situational leadership needs\n| Skill | What it involves |\n|---|---|\n| Individual goal setting | Settling on the performance standard to aim at |\n| Delegating | Handing over assignments chosen to stretch someone |\n| Coaching | Getting people to work out for themselves how a thing is done |\n| Feedback | Performance information good enough to learn from |",
       "diagrams": [
         {
           "id": "lo12-situational-styles",
           "figure_number": "12.3",
           "caption": "Matching leadership style to capability and confidence",
           "placement": "after_section",
-          "heading": "The four states and four styles",
+          "heading": "Situational leadership: four states, four styles",
           "file": null,
           "spec": "A two-by-two grid, horizontal axis low ability to high ability, vertical axis nervous/hesitant to confident/enthusiastic. Four cells naming the style and what the leader supplies: enthusiastic + low ability = instructing (lots of instruction, not too much support); hesitant + low ability = persuading (lots of instruction, lots of support); hesitant + high ability = encouraging (coaching-style instruction, lots of support); confident + high ability = trusting (minimal instruction, minimal support). Label the axes with what they drive — instruction tracks capability, support tracks confidence. Note BoK Figure 4.3.5 is credited to Clayton (2012), so ours must be an original depiction.",
           "alt": "A grid matching leadership style to a team member's ability and confidence, giving instructing, persuading, encouraging and trusting styles with the level of instruction and support each requires."
@@ -356,13 +356,13 @@
       "exam_tips": [
         {
           "id": "lo12-tip-two-dials",
-          "heading": "The four states and four styles",
+          "heading": "Situational leadership: four states, four styles",
           "placement": "after_section",
           "tip": "The four labels get swapped under pressure, so carry the two dials instead and rebuild the labels from them. Persuading is the only state that takes a lot of both instruction and support, which makes it the easiest one to check your answer against."
         },
         {
           "id": "lo12-tip-person-plus-task",
-          "heading": "The point most people miss",
+          "heading": "The point most people miss: capability is task-specific",
           "placement": "after_section",
           "tip": "When a scenario hands you an expert doing something unfamiliar, that is the trap being set. Answer for the task in front of them, not for the job title on their signature block. And a scenario answer that applies the four boxes mechanically is weaker than one that names the model and then reasons about the specific person described."
         }
@@ -371,7 +371,7 @@
         {
           "id": "lo12-pairup-states",
           "type": "pairup",
-          "heading": "The four states and four styles",
+          "heading": "Situational leadership: four states, four styles",
           "title": "Match the team member to the style they need",
           "pairs": [
             {
@@ -395,7 +395,7 @@
         {
           "id": "lo12-lineup-hersey",
           "type": "lineup",
-          "heading": "The four states and four styles",
+          "heading": "Situational leadership: four states, four styles",
           "title": "Put the Hersey-Blanchard journey in order",
           "items": [
             "Telling",
@@ -407,7 +407,7 @@
         {
           "id": "lo12-pairup-shifters",
           "type": "pairup",
-          "heading": "Other things that shift the appropriate style",
+          "heading": "Other factors: what else shifts the style",
           "title": "Match each factor to how it moves your style",
           "pairs": [
             {
@@ -427,7 +427,7 @@
         {
           "id": "lo12-pairup-supporting",
           "type": "pairup",
-          "heading": "Supporting skills",
+          "heading": "Supporting skills: what situational leadership needs",
           "title": "Match the supporting skill to what it involves",
           "pairs": [
             {
@@ -452,7 +452,7 @@
       "worked_examples": [
         {
           "id": "lo12-we-encouraging",
-          "heading": "The four states and four styles",
+          "heading": "Situational leadership: four states, four styles",
           "row_label": "Able but does not yet trust their own ability",
           "situation": "A planner with eight years of experience has built your baseline schedule. She has sent it to you for line-by-line approval three times this week.",
           "ask": "Instruct her or trust her?",
@@ -464,23 +464,23 @@
       "outcome_code": "12c",
       "outcome_title": "Coaching, mentoring and emotional intelligence",
       "source_ref": "BoK 8e 4.3.1 (p190), 4.3.4 (p196-197), 4.3.5 (p198-199), 4.4.1 (p202)",
-      "body_markdown": "## Coaching: the definition that explains the value\n\nCoaching means getting people to work out for themselves how a thing is done.\n\nThat phrasing is the whole argument. Telling someone the answer solves today's problem; coaching them to reach it builds someone who can solve the next one without you.\n\nWhere it sits in leadership:\n\n- It is one of the four supporting skills for situational leadership, alongside goal setting, delegating and feedback.\n- It is the direction style for the encouraging state, because people who are able but do not yet trust their own ability need coaching-style instruction plus a lot of support.\n- Team development provides support through training, coaching and mentoring.\n- Sponsors also perform a coaching role, since sponsorship is a leadership, management, communications and coaching role (LO2).\n\n## Why a coaching and mentoring style matters\n\n| Effect | Why it follows |\n|---|---|\n| Develops skills and grows confidence | Stated directly as the benefit of getting individual leadership right |\n| Builds team resilience | People learn skills that can cover for colleagues |\n| Discharges the responsibility for professional development | Which the project professional holds regardless of the project's outcome |\n| Creates future capability | Where the right skills are hard to recruit, the team is developed on the project, creating capability for later work |\n| Enhances the leader's reputation | Which in turn influences who wants to come and work for them next time |\n\nA project professional has little control over who joins their team, but their reputation strongly influences who wants to, and developing people is how that reputation gets built.\n\n## Why a coaching style rather than telling\n\nIt also fits everything else the leadership section asks for:\n\n- Allowing a level of freedom to operate: give the guidelines and the boundaries, then let people work their own way.\n- Actively promoting learning, which motivates and enhances capability at the same time.\n- Learning and reflection are where progress comes from. Skip them and nothing improves, because you repeat the mistakes you made last time.\n- As a team matures, the leader's role becomes more subtle, a servant leadership role providing the resources the team needs.\n\n## Emotional intelligence\n\nThe historical framing matters here. The early literature treated great leaders as people born with particular traits: unusual intelligence, boundless energy, intuition, a certain look about them, certain values and beliefs.\n\nThat thinking has dated. Energy still counts, and values and beliefs remain an asset. However, what we now understand about the role of physical appearance has shifted, and the weight has moved onto emotional intelligence instead.\n\nThat shift, from inherent traits to a developable capability, is the point the syllabus is testing. Leadership is no longer treated as something you either have or do not.\n\n## What emotional intelligence does in practice\n\nThe source does not define it at length, but the whole of leadership of self describes it in action:\n\n| Capability | What it looks like |\n|---|---|\n| Self-awareness | Understanding your own strengths, weaknesses, preferences and biases, and the impression you make on others, intentionally or unintentionally |\n| Awareness of your shadow | Every leader creates a shadow. Knowing what yours is, and whether it encourages appropriate behaviour |\n| Understanding others | Recognising that most people view others through their own lens. Someone who likes immediate action reads reflection as slowness; someone who likes blunt talking reads a hurt reaction as over-sensitivity |\n| Managing emotional response | Few people appreciate negative feedback, but a resilient person evaluates whether it has merit, learns from it if so, and moves on if not |\n| Authenticity | Adapting behaviour where needed, but staying true to the values you actually hold. People spot the gaps, and mistrust follows |\n| Active listening | Being prepared to listen and take advice, knowing where to go for it, and exercising judgement on what to accept |\n\n## Self-awareness makes better teams\n\nA direct performance link: know your own strengths and weak spots, and those of the people around you, and you can draw on their skills properly and assemble a team whose abilities cover the ground.\n\nNobody is good at everything. Being able to accept that someone else is stronger than you in some area is part of how success gets achieved, and the same principle explains why the perfect project leader does not and never will exist: a leader builds a team that complements their own weaknesses, producing stronger leadership than any individual could.\n\n## Wellbeing and resilience\n\nWellbeing sometimes gets overlooked in the pursuit of hitting targets to a deadline. The source is clear that success over time depends on leaders and teams being able to perform at their best, and nobody performs flat out indefinitely.\n\nResilience is built partly on the physical, meaning sleep and exercise, and partly on recognising your reactions and handling them. It is built by:\n\n- taking it as given that things will go wrong, so the question is how you handle it and what you take from it\n- letting it go once the fix is in, because chewing it over burns energy and pulls attention off what is in front of you\n- accepting that change and uncertainty are inevitable, since few projects run exactly to plan\n- resisting the pull to manufacture certainty and structure quickly, when a better option was still out there to be found\n\nThat final point is a real leadership failure mode: discomfort with ambiguity produces premature decisions.",
+      "body_markdown": "## Coaching: the definition that explains the value\n\nCoaching means getting people to work out for themselves how a thing is done.\n\nThat phrasing is the whole argument. Telling someone the answer solves today's problem; coaching them to reach it builds someone who can solve the next one without you.\n\nWhere it sits in leadership:\n\n- It is one of the four supporting skills for situational leadership, alongside goal setting, delegating and feedback.\n- It is the direction style for the encouraging state, because people who are able but do not yet trust their own ability need coaching-style instruction plus a lot of support.\n- Team development provides support through training, coaching and mentoring.\n- Sponsors also perform a coaching role, since sponsorship is a leadership, management, communications and coaching role (LO2).\n\n## Coaching and mentoring: why the style matters\n| Effect | Why it follows |\n|---|---|\n| Develops skills and grows confidence | Stated directly as the benefit of getting individual leadership right |\n| Builds team resilience | People learn skills that can cover for colleagues |\n| Discharges the responsibility for professional development | Which the project professional holds regardless of the project's outcome |\n| Creates future capability | Where the right skills are hard to recruit, the team is developed on the project, creating capability for later work |\n| Enhances the leader's reputation | Which in turn influences who wants to come and work for them next time |\n\nA project professional has little control over who joins their team, but their reputation strongly influences who wants to, and developing people is how that reputation gets built.\n\n## Coaching vs telling: why coaching wins\nIt also fits everything else the leadership section asks for:\n\n- Allowing a level of freedom to operate: give the guidelines and the boundaries, then let people work their own way.\n- Actively promoting learning, which motivates and enhances capability at the same time.\n- Learning and reflection are where progress comes from. Skip them and nothing improves, because you repeat the mistakes you made last time.\n- As a team matures, the leader's role becomes more subtle, a servant leadership role providing the resources the team needs.\n\n## Emotional intelligence: why it matters now\nThe historical framing matters here. The early literature treated great leaders as people born with particular traits: unusual intelligence, boundless energy, intuition, a certain look about them, certain values and beliefs.\n\nThat thinking has dated. Energy still counts, and values and beliefs remain an asset. However, what we now understand about the role of physical appearance has shifted, and the weight has moved onto emotional intelligence instead.\n\nThat shift, from inherent traits to a developable capability, is the point the syllabus is testing. Leadership is no longer treated as something you either have or do not.\n\n## Emotional intelligence: what it does in practice\nAPM does not define it at length, but the whole of leadership of self describes it in action:\n\n| Capability | What it looks like |\n|---|---|\n| Self-awareness | Understanding your own strengths, weaknesses, preferences and biases, and the impression you make on others, intentionally or unintentionally |\n| Awareness of your shadow | Every leader creates a shadow. Knowing what yours is, and whether it encourages appropriate behaviour |\n| Understanding others | Recognising that most people view others through their own lens. Someone who likes immediate action reads reflection as slowness; someone who likes blunt talking reads a hurt reaction as over-sensitivity |\n| Managing emotional response | Few people appreciate negative feedback, but a resilient person evaluates whether it has merit, learns from it if so, and moves on if not |\n| Authenticity | Adapting behaviour where needed, but staying true to the values you actually hold. People spot the gaps, and mistrust follows |\n| Active listening | Being prepared to listen and take advice, knowing where to go for it, and exercising judgement on what to accept |\n\n## Self-awareness: how it makes better teams\nA direct performance link: know your own strengths and weak spots, and those of the people around you, and you can draw on their skills properly and assemble a team whose abilities cover the ground.\n\nNobody is good at everything. Being able to accept that someone else is stronger than you in some area is part of how success gets achieved, and the same principle explains why the perfect project leader does not and never will exist: a leader builds a team that complements their own weaknesses, producing stronger leadership than any individual could.\n\n## Wellbeing and resilience: sustaining performance\nWellbeing sometimes gets overlooked in the pursuit of hitting targets to a deadline. Success over time depends on leaders and teams being able to perform at their best, and nobody performs flat out indefinitely.\n\nResilience is built partly on the physical, meaning sleep and exercise, and partly on recognising your reactions and handling them. It is built by:\n\n- taking it as given that things will go wrong, so the question is how you handle it and what you take from it\n- letting it go once the fix is in, because chewing it over burns energy and pulls attention off what is in front of you\n- accepting that change and uncertainty are inevitable, since few projects run exactly to plan\n- resisting the pull to manufacture certainty and structure quickly, when a better option was still out there to be found\n\nThat final point is a real leadership failure mode: discomfort with ambiguity produces premature decisions.",
       "exam_tips": [
         {
           "id": "lo12-tip-reputation",
-          "heading": "Why a coaching and mentoring style matters",
+          "heading": "Coaching and mentoring: why the style matters",
           "placement": "after_section",
           "tip": "That last row is worth carrying into a scenario, because reputation is the one people leave out. Asked why you would coach rather than tell when you are already short of time, give two effects: the person's capability now, and the team's resilience later."
         },
         {
           "id": "lo12-tip-traits-to-ei",
-          "heading": "Emotional intelligence",
+          "heading": "Emotional intelligence: why it matters now",
           "placement": "after_section",
           "tip": "If a question asks what changed in leadership thinking, the answer is the move from inherent traits to emotional intelligence as a developable capability. Say developable. That single word is what the question is checking."
         },
         {
           "id": "lo12-tip-ambiguity",
-          "heading": "Wellbeing and resilience",
+          "heading": "Wellbeing and resilience: sustaining performance",
           "placement": "after_section",
           "tip": "Discomfort with ambiguity producing premature decisions is a named failure mode and a good one to bring into any scenario where a leader locks a decision down early."
         }
@@ -489,7 +489,7 @@
         {
           "id": "lo12-pairup-coaching-benefits",
           "type": "pairup",
-          "heading": "Why a coaching and mentoring style matters",
+          "heading": "Coaching and mentoring: why the style matters",
           "title": "Match the effect of a coaching style to why it follows",
           "pairs": [
             {
@@ -517,7 +517,7 @@
         {
           "id": "lo12-pairup-ei",
           "type": "pairup",
-          "heading": "What emotional intelligence does in practice",
+          "heading": "Emotional intelligence: what it does in practice",
           "title": "Match each capability to what it looks like",
           "note": "Six capabilities, all drawn from leadership of self.",
           "pairs": [
@@ -551,7 +551,7 @@
       "worked_examples": [
         {
           "id": "lo12-we-resilience",
-          "heading": "Why a coaching and mentoring style matters",
+          "heading": "Coaching and mentoring: why the style matters",
           "row_label": "Builds team resilience",
           "situation": "Your only cost engineer books three weeks off in the middle of stage 3. You could do the reporting yourself in two hours a week.",
           "ask": "Absorb it, or coach someone through it?",
@@ -563,7 +563,7 @@
   "misconceptions": [
     {
       "wrong": "Maslow, Herzberg and McGregor are APM models from the Body of Knowledge.",
-      "right": "None of the three appears anywhere in BoK 8e. They are long-established general management theory that the PMQ syllabus expects you to know. Learn them as standard theory, and do not attribute them to APM in an answer."
+      "right": "None of the three appears anywhere in the APM Body of Knowledge. They are long-established general management theory that the PMQ syllabus expects you to know. Learn them as standard theory, and do not attribute them to APM in an answer."
     },
     {
       "wrong": "Improving pay and conditions will motivate a demotivated team.",
@@ -583,7 +583,7 @@
     },
     {
       "wrong": "People do fit into the four situational leadership boxes.",
-      "right": "The source is explicit that in real life they do not. Project professionals must judge, accounting for individual preferences, cultural norms and specific context, adjusting as they learn about the people they lead."
+      "right": "APM is explicit that in real life they do not. Project professionals must judge, accounting for individual preferences, cultural norms and specific context, adjusting as they learn about the people they lead."
     },
     {
       "wrong": "Great leaders are born with the right traits.",

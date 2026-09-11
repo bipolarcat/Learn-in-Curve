@@ -66,14 +66,14 @@
       "outcome_code": "8a",
       "outcome_title": "What a successful transition requires",
       "source_ref": "BoK 8e 3.6 (p159), 3.6.1 (p160-161), 3.6.3 (p164-165)",
-      "body_markdown": "## What transition is for\n\nTransition management is multifaceted. Its job is to make the new capability real and get the new processes, practices, tools and techniques properly established. Organisational change management sits inside it, and benefits realisation follows from it.\n\nThe logic behind the whole LO: projects produce outputs, which only become outcomes and benefits once someone is using them. Transition is where that conversion either happens or quietly fails.\n\n## Plan it from the outset\n\nThe syllabus says this explicitly and so does the source: you plan the handover from the project's first days.\n\nWhat that means in practice:\n\n- The investing organisation must specify early what needs to be handed back at the transition point, so user manuals, operating procedures, asset registers and drawings. Note that these may themselves have changed as a result of the project, so the handover pack is a moving target that needs maintaining.\n- How acceptance and handover will work is written into the project management plan and agreed there, not improvised at the end.\n- People from the change initiative or the wider business work throughout the life cycle to prepare for handover and adoption.\n\nA project that starts thinking about handover during its final phase has already lost the ability to shape whether the business is ready to receive it.\n\n## Considering business-as-usual throughout\n\nThe second half of 8a. The permanent organisation has to be able to absorb the change, so four things run alongside delivery:\n\n| What the change team does | Why |\n|---|---|\n| Identify and engage the recipients of the change | You cannot prepare people you have not identified |\n| Tell them what is changing, so the processes, the products, the systems and the way they will work | Surprise is the enemy of adoption |\n| Champion the positive factors adoption would bring | People adopt what they see the point of |\n| Identify and address barriers that would affect adoption | Barriers found late become reasons the change did not stick |\n\nBehavioural change also has to be planned for, for example coaching the business-as-usual team so they can take on new ways of working. Handing over a system without preparing the people is handing over an output that will not become an outcome.\n\n## When transition happens\n\n| Life cycle | Trigger |\n|---|---|\n| Linear | Typically in the final phase |\n| Iterative | At the point the sponsor or product owner takes acceptance of the outputs |\n\nIn both cases, transition triggers the start of adoption, use and benefits realisation.\n\n## The acceptance sequence\n\n1. Deliverables are prepared for handover together with assurance evidence, which is the LO7 link.\n2. Component deliverables are tested in a safe, non-operational mode, including non-physical items such as software.\n3. The complete set is then tested in operational mode, usually with representatives of the users present.\n4. If they meet the acceptance criteria, the sponsor signs them off.\n\nOffline first, then live, then sign-off.\n\n## The transition process also includes\n\n- the relevant documentation being accepted\n- acceptance certificates issued\n- responsibility handed over by the project team to sponsor and users\n- ownership formally transferred\n\n## Choosing a transition strategy\n\nSeveral strategies exist. Four factors decide which:\n\n| Factor | The question |\n|---|---|\n| Situational context | Why are we doing this? |\n| Strategic priority | How important is it relative to everything else? |\n| Capacity of the organisation to accept it | Can the business absorb this now? |\n| Complexity of the transition | How intricate is the changeover itself? |\n\nThe source gives one worked example: a phased adoption may be preferable where the system needs significant training, knowledge transfer, or changes to job roles.\n\n## Contingency for the handover itself\n\nOn high-risk projects, contingency plans are developed in case the initial transition does not go to plan. That can mean post-implementation support, or a warranty the project gives the organisation funding it.\n\n## Administrative closure\n\nThe project team disperses once deployment activity finishes, so the sponsor is responsible for ensuring administrative closure happens effectively.\n\nIt usually lands as a project closure report, which governance endorses at a final decision gate. A PMO may produce it; the sponsor remains accountable.\n\n## What the closure report contains\n\n- evidence the project delivered its intended outputs and that they were accepted\n- acknowledgement of any benefits already realised\n- how the benefits still outstanding will be realised\n- proof the contracts are finished\n- who owns anything left unresolved\n\nThat third bullet matters: the project ends, the benefits do not, so closure has to name who carries them forward.\n\n## The other closure activities\n\n| Activity | What it involves |\n|---|---|\n| Document archiving | Set by the plan, by corporate policy and by law, down to how long things are kept and how they are disposed of. The sponsor ensures they are followed |\n| Team reassignment | New skills acquired during the project must be reflected in personal records, with provision made to use that learning elsewhere. PMO or HR may identify development areas |\n| Contract closure | Confirmation that all supplier obligations have been met and final accounts agreed. Post-deployment technical documentation must be obtained and distributed. Legal or commercial teams may be needed for ongoing disputes |\n| Financial closure | The sponsor closes the project accounts and returns surplus funding once all liabilities are discharged |\n\nWhere job roles no longer exist, HR advice is needed and exits planned properly, because how staff are handled at closure affects both those leaving and those staying. Organisations that routinely cannot place project professionals at closure lose talent, and people start leaving projects early to stay employed, which damages current and future delivery.",
+      "body_markdown": "## Transition: what it is for\nTransition management is multifaceted. Its job is to make the new capability real and get the new processes, practices, tools and techniques properly established. Organisational change management sits inside it, and benefits realisation follows from it.\n\nThe logic behind the whole LO: projects produce outputs, which only become outcomes and benefits once someone is using them. Transition is where that conversion either happens or quietly fails.\n\n## Transition planning: start from the outset\nBoth the syllabus and APM are explicit: you plan the handover from the project's first days.\n\nWhat that means in practice:\n\n- The investing organisation must specify early what needs to be handed back at the transition point, so user manuals, operating procedures, asset registers and drawings. Note that these may themselves have changed as a result of the project, so the handover pack is a moving target that needs maintaining.\n- How acceptance and handover will work is written into the project management plan and agreed there, not improvised at the end.\n- People from the change initiative or the wider business work throughout the life cycle to prepare for handover and adoption.\n\nA project that starts thinking about handover during its final phase has already lost the ability to shape whether the business is ready to receive it.\n\n## Business-as-usual: considering it throughout\nThe permanent organisation has to be able to absorb the change, so four things run alongside delivery:\n\n| What the change team does | Why |\n|---|---|\n| Identify and engage the recipients of the change | You cannot prepare people you have not identified |\n| Tell them what is changing, so the processes, the products, the systems and the way they will work | Surprise is the enemy of adoption |\n| Champion the positive factors adoption would bring | People adopt what they see the point of |\n| Identify and address barriers that would affect adoption | Barriers found late become reasons the change did not stick |\n\nBehavioural change also has to be planned for, for example coaching the business-as-usual team so they can take on new ways of working. Handing over a system without preparing the people is handing over an output that will not become an outcome.\n\n## Transition timing: when it happens\n| Life cycle | Trigger |\n|---|---|\n| Linear | Typically in the final phase |\n| Iterative | At the point the sponsor or product owner takes acceptance of the outputs |\n\nIn both cases, transition triggers the start of adoption, use and benefits realisation.\n\n## Acceptance: the sequence\n1. Deliverables are prepared for handover together with assurance evidence, which is the LO7 link.\n2. Component deliverables are tested in a safe, non-operational mode, including non-physical items such as software.\n3. The complete set is then tested in operational mode, usually with representatives of the users present.\n4. If they meet the acceptance criteria, the sponsor signs them off.\n\nOffline first, then live, then sign-off.\n\n## Transition: the remaining steps\n- the relevant documentation being accepted\n- acceptance certificates issued\n- responsibility handed over by the project team to sponsor and users\n- ownership formally transferred\n\n## Transition strategy: how to choose one\nSeveral strategies exist. Four factors decide which:\n\n| Factor | The question |\n|---|---|\n| Situational context | Why are we doing this? |\n| Strategic priority | How important is it relative to everything else? |\n| Capacity of the organisation to accept it | Can the business absorb this now? |\n| Complexity of the transition | How intricate is the changeover itself? |\n\nOne worked example: a phased adoption may be preferable where the system needs significant training, knowledge transfer, or changes to job roles.\n\n## Handover contingency: planning for failure\nOn high-risk projects, contingency plans are developed in case the initial transition does not go to plan. That can mean post-implementation support, or a warranty the project gives the organisation funding it.\n\n## Administrative closure: after the team disperses\nThe project team disperses once deployment activity finishes, so the sponsor is responsible for ensuring administrative closure happens effectively.\n\nIt usually lands as a project closure report, which governance endorses at a final decision gate. A PMO may produce it; the sponsor remains accountable.\n\n## The closure report: what it contains\n- evidence the project delivered its intended outputs and that they were accepted\n- acknowledgement of any benefits already realised\n- how the benefits still outstanding will be realised\n- proof the contracts are finished\n- who owns anything left unresolved\n\nThat third bullet matters: the project ends, the benefits do not, so closure has to name who carries them forward.\n\n## Closure activities: the rest of the list\n| Activity | What it involves |\n|---|---|\n| Document archiving | Set by the plan, by corporate policy and by law, down to how long things are kept and how they are disposed of. The sponsor ensures they are followed |\n| Team reassignment | New skills acquired during the project must be reflected in personal records, with provision made to use that learning elsewhere. PMO or HR may identify development areas |\n| Contract closure | Confirmation that all supplier obligations have been met and final accounts agreed. Post-deployment technical documentation must be obtained and distributed. Legal or commercial teams may be needed for ongoing disputes |\n| Financial closure | The sponsor closes the project accounts and returns surplus funding once all liabilities are discharged |\n\nWhere job roles no longer exist, HR advice is needed and exits planned properly, because how staff are handled at closure affects both those leaving and those staying. Organisations that routinely cannot place project professionals at closure lose talent, and people start leaving projects early to stay employed, which damages current and future delivery.",
       "diagrams": [
         {
           "id": "lo8-transition-activities",
           "figure_number": "8.1",
           "caption": "The activities involved in project transition",
           "placement": "after_section",
-          "heading": "The acceptance sequence",
+          "heading": "Acceptance: the sequence",
           "file": null,
           "spec": "A left-to-right sequence: deliver scope → inspect → acceptance → documentation → train end user → bring into use. Show the offline test and the operational test as two distinct points within inspect/acceptance, with a user-representative marker on the operational one. The teaching point: acceptance is a staged sequence, and training sits inside it rather than after it.",
           "alt": "The project transition sequence from delivering scope through inspection, acceptance and documentation to training end users and bringing outputs into use."
@@ -83,7 +83,7 @@
           "figure_number": "8.2",
           "caption": "The four strands of administrative closure",
           "placement": "after_section",
-          "heading": "The other closure activities",
+          "heading": "Closure activities: the rest of the list",
           "file": null,
           "spec": "Four strands arranged around a central 'project closure report' node: commercial settlement and contract closure, team reassignment, project review leading to close-out report, document archiving. Mark the sponsor as accountable across all four. The argument: closure is four parallel workstreams, not one document.",
           "alt": "Four strands of administrative closure — contract closure, team reassignment, project review and close-out report, and document archiving — arranged around the project closure report with the sponsor accountable."
@@ -92,25 +92,25 @@
       "exam_tips": [
         {
           "id": "lo8-tip-plan-early",
-          "heading": "Plan it from the outset",
+          "heading": "Transition planning: start from the outset",
           "placement": "after_section",
           "tip": "Most of the marks in 8a trace back to one idea: the handover is planned from the project's first days. When a scenario has a team sorting out acceptance in the final phase, name what that costs them, which is any chance of shaping whether the business is ready to receive the outputs."
         },
         {
           "id": "lo8-tip-acceptance-order",
-          "heading": "The acceptance sequence",
+          "heading": "Acceptance: the sequence",
           "placement": "after_section",
           "tip": "The order is examinable, and the presence of users at the operational test is the detail most often missed. Write all four steps, and put the user representatives in step three by name."
         },
         {
           "id": "lo8-tip-phased-signals",
-          "heading": "Choosing a transition strategy",
+          "heading": "Transition strategy: how to choose one",
           "placement": "after_section",
           "tip": "Training, knowledge transfer and changes to job roles are the tell in a scenario: if you see them, phased adoption is the defensible recommendation. Say which of the four factors drove you there rather than naming the strategy on its own."
         },
         {
           "id": "lo8-tip-closure-people",
-          "heading": "The other closure activities",
+          "heading": "Closure activities: the rest of the list",
           "placement": "after_section",
           "tip": "The people point is worth carrying into an answer, because most answers stop at documents and accounts. Name the sponsor as accountable across all four strands, and remember that a PMO producing the closure report does not move that accountability anywhere."
         }
@@ -119,7 +119,7 @@
         {
           "id": "lo8-pairup-bau",
           "type": "pairup",
-          "heading": "Considering business-as-usual throughout",
+          "heading": "Business-as-usual: considering it throughout",
           "title": "Match the change team's job to the reason for it",
           "note": "The four things that run alongside delivery, whatever else is happening.",
           "pairs": [
@@ -144,7 +144,7 @@
         {
           "id": "lo8-lineup-acceptance",
           "type": "lineup",
-          "heading": "The acceptance sequence",
+          "heading": "Acceptance: the sequence",
           "title": "Put the acceptance steps back in order",
           "items": [
             "Prepare the deliverables for handover with assurance evidence",
@@ -156,7 +156,7 @@
         {
           "id": "lo8-pairup-strategy",
           "type": "pairup",
-          "heading": "Choosing a transition strategy",
+          "heading": "Transition strategy: how to choose one",
           "title": "Match the factor to the question it asks",
           "pairs": [
             {
@@ -181,7 +181,7 @@
       "worked_examples": [
         {
           "id": "lo8-we-capacity",
-          "heading": "Choosing a transition strategy",
+          "heading": "Transition strategy: how to choose one",
           "row_label": "Capacity of the organisation to accept it",
           "situation": "A warehouse system replaces paper picking across three depots. Two run 24 hours, and 40 staff need retraining with no cover budget.",
           "ask": "Big bang next month, or phased?",
@@ -189,7 +189,7 @@
         },
         {
           "id": "lo8-we-contract-closure",
-          "heading": "The other closure activities",
+          "heading": "Closure activities: the rest of the list",
           "row_label": "Contract closure",
           "situation": "Deployment finished six weeks ago. The fit-out contractor disputes 18,000 pounds of the final account and still holds the commissioning records.",
           "ask": "Can you close the project?",
@@ -201,14 +201,14 @@
       "outcome_code": "8b",
       "outcome_title": "Knowledge transfer, learning from experience and continuous improvement",
       "source_ref": "BoK 8e 3.2.4 (p128-129), 3.6.2 (p163), 3.6.3 (p164)",
-      "body_markdown": "## Why knowledge transfer belongs in transition\n\nAt handover, the people who understand the outputs best are about to disperse. Whatever they know and have not passed on leaves with them, and the business-as-usual team inherits something it does not fully understand.\n\nKnowledge management covers how an organisation collects, creates, organises, stores and shares what it knows. It operates inside single projects and across projects, programmes, portfolios and organisations, and it carries on past the end of the life cycle.\n\n## What working with knowledge buys\n\nFive named ways it adds value:\n\n- seeing changing conditions coming, making sense of them, and responding\n- not making the same mistake twice\n- producing options and solutions\n- giving decisions something to rest on\n- making benefits realisation possible\n\nThat last one anchors it to LO8 and LO9. Knowledge transfer is not administrative tidiness; without it the receiving organisation cannot operate the outputs well enough to produce the benefits.\n\n## Tacit versus explicit, the distinction that matters\n\n| Type | What it is | Difficulty |\n|---|---|---|\n| Explicit | Data, information, documents | Easy to hand over, easy to overvalue |\n| Tacit | Knowledge that exists in people and is difficult to express | The hard part, and the part that walks out of the door |\n\nKnowledge is intangible and complex, much more than documents. Because of that, knowledge management's job is to help people articulate what they know so they can contribute and share it.\n\nWriting knowledge down seldom produces shared understanding on its own. Recording it is not the same as transferring it.\n\n## It is a culture change, not a system\n\nPutting knowledge management in place is closer to a culture change programme than to a technical project. Plenty of software exists. However, uptake by users matters more than the capability of the tools, because adoption depends on attitudes driving behaviours.\n\nRelated, and equally useful: passive collection of lessons learned rarely has significant impact. A lessons log nobody reads is not knowledge management. Active use of technology to enrich workplace interactions is what makes the difference.\n\n## Two different objectives, two different environments\n\nIt can be aimed at generating knowledge that does not exist yet, or at putting existing knowledge to work. Sharing features in both, but the two need different approaches:\n\n| Objective | What the environment needs |\n|---|---|\n| Creating new knowledge | Shared purpose, trust and autonomy |\n| Using existing knowledge | An ordered and controlled environment with standard processes |\n\nThis is a useful scenario tool: if a project needs innovation, imposing tight control will suppress the knowledge creation it depends on.\n\n## How knowledge moves\n\nWhat moves knowledge is people talking to people, and systems and documents only enable it. The named methods:\n\n- peer-assisted learning\n- workshops with a facilitator\n- mentoring\n- sessions for generating ideas\n- communities of practice\n\nEvery one of those is people talking to people. That is the point.\n\n## What makes it work\n\n- No one-size-fits-all solution. It must be tailored to context, culture and the needs of users, and every project, programme, portfolio and organisation finds its own.\n- Plan it into the life cycle, but expect the processes to adapt in response to feedback and evolving needs.\n- The culture has to value knowledge and learning for any of it to work, and that culture is shaped by leadership, diversity, structure and governance.\n- Leadership backing has to be visible and concrete. What works best is a sponsor who actively champions it.\n- A PMO can provide the supportive infrastructure across all project-based working in the organisation.\n\n## Learning from experience, including from closure\n\nLessons do not only come from success:\n\n- Early closure teaches the organisation a great deal, provided the reasons are captured and passed round the wider project community.\n- Organisations support this by championing the sharing of knowledge when a project closes early.\n- At administrative closure, new skills acquired during the project are recorded and provision is made for that learning to be used elsewhere.\n\nContinuous improvement here is organisational, not personal: the aim is that the next business case, the next transition and the next project are better because this one was examined honestly.",
+      "body_markdown": "## Knowledge transfer: why it belongs in transition\nAt handover, the people who understand the outputs best are about to disperse. Whatever they know and have not passed on leaves with them, and the business-as-usual team inherits something it does not fully understand.\n\nKnowledge management covers how an organisation collects, creates, organises, stores and shares what it knows. It operates inside single projects and across projects, programmes, portfolios and organisations, and it carries on past the end of the life cycle.\n\n## Knowledge management: what it adds\nFive named ways it adds value:\n\n- seeing changing conditions coming, making sense of them, and responding\n- not making the same mistake twice\n- producing options and solutions\n- giving decisions something to rest on\n- making benefits realisation possible\n\nThat last one anchors it to LO8 and LO9. Knowledge transfer is not administrative tidiness; without it the receiving organisation cannot operate the outputs well enough to produce the benefits.\n\n## Tacit vs explicit knowledge: the distinction that matters\n| Type | What it is | Difficulty |\n|---|---|---|\n| Explicit | Data, information, documents | Easy to hand over, easy to overvalue |\n| Tacit | Knowledge that exists in people and is difficult to express | The hard part, and the part that walks out of the door |\n\nKnowledge is intangible and complex, much more than documents. Because of that, knowledge management's job is to help people articulate what they know so they can contribute and share it.\n\nWriting knowledge down seldom produces shared understanding on its own. Recording it is not the same as transferring it.\n\n## Knowledge management: a culture change, not a system\nPutting knowledge management in place is closer to a culture change programme than to a technical project. Plenty of software exists. However, uptake by users matters more than the capability of the tools, because adoption depends on attitudes driving behaviours.\n\nRelated, and equally useful: passive collection of lessons learned rarely has significant impact. A lessons log nobody reads is not knowledge management. Active use of technology to enrich workplace interactions is what makes the difference.\n\n## Knowledge objectives: two aims, two environments\nIt can be aimed at generating knowledge that does not exist yet, or at putting existing knowledge to work. Sharing features in both, but the two need different approaches:\n\n| Objective | What the environment needs |\n|---|---|\n| Creating new knowledge | Shared purpose, trust and autonomy |\n| Using existing knowledge | An ordered and controlled environment with standard processes |\n\nThis is a useful scenario tool: if a project needs innovation, imposing tight control will suppress the knowledge creation it depends on.\n\n## Knowledge flow: how it moves\nWhat moves knowledge is people talking to people, and systems and documents only enable it. The named methods:\n\n- peer-assisted learning\n- workshops with a facilitator\n- mentoring\n- sessions for generating ideas\n- communities of practice\n\nEvery one of those is people talking to people. That is the point.\n\n## Knowledge management: what makes it work\n- No one-size-fits-all solution. It must be tailored to context, culture and the needs of users, and every project, programme, portfolio and organisation finds its own.\n- Plan it into the life cycle, but expect the processes to adapt in response to feedback and evolving needs.\n- The culture has to value knowledge and learning for any of it to work, and that culture is shaped by leadership, diversity, structure and governance.\n- Leadership backing has to be visible and concrete. What works best is a sponsor who actively champions it.\n- A PMO can provide the supportive infrastructure across all project-based working in the organisation.\n\n## Learning from experience: including from closure\nLessons do not only come from success:\n\n- Early closure teaches the organisation a great deal, provided the reasons are captured and passed round the wider project community.\n- Organisations support this by championing the sharing of knowledge when a project closes early.\n- At administrative closure, new skills acquired during the project are recorded and provision is made for that learning to be used elsewhere.\n\nContinuous improvement here is organisational, not personal: the aim is that the next business case, the next transition and the next project are better because this one was examined honestly.",
       "diagrams": [
         {
           "id": "lo8-knowledge-environments",
           "figure_number": "8.3",
           "caption": "Different knowledge objectives need different working environments",
           "placement": "after_section",
-          "heading": "Two different objectives, two different environments",
+          "heading": "Knowledge objectives: two aims, two environments",
           "file": null,
           "spec": "Two contrasting panels. Left — 'use existing knowledge': standard processes, control, order. Right — 'create new knowledge': shared purpose, autonomy, trust. Show them as opposite ends of one axis rather than two separate boxes, since the point is that the same environment cannot do both well. Note BoK Figure 3.2.4 carries a third-party source credit (Payne, Roden and Simister 2019), so ours must be an original depiction.",
           "alt": "Two ends of a spectrum contrasting the ordered, controlled environment suited to using existing knowledge with the shared purpose, autonomy and trust needed to create new knowledge."
@@ -217,22 +217,22 @@
       "exam_tips": [
         {
           "id": "lo8-tip-tacit",
-          "heading": "Tacit versus explicit, the distinction that matters",
+          "heading": "Tacit vs explicit knowledge: the distinction that matters",
           "placement": "after_section",
           "tip": "Scenarios go after tacit knowledge, because that is the half a handover loses. If a question asks how to transfer what an experienced team knows, an archive of documents will not score. Name the people-based methods instead."
         },
         {
           "id": "lo8-tip-culture",
-          "heading": "It is a culture change, not a system",
+          "heading": "Knowledge management: a culture change, not a system",
           "placement": "after_section",
-          "tip": "The most quotable line in this sub-outcome is the one to write out in full: putting knowledge management in place is closer to a culture change programme than a technical project. It answers any scenario that offers you a new system as the fix."
+          "tip": "The most quotable line here is the one to write out in full: putting knowledge management in place is closer to a culture change programme than a technical project. It answers any scenario that offers you a new system as the fix."
         }
       ],
       "activities": [
         {
           "id": "lo8-groupup-tacit-explicit",
           "type": "groupup",
-          "heading": "Tacit versus explicit, the distinction that matters",
+          "heading": "Tacit vs explicit knowledge: the distinction that matters",
           "title": "Which kind of knowledge is each one?",
           "buckets": [
             {
@@ -276,7 +276,7 @@
         {
           "id": "lo8-groupup-environments",
           "type": "groupup",
-          "heading": "Two different objectives, two different environments",
+          "heading": "Knowledge objectives: two aims, two environments",
           "title": "Which objective does each condition serve?",
           "buckets": [
             {
@@ -320,7 +320,7 @@
         {
           "id": "lo8-pairup-what-works",
           "type": "pairup",
-          "heading": "What makes it work",
+          "heading": "Knowledge management: what makes it work",
           "title": "Match the condition to what it means in practice",
           "pairs": [
             {
@@ -349,7 +349,7 @@
       "worked_examples": [
         {
           "id": "lo8-we-new-knowledge",
-          "heading": "Two different objectives, two different environments",
+          "heading": "Knowledge objectives: two aims, two environments",
           "row_label": "Creating new knowledge",
           "situation": "Your team has eight weeks to find a lower-carbon alternative to a specified cladding system. The PMO offers its standard process with weekly stage reviews.",
           "ask": "Take the offer?",
@@ -361,17 +361,17 @@
       "outcome_code": "8c",
       "outcome_title": "Engaging stakeholders to agree a transition plan, including transfer of risks",
       "source_ref": "BoK 8e 3.6 (p159), 3.6.1 (p160-161), 3.6.2 (p162-163), 3.6.3 (p164-165)",
-      "body_markdown": "## What the transition plan has to settle\n\nThree things, and each one needs someone to agree to it:\n\n| Element | Why it needs agreement |\n|---|---|\n| Priorities | What transfers first when the business cannot absorb everything at once |\n| Potential disruptions | Operational teams have to accept and prepare for the disruption transition causes |\n| Ownership of outputs | Somebody in the permanent organisation must accept each output, and with it the responsibility |\n\nThat third row is where 8c's 'transfer of risks' lives. Assigning ownership of an output transfers the risks that come with it. Until ownership is agreed and accepted, the risk stays with a project team that is about to disband.\n\n## Who has to be engaged\n\n| Stakeholder | Their part in the agreement |\n|---|---|\n| Sponsor | Signs off deliverables against acceptance criteria; accountable for administrative closure; receives transferred responsibility |\n| Users | Must be able to accept the deliverables; take part in operational-mode testing; live with the result |\n| Product owner | In iterative life cycles, accepts the outputs |\n| BAU / operational teams | Take ownership, need coaching for new ways of working, absorb the disruption |\n| Suppliers | Obligations confirmed complete, final accounts agreed, post-deployment documentation handed over |\n| HR / people professionals | Advise where job roles no longer exist and exits must be planned |\n| Legal or commercial | Called on where contract disputes would otherwise delay closure |\n\n## How to engage them\n\nThe four actions from 8a are the engagement method, applied to transition specifically:\n\n1. Find out who is receiving the change, and engage them.\n2. Tell them what is changing, so processes, products, systems and ways of working.\n3. Make the case for adopting it, giving people a reason rather than an instruction.\n4. Find the barriers and deal with them before they become the reason it did not stick.\n\nAnd the practical mechanisms: users are represented in operational-mode testing, acceptance criteria are agreed in advance so sign-off is not a negotiation held under pressure, and plans for acceptance and transition sit in the project management plan where stakeholders have already seen and agreed them.\n\n## Transferring risk properly\n\nRisk transfer at transition is formalised, not implied:\n\n- Responsibility handed over by the project team to sponsor and users.\n- Formal transfer of ownership.\n- Acceptance certificates and acceptance of the relevant documentation, evidencing that the receiving party has taken it on.\n- Responsibilities for ownership of residual matters recorded in the closure report, so anything unresolved gets a named owner rather than being left with a team that no longer exists.\n- On high-risk projects, contingency plans, post-implementation support or a warranty arrangement, so the risk is not dropped on the business the moment handover completes.\n\nTransition does not eliminate risk, it relocates it. The job is to make sure the relocation is deliberate, documented and accepted, which is the same principle as LO5, where a contract moves risk but never deletes it.\n\n## Engaging stakeholders when the project closes early\n\nEarly closure is a transition too, and it is an engagement problem before it is an administrative one. Treat stopping early as a good decision rather than a failure. It stops money going into work that will not pay back, and releases it for something that will.\n\nThe organisation supports this by:\n\n- creating incentives and safety nets for the team\n- championing the sharing of knowledge\n- finding other teams who can pick up the people and budget suddenly freed\n- standing behind the stakeholders it affects\n- communicating internally about what happened and why\n\nThe principle underneath it: starting something uncertain is legitimate; carrying on once the evidence says the value will not materialise is not. When a sponsor closes a project because that serves the organisation better, that call deserves to be welcomed and said out loud.\n\nIn a programme or portfolio, closing a project is an opportunity for better use of resource and may lead to reprioritisation that serves the organisation better.",
+      "body_markdown": "## The transition plan: what it has to settle\nThree things, and each one needs someone to agree to it:\n\n| Element | Why it needs agreement |\n|---|---|\n| Priorities | What transfers first when the business cannot absorb everything at once |\n| Potential disruptions | Operational teams have to accept and prepare for the disruption transition causes |\n| Ownership of outputs | Somebody in the permanent organisation must accept each output, and with it the responsibility |\n\nThat third row is where 8c's 'transfer of risks' lives. Assigning ownership of an output transfers the risks that come with it. Until ownership is agreed and accepted, the risk stays with a project team that is about to disband.\n\n## Transition stakeholders: who has to be engaged\n| Stakeholder | Their part in the agreement |\n|---|---|\n| Sponsor | Signs off deliverables against acceptance criteria; accountable for administrative closure; receives transferred responsibility |\n| Users | Must be able to accept the deliverables; take part in operational-mode testing; live with the result |\n| Product owner | In iterative life cycles, accepts the outputs |\n| BAU / operational teams | Take ownership, need coaching for new ways of working, absorb the disruption |\n| Suppliers | Obligations confirmed complete, final accounts agreed, post-deployment documentation handed over |\n| HR / people professionals | Advise where job roles no longer exist and exits must be planned |\n| Legal or commercial | Called on where contract disputes would otherwise delay closure |\n\n## Stakeholder engagement: how to do it at transition\nThe four actions from 8a are the engagement method, applied to transition specifically:\n\n1. Find out who is receiving the change, and engage them.\n2. Tell them what is changing, so processes, products, systems and ways of working.\n3. Make the case for adopting it, giving people a reason rather than an instruction.\n4. Find the barriers and deal with them before they become the reason it did not stick.\n\nAnd the practical mechanisms: users are represented in operational-mode testing, acceptance criteria are agreed in advance so sign-off is not a negotiation held under pressure, and plans for acceptance and transition sit in the project management plan where stakeholders have already seen and agreed them.\n\n## Risk transfer: doing it properly\nRisk transfer at transition is formalised, not implied:\n\n- Responsibility handed over by the project team to sponsor and users.\n- Formal transfer of ownership.\n- Acceptance certificates and acceptance of the relevant documentation, evidencing that the receiving party has taken it on.\n- Responsibilities for ownership of residual matters recorded in the closure report, so anything unresolved gets a named owner rather than being left with a team that no longer exists.\n- On high-risk projects, contingency plans, post-implementation support or a warranty arrangement, so the risk is not dropped on the business the moment handover completes.\n\nTransition does not eliminate risk, it relocates it. The job is to make sure the relocation is deliberate, documented and accepted, which is the same principle as LO5, where a contract moves risk but never deletes it.\n\n## Early closure: engaging stakeholders\nEarly closure is a transition too, and it is an engagement problem before it is an administrative one. Treat stopping early as a good decision rather than a failure. It stops money going into work that will not pay back, and releases it for something that will.\n\nThe organisation supports this by:\n\n- creating incentives and safety nets for the team\n- championing the sharing of knowledge\n- finding other teams who can pick up the people and budget suddenly freed\n- standing behind the stakeholders it affects\n- communicating internally about what happened and why\n\nThe principle underneath it: starting something uncertain is legitimate; carrying on once the evidence says the value will not materialise is not. When a sponsor closes a project because that serves the organisation better, that call deserves to be welcomed and said out loud.\n\nIn a programme or portfolio, closing a project is an opportunity for better use of resource and may lead to reprioritisation that serves the organisation better.",
       "exam_tips": [
         {
           "id": "lo8-tip-risk-relocated",
-          "heading": "Transferring risk properly",
+          "heading": "Risk transfer: doing it properly",
           "placement": "after_section",
           "tip": "The honest framing for an answer is that transition relocates risk rather than eliminating it. Say that first, then name the mechanisms that make the relocation hold: ownership transfer, acceptance certificates, and a named owner for residual matters in the closure report."
         },
         {
           "id": "lo8-tip-early-closure",
-          "heading": "Engaging stakeholders when the project closes early",
+          "heading": "Early closure: engaging stakeholders",
           "placement": "after_section",
           "tip": "Worth quoting in a scenario answer: it is legitimate to start something uncertain, and not legitimate to carry on once the evidence says the value will not materialise. Where a sponsor stops a project, the marks sit in welcoming the call and saying what the organisation now does for the team."
         }
@@ -380,7 +380,7 @@
         {
           "id": "lo8-pairup-plan-elements",
           "type": "pairup",
-          "heading": "What the transition plan has to settle",
+          "heading": "The transition plan: what it has to settle",
           "title": "Match the element to why it needs agreement",
           "pairs": [
             {
@@ -400,7 +400,7 @@
         {
           "id": "lo8-pairup-stakeholders",
           "type": "pairup",
-          "heading": "Who has to be engaged",
+          "heading": "Transition stakeholders: who has to be engaged",
           "title": "Match the stakeholder to their part in the agreement",
           "note": "Six of the seven. Legal and commercial only appear when a dispute would otherwise hold closure up.",
           "pairs": [
@@ -434,7 +434,7 @@
       "worked_examples": [
         {
           "id": "lo8-we-ownership",
-          "heading": "What the transition plan has to settle",
+          "heading": "The transition plan: what it has to settle",
           "row_label": "Ownership of outputs",
           "situation": "Handover is in two weeks. The new scheduling tool has an owner in operations, but nobody has accepted the daily data quality checks that keep it accurate.",
           "ask": "What are you left holding?",

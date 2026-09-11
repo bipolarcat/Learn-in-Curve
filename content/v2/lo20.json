@@ -71,17 +71,17 @@
       "outcome_code": "20a",
       "outcome_title": "Defining scope in terms of outputs, outcomes and benefits, and the breakdown structures",
       "source_ref": "BoK 8e 5.2.1 (p236-237), 5.5 (p265), 5.5.1 (p266-267)",
-      "body_markdown": "## Scope covers three things, not one\n\nFrom LO17, restated because 20a depends on it: scope covers the whole of what the project produces (outputs, outcomes and benefits) together with the work needed to produce it.\n\n| Element | What it is | Who it belongs to |\n|---|---|---|\n| Output | The thing the project creates | Project manager delivers it |\n| Outcome | What changes because the output is used | Arrives through adoption |\n| Benefit | The measurable improvement that change produces | Sponsor is accountable |\n\nA schedule built only around outputs will finish at handover and leave the outcomes and benefits unscheduled, which is exactly the failure LO8 and LO9 describe. Where an extended life cycle is used, adoption and benefits realisation are scheduled work too.\n\n## The breakdown structures\n\nBreakdown structures are what convert scope into something you can put dates against. The syllabus names three for 20a; the fourth completes the set.\n\n| Structure | Defines | Feeds |\n|---|---|---|\n| PBS, the product breakdown structure | The things to create: scope expressed as products | The WBS |\n| WBS, the work breakdown structure | The activities to complete to deliver those products | The schedule and the RAM |\n| CBS, the cost breakdown structure | The project budget | LO22 |\n| OBS, the organisation breakdown structure | The allocation of people | The RAM, LO21 |\n\nThe sequence matters. Products first, then the work needed to produce them. Building a WBS without a PBS produces a list of activities nobody can trace to a deliverable.\n\nA work package is the slice of the WBS handed to one team member by whoever manages the project or programme. It is the unit that gets estimated, scheduled and tracked.\n\nWBS plus OBS gives you the responsibility assignment matrix, setting out every item of work, who is on it, and what part each of them plays (LO2, LO21).\n\n## From breakdown to schedule\n\n1. Decompose scope into products (PBS), then activities (WBS).\n2. Agree the dependencies between activities: logical, preferential and resource (LO19).\n3. Estimate durations, ideally as three-point estimates: the optimistic case, the pessimistic case, and the point in between judged most likely.\n4. Build the precedence network from the dependency logic.\n5. Run critical path analysis to find the duration, the critical path and the float.\n6. Present it, usually as a Gantt chart showing activities as bars on a timeline.\n\nEstimates of duration are based on effort, which is why LO19's estimating methods sit underneath this LO.\n\n## Levels of schedule\n\nSchedules come at different levels of resolution, anything from a single-page plan up to a full control schedule. Big or complicated projects often run several at once, each covering a different aspect, with one master schedule pulling them together, coordinating them and tracking them.\n\nRolling wave is common for linear projects: near-term activities in detail, later stages at a higher level. It is an honest response to the fact that distant detail is guesswork.\n\n## What the schedule is for\n\nThe schedule is how you demonstrate that the timeline is deliverable. It settles what the project team and the customer are each expecting, and everything monitored later gets measured against it.\n\nThe resulting timeline forms an important part of the deployment baseline, documented in enough detail to inform the direction of work and the monitoring of progress.\n",
+      "body_markdown": "## Scope: three things, not one\nAs covered in LO17: scope covers the whole of what the project produces (outputs, outcomes and benefits) together with the work needed to produce it.\n\n| Element | What it is | Who it belongs to |\n|---|---|---|\n| Output | The thing the project creates | Project manager delivers it |\n| Outcome | What changes because the output is used | Arrives through adoption |\n| Benefit | The measurable improvement that change produces | Sponsor is accountable |\n\nA schedule built only around outputs will finish at handover and leave the outcomes and benefits unscheduled, which is exactly the failure LO8 and LO9 describe. Where an extended life cycle is used, adoption and benefits realisation are scheduled work too.\n\n## Breakdown structures: turning scope into a schedule\nBreakdown structures are what convert scope into something you can put dates against. The syllabus names three for 20a; the fourth completes the set.\n\n| Structure | Defines | Feeds |\n|---|---|---|\n| PBS, the product breakdown structure | The things to create: scope expressed as products | The WBS |\n| WBS, the work breakdown structure | The activities to complete to deliver those products | The schedule and the RAM |\n| CBS, the cost breakdown structure | The project budget | LO22 |\n| OBS, the organisation breakdown structure | The allocation of people | The RAM, LO21 |\n\nThe sequence matters. Products first, then the work needed to produce them. Building a WBS without a PBS produces a list of activities nobody can trace to a deliverable.\n\nA work package is the slice of the WBS handed to one team member by whoever manages the project or programme. It is the unit that gets estimated, scheduled and tracked.\n\nWBS plus OBS gives you the responsibility assignment matrix, setting out every item of work, who is on it, and what part each of them plays (LO2, LO21).\n\n## From breakdown to schedule: the steps\n1. Decompose scope into products (PBS), then activities (WBS).\n2. Agree the dependencies between activities: logical, preferential and resource (LO19).\n3. Estimate durations, ideally as three-point estimates: the optimistic case, the pessimistic case, and the point in between judged most likely.\n4. Build the precedence network from the dependency logic.\n5. Run critical path analysis to find the duration, the critical path and the float.\n6. Present it, usually as a Gantt chart showing activities as bars on a timeline.\n\nEstimates of duration are based on effort, which is why LO19's estimating methods sit underneath this LO.\n\n## Schedule levels: different resolutions\nSchedules come at different levels of resolution, anything from a single-page plan up to a full control schedule. Big or complicated projects often run several at once, each covering a different aspect, with one master schedule pulling them together, coordinating them and tracking them.\n\nRolling wave is common for linear projects: near-term activities in detail, later stages at a higher level. It is an honest response to the fact that distant detail is guesswork.\n\n## The schedule: what it is for\nThe schedule is how you demonstrate that the timeline is deliverable. It settles what the project team and the customer are each expecting, and everything monitored later gets measured against it.\n\nThe resulting timeline forms an important part of the deployment baseline, documented in enough detail to inform the direction of work and the monitoring of progress.\n",
       "exam_tips": [
         {
           "id": "lo20-tip-scope-three",
-          "heading": "Scope covers three things, not one",
+          "heading": "Scope: three things, not one",
           "placement": "after_section",
           "tip": "A scenario whose schedule stops at handover is showing you the mistake, not the answer. Say that outcomes and benefits are scheduled work too, and name the extended life cycle while you do it."
         },
         {
           "id": "lo20-tip-breakdowns",
-          "heading": "The breakdown structures",
+          "heading": "Breakdown structures: turning scope into a schedule",
           "placement": "after_section",
           "tip": "The exam separates these four by what they define, not by name. Products, work, cost, people. If a question asks what the schedule is built from, the answer is the WBS, and the PBS has to exist before it."
         }
@@ -90,7 +90,7 @@
         {
           "id": "lo20-pairup-scope",
           "type": "pairup",
-          "heading": "Scope covers three things, not one",
+          "heading": "Scope: three things, not one",
           "title": "Match each element of scope to what it is",
           "pairs": [
             {
@@ -110,7 +110,7 @@
         {
           "id": "lo20-pairup-breakdowns",
           "type": "pairup",
-          "heading": "The breakdown structures",
+          "heading": "Breakdown structures: turning scope into a schedule",
           "title": "Match each breakdown structure to what it defines",
           "pairs": [
             {
@@ -134,7 +134,7 @@
         {
           "id": "lo20-lineup-build",
           "type": "lineup",
-          "heading": "From breakdown to schedule",
+          "heading": "From breakdown to schedule: the steps",
           "title": "Put the six steps back in order",
           "items": [
             "Decompose scope into products, then activities",
@@ -149,7 +149,7 @@
       "worked_examples": [
         {
           "id": "lo20-we-benefit",
-          "heading": "Scope covers three things, not one",
+          "heading": "Scope: three things, not one",
           "row_label": "Benefit",
           "situation": "Your warehouse system goes live on 3 March and the project closes on 10 March. The business case promised a 15% cut in picking errors.",
           "ask": "Is the project finished?",
@@ -161,14 +161,14 @@
       "outcome_code": "20b",
       "outcome_title": "Links and dependencies, and what else drives the schedule",
       "source_ref": "BoK 8e 5.5 (p265), 5.5.1 (p266-267), 5.5.2 (p268-269), 5.4.2 (p258-259); worked example original, see source_confidence",
-      "body_markdown": "## Dependency types and link types\n\nFrom LO19, because the schedule is built on them:\n\n| Dependency type | Meaning |\n|---|---|\n| Logical / hard | Cannot start until another has started or finished |\n| Preferential / soft | Should not start: the delay is driven by governance, process or quality control |\n| Resource | Cannot start because the same resource is in use elsewhere |\n\nLink types in the network:\n\n| Link | Constraint |\n|---|---|\n| Finish-to-start | Task 2 starts only when task 1 finishes |\n| Start-to-start | Task 4 starts only when task 3 has started |\n| Finish-to-finish | Task 6 finishes only when task 5 finishes |\n| Start-to-finish | Shown in the source as generally bad practice |\n\nLinks can carry a lag (a deliberate delay after the predecessor) or a lead (an overlap, starting before the predecessor completes). Finish-to-start is the generally acceptable practice; the source marks start-to-finish as one to avoid.\n\n## Critical path analysis, worked\n\nThis is the arithmetic the exam can test. The example below is ours, not from the source, though the method is standard and every figure has been checked.\n\nA seven-activity project:\n\n| Activity | Duration (weeks) | Depends on |\n|---|---|---|\n| A. Survey site | 4 | Nothing |\n| B. Design | 6 | A |\n| C. Procure materials | 5 | A |\n| D. Build frame | 7 | B |\n| E. Order fittings | 3 | B |\n| F. Install services | 4 | C, D |\n| G. Inspect and hand over | 2 | E, F |\n\nStep 1 is the forward pass. Earliest start (ES) = latest EF of all predecessors. Earliest finish (EF) = ES + duration.\n\nStep 2 is the backward pass. Latest finish (LF) = earliest LS of all successors. Latest start (LS) = LF − duration.\n\nStep 3 is float = LS − ES.\n\n| Activity | Dur | ES | EF | LS | LF | Float | Critical? |\n|---|---|---|---|---|---|---|---|\n| A | 4 | 0 | 4 | 0 | 4 | 0 | Yes |\n| B | 6 | 4 | 10 | 4 | 10 | 0 | Yes |\n| C | 5 | 4 | 9 | 12 | 17 | 8 | No |\n| D | 7 | 10 | 17 | 10 | 17 | 0 | Yes |\n| E | 3 | 10 | 13 | 18 | 21 | 8 | No |\n| F | 4 | 17 | 21 | 17 | 21 | 0 | Yes |\n| G | 2 | 21 | 23 | 21 | 23 | 0 | Yes |\n\nCritical path: A → B → D → F → G. Project duration: 23 weeks.\n\nCheck it by enumerating every path, because the critical path must be the longest:\n\n| Path | Length |\n|---|---|\n| A → B → D → F → G | 23 |\n| A → B → E → G | 15 |\n| A → C → F → G | 15 |\n\n23 − 15 = 8, which matches the float on C and E exactly. If your float figures do not reconcile with your path lengths, one of them is wrong.\n\nHere is what float means in practice. Activity C can start up to 8 weeks late, or take 8 weeks longer, without delaying the project. Activity D cannot slip by a single day. Zero float means critical.\n\n## Critical path versus critical chain\n\n| | Critical path | Critical chain |\n|---|---|---|\n| Emphasis | Activities | Resources |\n| Resource constraints | Not considered | Considered, alongside dependencies |\n| Estimates used | Three-point, usually the most likely | The most optimistic: the best case |\n| Where safety time sits | Inside each activity estimate | Stripped out and pooled as a buffer at the end of the chain |\n| What gets monitored | Start and end dates, EVA, CPI, SPI | Rate of buffer consumption |\n| Monitoring frequency | Monthly may suit many projects | At least weekly, often daily |\n\nBoth have the same purpose: to enable analysis of the work, determine start and end dates, and use scarce resource efficiently.\n\n### Why critical chain exists\n\nIt targets three specific behaviours that make estimates unreliable:\n\n- switching between several activities at once\n- beginning work the moment its earliest start arrives, then holding the time until it is done\n- opening tasks that are not properly ready, to avoid the stop-start of waiting on information, materials or sign-off\n\nTasks then run past an estimate that never allowed for any of this.\n\n### What critical chain requires\n\n- Resources available when an activity is due to start, so the team and anyone else needing the same resource must be consulted and reach agreement.\n- A culture accepting that best-case estimates may not be achieved. The buffer is the safety net for the whole project, not for each task.\n- Focus. Once working on a task, resources concentrate solely on completing it to standard. Start and end dates stop being the thing watched; what matters is people moving through the work quickly and efficiently.\n\nWhere time matters most, there is evidence of unusually strong results: better on-time delivery, better quality, lower cost.\n\nThe buffers get signed off and locked into the deployment baseline, which is what makes their consumption measurable.\n\n## What else drives the schedule\n\nThis is the specific point of 20b, and the syllabus names the factors:\n\n| Factor | How it impacts the schedule |\n|---|---|\n| Business-as-usual activities | BAU staff are often the same people the project needs. Operational peaks, year-end, seasonal demand and BAU incidents all take resource away. Transition into use has to fit around operational readiness |\n| Costs | Funding release may depend on stage gates or product release, so activity cannot start until the money is drawn down. Cost limits constrain how much resource can be applied to compress a path |\n| Quality | QA and QC take time and consume resources that must be scheduled. Testing, inspection, independent witnessing and rework all sit on the timeline, and rework after a failed test changes the plan |\n| Risks | Contingency is time as well as money. Risk responses are scheduled activities. A materialising risk consumes buffer or float |\n| Scope | Every change to scope changes the work, so changes the network. Scope creep lengthens paths silently if it is not controlled |\n\nBoth approaches require input from technical and BAU stakeholders, because they are the ones who know what will hit the schedule in time or resource terms. That is the source's own instruction, and it is the direct answer to 20b: you cannot build a credible schedule from inside the project alone.\n\nInterfaces cut both ways. LO17 required understanding where the project touches other work in a programme or portfolio, and where it touches BAU, to avoid duplication, conflicts or omission.\n",
+      "body_markdown": "## Dependency and link types: what the schedule is built on\nFrom LO19, because the schedule is built on them:\n\n| Dependency type | Meaning |\n|---|---|\n| Logical / hard | Cannot start until another has started or finished |\n| Preferential / soft | Should not start: the delay is driven by governance, process or quality control |\n| Resource | Cannot start because the same resource is in use elsewhere |\n\nLink types in the network:\n\n| Link | Constraint |\n|---|---|\n| Finish-to-start | Task 2 starts only when task 1 finishes |\n| Start-to-start | Task 4 starts only when task 3 has started |\n| Finish-to-finish | Task 6 finishes only when task 5 finishes |\n| Start-to-finish | Generally bad practice, according to APM |\n\nLinks can carry a lag (a deliberate delay after the predecessor) or a lead (an overlap, starting before the predecessor completes). Finish-to-start is the generally acceptable practice; APM marks start-to-finish as one to avoid.\n\n## Critical path analysis: a worked example\nThis is the arithmetic the exam can test. The example below is illustrative, using the standard method.\n\nA seven-activity project:\n\n| Activity | Duration (weeks) | Depends on |\n|---|---|---|\n| A. Survey site | 4 | Nothing |\n| B. Design | 6 | A |\n| C. Procure materials | 5 | A |\n| D. Build frame | 7 | B |\n| E. Order fittings | 3 | B |\n| F. Install services | 4 | C, D |\n| G. Inspect and hand over | 2 | E, F |\n\nStep 1 is the forward pass. Earliest start (ES) = latest EF of all predecessors. Earliest finish (EF) = ES + duration.\n\nStep 2 is the backward pass. Latest finish (LF) = earliest LS of all successors. Latest start (LS) = LF − duration.\n\nStep 3 is float = LS − ES.\n\n| Activity | Dur | ES | EF | LS | LF | Float | Critical? |\n|---|---|---|---|---|---|---|---|\n| A | 4 | 0 | 4 | 0 | 4 | 0 | Yes |\n| B | 6 | 4 | 10 | 4 | 10 | 0 | Yes |\n| C | 5 | 4 | 9 | 12 | 17 | 8 | No |\n| D | 7 | 10 | 17 | 10 | 17 | 0 | Yes |\n| E | 3 | 10 | 13 | 18 | 21 | 8 | No |\n| F | 4 | 17 | 21 | 17 | 21 | 0 | Yes |\n| G | 2 | 21 | 23 | 21 | 23 | 0 | Yes |\n\nCritical path: A → B → D → F → G. Project duration: 23 weeks.\n\nCheck it by enumerating every path, because the critical path must be the longest:\n\n| Path | Length |\n|---|---|\n| A → B → D → F → G | 23 |\n| A → B → E → G | 15 |\n| A → C → F → G | 15 |\n\n23 − 15 = 8, which matches the float on C and E exactly. If your float figures do not reconcile with your path lengths, one of them is wrong.\n\nHere is what float means in practice. Activity C can start up to 8 weeks late, or take 8 weeks longer, without delaying the project. Activity D cannot slip by a single day. Zero float means critical.\n\n## Critical path vs critical chain: the difference\n| | Critical path | Critical chain |\n|---|---|---|\n| Emphasis | Activities | Resources |\n| Resource constraints | Not considered | Considered, alongside dependencies |\n| Estimates used | Three-point, usually the most likely | The most optimistic: the best case |\n| Where safety time sits | Inside each activity estimate | Stripped out and pooled as a buffer at the end of the chain |\n| What gets monitored | Start and end dates, EVA, CPI, SPI | Rate of buffer consumption |\n| Monitoring frequency | Monthly may suit many projects | At least weekly, often daily |\n\nBoth have the same purpose: to enable analysis of the work, determine start and end dates, and use scarce resource efficiently.\n\n### Why critical chain exists\n\nIt targets three specific behaviours that make estimates unreliable:\n\n- switching between several activities at once\n- beginning work the moment its earliest start arrives, then holding the time until it is done\n- opening tasks that are not properly ready, to avoid the stop-start of waiting on information, materials or sign-off\n\nTasks then run past an estimate that never allowed for any of this.\n\n### What critical chain requires\n\n- Resources available when an activity is due to start, so the team and anyone else needing the same resource must be consulted and reach agreement.\n- A culture accepting that best-case estimates may not be achieved. The buffer is the safety net for the whole project, not for each task.\n- Focus. Once working on a task, resources concentrate solely on completing it to standard. Start and end dates stop being the thing watched; what matters is people moving through the work quickly and efficiently.\n\nWhere time matters most, there is evidence of unusually strong results: better on-time delivery, better quality, lower cost.\n\nThe buffers get signed off and locked into the deployment baseline, which is what makes their consumption measurable.\n\n## Schedule drivers: what else shapes it\nThis is the specific point of 20b, and the syllabus names the factors:\n\n| Factor | How it impacts the schedule |\n|---|---|\n| Business-as-usual activities | BAU staff are often the same people the project needs. Operational peaks, year-end, seasonal demand and BAU incidents all take resource away. Transition into use has to fit around operational readiness |\n| Costs | Funding release may depend on stage gates or product release, so activity cannot start until the money is drawn down. Cost limits constrain how much resource can be applied to compress a path |\n| Quality | QA and QC take time and consume resources that must be scheduled. Testing, inspection, independent witnessing and rework all sit on the timeline, and rework after a failed test changes the plan |\n| Risks | Contingency is time as well as money. Risk responses are scheduled activities. A materialising risk consumes buffer or float |\n| Scope | Every change to scope changes the work, so changes the network. Scope creep lengthens paths silently if it is not controlled |\n\nBoth approaches require input from technical and BAU stakeholders, because they are the ones who know what will hit the schedule in time or resource terms. That is APM's own instruction, and it is the direct answer to 20b: you cannot build a credible schedule from inside the project alone.\n\nInterfaces cut both ways. LO17 required understanding where the project touches other work in a programme or portfolio, and where it touches BAU, to avoid duplication, conflicts or omission.\n",
       "diagrams": [
         {
           "id": "lo20-critical-path",
           "figure_number": "20.1",
           "caption": "Critical path analysis: forward pass, backward pass and float",
           "placement": "after_section",
-          "heading": "Critical path analysis, worked",
+          "heading": "Critical path analysis: a worked example",
           "file": "lo20-critical-path.svg",
           "spec": "A precedence network of the seven worked activities — A survey (4), B design (6), C procure (5), D build frame (7), E order fittings (3), F install services (4), G inspect (2) — with A→B, A→C, B→D, B→E, C→F, D→F, E→G, F→G. Each node shows duration, ES, EF, LS, LF and float in a consistent box layout. Highlight the critical path A→B→D→F→G in a distinct colour and mark it as 23 weeks. Show C and E with float 8 annotated. The node box layout is the teaching device — learners will copy it when working problems by hand.",
           "alt": "A precedence network of seven activities with earliest and latest start and finish dates and float on each node, showing the critical path A to B to D to F to G totalling 23 weeks and eight weeks of float on activities C and E.",
@@ -180,7 +180,7 @@
           "figure_number": "20.2",
           "caption": "Where safety time sits: critical path against critical chain",
           "placement": "after_section",
-          "heading": "Critical path versus critical chain",
+          "heading": "Critical path vs critical chain: the difference",
           "file": null,
           "spec": "Two stacked timelines of the same chain of tasks. Top — critical path: each task bar drawn with its own safety margin shaded inside it, so the padding is distributed and invisible. Bottom — critical chain: the same tasks drawn at their optimistic durations, shorter, with all the removed safety aggregated into a single buffer bar at the end. Show the total length being similar or shorter for critical chain. The visual argument is that pooled contingency goes further than contingency hidden in every task.",
           "alt": "Two timelines comparing critical path, where safety time is hidden inside each task estimate, with critical chain, where tasks run to optimistic estimates and the safety time is pooled into a single buffer at the end of the chain."
@@ -190,7 +190,7 @@
           "figure_number": "20.3",
           "caption": "What constrains the schedule beyond the activity network",
           "placement": "after_section",
-          "heading": "What else drives the schedule",
+          "heading": "Schedule drivers: what else shapes it",
           "file": null,
           "spec": "The activity network at the centre with five constraining forces pressing on it from around the edge: business-as-usual activities, costs, quality, risks, scope. Each labelled with its specific mechanism — BAU competing for the same people, funding released at gates, QA and QC consuming time, risk responses needing schedule contingency, scope changes reshaping the network. The point: the network is necessary but not sufficient.",
           "alt": "An activity network at the centre constrained by business-as-usual activities, costs, quality, risks and scope, each shown with the mechanism by which it affects the schedule."
@@ -199,25 +199,25 @@
       "exam_tips": [
         {
           "id": "lo20-tip-links",
-          "heading": "Dependency types and link types",
+          "heading": "Dependency and link types: what the schedule is built on",
           "placement": "after_section",
           "tip": "Start-to-finish is the one to name as bad practice and finish-to-start is the one to name as normal. If a scenario has a team waiting on a sign-off that no physical constraint requires, that is a preferential dependency, and it is the one you can negotiate away."
         },
         {
           "id": "lo20-tip-show-working",
-          "heading": "Critical path analysis, worked",
+          "heading": "Critical path analysis: a worked example",
           "placement": "after_section",
           "tip": "Show the working. A forward pass, a backward pass and a float column earn marks even when one number comes out wrong. The path-length check takes 30 seconds, so run it before you commit to an answer."
         },
         {
           "id": "lo20-tip-path-chain",
-          "heading": "Critical path versus critical chain",
+          "heading": "Critical path vs critical chain: the difference",
           "placement": "after_section",
           "tip": "Six rows, and the two tested hardest are the estimates used and what gets monitored. Buffer consumption or daily reviews in a scenario means critical chain. However, the word most people read past is resource, and it is usually sitting in the first line."
         },
         {
           "id": "lo20-tip-bau",
-          "heading": "What else drives the schedule",
+          "heading": "Schedule drivers: what else shapes it",
           "placement": "after_section",
           "tip": "Five factors, and BAU is the one to name first because 20b is built around it. A question about a slipping schedule pays more for naming who else needs those people than for anything you say about the network."
         }
@@ -226,7 +226,7 @@
         {
           "id": "lo20-pairup-dependencies",
           "type": "pairup",
-          "heading": "Dependency types and link types",
+          "heading": "Dependency and link types: what the schedule is built on",
           "title": "Match the dependency type to what it means",
           "pairs": [
             {
@@ -246,7 +246,7 @@
         {
           "id": "lo20-pairup-links",
           "type": "pairup",
-          "heading": "Dependency types and link types",
+          "heading": "Dependency and link types: what the schedule is built on",
           "title": "Match the link type to its constraint",
           "pairs": [
             {
@@ -263,14 +263,14 @@
             },
             {
               "term": "Start-to-finish",
-              "match": "Shown in the source as generally bad practice"
+              "match": "Generally bad practice, according to APM"
             }
           ]
         },
         {
           "id": "lo20-lineup-critical-path",
           "type": "lineup",
-          "heading": "Critical path analysis, worked",
+          "heading": "Critical path analysis: a worked example",
           "title": "Put the critical path back in order",
           "items": [
             "Survey site (A)",
@@ -283,7 +283,7 @@
         {
           "id": "lo20-groupup-float",
           "type": "groupup",
-          "heading": "Critical path analysis, worked",
+          "heading": "Critical path analysis: a worked example",
           "title": "Which activities have float?",
           "note": "Straight off the float column. If you cannot sort these, redo the backward pass.",
           "buckets": [
@@ -332,7 +332,7 @@
         {
           "id": "lo20-groupup-path-chain",
           "type": "groupup",
-          "heading": "Critical path versus critical chain",
+          "heading": "Critical path vs critical chain: the difference",
           "title": "Which approach does each characteristic belong to?",
           "buckets": [
             {
@@ -384,7 +384,7 @@
         {
           "id": "lo20-pairup-drivers",
           "type": "pairup",
-          "heading": "What else drives the schedule",
+          "heading": "Schedule drivers: what else shapes it",
           "title": "Match the factor to how it hits the schedule",
           "note": "Shortened from the table so each card is one idea rather than a paragraph.",
           "pairs": [
@@ -414,7 +414,7 @@
       "worked_examples": [
         {
           "id": "lo20-we-buffer",
-          "heading": "Critical path versus critical chain",
+          "heading": "Critical path vs critical chain: the difference",
           "row_label": "What gets monitored",
           "situation": "You inherit a critical chain project. The report shows 60% of the buffer consumed and 30% of the chain complete, but every task is inside its start and end dates.",
           "ask": "Is the project healthy?",
@@ -422,7 +422,7 @@
         },
         {
           "id": "lo20-we-bau",
-          "heading": "What else drives the schedule",
+          "heading": "Schedule drivers: what else shapes it",
           "row_label": "Business-as-usual activities",
           "situation": "Your network says the data migration takes three weeks from 1 October. The two engineers who know the legacy system also run month-end close, which removes them for the first five working days of each month.",
           "ask": "Does the migration finish on 21 October?",
@@ -434,23 +434,23 @@
       "outcome_code": "20c",
       "outcome_title": "Re-estimating and schedule optimisation through the life cycle",
       "source_ref": "BoK 8e 5.5 (p265), 5.5.1 (p266), 5.5.4 (p272-273), 5.4.1 (p256-257), 5.5.3 (p270-271)",
-      "body_markdown": "## Why re-estimate at all\n\nA schedule is never fixed. It gets reviewed continually, so that delivery still lands inside the time the project agreed to.\n\nThe underlying reason comes from LO19: estimating is not something done once for the business case and then closed. It runs continuously, sharpening as information arrives. The further the project goes, the more accurate its estimates get, and the better the decisions stakeholders can make on them.\n\nSo re-estimating is not an admission that the first plan was wrong. It is the plan doing what it was designed to do.\n\n## Reasons to re-estimate\n\n| Trigger | Why the estimate changes |\n|---|---|\n| New information emerges | Early estimates were made with least knowledge. Detail replaces assumption |\n| Actual performance data arrives | Real durations and costs from completed work are better predictors than forecasts |\n| Scope changes | Approved changes alter the work, so alter the estimate |\n| Risks materialise or close | A risk that occurs consumes contingency; one that passes releases it |\n| Resource availability shifts | People leave, arrive, or get pulled into BAU |\n| Dependencies change | A removed soft dependency shortens a path; a discovered one lengthens it |\n| Rolling wave moves forward | The next wave of near-term work gets planned in detail for the first time |\n| An iteration completes | Burndown data shows how efficiently the team worked, which sharpens the next estimate |\n\nThat last row is worth noting: in iterative working, re-estimating is built into the rhythm. Each iteration produces velocity data that improves the next forecast.\n\n## Benefits of re-estimating\n\n- Better-informed decisions for stakeholders, because the forecast reflects what is now known.\n- Earlier warning. A revised forecast surfaces a problem while there is still time to respond.\n- Credibility. A schedule maintained honestly is trusted; one defended past the point of plausibility is not.\n- Improved future estimating. Comparing estimate to actual is how estimating capability improves, which is the LO6 lessons-learned link.\n- Contingency managed deliberately rather than consumed silently.\n\nAnd the governance route: revised estimates go through change control, which is what then adjusts the integrated plan. Re-estimating does not mean quietly rewriting the baseline.\n\n## Schedule optimisation\n\nOptimisation means reshaping the schedule to meet a constraint, usually time and sometimes resource.\n\n| Technique | What it does | What it costs |\n|---|---|---|\n| Reduce preferential or resource dependencies | Removes an artificial constraint, shortening a path | Requires accepting the governance or quality reason the dependency existed for |\n| Apply more resource to critical activities | Shortens critical path duration | Costs money, and not all work divides |\n| Overlap activities using leads | Starts a successor before its predecessor finishes | Increases risk of rework if the predecessor changes |\n| Re-sequence the network | Finds a shorter arrangement of the same work | Needs the dependency logic re-agreed with experts |\n| Level or smooth resources | Resolves resource conflicts (LO21) | Levelling may extend the end date; smoothing works within float |\n| Reduce scope | Removes work from the network entirely | Requires change control, and may cost benefits |\n\nWhere to apply effort: the critical path. Compressing a non-critical activity achieves nothing, because it only increases that activity's float. This is the most common practical error, and a good scenario answer names it.\n\nAnd a caution: compress a critical path far enough and a previously non-critical path becomes critical. In the worked example, driving A → B → D → F → G below 15 weeks would make both other paths critical, and further compression would need work on all three.\n\nIn iterative life cycles, optimisation works differently. The time and the money are what stay fixed, while scope and quality flex, so you agree a timebox and get through as much of the work as you efficiently can inside it. It may take a number of iterations before the output is genuinely fit for purpose. You do not compress the timebox; you change what goes in it.\n\n## What tells you re-estimation is needed\n\nProgress monitoring. The three elements required for performance measurement:\n\n1. something to measure against: the baseline\n2. what actually happened: real performance data\n3. a judgement on what that performance means for the rest of the project\n\nAll three are needed. Data without a baseline is a number with nothing to compare it to; both without an assessment is reporting rather than control.\n\nWhat gets monitored:\n\n| Area | Includes |\n|---|---|\n| Progress | Whether planned scope is being delivered to the required quality; what has been committed and how cash is flowing; how contractors are performing |\n| Opportunities and risks | Shifts in the project's environment; a changing risk profile and what it does to time buffers or cost contingency; opportunities spotted, and their effect |\n| Health of the project | Stakeholder sentiment and engagement effectiveness; motivation and satisfaction of team members; health of supply chain relationships |\n\nThat third category is easily dismissed and shouldn't be. The project manager and team are responsible for monitoring the non-quantifiable areas of stakeholder engagement and team morale, while the people doing the work are best placed to track it, though plenty of organisations hand it to the PMO.\n\nFrequency depends on circumstances and may change through the life cycle. With EVA or CPI, monthly may be appropriate for many projects, though critical activities may warrant more frequent tracking. Under critical chain the data comes in and gets reviewed weekly at minimum, frequently every day.\n\nHow to report it: typically quantitatively, with traffic-light approaches flagging areas in or out of control, individually or in a dashboard. But any project of real length needs its performance shown graphically, so a trend becomes visible and problems surface early. A trend is visible long before a threshold is breached. Iterative approaches use burndown charts.\n\nAnd when recovery is not possible: when monitoring surfaces something the project cannot recover from, you replan and establish an amended baseline. That is the honest end point: not optimisation, but a new baseline through governance.\n",
+      "body_markdown": "## Re-estimating: why do it at all\nA schedule is never fixed. It gets reviewed continually, so that delivery still lands inside the time the project agreed to.\n\nThe underlying reason comes from LO19: estimating is not something done once for the business case and then closed. It runs continuously, sharpening as information arrives. The further the project goes, the more accurate its estimates get, and the better the decisions stakeholders can make on them.\n\nSo re-estimating is not an admission that the first plan was wrong. It is the plan doing what it was designed to do.\n\n## Re-estimating: the triggers\n| Trigger | Why the estimate changes |\n|---|---|\n| New information emerges | Early estimates were made with least knowledge. Detail replaces assumption |\n| Actual performance data arrives | Real durations and costs from completed work are better predictors than forecasts |\n| Scope changes | Approved changes alter the work, so alter the estimate |\n| Risks materialise or close | A risk that occurs consumes contingency; one that passes releases it |\n| Resource availability shifts | People leave, arrive, or get pulled into BAU |\n| Dependencies change | A removed soft dependency shortens a path; a discovered one lengthens it |\n| Rolling wave moves forward | The next wave of near-term work gets planned in detail for the first time |\n| An iteration completes | Burndown data shows how efficiently the team worked, which sharpens the next estimate |\n\nThat last row is worth noting: in iterative working, re-estimating is built into the rhythm. Each iteration produces velocity data that improves the next forecast.\n\n## Re-estimating: the benefits\n- Better-informed decisions for stakeholders, because the forecast reflects what is now known.\n- Earlier warning. A revised forecast surfaces a problem while there is still time to respond.\n- Credibility. A schedule maintained honestly is trusted; one defended past the point of plausibility is not.\n- Improved future estimating. Comparing estimate to actual is how estimating capability improves, which is the LO6 lessons-learned link.\n- Contingency managed deliberately rather than consumed silently.\n\nAnd the governance route: revised estimates go through change control, which is what then adjusts the integrated plan. Re-estimating does not mean quietly rewriting the baseline.\n\n## Schedule optimisation: meeting a constraint\nOptimisation means reshaping the schedule to meet a constraint, usually time and sometimes resource.\n\n| Technique | What it does | What it costs |\n|---|---|---|\n| Reduce preferential or resource dependencies | Removes an artificial constraint, shortening a path | Requires accepting the governance or quality reason the dependency existed for |\n| Apply more resource to critical activities | Shortens critical path duration | Costs money, and not all work divides |\n| Overlap activities using leads | Starts a successor before its predecessor finishes | Increases risk of rework if the predecessor changes |\n| Re-sequence the network | Finds a shorter arrangement of the same work | Needs the dependency logic re-agreed with experts |\n| Level or smooth resources | Resolves resource conflicts (LO21) | Levelling may extend the end date; smoothing works within float |\n| Reduce scope | Removes work from the network entirely | Requires change control, and may cost benefits |\n\nWhere to apply effort: the critical path. Compressing a non-critical activity achieves nothing, because it only increases that activity's float. This is the most common practical error, and a good scenario answer names it.\n\nAnd a caution: compress a critical path far enough and a previously non-critical path becomes critical. In the worked example, driving A → B → D → F → G below 15 weeks would make both other paths critical, and further compression would need work on all three.\n\nIn iterative life cycles, optimisation works differently. The time and the money are what stay fixed, while scope and quality flex, so you agree a timebox and get through as much of the work as you efficiently can inside it. It may take a number of iterations before the output is genuinely fit for purpose. You do not compress the timebox; you change what goes in it.\n\n## Progress monitoring: what tells you to re-estimate\nProgress monitoring. The three elements required for performance measurement:\n\n1. something to measure against: the baseline\n2. what actually happened: real performance data\n3. a judgement on what that performance means for the rest of the project\n\nAll three are needed. Data without a baseline is a number with nothing to compare it to; both without an assessment is reporting rather than control.\n\nWhat gets monitored:\n\n| Area | Includes |\n|---|---|\n| Progress | Whether planned scope is being delivered to the required quality; what has been committed and how cash is flowing; how contractors are performing |\n| Opportunities and risks | Shifts in the project's environment; a changing risk profile and what it does to time buffers or cost contingency; opportunities spotted, and their effect |\n| Health of the project | Stakeholder sentiment and engagement effectiveness; motivation and satisfaction of team members; health of supply chain relationships |\n\nThat third category is easily dismissed and shouldn't be. The project manager and team are responsible for monitoring the non-quantifiable areas of stakeholder engagement and team morale, while the people doing the work are best placed to track it, though plenty of organisations hand it to the PMO.\n\nFrequency depends on circumstances and may change through the life cycle. With EVA or CPI, monthly may be appropriate for many projects, though critical activities may warrant more frequent tracking. Under critical chain the data comes in and gets reviewed weekly at minimum, frequently every day.\n\nHow to report it: typically quantitatively, with traffic-light approaches flagging areas in or out of control, individually or in a dashboard. But any project of real length needs its performance shown graphically, so a trend becomes visible and problems surface early. A trend is visible long before a threshold is breached. Iterative approaches use burndown charts.\n\nAnd when recovery is not possible: when monitoring surfaces something the project cannot recover from, you replan and establish an amended baseline. That is the honest end point: not optimisation, but a new baseline through governance.\n",
       "exam_tips": [
         {
           "id": "lo20-tip-triggers",
-          "heading": "Reasons to re-estimate",
+          "heading": "Re-estimating: the triggers",
           "placement": "after_section",
           "tip": "Eight triggers is more than you will produce under time pressure, so carry four that cover different ground: new information, actual performance data, scope change and risk. Then say what you would do with the revised number, because that is where the mark sits."
         },
         {
           "id": "lo20-tip-compression",
-          "heading": "Schedule optimisation",
+          "heading": "Schedule optimisation: meeting a constraint",
           "placement": "after_section",
           "tip": "Name the technique and its cost in the same sentence. Saying you would add resource to the critical path without saying what that spends is half an answer, and proposing to compress an activity that has float is the error the marker is watching for."
         },
         {
           "id": "lo20-tip-three-elements",
-          "heading": "What tells you re-estimation is needed",
+          "heading": "Progress monitoring: what tells you to re-estimate",
           "placement": "after_section",
           "tip": "Baseline, actuals, assessment. Give all three or the answer reads as reporting rather than control, and add the frequency: monthly with EVA, weekly or daily under critical chain."
         }
@@ -459,7 +459,7 @@
         {
           "id": "lo20-pairup-triggers",
           "type": "pairup",
-          "heading": "Reasons to re-estimate",
+          "heading": "Re-estimating: the triggers",
           "title": "Match the trigger to why the estimate changes",
           "note": "Six of the eight. Enough to retrieve without turning into a scan.",
           "pairs": [
@@ -492,7 +492,7 @@
         {
           "id": "lo20-pairup-optimisation",
           "type": "pairup",
-          "heading": "Schedule optimisation",
+          "heading": "Schedule optimisation: meeting a constraint",
           "title": "Match the technique to what it does",
           "pairs": [
             {
@@ -524,7 +524,7 @@
         {
           "id": "lo20-groupup-monitoring",
           "type": "groupup",
-          "heading": "What tells you re-estimation is needed",
+          "heading": "Progress monitoring: what tells you to re-estimate",
           "title": "Sort each item into the area it gets monitored under",
           "buckets": [
             {
@@ -582,7 +582,7 @@
       "worked_examples": [
         {
           "id": "lo20-we-compress",
-          "heading": "Schedule optimisation",
+          "heading": "Schedule optimisation: meeting a constraint",
           "row_label": "Apply more resource to critical activities",
           "situation": "You are four weeks late on a 30-week fit-out. Your planner proposes putting two extra joiners on the fittings activity, which carries six weeks of float, at £9,000.",
           "ask": "Do you approve it?",
@@ -662,7 +662,7 @@
   ],
   "progress_checkpoint": [
     "I can explain what scope covers and name the four breakdown structures, saying what each defines and how PBS feeds WBS.",
-    "I can name the dependency types and link types, and say which link type the source marks as bad practice.",
+    "I can name the dependency types and link types, and say which link type APM marks as bad practice.",
     "I can perform a forward pass, backward pass and float calculation on a small network, and identify the critical path.",
     "I can check my float figures against path lengths to verify a critical path calculation.",
     "I can compare critical path and critical chain on emphasis, estimates used, where safety time sits, and what gets monitored.",

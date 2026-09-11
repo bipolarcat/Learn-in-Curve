@@ -80,14 +80,14 @@
       "outcome_code": "22a",
       "outcome_title": "Creating a budget, the cost breakdown structure, and cost types",
       "source_ref": "BoK 8e 5.8 (p291), 5.8.1 (p292-293), 5.8.3 (p296-297), 5.2.1 (p236)",
-      "body_markdown": "## Where budgeting sits\n\nBudgeting and cost control has four elements:\n\n1. estimating what it will cost\n2. agreeing a budget\n3. tracking actual and forecast spend against that budget\n4. shutting the finances down properly at the end\n\nThe first two are 22a; the third is 22b; the fourth closes the LO.\n\nCost planning runs alongside resource planning and scheduling, and takes the resource-optimised schedule as one of its inputs. That ordering matters and is worth stating in an answer: you cannot cost a schedule you have not built, or a resource plan you have not levelled.\n\n## The cost breakdown structure\n\nThe CBS defines scope in terms of the project budget, and it is the fourth of the breakdown structures you met in LO17 and LO20.\n\n| Structure | Defines |\n|---|---|\n| PBS | The things to create |\n| WBS | The activities to complete |\n| OBS | The allocation of people |\n| CBS | The project budget |\n\nBuilding the budget through a CBS means every cost traces to a work package and a deliverable. That is what makes variance analysis possible later, because an overspend can be located rather than only observed.\n\n## The cost types to know\n\nAll types of cost get considered:\n\n| Category | Covers |\n|---|---|\n| Labour | People, both internal and contracted |\n| Services | Software development, legal advice |\n| Materials and consumables | Both finished and raw materials |\n| Assets | Equipment, vehicles and infrastructure, bought, leased or rented |\n\n## How costs behave\n\nThen there are the behavioural distinctions the syllabus names:\n\n| Pair | Distinction |\n|---|---|\n| Fixed vs variable | A fixed cost is unaffected by scale or quantity; a variable cost moves with how much you use or make |\n| One-off vs recurring | Pay it once, like buying a computer, or pay it again and again, like a software licence renewal |\n| Capital vs revenue | How each is treated follows the organisation's accounting rules, and capital spend is tightly controlled, especially in the public sector |\n| Direct vs indirect | Direct costs attach to a specific work package or deliverable; indirect costs support the project without tracing to one item |\n\nThe fixed and variable distinction behaves differently in an iterative life cycle. In linear work, fixed cost sits as a baseline with variable cost rising by quantity. In iterative work, each iteration carries its own fixed cost, and total cost rises in steps by released scope rather than smoothly by units made. That is why a client or sponsor can cap future commitment by cutting how many iterations are funded, each one being a discrete, largely fixed cost.\n\n## Profiling the money, not only totalling it\n\nBeyond totalling the budget, costs get profiled across the initiative's life, and that profile is a cash flow forecast. In earned value terms it is the budgeted cost of work scheduled (BCWS), which is the same thing as planned value.\n\nSo the budget is not a number, it is a curve. That curve becomes the baseline everything in 22b is measured against.\n\nTiming of funding release matters too: money may only be released once products ship, certification passes, or a stage gate clears. On iterative work, funding release is often tied to iterations. A budget that exists but cannot be drawn down yet is not available money.\n\n## Estimating the costs\n\nApproaches differ by cost type. Material costs come off published prices, multiplied by estimated volumes. Subcontractors on time and materials need an estimate of the hours they will work. On fixed price, the supplier estimates the time and includes contingency or a risk premium, which is the LO5 link: fixed price transfers risk, and the supplier prices it in.\n\nThe bias to watch is optimism bias. It is the most prominent one, the tendency to assume everything will run the ideal course. Two counters:\n\n- review and challenge processes\n- contingency for each cost area\n\n## Whole-life costing\n\nSustainability is important in project-based working, and whole-life costing is one way to ensure long-term impacts are considered. Increasingly, budgets are planned to the end-of-life and decommissioning stages.\n\nThis is the LO3 link made financial. The cheapest option to build is frequently not the cheapest to own, and LO5's lifetime cost of ownership makes the same argument in procurement.\n\n## Contingency and management reserve\n\nThere is no magic purse with unlimited funds, so experienced professionals ensure budgets include contingency and a management reserve.\n\n| Type | Covers | Released by |\n|---|---|---|\n| Planned contingency | Known risks and anticipated events | Authority to draw down, once the risk occurs |\n| Management or project reserve | Unanticipated issues | The governance board |\n\nIt is not a secret stash that makes problems disappear. It is a management tool, and governance controls it.\n\nContingency can appear as line items in a budget, as additional timeboxed iterations, or as a management reserve held across the whole project.\n\nDifferent levels of the organisation can hold contingency for different kinds of risk. Handing the whole lot to the project professional takes real trust from sponsor and board, because they need confidence it will only be spent where genuinely needed. Things like currency or interest rate exposure sit better at organisational level.\n\n## Governance sits over all of it\n\nEvery pound spent falls under governance oversight and decision-making, which puts cost planning right at the centre of governance, so how much detail and rigour is applied depends on the organisation. It depends as well on how risky and how large the initiative is, and on which workstream or phase you are in. Iterative life cycles can control expenditure more easily, so they can tolerate reduced rigour at the outset.",
+      "body_markdown": "## Budgeting and cost control: where budgeting sits\nBudgeting and cost control has four elements:\n\n1. estimating what it will cost\n2. agreeing a budget\n3. tracking actual and forecast spend against that budget\n4. shutting the finances down properly at the end\n\nThe first two are 22a; the third is 22b; the fourth closes the LO.\n\nCost planning runs alongside resource planning and scheduling, and takes the resource-optimised schedule as one of its inputs. That ordering matters and is worth stating in an answer: you cannot cost a schedule you have not built, or a resource plan you have not levelled.\n\n## The cost breakdown structure: scope in budget terms\nThe CBS defines scope in terms of the project budget, and it is the fourth of the breakdown structures you met in LO17 and LO20.\n\n| Structure | Defines |\n|---|---|\n| PBS | The things to create |\n| WBS | The activities to complete |\n| OBS | The allocation of people |\n| CBS | The project budget |\n\nBuilding the budget through a CBS means every cost traces to a work package and a deliverable. That is what makes variance analysis possible later, because an overspend can be located rather than only observed.\n\n## Cost types: the ones to know\nAll types of cost get considered:\n\n| Category | Covers |\n|---|---|\n| Labour | People, both internal and contracted |\n| Services | Software development, legal advice |\n| Materials and consumables | Both finished and raw materials |\n| Assets | Equipment, vehicles and infrastructure, bought, leased or rented |\n\n## Cost behaviour: the distinctions to know\nThen there are the behavioural distinctions the syllabus names:\n\n| Pair | Distinction |\n|---|---|\n| Fixed vs variable | A fixed cost is unaffected by scale or quantity; a variable cost moves with how much you use or make |\n| One-off vs recurring | Pay it once, like buying a computer, or pay it again and again, like a software licence renewal |\n| Capital vs revenue | How each is treated follows the organisation's accounting rules, and capital spend is tightly controlled, especially in the public sector |\n| Direct vs indirect | Direct costs attach to a specific work package or deliverable; indirect costs support the project without tracing to one item |\n\nThe fixed and variable distinction behaves differently in an iterative life cycle. In linear work, fixed cost sits as a baseline with variable cost rising by quantity. In iterative work, each iteration carries its own fixed cost, and total cost rises in steps by released scope rather than smoothly by units made. That is why a client or sponsor can cap future commitment by cutting how many iterations are funded, each one being a discrete, largely fixed cost.\n\n## Cost profiling: not only totalling\nBeyond totalling the budget, costs get profiled across the initiative's life, and that profile is a cash flow forecast. In earned value terms it is the budgeted cost of work scheduled (BCWS), which is the same thing as planned value.\n\nSo the budget is not a number, it is a curve. That curve becomes the baseline everything in 22b is measured against.\n\nTiming of funding release matters too: money may only be released once products ship, certification passes, or a stage gate clears. On iterative work, funding release is often tied to iterations. A budget that exists but cannot be drawn down yet is not available money.\n\n## Cost estimating: approaches by cost type\nApproaches differ by cost type. Material costs come off published prices, multiplied by estimated volumes. Subcontractors on time and materials need an estimate of the hours they will work. On fixed price, the supplier estimates the time and includes contingency or a risk premium, which is the LO5 link: fixed price transfers risk, and the supplier prices it in.\n\nThe bias to watch is optimism bias. It is the most prominent one, the tendency to assume everything will run the ideal course. Two counters:\n\n- review and challenge processes\n- contingency for each cost area\n\n## Whole-life costing: the full cost of ownership\nSustainability is important in project-based working, and whole-life costing is one way to ensure long-term impacts are considered. Increasingly, budgets are planned to the end-of-life and decommissioning stages.\n\nThis is the LO3 link made financial. The cheapest option to build is frequently not the cheapest to own, and LO5's lifetime cost of ownership makes the same argument in procurement.\n\n## Contingency and management reserve: planning for the unknown\nThere is no magic purse with unlimited funds, so experienced professionals ensure budgets include contingency and a management reserve.\n\n| Type | Covers | Released by |\n|---|---|---|\n| Planned contingency | Known risks and anticipated events | Authority to draw down, once the risk occurs |\n| Management or project reserve | Unanticipated issues | The governance board |\n\nIt is not a secret stash that makes problems disappear. It is a management tool, and governance controls it.\n\nContingency can appear as line items in a budget, as additional timeboxed iterations, or as a management reserve held across the whole project.\n\nDifferent levels of the organisation can hold contingency for different kinds of risk. Handing the whole lot to the project professional takes real trust from sponsor and board, because they need confidence it will only be spent where genuinely needed. Things like currency or interest rate exposure sit better at organisational level.\n\n## Governance: it sits over all of it\nEvery pound spent falls under governance oversight and decision-making, which puts cost planning right at the centre of governance, so how much detail and rigour is applied depends on the organisation. It depends as well on how risky and how large the initiative is, and on which workstream or phase you are in. Iterative life cycles can control expenditure more easily, so they can tolerate reduced rigour at the outset.",
       "diagrams": [
         {
           "id": "lo22-fixed-variable",
           "figure_number": "22.1",
           "caption": "Fixed and variable costs in linear and iterative life cycles",
           "placement": "after_section",
-          "heading": "How costs behave",
+          "heading": "Cost behaviour: the distinctions to know",
           "file": null,
           "spec": "Two charts side by side, total cost on the vertical axis. Left — linear: a horizontal fixed-cost baseline with variable cost rising smoothly above it against quantity (units made). Right — iterative: total cost rising in discrete steps against scope (released work), each step being one iteration's largely fixed cost. The contrast between a smooth slope and a staircase is the teaching point, and it explains why reducing the number of iterations controls commitment.",
           "alt": "Two cost charts comparing a linear life cycle, where variable cost rises smoothly above a fixed baseline with quantity, against an iterative life cycle, where total cost rises in discrete steps as each iteration is released."
@@ -97,7 +97,7 @@
           "figure_number": "22.2",
           "caption": "The contingency drawdown decision",
           "placement": "after_section",
-          "heading": "Contingency and management reserve",
+          "heading": "Contingency and management reserve: planning for the unknown",
           "file": null,
           "spec": "A decision flow starting from a deviation — risk event, issue arising, technical or user change request. First decision: was the risk previously identified? Yes leads to approval to use planned contingency, and the risk budget reduces. No leads to a second decision: is there sufficient management reserve? Yes leads to a request to the governance board to release it, and the reserve reduces. No leads to a change request for additional funding. All three routes converge on remedial action funded and implemented. The two decision diamonds are the structure worth memorising.",
           "alt": "A decision flow from a deviation through whether the risk was previously identified and whether sufficient management reserve exists, leading to planned contingency drawdown, a governance board release, or a change request for additional funding."
@@ -106,25 +106,25 @@
       "exam_tips": [
         {
           "id": "lo22-tip-ordering",
-          "heading": "Where budgeting sits",
+          "heading": "Budgeting and cost control: where budgeting sits",
           "placement": "after_section",
           "tip": "Name the sequence when a scenario asks how a budget gets built. Costing follows the resource-optimised schedule, so an answer that prices the work before the schedule exists is describing a guess, not a budget."
         },
         {
           "id": "lo22-tip-iterative-steps",
-          "heading": "How costs behave",
+          "heading": "Cost behaviour: the distinctions to know",
           "placement": "after_section",
           "tip": "A scenario that caps spend by cutting iterations is testing this section. The mark is in saying why it works: each iteration is a discrete, largely fixed cost, so cutting one removes a whole step rather than shaving a variable rate."
         },
         {
           "id": "lo22-tip-optimism-bias",
-          "heading": "Estimating the costs",
+          "heading": "Cost estimating: approaches by cost type",
           "placement": "after_section",
           "tip": "Optimism bias is the one to name by name, and it comes with two counters. Give both: review and challenge, plus contingency held against each cost area. One counter on its own reads as half the answer."
         },
         {
           "id": "lo22-tip-reserve-release",
-          "heading": "Contingency and management reserve",
+          "heading": "Contingency and management reserve: planning for the unknown",
           "placement": "after_section",
           "tip": "Every contingency question turns on one test: was this risk identified? Yes means planned contingency, drawn down with authority. No means the governance board releasing management reserve. Neither available means a change request for additional funding."
         }
@@ -133,7 +133,7 @@
         {
           "id": "lo22-lineup-four-elements",
           "type": "lineup",
-          "heading": "Where budgeting sits",
+          "heading": "Budgeting and cost control: where budgeting sits",
           "title": "Put the four elements of budgeting and cost control in order",
           "items": [
             "Estimate what it will cost",
@@ -145,7 +145,7 @@
         {
           "id": "lo22-pairup-breakdowns",
           "type": "pairup",
-          "heading": "The cost breakdown structure",
+          "heading": "The cost breakdown structure: scope in budget terms",
           "title": "Match each breakdown structure to what it defines",
           "note": "Four structures, four different questions. The CBS is the money one.",
           "pairs": [
@@ -170,7 +170,7 @@
         {
           "id": "lo22-pairup-cost-categories",
           "type": "pairup",
-          "heading": "The cost types to know",
+          "heading": "Cost types: the ones to know",
           "title": "Match the cost category to what it covers",
           "pairs": [
             {
@@ -194,7 +194,7 @@
         {
           "id": "lo22-pairup-cost-behaviour",
           "type": "pairup",
-          "heading": "How costs behave",
+          "heading": "Cost behaviour: the distinctions to know",
           "title": "Match each pair of cost types to the distinction it draws",
           "pairs": [
             {
@@ -218,7 +218,7 @@
         {
           "id": "lo22-groupup-contingency",
           "type": "groupup",
-          "heading": "Contingency and management reserve",
+          "heading": "Contingency and management reserve: planning for the unknown",
           "title": "Which pot does each statement describe?",
           "buckets": [
             {
@@ -263,7 +263,7 @@
       "worked_examples": [
         {
           "id": "lo22-we-reserve",
-          "heading": "Contingency and management reserve",
+          "heading": "Contingency and management reserve: planning for the unknown",
           "row_label": "Management or project reserve",
           "situation": "Month 4 of a £600,000 fit-out. Your cladding supplier goes into administration, nobody had that on the risk register, and a replacement adds £45,000.",
           "ask": "Do you take it from the £30,000 of planned contingency?",
@@ -275,35 +275,35 @@
       "outcome_code": "22b",
       "outcome_title": "Forecasting and refining budgets: earned value and cost control",
       "source_ref": "BoK 8e 5.8.2 (p294-295), 5.8.4 (p298-299), 5.5.4 (p272-273), 2.3.3 (p80-81); worked example original — see source_confidence",
-      "body_markdown": "## What cost control does\n\nThe budget is set and the expenditure scheduled, delivery starts and the money goes out. Managing what actually gets spent against what was budgeted is cost control.\n\nThe baseline is that same cash flow forecast the project was approved on. Monitoring happens against that and against the approved budget.\n\nHow often to monitor: track spend as close to real time as you can manage, and the quicker money is going out, the more often you should be looking. That is a useful rule because it is specific.\n\nProject systems can hook into enterprise accounting software and report expenditure in real time, but even those run behind whatever the project has already committed to. Committed is not the same as recorded, and holding an accurate, current picture of budget status is hard, which is why big projects bring in dedicated finance and cost management specialists.\n\n## Why monitor\n\n| Reason | What it enables |\n|---|---|\n| The primary reason | So that a deviation from plan can be corrected quickly |\n| Recovery or re-forecast | If expenditure will exceed budget, the team investigates and intervenes. Where the original budget cannot be recovered, a revised expenditure forecast gets produced, and that may need signing off by a client, sponsor or governance structure |\n| Authorising payment | Knowing when contractors have met their obligations, so payments can be authorised, subject to any outstanding quality control |\n| Supporting stage gates | Often what unlocks the next tranche of budget |\n| Contingency drawdown | Where overspends cannot be recovered, seeking authority to draw down budgeted contingency, or in extreme cases additional, unbudgeted funding |\n\n## What financial reports contain\n\nGood governance needs good information. Reports combine three things:\n\n1. where things stand now, and which way they are trending\n2. a look backwards at why the plan was missed\n3. a look forwards: the forecast, and what will be done about it\n\nAll three. A report with status but no reasons cannot be acted on; one with no forecast tells the board nothing about where this ends.\n\nWho wants them: the sponsor, project board, PMO or corporate finance function, and stakeholders beyond the sponsoring organisation, including lenders, investors, grant-giving bodies or shareholders. They want to know the money they lent, invested or gave is being used wisely. For substantial programmes, financial reports may appear in statutory reporting and annual reports.\n\n## Earned value\n\nEarned value analysis solves a specific problem. Comparing budget to actual spend tells you how much you spent, but not what you got for it, so a project that has spent half its budget might be half built or barely started. Earned value adds the third measure that makes the comparison meaningful.\n\n## The four base measures\n\n| Measure | Also called | What it is |\n|---|---|---|\n| PV, planned value | BCWS, budgeted cost of work scheduled | What the work planned for this point was budgeted to cost |\n| EV, earned value | BCWP, budgeted cost of work performed | What the work actually completed was budgeted to cost |\n| AC, actual cost | ACWP, actual cost of work performed | What has actually been spent |\n| BAC, budget at completion | | The total approved budget |\n\nThe trick to remembering BCWS and BCWP: both are *budgeted* costs. Scheduled is what you planned to have done, performed is what you have done. Only ACWP is a real-money figure.\n\n## The derived measures\n\n| Measure | Formula | Reads as |\n|---|---|---|\n| CV, cost variance | EV − AC | Negative = over budget |\n| SV, schedule variance | EV − PV | Negative = behind schedule |\n| CPI, cost performance index | EV ÷ AC | Below 1.0 = over budget |\n| SPI, schedule performance index | EV ÷ PV | Below 1.0 = behind schedule |\n| EAC, estimate at completion | BAC ÷ CPI | Forecast final cost if current efficiency continues |\n\nBoth variances subtract from EV. Both indices divide EV. Get that and the formulas stop needing memorisation, because the only thing that changes is whether you compare against actual cost, which is money, or against planned value, which is progress.\n\n## A worked earned value example\n\nTake a project with a budget at completion of £240,000, reviewed at the end of month 6:\n\n| Measure | Value |\n|---|---|\n| PV (BCWS), work scheduled by now | £120,000 |\n| EV (BCWP), work actually completed | £96,000 |\n| AC (ACWP), actually spent | £128,000 |\n\nCost variance: CV = EV − AC = £96,000 − £128,000 = −£32,000. Negative, so over budget.\n\nSchedule variance: SV = EV − PV = £96,000 − £120,000 = −£24,000. Negative, so behind schedule.\n\nCost performance index: CPI = EV ÷ AC = 96,000 ÷ 128,000 = 0.75. For every £1 spent, 75p of budgeted value has been earned.\n\nSchedule performance index: SPI = EV ÷ PV = 96,000 ÷ 120,000 = 0.80. The project is earning value at 80% of the planned rate.\n\nEstimate at completion: EAC = BAC ÷ CPI = £240,000 ÷ 0.75 = £320,000.\n\nForecast overspend: £320,000 − £240,000 = £80,000, a third over budget, if current cost efficiency continues.\n\nReading it in one sentence: the project has completed less work than planned and spent more than that work was worth, so it is both behind and over, and on current performance it will finish about a third above budget.\n\n## What earned value analysis gives you\n\nCPI shows how efficiently money is being turned into value, and SPI shows how productively work is being completed. Between them they let schedule and budget performance be judged side by side, which no other technique in the course does.\n\nThe exception worth knowing: none of this applies under critical chain, which watches rate of buffer consumption instead, buffer used against chain completed. Where a customer insists on the earned value figures, they can be generated from an unbuffered version of the schedule.\n\n## Iterative life cycles are easier to control\n\nMonitoring and controlling an iterative project is usually easier, because most of what an iteration costs is fixed, and future commitment can be capped by funding fewer iterations.\n\nHowever, an iterative approach is often chosen when there is high uncertainty about the specification or the development process, which makes the funding requirement hard to judge at the start. That is the honest counterweight from the financial reporting section, and it makes forecasting difficult, unless the project runs to a fixed total budget.\n\nEssentially, iterative work is easier to control and harder to forecast. Both are true, and an answer that says only one of them is half an answer.\n\n## Financial closedown\n\nThe fourth element, and the one people forget:\n\n| Task | What it involves |\n|---|---|\n| Meet outstanding commitments | Invoices from contractors, consultants and suppliers all get processed and paid. A contract is not complete until every bill against it has been settled |\n| Secure transition funding | Where budgets include transition activities, secure drawdown of those funds |\n| Return contingency | Professionals aim not to draw down all contingency or management reserves. These may be returned to the organisation, or held as reserves for other initiatives within a portfolio or programme |\n| Close out timesheets and expenses | The last costs to surface are usually unsubmitted timesheets and expense claims, so put a deadline on them |\n| Assess financial performance | Compare actual expenditure against the business case budget, with a final financial report |\n| Close cost centres and archive | Close project-specific cost centres, review team access to finance systems, and secure and archive financial records per organisational policy, so they are available for any potential future audit |\n\nThat last row connects to LO6 and LO15: records are retained because someone may need to audit them, and retention is governed by policy and legislation.",
+      "body_markdown": "## Cost control: what it does\nThe budget is set and the expenditure scheduled, delivery starts and the money goes out. Managing what actually gets spent against what was budgeted is cost control.\n\nThe baseline is that same cash flow forecast the project was approved on. Monitoring happens against that and against the approved budget.\n\nHow often to monitor: track spend as close to real time as you can manage, and the quicker money is going out, the more often you should be looking. That is a useful rule because it is specific.\n\nProject systems can hook into enterprise accounting software and report expenditure in real time, but even those run behind whatever the project has already committed to. Committed is not the same as recorded, and holding an accurate, current picture of budget status is hard, which is why big projects bring in dedicated finance and cost management specialists.\n\n## Monitoring: why it matters\n| Reason | What it enables |\n|---|---|\n| The primary reason | So that a deviation from plan can be corrected quickly |\n| Recovery or re-forecast | If expenditure will exceed budget, the team investigates and intervenes. Where the original budget cannot be recovered, a revised expenditure forecast gets produced, and that may need signing off by a client, sponsor or governance structure |\n| Authorising payment | Knowing when contractors have met their obligations, so payments can be authorised, subject to any outstanding quality control |\n| Supporting stage gates | Often what unlocks the next tranche of budget |\n| Contingency drawdown | Where overspends cannot be recovered, seeking authority to draw down budgeted contingency, or in extreme cases additional, unbudgeted funding |\n\n## Financial reports: what they contain\nGood governance needs good information. Reports combine three things:\n\n1. where things stand now, and which way they are trending\n2. a look backwards at why the plan was missed\n3. a look forwards: the forecast, and what will be done about it\n\nAll three. A report with status but no reasons cannot be acted on; one with no forecast tells the board nothing about where this ends.\n\nWho wants them: the sponsor, project board, PMO or corporate finance function, and stakeholders beyond the sponsoring organisation, including lenders, investors, grant-giving bodies or shareholders. They want to know the money they lent, invested or gave is being used wisely. For substantial programmes, financial reports may appear in statutory reporting and annual reports.\n\n## Earned value: the problem it solves\nEarned value analysis solves a specific problem. Comparing budget to actual spend tells you how much you spent, but not what you got for it, so a project that has spent half its budget might be half built or barely started. Earned value adds the third measure that makes the comparison meaningful.\n\n## Earned value: the four base measures\n| Measure | Also called | What it is |\n|---|---|---|\n| PV, planned value | BCWS, budgeted cost of work scheduled | What the work planned for this point was budgeted to cost |\n| EV, earned value | BCWP, budgeted cost of work performed | What the work actually completed was budgeted to cost |\n| AC, actual cost | ACWP, actual cost of work performed | What has actually been spent |\n| BAC, budget at completion | | The total approved budget |\n\nThe trick to remembering BCWS and BCWP: both are *budgeted* costs. Scheduled is what you planned to have done, performed is what you have done. Only ACWP is a real-money figure.\n\n## Earned value: the derived measures\n| Measure | Formula | Reads as |\n|---|---|---|\n| CV, cost variance | EV − AC | Negative = over budget |\n| SV, schedule variance | EV − PV | Negative = behind schedule |\n| CPI, cost performance index | EV ÷ AC | Below 1.0 = over budget |\n| SPI, schedule performance index | EV ÷ PV | Below 1.0 = behind schedule |\n| EAC, estimate at completion | BAC ÷ CPI | Forecast final cost if current efficiency continues |\n\nBoth variances subtract from EV. Both indices divide EV. Get that and the formulas stop needing memorisation, because the only thing that changes is whether you compare against actual cost, which is money, or against planned value, which is progress.\n\n## Earned value: a worked example\nTake a project with a budget at completion of £240,000, reviewed at the end of month 6:\n\n| Measure | Value |\n|---|---|\n| PV (BCWS), work scheduled by now | £120,000 |\n| EV (BCWP), work actually completed | £96,000 |\n| AC (ACWP), actually spent | £128,000 |\n\nCost variance: CV = EV − AC = £96,000 − £128,000 = −£32,000. Negative, so over budget.\n\nSchedule variance: SV = EV − PV = £96,000 − £120,000 = −£24,000. Negative, so behind schedule.\n\nCost performance index: CPI = EV ÷ AC = 96,000 ÷ 128,000 = 0.75. For every £1 spent, 75p of budgeted value has been earned.\n\nSchedule performance index: SPI = EV ÷ PV = 96,000 ÷ 120,000 = 0.80. The project is earning value at 80% of the planned rate.\n\nEstimate at completion: EAC = BAC ÷ CPI = £240,000 ÷ 0.75 = £320,000.\n\nForecast overspend: £320,000 − £240,000 = £80,000, a third over budget, if current cost efficiency continues.\n\nReading it in one sentence: the project has completed less work than planned and spent more than that work was worth, so it is both behind and over, and on current performance it will finish about a third above budget.\n\n## Earned value analysis: what it gives you\nCPI shows how efficiently money is being turned into value, and SPI shows how productively work is being completed. Between them they let schedule and budget performance be judged side by side, which no other technique in the course does.\n\nThe exception worth knowing: none of this applies under critical chain, which watches rate of buffer consumption instead, buffer used against chain completed. Where a customer insists on the earned value figures, they can be generated from an unbuffered version of the schedule.\n\n## Iterative life cycles: easier to control\nMonitoring and controlling an iterative project is usually easier, because most of what an iteration costs is fixed, and future commitment can be capped by funding fewer iterations.\n\nHowever, an iterative approach is often chosen when there is high uncertainty about the specification or the development process, which makes the funding requirement hard to judge at the start. That is the honest counterweight from the financial reporting section, and it makes forecasting difficult, unless the project runs to a fixed total budget.\n\nEssentially, iterative work is easier to control and harder to forecast. Both are true, and an answer that says only one of them is half an answer.\n\n## Financial closedown: the forgotten element\nThe fourth element, and the one people forget:\n\n| Task | What it involves |\n|---|---|\n| Meet outstanding commitments | Invoices from contractors, consultants and suppliers all get processed and paid. A contract is not complete until every bill against it has been settled |\n| Secure transition funding | Where budgets include transition activities, secure drawdown of those funds |\n| Return contingency | Professionals aim not to draw down all contingency or management reserves. These may be returned to the organisation, or held as reserves for other initiatives within a portfolio or programme |\n| Close out timesheets and expenses | The last costs to surface are usually unsubmitted timesheets and expense claims, so put a deadline on them |\n| Assess financial performance | Compare actual expenditure against the business case budget, with a final financial report |\n| Close cost centres and archive | Close project-specific cost centres, review team access to finance systems, and secure and archive financial records per organisational policy, so they are available for any potential future audit |\n\nThat last row connects to LO6 and LO15: records are retained because someone may need to audit them, and retention is governed by policy and legislation.",
       "exam_tips": [
         {
           "id": "lo22-tip-formula-shape",
-          "heading": "The derived measures",
+          "heading": "Earned value: the derived measures",
           "placement": "after_section",
           "tip": "The sanity check to apply: CV and CPI must agree, and SV and SPI must agree. If CV is negative, CPI must be below 1.0. If they disagree, an input is wrong. Catch it before you write the answer down."
         },
         {
           "id": "lo22-tip-interpret-not-compute",
-          "heading": "A worked earned value example",
+          "heading": "Earned value: a worked example",
           "placement": "after_section",
           "tip": "The number on its own rarely carries the mark. Write the formula, the substitution and then the sentence that says what it means for this project, because 0.75 is arithmetic and 75p of value per pound spent is an answer."
         },
         {
           "id": "lo22-tip-critical-chain",
-          "heading": "What earned value analysis gives you",
+          "heading": "Earned value analysis: what it gives you",
           "placement": "after_section",
           "tip": "Watch for a scenario that has already told you the project runs on critical chain, then asks for CPI. Buffer consumption is the measure there, and an unbuffered schedule is how you produce earned value figures if a customer demands them anyway."
         },
         {
           "id": "lo22-tip-iterative-both-halves",
-          "heading": "Iterative life cycles are easier to control",
+          "heading": "Iterative life cycles: easier to control",
           "placement": "after_section",
           "tip": "Say both halves. Easier to control, harder to forecast. Most people write one and stop, and the two are usually worth a mark each."
         },
         {
           "id": "lo22-tip-closedown",
-          "heading": "Financial closedown",
+          "heading": "Financial closedown: the forgotten element",
           "placement": "after_section",
           "tip": "Closedown questions look like admin and are marked like content. Six tasks, and the two people miss are returning unspent contingency and archiving the records for audit."
         }
@@ -312,7 +312,7 @@
         {
           "id": "lo22-pairup-why-monitor",
           "type": "pairup",
-          "heading": "Why monitor",
+          "heading": "Monitoring: why it matters",
           "title": "Match each reason for monitoring to what it enables",
           "pairs": [
             {
@@ -340,7 +340,7 @@
         {
           "id": "lo22-pairup-base-measures",
           "type": "pairup",
-          "heading": "The four base measures",
+          "heading": "Earned value: the four base measures",
           "title": "Match each base measure to what it counts",
           "pairs": [
             {
@@ -364,7 +364,7 @@
         {
           "id": "lo22-pairup-derived-measures",
           "type": "pairup",
-          "heading": "The derived measures",
+          "heading": "Earned value: the derived measures",
           "title": "Match each derived measure to its formula and reading",
           "pairs": [
             {
@@ -392,7 +392,7 @@
         {
           "id": "lo22-groupup-comparison",
           "type": "groupup",
-          "heading": "The derived measures",
+          "heading": "Earned value: the derived measures",
           "title": "What does each measure compare earned value against?",
           "note": "Get this and you stop mixing up which index means over budget.",
           "buckets": [
@@ -430,7 +430,7 @@
       "worked_examples": [
         {
           "id": "lo22-we-eac",
-          "heading": "The derived measures",
+          "heading": "Earned value: the derived measures",
           "row_label": "EAC, estimate at completion",
           "situation": "A £400,000 software build reaches month 8 with earned value of £150,000 against actual cost of £200,000, so CPI is 0.75.",
           "ask": "Your sponsor wants a number for the final cost.",
@@ -438,7 +438,7 @@
         },
         {
           "id": "lo22-we-return-contingency",
-          "heading": "Financial closedown",
+          "heading": "Financial closedown: the forgotten element",
           "row_label": "Return contingency",
           "situation": "You close a £250,000 workstream with £18,000 of contingency untouched, and the team asks to spend it on extra testing nobody scoped.",
           "ask": "What happens to that money?",

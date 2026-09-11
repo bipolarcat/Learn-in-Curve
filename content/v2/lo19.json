@@ -75,14 +75,14 @@
       "outcome_code": "19a",
       "outcome_title": "The format and typical contents of an integrated project management plan",
       "source_ref": "BoK 8e 5.4 (p255), 5.4.1 (p256-257), 5.4.2 (p258-259), 5.4.3 (p260-261), 5.4.4 (p262-263), 5.5.3 (p270-271)",
-      "body_markdown": "## What integrated planning is\n\nGathering the separate plans, making them consistent with one another, and keeping them that way, so what emerges is a single whole-project plan.\n\nThree verbs, and each matters. Collecting gathers the separate plans. Aligning makes them consistent with each other. Managing keeps them that way as things change.\n\nThe aim is to get every component of the project pointing the same way, so stakeholders can believe the business case is deliverable. Note where that points: back to LO4. The PMP exists to make the business case credible.\n\n## Typical contents\n\nThe component parts named directly:\n\n| Component | Covered in |\n|---|---|\n| Scope | LO16, LO17 |\n| Time and schedule | LO20 |\n| Cost | LO22 |\n| Resources | LO21 |\n| Risks and issues | LO23 |\n| Success and completion criteria | LO16, LO18 |\n| Benefits | LO9 |\n\nOther elements named elsewhere in the syllabus sit inside the PMP too: the procurement management plan (LO5), the quality plan (LO18), the benefits realisation plan (LO9), and the information management approach including data security (LO6).\n\nThat list is the answer to 19a's 'typical contents'. The more useful way to hold it is that the PMP is the container for every other plan the course teaches.\n\n## Format\n\nFormat is not fixed: it follows three things.\n\n- how complex the project is\n- what the organisation's own processes demand\n- what the key stakeholders want to see\n\nMost of the time, though, it will pull the important information into a short enough summary that a steering committee or governance board can work from it.\n\n'Succinctly' is doing real work there. The PMP is not a repository of every plan in full. It is a summary fit for the people who have to make decisions from it. A document nobody on the board can get through is not fit for its stated purpose.\n\n## How the life cycle changes it\n\n| | Linear | Iterative |\n|---|---|---|\n| Assumption | You can pin the work down up front, giving a detailed baseline to run against | Flexibility and agility are assumed instead |\n| Baseline | Detailed and fixed early | Still required, but much less defined |\n| How detail arrives | Up front | Component parts, and so the plan itself, gain detail as the project progresses |\n\nThe point the source makes about linear is worth quoting in a scenario: things will go wrong in delivery regardless, and that is no argument for planning any less carefully before work begins. 'The plan will change anyway' is not an argument against planning.\n\n## The three things that make an initial PMP possible\n\nBuilding the first integrated plan is genuinely difficult, and it takes input from a lot of people. Three things carry you through it:\n\n1. robust estimation\n2. dependency management processes\n3. risk identification\n\nBetween them they give stakeholders enough confidence to sign the thing off and let the project start.\n\n## Estimation\n\nWorking out how much time, resource and money the agreed scope will need at the agreed quality. It serves four purposes:\n\n- inform investment appraisals and option selection for the business case\n- input to the resource plan and project schedule\n- enable budget setting and assessment of affordability\n- the point from which risk analysis and contingency planning begin\n\n| Method | Approach | How it works |\n|---|---|---|\n| Parametric | Top-down | Historical data compared with known project variables. *1 litre of paint covers 5 square metres; a 550 square metre wall needs 110 litres* |\n| Analogous | Top-down | Like-for-like comparison against historical projects, also called comparative. *2,000 bricks built that house; the same specification needs 2,000 again* |\n| Analytical | Bottom-up | Break the project into parts, estimate each in detail using internal and external data. *Cost each component of a computer against an external benchmark* |\n| Delphi | Bottom-up | Break into parts, then reach consensus among subject-matter experts. *A group of engineers agree how long each build task takes* |\n\nTop-down suits the early life cycle, when detailed information is not available. Bottom-up is often used to validate top-down estimates once more detail exists, and combining techniques builds confidence.\n\nThree-point estimates determine a range, from which you give an informed opinion on the most likely estimate, noting any estimating assumptions. Those assumptions matter beyond the estimate: they go on to support risk analysis and contingency planning.\n\nEstimating is not a one-off activity for the business case. It runs continuously, sharpening as information arrives, and revised estimates go through change control, which then adjusts the integrated plan.\n\nBoth life cycles need the same estimation data, documentation and rigour. They approach it differently, linear estimating in more detail early, iterative building detail as it goes.\n\n## Dependency management\n\nA dependency is how one activity or resource relates to another, where whether a task can start, or finish, hangs on something else being done.\n\nWhy it matters: dependencies left unmanaged are a standard route to a project stopping, replanning, costing more and delivering its benefits later.\n\n| Type | Definition | Example |\n|---|---|---|\n| Logical / hard | Work that cannot begin until something else has begun or finished | You cannot paint a wall that has not been built |\n| Preferential / soft | Work that should not begin until something else has, usually a governance, process or quality-control decision | A communication should not go out until peer review is complete |\n| Resource | Activities that cannot start until another completes because they use the same resource | One developer, so the product page waits for the homepage |\n\nCannot versus should not is the distinction that separates hard from soft. A hard dependency is physics; a soft one is a decision, which is why it can be removed.\n\nThe three link types in scheduling: finish-to-start (task 2 starts only when task 1 finishes), start-to-start (task 4 starts only when task 3 has started), finish-to-finish (task 6 finishes only when task 5 has finished).\n\nManaging them starts with identification, which often happens naturally during scoping, for instance when defining a work breakdown structure. Bring in the experts to settle how the tasks relate to each other. Feed dependencies into planning so the sequence is agreed and impacts are planned for, using critical path and critical chain (LO20), which consider dependencies through activities and resources respectively.\n\nAnd a genuinely useful risk point: the more dependencies a project carries, the riskier it is by construction. The response is to strip out preferential and resource dependencies wherever you can, weighing what that does to cost, benefit and quality. You cannot remove a hard dependency; you can often remove a soft one.\n\n## Risk identification\n\nRisks must be described clearly, separating three parts:\n\n| Part | What it is |\n|---|---|\n| Cause | Something in the environment that introduces uncertainty |\n| Event | Something that might happen, inside the project or around it |\n| Impact | What that would do to one or more of the project's objectives |\n\nThe worked example: a general election on the horizon (cause), inflation rising as a result (event), and the project's resources costing more (impact).\n\nGroup workshops are common, usually early in the life cycle. Describing risks in this structure helps align differing stakeholder opinions and address group bias, which is the LO12 link.\n\nEvery risk gets a risk owner, the individual or group best placed to assess and manage it, and is documented in the risk register, ready for analysis under LO23.\n\nRisk identification is not finished when the workshop ends. Adopt a risk-based mindset throughout, because further risks emerge as the project evolves, stakeholders join, and information arrives.\n\n## Contingency planning\n\nSetting aside resources solely reserved for responding to risks and uncertainty. It bridges the gap that risk creates, and it covers risks you have named, risks you have not, and the plain uncertainty in early estimates.\n\nThat third category is easy to miss: contingency covers estimating uncertainty as well as identified risks.\n\n## The deployment baseline\n\nAll the planning work results in a deployment baseline, the plan for executing the project, supporting the integrated PMP. It sets out baseline plans for:\n\n- scope\n- timeline\n- quality\n- budget\n\nBoth the deployment baseline and the PMP are approved at the decision gate before the deployment phase.\n\n| | Linear | Iterative |\n|---|---|---|\n| Scope at approval | Fixed, and changes in deployment go through change control | More evolutionary, given greater uncertainty |\n| What drives | Scope and quality drive; cost and time are calculated from the scope | Resources committed over timeboxes with fixed end dates |\n| Baseline may include | Scope, timeline, quality, budget | Number of iterations, necessary functionality, baseline resources and schedule |\n| Variation | Managed by exception | Scope and quality may vary as new knowledge emerges; the team may have authority to reprioritise. Work not achieved in a timebox returns to the backlog |\n\nApproving the deployment baseline is a good moment to reconfirm the project's boundaries: what falls inside the scope and what does not, where it touches other projects in a programme or portfolio, and where it touches BAU. Any lack of fit requires the PMP to be reworked before approval, either by moving the scope, or by releasing contingency to pay for risk responses the original scope never covered.\n\nTwo further points worth carrying:\n\n- Under critical chain scheduling, the buffers get approved and locked into the deployment baseline, which is what makes performance measurable.\n- Good practice is an integrated baseline review by an independent reviewer, a risk-based review giving assurance that the deployment baseline is realistic and achievable within budget and schedule. That is the LO7 link, applied to the plan itself.",
+      "body_markdown": "## Integrated planning: what it is\nGathering the separate plans, making them consistent with one another, and keeping them that way, so what emerges is a single whole-project plan.\n\nThree verbs, and each matters. Collecting gathers the separate plans. Aligning makes them consistent with each other. Managing keeps them that way as things change.\n\nThe aim is to get every component of the project pointing the same way, so stakeholders can believe the business case is deliverable. Note where that points: back to LO4. The PMP exists to make the business case credible.\n\n## The PMP: typical contents\nThe component parts named directly:\n\n| Component | Covered in |\n|---|---|\n| Scope | LO16, LO17 |\n| Time and schedule | LO20 |\n| Cost | LO22 |\n| Resources | LO21 |\n| Risks and issues | LO23 |\n| Success and completion criteria | LO16, LO18 |\n| Benefits | LO9 |\n\nOther elements named elsewhere in the syllabus sit inside the PMP too: the procurement management plan (LO5), the quality plan (LO18), the benefits realisation plan (LO9), and the information management approach including data security (LO6).\n\nThat list is the answer to 19a's 'typical contents'. The more useful way to hold it is that the PMP is the container for every other plan the course teaches.\n\n## The PMP: format\nFormat is not fixed: it follows three things.\n\n- how complex the project is\n- what the organisation's own processes demand\n- what the key stakeholders want to see\n\nMost of the time, though, it will pull the important information into a short enough summary that a steering committee or governance board can work from it.\n\n'Succinctly' is doing real work there. The PMP is not a repository of every plan in full. It is a summary fit for the people who have to make decisions from it. A document nobody on the board can get through is not fit for its stated purpose.\n\n## Integrated planning: how the life cycle changes it\n| | Linear | Iterative |\n|---|---|---|\n| Assumption | You can pin the work down up front, giving a detailed baseline to run against | Flexibility and agility are assumed instead |\n| Baseline | Detailed and fixed early | Still required, but much less defined |\n| How detail arrives | Up front | Component parts, and so the plan itself, gain detail as the project progresses |\n\nAPM's point about linear is worth quoting in a scenario: things will go wrong in delivery regardless, and that is no argument for planning any less carefully before work begins. 'The plan will change anyway' is not an argument against planning.\n\n## The initial PMP: three things that make it possible\nBuilding the first integrated plan is genuinely difficult, and it takes input from a lot of people. Three things carry you through it:\n\n1. robust estimation\n2. dependency management processes\n3. risk identification\n\nBetween them they give stakeholders enough confidence to sign the thing off and let the project start.\n\n## Estimation: time, resource and money\nWorking out how much time, resource and money the agreed scope will need at the agreed quality. It serves four purposes:\n\n- inform investment appraisals and option selection for the business case\n- input to the resource plan and project schedule\n- enable budget setting and assessment of affordability\n- the point from which risk analysis and contingency planning begin\n\n| Method | Approach | How it works |\n|---|---|---|\n| Parametric | Top-down | Historical data compared with known project variables. *1 litre of paint covers 5 square metres; a 550 square metre wall needs 110 litres* |\n| Analogous | Top-down | Like-for-like comparison against historical projects, also called comparative. *2,000 bricks built that house; the same specification needs 2,000 again* |\n| Analytical | Bottom-up | Break the project into parts, estimate each in detail using internal and external data. *Cost each component of a computer against an external benchmark* |\n| Delphi | Bottom-up | Break into parts, then reach consensus among subject-matter experts. *A group of engineers agree how long each build task takes* |\n\nTop-down suits the early life cycle, when detailed information is not available. Bottom-up is often used to validate top-down estimates once more detail exists, and combining techniques builds confidence.\n\nThree-point estimates determine a range, from which you give an informed opinion on the most likely estimate, noting any estimating assumptions. Those assumptions matter beyond the estimate: they go on to support risk analysis and contingency planning.\n\nEstimating is not a one-off activity for the business case. It runs continuously, sharpening as information arrives, and revised estimates go through change control, which then adjusts the integrated plan.\n\nBoth life cycles need the same estimation data, documentation and rigour. They approach it differently, linear estimating in more detail early, iterative building detail as it goes.\n\n## Dependency management: how activities relate\nA dependency is how one activity or resource relates to another, where whether a task can start, or finish, hangs on something else being done.\n\nWhy it matters: dependencies left unmanaged are a standard route to a project stopping, replanning, costing more and delivering its benefits later.\n\n| Type | Definition | Example |\n|---|---|---|\n| Logical / hard | Work that cannot begin until something else has begun or finished | You cannot paint a wall that has not been built |\n| Preferential / soft | Work that should not begin until something else has, usually a governance, process or quality-control decision | A communication should not go out until peer review is complete |\n| Resource | Activities that cannot start until another completes because they use the same resource | One developer, so the product page waits for the homepage |\n\nCannot versus should not is the distinction that separates hard from soft. A hard dependency is physics; a soft one is a decision, which is why it can be removed.\n\nThe three link types in scheduling: finish-to-start (task 2 starts only when task 1 finishes), start-to-start (task 4 starts only when task 3 has started), finish-to-finish (task 6 finishes only when task 5 has finished).\n\nManaging them starts with identification, which often happens naturally during scoping, for instance when defining a work breakdown structure. Bring in the experts to settle how the tasks relate to each other. Feed dependencies into planning so the sequence is agreed and impacts are planned for, using critical path and critical chain (LO20), which consider dependencies through activities and resources respectively.\n\nAnd a genuinely useful risk point: the more dependencies a project carries, the riskier it is by construction. The response is to strip out preferential and resource dependencies wherever you can, weighing what that does to cost, benefit and quality. You cannot remove a hard dependency; you can often remove a soft one.\n\n## Risk identification: describing risks clearly\nRisks must be described clearly, separating three parts:\n\n| Part | What it is |\n|---|---|\n| Cause | Something in the environment that introduces uncertainty |\n| Event | Something that might happen, inside the project or around it |\n| Impact | What that would do to one or more of the project's objectives |\n\nThe worked example: a general election on the horizon (cause), inflation rising as a result (event), and the project's resources costing more (impact).\n\nGroup workshops are common, usually early in the life cycle. Describing risks in this structure helps align differing stakeholder opinions and address group bias, which is the LO12 link.\n\nEvery risk gets a risk owner, the individual or group best placed to assess and manage it, and is documented in the risk register, ready for analysis under LO23.\n\nRisk identification is not finished when the workshop ends. Adopt a risk-based mindset throughout, because further risks emerge as the project evolves, stakeholders join, and information arrives.\n\n## Contingency planning: resources reserved for risk\nSetting aside resources solely reserved for responding to risks and uncertainty. It bridges the gap that risk creates, and it covers risks you have named, risks you have not, and the plain uncertainty in early estimates.\n\nThat third category is easy to miss: contingency covers estimating uncertainty as well as identified risks.\n\n## The deployment baseline: where planning ends up\nAll the planning work results in a deployment baseline, the plan for executing the project, supporting the integrated PMP. It sets out baseline plans for:\n\n- scope\n- timeline\n- quality\n- budget\n\nBoth the deployment baseline and the PMP are approved at the decision gate before the deployment phase.\n\n| | Linear | Iterative |\n|---|---|---|\n| Scope at approval | Fixed, and changes in deployment go through change control | More evolutionary, given greater uncertainty |\n| What drives | Scope and quality drive; cost and time are calculated from the scope | Resources committed over timeboxes with fixed end dates |\n| Baseline may include | Scope, timeline, quality, budget | Number of iterations, necessary functionality, baseline resources and schedule |\n| Variation | Managed by exception | Scope and quality may vary as new knowledge emerges; the team may have authority to reprioritise. Work not achieved in a timebox returns to the backlog |\n\nApproving the deployment baseline is a good moment to reconfirm the project's boundaries: what falls inside the scope and what does not, where it touches other projects in a programme or portfolio, and where it touches BAU. Any lack of fit requires the PMP to be reworked before approval, either by moving the scope, or by releasing contingency to pay for risk responses the original scope never covered.\n\nTwo further points worth carrying:\n\n- Under critical chain scheduling, the buffers get approved and locked into the deployment baseline, which is what makes performance measurable.\n- Good practice is an integrated baseline review by an independent reviewer, a risk-based review giving assurance that the deployment baseline is realistic and achievable within budget and schedule. That is the LO7 link, applied to the plan itself.",
       "diagrams": [
         {
           "id": "lo19-pmp-components",
           "figure_number": "19.1",
           "caption": "The constituent plans that make up an integrated project management plan",
           "placement": "after_section",
-          "heading": "Typical contents",
+          "heading": "The PMP: typical contents",
           "file": null,
           "spec": "The integrated PMP at the centre with its constituent plans arranged around it — scope, schedule, cost, resources, risk and issues, quality, success and completion criteria, benefits, procurement. Draw connecting lines between the constituent plans themselves, not just to the centre, to show they constrain each other. The interconnection is the point: this is integration, not collation.",
           "alt": "The integrated project management plan at the centre surrounded by its constituent plans for scope, schedule, cost, resources, risk, quality, success criteria, benefits and procurement, interconnected to show they constrain each other."
@@ -92,7 +92,7 @@
           "figure_number": "19.2",
           "caption": "Top-down and bottom-up estimating methods",
           "placement": "after_section",
-          "heading": "Estimation",
+          "heading": "Estimation: time, resource and money",
           "file": null,
           "spec": "Two groups. Top-down: parametric and analogous, marked as suited to the early life cycle when detail is scarce. Bottom-up: analytical and Delphi, marked as validating top-down once detail exists. Show a confidence axis increasing as methods are combined — a single method giving a wide cost-and-time spread, combined methods narrowing it. The narrowing spread is the argument for combining techniques.",
           "alt": "Top-down parametric and analogous estimating methods alongside bottom-up analytical and Delphi methods, with confidence increasing and the estimate range narrowing as techniques are combined."
@@ -102,7 +102,7 @@
           "figure_number": "19.3",
           "caption": "Dependency link types",
           "placement": "after_section",
-          "heading": "Dependency management",
+          "heading": "Dependency management: how activities relate",
           "file": null,
           "spec": "Three paired task bars showing the link types: finish-to-start (task 2 starts only when task 1 finishes), start-to-start (task 4 starts only when task 3 has started), finish-to-finish (task 6 finishes only when task 5 has finished). Label each link with its constraint in plain words. Keep it visually simple — this is a reference diagram learners will come back to when studying LO20.",
           "alt": "Three dependency link types shown as paired task bars: finish-to-start, start-to-start and finish-to-finish, each labelled with the constraint it imposes."
@@ -112,7 +112,7 @@
           "figure_number": "19.4",
           "caption": "Describing a risk as cause, event and impact",
           "placement": "after_section",
-          "heading": "Risk identification",
+          "heading": "Risk identification: describing risks clearly",
           "file": null,
           "spec": "A three-part horizontal structure: cause (underlying circumstances) → uncertain event, shown with a probability marker → impact on project objectives, shown with an extent-of-effect marker. Use the worked example beneath it — general election, rising inflation, resource costs increase. Show that the same structure describes both a threat (downside impact) and an opportunity (upside impact), since that dual use carries into LO23.",
           "alt": "A risk described in three parts — cause as underlying circumstances, an uncertain event with a probability, and an impact on project objectives — shown working for both threats and opportunities."
@@ -121,43 +121,43 @@
       "exam_tips": [
         {
           "id": "lo19-tip-contents",
-          "heading": "Typical contents",
+          "heading": "The PMP: typical contents",
           "placement": "after_section",
           "tip": "A 19a question usually wants a list, so hold seven: scope, time and schedule, cost, resources, risks and issues, success and completion criteria, and benefits. If you have room, add procurement, quality, benefits realisation and information management, which the syllabus names elsewhere."
         },
         {
           "id": "lo19-tip-format",
-          "heading": "Format",
+          "heading": "The PMP: format",
           "placement": "after_section",
           "tip": "When a scenario hands you a plan nobody on the board can get through, the mark sits in the word succinctly. Say the format follows complexity, the organisation's processes and stakeholder needs, then say the governance forum has to be able to work from it."
         },
         {
           "id": "lo19-tip-lifecycle",
-          "heading": "How the life cycle changes it",
+          "heading": "Integrated planning: how the life cycle changes it",
           "placement": "after_section",
           "tip": "'The plan will change anyway' turns up in scenarios as a reason to plan less. It is not one. Answer that problems arise in delivery whatever you do, and that a detailed baseline is what lets you see them coming."
         },
         {
           "id": "lo19-tip-estimation",
-          "heading": "Estimation",
+          "heading": "Estimation: time, resource and money",
           "placement": "after_section",
           "tip": "Scenarios signal the method. A rate multiplied by a quantity is parametric. A similar past project is analogous. A cost build-up from broken-down parts is analytical. A group of experts converging on a number is Delphi."
         },
         {
           "id": "lo19-tip-dependency",
-          "heading": "Dependency management",
+          "heading": "Dependency management: how activities relate",
           "placement": "after_section",
           "tip": "If the question asks which dependency you can take out of the plan, it is never the hard one. Preferential and resource dependencies are the ones you challenge, and you weigh the effect on cost, benefit and quality before you do."
         },
         {
           "id": "lo19-tip-risk",
-          "heading": "Risk identification",
+          "heading": "Risk identification: describing risks clearly",
           "placement": "after_section",
           "tip": "Write a risk in three parts and you pick up marks a single sentence loses. Because of this cause, this event may occur, and this is the impact on the objective. Name the risk owner too."
         },
         {
           "id": "lo19-tip-baseline",
-          "heading": "The deployment baseline",
+          "heading": "The deployment baseline: where planning ends up",
           "placement": "after_section",
           "tip": "Get the timing right. The deployment baseline and the PMP are approved together at the decision gate before deployment, not somewhere inside it."
         }
@@ -166,7 +166,7 @@
         {
           "id": "lo19-groupup-estimating",
           "type": "groupup",
-          "heading": "Estimation",
+          "heading": "Estimation: time, resource and money",
           "title": "Top-down or bottom-up?",
           "buckets": [
             {
@@ -202,7 +202,7 @@
         {
           "id": "lo19-pairup-estimating",
           "type": "pairup",
-          "heading": "Estimation",
+          "heading": "Estimation: time, resource and money",
           "title": "Match the method to how it works",
           "pairs": [
             {
@@ -226,7 +226,7 @@
         {
           "id": "lo19-pairup-dependency-types",
           "type": "pairup",
-          "heading": "Dependency management",
+          "heading": "Dependency management: how activities relate",
           "title": "Cannot, should not, or same resource?",
           "pairs": [
             {
@@ -246,7 +246,7 @@
         {
           "id": "lo19-pairup-link-types",
           "type": "pairup",
-          "heading": "Dependency management",
+          "heading": "Dependency management: how activities relate",
           "title": "Match the link type to the constraint",
           "pairs": [
             {
@@ -266,7 +266,7 @@
         {
           "id": "lo19-pairup-risk-parts",
           "type": "pairup",
-          "heading": "Risk identification",
+          "heading": "Risk identification: describing risks clearly",
           "title": "Match each part of a risk description to what it holds",
           "note": "Read the three matches in order and you get the worked example back.",
           "pairs": [
@@ -287,7 +287,7 @@
         {
           "id": "lo19-groupup-baseline",
           "type": "groupup",
-          "heading": "The deployment baseline",
+          "heading": "The deployment baseline: where planning ends up",
           "title": "Which life cycle does each baseline behaviour belong to?",
           "buckets": [
             {
@@ -332,7 +332,7 @@
       "worked_examples": [
         {
           "id": "lo19-we-estimating",
-          "heading": "Estimation",
+          "heading": "Estimation: time, resource and money",
           "row_label": "Analogous",
           "situation": "At week two of a 40-unit housing scheme you have no design. The same contractor built an identical 40-unit scheme last year for 4.2 million pounds.",
           "ask": "Which method, and what do you hand the sponsor?",
@@ -340,7 +340,7 @@
         },
         {
           "id": "lo19-we-dependency",
-          "heading": "Dependency management",
+          "heading": "Dependency management: how activities relate",
           "row_label": "Preferential / soft",
           "situation": "Your launch copy is written and signed off, but process says nothing publishes until peer review, and the named reviewer is on leave for nine days.",
           "ask": "Launch is in four days. What do you do?",
@@ -352,26 +352,26 @@
       "outcome_code": "19b",
       "outcome_title": "Why producing an integrated project management plan matters",
       "source_ref": "BoK 8e 5.4 (p255), 5.4.2 (p258), 5.5.3 (p270-271), 5.4.1 (p257)",
-      "body_markdown": "## The core argument\n\nIntegrated planning exists to line up every component of the project so that stakeholders can believe the business case will be delivered.\n\nThat single sentence answers 19b. Everything below expands it.\n\n## Why integration specifically\n\nThe components of a project are not independent. The source makes the point through dependencies, and it generalises:\n\n> The parts are related. Move one and another moves with it, whether you intended that or not.\n\nSo a project with a schedule plan, a cost plan and a resource plan that were produced separately does not have three plans. It has three claims that have never been tested against each other. Integration is what turns them into one statement about what will happen.\n\nThe plan's job is to get each part arriving at the moment it is needed, which is what gives the project its best chance.\n\n## What producing one achieves\n\n| Benefit | Why it follows |\n|---|---|\n| Confidence the business case is achievable | The stated aim. The PMP is the evidence that the promise in LO4 can be delivered |\n| Sign-off becomes possible | Robust estimation, dependency management and risk identification give stakeholders the initial confidence to sign off and proceed |\n| A single view for governance | Everything important, in one summary a steering committee or governance board can use, which is the LO2 link |\n| A baseline for progress monitoring | The deployment baseline is the starting point for progress monitoring |\n| A basis for assessing change | Change control assesses requests against the baseline (LO24). Without an integrated baseline, the impact of a change cannot be traced across components |\n| Control demonstrated during delivery | Component-level data is collected and watched, which is how control gets evidenced |\n| Boundaries reconfirmed | Approval is when you re-examine what is in scope, what is out, and where the project touches other projects and BAU |\n| Contingency held deliberately | Resources solely reserved for risk response, rather than discovered to be missing later |\n\n## The consequence of not integrating\n\nThe source gives one consequence directly, about dependencies, and it stands for the whole:\n\nDependencies left unmanaged stop projects, force a replan, push costs up, and push the benefits back.\n\nPause, replan, cost more, deliver benefits later. That is the failure mode integration prevents, and it is a better scenario answer than a general appeal to good practice.\n\n## Integration continues after approval\n\nA PMP produced once and filed is not integrated planning. It is a document. The source is clear that the work continues:\n\n- As things move and information arrives, keep watching the plan through data on each component.\n- The agreed governance forums are where progress gets reported and contingency gets released when things slip.\n- Estimating is continuous, and updated estimates feed into change control, driving adjustments to the integrated plan.\n- Dependencies are managed through regular review and replanning.\n- Risk identification continues throughout, as the project evolves and new stakeholders arrive.\n\nNotice the pattern: every constituent process feeds back into the integrated plan. That is what makes it integrated rather than assembled.\n\n## Why it is hard, and what makes it possible\n\nProducing that first integrated plan is hard, and it needs a lot of people to contribute. Acknowledging the difficulty is part of a good answer, since the three techniques exist precisely because it is hard:\n\n| Technique | What it contributes |\n|---|---|\n| Robust estimation | Numbers stakeholders can believe, with assumptions visible |\n| Dependency management | A sequence that can happen |\n| Risk identification | Honesty about what could go wrong, and contingency sized for it |\n\n## Assurance on the plan itself\n\nGood practice is an integrated baseline review completed by an independent reviewer, a risk-based check that the deployment baseline is achievable inside the budget and the schedule it claims.\n\nWorth noticing what that implies. The plan is important enough to warrant independent assurance in its own right, before any delivery has happened. A plan nobody has challenged is a plan whose optimism has not been tested.\n\n## The honest framing\n\nTwo things to hold together, because scenario questions often set them against each other:\n\n- Plans will change. Issues arise, information emerges, estimates are revised.\n- That does not reduce the need to plan well. The source says it plainly of linear projects: problems will arise regardless, and that is no reason to plan any less carefully before starting.\n\nThe integrated plan is not a prediction that must come true. It is the current best statement of how the project delivers its business case: maintained, monitored and revised through governance as reality arrives.",
+      "body_markdown": "## Integrated planning: the core argument\nIntegrated planning exists to line up every component of the project so that stakeholders can believe the business case will be delivered.\n\nThat single sentence answers 19b. Everything below expands it.\n\n## Integration: why it matters specifically\nThe components of a project are not independent. APM makes the point through dependencies, and it generalises:\n\n> The parts are related. Move one and another moves with it, whether you intended that or not.\n\nSo a project with a schedule plan, a cost plan and a resource plan that were produced separately does not have three plans. It has three claims that have never been tested against each other. Integration is what turns them into one statement about what will happen.\n\nThe plan's job is to get each part arriving at the moment it is needed, which is what gives the project its best chance.\n\n## A PMP: what producing one achieves\n| Benefit | Why it follows |\n|---|---|\n| Confidence the business case is achievable | The stated aim. The PMP is the evidence that the promise in LO4 can be delivered |\n| Sign-off becomes possible | Robust estimation, dependency management and risk identification give stakeholders the initial confidence to sign off and proceed |\n| A single view for governance | Everything important, in one summary a steering committee or governance board can use, which is the LO2 link |\n| A baseline for progress monitoring | The deployment baseline is the starting point for progress monitoring |\n| A basis for assessing change | Change control assesses requests against the baseline (LO24). Without an integrated baseline, the impact of a change cannot be traced across components |\n| Control demonstrated during delivery | Component-level data is collected and watched, which is how control gets evidenced |\n| Boundaries reconfirmed | Approval is when you re-examine what is in scope, what is out, and where the project touches other projects and BAU |\n| Contingency held deliberately | Resources solely reserved for risk response, rather than discovered to be missing later |\n\n## Not integrating: the consequence\nAPM gives one consequence directly, about dependencies, and it stands for the whole:\n\nDependencies left unmanaged stop projects, force a replan, push costs up, and push the benefits back.\n\nPause, replan, cost more, deliver benefits later. That is the failure mode integration prevents, and it is a better scenario answer than a general appeal to good practice.\n\n## Integration: it continues after approval\nA PMP produced once and filed is not integrated planning. It is a document. The work continues:\n\n- As things move and information arrives, keep watching the plan through data on each component.\n- The agreed governance forums are where progress gets reported and contingency gets released when things slip.\n- Estimating is continuous, and updated estimates feed into change control, driving adjustments to the integrated plan.\n- Dependencies are managed through regular review and replanning.\n- Risk identification continues throughout, as the project evolves and new stakeholders arrive.\n\nNotice the pattern: every constituent process feeds back into the integrated plan. That is what makes it integrated rather than assembled.\n\n## The first integrated plan: why it is hard, and what makes it possible\nProducing that first integrated plan is hard, and it needs a lot of people to contribute. Acknowledging the difficulty is part of a good answer, since the three techniques exist precisely because it is hard:\n\n| Technique | What it contributes |\n|---|---|\n| Robust estimation | Numbers stakeholders can believe, with assumptions visible |\n| Dependency management | A sequence that can happen |\n| Risk identification | Honesty about what could go wrong, and contingency sized for it |\n\n## Plan assurance: the integrated baseline review\nGood practice is an integrated baseline review completed by an independent reviewer, a risk-based check that the deployment baseline is achievable inside the budget and the schedule it claims.\n\nWorth noticing what that implies. The plan is important enough to warrant independent assurance in its own right, before any delivery has happened. A plan nobody has challenged is a plan whose optimism has not been tested.\n\n## The honest framing: two things to hold together\nTwo things to hold together, because scenario questions often set them against each other:\n\n- Plans will change. Issues arise, information emerges, estimates are revised.\n- That does not reduce the need to plan well. APM says it plainly of linear projects: problems will arise regardless, and that is no reason to plan any less carefully before starting.\n\nThe integrated plan is not a prediction that must come true. It is the current best statement of how the project delivers its business case: maintained, monitored and revised through governance as reality arrives.",
       "exam_tips": [
         {
           "id": "lo19-tip-core",
-          "heading": "The core argument",
+          "heading": "Integrated planning: the core argument",
           "placement": "after_section",
           "tip": "If 19b comes up as a straight explain-why question, lead with the business case. Every other benefit you list is a route to stakeholders believing the project can deliver what the business case promised."
         },
         {
           "id": "lo19-tip-consequence",
-          "heading": "The consequence of not integrating",
+          "heading": "Not integrating: the consequence",
           "placement": "after_section",
-          "tip": "Answers that name a consequence beat answers that praise good practice. However, reach for the four the source gives: the project stops, it replans, it costs more, and the benefits arrive later."
+          "tip": "Answers that name a consequence beat answers that praise good practice. However, reach for the four APM gives: the project stops, it replans, it costs more, and the benefits arrive later."
         }
       ],
       "activities": [
         {
           "id": "lo19-pairup-benefits",
           "type": "pairup",
-          "heading": "What producing one achieves",
+          "heading": "A PMP: what producing one achieves",
           "title": "Match the benefit to the reason it follows",
           "note": "Five of the eight. Enough to retrieve from, not so many you end up scanning.",
           "pairs": [
@@ -400,7 +400,7 @@
         {
           "id": "lo19-pairup-techniques",
           "type": "pairup",
-          "heading": "Why it is hard, and what makes it possible",
+          "heading": "The first integrated plan: why it is hard, and what makes it possible",
           "title": "Match the technique to what it contributes",
           "pairs": [
             {
@@ -421,7 +421,7 @@
       "worked_examples": [
         {
           "id": "lo19-we-change",
-          "heading": "What producing one achieves",
+          "heading": "A PMP: what producing one achieves",
           "row_label": "A basis for assessing change",
           "situation": "Six weeks into deployment, marketing asks you to add two more languages to the app. Nobody in the room can say what that costs.",
           "ask": "Why does an integrated baseline answer that when a folder of separate plans does not?",
@@ -445,7 +445,7 @@
     },
     {
       "wrong": "Because the plan will change anyway, detailed early planning is wasted effort.",
-      "right": "Problems will arise in delivery whatever you do. The source is explicit that this is no reason to plan any less carefully before work starts."
+      "right": "Problems will arise in delivery whatever you do. APM is explicit that this is no reason to plan any less carefully before work starts."
     },
     {
       "wrong": "Estimating is done once, for the business case.",
