@@ -18,7 +18,7 @@ type ActivityIconProps = SVGProps<SVGSVGElement> & {
 function AppIconPlate({
   uid,
   fill,
-  rimOpacity = 0.32,
+  rimOpacity = 0.22,
 }: {
   uid: string;
   fill: string;
@@ -33,39 +33,39 @@ function AppIconPlate({
       <defs>
         <filter
           id={shadow}
-          x="-35%"
-          y="-25%"
-          width="170%"
-          height="180%"
+          x="-30%"
+          y="-20%"
+          width="160%"
+          height="165%"
           colorInterpolationFilters="sRGB"
         >
           {/* Soft ambient lift */}
           <feDropShadow
             dx="0"
-            dy="1.2"
-            stdDeviation="1.4"
+            dy="0.8"
+            stdDeviation="0.9"
             floodColor="#241A12"
-            floodOpacity="0.18"
+            floodOpacity="0.1"
           />
           {/* Tighter contact shadow under the tile */}
           <feDropShadow
             dx="0"
-            dy="3.2"
-            stdDeviation="2.6"
+            dy="1.8"
+            stdDeviation="1.4"
             floodColor="#241A12"
-            floodOpacity="0.22"
+            floodOpacity="0.12"
           />
         </filter>
         {/* Top-lit wash — brighter at the crown, like an iOS icon */}
         <linearGradient id={sheen} x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.34" />
-          <stop offset="38%" stopColor="#ffffff" stopOpacity="0.08" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="40%" stopColor="#ffffff" stopOpacity="0.04" />
           <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
         {/* Bottom edge weight so the plate sits on the page */}
         <linearGradient id={shade} x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="55%" stopColor="#241A12" stopOpacity="0" />
-          <stop offset="100%" stopColor="#241A12" stopOpacity="0.18" />
+          <stop offset="60%" stopColor="#241A12" stopOpacity="0" />
+          <stop offset="100%" stopColor="#241A12" stopOpacity="0.08" />
         </linearGradient>
       </defs>
 
@@ -96,15 +96,15 @@ function AppIconPlate({
           rx="13.25"
           fill="none"
           stroke={`rgb(251 243 225 / ${rimOpacity})`}
-          strokeWidth="1.15"
+          strokeWidth="1"
         />
         <path
           d="M12 4.2H52C55.5 4.2 58.2 5.4 59.4 7.2"
           fill="none"
-          stroke="rgb(255 255 255 / 0.42)"
-          strokeWidth="1.25"
+          stroke="rgb(255 255 255 / 0.22)"
+          strokeWidth="1"
           strokeLinecap="round"
-          opacity="0.9"
+          opacity="0.85"
         />
       </g>
     </>
@@ -173,10 +173,10 @@ export function ActivityPairupIcon({
         >
           <feDropShadow
             dx="0"
-            dy="0.6"
-            stdDeviation="0.55"
+            dy="0.4"
+            stdDeviation="0.4"
             floodColor="#241A12"
-            floodOpacity="0.22"
+            floodOpacity="0.12"
           />
         </filter>
       </defs>
@@ -184,7 +184,7 @@ export function ActivityPairupIcon({
       <AppIconPlate
         uid={uid}
         fill="var(--orange, #D5501F)"
-        rimOpacity={0.34}
+        rimOpacity={0.2}
       />
 
       {/* Twin pillars — cream */}
@@ -270,7 +270,7 @@ export function ActivityLineupIcon({
       className={className}
       {...props}
     >
-      <AppIconPlate uid={uid} fill="#1B6560" rimOpacity={0.28} />
+      <AppIconPlate uid={uid} fill="#1B6560" rimOpacity={0.18} />
 
       {bars.map((bar) => (
         <rect
@@ -338,7 +338,7 @@ export function ActivityGroupupIcon({
       className={className}
       {...props}
     >
-      <AppIconPlate uid={uid} fill="rgb(36 26 18)" rimOpacity={0.22} />
+      <AppIconPlate uid={uid} fill="rgb(36 26 18)" rimOpacity={0.16} />
 
       {cells.map((cell) => (
         <rect
