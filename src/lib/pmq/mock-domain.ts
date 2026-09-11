@@ -110,15 +110,34 @@ export function isMockExamReady(
   );
 }
 
+export type MockExamSelectorState = {
+  /** Null when never started — Start button is enough (PFQ console parity). */
+  status: string | null;
+  tone: "done" | "open" | "plain";
+  action: string;
+  enabled: boolean;
+};
+
 export function mockExamSelectorState(
   summary: MockExamSetSummary,
   hasEntitlement: boolean,
   activeExamSet: MockExamSet | null,
-): { status: string; action: string; enabled: boolean } {
+): MockExamSelectorState {
   if (!summary.ready) {
-    return { status: "Coming soon", action: "Coming soon", enabled: false };
+    return {
+      status: "Coming soon",
+      tone: "plain",
+      action: "Coming soon",
+      enabled: false,
+    };
   }
-  const status =
+
+  const isTerminal =
+    summary.latestStatus === "finalized" ||
+    summary.latestStatus === "expired" ||
+    summary.latestStatus === "abandoned";
+
+  const status: string | null =
     summary.latestStatus === "break"
       ? "On break"
       : summary.latestStatus === "self_assessing"
@@ -135,9 +154,20 @@ export function mockExamSelectorState(
                   ? "Passed"
                   : summary.latestResult === "refer"
                     ? "Completed · Refer"
-                    : "Ready";
+                    : null;
+
+  const tone: MockExamSelectorState["tone"] =
+    status === "Passed" || (status != null && status.startsWith("Completed"))
+      ? "done"
+      : status === "In progress" ||
+          status === "On break" ||
+          status === "Marking" ||
+          status === "Self-assessment"
+        ? "open"
+        : "plain";
+
   if (!hasEntitlement) {
-    return { status, action: "Pro required", enabled: false };
+    return { status, tone, action: "Pro required", enabled: false };
   }
   // A finalized/expired/abandoned exam set is a terminal, read-only outcome —
   // it isn't something the user could "start" or "resume," so another exam
@@ -145,24 +175,22 @@ export function mockExamSelectorState(
   // unconditionally, so a completed Exam 2 showed "Finish Exam 3 first"
   // while Exam 3 was in progress, instead of "View Exam 2 result." Only
   // exam sets the user could actually attempt (not yet started) get gated.
-  const isTerminal =
-    summary.latestStatus === "finalized" ||
-    summary.latestStatus === "expired" ||
-    summary.latestStatus === "abandoned";
   if (!isTerminal && activeExamSet != null && activeExamSet !== summary.examSet) {
     return {
       status,
+      tone,
       action: `Finish Exam ${activeExamSet} first`,
       enabled: false,
     };
   }
   return {
     status,
+    tone,
     action: isTerminal
-      ? `View Exam ${summary.examSet} result →`
+      ? "View result"
       : summary.activeSessionId
-        ? `Resume Exam ${summary.examSet} →`
-        : `Start Exam ${summary.examSet} →`,
+        ? "Resume"
+        : "Start",
     enabled: true,
   };
 }

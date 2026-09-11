@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Lock } from "lucide-react";
+import { CtaArrow } from "@/components/stamp-chip";
+import { productActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
 import { pmqMockHref } from "@/lib/pmq/constants";
 import {
@@ -27,6 +29,8 @@ type PmqMockExamsSectionProps = {
 /** Product contract: four papers. Exam 1 Starter; 2–3 Pro; 4 AI Pro. */
 const EXAM_SETS = [1, 2, 3, 4] as const satisfies readonly MockExamSet[];
 
+const rowActionClass = `${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold !bg-transparent !text-ink !border !border-ink/12 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-70`;
+
 function emptySummary(examSet: MockExamSet): MockExamSetSummary {
   return {
     examSet,
@@ -41,20 +45,6 @@ function emptySummary(examSet: MockExamSet): MockExamSetSummary {
     activeBreakEndsAt: null,
     activeCurrentPart: null,
   };
-}
-
-function statusTone(status: string): "done" | "open" | "plain" {
-  if (status === "Passed" || status.startsWith("Completed")) return "done";
-  if (
-    status === "In progress" ||
-    status === "On break" ||
-    status === "Marking" ||
-    status === "Self-assessment"
-  ) {
-    return "open";
-  }
-  // Time expired / Ended early / Ready / Coming soon → plain
-  return "plain";
 }
 
 function MockExamConsoleTimer({ summary }: { summary: MockExamSetSummary }) {
@@ -90,92 +80,25 @@ function MockExamConsoleTimer({ summary }: { summary: MockExamSetSummary }) {
   return (
     <>
       {" · "}
-      <span
-        className={styles.rowTimer}
-        aria-label={`Time remaining ${label}`}
-      >
+      <span className={styles.rowTimer} aria-label={`Time remaining ${label}`}>
         {label}
       </span>
     </>
   );
 }
 
-function ExamOpenRow({
-  examSet,
-  summary,
-  status,
-  tone,
-  actionLabel,
-  href,
-}: {
-  examSet: MockExamSet;
-  summary: MockExamSetSummary;
-  status: string;
-  tone: "done" | "open" | "plain";
-  actionLabel: string;
-  href: string;
-}) {
-  const router = useRouter();
-  const [pending, startTransition] = useTransition();
-
-  return (
-    <button
-      type="button"
-      disabled={pending}
-      aria-busy={pending}
-      aria-label={
-        pending
-          ? `Opening Mock exam ${examSet}`
-          : `Mock exam ${examSet}: ${actionLabel}`
-      }
-      className={`${styles.row} ${styles.rowInteractive}`}
-      onClick={() => {
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
-    >
-      <div className={styles.rowMain}>
-        <p className={styles.rowTitle}>Mock exam {examSet}</p>
-        <span
-          className={`${styles.rowStatus} ${
-            tone === "done"
-              ? styles.rowStatusDone
-              : tone === "open"
-                ? styles.rowStatusOpen
-                : ""
-          }`}
-        >
-          {status}
-          <MockExamConsoleTimer summary={summary} />
-        </span>
-      </div>
-      <div className={styles.rowAction}>
-        {pending ? (
-          <span className={styles.rowPending} aria-hidden>
-            <Spinner variant="bars" size={12} className="text-orange" />
-          </span>
-        ) : (
-          <>
-            <span className="sr-only">{actionLabel}</span>
-            <span className={styles.rowChevron} aria-hidden>
-              →
-            </span>
-          </>
-        )}
-      </div>
-    </button>
-  );
-}
-
 /**
  * Exam 1 free (LIC-39). Exams 2–3 Pro, exam 4 AI Pro (LIC-40 / LIC-98).
- * Flat console paired with the 5-day plan — quiet SaaS density, same selector logic.
+ * Flat console paired with the 5-day plan — PFQ-parity Start / Resume / View result.
  */
 export function PmqMockExamsSection({
   userTier,
   summaries,
 }: PmqMockExamsSectionProps) {
+  const router = useRouter();
+  const [pendingExam, setPendingExam] = useState<MockExamSet | null>(null);
+  const [pending, startTransition] = useTransition();
+
   const exams = useMemo(
     () =>
       EXAM_SETS.map((examSet) => {
@@ -193,6 +116,14 @@ export function PmqMockExamsSection({
     exams.find(
       (exam) => exam.examSet !== 1 && exam.summary.activeSessionId,
     )?.examSet ?? null;
+
+  function openExam(examSet: MockExamSet) {
+    const tier = tierForExamSet(examSet);
+    setPendingExam(examSet);
+    startTransition(() => {
+      router.push(pmqMockHref(tier, examSet));
+    });
+  }
 
   return (
     <section aria-labelledby="pmq-mocks-heading">
@@ -220,27 +151,7 @@ export function PmqMockExamsSection({
               unlocked,
               examSet === 1 ? null : activeProExam,
             );
-            const tone = statusTone(state.status);
-            const actionLabel = state.action.replace(/ →$/, "");
-            const tier = tierForExamSet(examSet);
-
-            const main = (
-              <div className={styles.rowMain}>
-                <p className={styles.rowTitle}>Mock exam {examSet}</p>
-                <span
-                  className={`${styles.rowStatus} ${
-                    tone === "done"
-                      ? styles.rowStatusDone
-                      : tone === "open"
-                        ? styles.rowStatusOpen
-                        : ""
-                  }`}
-                >
-                  {state.status}
-                  <MockExamConsoleTimer summary={summary} />
-                </span>
-              </div>
-            );
+            const rowPending = pending && pendingExam === examSet;
 
             if (!unlocked) {
               const needTier = tierForMockExam(examSet);
@@ -272,8 +183,7 @@ export function PmqMockExamsSection({
                         </>
                       ) : (
                         <>
-                          <span className={styles.lockProMark}>Pro</span>{" "}
-                          Bundle
+                          <span className={styles.lockProMark}>Pro</span> Bundle
                         </>
                       )}
                     </span>
@@ -282,27 +192,53 @@ export function PmqMockExamsSection({
               );
             }
 
-            if (!state.enabled) {
-              return (
-                <li key={examSet} className={styles.row}>
-                  {main}
-                  <div className={styles.rowAction}>
-                    <span className={styles.rowLock}>{actionLabel}</span>
-                  </div>
-                </li>
-              );
-            }
-
             return (
-              <li key={examSet}>
-                <ExamOpenRow
-                  examSet={examSet}
-                  summary={summary}
-                  status={state.status}
-                  tone={tone}
-                  actionLabel={actionLabel}
-                  href={pmqMockHref(tier, examSet)}
-                />
+              <li key={examSet} className={styles.row}>
+                <div className={styles.rowMain}>
+                  <div className="min-w-0 flex-1">
+                    <p className={styles.rowTitle}>Mock exam {examSet}</p>
+                    {state.status ? (
+                      <span
+                        className={`${styles.rowStatus} ${
+                          state.tone === "done"
+                            ? styles.rowStatusDone
+                            : state.tone === "open"
+                              ? styles.rowStatusOpen
+                              : ""
+                        }`}
+                      >
+                        {state.status}
+                        <MockExamConsoleTimer summary={summary} />
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+                {state.enabled ? (
+                  <button
+                    type="button"
+                    disabled={pending}
+                    aria-busy={rowPending}
+                    aria-label={`${state.action} mock exam ${examSet}`}
+                    className={rowActionClass}
+                    onClick={() => openExam(examSet)}
+                  >
+                    {rowPending ? (
+                      <Spinner
+                        variant="bars"
+                        size={14}
+                        className="text-ink"
+                        aria-hidden
+                      />
+                    ) : (
+                      <>
+                        {state.action}
+                        <CtaArrow />
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <span className={styles.rowLock}>{state.action}</span>
+                )}
               </li>
             );
           })}
