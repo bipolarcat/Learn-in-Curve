@@ -1,5 +1,10 @@
 export const HAS_ACCOUNT_KEY = "lic_has_account";
 
+/** Which sign-in path this browser used last — drives the “Last used” pill. */
+export const LAST_AUTH_METHOD_KEY = "lic_last_auth_method";
+
+export type LastAuthMethod = "google" | "email";
+
 export function markHasAccount(): void {
   try {
     localStorage.setItem(HAS_ACCOUNT_KEY, "1");
@@ -13,6 +18,32 @@ export function hasCreatedAccount(): boolean {
     return localStorage.getItem(HAS_ACCOUNT_KEY) === "1";
   } catch {
     return false;
+  }
+}
+
+export function writeLastAuthMethod(method: LastAuthMethod): void {
+  try {
+    localStorage.setItem(LAST_AUTH_METHOD_KEY, method);
+  } catch {
+    // ignore private browsing / blocked storage
+  }
+}
+
+export function clearLastAuthMethod(): void {
+  try {
+    localStorage.removeItem(LAST_AUTH_METHOD_KEY);
+  } catch {
+    // ignore private browsing / blocked storage
+  }
+}
+
+export function readLastAuthMethod(): LastAuthMethod | null {
+  try {
+    const value = localStorage.getItem(LAST_AUTH_METHOD_KEY);
+    if (value === "google" || value === "email") return value;
+    return null;
+  } catch {
+    return null;
   }
 }
 

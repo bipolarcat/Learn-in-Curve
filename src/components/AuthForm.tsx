@@ -9,9 +9,13 @@ import { authHrefWithNext, getSafeNextPath } from "@/lib/auth-next";
 import { createClient } from "@/lib/supabase/client";
 import { getCanonicalOrigin } from "@/lib/site-url";
 import {
+  clearLastAuthMethod,
   forgetLastGoogleEmail,
   markHasAccount,
+  readLastAuthMethod,
   readLastGoogleEmail,
+  writeLastAuthMethod,
+  type LastAuthMethod,
 } from "@/lib/auth-hints";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import { getAuthFailureReason } from "@/lib/auth-errors";
@@ -128,6 +132,17 @@ function GoogleMark() {
   );
 }
 
+/** Quiet reminder on the method this browser used last. */
+function LastUsedPill({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center rounded-full bg-ink/[0.06] px-1.5 py-0.5 font-body text-[10px] font-semibold leading-none tracking-wide text-ink/50 ${className}`.trim()}
+    >
+      Last used
+    </span>
+  );
+}
+
 export function AuthForm({
   mode,
   nextPath,
@@ -153,6 +168,8 @@ export function AuthForm({
    * so reading it inline would cause a hydration mismatch.
    */
   const [googleHint, setGoogleHint] = useState<string | null>(null);
+  /** Which method this device signed in with last — pill on that control. */
+  const [lastMethod, setLastMethod] = useState<LastAuthMethod | null>(null);
   /** Sign-up succeeded but email confirmation required — show check-inbox card. */
   const [awaitingConfirmEmail, setAwaitingConfirmEmail] = useState<
     string | null
@@ -173,7 +190,10 @@ export function AuthForm({
   );
 
   useEffect(() => {
-    setGoogleHint(readLastGoogleEmail());
+    const hint = readLastGoogleEmail();
+    setGoogleHint(hint);
+    // Prefer an explicit method write; fall back to Google cookie as a signal.
+    setLastMethod(readLastAuthMethod() ?? (hint ? "google" : null));
     if (initialError) {
       showAuthToast(initialError, "error");
     }
@@ -260,6 +280,8 @@ export function AuthForm({
     }
 
     markHasAccount();
+    writeLastAuthMethod("email");
+    setLastMethod("email");
 
     // Sign-up with "Confirm email" on returns no session — user must click
     // the emailed link before /auth/callback signs them in. If confirmation
@@ -292,6 +314,10 @@ export function AuthForm({
   function handleForgetGoogleAccount() {
     forgetLastGoogleEmail();
     setGoogleHint(null);
+    if (lastMethod === "google") {
+      clearLastAuthMethod();
+      setLastMethod(null);
+    }
   }
 
   async function handleGoogle() {
@@ -303,6 +329,8 @@ export function AuthForm({
     setMessage(null);
     setIsError(false);
     markHasAccount();
+    writeLastAuthMethod("google");
+    setLastMethod("google");
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -332,6 +360,10 @@ export function AuthForm({
     ? "font-medium text-orange hover:text-orange-dark"
     : "font-bold text-primary hover:text-primary-dark";
 
+  const showLastUsed = mode === "sign-in";
+  const lastUsedGoogle = showLastUsed && lastMethod === "google";
+  const lastUsedEmail = showLastUsed && lastMethod === "email";
+
   if (awaitingConfirmEmail) {
     return (
       <div
@@ -354,10 +386,19 @@ export function AuthForm({
           type="button"
           onClick={handleGoogle}
           disabled={loading}
-          className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary mb-3 w-full disabled:cursor-not-allowed disabled:opacity-50`}
+          className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary mb-3 w-full disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedGoogle ? "!justify-start" : ""}`}
         >
           <GoogleMark />
-          Continue with Google
+          {lastUsedGoogle ? (
+            <>
+              <span className="min-w-0 flex-1 text-left">
+                Continue with Google
+              </span>
+              <LastUsedPill />
+            </>
+          ) : (
+            "Continue with Google"
+          )}
         </button>
 
         {googleHint && (
@@ -446,12 +487,17 @@ export function AuthForm({
                   ? "Create account"
                   : "Sign in"
             }
-            className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary mt-0.5 w-full disabled:cursor-not-allowed disabled:opacity-50`}
+            className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary mt-0.5 w-full disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedEmail ? "!justify-start" : ""}`}
           >
             {loading ? (
               <Spinner variant="bars" size={16} className="text-current" aria-hidden />
             ) : mode === "sign-up" ? (
               "Create account"
+            ) : lastUsedEmail ? (
+              <>
+                <span className="min-w-0 flex-1 text-left">Sign in</span>
+                <LastUsedPill className="bg-paper/20 text-paper/80" />
+              </>
             ) : (
               "Sign in"
             )}
@@ -561,10 +607,17 @@ export function AuthForm({
         type="button"
         onClick={handleGoogle}
         disabled={loading}
-        className={`btn btn-secondary w-full disabled:cursor-not-allowed disabled:opacity-50 ${googleHint ? "mb-2" : "mb-6"}`}
+        className={`btn btn-secondary flex w-full items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedGoogle ? "justify-start" : "justify-center"} ${googleHint ? "mb-2" : "mb-6"}`}
       >
         <GoogleMark />
-        Continue with Google
+        {lastUsedGoogle ? (
+          <>
+            <span className="min-w-0 flex-1 text-left">Continue with Google</span>
+            <LastUsedPill />
+          </>
+        ) : (
+          "Continue with Google"
+        )}
       </button>
 
       {googleHint && (
@@ -656,12 +709,17 @@ export function AuthForm({
                 ? "Create account"
                 : "Sign in"
           }
-          className="btn w-full disabled:cursor-not-allowed disabled:opacity-50"
+          className={`btn flex w-full items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedEmail ? "justify-start" : "justify-center"}`}
         >
           {loading ? (
             <Spinner variant="bars" size={16} className="text-current" aria-hidden />
           ) : mode === "sign-up" ? (
             "Create account"
+          ) : lastUsedEmail ? (
+            <>
+              <span className="min-w-0 flex-1 text-left">Sign in</span>
+              <LastUsedPill className="bg-paper/20 text-paper/80" />
+            </>
           ) : (
             "Sign in"
           )}
