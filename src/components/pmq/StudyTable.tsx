@@ -202,6 +202,16 @@ function useHoistActivitiesToHeading(
   return hoistToHeading;
 }
 
+/** List-only sections (no table) still park Pair up / Lineup / Group up on ##. */
+export function HoistActivitiesToHeading({
+  activities,
+}: {
+  activities?: LoActivity[];
+}) {
+  useHoistActivitiesToHeading(true, activities);
+  return null;
+}
+
 const cardShell =
   "overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.12]";
 

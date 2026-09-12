@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
 import {
+  HoistActivitiesToHeading,
   StudyHeadingChromeProvider,
   StudyHeadingChromeSlot,
   StudyTable,
@@ -334,14 +335,21 @@ export function CoreContentBlock({
 
         const sectionBody = (
           <>
+            {toolbarOnHeading &&
+            !sectionHasTable &&
+            sectionActivities.length > 0 ? (
+              <HoistActivitiesToHeading activities={sectionActivities} />
+            ) : null}
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={markdownComponents}
             >
               {section.markdown}
             </ReactMarkdown>
-            {/* Sections without a table still get activity icons (lineups on lists). */}
-            {!sectionHasTable && sectionActivities.length > 0 ? (
+            {/* Fallback only when heading chrome is off — icons belong on ##. */}
+            {!toolbarOnHeading &&
+            !sectionHasTable &&
+            sectionActivities.length > 0 ? (
               <div className="not-prose mt-2 flex flex-wrap items-center gap-1.5">
                 {sectionActivities.slice(0, 2).map((activity) => (
                   <ActivityLauncher key={activity.id} activity={activity} />

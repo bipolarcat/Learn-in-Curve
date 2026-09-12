@@ -1,0 +1,1251 @@
+[
+ {
+  "id": "PFQP-8-1-6",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Quality is defined as fitness for purpose. Against what is that fitness judged?",
+  "items": null,
+  "options": {
+   "a": "Against the highest standard the supplier is technically capable of achieving.",
+   "b": "Against the standards achieved by comparable projects in the same sector.",
+   "c": "Against the price paid for the output.",
+   "d": "Against the requirements that were agreed for the output or process."
+  },
+  "answer": "d",
+  "explanation": "Quality is measured against agreed requirements, not against an absolute standard of excellence. Option a is tempting because everyday usage treats quality as the best achievable, but capability is irrelevant if the specification is already met.",
+  "tip": "When an option about quality mentions best, highest or most expensive, it is almost certainly describing the everyday meaning rather than the professional one.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-1-7",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team member states that quality means the total absence of defects in every deliverable. Why does this not match the syllabus definition?",
+  "items": null,
+  "options": {
+   "a": "Because defects cannot be measured until after handover has taken place.",
+   "b": "Because defects are the concern of quality control, so the statement belongs to a different learning outcome.",
+   "c": "Because quality is fitness for purpose against agreed requirements, and an output can be accepted with imperfections that fall inside those requirements.",
+   "d": "Because the absence of defects is the definition of quality assurance rather than of quality."
+  },
+  "answer": "c",
+  "explanation": "The definition is fitness for purpose against agreed requirements. Option b is tempting because defects genuinely are what quality control examines, but the question asks about the definition of quality, not about which activity finds defects.",
+  "tip": "Absence of all defects, value for money and stakeholder satisfaction are the three everyday meanings the exam offers. None of them is the definition.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-1-8",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A supplier delivers a pump built from the cheapest materials that satisfy the specification. It passes every acceptance test. A stakeholder complains that the project has accepted poor quality. How should the project manager respond?",
+  "items": null,
+  "options": {
+   "a": "The pump is fit for purpose and meets its agreed requirements, so its quality is acceptable.",
+   "b": "The stakeholder is right, because quality means exceeding the specification wherever the budget allows.",
+   "c": "The complaint should be logged as a defect and the pump reworked to a higher standard.",
+   "d": "The stakeholder is right, because using the cheapest materials always reduces quality."
+  },
+  "answer": "a",
+  "explanation": "Meeting the agreed specification is quality, whatever the materials cost. Option a is tempting because cheapness feels like a compromise, but price is not a measure of quality under the syllabus definition.",
+  "tip": "Read scenarios for whether the output met what was agreed. If it did, the answer is that quality is acceptable, regardless of cost or appearance.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-1-9",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor asks the project manager to explain what quality will mean on this project. Which answer matches the syllabus definition?",
+  "items": null,
+  "options": {
+   "a": "That the deliverables will be produced to the best standard the budget allows.",
+   "b": "That the project will be delivered without defects, delays or overspend.",
+   "c": "That every stakeholder will be satisfied with what is handed over.",
+   "d": "That the outputs, and the processes used to produce them, will be fit for purpose and meet the requirements agreed for them."
+  },
+  "answer": "d",
+  "explanation": "The definition covers processes as well as outputs, and measures both against agreed requirements. Option c is tempting because satisfaction is what sponsors care about, but satisfaction is an outcome, not the definition.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-1-10",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A charity project delivers a website that meets every agreed requirement but is visually plain. The marketing lead calls it low quality. Applying the syllabus definition, what is the position?",
+  "items": null,
+  "options": {
+   "a": "The website is of acceptable quality, because it meets the requirements that were agreed for it.",
+   "b": "The website is of low quality, because stakeholder satisfaction is the measure of quality.",
+   "c": "The website is of low quality, because quality means the best standard achievable.",
+   "d": "Quality cannot be judged until a benefit review confirms that the site is being used."
+  },
+  "answer": "a",
+  "explanation": "Requirements agreed in advance are the yardstick, and this site meets them. Option b is tempting because an unhappy stakeholder feels like evidence of failure, but dissatisfaction with an agreed specification is a scope conversation, not a quality one.",
+  "tip": "A stakeholder who dislikes an output that met its specification is telling you the requirements were wrong, which is change control, not quality.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-1-11",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly separates the definition of quality from the definition of quality management?",
+  "items": null,
+  "options": {
+   "a": "Quality is the fitness for purpose of outputs and processes, while quality management is the discipline of ensuring that they meet the required standards.",
+   "b": "Quality is judged at handover, while quality management is judged at each decision gate.",
+   "c": "Quality is a property of processes only, while quality management applies to outputs only.",
+   "d": "Quality is set by the customer, while quality management is imposed by the regulator."
+  },
+  "answer": "a",
+  "explanation": "Quality is the property; quality management is the discipline that secures it. Option a is tempting because it correctly senses that the two terms have different scope, but it splits outputs from processes, which neither term does.",
+  "tip": "Decide which of two terms is the broader one before reading the options. The broader term is the discipline, the narrower one is the property.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-1-12",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "How does quality relate to acceptance criteria?",
+  "items": null,
+  "options": {
+   "a": "Acceptance criteria replace the definition of quality once a project reaches delivery.",
+   "b": "Acceptance criteria describe the processes used, while quality describes the outputs produced.",
+   "c": "Quality is fitness for purpose against agreed requirements, and acceptance criteria are the measurable conditions an output must meet to be accepted.",
+   "d": "Acceptance criteria apply to regulated projects only, while quality applies to every project."
+  },
+  "answer": "c",
+  "explanation": "Acceptance criteria are the measurable expression of the agreed requirements that quality is judged against. Option c is tempting because the process and product split is real, but it belongs to assurance and control, not to these two terms.",
+  "tip": "Acceptance criteria are how quality becomes testable. Expect the exam to use one term in the stem and the other in the options.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-1-13",
+  "learning_outcome": "8.1",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following statements are consistent with the definition of quality?",
+  "items": [
+   "1. Quality applies to the processes used as well as to the outputs produced.",
+   "2. Quality is measured against the requirements that were agreed.",
+   "3. An output that exceeds its agreed specification is of higher quality than one that merely meets it.",
+   "4. A basic output that meets its specification exactly can be described as high quality."
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "1, 2 and 4",
+   "c": "2, 3 and 4",
+   "d": "1, 3 and 4"
+  },
+  "answer": "b",
+  "explanation": "Statement 3 is the intruder: exceeding the specification is unapproved scope, not superior quality. It tempts because everyday usage rewards going beyond what was asked, which the professional definition explicitly does not.",
+  "tip": "In multi select items, find the intruder first rather than verifying all four. One statement usually restates an everyday misconception.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-6",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "An organisation checks only the finished outputs of its projects and never examines the processes that produced them. What is the practical consequence?",
+  "items": null,
+  "options": {
+   "a": "Defects are found only after the money has already been spent producing them.",
+   "b": "The project will be unable to set acceptance criteria for its later deliverables.",
+   "c": "Quality assurance becomes the responsibility of the delivery team.",
+   "d": "The project cannot hold a decision gate at the end of a phase."
+  },
+  "answer": "a",
+  "explanation": "Output only checking catches problems at the most expensive point. Option a is tempting because criteria and checking are connected, but criteria come from quality planning and are unaffected by whether processes are examined.",
+  "tip": "Scenarios about expensive late rework are usually testing why quality management covers processes and not just finished outputs.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-7",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Why is it insufficient for quality management to check only the processes a project uses?",
+  "items": null,
+  "options": {
+   "a": "Because the organisation's standards would then never be recorded anywhere.",
+   "b": "Because it assumes that a good process cannot produce a bad output, which is optimistic.",
+   "c": "Because the project would have no basis on which to hold a benefit review.",
+   "d": "Because acceptance criteria could not be agreed in advance of the work."
+  },
+  "answer": "b",
+  "explanation": "A sound process can still yield a defective item, so outputs must be checked too. Option b is tempting because it names a genuine quality planning activity, but agreeing criteria does not depend on whether processes are checked.",
+  "tip": "Quality management is examinable for its dual scope. Any option that mentions only processes or only outputs is describing a part, not the whole.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-2-8",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A programme office finds that one project inspects every deliverable rigorously but never examines how the work is being done. Which part of quality management is missing?",
+  "items": null,
+  "options": {
+   "a": "The decision gate, because continuation has not been authorised.",
+   "b": "Quality control, because inspection alone does not produce a verdict.",
+   "c": "Quality planning, because acceptance criteria cannot be inspected.",
+   "d": "Quality assurance, because the appropriateness of the processes is never examined."
+  },
+  "answer": "d",
+  "explanation": "Rigorous inspection is quality control; what is absent is the process side, which assurance supplies. Option b is tempting because control is named in the scenario, but control is exactly what the project is already doing well.",
+  "tip": "Identify what the project is already doing well before choosing what is missing. The named strength in the stem is rarely the answer.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-9",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor asks why the project spends effort on quality management when the contract already requires every deliverable to be tested. What is the strongest answer?",
+  "items": null,
+  "options": {
+   "a": "Quality management covers the processes as well as the outputs, so problems are caught at the point where they are cheapest to fix.",
+   "b": "Quality management removes the need for testing at the end of each phase.",
+   "c": "Testing is optional under most contracts, so quality management provides a fallback.",
+   "d": "Quality management guarantees that no defect will ever reach the customer."
+  },
+  "answer": "a",
+  "explanation": "Contractual testing is control only; quality management adds the process dimension. Option d is tempting because it promises what sponsors want to hear, but no quality activity guarantees a defect free outcome.",
+  "tip": "Options that promise a guarantee are almost always wrong in this objective. Quality activities provide confidence and verdicts, not certainty.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-10",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager describes quality management to a new team member as inspecting the deliverables before we hand them over. What is wrong with that description?",
+  "items": null,
+  "options": {
+   "a": "Inspection is the responsibility of the sponsor rather than the project manager.",
+   "b": "It describes quality control alone, and omits the standards and the processes that quality management also covers.",
+   "c": "It describes quality assurance rather than quality management.",
+   "d": "Inspection happens only at decision gates, not immediately before handover."
+  },
+  "answer": "b",
+  "explanation": "Inspecting deliverables is quality control, one component of the umbrella. Option c is tempting because it also names a component, but assurance examines processes, which is precisely what the description leaves out.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-11",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly separates quality management from quality control?",
+  "items": null,
+  "options": {
+   "a": "Quality management tests outputs against acceptance criteria, while quality control sets those criteria.",
+   "b": "Quality management happens after handover, while quality control happens during delivery.",
+   "c": "Quality management is carried out independently, while quality control is carried out by the sponsor.",
+   "d": "Quality management covers the standards, the processes and the outputs, while quality control is the inspection and testing of the outputs alone."
+  },
+  "answer": "d",
+  "explanation": "Management is the umbrella; control is the output check beneath it. Option a is tempting because it uses the right vocabulary, but it swaps the two terms, giving control a planning role it does not have.",
+  "tip": "When two options describe the same relationship in opposite directions, one of them is a deliberate swap. Decide which term is broader before reading further.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-2-12",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A corporate quality manual requires every project both to work to defined methods and to demonstrate that its deliverables meet requirements. Which single term describes that combined obligation?",
+  "items": null,
+  "options": {
+   "a": "Quality control",
+   "b": "Quality management",
+   "c": "Quality assurance",
+   "d": "Quality planning"
+  },
+  "answer": "b",
+  "explanation": "Only quality management covers both halves. Options a and b are each tempting because the manual describes one of their concerns, but each covers a single half of the requirement stated in the stem.",
+  "tip": "When a stem describes two obligations at once, the answer is the umbrella term. A single component covers only one half.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-2-13",
+  "learning_outcome": "8.2",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following describe the purpose of quality management?",
+  "items": [
+   "1. Ensuring the project's outputs meet the required standards.",
+   "2. Ensuring the processes used to produce those outputs meet the required standards.",
+   "3. Making acceptance at handover a check rather than an argument.",
+   "4. Guaranteeing that the project delivers its outputs at the lowest possible cost."
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Statement 4 is the intruder: lowest cost is not a quality purpose. It tempts because quality management does save money by catching problems early, but saving money is a consequence, not the purpose.",
+  "tip": "Distinguish a purpose from a side effect. Early defect detection is cheaper, but cheapness is never the stated purpose of a quality activity.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-3-6",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Quality planning produces a reference that two later quality activities both depend on. Which activities are they?",
+  "items": null,
+  "options": {
+   "a": "Quality control and the benefit review.",
+   "b": "Quality assurance and quality control.",
+   "c": "Quality assurance and the post project review.",
+   "d": "The decision gate and the project audit."
+  },
+  "answer": "b",
+  "explanation": "Without planning, control has nothing to test against and assurance has no process to audit. Option d is tempting because gates and audits do rely on standards, but neither is one of the three quality activities under quality management.",
+  "tip": "Plan the standard, assure the process, control the product. Learn those three as one sentence and most of this objective is secure.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-3-7",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are determined by quality planning. Which is not?",
+  "items": null,
+  "options": {
+   "a": "The verdict on whether a completed deliverable may be accepted.",
+   "b": "Who is responsible for each planned review and test.",
+   "c": "The acceptance criteria that each deliverable must meet.",
+   "d": "The standards the project will work to, including any regulatory ones."
+  },
+  "answer": "a",
+  "explanation": "A verdict on a completed deliverable is the output of quality control, not of planning. It tempts because planning is what sets the criteria the verdict is measured against, so the two feel like one activity.",
+  "tip": "Planning decides what will be judged and how. It never issues a judgement, because at planning time nothing has been produced yet.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-3-8",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "At handover the customer raises a set of performance conditions that the delivery team has never seen. Which failure of quality planning does this reveal?",
+  "items": null,
+  "options": {
+   "a": "The processes used to produce the deliverable were never audited.",
+   "b": "The deliverable was not tested against its acceptance criteria before it was offered.",
+   "c": "Acceptance criteria were not agreed in advance, so handover has become a negotiation rather than a check.",
+   "d": "The decision gate at the end of the previous phase was not held."
+  },
+  "answer": "c",
+  "explanation": "Criteria discussed for the first time at handover turn acceptance into a negotiation under time pressure. Option c is tempting because testing did not happen either, but nothing could have been tested when no criteria existed.",
+  "tip": "Trace a handover dispute back to its cause. Missing criteria is a planning failure; untested criteria is a control failure.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-3-9",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A team proposes to decide how each deliverable will be judged once the deliverables are finished, arguing that the criteria will be clearer then. What is the strongest objection?",
+  "items": null,
+  "options": {
+   "a": "Assurance activity cannot begin until deliverables physically exist.",
+   "b": "Criteria set after the work is done are negotiated under time pressure with the budget already spent.",
+   "c": "Criteria written late cannot be recorded in the project management plan.",
+   "d": "The sponsor is not permitted to approve criteria after work has started."
+  },
+  "answer": "b",
+  "explanation": "Agreeing criteria in advance is the single most valuable thing quality planning does, because it turns handover into a check. Option a is tempting but false: assurance examines processes and can start well before any deliverable exists.",
+  "tip": "If an option claims one quality activity is impossible before deliverables exist, check it. Planning and assurance both work without any output.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-3-10",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "During definition, a project manager is asked what good will look like for each deliverable and how each will be judged. Which activity is being asked about?",
+  "items": null,
+  "options": {
+   "a": "Quality control",
+   "b": "Quality assurance",
+   "c": "Quality planning",
+   "d": "A project audit"
+  },
+  "answer": "c",
+  "explanation": "Deciding up front what good looks like and how it will be judged is quality planning. Option a is tempting because judging is control language, but control judges a finished item and nothing has been produced during definition.",
+  "tip": "Anchor these three on timing. Before the work is planning, during and around the work is assurance, after an output exists is control.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-3-11",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "How does quality planning differ from quality assurance?",
+  "items": null,
+  "options": {
+   "a": "Planning is carried out independently of the team, while assurance is carried out by the team itself.",
+   "b": "Planning examines the outputs produced, while assurance examines the standards that were set.",
+   "c": "Planning sets the standards and criteria the project will work to, while assurance provides confidence that the processes being used are appropriate and are being followed.",
+   "d": "Planning happens at each decision gate, while assurance happens at handover."
+  },
+  "answer": "c",
+  "explanation": "Planning sets the reference; assurance checks the process against it. Option c is tempting because independence is genuinely a feature of assurance, but it attaches independence to the wrong activity and reverses both roles.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-3-12",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "An auditor asks a project team what its deliverables are being tested against. Which product of quality planning answers that question?",
+  "items": null,
+  "options": {
+   "a": "The acceptance criteria set for each deliverable.",
+   "b": "The lessons captured at the previous post project review.",
+   "c": "The list of processes examined during the last assurance review.",
+   "d": "The record of the decision taken at the last decision gate."
+  },
+  "answer": "a",
+  "explanation": "Acceptance criteria are the measurable conditions testing works against, and quality planning produces them. Option c is tempting because assurance also produces documented findings, but those describe how work is done, not what an output must achieve.",
+  "tip": "Match the artefact to the activity that produced it. Criteria come from planning, findings come from assurance, verdicts come from control.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-3-13",
+  "learning_outcome": "8.3",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following are typical outputs of quality planning?",
+  "items": [
+   "1. The quality standards to be applied, whether internal, contractual or regulatory.",
+   "2. The acceptance criteria for each deliverable.",
+   "3. The reviews and tests planned, and who is responsible for each.",
+   "4. The record of defects found during testing and the rework required to clear them."
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "2, 3 and 4",
+   "c": "1, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "Statement 4 is the intruder: a defect and rework record is produced by quality control once outputs exist. It tempts because planning decides which tests will run, so the test results feel like part of the same package.",
+  "tip": "Anything with results, defects or rework in it has come from control. Planning produces standards, criteria, plans and named responsibilities.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-4-6",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Quality control examines outputs against a fixed reference. What supplies that reference?",
+  "items": null,
+  "options": {
+   "a": "The organisation's process standards, as examined during an assurance review.",
+   "b": "The business case, as tested at each decision gate.",
+   "c": "The acceptance criteria set for the deliverable during quality planning.",
+   "d": "The lessons captured at the most recent post project review."
+  },
+  "answer": "c",
+  "explanation": "Control tests outputs against their acceptance criteria, which quality planning produced. Option a is tempting because process standards are also a written reference, but they are what assurance checks against, not what a product is tested against.",
+  "tip": "Every check needs a reference. Control uses acceptance criteria, assurance uses process standards, a gate uses the business case.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-4-7",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A deliverable fails its quality control check. What happens to it next?",
+  "items": null,
+  "options": {
+   "a": "It is accepted, with the defect recorded as a lesson for future projects.",
+   "b": "The acceptance criteria are relaxed so that the deliverable can pass.",
+   "c": "A project audit is commissioned to establish why the process failed.",
+   "d": "It is reworked and retested against the same acceptance criteria."
+  },
+  "answer": "d",
+  "explanation": "A failed item is reworked and retested; the criteria stand. Option c is tempting because a repeated failure might well justify an audit, but an audit is an assurance response and does not resolve the individual defective item.",
+  "tip": "Quality control produces a binary verdict. If an option changes the criteria to fit the output, it has inverted the whole idea.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-4-8",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A tester runs a completed software module against its documented criteria and records a pass. Separately, a reviewer from outside the team checks whether the team followed the organisation's test method. How should the two activities be described?",
+  "items": null,
+  "options": {
+   "a": "Both are quality control, carried out at different levels.",
+   "b": "The first is quality control and the second is quality assurance.",
+   "c": "The first is quality assurance and the second is quality control.",
+   "d": "The first is quality planning and the second is quality control."
+  },
+  "answer": "b",
+  "explanation": "Testing the module is control; checking whether the method was followed is assurance. Option b is tempting because the independent reviewer feels like the stricter check, and candidates associate strictness with control rather than with process.",
+  "tip": "Ask what is being examined, not who is doing the examining. Product means control, process means assurance, whoever holds the clipboard.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-4-9",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project passes an independent review of its working methods and then produces a component that fails its performance test. What does this demonstrate?",
+  "items": null,
+  "options": {
+   "a": "That the acceptance criteria were set too high during quality planning.",
+   "b": "That the independent review must have been carried out incorrectly.",
+   "c": "That assurance of the process does not guarantee an acceptable output, which is why control is also needed.",
+   "d": "That quality control should have been carried out before the component was produced."
+  },
+  "answer": "c",
+  "explanation": "A project can pass assurance and still produce a defective item, which is exactly why both checks exist. Option b is tempting because a failure after a clean review looks like a review error, but the two checks answer different questions.",
+  "tip": "Neither assurance nor control is sufficient alone. If a scenario shows one passing and the other failing, that is the point being tested.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-4-10",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Before issuing a completed report to the customer, a project manager checks it against the conditions agreed for it. Which activity is being carried out?",
+  "items": null,
+  "options": {
+   "a": "Quality assurance",
+   "b": "A benefit review",
+   "c": "Quality planning",
+   "d": "Quality control"
+  },
+  "answer": "d",
+  "explanation": "Reviewing a finished document against its agreed criteria is inspection of an output, so it is quality control. Option a is tempting because the word review suggests assurance, but the subject here is the product, not the method.",
+  "tip": "The word review appears in both control and assurance. Ignore it and look at whether a product or a method is being examined.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-4-11",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which option correctly matches the question that each of control and assurance answers?",
+  "items": null,
+  "options": {
+   "a": "Control asks whether the way we work will produce acceptable results; assurance asks whether this item is acceptable.",
+   "b": "Control asks whether this particular item is acceptable; assurance asks whether working this way will produce acceptable results.",
+   "c": "Control asks what standards should apply; assurance asks whether those standards were met.",
+   "d": "Control asks whether the business case remains viable; assurance asks whether the process was followed."
+  },
+  "answer": "b",
+  "explanation": "Control is backward looking at a produced item; assurance is forward looking at the method. Option a states both questions correctly but attaches each to the wrong activity, which is the commonest error in this objective.",
+  "tip": "When two options contain identical wording in opposite order, work out one half from first principles and the pairing follows.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-4-12",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are quality control activities. Which is not?",
+  "items": null,
+  "options": {
+   "a": "Reviewing a completed document against the criteria agreed for it.",
+   "b": "Measuring a manufactured part against its dimensional tolerances.",
+   "c": "Testing software against its documented acceptance criteria.",
+   "d": "Reviewing whether the team is following the agreed testing method."
+  },
+  "answer": "d",
+  "explanation": "Checking whether a method is being followed examines the process, so it is assurance. It tempts because it uses the word testing and sits inside the same test activity as the three genuine control examples.",
+  "tip": "Strip the sentence to its object. If the object is a thing produced it is control; if the object is a way of working it is assurance.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-4-13",
+  "learning_outcome": "8.4",
+  "objective": 8,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following statements about quality control are correct?",
+  "items": [
+   "1. Quality control is applied to the thing that has been produced.",
+   "2. Quality control takes place after production.",
+   "3. Quality control produces a verdict against acceptance criteria.",
+   "4. Quality control is normally carried out by someone independent of the delivery team."
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "1, 3 and 4",
+   "c": "1, 2 and 4",
+   "d": "2, 3 and 4"
+  },
+  "answer": "a",
+  "explanation": "Statement 4 is the intruder: independence is a feature of quality assurance. It tempts because both activities are checks, and candidates transfer the independence point from assurance to control without noticing.",
+  "tip": "Independence attaches to assurance, because assurance provided by the people being assured is worth very little.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-5-6",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Why is quality assurance described as forward looking?",
+  "items": null,
+  "options": {
+   "a": "Because it takes place after handover, when the outputs are already in use.",
+   "b": "Because it sets the acceptance criteria against which later deliverables will be judged.",
+   "c": "Because it forecasts the number of defects the project is likely to produce.",
+   "d": "Because it asks whether continuing to work in this way will produce acceptable results."
+  },
+  "answer": "d",
+  "explanation": "Assurance asks a forward question about the method, whereas control asks a backward question about a finished item. Option b is tempting because criteria are also written before the work, but setting them is quality planning.",
+  "tip": "Assurance looks forward at the method, control looks back at an item. Tense is a reliable clue in the options.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-5-7",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which mechanisms are the usual means of carrying out quality assurance?",
+  "items": null,
+  "options": {
+   "a": "Decision gates and benefit reviews.",
+   "b": "Tests and inspections of finished outputs.",
+   "c": "Audits and reviews.",
+   "d": "Progress reports and forecasts."
+  },
+  "answer": "c",
+  "explanation": "Audits and reviews are how assurance examines whether processes are appropriate and followed. Option b is tempting because tests and inspections are also formal checks, but they examine the product, which makes them quality control.",
+  "tip": "The project audit in outcome 8.6 is an assurance mechanism. Seeing the two outcomes as connected saves work in both.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-5-8",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A delivery team is asked to assure its own working methods and reports that everything is satisfactory. Why is the value of that assurance limited?",
+  "items": null,
+  "options": {
+   "a": "Because assurance provided by the people being assured carries very little weight.",
+   "b": "Because assurance findings must be signed off by the sponsor rather than the team.",
+   "c": "Because the team is not qualified to inspect its own deliverables.",
+   "d": "Because assurance can only be carried out once the deliverables exist."
+  },
+  "answer": "a",
+  "explanation": "Independence is what gives assurance its value, so self assurance is weak evidence. Option c is tempting because it sounds like the same objection, but it refers to inspecting deliverables, which is control rather than assurance.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-5-9",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "An organisation wants confidence that a supplier's project will produce acceptable deliverables, before any deliverable yet exists. Which activity can provide that confidence?",
+  "items": null,
+  "options": {
+   "a": "Quality control, applied to the supplier's products from earlier contracts.",
+   "b": "A decision gate held at the start of the supplier's next phase.",
+   "c": "A benefit review of the supplier's previous contract.",
+   "d": "Quality assurance, examining whether the supplier's processes are appropriate and are being followed."
+  },
+  "answer": "d",
+  "explanation": "With nothing produced yet, only an examination of the processes can give confidence about future outputs. Option a is tempting because past products are real evidence, but they are not this project's outputs and testing them is control.",
+  "tip": "If a scenario says nothing has been produced yet, quality control is impossible and the answer is planning or assurance.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-5-10",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "An independent reviewer finds that a team is following its agreed process correctly, but that the process itself is unsuited to the work. What should the assurance finding conclude?",
+  "items": null,
+  "options": {
+   "a": "That the processes are not appropriate, so confidence that the outputs will meet requirements is not justified.",
+   "b": "That the processes are being followed, so assurance is satisfied.",
+   "c": "That the finding belongs to quality control, because it concerns the outputs.",
+   "d": "That the finding belongs to quality planning, because it concerns acceptance criteria."
+  },
+  "answer": "a",
+  "explanation": "Assurance requires processes to be both appropriate and followed, so compliance with a poor process fails the test. Option b is tempting because half the condition is met, and candidates who remember only the compliance half choose it.",
+  "tip": "Assurance has two halves: are the processes right, and are they being followed. An option satisfying only one half is incomplete.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-5-11",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two features distinguish quality assurance from quality control. Which option names both of them?",
+  "items": null,
+  "options": {
+   "a": "It is applied to the processes, and it is normally carried out by someone independent of the team doing the work.",
+   "b": "It is applied to the processes, and it happens only at handover.",
+   "c": "It is applied to the outputs, and it happens before production begins.",
+   "d": "It is applied to the outputs, and it is carried out by the sponsor."
+  },
+  "answer": "a",
+  "explanation": "Process focus and independence are the two distinguishing features. Option b is tempting because it gets the process half right, but assurance runs throughout the work rather than only at the moment of handover.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-5-12",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager claims that because the project has passed every assurance review, no defective output can possibly reach the customer. Why is that claim wrong?",
+  "items": null,
+  "options": {
+   "a": "Assurance reviews cover the outputs rather than the processes, so they say nothing about method.",
+   "b": "Assurance is carried out by the delivery team, so its findings are not reliable evidence.",
+   "c": "Assurance provides confidence about the process; it does not guarantee any individual output.",
+   "d": "Assurance takes place only after handover, so it cannot affect what is delivered."
+  },
+  "answer": "c",
+  "explanation": "Confidence about method is not a guarantee about products, which is why control also exists. Option c is tempting because independence genuinely matters, but assurance is normally independent, so the premise is simply false.",
+  "tip": "Watch for options that upgrade confidence into a guarantee. Assurance reduces the chance of a bad output, it does not remove it.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-5-13",
+  "learning_outcome": "8.5",
+  "objective": 8,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following statements about quality assurance are correct?",
+  "items": [
+   "1. It examines whether the processes being used are appropriate.",
+   "2. It examines whether those processes are actually being followed.",
+   "3. It is normally carried out independently of the delivery team.",
+   "4. It issues a pass or fail verdict on each completed deliverable."
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 2 and 3",
+   "c": "2, 3 and 4",
+   "d": "1, 3 and 4"
+  },
+  "answer": "b",
+  "explanation": "Statement 4 is the intruder: a pass or fail verdict on a deliverable is the output of quality control. It tempts because assurance reviews do reach conclusions, but those conclusions concern the method rather than any single item.",
+  "tip": "Verdicts belong to control. Assurance produces findings and confidence about the way work is done, never a pass or fail on a deliverable.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-6-6",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement about a project audit is correct?",
+  "items": null,
+  "options": {
+   "a": "It can take place at any point, is normally independent, and checks compliance with the organisation's processes and standards.",
+   "b": "It is held at a phase boundary in order to authorise continuation into the next phase.",
+   "c": "It takes place after handover and measures whether the expected benefits have arrived.",
+   "d": "It takes place at closure and captures lessons for the benefit of future projects."
+  },
+  "answer": "a",
+  "explanation": "Compliance, independence and freedom of timing are the audit's defining features. Option d is tempting because both an audit and a post project review look backwards, but lessons capture belongs to the post project review.",
+  "tip": "Continue, learn, benefit, comply. Four review types, four one word questions. Match the stem to the question before reading the options.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-6-7",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Why can a benefit review not normally be held at the moment a project closes?",
+  "items": null,
+  "options": {
+   "a": "Because the project manager's authority ends at closure.",
+   "b": "Because benefits emerge over time, so they cannot be assessed at the moment the project ends.",
+   "c": "Because lessons must be captured before any benefit can be measured.",
+   "d": "Because the outputs have not yet been accepted by the customer at that point."
+  },
+  "answer": "b",
+  "explanation": "Benefits appear after handover, often long after, which is why the extended life cycle exists. Option a is tempting because the project manager's role does end, but the constraint is the timing of the benefits, not of the role.",
+  "tip": "Anything measured after the outputs are in use, over a period of time, points to a benefit review rather than to closure.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-8-6-8",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two phases into a project, a competitor launches an equivalent product and the forecast return no longer exceeds the cost of completing. Where does the organisation formally decide whether to carry on?",
+  "items": null,
+  "options": {
+   "a": "At a benefit review, which measures the return actually achieved.",
+   "b": "At a project audit, which checks whether the project followed its processes.",
+   "c": "At the post project review, which captures what went wrong.",
+   "d": "At the next decision gate, where continuation is authorised or refused."
+  },
+  "answer": "d",
+  "explanation": "A gate tests whether the business case remains viable and can refuse continuation. Option d is tempting because the scenario is about return, but a benefit review measures benefits already delivered, not whether to continue.",
+  "tip": "A gate is the only one of the four reviews that can stop a project. If a stem asks about continuing, it is a gate question.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-6-9",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project finishes and the team meets to record what worked, what did not, and what should be done differently next time. Which review is this, and who is it for?",
+  "items": null,
+  "options": {
+   "a": "A post project review, for future projects.",
+   "b": "A project audit, for the assurance function.",
+   "c": "A benefit review, for the benefits owner.",
+   "d": "A decision gate, for the sponsor."
+  },
+  "answer": "a",
+  "explanation": "Capturing lessons about how the project was managed is the post project review, and the beneficiary is future work. Option a is tempting because both happen after the project, but a benefit review asks whether the benefits arrived.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-8-6-10",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "An organisation suspects that one of its live projects has been bypassing the corporate change control procedure. Which review is the right instrument to establish whether that is so?",
+  "items": null,
+  "options": {
+   "a": "A decision gate",
+   "b": "A project audit",
+   "c": "A benefit review",
+   "d": "A post project review"
+  },
+  "answer": "b",
+  "explanation": "An audit checks compliance with the organisation's processes and standards and can be held at any point. Option b is tempting because both examine how the project ran, but a post project review happens after completion and captures lessons.",
+  "tip": "Note the timing clue. Only the audit and the gate can happen while the project is still running, which often halves the options.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-6-11",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A sponsor treats decision gates and milestones as the same thing. What is the distinction?",
+  "items": null,
+  "options": {
+   "a": "A milestone authorises the next phase, while a gate records that a piece of work has been completed.",
+   "b": "A milestone applies to benefits, while a gate applies to outputs.",
+   "c": "A milestone is set by the sponsor, while a gate is set by the project manager.",
+   "d": "A milestone marks that something has happened, while a gate is a decision about whether to continue."
+  },
+  "answer": "d",
+  "explanation": "Gates often sit at milestones, but a milestone records an event and a gate takes a decision. Option a is tempting because it names both roles correctly, then attaches each to the wrong term.",
+  "tip": "Two options that state both halves correctly but in opposite pairings are a deliberate swap. Settle one half from memory, then pick.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-8-6-12",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which two of the four review types both take place after the project has finished, and what separates them?",
+  "items": null,
+  "options": {
+   "a": "The project audit and the decision gate: one checks compliance and the other authorises continuation.",
+   "b": "The post project review and the benefit review: one asks how the project was managed and the other asks whether the benefits were realised.",
+   "c": "The benefit review and the decision gate: one measures benefits and the other tests viability.",
+   "d": "The post project review and the project audit: one captures lessons and the other measures benefits."
+  },
+  "answer": "b",
+  "explanation": "These are the two most confused reviews, and both follow completion. Option d is tempting because it names the post project review correctly, but it then mislabels the audit, which checks compliance rather than benefits.",
+  "tip": "One looks at how the project ran, the other at whether the results were worth having. That single sentence separates the two commonest confusions.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-8-6-13",
+  "learning_outcome": "8.6",
+  "objective": 8,
+  "day": 2,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following correctly state the purpose of the review type named?",
+  "items": [
+   "1. A decision gate asks whether the business case remains viable.",
+   "2. A post project review captures lessons about how the project was managed.",
+   "3. A project audit checks compliance with the organisation's processes and standards.",
+   "4. A benefit review checks whether the deliverables met their acceptance criteria."
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Statement 4 is the intruder: testing deliverables against acceptance criteria is quality control. It tempts because a benefit review does happen after handover, so a post handover check on the outputs sounds plausible.",
+  "tip": "A benefit review asks whether the benefits arrived, not whether the outputs passed. Outputs are checked long before the benefits are visible.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": null
+ }
+]

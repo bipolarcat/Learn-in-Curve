@@ -1,0 +1,1051 @@
+[
+ {
+  "id": "PFQP-9-1-7",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager sends a specification to a supplier, who reads it and takes away a different meaning from the one intended. Under the syllabus definition, what has happened?",
+  "items": null,
+  "options": {
+   "a": "Communication has taken place, because the information was received.",
+   "b": "Information has been transmitted but not communicated, because no shared understanding was reached.",
+   "c": "Communication has failed only because the wrong method was chosen.",
+   "d": "Communication has taken place, and the supplier is at fault for misreading it."
+  },
+  "answer": "b",
+  "explanation": "Communication requires a shared understanding, not merely delivery. Option b is tempting because receipt feels like the natural end point, but the definition adds the confirmation half that receipt alone does not satisfy.",
+  "tip": "Sent is not the same as understood. Any option that stops at delivery or receipt is describing transmission.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-9-1-8",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager issues information regularly and receives nothing back from any recipient. What is this, and what is the risk?",
+  "items": null,
+  "options": {
+   "a": "It is a broadcast, and the risk is that a stakeholder can be quietly unhappy for months without anyone noticing.",
+   "b": "It is assurance, and the risk is that no independent view of the project exists.",
+   "c": "It is communication, and the risk is that the reports become too long to read.",
+   "d": "It is reporting, and the risk is that the sponsor duplicates the project manager's work."
+  },
+  "answer": "a",
+  "explanation": "Communication is an exchange running in both directions; one way output is a broadcast. Option d is tempting because reporting is a real term, but the definition point being tested is the missing return direction.",
+  "tip": "Check the direction of travel in the stem. Information going only outwards is a broadcast, however well produced it is.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-1-9",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "At the end of a briefing, a project manager asks each attendee to summarise in their own words what they will do next. Which part of the definition of communication is this addressing?",
+  "items": null,
+  "options": {
+   "a": "The record keeping strength of physical communication.",
+   "b": "The frequency element recorded in the communication plan.",
+   "c": "The confirmation of shared understanding that completes communication.",
+   "d": "The stakeholder analysis that identifies who matters most."
+  },
+  "answer": "c",
+  "explanation": "Asking people to say back what they have understood is the mechanism that closes the loop. Option c is tempting because briefings are scheduled in the plan, but frequency concerns when a message is sent, not whether it landed.",
+  "tip": "The confirmation half of the definition is the part candidates drop. Expect at least one question that tests it rather than the exchange half.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-1-10",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team leader claims that communication is complete as soon as the email has left the outbox. Which correction fits the syllabus definition?",
+  "items": null,
+  "options": {
+   "a": "Communication is complete once the recipient acknowledges receipt of the message.",
+   "b": "Communication is complete once the message has been distributed to everyone on the list.",
+   "c": "Communication is complete once the information has been received and understood as intended.",
+   "d": "Communication is complete once the recipient agrees with the message."
+  },
+  "answer": "c",
+  "explanation": "Receipt plus understanding is the test. Option a is the strongest distractor because an acknowledgement feels like confirmation, but confirming arrival is not the same as confirming that the meaning matched.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-1-11",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager spends an hour building a working relationship with a sceptical department head, exchanging no status information at all. Does this fall within project communication?",
+  "items": null,
+  "options": {
+   "a": "No, because communication covers the exchange of status information only.",
+   "b": "No, because relationship building belongs to stakeholder analysis rather than to communication.",
+   "c": "Yes, but only if the conversation is recorded in the risk register afterwards.",
+   "d": "Yes, because communication also covers building relationships, managing expectations and reaching agreement."
+  },
+  "answer": "d",
+  "explanation": "Communication is wider than status reporting and includes relationships, expectations and agreement. Option b is tempting because stakeholder analysis is genuinely related, but analysis identifies who matters rather than doing the communicating.",
+  "tip": "Communication is not only reports. If an option narrows it to progress information, it has defined one mechanism rather than the term.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-9-1-12",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "What separates transmission from communication?",
+  "items": null,
+  "options": {
+   "a": "Transmission is one to many, while communication is one to one.",
+   "b": "Transmission is verbal, while communication is written.",
+   "c": "Transmission is the sending of information, while communication requires it to be received and understood as intended.",
+   "d": "Transmission is planned in the communication plan, while communication is not."
+  },
+  "answer": "c",
+  "explanation": "The distinction is understanding, not channel or audience size. Option c is tempting because broadcasts are one to many, but a one to many message that is understood is still communication.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-1-13",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "How does a communication plan relate to the definition of communication?",
+  "items": null,
+  "options": {
+   "a": "The plan sets out who receives what, when and how, while the definition also requires that the information is understood.",
+   "b": "The plan defines communication, and the syllabus definition is drawn from it.",
+   "c": "The plan covers distribution only, while communication covers agreement only.",
+   "d": "The plan removes the need for confirmation, because it fixes what each stakeholder receives."
+  },
+  "answer": "a",
+  "explanation": "A plan schedules the sending; the definition adds the understanding. Option a is tempting because a good plan does reduce confusion, but no schedule can substitute for confirming that a message landed as intended.",
+  "tip": "A plan can guarantee that a message is sent. Only feedback can establish that it was understood.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-9-1-14",
+  "learning_outcome": "9.1",
+  "objective": 9,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following are part of the syllabus definition of communication?",
+  "items": [
+   "1. The exchange of information between parties.",
+   "2. Confirmation that a shared understanding has been reached.",
+   "3. Information running in both directions rather than only outwards.",
+   "4. Agreement by the recipient with the message that was sent."
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "2, 3 and 4",
+   "c": "1, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "Statement 4 is the intruder: understanding a message is not the same as agreeing with it. It tempts because persuading people to agree is a common purpose of project communication, but it is not part of the definition.",
+  "tip": "Understanding and agreement are different things. The definition needs the first and says nothing at all about the second.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 14,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-2-6",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which method allows a misunderstanding to be noticed and corrected in the moment, and why?",
+  "items": null,
+  "options": {
+   "a": "Physical communication, because the message exists as a permanent record.",
+   "b": "Virtual communication, because it reaches many people at once.",
+   "c": "Face to face communication, because feedback is immediate and non-verbal signals are visible.",
+   "d": "Physical communication, because the reader can work through it at their own pace."
+  },
+  "answer": "c",
+  "explanation": "Immediate feedback and visible non-verbal signals are the defining advantages of face to face. Options a and c are tempting because both state genuine advantages, but of physical communication rather than of face to face.",
+  "tip": "Rich, reach, record. Face to face is rich, virtual has reach, physical leaves a record. Attach every advantage to one of those three words.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-2-7",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which method delivers the same message to everyone in identical form and allows complex detail to be conveyed precisely?",
+  "items": null,
+  "options": {
+   "a": "Face to face communication",
+   "b": "Any method, provided the communication plan names a single sender",
+   "c": "Virtual communication conducted by live video call",
+   "d": "Physical communication"
+  },
+  "answer": "d",
+  "explanation": "Written or printed material reaches everyone identically and carries detail accurately. Option c is tempting because a single video call also reaches everyone at once, but what is said varies and detail is not retained precisely.",
+  "tip": "Identical form for everyone points to written material. One live event reaching everyone at once is virtual, and its content still varies.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-9-2-8",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project team is spread across four countries with a small travel budget and needs a working session every week. Which method is best suited, and why?",
+  "items": null,
+  "options": {
+   "a": "Physical communication, because it produces a durable record of each session.",
+   "b": "Virtual communication, because it reaches people wherever they are and is fast and inexpensive relative to travel.",
+   "c": "Face to face communication, because it builds trust faster than anything else.",
+   "d": "Face to face communication, because non-verbal signals are strongest in person."
+  },
+  "answer": "b",
+  "explanation": "Reach and low cost relative to travel are exactly what a dispersed weekly session needs. Options b and d state real advantages of face to face, but neither is achievable weekly across four countries on a small budget.",
+  "tip": "Match the method to the constraint in the stem. A true advantage attached to an impossible method is still the wrong answer.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-2-9",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager must tell a long standing supplier that their contract will not be renewed. Which method offers the greatest advantage in this situation?",
+  "items": null,
+  "options": {
+   "a": "Virtual, because it avoids the cost and delay of travel.",
+   "b": "Physical, because a letter leaves an accurate record of the decision.",
+   "c": "Face to face, because it is the strongest method for anything sensitive or contentious.",
+   "d": "Physical, because the recipient can read the news at their own pace."
+  },
+  "answer": "c",
+  "explanation": "Sensitive or contentious messages benefit most from immediate feedback and visible reaction. Option b is tempting because a written record genuinely matters for contractual decisions, but the record can follow the conversation.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-9-2-10",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A regulator requires a project to show exactly what was communicated to local residents and when. Which method's advantage matters most here?",
+  "items": null,
+  "options": {
+   "a": "Face to face, because non-verbal signals help build trust with residents.",
+   "b": "Physical, because written material produces a durable and accurate record.",
+   "c": "Virtual, because it is inexpensive relative to travel.",
+   "d": "Face to face, because misunderstandings can be corrected immediately."
+  },
+  "answer": "b",
+  "explanation": "A durable, accurate record is the physical method's central advantage and is what a regulator needs. Options a and d are genuine face to face advantages, but neither produces the evidence the regulator is asking for.",
+  "tip": "When a stem mentions evidence, audit or proof of what was said, the answer is nearly always the method that leaves a record.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-2-11",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which advantage is correctly attached to its method?",
+  "items": null,
+  "options": {
+   "a": "A durable written record is an advantage of face to face communication.",
+   "b": "Leaving a searchable trail is an advantage of most forms of virtual communication.",
+   "c": "Reading at one's own pace is an advantage of face to face communication.",
+   "d": "Correcting a misunderstanding in the moment is an advantage of physical communication."
+  },
+  "answer": "b",
+  "explanation": "Most virtual forms do leave a searchable trail. The other three each state a genuine advantage but deliberately attach it to the wrong method, which is the standard trap in this outcome.",
+  "tip": "Advantages attached to the wrong method are the examiner's favourite device here. Check the method name before judging the advantage.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-9-2-12",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are advantages of virtual communication. Which is not?",
+  "items": null,
+  "options": {
+   "a": "It is fast and inexpensive relative to travel.",
+   "b": "It makes dispersed and international teams workable.",
+   "c": "It can reach many people at the same time.",
+   "d": "Non-verbal signals are conveyed as fully as they are in person."
+  },
+  "answer": "d",
+  "explanation": "Reduced non-verbal signal is a disadvantage of virtual communication, not an advantage. It tempts because video calls do show faces, so candidates assume the signal is fully preserved.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-2-13",
+  "learning_outcome": "9.2",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following advantages are attached to the correct method?",
+  "items": [
+   "1. Face to face allows tone, expression and hesitation to be read.",
+   "2. Physical communication lets the recipient read at their own pace and return to it later.",
+   "3. Virtual communication makes dispersed and international teams workable.",
+   "4. Physical communication allows a misunderstanding to be corrected in the moment."
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "2, 3 and 4",
+   "c": "1, 2 and 4",
+   "d": "1, 3 and 4"
+  },
+  "answer": "a",
+  "explanation": "Statement 4 is the intruder: immediate correction requires immediate feedback, which written material does not provide. It tempts because it states a real advantage, simply of face to face rather than of physical communication.",
+  "tip": "In a matching multi select, scan the method names first. The intruder is usually a true advantage bolted onto the wrong method.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-6",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which method's weaknesses include being slow, carrying no tone, and being largely one way?",
+  "items": null,
+  "options": {
+   "a": "Face to face communication",
+   "b": "Virtual communication",
+   "c": "Virtual communication in the form of instant messaging",
+   "d": "Physical communication"
+  },
+  "answer": "d",
+  "explanation": "Slowness, absence of tone and one way flow are the classic weaknesses of written or printed material. Option b is tempting because email feels written, but virtual communication is fast and its weaknesses are technology and lost signal.",
+  "tip": "Written and virtual are not the same thing. Email is virtual, so slowness and no tone belong to the physical list.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-7",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which method does not scale, and requires people to be in the same place at the same time?",
+  "items": null,
+  "options": {
+   "a": "Virtual communication",
+   "b": "Physical communication",
+   "c": "Face to face communication",
+   "d": "Physical communication sent by post"
+  },
+  "answer": "c",
+  "explanation": "Co-location in time and place, and poor scalability, are the price of the richest method. Option c is tempting because scheduling across time zones is genuinely hard, but virtual communication does not require a shared location.",
+  "tip": "The disadvantage of each method is usually the absence of the other two strengths. Face to face is rich, so it lacks reach and record.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-9-3-8",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A weekly project video call includes twenty people. Attendance is high, but two team members have quietly disengaged and nobody has noticed. Which disadvantage is at work?",
+  "items": null,
+  "options": {
+   "a": "Virtual communication reduces or removes non-verbal signals, so disengagement is harder to detect.",
+   "b": "Virtual communication cannot be used across organisational boundaries.",
+   "c": "Virtual communication is slow and offers no immediate feedback.",
+   "d": "Virtual communication leaves no record of what was agreed."
+  },
+  "answer": "a",
+  "explanation": "Reduced non-verbal signal makes conflict and disengagement hard to spot. Option a is tempting because it is a widely repeated claim, but most virtual forms leave a searchable trail, so it is simply false.",
+  "tip": "Two common claims about virtual communication are false: that it leaves no trail, and that it cannot be used externally. Reject both on sight.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-9",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager issues a factual written update about a two week delay. Several recipients read it as blunt and unsympathetic. Which disadvantage explains this?",
+  "items": null,
+  "options": {
+   "a": "Written material is largely one way, so nobody was able to reply.",
+   "b": "Written material cannot convey complex detail precisely.",
+   "c": "Written material is slow, so the news arrived later than it should have.",
+   "d": "Written material carries no tone, so a neutral message is easily read as curt."
+  },
+  "answer": "d",
+  "explanation": "The absence of tone is what turns a neutral written sentence into a perceived rebuke. Option a is tempting because one way flow is a genuine weakness, but the complaint in the stem is about how the message read, not about replying.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-10",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two months after a corridor conversation, a supplier and a project manager disagree about what was agreed in it. Which disadvantage does this illustrate?",
+  "items": null,
+  "options": {
+   "a": "Face to face communication normally leaves no record unless someone deliberately takes one.",
+   "b": "Face to face communication costs time and money to arrange.",
+   "c": "Face to face communication does not scale to large audiences.",
+   "d": "Face to face communication removes the non-verbal signals between the parties."
+  },
+  "answer": "a",
+  "explanation": "Without a record, what was agreed can be disputed later, which is precisely the scenario. Options b and c are genuine face to face disadvantages, but neither explains a dispute about the content of the conversation.",
+  "tip": "Several options can all be true weaknesses of the same method. Pick the one that explains the specific event described in the stem.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-11",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A distributed team's daily stand up fails repeatedly because two members have unreliable connections and a third is six hours ahead. Which disadvantages are being felt?",
+  "items": null,
+  "options": {
+   "a": "Dependence on technology being available and reliable, and the scheduling difficulty created by time zones.",
+   "b": "The absence of tone, and the slowness of the method.",
+   "c": "The absence of any record, and the cost of travel.",
+   "d": "The one way nature of the method, and the volume of material it produces."
+  },
+  "answer": "a",
+  "explanation": "Technology dependence and time zone complication are the two virtual weaknesses shown. Option b is tempting because both items named are real disadvantages, but they belong to physical rather than virtual communication.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-9-3-12",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager says the trouble with virtual communication is that it leaves no audit trail. Why is that wrong, and what is the genuine weakness?",
+  "items": null,
+  "options": {
+   "a": "It is wrong because virtual communication is never used for formal matters, and the genuine weakness is its cost.",
+   "b": "It is wrong because the communication plan records every message sent, and the genuine weakness is that it does not scale.",
+   "c": "It is wrong because most forms leave a searchable trail, and the genuine weaknesses are technology dependence and reduced non-verbal signal.",
+   "d": "It is wrong because email is a form of physical communication, and the genuine weakness is slowness."
+  },
+  "answer": "c",
+  "explanation": "Most virtual forms are searchable; the real weaknesses lie elsewhere. Option c is tempting because a communication plan does record what is sent, but a plan sets intentions rather than capturing the messages themselves.",
+  "tip": "Reduced signal is a virtual weakness. Not scaling is a face to face weakness. Do not let a correct sounding first half carry a wrong second half.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-3-13",
+  "learning_outcome": "9.3",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following disadvantages are attached to the correct method?",
+  "items": [
+   "1. Face to face communication does not scale to large audiences.",
+   "2. Physical communication offers no immediate feedback, so a misunderstanding can persist.",
+   "3. Copying people in on virtual messages produces noise that hides the signal.",
+   "4. Physical communication depends on the technology being available and reliable for everyone involved."
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 2 and 3",
+   "c": "1, 3 and 4",
+   "d": "2, 3 and 4"
+  },
+  "answer": "b",
+  "explanation": "Statement 4 is the intruder: technology dependence belongs to virtual communication, not to printed material. It tempts because paper is produced using equipment, so the dependence sounds superficially reasonable to anyone reading quickly rather than by method.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-9-4-6",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A communication plan answers five questions. Which option states them?",
+  "items": null,
+  "options": {
+   "a": "Who receives the information, what they need, when, how, and who is responsible for sending it.",
+   "b": "What, why, how much, how long, and at what risk.",
+   "c": "What is delivered, to what standard, by when, at what cost, and to whose satisfaction.",
+   "d": "Who is affected, how much influence they hold, what they want, what they fear, and how they will react."
+  },
+  "answer": "a",
+  "explanation": "Who, what, when, how and by whom are the plan's five questions. Option d is tempting because it describes a genuine project document, but it describes stakeholder analysis, which feeds the plan rather than being it.",
+  "tip": "Who, what, when, how, by whom. If an option does not answer one of those five, it is not communication plan content.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-4-7",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following would appear in a communication plan. Which would not?",
+  "items": null,
+  "options": {
+   "a": "The frequency or timing of each communication.",
+   "b": "The critical path through the project's activities.",
+   "c": "The audiences, and the information each of them needs.",
+   "d": "The feedback mechanism available to recipients."
+  },
+  "answer": "b",
+  "explanation": "The critical path belongs to scheduling, not to communication planning. It tempts because both are planning documents concerned with timing, and candidates read the word path as a route for information.",
+  "tip": "Artefacts from other processes are the standard distractor here. The critical path, acceptance criteria and the risk register all belong elsewhere.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-9-4-8",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager holds a completed stakeholder analysis showing influence and interest, but nothing has changed in how the project actually communicates. What is missing?",
+  "items": null,
+  "options": {
+   "a": "An audit checking that the analysis followed the corporate process.",
+   "b": "A quality plan setting acceptance criteria for the project's reports.",
+   "c": "A benefit review confirming the value of the reports being issued.",
+   "d": "A communication plan turning the analysis into a schedule of specific actions."
+  },
+  "answer": "d",
+  "explanation": "Analysis identifies who matters; the plan converts that into who receives what and when. Option d is tempting because compliance checking is a real activity, but the gap here is action, not conformance.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-4-9",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager drafting a communication plan has listed each audience and the information each needs. What must the plan fix for every entry next?",
+  "items": null,
+  "options": {
+   "a": "The timing or frequency, the method or channel, and the person responsible.",
+   "b": "The tolerance within which the reported figures may vary.",
+   "c": "The acceptance criteria the information must meet before it is issued.",
+   "d": "The budget allocated to communicating with each audience."
+  },
+  "answer": "a",
+  "explanation": "Timing, method and owner complete the five questions once audience and content are set. Option a is tempting because acceptance criteria are a real planning artefact, but they belong to quality planning.",
+  "tip": "Work through who, what, when, how and by whom in order. The answer is whichever of the five the stem has not already covered.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-9-4-10",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "An operations manager complains that she is copied into every technical report but is never told when the new system will go live. What does a well constructed communication plan do differently?",
+  "items": null,
+  "options": {
+   "a": "It increases the frequency of the technical reports so that the go live date appears sooner.",
+   "b": "It records what information each audience actually needs, and why, rather than sending everything to everyone.",
+   "c": "It records her formal agreement to the go live date before that date is set.",
+   "d": "It transfers responsibility for informing her to the technical lead."
+  },
+  "answer": "b",
+  "explanation": "The plan matches information to need, which fixes both the noise and the gap. Option b is tempting because the plan does name who sends what, but reassigning a sender does not address what she needs to receive.",
+  "tip": "A plan is as much about what people do not need as about what they do. Volume is not the same as being informed.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-4-11",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which of the following items belongs to stakeholder analysis rather than to the communication plan?",
+  "items": null,
+  "options": {
+   "a": "The method or channel to be used for each audience.",
+   "b": "The person responsible for issuing each communication.",
+   "c": "The frequency at which each audience receives information.",
+   "d": "The assessment of how much influence each stakeholder holds."
+  },
+  "answer": "d",
+  "explanation": "Influence assessment is analysis; the plan then turns it into scheduled actions. The other three are all plan content, and the pairing is close enough that candidates often treat the two documents as one.",
+  "tip": "Analysis says who matters and why. The plan says what they get and when. Keep the two documents separate in your head.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-9-4-12",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager lists the project's recurring meetings and calls that list the communication plan. What is the shortfall?",
+  "items": null,
+  "options": {
+   "a": "Meetings are a form of face to face communication and so cannot be planned in advance.",
+   "b": "Meetings are one channel among several, and the plan must also record what information goes to whom, when and by whom.",
+   "c": "Meetings belong in the schedule, so they cannot appear in a communication plan at all.",
+   "d": "Meetings must be authorised at a decision gate before they can be recorded anywhere."
+  },
+  "answer": "b",
+  "explanation": "A meeting list covers one channel and omits audiences, content, timing and ownership. Option b is tempting because meetings do appear in schedules, but that does not exclude them from a communication plan.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-4-13",
+  "learning_outcome": "9.4",
+  "objective": 9,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following are contents of a communication plan?",
+  "items": [
+   "1. The audiences, and what information each of them needs.",
+   "2. The method or channel used for each audience.",
+   "3. Who is responsible for producing and sending each communication.",
+   "4. The acceptance criteria each deliverable must meet before handover."
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Statement 4 is the intruder: acceptance criteria are quality planning content. It tempts because criteria are agreed with stakeholders and then communicated to them, so the two activities feel adjacent.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-5-6",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A communication plan directs a project manager's finite time towards the audiences where communication changes the outcome. Which benefit is this?",
+  "items": null,
+  "options": {
+   "a": "Expectations are managed.",
+   "b": "Effort is targeted.",
+   "c": "Accountability is created.",
+   "d": "Consistency is provided."
+  },
+  "answer": "b",
+  "explanation": "Directing limited time to the audiences that matter is the targeting benefit. Option b is tempting because informed stakeholders do have better managed expectations, but that benefit concerns predictability of information rather than allocation of effort.",
+  "tip": "Learn the five benefits as five short labels. Questions in this outcome often use those labels as the options themselves.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-9-5-7",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [],
+  "stem": "Which benefit follows directly from a plan naming who sends what, and when?",
+  "items": null,
+  "options": {
+   "a": "Communication has an owner, rather than being everybody's job and therefore nobody's.",
+   "b": "Stakeholder analysis becomes unnecessary once the plan exists.",
+   "c": "Stakeholders are guaranteed to agree with the message they receive.",
+   "d": "Reports become shorter and easier for recipients to read."
+  },
+  "answer": "a",
+  "explanation": "Naming the sender creates accountability for the communication happening at all. Option b is tempting because the plan does supersede the analysis in day to day use, but the plan depends on that analysis to be worth anything.",
+  "tip": "A plan does not replace stakeholder analysis. Without the analysis the plan is guesswork, and without the plan the analysis changes nothing.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-5-8",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two directors receive materially different accounts of a serious slippage from two different members of the project team. Which benefit of a communication plan has been lost?",
+  "items": null,
+  "options": {
+   "a": "Effort targeted at the audiences that matter most.",
+   "b": "Accountability for producing each individual report.",
+   "c": "Consistency, so that everyone hears the same message rather than several versions.",
+   "d": "Confirmation that the message has been understood as intended."
+  },
+  "answer": "c",
+  "explanation": "Consistency matters most when the news is bad, and it is exactly what has failed. Option c is tempting because a named owner would have prevented it, but the harm described is conflicting versions, not an absent report.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-5-9",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager follows a good communication plan, and a stakeholder still refuses to support the project. Has the plan failed?",
+  "items": null,
+  "options": {
+   "a": "Yes, because the purpose of a plan is to secure stakeholder support.",
+   "b": "No, because a plan ensures the message arrives and is understood, and what the recipient does with it is a separate matter.",
+   "c": "No, provided the stakeholder is removed from the plan at the next revision.",
+   "d": "Yes, because continued disagreement shows the message never reached the stakeholder."
+  },
+  "answer": "b",
+  "explanation": "A plan cannot make people agree; it makes sure they are properly informed. Option a is tempting because support is what a project manager wants, but wanting an outcome does not make it the plan's purpose.",
+  "tip": "A plan that hides disagreement is failing. Informed dissent is a working communication plan, not a broken one.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-5-10",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A stakeholder briefed on a predictable schedule reacts calmly to a two week delay, while one who has heard nothing for six weeks reacts angrily to the same news. Which benefit does this demonstrate?",
+  "items": null,
+  "options": {
+   "a": "Accountability, because someone was named as the sender of the briefings.",
+   "b": "Consistency, because both stakeholders received the same message.",
+   "c": "Expectations are managed, because people told what is happening on a predictable schedule are less likely to invent their own version in the gaps.",
+   "d": "Effort is targeted, because the calmer stakeholder mattered more to the project."
+  },
+  "answer": "c",
+  "explanation": "Regular briefing prevents stakeholders filling silence with their own assumptions. Option b is tempting because both did hear the same news, but the difference in reaction came from the preceding rhythm, not from message wording.",
+  "tip": "When the difference between two stakeholders is what they heard beforehand, the benefit being tested is expectation management.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-9-5-11",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are genuine benefits of a communication plan to a project manager. Which is not?",
+  "items": null,
+  "options": {
+   "a": "It directs the project manager's limited time towards the audiences that matter.",
+   "b": "It makes communication deliberate rather than reactive.",
+   "c": "It ensures that stakeholders will agree with the decisions the project takes.",
+   "d": "It gives each communication a named owner."
+  },
+  "answer": "c",
+  "explanation": "A plan cannot manufacture agreement; it ensures the right information reaches the right people. It tempts because better informed stakeholders often are more supportive, which makes agreement look like a promised benefit.",
+  "tip": "Any option promising agreement, guaranteed happiness or the removal of another process is the overclaim. Plans deliver information, not consent.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-9-5-12",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "How does the benefit of consistency differ from the benefit of accountability?",
+  "items": null,
+  "options": {
+   "a": "Consistency means everyone hears the same message, while accountability means each communication has a named owner.",
+   "b": "Consistency applies to good news only, while accountability applies to bad news only.",
+   "c": "Consistency is a benefit to stakeholders, while accountability is a benefit to the sponsor alone.",
+   "d": "Consistency names the sender of each communication, while accountability fixes its frequency."
+  },
+  "answer": "a",
+  "explanation": "One concerns the uniformity of the message, the other concerns who is responsible for sending it. Option a is tempting because it uses both correct ideas, but it attaches each of them to the wrong benefit.",
+  "tip": "Both benefits are worth learning by their one line description. The exam separates them by swapping the descriptions rather than inventing new ones.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-9-5-13",
+  "learning_outcome": "9.5",
+  "objective": 9,
+  "day": 2,
+  "verb": "explain",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following are benefits of a communication plan to a project manager?",
+  "items": [
+   "1. Communication becomes deliberate rather than reactive.",
+   "2. The project manager's limited time is directed where communication changes the outcome.",
+   "3. Each communication has a named owner responsible for sending it.",
+   "4. Stakeholder analysis is no longer required once the plan is written."
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "2, 3 and 4",
+   "c": "1, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "Statement 4 is the intruder: the plan is built from the analysis and does not replace it. It tempts because the plan is the document used day to day, so the analysis can feel like a superseded draft.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ }
+]
