@@ -407,47 +407,39 @@ export function Lo1CoreContentStudy({
   }, []);
 
   const jumpToCode = useCallback((code: string) => {
-    if (!sectionEls.current.get(code)) return;
+    const el = sectionEls.current.get(code);
+    if (!el) return;
 
     scrollAnimRef.current?.stop();
     jumping.current = true;
 
-    // Wait one frame so the Contents menu can unmount before we measure/scroll.
-    requestAnimationFrame(() => {
-      const el = sectionEls.current.get(code);
-      if (!el) {
+    const from = window.scrollY;
+    const targetTop = Math.max(
+      0,
+      from + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
+    );
+    const distance = Math.abs(targetTop - from);
+
+    if (prefersReducedMotion() || distance < 1) {
+      window.scrollTo(0, targetTop);
+      jumping.current = false;
+      return;
+    }
+
+    // Distance-scaled duration: short hops stay snappy, long jumps stay fluid.
+    const duration = Math.min(0.7, Math.max(0.34, distance / 1900));
+
+    scrollAnimRef.current = animate(from, targetTop, {
+      type: "tween",
+      duration,
+      ease: appleScrollEase,
+      onUpdate: (latest) => {
+        window.scrollTo(0, latest);
+      },
+      onComplete: () => {
         jumping.current = false;
-        return;
-      }
-
-      const from = window.scrollY;
-      const targetTop = Math.max(
-        0,
-        from + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
-      );
-      const distance = Math.abs(targetTop - from);
-
-      if (prefersReducedMotion() || distance < 1) {
-        window.scrollTo(0, targetTop);
-        jumping.current = false;
-        return;
-      }
-
-      // Distance-scaled duration: short hops stay snappy, long jumps stay fluid.
-      const duration = Math.min(0.7, Math.max(0.34, distance / 1900));
-
-      scrollAnimRef.current = animate(from, targetTop, {
-        type: "tween",
-        duration,
-        ease: appleScrollEase,
-        onUpdate: (latest) => {
-          window.scrollTo(0, latest);
-        },
-        onComplete: () => {
-          jumping.current = false;
-          scrollAnimRef.current = null;
-        },
-      });
+        scrollAnimRef.current = null;
+      },
     });
   }, []);
 
