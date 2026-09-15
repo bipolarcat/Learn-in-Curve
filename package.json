@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node --test tests/hero-animals-assets.test.mjs tests/pfq-content-invariant.test.mjs tests/pfq-bank-invariant.test.mjs tests/course-registry-terms.test.mjs && next build",
+    "build": "node --test tests/hero-animals-assets.test.mjs tests/pfq-content-invariant.test.mjs tests/pfq-bank-invariant.test.mjs tests/course-registry-terms.test.mjs tests/account-deletion-coverage.test.mjs && next build",
     "start": "next start",
     "deploy": "node scripts/deploy.mjs",
     "lint": "next lint",
@@ -19,8 +19,7 @@
     "seed:pfq": "node scripts/seed-pfq-questions.mjs",
     "captions:generate": "node scripts/captions/generate.mjs",
     "captions:validate": "node scripts/captions/validate.mjs",
-    "captions:release-check": "node scripts/captions/validate.mjs --require-approved",
-    "deploy": "node scripts/deploy.mjs"
+    "captions:release-check": "node scripts/captions/validate.mjs --require-approved"
   },
   "dependencies": {
     "@animateicons/react": "^0.5.0",

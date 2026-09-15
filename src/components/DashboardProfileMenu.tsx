@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import { Trash2 } from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
 import { AVATARS, resolveAvatarId, type AvatarId } from "@/lib/avatars";
 import {
@@ -22,6 +23,10 @@ import {
   ToastSave,
   type ToastSaveState,
 } from "@/components/ui/toast-save";
+import { Spinner } from "@/components/ui/spinner";
+import { createClient } from "@/lib/supabase/client";
+import { deleteOwnAccount } from "@/lib/account/delete-account";
+import { DELETE_CONFIRMATION_PHRASE } from "@/lib/account/deletion-scope";
 import type { UserProfile } from "@/types/profile";
 
 type DashboardProfileMenuProps = {
@@ -126,6 +131,10 @@ export function DashboardProfileMenu({
     "idle",
   );
   const [error, setError] = useState<string | null>(null);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [deleteConfirm, setDeleteConfirm] = useState("");
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [panelPos, setPanelPos] = useState<{
     top: number;
@@ -193,6 +202,10 @@ export function DashboardProfileMenu({
       setError(null);
       setDirty(false);
       setSaveState("idle");
+      setDeleteOpen(false);
+      setDeleteConfirm("");
+      setDeleteError(null);
+      setDeleteBusy(false);
       return;
     }
     setError(null);
@@ -279,8 +292,32 @@ export function DashboardProfileMenu({
     setError(null);
     setDirty(false);
     setSaveState("idle");
+    setDeleteOpen(false);
+    setDeleteConfirm("");
+    setDeleteError(null);
+    setDeleteBusy(false);
     setOpen(false);
     triggerRef.current?.focus();
+  }
+
+  const deleteReady =
+    deleteConfirm.trim().toUpperCase() === DELETE_CONFIRMATION_PHRASE;
+
+  async function handleDeleteAccount() {
+    if (deleteBusy || !deleteReady) return;
+    setDeleteBusy(true);
+    setDeleteError(null);
+
+    const result = await deleteOwnAccount(deleteConfirm);
+    if (!result.ok) {
+      setDeleteError(result.error);
+      setDeleteBusy(false);
+      return;
+    }
+
+    await createClient().auth.signOut().catch(() => {});
+    router.push("/?deleted=1");
+    router.refresh();
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -341,7 +378,7 @@ export function DashboardProfileMenu({
       }}
       className="overflow-hidden"
     >
-      <div className="relative flex items-center gap-2.5 border-b border-black/[0.08] px-3 py-2.5 pr-10 dark:border-white/[0.12]">
+      <div className="relative flex items-center gap-2.5 border-b border-black/[0.08] px-3 py-2.5 dark:border-white/[0.12]">
         <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-black/[0.08] dark:ring-white/[0.12]">
           <AvatarImage avatarId={avatarId} size={36} />
         </span>
@@ -353,30 +390,112 @@ export function DashboardProfileMenu({
             {email}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={close}
-          disabled={saving}
-          aria-label="Close edit profile"
-          className="absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            aria-hidden
+        <div className="flex shrink-0 items-center gap-0.5">
+          <button
+            type="button"
+            onClick={() => {
+              setDeleteOpen((v) => !v);
+              setDeleteConfirm("");
+              setDeleteError(null);
+            }}
+            disabled={saving || deleteBusy}
+            aria-label={
+              deleteOpen ? "Cancel delete account" : "Delete my account"
+            }
+            aria-pressed={deleteOpen}
+            className={`inline-flex size-7 items-center justify-center rounded-lg transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
+              deleteOpen
+                ? "bg-rust/[0.1] text-rust"
+                : "text-ink/40 hover:bg-rust/[0.08] hover:text-rust"
+            }`}
           >
-            <path
-              d="M4 4l8 8M12 4 4 12"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
+            <Trash2 className="size-3.5" strokeWidth={2} aria-hidden />
+          </button>
+          <button
+            type="button"
+            onClick={close}
+            disabled={saving || deleteBusy}
+            aria-label="Close edit profile"
+            className="inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M4 4l8 8M12 4 4 12"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
+      {deleteOpen ? (
+        <div className="flex flex-col gap-3 px-3 py-3">
+          <p className="m-0 font-body text-[12.5px] font-semibold tracking-tight text-ink">
+            Delete your account
+          </p>
+          <p className="m-0 font-body text-[12px] leading-relaxed text-ink/65">
+            Permanently deletes <strong>{email}</strong> and all progress,
+            purchases, and Sly data. This cannot be undone.
+          </p>
+          <label
+            htmlFor="profile-delete-confirm"
+            className="font-body text-[11px] font-semibold text-ink"
+          >
+            Type {DELETE_CONFIRMATION_PHRASE} to confirm
+          </label>
+          <input
+            id="profile-delete-confirm"
+            type="text"
+            value={deleteConfirm}
+            autoComplete="off"
+            disabled={deleteBusy}
+            onChange={(event) => setDeleteConfirm(event.target.value)}
+            className={fieldClass}
+          />
+          {deleteError ? (
+            <p className="m-0 font-body text-[12px] text-rust" role="alert">
+              {deleteError}
+            </p>
+          ) : null}
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                void handleDeleteAccount();
+              }}
+              disabled={!deleteReady || deleteBusy}
+              aria-busy={deleteBusy}
+              className="inline-flex min-h-8 items-center gap-1.5 rounded-lg border border-rust/40 bg-rust/[0.06] px-3 font-body text-[12px] font-semibold text-rust disabled:opacity-50"
+            >
+              {deleteBusy ? (
+                <Spinner variant="ellipsis" size={14} aria-hidden />
+              ) : null}
+              {deleteBusy ? "Deleting" : "Delete permanently"}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setDeleteOpen(false);
+                setDeleteConfirm("");
+                setDeleteError(null);
+              }}
+              disabled={deleteBusy}
+              className="inline-flex min-h-8 items-center rounded-lg border border-ink/12 px-3 font-body text-[12px] font-semibold text-ink/70"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
       <div className="space-y-2.5 px-3 py-2.5">
         <fieldset>
           <legend className="sr-only">Avatar</legend>
@@ -505,6 +624,8 @@ export function DashboardProfileMenu({
           />
         ) : null}
       </div>
+        </>
+      )}
     </form>
   );
 

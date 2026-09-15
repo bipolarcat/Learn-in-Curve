@@ -49,7 +49,7 @@ Your core personal data and learning progress are stored in our primary database
 - **Analytics Events (PostHog):** Only collected if you consented. Your IP address is discarded at the point of collection and never stored. Events are currently retained for up to 7 years under our PostHog plan. Deleted sooner on request.
 - **Session Replays (PostHog):** Only collected if you consented. Kept for 30 days, then automatically deleted. Replays are masked in your browser before they are sent, so they never contain text you typed. Deleted sooner on request.
 - **Newsletters:** Kept until you unsubscribe.
-- **Account Deletion:** At present, automated self-serve deletion is not built into the dashboard. You can request full deletion of your personal data at any time by emailing support@learnincurve.com. We will manually process your request and securely wipe your data within 30 days, except where UK tax law requires us to retain specific payment records.
+- **Account Deletion:** You can delete your account yourself at any time from Account in the dashboard menu. Deletion is immediate and permanent: your progress, mock attempts and scores, practice history, certificates, Sly conversations, course access and marketing sign-ups are erased, and your login is removed. You can also email support@learnincurve.com and we will process the request manually within 30 days. Our payment provider keeps its own record of any transaction, because UK tax law requires us to be able to account for payments received.
 
 ## 7. Your Rights
 Under UK GDPR, you have the following rights regarding your data:
