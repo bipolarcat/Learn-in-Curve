@@ -1,0 +1,40 @@
+- generic [ref=f3e2]:
+  - link "Skip to content" [ref=f3e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Primary" [ref=f3e5]:
+    - link "Learn in Curve" [ref=f3e7] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f3e8]:
+        - generic [ref=f3e9]: Learn in
+        - generic [ref=f3e10]: Curve
+    - group "Site controls" [ref=f3e11]:
+      - button "Open menu" [ref=f3e14] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f3e17]:
+          - generic [ref=f3e18]: M
+          - generic [ref=f3e19]: e
+          - generic [ref=f3e20]: "n"
+          - generic [ref=f3e21]: u
+  - main [ref=f3e22]:
+    - generic [ref=f3e26]:
+      - generic [ref=f3e27]:
+        - heading "Welcome back" [level=1] [ref=f3e28]
+        - paragraph [ref=f3e29]: Pick up where you left off.
+      - generic [ref=f3e30]:
+        - button "Continue with Google" [ref=f3e31] [cursor=pointer]
+        - separator "or email" [ref=f3e37]
+        - generic [ref=f3e41]:
+          - generic [ref=f3e42]:
+            - generic [ref=f3e43]: Email
+            - textbox "Email" [ref=f3e44]:
+              - /placeholder: you@email.com
+          - generic [ref=f3e45]:
+            - generic [ref=f3e46]: Password
+            - textbox "Password" [ref=f3e47]:
+              - /placeholder: ••••••••
+            - link "Forgot password?" [ref=f3e48] [cursor=pointer]:
+              - /url: /auth/forgot-password
+          - button "Sign in" [ref=f3e49] [cursor=pointer]
+        - paragraph [ref=f3e50]:
+          - text: No account?
+          - link "Sign up" [ref=f3e51] [cursor=pointer]:
+            - /url: /auth/sign-up?next=%2Fdashboard

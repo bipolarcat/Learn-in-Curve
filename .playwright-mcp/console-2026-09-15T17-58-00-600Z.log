@@ -1,0 +1,11 @@
+[     245ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[   52272ms] [LOG] [Fast Refresh] rebuilding @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5956
+[   52358ms] [LOG] [Fast Refresh] done in 178ms @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5816
+[   56693ms] [LOG] [Fast Refresh] rebuilding @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5956
+[   56711ms] [LOG] [Fast Refresh] done in 94ms @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5816
+[   59492ms] [LOG] [Fast Refresh] rebuilding @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5956
+[   59511ms] [LOG] [Fast Refresh] done in 77ms @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5816
+[   63809ms] [LOG] [Fast Refresh] rebuilding @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5956
+[   63861ms] [LOG] [Fast Refresh] done in 79ms @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5816
+[   64403ms] [LOG] [Fast Refresh] rebuilding @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5956
+[   64423ms] [LOG] [Fast Refresh] done in 69ms @ http://192.168.1.181:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5816

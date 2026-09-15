@@ -1,0 +1,58 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - link "Skip to content" [ref=f5e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Primary" [ref=f5e5]:
+      - link "Learn in Curve" [ref=f5e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f5e8]:
+          - generic [ref=f5e9]: Learn in
+          - generic [ref=f5e10]: Curve
+      - group "Site controls" [ref=f5e11]:
+        - button "Open menu" [ref=f5e14] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f5e17]:
+            - generic [ref=f5e18]: M
+            - generic [ref=f5e19]: e
+            - generic [ref=f5e20]: "n"
+            - generic [ref=f5e21]: u
+    - main [ref=f5e22]:
+      - generic [ref=f5e26]:
+        - generic [ref=f5e27]:
+          - heading "Welcome back" [level=1] [ref=f5e28]
+          - paragraph [ref=f5e29]: Pick up where you left off.
+        - generic [ref=f5e30]:
+          - button "Continue with Google" [ref=f5e32] [cursor=pointer]
+          - separator "or email" [ref=f5e38]
+          - generic [ref=f5e42]:
+            - generic [ref=f5e43]:
+              - generic [ref=f5e44]: Email
+              - textbox "Email" [ref=f5e45]:
+                - /placeholder: you@email.com
+            - generic [ref=f5e46]:
+              - generic [ref=f5e47]: Password
+              - textbox "Password" [ref=f5e48]:
+                - /placeholder: ••••••••
+              - link "Forgot password?" [ref=f5e49] [cursor=pointer]:
+                - /url: /auth/forgot-password
+            - generic [ref=f5e50]:
+              - button "Sign in" [ref=f5e51] [cursor=pointer]
+              - generic [aria-hidden]: Last used
+          - paragraph [ref=f5e52]:
+            - text: No account?
+            - link "Sign up" [ref=f5e53] [cursor=pointer]:
+              - /url: /auth/sign-up?next=%2Fdashboard
+  - dialog "Cookies":
+    - generic [ref=f5e54]:
+      - generic [ref=f5e63]:
+        - paragraph [ref=f5e64]: Cookies
+        - paragraph [ref=f5e65]:
+          - text: We use a strictly necessary cookie to keep you signed in. We’d also like to use analytics cookies to see which lessons work and where people get stuck. No ads, ever.
+          - link "Cookie notice" [ref=f5e66] [cursor=pointer]:
+            - /url: /cookies
+      - generic [ref=f5e67]:
+        - button "Accept" [ref=f5e68] [cursor=pointer]
+        - button "Reject" [ref=f5e69] [cursor=pointer]
+        - link "Details" [ref=f5e70] [cursor=pointer]:
+          - /url: /cookies
+  - alert [ref=f5e71]
+  - region "Notifications alt+T"
