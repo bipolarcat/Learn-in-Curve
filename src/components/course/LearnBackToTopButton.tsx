@@ -1,18 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Learn-stage “Back to Top” — progress-ring icon + label on the left edge of
- * the Continue row. Ring from 21st.dev bundui Scroll Progress; magnetic pull
- * from 21st.dev Button Magnetic. No arrow glyph.
+ * Learn-stage “Back to Top” — up arrow stacked above the label, left edge of
+ * the Continue row. Magnetic pull from 21st.dev Button Magnetic.
  */
 
 function scrollStudyToTop() {
@@ -27,14 +22,7 @@ function scrollStudyToTop() {
   });
 }
 
-const ICON = 22;
-const STROKE = 2.25;
-const R = (ICON - STROKE) / 2 - 0.5;
-const CX = ICON / 2;
-const CY = ICON / 2;
-
 export function LearnBackToTopButton({ className }: { className?: string }) {
-  const { scrollYProgress } = useScroll();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -110,46 +98,22 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
       }
       whileTap={reduceMotion ? undefined : { scale: 0.97 }}
       className={cn(
-        "group inline-flex max-w-full items-center gap-1.5 rounded-lg px-0.5 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
+        "group inline-flex max-w-full items-end gap-0 rounded-lg px-0.5 py-0.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
         className,
       )}
     >
-      <span
-        className="relative inline-flex size-[1.375rem] shrink-0 items-center justify-center"
-        aria-hidden
-      >
-        <svg
-          className="size-full -rotate-90"
-          width={ICON}
-          height={ICON}
-          viewBox={`0 0 ${ICON} ${ICON}`}
-        >
-          <circle
-            cx={CX}
-            cy={CY}
-            r={R}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={STROKE}
-            className="text-ink/15 dark:text-white/20"
-          />
-          <motion.circle
-            cx={CX}
-            cy={CY}
-            r={R}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={STROKE}
-            strokeLinecap="round"
-            className="text-orange"
-            style={{ pathLength: scrollYProgress }}
-            pathLength={1}
-            strokeDashoffset={0}
-          />
-        </svg>
+      <span className="inline-flex flex-col items-center gap-0.5">
+        <ChevronUp
+          className="size-3.5 shrink-0 text-ink/55 transition-colors duration-150 group-hover:text-orange"
+          strokeWidth={2.5}
+          aria-hidden
+        />
+        <span className="font-body text-[12px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange sm:text-[13px]">
+          Back
+        </span>
       </span>
       <span className="truncate font-body text-[12px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange sm:text-[13px]">
-        Back to Top
+        {" to Top"}
       </span>
     </motion.button>
   );

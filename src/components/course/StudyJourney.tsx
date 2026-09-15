@@ -47,7 +47,7 @@ export function StageContinueButton({
   return (
     <div className="relative mt-6 flex min-h-11 items-center justify-center sm:mt-8">
       {aside ? (
-        <div className="absolute inset-y-0 left-0 z-10 flex max-w-[min(42%,11rem)] items-center">
+        <div className="absolute inset-y-0 left-0 z-10 flex max-w-[min(48%,12rem)] items-center">
           {aside}
         </div>
       ) : null}
