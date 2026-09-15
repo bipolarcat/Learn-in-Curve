@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+  type ReactNode,
+} from "react";
 import { useRouter } from "next/navigation";
 import { createPfqCheckout } from "@/lib/pfq/checkout";
 import { authHrefWithNext } from "@/lib/auth-next";
@@ -14,22 +20,32 @@ import { fieldErrorHint } from "@/components/ui/semantic";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 
 type Props = {
-  label?: string;
+  label?: ReactNode;
+  /** Accessible name when `label` is not a plain string. */
+  ariaLabel?: string;
   isSignedIn: boolean;
   autoStart?: boolean;
+  /** Compact row layout (dashboard footer) — wrapper does not stretch full width. */
+  inline?: boolean;
   className?: string;
 };
 
 export function PfqCheckoutButton({
   label = `Get PFQ in 2 Days — ${formatPfqPriceGbp()}`,
+  ariaLabel,
   isSignedIn,
   autoStart = false,
+  inline = false,
   className,
 }: Props) {
   const router = useRouter();
   const [error, setError] = useState("");
   const [pending, startTransition] = useTransition();
   const autoStarted = useRef(false);
+  const defaultAria =
+    typeof label === "string"
+      ? label
+      : `Get PFQ in 2 Days — ${formatPfqPriceGbp()}`;
 
   function startCheckout() {
     setError("");
@@ -61,13 +77,13 @@ export function PfqCheckoutButton({
   }, [autoStart, isSignedIn]);
 
   return (
-    <div className="grid w-full gap-1.5">
+    <div className={inline ? "inline-grid max-w-full gap-1.5" : "grid w-full gap-1.5"}>
       <button
         type="button"
         className={`${className ?? stampCtaPrimary} disabled:cursor-wait disabled:opacity-90`}
         disabled={pending}
         aria-busy={pending}
-        aria-label={pending ? "Opening checkout" : label}
+        aria-label={pending ? "Opening checkout" : (ariaLabel ?? defaultAria)}
         onClick={startCheckout}
       >
         {pending ? (

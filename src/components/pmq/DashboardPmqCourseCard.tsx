@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Flame } from "lucide-react";
 import { AI_TUTOR_LAUNCHED, formatGbp, PMQ_SLUG } from "@/lib/pmq/constants";
 import { GetProBundleButton } from "@/components/pmq/GetProBundleButton";
+import { GetPfqProBundleButton } from "@/components/pfq/GetPfqProBundleButton";
 import { SlyTopUpDialog } from "@/components/pmq/SlyTopUpDialog";
 import { SlyUsageMeter } from "@/components/pmq/SlyUsageMeter";
 import { Calendar } from "@/components/ui/calendar";
@@ -21,14 +22,17 @@ import { CtaArrow } from "@/components/stamp-chip";
 import { saveExamDeadline } from "@/lib/profile-actions";
 import { trackExamDateSet } from "@/lib/analytics/events";
 import { PMQ_PLANS, type PmqPlanFeature } from "@/lib/pmq/plans";
+import { PFQ_PLANS, type PfqPlanFeature } from "@/lib/pfq/plans";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import { tierAtLeast } from "@/lib/pmq/tiers";
 import type { PfqTier } from "@/lib/pfq/tiers";
 import type { FairUsageSummary } from "@/lib/tutor/fair-usage";
 import {
   IconAudio,
+  IconCore,
   IconMock,
   IconPractice,
+  IconReport,
   IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import {
@@ -38,16 +42,24 @@ import {
 } from "@/components/ui/semantic";
 import styles from "./DashboardPmqCourseCard.module.css";
 
-const PRO_PLAN_FEATURES =
+const PMQ_PRO_PLAN_FEATURES =
   PMQ_PLANS.find((plan) => plan.id === "pro")?.features ?? [];
 
+const PFQ_PRO_PLAN_FEATURES =
+  PFQ_PLANS.find((plan) => plan.id === "pro")?.features ?? [];
+
 const PRO_FEATURE_ICONS: Partial<
-  Record<PmqPlanFeature["icon"], ComponentType<{ className?: string }>>
+  Record<
+    PmqPlanFeature["icon"] | PfqPlanFeature["icon"],
+    ComponentType<{ className?: string }>
+  >
 > = {
   practice: IconPractice,
   mock: IconMock,
   video: IconVideo,
   audio: IconAudio,
+  core: IconCore,
+  report: IconReport,
 };
 
 /** Same mark as pricing Pro card “Everything in Starter, plus”. */
@@ -101,6 +113,13 @@ type DashboardPmqCourseCardProps = {
    * pass false to keep the same chrome without that strip.
    */
   showTutorFooter?: boolean;
+  /**
+   * PFQ (and any non-tutor course): show What's included + Get Pro Bundle when
+   * the viewer is still on Starter. Independent of `showTutorFooter`.
+   */
+  showProUpsell?: boolean;
+  /** Which Stripe checkout the Pro CTA runs. Default PMQ. */
+  proCheckout?: "pmq" | "pfq";
 };
 
 /** Orange the “N days” / “N-day” span in the course title (PMQ 5 / PFQ 2). */
@@ -313,6 +332,8 @@ export function DashboardPmqCourseCard({
   topUpSuccess = false,
   examDeadline = null,
   showTutorFooter = true,
+  showProUpsell = false,
+  proCheckout = "pmq",
 }: DashboardPmqCourseCardProps) {
   const router = useRouter();
   const panelId = useId();
@@ -327,6 +348,13 @@ export function DashboardPmqCourseCard({
   const [deadlineMsg, setDeadlineMsg] = useState<string | null>(null);
   const [deadlinePending, startDeadline] = useTransition();
   const anyNavPending = navPending || overviewPending;
+  const isStarter = userTier === "starter";
+  const showPmqProUpsell =
+    showTutor && !tierAtLeast(userTier as PmqTier, "pro");
+  const showStandaloneProUpsell = showProUpsell && isStarter;
+  const showProFooter = showPmqProUpsell || showStandaloneProUpsell;
+  const proFeatures =
+    proCheckout === "pfq" ? PFQ_PRO_PLAN_FEATURES : PMQ_PRO_PLAN_FEATURES;
 
   const overviewPath =
     overviewHref.startsWith("/") && overviewHref.length > 1
@@ -492,7 +520,7 @@ export function DashboardPmqCourseCard({
             </p>
           )}
         </div>
-      ) : showTutor && !tierAtLeast(userTier as PmqTier, "pro") ? (
+      ) : showProFooter ? (
         <div className="relative z-0 mt-auto rounded-b-xl border-t border-black/[0.06] px-3.5 py-2 sm:px-4 dark:border-white/[0.1]">
           <div className="grid gap-2">
             <div className="flex min-w-0 items-center justify-between gap-3">
@@ -514,10 +542,14 @@ export function DashboardPmqCourseCard({
                 </span>
               </button>
 
-              <GetProBundleButton
-                priceCents={tutorPriceCents}
-                returnPath="/dashboard"
-              />
+              {proCheckout === "pfq" ? (
+                <GetPfqProBundleButton />
+              ) : (
+                <GetProBundleButton
+                  priceCents={tutorPriceCents}
+                  returnPath="/dashboard"
+                />
+              )}
             </div>
 
             {includedOpen ? (
@@ -530,7 +562,7 @@ export function DashboardPmqCourseCard({
                   All the starter pack features
                 </p>
                 <ul className="grid list-none gap-2">
-                  {PRO_PLAN_FEATURES.map((feature) => {
+                  {proFeatures.map((feature) => {
                     const Icon = PRO_FEATURE_ICONS[feature.icon];
                     return (
                       <li

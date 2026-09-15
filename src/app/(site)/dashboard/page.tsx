@@ -253,6 +253,8 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                 userTier={pfqTier}
                 examDeadline={profile.target_exam_date}
                 showTutorFooter={false}
+                showProUpsell
+                proCheckout="pfq"
               />
             ) : null}
 
