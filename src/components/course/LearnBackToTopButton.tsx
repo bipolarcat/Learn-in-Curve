@@ -11,9 +11,9 @@ import { ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Learn-stage “back to top” — circular scroll-progress ring (21st.dev bundui
- * Scroll Progress Bar) + magnetic cursor pull (21st.dev Button Magnetic).
- * Not a rectangle; sits beside Continue on Learn only.
+ * Learn-stage “Back to Top” — icon + label on the left edge of the Continue row.
+ * Circular scroll-progress ring (21st.dev bundui) + magnetic pull (21st.dev
+ * Button Magnetic) on the icon only.
  */
 
 function scrollStudyToTop() {
@@ -28,11 +28,11 @@ function scrollStudyToTop() {
   });
 }
 
-const SIZE = 44;
-const STROKE = 2.5;
-const R = (SIZE - STROKE) / 2 - 1;
-const CX = SIZE / 2;
-const CY = SIZE / 2;
+const ICON = 28;
+const STROKE = 2;
+const R = (ICON - STROKE) / 2 - 0.5;
+const CX = ICON / 2;
+const CY = ICON / 2;
 
 export function LearnBackToTopButton({ className }: { className?: string }) {
   const { scrollYProgress } = useScroll();
@@ -76,8 +76,8 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
       const distance = Math.hypot(deltaX, deltaY);
-      const magneticDistance = 100;
-      const attraction = 0.4;
+      const magneticDistance = 90;
+      const attraction = 0.35;
 
       if (distance < magneticDistance) {
         const strength = 1 - distance / magneticDistance;
@@ -98,7 +98,6 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
       ref={buttonRef}
       type="button"
       aria-label="Back to top"
-      title="Back to top"
       onClick={(event) => {
         event.preventDefault();
         x.set(0);
@@ -110,47 +109,52 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
           ? { x: springX, y: springY }
           : undefined
       }
-      whileTap={reduceMotion ? undefined : { scale: 0.92 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.97 }}
       className={cn(
-        "group relative inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-paper text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.06)] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:border-orange/40 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 dark:border-white/15",
+        "group inline-flex max-w-full items-center gap-2 rounded-lg px-0.5 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
         className,
       )}
     >
-      <svg
-        className="pointer-events-none absolute inset-0 size-full -rotate-90"
-        width={SIZE}
-        height={SIZE}
-        viewBox={`0 0 ${SIZE} ${SIZE}`}
-        aria-hidden
-      >
-        <circle
-          cx={CX}
-          cy={CY}
-          r={R}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={STROKE}
-          className="text-ink/12 dark:text-white/15"
+      <span className="relative inline-flex size-7 shrink-0 items-center justify-center">
+        <svg
+          className="pointer-events-none absolute inset-0 size-full -rotate-90"
+          width={ICON}
+          height={ICON}
+          viewBox={`0 0 ${ICON} ${ICON}`}
+          aria-hidden
+        >
+          <circle
+            cx={CX}
+            cy={CY}
+            r={R}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={STROKE}
+            className="text-ink/12 dark:text-white/15"
+          />
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            r={R}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={STROKE}
+            strokeLinecap="round"
+            className="text-orange"
+            style={{ pathLength: scrollYProgress }}
+            pathLength={1}
+            strokeDashoffset={0}
+          />
+        </svg>
+        <ChevronUp
+          className="relative size-3.5 text-ink/65 transition-colors duration-150 group-hover:text-orange"
+          strokeWidth={2.5}
+          aria-hidden
         />
-        <motion.circle
-          cx={CX}
-          cy={CY}
-          r={R}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          className="text-orange"
-          style={{ pathLength: scrollYProgress }}
-          pathLength={1}
-          strokeDashoffset={0}
-        />
-      </svg>
-      <ChevronUp
-        className="relative size-5 text-ink/70 transition-colors duration-150 group-hover:text-orange"
-        strokeWidth={2.25}
-        aria-hidden
-      />
+      </span>
+      <span className="truncate font-body text-[13px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange">
+        Back to Top
+      </span>
     </motion.button>
   );
 }
