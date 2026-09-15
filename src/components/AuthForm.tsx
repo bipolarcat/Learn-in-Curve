@@ -133,25 +133,50 @@ function GoogleMark() {
 }
 
 /**
- * Quiet “Last used” cue — absolute corner chip on a wrapper *outside* the
- * <button>. WebKit ignores position:absolute on descendants of <button>, so
- * the pill must not live inside the CTA (otherwise it joins the flex row /
- * stacks on the label on iOS).
+ * Quiet “Last used” cue — sibling of the CTA (not inside <button>: WebKit
+ * ignores absolute positioning on button descendants). All visual props are
+ * inline so iOS text inflation / missing utility classes can’t restyle it
+ * differently from desktop.
  */
 function LastUsedPill({
   tone = "ink",
 }: {
   tone?: "ink" | "on-action";
 }) {
+  const onAction = tone === "on-action";
   return (
     <span
       aria-hidden
-      className={
-        tone === "on-action"
-          ? "pointer-events-none absolute right-1.5 top-1.5 z-10 inline-flex items-center rounded-full bg-white/25 px-1.5 py-0.5 text-[9px] font-semibold uppercase leading-none tracking-wide text-white/95"
-          : "pointer-events-none absolute right-1.5 top-1.5 z-10 inline-flex items-center rounded-full bg-ink/[0.08] px-1.5 py-0.5 text-[9px] font-semibold uppercase leading-none tracking-wide text-ink/55"
-      }
-      style={{ WebkitTextSizeAdjust: "100%" }}
+      style={{
+        position: "absolute",
+        top: 7,
+        right: 7,
+        zIndex: 2,
+        boxSizing: "border-box",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: 16,
+        maxHeight: 16,
+        padding: "0 6px",
+        borderRadius: 999,
+        fontSize: 10,
+        fontWeight: 600,
+        lineHeight: 1,
+        letterSpacing: "0.03em",
+        textTransform: "uppercase",
+        whiteSpace: "nowrap",
+        pointerEvents: "none",
+        WebkitTextSizeAdjust: "100%",
+        transform: "scale(0.78)",
+        transformOrigin: "top right",
+        background: onAction
+          ? "rgba(255, 255, 255, 0.28)"
+          : "rgba(28, 25, 23, 0.08)",
+        color: onAction
+          ? "rgba(255, 255, 255, 0.95)"
+          : "rgba(28, 25, 23, 0.55)",
+      }}
     >
       Last used
     </span>
