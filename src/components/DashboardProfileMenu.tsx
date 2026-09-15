@@ -425,7 +425,7 @@ export function DashboardProfileMenu({
             />
             Delete your account
           </p>
-          <div className="flex flex-col gap-2 font-body text-[12px] leading-relaxed text-ink/65">
+          <div className="flex flex-col gap-2 text-center font-body text-[12px] leading-relaxed text-ink/65">
             <p className="m-0">
               This will permanently delete your account, associated progress and
               purchases. This action cannot be undone.
