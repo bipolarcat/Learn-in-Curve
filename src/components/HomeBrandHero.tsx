@@ -219,8 +219,9 @@ function FadeBlock({
 }
 
 /**
- * Home brand hero — animals first, Space Mono stamp eyebrow beneath, then
- * PFQ/PMQ lockup + 21st BouncingText on “curve”. `HeroAnimalsScene` untouched.
+ * Home brand hero — animals lead; Space Mono stamp eyebrow sits *behind*
+ * the scene so giraffe horns overlap the type (layered depth). Then PFQ/PMQ
+ * lockup + 21st BouncingText on “curve”. `HeroAnimalsScene` untouched.
  */
 export function HomeBrandHero() {
   return (
@@ -231,15 +232,24 @@ export function HomeBrandHero() {
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
-          <div className="w-full">
-            <HeroAnimalsScene />
+          {/*
+            Layer stack: eyebrow (z-0) under animals (z-1). Text sits in the
+            top band of the scene so opaque horn pixels cover it; transparent
+            canvas areas let the teal stamp read through.
+          */}
+          <div className="relative w-full">
+            <p
+              className="pointer-events-none absolute left-1/2 top-[5%] z-0 w-[min(100%,22rem)] -translate-x-1/2 px-2 sm:top-[6%] sm:w-[min(100%,26rem)]"
+              aria-label={EYEBROW}
+            >
+              <StampEyebrow text={EYEBROW} delay={0.15} />
+            </p>
+            <div className="relative z-[1]">
+              <HeroAnimalsScene />
+            </div>
           </div>
 
-          <p className="mb-3 mt-3 sm:mb-4 sm:mt-3.5" aria-label={EYEBROW}>
-            <StampEyebrow text={EYEBROW} delay={0.2} />
-          </p>
-
-          <div className="mt-0 w-full sm:mt-0.5">
+          <div className="mt-1 w-full sm:mt-2">
             <Headline />
           </div>
 
@@ -275,3 +285,4 @@ export function HomeBrandHero() {
     </section>
   );
 }
+
