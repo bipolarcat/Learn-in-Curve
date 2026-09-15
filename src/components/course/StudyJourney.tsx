@@ -44,34 +44,40 @@ export function StageContinueButton({
   /** Optional left-edge control (e.g. Learn “Back to Top”); Continue stays centred. */
   aside?: ReactNode;
 }) {
+  const continueBtn = (
+    <button
+      type="button"
+      aria-disabled={!enabled}
+      aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
+      className={`${productActionSecondary} ${
+        !enabled
+          ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
+          : ""
+      }`}
+      onClick={(event) => {
+        event.preventDefault();
+        if (!enabled) {
+          showCheckpointGateHint("bottom-center");
+          return;
+        }
+        onContinue();
+      }}
+    >
+      {label}
+      <CtaArrow className="!h-3.5 !w-3.5" />
+    </button>
+  );
+
+  if (!aside) {
+    return (
+      <div className="mt-6 flex justify-center sm:mt-8">{continueBtn}</div>
+    );
+  }
+
   return (
-    <div className="relative mt-6 flex min-h-11 items-center justify-center sm:mt-8">
-      {aside ? (
-        <div className="absolute inset-y-0 left-0 z-10 flex max-w-[min(48%,12rem)] items-center">
-          {aside}
-        </div>
-      ) : null}
-      <button
-        type="button"
-        aria-disabled={!enabled}
-        aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
-        className={`${productActionSecondary} ${
-          !enabled
-            ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
-            : ""
-        }`}
-        onClick={(event) => {
-          event.preventDefault();
-          if (!enabled) {
-            showCheckpointGateHint("bottom-center");
-            return;
-          }
-          onContinue();
-        }}
-      >
-        {label}
-        <CtaArrow className="!h-3.5 !w-3.5" />
-      </button>
+    <div className="mt-3 sm:mt-4">
+      <div className="mb-2 flex justify-start sm:mb-2.5">{aside}</div>
+      <div className="flex justify-center">{continueBtn}</div>
     </div>
   );
 }
