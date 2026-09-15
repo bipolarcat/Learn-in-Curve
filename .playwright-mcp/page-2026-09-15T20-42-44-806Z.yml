@@ -1,0 +1,224 @@
+- generic [active] [ref=f10e1]:
+  - generic [ref=f10e2]:
+    - link "Skip to content" [ref=f10e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Primary" [ref=f10e5]:
+      - link "Learn in Curve" [ref=f10e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f10e8]:
+          - generic [ref=f10e9]: Learn in
+          - generic [ref=f10e10]: Curve
+      - group "Site controls" [ref=f10e11]:
+        - button "Get Started" [ref=f10e13] [cursor=pointer]
+        - button "Open menu" [ref=f10e20] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f10e23]:
+            - generic [ref=f10e24]: M
+            - generic [ref=f10e25]: e
+            - generic [ref=f10e26]: "n"
+            - generic [ref=f10e27]: u
+    - main [ref=f10e28]:
+      - region [ref=f10e29]:
+        - generic [ref=f10e31]:
+          - paragraph [ref=f10e32]:
+            - generic [ref=f10e33]: PROJECT MANAGEMENT EXAM REVISION
+            - generic [aria-hidden] [ref=f10e34]:
+              - generic [ref=f10e35]: PROJECT
+              - generic [ref=f10e36]: MANAGEMENT
+              - generic [ref=f10e37]: EXAM
+              - generic [ref=f10e38]: REVISION
+          - heading "PFQ or PMQ. Wherever you are on the curve." [level=1] [ref=f10e41]:
+            - generic [aria-hidden] [ref=f10e43]:
+              - generic [ref=f10e44]: PFQ
+              - generic [ref=f10e45]: or
+              - generic [ref=f10e46]: PMQ.
+              - generic [ref=f10e47]: Wherever
+              - generic [ref=f10e48]: you
+              - generic [ref=f10e49]: are
+              - generic [ref=f10e50]: "on"
+              - generic [ref=f10e51]: the
+              - generic [ref=f10e52]:
+                - generic [aria-hidden] [ref=f10e53]:
+                  - generic [ref=f10e54]: c
+                  - generic [ref=f10e55]: u
+                  - generic [ref=f10e56]: r
+                  - generic [ref=f10e57]: v
+                  - generic [ref=f10e58]: e
+                - text: .
+          - paragraph [ref=f10e59]:
+            - generic [ref=f10e60]: Learn the fundamentals for the APM PFQ, or sharpen the scenario judgement the PMQ demands.
+            - generic [aria-hidden] [ref=f10e61]:
+              - generic [ref=f10e62]: Learn
+              - generic [ref=f10e63]: the
+              - generic [ref=f10e64]: fundamentals
+              - generic [ref=f10e65]: for
+              - generic [ref=f10e66]: the
+              - generic [ref=f10e67]: APM
+              - generic [ref=f10e68]: PFQ,
+              - generic [ref=f10e69]: or
+              - generic [ref=f10e70]: sharpen
+              - generic [ref=f10e71]: the
+              - generic [ref=f10e72]: scenario
+              - generic [ref=f10e73]: judgement
+              - generic [ref=f10e74]: the
+              - generic [ref=f10e75]: PMQ
+              - generic [ref=f10e76]: demands.
+          - generic [ref=f10e77]:
+            - link "Take a free mock" [ref=f10e78] [cursor=pointer]:
+              - /url: /free-mock-exam?from=home
+            - link "Explore courses" [ref=f10e81] [cursor=pointer]:
+              - /url: /courses?from=home
+      - region [ref=f10e82]:
+        - generic [ref=f10e84]:
+          - heading [level=2] [ref=f10e85]:
+            - generic "PMQ" [ref=f10e86]:
+              - generic [aria-hidden] [ref=f10e87]: P
+              - generic [aria-hidden] [ref=f10e88]: M
+              - generic [aria-hidden] [ref=f10e89]: Q
+            - text: in 5 Days is live.
+          - paragraph [ref=f10e90]: Get free access to the complete Association for Project Management (APM) - PMQ revision course and start studying today.
+          - link "Start free with APM PMQ" [ref=f10e92] [cursor=pointer]:
+            - /url: /courses/pmq-in-5-days/preview?from=home
+      - region [ref=f10e95]:
+        - generic [ref=f10e96]:
+          - heading "What's included" [level=2] [ref=f10e97]
+          - group "What’s inside PMQ in 5 Days" [ref=f10e98]:
+            - 'button "Show slide 1 of 7: Learn the full syllabus: all 24 APM PMQ learning objectives in short, focused lessons." [pressed] [ref=f10e99] [cursor=pointer]':
+              - 'img "Learn the full syllabus: all 24 APM PMQ learning objectives in short, focused lessons." [ref=f10e100]'
+              - generic [aria-hidden]:
+                - generic: Learn the full syllabus
+              - generic [aria-hidden] [ref=f10e101]: 1/7
+            - 'button "Show slide 2 of 7: Test yourself as you learn with exam-style quizzes, instant marking and feedback." [ref=f10e102] [cursor=pointer]':
+              - img "Test yourself as you learn with exam-style quizzes, instant marking and feedback." [ref=f10e103]
+              - generic [aria-hidden]:
+                - generic: Test yourself as you learn
+            - 'button "Show slide 3 of 7: Take realistic timed mock exams that mirror the structure and pressure of the PMQ exam." [ref=f10e104] [cursor=pointer]':
+              - img "Take realistic timed mock exams that mirror the structure and pressure of the PMQ exam." [ref=f10e105]
+              - generic [aria-hidden]:
+                - generic: Take realistic mock exams
+            - 'button "Show slide 4 of 7: Avoid common exam traps by learning why frequent candidate mistakes are wrong." [ref=f10e106] [cursor=pointer]':
+              - img "Avoid common exam traps by learning why frequent candidate mistakes are wrong." [ref=f10e107]
+              - generic [aria-hidden]:
+                - generic: Avoid common exam traps
+            - 'button "Show slide 5 of 7: Remember what matters with memory aids, acronyms and quick-recall techniques." [ref=f10e108] [cursor=pointer]':
+              - img "Remember what matters with memory aids, acronyms and quick-recall techniques." [ref=f10e109]
+              - generic [aria-hidden]:
+                - generic: Remember what matters
+            - 'button "Show slide 6 of 7: Watch or listen anywhere with bite-sized video and audio overviews." [ref=f10e110] [cursor=pointer]':
+              - img "Watch or listen anywhere with bite-sized video and audio overviews." [ref=f10e111]
+              - generic [aria-hidden]:
+                - generic: Watch or listen anywhere
+            - 'button "Show slide 7 of 7: Sly, your AI tutor, with personalised study planning, adaptive learning and an exam-readiness report." [ref=f10e112] [cursor=pointer]':
+              - img "Sly, your AI tutor, with personalised study planning, adaptive learning and an exam-readiness report." [ref=f10e113]
+              - generic [aria-hidden]:
+                - generic: Meet Sly, your AI tutor
+      - region [ref=f10e117]:
+        - generic [ref=f10e118]:
+          - paragraph [ref=f10e119]: Practice questions
+          - heading "Give it a try." [level=2] [ref=f10e120]
+        - generic "Sample quiz" [ref=f10e122]:
+          - tablist "Questions in this sample" [ref=f10e124]:
+            - tab "Q1, current" [selected] [ref=f10e125] [cursor=pointer]: "1"
+            - tab "Q2, locked" [disabled] [ref=f10e126]: "2"
+            - tab "Q3, locked" [disabled] [ref=f10e127]: "3"
+          - tabpanel "Q1, current" [ref=f10e128]:
+            - paragraph [ref=f10e129]:
+              - generic [ref=f10e130]: Question 1 of 3.
+              - text: You are PM on a long, complex vehicle manufacturing project where the full set of requirements is still being developed. Which life cycle is NOT suitable?
+            - radiogroup "Question 1 of 3" [ref=f10e131]:
+              - radio "A)Extended" [ref=f10e132] [cursor=pointer]:
+                - generic [ref=f10e133]: A)
+                - text: Extended
+              - radio "B)Linear" [ref=f10e134] [cursor=pointer]:
+                - generic [ref=f10e135]: B)
+                - text: Linear
+              - radio "C)Iterative" [ref=f10e136] [cursor=pointer]:
+                - generic [ref=f10e137]: C)
+                - text: Iterative
+              - radio "D)Hybrid" [ref=f10e138] [cursor=pointer]:
+                - generic [ref=f10e139]: D)
+                - text: Hybrid
+            - button "Check answer" [ref=f10e141] [cursor=pointer]
+      - region [ref=f10e142]:
+        - generic [ref=f10e143]:
+          - region "Try Sly, the AI tutor" [ref=f10e145]:
+            - generic [ref=f10e147]:
+              - paragraph [ref=f10e154]: Sly · AI tutor
+              - paragraph [ref=f10e155]: 3 free questions
+            - generic [ref=f10e156]:
+              - generic [ref=f10e158]:
+                - paragraph [ref=f10e160]: Choose a question below or type your own. Answers are live, and the Beta is limited to a few questions per visitor.
+                - generic [ref=f10e161]:
+                  - button "What is the APM PMQ exam actually testing?" [ref=f10e162] [cursor=pointer]
+                  - button "Explain stakeholder management in plain English" [ref=f10e163] [cursor=pointer]
+                  - button "Give me one exam-technique tip for scenario questions" [ref=f10e164] [cursor=pointer]
+              - generic [ref=f10e165]:
+                - generic [ref=f10e166]:
+                  - textbox "Message to Sly" [ref=f10e167]:
+                    - /placeholder: Ask Sly…
+                  - button "Send message" [disabled] [ref=f10e168]
+                - paragraph [ref=f10e171]:
+                  - text: Sly is AI and can make mistakes.·
+                  - button "Send feedback" [ref=f10e172] [cursor=pointer]
+          - generic [ref=f10e173]:
+            - generic [ref=f10e174]:
+              - generic [ref=f10e175]: AI TUTOR
+              - heading "Try Sly now Beta" [level=2] [ref=f10e179]:
+                - text: Try
+                - generic [ref=f10e180]: Sly
+                - text: now
+                - generic [ref=f10e181]: Beta
+            - paragraph [ref=f10e182]: The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.
+      - generic [ref=f10e186]:
+        - generic [ref=f10e187]:
+          - heading "Join our newsletter." [level=2] [ref=f10e196]
+          - generic [ref=f10e199]:
+            - generic [ref=f10e200]: Email address
+            - textbox "Email address" [ref=f10e201]:
+              - /placeholder: you@email.com
+            - button "Notify me" [ref=f10e202] [cursor=pointer]
+        - paragraph [ref=f10e205]:
+          - text: "Learn in Curve is built around two subjects: Project management and AI. Unsubscribe any time."
+          - link "Privacy notice" [ref=f10e206] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+    - contentinfo [ref=f10e207]:
+      - generic [ref=f10e209]:
+        - generic [ref=f10e210]:
+          - generic [ref=f10e211]:
+            - generic [ref=f10e213]:
+              - generic [ref=f10e214]: Learn in
+              - generic [ref=f10e215]: Curve
+            - paragraph [ref=f10e216]: Master project Management & AI
+          - generic [ref=f10e217]:
+            - link "Learn in Curve on Instagram" [ref=f10e218] [cursor=pointer]:
+              - /url: https://www.instagram.com/learn.in.curve/
+            - link "Learn in Curve on LinkedIn" [ref=f10e221] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/learn-in-curve/
+        - navigation "Footer" [ref=f10e224]:
+          - link "Privacy" [ref=f10e225] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=f10e226] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookies" [ref=f10e227] [cursor=pointer]:
+            - /url: /cookies
+          - button "Send feedback" [ref=f10e228] [cursor=pointer]
+      - generic [ref=f10e229]:
+        - generic:
+          - paragraph: © 2026 Learn in Curve
+          - paragraph: v2.46
+  - dialog "Cookies":
+    - generic [ref=f10e232]:
+      - generic [ref=f10e241]:
+        - paragraph [ref=f10e242]: Cookies
+        - paragraph [ref=f10e243]:
+          - text: We use a strictly necessary cookie to keep you signed in. We’d also like to use analytics cookies to see which lessons work and where people get stuck. No ads, ever.
+          - link "Cookie notice" [ref=f10e244] [cursor=pointer]:
+            - /url: /cookies
+      - generic [ref=f10e245]:
+        - button "Accept" [ref=f10e246] [cursor=pointer]
+        - button "Reject" [ref=f10e247] [cursor=pointer]
+        - link "Details" [ref=f10e248] [cursor=pointer]:
+          - /url: /cookies
+  - button "Open Next.js Dev Tools" [ref=f10e254] [cursor=pointer]
+  - alert [ref=f10e258]
+  - region "Notifications alt+T"

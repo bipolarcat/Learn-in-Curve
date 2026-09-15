@@ -10,18 +10,25 @@ import { trackCtaClicked } from "@/lib/analytics/events";
 
 type ExploreCoursesLinkProps = {
   className?: string;
+  /** Visible label — defaults to sentence-case to match home hero mock. */
+  label?: string;
+  showArrow?: boolean;
 };
 
 const HREF = withSoftNavFrom("/courses", "home");
 
 /** Hero / marketing soft-nav to `/courses` with ellipsis pending state. */
-export function ExploreCoursesLink({ className }: ExploreCoursesLinkProps) {
+export function ExploreCoursesLink({
+  className,
+  label = "Explore courses",
+  showArrow = true,
+}: ExploreCoursesLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
   const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
     trackCtaClicked({
-      variant: "Explore Courses",
+      variant: label,
       location: "hero",
     });
     if (!isSoftNavClick(event)) return;
@@ -49,8 +56,8 @@ export function ExploreCoursesLink({ className }: ExploreCoursesLinkProps) {
         />
       ) : (
         <>
-          Explore Courses
-          <CtaArrowUpRight />
+          {label}
+          {showArrow ? <CtaArrowUpRight /> : null}
         </>
       )}
     </Link>

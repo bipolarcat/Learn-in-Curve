@@ -22,9 +22,9 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: "Learn in Curve - Master Project Management and AI",
+  title: "Learn in Curve — APM PFQ & PMQ exam revision",
   description:
-    "Interactive exam revision for project management certifications. Start with PMQ in 5 days.",
+    "Interactive exam revision for the APM PFQ and PMQ. Free mock exams, structured courses, and AI tutoring — wherever you are on the curve.",
 };
 
 export default function RootLayout({
