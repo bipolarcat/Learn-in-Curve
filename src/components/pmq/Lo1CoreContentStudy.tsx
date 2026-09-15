@@ -67,6 +67,12 @@ const glassChrome =
  * and scroll-spy use this so the outcome separator sits on the pill midline. */
 const LEARN_OUTCOME_ANCHOR_PX = 12 + 36 / 2;
 
+/**
+ * 21st.dev Motion Primitives / Apple ease-out (same as ActivityModal + header
+ * menu). Tween — not spring — so Contents jumps feel fluid with no settle lag.
+ */
+const appleScrollEase = [0.22, 1, 0.36, 1] as const;
+
 /** 21st.dev Morphing Popover default spring. */
 const morphSpring = {
   type: "spring" as const,
@@ -401,37 +407,47 @@ export function Lo1CoreContentStudy({
   }, []);
 
   const jumpToCode = useCallback((code: string) => {
-    const el = sectionEls.current.get(code);
-    if (!el) return;
+    if (!sectionEls.current.get(code)) return;
 
     scrollAnimRef.current?.stop();
-
-    const targetTop = Math.max(
-      0,
-      window.scrollY + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
-    );
-
     jumping.current = true;
 
-    if (prefersReducedMotion()) {
-      window.scrollTo(0, targetTop);
-      jumping.current = false;
-      return;
-    }
-
-    // Spring scroll — native `behavior: "smooth"` is choppy on mobile Safari.
-    // Same settle as pathway / Morphing Popover chrome (bounce 0.12).
-    scrollAnimRef.current = animate(window.scrollY, targetTop, {
-      type: "spring",
-      bounce: 0.12,
-      duration: 0.55,
-      onUpdate: (latest) => {
-        window.scrollTo(0, latest);
-      },
-      onComplete: () => {
+    // Wait one frame so the Contents menu can unmount before we measure/scroll.
+    requestAnimationFrame(() => {
+      const el = sectionEls.current.get(code);
+      if (!el) {
         jumping.current = false;
-        scrollAnimRef.current = null;
-      },
+        return;
+      }
+
+      const from = window.scrollY;
+      const targetTop = Math.max(
+        0,
+        from + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
+      );
+      const distance = Math.abs(targetTop - from);
+
+      if (prefersReducedMotion() || distance < 1) {
+        window.scrollTo(0, targetTop);
+        jumping.current = false;
+        return;
+      }
+
+      // Distance-scaled duration: short hops stay snappy, long jumps stay fluid.
+      const duration = Math.min(0.7, Math.max(0.34, distance / 1900));
+
+      scrollAnimRef.current = animate(from, targetTop, {
+        type: "tween",
+        duration,
+        ease: appleScrollEase,
+        onUpdate: (latest) => {
+          window.scrollTo(0, latest);
+        },
+        onComplete: () => {
+          jumping.current = false;
+          scrollAnimRef.current = null;
+        },
+      });
     });
   }, []);
 
