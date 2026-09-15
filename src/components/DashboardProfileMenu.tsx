@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { AlertCircle, Trash2 } from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
 import { AVATARS, resolveAvatarId, type AvatarId } from "@/lib/avatars";
@@ -424,10 +425,32 @@ export function DashboardProfileMenu({
             />
             Delete your account
           </p>
-          <p className="m-0 font-body text-[12px] leading-relaxed text-ink/65">
-            Permanently deletes <strong>{email}</strong> and all progress,
-            purchases, and Sly data. This cannot be undone.
-          </p>
+          <div className="flex flex-col gap-2 font-body text-[12px] leading-relaxed text-ink/65">
+            <p className="m-0">
+              This will permanently delete your account, associated progress and
+              purchases. This action cannot be undone.
+            </p>
+            <p className="m-0">
+              Read{" "}
+              <Link
+                href="/terms"
+                className="underline underline-offset-2 hover:text-ink"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/privacy"
+                className="underline underline-offset-2 hover:text-ink"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </Link>
+            </p>
+          </div>
           <label
             htmlFor="profile-delete-confirm"
             className="font-body text-[11px] font-semibold text-ink"
