@@ -58,10 +58,12 @@ function shortTitleFor(
   return map?.[code] ?? block.outcome_title;
 }
 
-const LEARN_SCROLL_MARKER_PX = 48;
-
 const glassChrome =
   "border border-black/[0.08] bg-cream/80 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.55),0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_8px_24px_rgb(var(--ink-rgb)_/_0.08)] backdrop-blur-2xl backdrop-saturate-150 supports-[backdrop-filter]:bg-cream/55 dark:border-white/[0.12] dark:bg-paper/80 dark:supports-[backdrop-filter]:bg-paper/60 [@media(prefers-reduced-transparency:reduce)]:bg-paper [@media(prefers-reduced-transparency:reduce)]:backdrop-blur-none";
+
+/** Sticky Contents chrome: `pt-3` (12) + half of pill `h-9` (18). Jump targets
+ * and scroll-spy use this so the outcome separator sits on the pill midline. */
+const LEARN_OUTCOME_ANCHOR_PX = 12 + 36 / 2;
 
 /** 21st.dev Morphing Popover default spring. */
 const morphSpring = {
@@ -441,7 +443,7 @@ export function Lo1CoreContentStudy({
       let nextIndex = 0;
       blocks.forEach((block, index) => {
         const el = sectionEls.current.get(block.outcome_code.toLowerCase());
-        if (el && el.getBoundingClientRect().top <= LEARN_SCROLL_MARKER_PX) {
+        if (el && el.getBoundingClientRect().top <= LEARN_OUTCOME_ANCHOR_PX) {
           nextIndex = index;
         }
       });
@@ -579,10 +581,11 @@ export function Lo1CoreContentStudy({
               key={block.outcome_code}
               id={`outcome-${code}`}
               ref={(node) => registerSection(code, node)}
+              style={{ scrollMarginTop: LEARN_OUTCOME_ANCHOR_PX }}
               className={
                 outcomeIndex > 0
-                  ? "mt-10 scroll-mt-0 border-t border-black/[0.08] pt-8 dark:border-white/[0.12]"
-                  : "scroll-mt-0"
+                  ? "mt-10 border-t border-black/[0.08] pt-8 dark:border-white/[0.12]"
+                  : undefined
               }
             >
               <header className="mb-5 flex min-w-0 items-center gap-2.5">
