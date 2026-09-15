@@ -10,7 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { Trash2 } from "lucide-react";
+import { AlertCircle, Trash2 } from "lucide-react";
 import { AvatarImage } from "@/components/AvatarImage";
 import { AVATARS, resolveAvatarId, type AvatarId } from "@/lib/avatars";
 import {
@@ -416,7 +416,12 @@ export function DashboardProfileMenu({
 
       {deleteOpen ? (
         <div className="flex flex-col gap-3 px-3 py-3">
-          <p className="m-0 font-body text-[12.5px] font-semibold tracking-tight text-ink">
+          <p className="m-0 flex items-center justify-center gap-1.5 font-body text-[12.5px] font-semibold tracking-tight text-rust">
+            <AlertCircle
+              className="size-3.5 shrink-0"
+              strokeWidth={2.5}
+              aria-hidden
+            />
             Delete your account
           </p>
           <p className="m-0 font-body text-[12px] leading-relaxed text-ink/65">
