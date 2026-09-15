@@ -133,24 +133,19 @@ function GoogleMark() {
 }
 
 /**
- * Quiet “Last used” cue — modern auth pattern (Clerk / Linear / Auth0):
- * corner badge on the button, label stays centred.
- * `text-size-adjust: 100%` stops iOS/Android from inflating sub-12px type.
+ * Quiet “Last used” cue — corner badge; label stays centred.
+ * Sized via CSS module (11px + scale) so mobile can’t inflate sub-12px type.
  */
 function LastUsedPill({
   tone = "ink",
 }: {
   tone?: "ink" | "on-action";
 }) {
-  const base =
-    "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex origin-top-right scale-[0.92] items-center rounded-full px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] [text-size-adjust:100%] [-webkit-text-size-adjust:100%] sm:scale-100";
   return (
     <span
       aria-hidden
       className={
-        tone === "on-action"
-          ? `${base} bg-paper/20 text-paper/90`
-          : `${base} bg-ink/[0.06] text-ink/55`
+        tone === "on-action" ? styles.lastUsedOnAction : styles.lastUsedInk
       }
     >
       Last used
@@ -397,16 +392,18 @@ export function AuthForm({
   if (saas) {
     return (
       <div className={`${styles.root} w-full ${className}`.trim()}>
-        <button
-          type="button"
-          onClick={handleGoogle}
-          disabled={loading}
-          className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary relative mb-3 w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
-        >
-          <GoogleMark />
-          Continue with Google
+        <div className="relative mb-3">
+          <button
+            type="button"
+            onClick={handleGoogle}
+            disabled={loading}
+            className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
+          >
+            <GoogleMark />
+            Continue with Google
+          </button>
           {lastUsedGoogle ? <LastUsedPill /> : null}
-        </button>
+        </div>
 
         {googleHint && (
           <button
@@ -483,35 +480,37 @@ export function AuthForm({
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            aria-busy={loading}
-            aria-label={
-              loading
-                ? "Working"
-                : mode === "sign-up"
-                  ? "Create account"
-                  : "Sign in"
-            }
-            className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary relative mt-0.5 w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
-          >
-            {loading ? (
-              <Spinner
-                variant="bars"
-                size={16}
-                className="text-current"
-                aria-hidden
-              />
-            ) : mode === "sign-up" ? (
-              "Create account"
-            ) : (
-              "Sign in"
-            )}
+          <div className="relative mt-0.5">
+            <button
+              type="submit"
+              disabled={loading}
+              aria-busy={loading}
+              aria-label={
+                loading
+                  ? "Working"
+                  : mode === "sign-up"
+                    ? "Create account"
+                    : "Sign in"
+              }
+              className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
+            >
+              {loading ? (
+                <Spinner
+                  variant="bars"
+                  size={16}
+                  className="text-current"
+                  aria-hidden
+                />
+              ) : mode === "sign-up" ? (
+                "Create account"
+              ) : (
+                "Sign in"
+              )}
+            </button>
             {lastUsedEmail && !loading ? (
               <LastUsedPill tone="on-action" />
             ) : null}
-          </button>
+          </div>
         </form>
 
         {mode === "sign-up" && (
@@ -613,16 +612,18 @@ export function AuthForm({
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={handleGoogle}
-        disabled={loading}
-        className={`btn btn-secondary relative flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${googleHint ? "mb-2" : "mb-6"}`}
-      >
-        <GoogleMark />
-        Continue with Google
+      <div className={`relative ${googleHint ? "mb-2" : "mb-6"}`}>
+        <button
+          type="button"
+          onClick={handleGoogle}
+          disabled={loading}
+          className="btn btn-secondary flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <GoogleMark />
+          Continue with Google
+        </button>
         {lastUsedGoogle ? <LastUsedPill /> : null}
-      </button>
+      </div>
 
       {googleHint && (
         <button
@@ -702,35 +703,37 @@ export function AuthForm({
           </p>
         )}
 
-        <button
-          type="submit"
-          disabled={loading}
-          aria-busy={loading}
-          aria-label={
-            loading
-              ? "Working"
-              : mode === "sign-up"
-                ? "Create account"
-                : "Sign in"
-          }
-          className="btn relative flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {loading ? (
-            <Spinner
-              variant="bars"
-              size={16}
-              className="text-current"
-              aria-hidden
-            />
-          ) : mode === "sign-up" ? (
-            "Create account"
-          ) : (
-            "Sign in"
-          )}
+        <div className="relative">
+          <button
+            type="submit"
+            disabled={loading}
+            aria-busy={loading}
+            aria-label={
+              loading
+                ? "Working"
+                : mode === "sign-up"
+                  ? "Create account"
+                  : "Sign in"
+            }
+            className="btn flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {loading ? (
+              <Spinner
+                variant="bars"
+                size={16}
+                className="text-current"
+                aria-hidden
+              />
+            ) : mode === "sign-up" ? (
+              "Create account"
+            ) : (
+              "Sign in"
+            )}
+          </button>
           {lastUsedEmail && !loading ? (
             <LastUsedPill tone="on-action" />
           ) : null}
-        </button>
+        </div>
       </form>
 
       <p className="mt-6 text-center text-sm text-ink-soft">
