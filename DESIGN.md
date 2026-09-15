@@ -89,10 +89,12 @@ Legacy Mac walkthrough components remain in repo but are not mounted on Home.
 
 `HomeBrandHero` — animals scene (canvas-keyed mp4, poster-first) with teal
 Space Mono stamp eyebrow layered *behind* the illustration top band; PFQ/PMQ
-Fraunces headline with Framer word-stagger + orange “curve.” settle. CTAs:
+Fraunces headline with Framer word-stagger + orange “curve.” GSAP bounce
+(21st `BouncingText`, `prefers-reduced-motion` → static). CTAs:
 **Take a free mock** (teal, `/free-mock-exam`) + **Explore courses**
-(secondary, `/courses`). Motion stays opacity-visible throughout — no
-blur/bounce/gated reveals. `PmqStartLink` lives in Proof, not the hero.
+(secondary, `/courses`). Headline/eyebrow stay opacity-visible (no blur
+or gated reveals); bounce is intentional on “curve” only.
+`PmqStartLink` lives in Proof, not the hero.
 
 ### Home sections (restaged 2026-07-31)
 

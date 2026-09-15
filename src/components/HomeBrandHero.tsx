@@ -12,6 +12,7 @@ import {
   stampCtaSecondaryFlat,
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
+import { BouncingText } from "@/components/ui/bouncing-text";
 
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -85,32 +86,24 @@ function StampEyebrow({
   );
 }
 
-/** “curve.” — Framer settle (brand ease-out; no GSAP bounce). */
+/** “curve.” — 21st BouncingText (GSAP SplitText bounce), then a static period. */
 function CurveAccent() {
   const reduce = useReducedMotion();
-  const chars = "curve".split("");
 
   if (reduce) {
     return <span className="inline text-orange">curve.</span>;
   }
 
   return (
-    <span className="inline text-orange" aria-hidden>
-      {chars.map((char, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ y: 6, scale: 0.94, opacity: 1 }}
-          animate={{ y: 0, scale: 1, opacity: 1 }}
-          transition={{
-            duration: 0.75,
-            delay: 1.05 + i * 0.055,
-            ease: EASE,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
+    <span className="inline-block overflow-visible text-orange">
+      <BouncingText
+        className="inline-block"
+        repeat={false}
+        persist
+        fromY={-72}
+      >
+        curve
+      </BouncingText>
       .
     </span>
   );
@@ -158,7 +151,7 @@ function Headline() {
 /**
  * Home brand hero — animals lead; Space Mono stamp eyebrow sits *behind*
  * the scene so giraffe horns overlap the type (layered depth). Then PFQ/PMQ
- * lockup + Framer settle on “curve”.
+ * lockup + 21st BouncingText on “curve”.
  */
 export function HomeBrandHero() {
   return (
