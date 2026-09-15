@@ -39,12 +39,13 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
+/** Single-line stamp at all sizes — matches desktop; scales down on narrow. */
 const eyebrowClassName =
-  "font-stamp text-[11px] font-bold uppercase tracking-[0.08em] text-teal sm:whitespace-nowrap sm:text-[12px] sm:tracking-[0.16em]";
+  "whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]";
 
 /**
  * Brand stamp eyebrow — Space Mono + per-character vertical roll.
- * Characters stay readable before hydration (no clip-mask hide).
+ * Always one line (desktop parity); never wrap mid-word on mobile.
  */
 function StampEyebrow({
   text,
@@ -63,7 +64,7 @@ function StampEyebrow({
   return (
     <span
       aria-hidden
-      className={`inline-flex flex-wrap items-center justify-center gap-x-0 sm:flex-nowrap ${eyebrowClassName}`}
+      className={`inline-flex flex-nowrap items-center justify-center ${eyebrowClassName}`}
       style={{ perspective: 800 }}
     >
       {chars.map((char, i) => (
@@ -169,7 +170,7 @@ export function HomeBrandHero() {
           */}
           <div className="relative w-full">
             <p
-              className="pointer-events-none absolute left-1/2 top-0 z-0 max-w-[calc(100%-1rem)] -translate-x-1/2 -translate-y-[38%] px-2 sm:max-w-none sm:-translate-y-[48%]"
+              className="pointer-events-none absolute left-1/2 top-0 z-0 w-max max-w-none -translate-x-1/2 -translate-y-[42%] px-2 sm:-translate-y-[48%]"
               aria-label={EYEBROW}
             >
               <StampEyebrow text={EYEBROW} delay={0.15} />
