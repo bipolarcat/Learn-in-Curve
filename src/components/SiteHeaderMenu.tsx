@@ -18,7 +18,6 @@ import {
 } from "framer-motion";
 import { AvatarImage } from "@/components/AvatarImage";
 import {
-  headerIcon,
   headerMenuTrigger,
 } from "@/components/header-control";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
@@ -305,7 +304,10 @@ export function SiteHeaderMenu({
         type="button"
         className={cn(
           headerMenuTrigger,
-          open && `${headerIcon} bg-ink text-paper [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink [@media(hover:hover)_and_(pointer:fine)]:hover:text-paper`,
+          // Open = solid ink plate. Do not pull in `headerIcon` — its
+          // `hover:bg-ink/[0.07]` sticks on touch and washes the X plate grey.
+          open &&
+            "h-8 w-8 bg-ink text-paper hover:bg-ink hover:text-paper",
         )}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-haspopup="menu"
