@@ -378,7 +378,7 @@ export function DashboardProfileMenu({
       }}
       className="overflow-hidden"
     >
-      <div className="relative flex items-center gap-2.5 border-b border-black/[0.08] px-3 py-2.5 dark:border-white/[0.12]">
+      <div className="relative flex items-center gap-2.5 border-b border-black/[0.08] px-3 py-2.5 pr-10 dark:border-white/[0.12]">
         <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-black/[0.08] dark:ring-white/[0.12]">
           <AvatarImage avatarId={avatarId} size={36} />
         </span>
@@ -390,50 +390,28 @@ export function DashboardProfileMenu({
             {email}
           </p>
         </div>
-        <div className="flex shrink-0 items-center gap-0.5">
-          <button
-            type="button"
-            onClick={() => {
-              setDeleteOpen((v) => !v);
-              setDeleteConfirm("");
-              setDeleteError(null);
-            }}
-            disabled={saving || deleteBusy}
-            aria-label={
-              deleteOpen ? "Cancel delete account" : "Delete my account"
-            }
-            aria-pressed={deleteOpen}
-            className={`inline-flex size-7 items-center justify-center rounded-lg transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
-              deleteOpen
-                ? "bg-rust/[0.1] text-rust"
-                : "text-ink/40 hover:bg-rust/[0.08] hover:text-rust"
-            }`}
+        <button
+          type="button"
+          onClick={close}
+          disabled={saving || deleteBusy}
+          aria-label="Close edit profile"
+          className="absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden
           >
-            <Trash2 className="size-3.5" strokeWidth={2} aria-hidden />
-          </button>
-          <button
-            type="button"
-            onClick={close}
-            disabled={saving || deleteBusy}
-            aria-label="Close edit profile"
-            className="inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden
-            >
-              <path
-                d="M4 4l8 8M12 4 4 12"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              d="M4 4l8 8M12 4 4 12"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
       </div>
 
       {deleteOpen ? (
@@ -495,8 +473,7 @@ export function DashboardProfileMenu({
           </div>
         </div>
       ) : (
-        <>
-      <div className="space-y-2.5 px-3 py-2.5">
+        <div className="space-y-2.5 px-3 py-2.5">
         <fieldset>
           <legend className="sr-only">Avatar</legend>
           <div className="grid w-full grid-cols-5 items-center justify-items-center gap-1">
@@ -605,16 +582,37 @@ export function DashboardProfileMenu({
           </div>
         </div>
       </div>
+      )}
 
       <div className="flex items-center gap-2 px-3 pb-2.5 pt-0.5">
+        <button
+          type="button"
+          onClick={() => {
+            setDeleteOpen((v) => !v);
+            setDeleteConfirm("");
+            setDeleteError(null);
+          }}
+          disabled={saving || deleteBusy}
+          aria-label={
+            deleteOpen ? "Cancel delete account" : "Delete my account"
+          }
+          aria-pressed={deleteOpen}
+          className={`inline-flex size-7 shrink-0 items-center justify-center rounded-lg transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
+            deleteOpen
+              ? "bg-rust/[0.1] text-rust"
+              : "text-ink/40 hover:bg-rust/[0.08] hover:text-rust"
+          }`}
+        >
+          <Trash2 className="size-3.5" strokeWidth={2} aria-hidden />
+        </button>
         <div className="min-h-[1rem] min-w-0 flex-1" aria-live="polite">
-          {error ? (
+          {!deleteOpen && error ? (
             <p className="truncate font-body text-[11px] font-medium text-ink/55">
               {error}
             </p>
           ) : null}
         </div>
-        {showSaveToast && saveState !== "idle" ? (
+        {!deleteOpen && showSaveToast && saveState !== "idle" ? (
           <ToastSave
             state={saveState}
             onSave={() => formRef.current?.requestSubmit()}
@@ -624,8 +622,6 @@ export function DashboardProfileMenu({
           />
         ) : null}
       </div>
-        </>
-      )}
     </form>
   );
 
