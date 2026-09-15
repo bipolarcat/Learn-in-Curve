@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import {
   motion,
   useReducedMotion,
@@ -13,6 +13,7 @@ import {
   stampCtaSecondaryFlat,
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
+import { BouncingText } from "@/components/ui/bouncing-text";
 
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -75,103 +76,25 @@ function StaggerWords({
   );
 }
 
-/**
- * “curve.” — Soft-blur letter land, then a hand-drawn orange path strokes
- * under the word (the brand literally drawing its own curve). A quiet
- * afterglow settles so it keeps breathing without shouting.
- */
-function CurveAccent({ delay = 0 }: { delay?: number }) {
+/** “curve.” — 21st BouncingText (GSAP SplitText bounce), then a static period. */
+function CurveAccent() {
   const reduce = useReducedMotion();
-  const letters = Array.from("curve");
 
   if (reduce) {
-    return (
-      <span className="relative inline-block text-orange">
-        curve
-        <span className="absolute inset-x-0 -bottom-[0.12em] h-[0.12em] rounded-full bg-orange/70" />
-        .
-      </span>
-    );
+    return <span className="inline text-orange">curve.</span>;
   }
 
   return (
-    <span className="relative inline-block text-orange">
-      <span className="relative z-[1] inline-flex" aria-hidden>
-        {letters.map((char, i) => (
-          <motion.span
-            key={char + i}
-            className="inline-block"
-            initial={{ opacity: 0, y: 18, filter: "blur(14px)", scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
-            transition={{
-              duration: 0.78,
-              delay: delay + i * 0.045,
-              ease: EASE,
-            }}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </span>
-
-      {/* Hand-drawn curve underline — strokes after letters land */}
-      <motion.svg
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[0.18em] left-[-2%] w-[104%] overflow-visible"
-        viewBox="0 0 120 14"
-        preserveAspectRatio="none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: delay + 0.35, duration: 0.2 }}
+    <span className="inline-block overflow-visible text-orange">
+      <BouncingText
+        className="inline-block"
+        repeat={false}
+        persist
+        fromY={-72}
       >
-        <motion.path
-          d="M3.5 9.2 C 22 2.4, 38 12.6, 58 7.1 S 96 1.8, 116.5 8.4"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{
-            delay: delay + 0.42,
-            duration: 0.95,
-            ease: EASE,
-          }}
-        />
-      </motion.svg>
-
-      {/* Soft afterglow pulse — one settle, then idle breath */}
-      <motion.span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-[-6%] -bottom-[0.28em] h-[0.55em] rounded-full"
-        style={
-          {
-            background:
-              "radial-gradient(ellipse at center, rgb(var(--orange-rgb) / 0.28), transparent 70%)",
-          } as CSSProperties
-        }
-        initial={{ opacity: 0, scaleX: 0.6 }}
-        animate={{
-          opacity: [0, 0.85, 0.35, 0.55],
-          scaleX: [0.6, 1.05, 1, 1],
-        }}
-        transition={{
-          delay: delay + 1.15,
-          duration: 2.4,
-          ease: EASE,
-          times: [0, 0.35, 0.7, 1],
-        }}
-      />
-
-      <motion.span
-        aria-hidden
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: delay + 0.55, duration: 0.35 }}
-      >
-        .
-      </motion.span>
+        curve
+      </BouncingText>
+      .
     </span>
   );
 }
@@ -182,7 +105,6 @@ function Headline() {
   const line2 = ["Wherever", "you", "are", "on", "the"];
   const leadStagger = 0.06;
   const leadStart = 0.55;
-  const curveDelay = leadStart + (line1.length + line2.length) * leadStagger + 0.08;
 
   const renderWords = (words: string[], indexOffset: number) =>
     words.map((word, i) => (
@@ -203,14 +125,14 @@ function Headline() {
   return (
     <h1
       id="home-brand-hero-title"
-      className="mb-3 text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-4"
+      className="mb-3 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-4"
       aria-label={HEADLINE}
     >
-      <span aria-hidden className="inline">
+      <span aria-hidden className="inline overflow-visible">
         {renderWords(line1, 0)}
         <br />
         {renderWords(line2, line1.length)}
-        <CurveAccent delay={curveDelay} />
+        <CurveAccent />
       </span>
     </h1>
   );
@@ -243,15 +165,15 @@ function FadeBlock({
 }
 
 /**
- * Home brand hero — eyebrow above animals, restaged PFQ/PMQ copy, orchestrated
- * blur-stagger + custom “curve” draw. `HeroAnimalsScene` is mounted as-is.
+ * Home brand hero — eyebrow above animals, restaged PFQ/PMQ copy, word-stagger
+ * blur entrance + 21st BouncingText on “curve”. `HeroAnimalsScene` is untouched.
  */
 export function HomeBrandHero() {
   return (
     <section
       id="home-brand-hero"
       aria-labelledby="home-brand-hero-title"
-      className="hero relative overflow-x-clip pb-4 pt-4 sm:pb-5 sm:pt-6 lg:pb-6 lg:pt-8"
+      className="hero relative overflow-x-clip overflow-y-visible pb-4 pt-4 sm:pb-5 sm:pt-6 lg:pb-6 lg:pt-8"
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
