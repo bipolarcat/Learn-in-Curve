@@ -479,10 +479,10 @@ export function DashboardProfileMenu({
               }}
               disabled={!deleteReady || deleteBusy}
               aria-busy={deleteBusy}
-              className="inline-flex min-h-8 items-center gap-1.5 rounded-lg border border-rust/40 bg-rust/[0.06] px-3 font-body text-[12px] font-semibold text-rust disabled:opacity-50"
+              className="inline-flex min-h-7 items-center gap-1 rounded-md border border-rust/40 bg-rust/[0.06] px-2.5 font-body text-[11px] font-semibold text-rust disabled:opacity-50"
             >
               {deleteBusy ? (
-                <Spinner variant="ellipsis" size={14} aria-hidden />
+                <Spinner variant="ellipsis" size={12} aria-hidden />
               ) : null}
               {deleteBusy ? "Deleting" : "Delete permanently"}
             </button>
@@ -494,7 +494,7 @@ export function DashboardProfileMenu({
                 setDeleteError(null);
               }}
               disabled={deleteBusy}
-              className="inline-flex min-h-8 items-center rounded-lg border border-ink/12 px-3 font-body text-[12px] font-semibold text-ink/70"
+              className="inline-flex min-h-7 items-center rounded-md border border-ink/12 px-2.5 font-body text-[11px] font-semibold text-ink/70"
             >
               Cancel
             </button>
@@ -612,33 +612,29 @@ export function DashboardProfileMenu({
       </div>
       )}
 
+      {!deleteOpen ? (
       <div className="flex items-center gap-2 px-3 py-1.5">
         <button
           type="button"
           onClick={() => {
-            setDeleteOpen((v) => !v);
+            setDeleteOpen(true);
             setDeleteConfirm("");
             setDeleteError(null);
           }}
           disabled={saving || deleteBusy}
-          aria-pressed={deleteOpen}
-          className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm font-body text-[11px] font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
-            deleteOpen
-              ? "text-rust"
-              : "text-ink/40 hover:text-rust"
-          }`}
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-sm font-body text-[11px] font-medium tracking-tight text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-rust focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
         >
           <Trash2 className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
-          <span>{deleteOpen ? "Cancel delete" : "Delete account"}</span>
+          <span>Delete account</span>
         </button>
         <div className="min-h-[1rem] min-w-0 flex-1" aria-live="polite">
-          {!deleteOpen && error ? (
+          {error ? (
             <p className="truncate font-body text-[11px] font-medium text-ink/55">
               {error}
             </p>
           ) : null}
         </div>
-        {!deleteOpen && showSaveToast && saveState !== "idle" ? (
+        {showSaveToast && saveState !== "idle" ? (
           <ToastSave
             state={saveState}
             onSave={() => formRef.current?.requestSubmit()}
@@ -648,6 +644,7 @@ export function DashboardProfileMenu({
           />
         ) : null}
       </div>
+      ) : null}
     </form>
   );
 
