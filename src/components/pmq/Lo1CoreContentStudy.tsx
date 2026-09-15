@@ -12,8 +12,10 @@ import { createPortal } from "react-dom";
 import {
   LayoutGroup,
   MotionConfig,
+  animate,
   motion,
   useReducedMotion,
+  type AnimationPlaybackControls,
 } from "framer-motion";
 import {
   ChevronDown,
@@ -381,6 +383,7 @@ export function Lo1CoreContentStudy({
   });
   const sectionEls = useRef(new Map<string, HTMLElement>());
   const jumping = useRef(false);
+  const scrollAnimRef = useRef<AnimationPlaybackControls | null>(null);
   const compactSentinelRef = useRef<HTMLDivElement>(null);
   const [compact, setCompact] = useState(false);
 
@@ -391,17 +394,45 @@ export function Lo1CoreContentStudy({
     else sectionEls.current.delete(code);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      scrollAnimRef.current?.stop();
+    };
+  }, []);
+
   const jumpToCode = useCallback((code: string) => {
     const el = sectionEls.current.get(code);
     if (!el) return;
+
+    scrollAnimRef.current?.stop();
+
+    const targetTop = Math.max(
+      0,
+      window.scrollY + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
+    );
+
     jumping.current = true;
-    el.scrollIntoView({
-      behavior: prefersReducedMotion() ? "auto" : "smooth",
-      block: "start",
-    });
-    window.setTimeout(() => {
+
+    if (prefersReducedMotion()) {
+      window.scrollTo(0, targetTop);
       jumping.current = false;
-    }, 480);
+      return;
+    }
+
+    // Spring scroll — native `behavior: "smooth"` is choppy on mobile Safari.
+    // Same settle as pathway / Morphing Popover chrome (bounce 0.12).
+    scrollAnimRef.current = animate(window.scrollY, targetTop, {
+      type: "spring",
+      bounce: 0.12,
+      duration: 0.55,
+      onUpdate: (latest) => {
+        window.scrollTo(0, latest);
+      },
+      onComplete: () => {
+        jumping.current = false;
+        scrollAnimRef.current = null;
+      },
+    });
   }, []);
 
   const handleSelect = useCallback(
