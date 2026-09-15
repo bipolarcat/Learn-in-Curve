@@ -239,26 +239,33 @@ function OutcomeLearnChrome({
       </motion.ul>
     ) : null;
 
-  const layoutId = reduceMotion ? undefined : chromeLayoutId;
   const labelId = reduceMotion ? undefined : `${chromeLayoutId}-label`;
+  /** Shared on both morph ends so Framer never interpolates through radius 0. */
+  const chromeRadius = 12;
 
   return (
     <>
       <MotionConfig transition={morph}>
-        {compact ? (
-          <motion.nav
-            key="compact"
-            ref={menuRef}
-            layoutId={layoutId}
-            aria-label="Learning outcomes"
-            initial={false}
-            transition={morph}
-            style={{ borderRadius: 12 }}
-            className={cn(
-              glassChrome,
-              "pointer-events-auto inline-flex h-9 shrink-0 items-center overflow-hidden rounded-xl",
-            )}
-          >
+        <motion.nav
+          ref={menuRef}
+          layout={!reduceMotion}
+          aria-label="Learning outcomes"
+          initial={false}
+          transition={morph}
+          style={{
+            borderRadius: chromeRadius,
+            overflow: "hidden",
+          }}
+          className={
+            compact
+              ? cn(
+                  glassChrome,
+                  "pointer-events-auto inline-flex h-9 shrink-0 items-center",
+                )
+              : "pointer-events-auto w-full min-w-0 bg-paper"
+          }
+        >
+          {compact ? (
             <button
               type="button"
               aria-expanded={menuOpen}
@@ -268,7 +275,8 @@ function OutcomeLearnChrome({
                 event.stopPropagation();
                 setMenuOpen((open) => !open);
               }}
-              className="inline-flex h-9 items-center justify-center gap-1 rounded-xl px-3 font-semibold touch-manipulation [-webkit-tap-highlight-color:transparent] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50"
+              className="inline-flex h-9 items-center justify-center gap-1 px-3 font-semibold touch-manipulation [-webkit-tap-highlight-color:transparent] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50"
+              style={{ borderRadius: chromeRadius }}
             >
               <motion.span
                 layoutId={labelId}
@@ -289,17 +297,8 @@ function OutcomeLearnChrome({
                 />
               </motion.span>
             </button>
-          </motion.nav>
-        ) : (
-          <motion.nav
-            key="expanded"
-            layoutId={layoutId}
-            aria-label="Learning outcomes"
-            initial={false}
-            transition={morph}
-            style={{ borderRadius: 0 }}
-            className="pointer-events-auto w-full min-w-0 overflow-hidden bg-paper"
-          >
+          ) : (
+            <>
               <div className="mb-2.5 flex min-w-0 items-center gap-1.5">
                 <Layers
                   className="size-7 shrink-0 text-orange sm:size-8"
@@ -322,8 +321,9 @@ function OutcomeLearnChrome({
                 value={activeIndex}
                 onChange={pick}
               />
-          </motion.nav>
-        )}
+            </>
+          )}
+        </motion.nav>
       </MotionConfig>
       {/* Portal onto body. Do not wrap createPortal in AnimatePresence. */}
       {menu ? createPortal(menu, document.body) : null}
