@@ -264,6 +264,7 @@ export function PfqObjectiveLessonView({
                   studyTables
                   activities={false}
                   badgeVariant="stamp"
+                  bodyVariant="pfq-takeaway"
                   focusOutcomeCode={focusOutcomeCode}
                   onFocusOutcomeConsumed={() => setFocusOutcomeCode(null)}
                 />

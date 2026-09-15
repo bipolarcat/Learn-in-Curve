@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { CoreContentBlock } from "@/components/pmq/CoreContentBlock";
+import { PfqTakeawayBody } from "@/components/pfq/PfqTakeawayBody";
 import {
   OutcomeCodeBadge,
   formatOutcomeBadge,
@@ -343,6 +344,7 @@ export function Lo1CoreContentStudy({
   badgeVariant = "stamp",
   focusOutcomeCode = null,
   onFocusOutcomeConsumed,
+  bodyVariant = "default",
 }: {
   blocks: CoreContentBlockType[];
   studyTables?: boolean;
@@ -353,6 +355,8 @@ export function Lo1CoreContentStudy({
   /** Orient badge jump target (e.g. "2a"). */
   focusOutcomeCode?: string | null;
   onFocusOutcomeConsumed?: () => void;
+  /** PFQ: key takeaway + collapsed Understand it. */
+  bodyVariant?: "default" | "pfq-takeaway";
 }) {
   const titleMap = shortTitles ?? LO1_SHORT_TITLE;
   const [activeIndex, setActiveIndex] = useState(() => {
@@ -465,6 +469,13 @@ export function Lo1CoreContentStudy({
     activities,
   };
 
+  const renderBody = (block: CoreContentBlockType) =>
+    bodyVariant === "pfq-takeaway" ? (
+      <PfqTakeawayBody block={block} />
+    ) : (
+      <CoreContentBlock block={block} {...contentProps} />
+    );
+
   const cardClass =
     "min-w-0 rounded-2xl border border-black/[0.08] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] dark:border-white/[0.12]";
 
@@ -526,7 +537,7 @@ export function Lo1CoreContentStudy({
           </nav>
         </header>
         <div className="px-3.5 pb-6 pt-3.5">
-          <CoreContentBlock block={active} {...contentProps} />
+          {renderBody(active)}
         </div>
       </section>
     );
@@ -570,7 +581,7 @@ export function Lo1CoreContentStudy({
                 </h3>
               </header>
               <div className="min-w-0 [&_.pmq-markdown]:mt-0 [&_.pmq-markdown]:w-full [&_.pmq-markdown_p]:w-full [&_.pmq-markdown_ul]:w-full [&_.pmq-markdown_ol]:w-full">
-                <CoreContentBlock block={block} {...contentProps} />
+                {renderBody(block)}
               </div>
             </article>
           );
