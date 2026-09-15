@@ -543,7 +543,7 @@ export function DashboardPmqCourseCard({
               </button>
 
               {proCheckout === "pfq" ? (
-                <GetPfqProBundleButton />
+                <GetPfqProBundleButton returnPath="/dashboard" />
               ) : (
                 <GetProBundleButton
                   priceCents={tutorPriceCents}

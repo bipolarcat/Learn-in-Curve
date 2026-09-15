@@ -5,6 +5,7 @@ import { Lightbulb, Lock } from "lucide-react";
 import { PfqCheckoutButton } from "@/components/pfq/PfqCheckoutButton";
 import {
   formatPfqPriceGbp,
+  PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
 import { productSurfaceQuiet } from "@/components/ui/semantic";
@@ -29,6 +30,8 @@ export function PfqInsightsLockedUpsell({
   isSignedIn,
   variant = "inline",
 }: Props) {
+  const returnPath = `${PFQ_LEARN_HREF}/${objectiveNumber}`;
+
   if (variant === "inline") {
     return (
       <div
@@ -53,6 +56,7 @@ export function PfqInsightsLockedUpsell({
             <div className="mt-2.5 flex flex-wrap items-center gap-2">
               <PfqCheckoutButton
                 isSignedIn={isSignedIn}
+                returnPath={returnPath}
                 label={`Get Pro — ${formatPfqPriceGbp()}`}
                 className="btn btn-primary inline-flex !min-h-8 !w-auto !rounded-lg !px-3 !text-[12.5px]"
               />
@@ -106,6 +110,7 @@ export function PfqInsightsLockedUpsell({
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <PfqCheckoutButton
               isSignedIn={isSignedIn}
+              returnPath={returnPath}
               label={`Get Pro — ${formatPfqPriceGbp()}`}
               className="btn btn-primary inline-flex !min-h-9 !w-auto !rounded-xl !px-3.5 !text-[13px]"
             />

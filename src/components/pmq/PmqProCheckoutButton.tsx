@@ -4,7 +4,10 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createAiTutorCheckout } from "@/lib/pmq/actions";
 import { authHrefWithNext } from "@/lib/auth-next";
-import { PMQ_PRICING_PRO_INTENT_HREF } from "@/lib/pmq/plans";
+import {
+  PMQ_PRICING_HREF,
+  PMQ_PRICING_PRO_INTENT_HREF,
+} from "@/lib/pmq/plans";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
 import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
@@ -43,7 +46,7 @@ type PmqProCheckoutButtonProps = {
 export function PmqProCheckoutButton({
   label,
   className = "",
-  returnPath,
+  returnPath = PMQ_PRICING_HREF,
   isSignedIn,
   autoStart = false,
 }: PmqProCheckoutButtonProps) {

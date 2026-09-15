@@ -4,7 +4,6 @@ import { createClient } from "@/lib/supabase/server";
 import {
   PFQ_CHECKOUT_ENABLED,
   PFQ_COURSE_ID,
-  PFQ_LEARN_HREF,
   PFQ_PRICING_HREF,
   PFQ_PRO_PRICE_CENTS,
   formatPfqPriceGbp,
@@ -12,6 +11,7 @@ import {
 import { COURSE_STATIC } from "@/lib/courses/registry-data";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { pfqTierAtLeast } from "@/lib/pfq/tiers";
+import { getSafeNextPath } from "@/lib/auth-next";
 
 /**
  * Consumer Contracts Regulations waiver for digital content.
@@ -36,9 +36,15 @@ const PFQ_DIGITAL_CONTENT_CONSENT: Pick<
   },
 };
 
-export async function createPfqCheckout(): Promise<
-  { url: string } | { error: string }
-> {
+function withUnlockedFlag(path: string): string {
+  const sep = path.includes("?") ? "&" : "?";
+  return `${path}${sep}pfq_unlocked=1`;
+}
+
+export async function createPfqCheckout(input: {
+  /** Where Stripe Back / cancel and success return. Defaults to pricing. */
+  returnPath?: string;
+} = {}): Promise<{ url: string } | { error: string }> {
   if (!PFQ_CHECKOUT_ENABLED) {
     return {
       error:
@@ -122,6 +128,8 @@ export async function createPfqCheckout(): Promise<
           quantity: 1,
         };
 
+  const returnPath = getSafeNextPath(input.returnPath, PFQ_PRICING_HREF);
+
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
@@ -134,8 +142,8 @@ export async function createPfqCheckout(): Promise<
       product: "pfq",
     },
     ...PFQ_DIGITAL_CONTENT_CONSENT,
-    success_url: `${appUrl}${PFQ_LEARN_HREF}?pfq_unlocked=1`,
-    cancel_url: `${appUrl}${PFQ_PRICING_HREF}`,
+    success_url: `${appUrl}${withUnlockedFlag(returnPath)}`,
+    cancel_url: `${appUrl}${returnPath}`,
   });
 
   if (!session.url) {

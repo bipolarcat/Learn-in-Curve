@@ -8,7 +8,7 @@ import {
   type PfqPlan,
   type PfqPlanFeature,
 } from "@/lib/pfq/plans";
-import { PFQ_LEARN_HREF, PFQ_PREVIEW_HREF } from "@/lib/pfq/constants";
+import { PFQ_LEARN_HREF, PFQ_PREVIEW_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import { PFQ_AI_PRO_NOTIFY_KEY } from "@/lib/notify/lists";
 import {
   IconCore,
@@ -231,6 +231,7 @@ export function PfqPlanCards({
                   <PfqCheckoutButton
                     isSignedIn={isSignedIn}
                     autoStart={resumeProCheckout}
+                    returnPath={PFQ_PRICING_HREF}
                     label={plan.ctaLabel}
                     className={`${styles.ctaBtn} ${styles.ctaPrimary}`}
                   />

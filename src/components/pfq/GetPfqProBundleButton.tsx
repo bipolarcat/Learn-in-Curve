@@ -17,11 +17,14 @@ const getProBundleButtonClass =
 type GetPfqProBundleButtonProps = {
   /** Signed-in on the dashboard always; kept explicit for checkout auth branch. */
   isSignedIn?: boolean;
+  /** Stripe Back / cancel return. Dashboard default. */
+  returnPath?: string;
   className?: string;
 };
 
 export function GetPfqProBundleButton({
   isSignedIn = true,
+  returnPath = "/dashboard",
   className,
 }: GetPfqProBundleButtonProps) {
   const priceLabel = formatPfqPriceGbp();
@@ -30,6 +33,7 @@ export function GetPfqProBundleButton({
     <PfqCheckoutButton
       isSignedIn={isSignedIn}
       inline
+      returnPath={returnPath}
       ariaLabel={`Get Pro Bundle · ${priceLabel}`}
       label={
         <>

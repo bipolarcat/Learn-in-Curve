@@ -27,6 +27,11 @@ type Props = {
   autoStart?: boolean;
   /** Compact row layout (dashboard footer) — wrapper does not stretch full width. */
   inline?: boolean;
+  /**
+   * Stripe Back / cancel (and success) return path. Defaults to pricing.
+   * Dashboard passes `/dashboard`; pricing leaves default; Learn/mock pass self.
+   */
+  returnPath?: string;
   className?: string;
 };
 
@@ -36,6 +41,7 @@ export function PfqCheckoutButton({
   isSignedIn,
   autoStart = false,
   inline = false,
+  returnPath,
   className,
 }: Props) {
   const router = useRouter();
@@ -60,7 +66,7 @@ export function PfqCheckoutButton({
       return;
     }
     startTransition(async () => {
-      const result = await createPfqCheckout();
+      const result = await createPfqCheckout({ returnPath });
       if ("error" in result) {
         setError(result.error);
         return;

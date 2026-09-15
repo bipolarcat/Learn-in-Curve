@@ -6,6 +6,7 @@ import { isDemoSkipAuth } from "@/lib/demo";
 import { isQaMode } from "@/lib/qa";
 import { PMQ_COURSE_ID, pmqLoHref, PMQ_SLUG } from "@/lib/pmq/constants";
 import { planFeatureValue } from "@/lib/pmq/plans";
+import { getSafeNextPath } from "@/lib/auth-next";
 import {
   getAiTutorEntitlement,
   getPmqQuizSetQuestions,
@@ -827,8 +828,10 @@ export async function createAiTutorCheckout(input: {
   const Stripe = (await import("stripe")).default;
   const stripe = new Stripe(stripeKey);
 
-  const returnPath =
-    input.returnPath ?? pmqLoHref(input.loNumber ?? 1);
+  const returnPath = getSafeNextPath(
+    input.returnPath,
+    pmqLoHref(input.loNumber ?? 1),
+  );
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
@@ -868,7 +871,7 @@ export async function createAiTutorCheckout(input: {
       feature: "pro",
     },
     ...DIGITAL_CONTENT_CONSENT,
-    success_url: `${appUrl}${returnPath}?tutor_unlocked=1`,
+    success_url: `${appUrl}${returnPath}${returnPath.includes("?") ? "&" : "?"}tutor_unlocked=1`,
     cancel_url: `${appUrl}${returnPath}`,
     customer_email: user.email ?? undefined,
   });
@@ -924,7 +927,7 @@ export async function createSlyTopUpCheckout(input: {
   const creditCents = topUpCreditGbpCents(amountCents);
   const Stripe = (await import("stripe")).default;
   const stripe = new Stripe(stripeKey);
-  const returnPath = input.returnPath ?? "/dashboard";
+  const returnPath = getSafeNextPath(input.returnPath, "/dashboard");
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",

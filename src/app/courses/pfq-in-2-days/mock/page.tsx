@@ -75,6 +75,7 @@ export default async function PfqMockStartPage({ searchParams }: Props) {
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <PfqCheckoutButton
               isSignedIn
+              returnPath={`${PFQ_MOCK_HREF}?set=${mockSet}`}
               label={`Get Pro — ${formatPfqPriceGbp()}`}
               className="btn btn-primary inline-flex !min-h-9 !w-auto !rounded-xl !px-3.5 !text-[13px]"
             />
