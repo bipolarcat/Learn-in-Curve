@@ -75,9 +75,9 @@ rotated stamp badge in the corner.
 for landing, dashboard, and about. Color lives *inside* framed tickets / illustrations /
 stamp panels, not as stacked full-bleed section bands. **2026-07-30:** Home teal-deep
 Mac/compare stadium band removed — replaced by cream-grid orange lamp + “PMQ in 5 Days
-is now live” (`PmqLiveLamp`, `ui/lamp`). Hero is type-on-paper with a single
-**Start free with PMQ** stamp CTA under the copy. Meet Sly: console left /
-copy right on desktop. No torn seams or checker masthead strips between sections.
+is now live” (`PmqLiveLamp`, `ui/lamp`). **2026-09-15:** hero → `HomeBrandHero`
+(see "Home hero (2026-09-15)" below). Meet Sly: console left / copy right on
+desktop. No torn seams or checker masthead strips between sections.
 **2026-07-31:** Home restaged again — see "Home sections (restaged 2026-07-31)"
 below for the current order and per-section rules.
 
@@ -85,12 +85,21 @@ below for the current order and per-section rules.
 dot-grid as `body`; orange brand glow; scroll-in Fraunces title + Figtree body.
 Legacy Mac walkthrough components remain in repo but are not mounted on Home.
 
+### Home hero (2026-09-15)
+
+`HomeBrandHero` — animals scene (canvas-keyed mp4, poster-first) with teal
+Space Mono stamp eyebrow layered *behind* the illustration top band; PFQ/PMQ
+Fraunces headline with Framer word-stagger + orange “curve.” settle. CTAs:
+**Take a free mock** (teal, `/free-mock-exam`) + **Explore courses**
+(secondary, `/courses`). Motion stays opacity-visible throughout — no
+blur/bounce/gated reveals. `PmqStartLink` lives in Proof, not the hero.
+
 ### Home sections (restaged 2026-07-31)
 
 Order: Hero → Proof → Features → TrialQuiz → Sly → Newsletter. One continuous
 cream dotted-paper surface throughout — no full-bleed colour bands, no seams.
-Section gaps are `clamp(5rem, 10vw, 8rem)`. One primary CTA per section, all
-pointing at the same free-signup destination (`PmqStartLink`).
+Section gaps are `clamp(5rem, 10vw, 8rem)`. Proof section CTA uses
+`PmqStartLink`; hero uses free-mock + courses browse (see above).
 
 **Proof — "PMQ in 5 Days is live"** (`PmqLaunchProof.tsx`). Replaces
 `PmqLiveLamp` on Home. Centred Fraunces headline, one supporting line, one

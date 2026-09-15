@@ -12,7 +12,6 @@ import {
   stampCtaSecondaryFlat,
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
-import { BouncingText } from "@/components/ui/bouncing-text";
 
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -23,12 +22,12 @@ const SUBCOPY =
   "Learn the fundamentals for the APM PFQ, or sharpen the scenario judgement the PMQ demands.";
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 
+/** Visible by default — motion only shifts position, never gates opacity. */
 const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 14, filter: "blur(10px)" },
+  hidden: { opacity: 1, y: 10 },
   show: (custom: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.72,
       delay: custom,
@@ -37,12 +36,14 @@ const wordVariants: Variants = {
   }),
 };
 
-const staticWord = { opacity: 1, y: 0, filter: "blur(0px)" };
+const staticWord = { opacity: 1, y: 0 };
+
+const eyebrowClassName =
+  "font-stamp text-[11px] font-bold uppercase tracking-[0.08em] text-teal sm:whitespace-nowrap sm:text-[12px] sm:tracking-[0.16em]";
 
 /**
- * Brand stamp eyebrow — Space Mono + per-character vertical roll
- * (21st Text Roll / mask-reveal lane). Distinct from the soft blur on the
- * headline.
+ * Brand stamp eyebrow — Space Mono + per-character vertical roll.
+ * Characters stay readable before hydration (no clip-mask hide).
  */
 function StampEyebrow({
   text,
@@ -55,62 +56,61 @@ function StampEyebrow({
   const chars = Array.from(text);
 
   if (reduce) {
-    return (
-      <span className="whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]">
-        {text}
-      </span>
-    );
+    return <span className={eyebrowClassName}>{text}</span>;
   }
 
   return (
     <span
       aria-hidden
-      className="inline-flex flex-nowrap items-center justify-center whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]"
+      className={`inline-flex flex-wrap items-center justify-center gap-x-0 sm:flex-nowrap ${eyebrowClassName}`}
       style={{ perspective: 800 }}
     >
       {chars.map((char, i) => (
-        <span
+        <motion.span
           key={`${char}-${i}`}
-          className="inline-block overflow-hidden align-bottom"
-          style={{ height: "1.15em" }}
+          className="inline-block"
+          style={{ whiteSpace: "pre" }}
+          initial={{ y: 5, rotateX: -18, opacity: 1 }}
+          animate={{ y: 0, rotateX: 0, opacity: 1 }}
+          transition={{
+            duration: 0.55,
+            delay: delay + i * 0.018,
+            ease: EASE,
+          }}
         >
-          <motion.span
-            className="inline-block origin-bottom"
-            style={{ whiteSpace: "pre" }}
-            initial={{ y: "110%", rotateX: -70, opacity: 0.35 }}
-            animate={{ y: "0%", rotateX: 0, opacity: 1 }}
-            transition={{
-              duration: 0.55,
-              delay: delay + i * 0.018,
-              ease: EASE,
-            }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        </span>
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
       ))}
     </span>
   );
 }
 
-/** “curve.” — 21st BouncingText (GSAP SplitText bounce), then a static period. */
+/** “curve.” — Framer settle (brand ease-out; no GSAP bounce). */
 function CurveAccent() {
   const reduce = useReducedMotion();
+  const chars = "curve".split("");
 
   if (reduce) {
     return <span className="inline text-orange">curve.</span>;
   }
 
   return (
-    <span className="inline-block overflow-visible text-orange">
-      <BouncingText
-        className="inline-block"
-        repeat={false}
-        persist
-        fromY={-72}
-      >
-        curve
-      </BouncingText>
+    <span className="inline text-orange" aria-hidden>
+      {chars.map((char, i) => (
+        <motion.span
+          key={i}
+          className="inline-block"
+          initial={{ y: 6, scale: 0.94, opacity: 1 }}
+          animate={{ y: 0, scale: 1, opacity: 1 }}
+          transition={{
+            duration: 0.75,
+            delay: 1.05 + i * 0.055,
+            ease: EASE,
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
       .
     </span>
   );
@@ -158,7 +158,7 @@ function Headline() {
 /**
  * Home brand hero — animals lead; Space Mono stamp eyebrow sits *behind*
  * the scene so giraffe horns overlap the type (layered depth). Then PFQ/PMQ
- * lockup + 21st BouncingText on “curve”. `HeroAnimalsScene` untouched.
+ * lockup + Framer settle on “curve”.
  */
 export function HomeBrandHero() {
   return (
@@ -176,7 +176,7 @@ export function HomeBrandHero() {
           */}
           <div className="relative w-full">
             <p
-              className="pointer-events-none absolute left-1/2 top-0 z-0 w-max max-w-none -translate-x-1/2 -translate-y-[42%] px-2 sm:-translate-y-[48%]"
+              className="pointer-events-none absolute left-1/2 top-0 z-0 max-w-[calc(100%-1rem)] -translate-x-1/2 -translate-y-[38%] px-2 sm:max-w-none sm:-translate-y-[48%]"
               aria-label={EYEBROW}
             >
               <StampEyebrow text={EYEBROW} delay={0.15} />
@@ -211,4 +211,3 @@ export function HomeBrandHero() {
     </section>
   );
 }
-
