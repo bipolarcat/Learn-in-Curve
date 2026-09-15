@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — PFQ Learn expand uses the PMQ Insights chip (lightbulb, Insights / Hide insights, underline→rail morph) (`PfqTakeawayBody`).
 - **2026-09-15** — Core→Contents morph: one continuous nav with fixed 12px radius (no 0→12 flash); layout size morph instead of dual layoutId shells (`Lo1CoreContentStudy`).
 - **2026-09-15** — PFQ key takeaway is plain body type (no boxed plate or Key takeaway label) (`PfqTakeawayBody`).
 - **2026-09-15** — PFQ Learn keeps Lo1 stamp/Contents chrome and restores Claude's Key takeaway + Understand it split (`bodyVariant="pfq-takeaway"`, `PfqTakeawayBody`).
