@@ -421,6 +421,8 @@
 
 .reviewPrompt {
   margin: 0.55rem 0 0;
+  width: 100%;
+  max-width: none;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -428,7 +430,7 @@
   letter-spacing: -0.01em;
   color: rgb(var(--ink-rgb));
   white-space: pre-wrap;
-  text-wrap: pretty;
+  text-wrap: wrap;
 }
 
 .reviewNote {
