@@ -253,8 +253,11 @@ function OutcomeLearnChrome({
           initial={false}
           transition={morph}
           style={{
-            borderRadius: chromeRadius,
-            overflow: "hidden",
+            // Compact Contents pill needs a uniform radius + clip.
+            // Expanded must not clip the stamp track — that made its bottom
+            // corners pick up the nav's 12px while the top stayed at 7px.
+            borderRadius: compact ? chromeRadius : 0,
+            overflow: compact ? "hidden" : "visible",
           }}
           className={
             compact

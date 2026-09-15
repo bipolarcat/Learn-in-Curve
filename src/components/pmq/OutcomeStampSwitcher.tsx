@@ -54,7 +54,8 @@ export function OutcomeStampSwitcher({
       <div
         role="radiogroup"
         aria-labelledby={labelId}
-        className="relative flex w-full items-stretch gap-0 overflow-hidden rounded-[7px] bg-ink/[0.06] p-px dark:bg-white/[0.08]"
+        className="relative flex w-full items-stretch gap-0 overflow-hidden bg-ink/[0.06] p-px dark:bg-white/[0.08]"
+        style={{ borderRadius: 7 }}
         onKeyDown={(event) => {
           if (event.key === "ArrowRight" || event.key === "ArrowDown") {
             event.preventDefault();
