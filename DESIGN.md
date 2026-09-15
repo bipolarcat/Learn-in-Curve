@@ -88,7 +88,9 @@ Legacy Mac walkthrough components remain in repo but are not mounted on Home.
 ### Home hero (2026-09-15)
 
 `HomeBrandHero` — animals scene (canvas-keyed mp4, poster-first) with teal
-Space Mono stamp eyebrow layered *behind* the illustration top band; PFQ/PMQ
+Space Mono stamp eyebrow: **mobile** in-flow above the illustration (always
+readable); **`sm+`** absolute *behind* the top band so giraffe horns overlap
+the type. PFQ/PMQ
 Fraunces headline with Framer word-stagger + orange “curve.” GSAP bounce
 (21st `BouncingText`, `prefers-reduced-motion` → static). CTAs:
 **Take a free mock** (teal, `/free-mock-exam`) + **Explore courses**

@@ -164,13 +164,12 @@ export function HomeBrandHero() {
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
           {/*
-            Layer stack: eyebrow (z-0) under animals (z-1). Text sits in the
-            top band of the scene so opaque horn pixels cover it; transparent
-            canvas areas let the teal stamp read through.
+            Mobile: stamp sits in-flow above the scene (giraffe must not cover it).
+            sm+: absolute under the animals so horns read over the type.
           */}
           <div className="relative w-full">
             <p
-              className="pointer-events-none absolute left-1/2 top-0 z-0 w-max max-w-none -translate-x-1/2 -translate-y-[42%] px-2 sm:-translate-y-[48%]"
+              className="pointer-events-none relative z-[2] mx-auto mb-1.5 w-max max-w-none px-2 sm:absolute sm:left-1/2 sm:top-0 sm:z-0 sm:mx-0 sm:mb-0 sm:-translate-x-1/2 sm:-translate-y-[48%]"
               aria-label={EYEBROW}
             >
               <StampEyebrow text={EYEBROW} delay={0.15} />
