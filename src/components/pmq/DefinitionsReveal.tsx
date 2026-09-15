@@ -15,8 +15,9 @@ const GRID_COLS = 2;
 
 const termClass =
   "font-body text-[13px] font-semibold leading-tight tracking-tight text-ink text-pretty break-words";
+/** Expanded plate copy: wrap at full width (no text-pretty early breaks). */
 const bodyClass =
-  "font-body text-[15px] font-normal leading-[1.7] text-pretty text-ink/90";
+  "w-full min-w-0 font-body text-[15px] font-normal leading-[1.7] text-ink/90";
 const fieldLabelClass =
   "font-body text-[12px] font-semibold tracking-tight";
 
