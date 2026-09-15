@@ -417,9 +417,9 @@ export function DashboardProfileMenu({
 
       {deleteOpen ? (
         <div className="flex flex-col gap-3 px-3 py-3">
-          <p className="m-0 flex items-center justify-center gap-1.5 font-body text-[12.5px] font-semibold tracking-tight text-rust">
+          <p className="m-0 flex items-center justify-center gap-1.5 font-body text-[14px] font-semibold tracking-tight text-rust">
             <AlertCircle
-              className="size-3.5 shrink-0"
+              className="size-4 shrink-0"
               strokeWidth={2.5}
               aria-hidden
             />
