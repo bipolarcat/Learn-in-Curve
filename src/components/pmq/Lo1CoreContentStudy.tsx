@@ -12,10 +12,8 @@ import { createPortal } from "react-dom";
 import {
   LayoutGroup,
   MotionConfig,
-  animate,
   motion,
   useReducedMotion,
-  type AnimationPlaybackControls,
 } from "framer-motion";
 import {
   ChevronDown,
@@ -64,14 +62,34 @@ const glassChrome =
   "border border-black/[0.08] bg-cream/80 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.55),0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_8px_24px_rgb(var(--ink-rgb)_/_0.08)] backdrop-blur-2xl backdrop-saturate-150 supports-[backdrop-filter]:bg-cream/55 dark:border-white/[0.12] dark:bg-paper/80 dark:supports-[backdrop-filter]:bg-paper/60 [@media(prefers-reduced-transparency:reduce)]:bg-paper [@media(prefers-reduced-transparency:reduce)]:backdrop-blur-none";
 
 /** Sticky Contents chrome: `pt-3` (12) + half of pill `h-9` (18). Jump targets
- * and scroll-spy use this so the outcome separator sits on the pill midline. */
+ * land the outcome separator on this line. */
 const LEARN_OUTCOME_ANCHOR_PX = 12 + 36 / 2;
 
 /**
- * 21st.dev Motion Primitives / Apple ease-out (same as ActivityModal + header
- * menu). Tween — not spring — so Contents jumps feel fluid with no settle lag.
+ * Scroll-spy line sits a few px below the jump landing so a 1px undershoot
+ * cannot re-select the previous outcome (e.g. tap 5C → highlight 5B).
  */
-const appleScrollEase = [0.22, 1, 0.36, 1] as const;
+const LEARN_OUTCOME_SPY_PX = LEARN_OUTCOME_ANCHOR_PX + 10;
+
+/** Hold the tapped outcome through the tween + a short settle. */
+const LEARN_JUMP_SETTLE_MS = 160;
+
+/**
+ * easeOutQuint — Apple/21st Motion Primitives feel (fast start, soft settle).
+ * Tween, not spring: no bounce lag. Implemented locally so the first frame
+ * can run synchronously (Framer's animate waits a rAF → visible hitch).
+ */
+function easeOutQuint(t: number) {
+  return 1 - (1 - t) ** 5;
+}
+
+function readScrollY() {
+  return window.scrollY || document.documentElement.scrollTop || 0;
+}
+
+function writeScrollY(y: number) {
+  window.scrollTo(0, y);
+}
 
 /** 21st.dev Morphing Popover default spring. */
 const morphSpring = {
@@ -388,10 +406,16 @@ export function Lo1CoreContentStudy({
     return idx >= 0 ? idx : 0;
   });
   const sectionEls = useRef(new Map<string, HTMLElement>());
-  const jumping = useRef(false);
-  const scrollAnimRef = useRef<AnimationPlaybackControls | null>(null);
+  /** While set, scroll-spy must not override the tapped outcome. */
+  const jumpLockRef = useRef<number | null>(null);
+  const jumpRafRef = useRef(0);
+  const jumpSettleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const compactSentinelRef = useRef<HTMLDivElement>(null);
   const [compact, setCompact] = useState(false);
+  const blocksRef = useRef(blocks);
+  blocksRef.current = blocks;
 
   const active = blocks[activeIndex];
 
@@ -400,55 +424,113 @@ export function Lo1CoreContentStudy({
     else sectionEls.current.delete(code);
   }, []);
 
-  useEffect(() => {
-    return () => {
-      scrollAnimRef.current?.stop();
-    };
+  const clearJumpSettleTimer = useCallback(() => {
+    if (jumpSettleTimerRef.current) {
+      clearTimeout(jumpSettleTimerRef.current);
+      jumpSettleTimerRef.current = null;
+    }
   }, []);
 
-  const jumpToCode = useCallback((code: string) => {
-    const el = sectionEls.current.get(code);
-    if (!el) return;
+  const stopJumpAnimation = useCallback(() => {
+    if (jumpRafRef.current) {
+      cancelAnimationFrame(jumpRafRef.current);
+      jumpRafRef.current = 0;
+    }
+  }, []);
 
-    scrollAnimRef.current?.stop();
-    jumping.current = true;
+  const syncActiveFromScroll = useCallback(() => {
+    if (jumpLockRef.current != null) return;
 
-    const from = window.scrollY;
-    const targetTop = Math.max(
-      0,
-      from + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
-    );
-    const distance = Math.abs(targetTop - from);
-
-    if (prefersReducedMotion() || distance < 1) {
-      window.scrollTo(0, targetTop);
-      jumping.current = false;
-      return;
+    const list = blocksRef.current;
+    let nextIndex = 0;
+    for (let index = 0; index < list.length; index += 1) {
+      const block = list[index];
+      if (!block) continue;
+      const el = sectionEls.current.get(block.outcome_code.toLowerCase());
+      if (el && el.getBoundingClientRect().top <= LEARN_OUTCOME_SPY_PX) {
+        nextIndex = index;
+      }
     }
 
-    // Distance-scaled duration: short hops stay snappy, long jumps stay fluid.
-    const duration = Math.min(0.7, Math.max(0.34, distance / 1900));
-
-    scrollAnimRef.current = animate(from, targetTop, {
-      type: "tween",
-      duration,
-      ease: appleScrollEase,
-      onUpdate: (latest) => {
-        window.scrollTo(0, latest);
-      },
-      onComplete: () => {
-        jumping.current = false;
-        scrollAnimRef.current = null;
-      },
-    });
+    setActiveIndex((current) => (current === nextIndex ? current : nextIndex));
   }, []);
+
+  const releaseJumpLock = useCallback(() => {
+    jumpLockRef.current = null;
+    clearJumpSettleTimer();
+    syncActiveFromScroll();
+  }, [clearJumpSettleTimer, syncActiveFromScroll]);
+
+  const lockJump = useCallback(
+    (index: number, holdMs: number) => {
+      jumpLockRef.current = index;
+      setActiveIndex(index);
+      clearJumpSettleTimer();
+      jumpSettleTimerRef.current = setTimeout(() => {
+        jumpSettleTimerRef.current = null;
+        releaseJumpLock();
+      }, holdMs);
+    },
+    [clearJumpSettleTimer, releaseJumpLock],
+  );
+
+  useEffect(() => {
+    return () => {
+      stopJumpAnimation();
+      clearJumpSettleTimer();
+    };
+  }, [clearJumpSettleTimer, stopJumpAnimation]);
+
+  const jumpToCode = useCallback(
+    (code: string, index: number) => {
+      const el = sectionEls.current.get(code);
+      if (!el) return;
+
+      stopJumpAnimation();
+
+      const from = readScrollY();
+      const targetTop = Math.max(
+        0,
+        from + el.getBoundingClientRect().top - LEARN_OUTCOME_ANCHOR_PX,
+      );
+      const distance = Math.abs(targetTop - from);
+
+      if (prefersReducedMotion() || distance < 1) {
+        writeScrollY(targetTop);
+        lockJump(index, LEARN_JUMP_SETTLE_MS);
+        return;
+      }
+
+      const durationMs = Math.min(650, Math.max(280, distance / 2));
+      lockJump(index, durationMs + LEARN_JUMP_SETTLE_MS);
+
+      // Back-date start by one frame so the synchronous first `step` already
+      // moves the page — no dead tick before the tween is visible.
+      const start = performance.now() - 16.67;
+      const delta = targetTop - from;
+
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / durationMs);
+        writeScrollY(from + delta * easeOutQuint(t));
+        if (t < 1) {
+          jumpRafRef.current = requestAnimationFrame(step);
+          return;
+        }
+        jumpRafRef.current = 0;
+        // Exact snap — kills subpixel drift that made spy pick the previous LO.
+        writeScrollY(targetTop);
+      };
+
+      step(performance.now());
+    },
+    [lockJump, stopJumpAnimation],
+  );
 
   const handleSelect = useCallback(
     (index: number) => {
-      setActiveIndex(index);
       const block = blocks[index];
       if (!block) return;
-      jumpToCode(block.outcome_code.toLowerCase());
+      jumpToCode(block.outcome_code.toLowerCase(), index);
     },
     [blocks, jumpToCode],
   );
@@ -462,10 +544,9 @@ export function Lo1CoreContentStudy({
     onFocusOutcomeConsumed?.();
     if (idx < 0) return;
 
-    setActiveIndex(idx);
     const tryJump = () => {
       if (!sectionEls.current.get(code)) return false;
-      jumpToCode(code);
+      jumpToCode(code, idx);
       return true;
     };
     if (!tryJump()) {
@@ -477,26 +558,38 @@ export function Lo1CoreContentStudy({
 
   useEffect(() => {
     const onScroll = () => {
-      if (jumping.current) return;
-
-      let nextIndex = 0;
-      blocks.forEach((block, index) => {
-        const el = sectionEls.current.get(block.outcome_code.toLowerCase());
-        if (el && el.getBoundingClientRect().top <= LEARN_OUTCOME_ANCHOR_PX) {
-          nextIndex = index;
+      syncActiveFromScroll();
+    };
+    // Manual scroll abandons jump lock; ignore touches on the outcome menu.
+    const abandonLock = (event: Event) => {
+      if (jumpLockRef.current == null) return;
+      // Don't kill the jump from the same tap that started it (mobile click
+      // is preceded by touchstart on the option button).
+      if (event.type === "touchstart") {
+        const target = event.target as Node | null;
+        if (
+          target &&
+          (target as Element).closest?.(
+            '[aria-label="Outcomes"], [aria-label="Learning outcomes"]',
+          )
+        ) {
+          return;
         }
-      });
-
-      setActiveIndex((current) => {
-        if (nextIndex === current) return current;
-        return nextIndex;
-      });
+      }
+      stopJumpAnimation();
+      releaseJumpLock();
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [blocks]);
+    window.addEventListener("wheel", abandonLock, { passive: true });
+    window.addEventListener("touchstart", abandonLock, { passive: true });
+    syncActiveFromScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", abandonLock);
+      window.removeEventListener("touchstart", abandonLock);
+    };
+  }, [releaseJumpLock, stopJumpAnimation, syncActiveFromScroll]);
 
   useLayoutEffect(() => {
     const sentinel = compactSentinelRef.current;
