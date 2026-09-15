@@ -50,7 +50,7 @@ export const headerPillSecondary =
 
 /** Overflow menu trigger: icon + Menu label (label hides when open). */
 export const headerMenuTrigger =
-  `group inline-flex h-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink hover:bg-ink/[0.07] ${motion}`;
+  `group inline-flex h-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink touch-manipulation [-webkit-tap-highlight-color:transparent] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink/[0.07] ${motion}`;
 
 /** Labeled teal — Courses with brand accent. */
 export const headerPillTeal =

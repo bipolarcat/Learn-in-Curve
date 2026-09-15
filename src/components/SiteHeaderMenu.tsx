@@ -238,8 +238,19 @@ export function SiteHeaderMenu({
     setMounted(true);
   }, [pathname]);
 
-  useEffect(() => {
+  const closeMenu = (restoreFocus = false) => {
     setOpen(false);
+    if (restoreFocus) {
+      buttonRef.current?.focus();
+      return;
+    }
+    // Touch leaves :hover/:focus stuck on the trigger — clear it on dismiss.
+    buttonRef.current?.blur();
+  };
+
+  useEffect(() => {
+    closeMenu(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only on route change
   }, [pathname]);
 
   useEffect(() => {
@@ -266,13 +277,12 @@ export function SiteHeaderMenu({
       if (wrapRef.current?.contains(t)) return;
       const panel = document.getElementById(menuId);
       if (panel?.contains(t)) return;
-      setOpen(false);
+      closeMenu(false);
     };
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
+        closeMenu(true);
       }
     };
 
@@ -295,13 +305,20 @@ export function SiteHeaderMenu({
         type="button"
         className={cn(
           headerMenuTrigger,
-          open && `${headerIcon} bg-ink text-paper hover:bg-ink hover:text-paper`,
+          open && `${headerIcon} bg-ink text-paper [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink [@media(hover:hover)_and_(pointer:fine)]:hover:text-paper`,
         )}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={menuId}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setOpen((wasOpen) => {
+            if (wasOpen) {
+              queueMicrotask(() => buttonRef.current?.blur());
+            }
+            return !wasOpen;
+          });
+        }}
       >
         <MenuToggleIcon open={open} duration={duration} className="size-[18px]" />
         <MenuWord visible={!open} reduceMotion={reduceMotion} />
@@ -375,7 +392,7 @@ export function SiteHeaderMenu({
                             menuItemClass,
                             onDashboard && "bg-ink/[0.06] text-orange",
                           )}
-                          onClick={() => setOpen(false)}
+                          onClick={() => closeMenu(false)}
                         >
                           <MenuBoardIcon />
                           My dashboard
@@ -414,7 +431,7 @@ export function SiteHeaderMenu({
                         role="menuitem"
                         href="/"
                         className={menuItemClass}
-                        onClick={() => setOpen(false)}
+                        onClick={() => closeMenu(false)}
                       >
                         <MenuHomeIcon />
                         Home Page
@@ -450,7 +467,7 @@ export function SiteHeaderMenu({
                             if (item.badge) {
                               markNewSeen(item.href);
                             }
-                            setOpen(false);
+                            closeMenu(false);
                           }}
                         >
                           <Icon className={menuIconClass} />
