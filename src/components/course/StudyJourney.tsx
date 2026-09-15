@@ -36,13 +36,17 @@ export function StageContinueButton({
   label,
   onContinue,
   enabled = true,
+  aside = null,
 }: {
   label: string;
   onContinue: () => void;
   enabled?: boolean;
+  /** Optional control beside Continue (e.g. Learn back-to-top). */
+  aside?: ReactNode;
 }) {
   return (
-    <div className="mt-6 flex justify-center sm:mt-8">
+    <div className="mt-6 flex items-center justify-center gap-3 sm:mt-8">
+      {aside}
       <button
         type="button"
         aria-disabled={!enabled}
@@ -104,6 +108,8 @@ type StudyJourneyProps<TId extends string> = {
   lockedIds?: Set<TId>;
   /** Label override while on a given stage (e.g. "Continue to Apply"). */
   continueLabelFor?: (currentId: TId, defaultLabel: string) => string;
+  /** Optional control beside the bottom Continue (e.g. Learn back-to-top). */
+  continueAsideFor?: (currentId: TId) => ReactNode;
   checkpointContinueLabel: string;
   /** Chrome “Next” label on the last stage. Defaults to "Next LO". */
   headerLastContinueLabel?: string;
@@ -152,6 +158,7 @@ export function StudyJourney<TId extends string>({
   onStagesMarkedDone,
   lockedIds: lockedIdsProp,
   continueLabelFor,
+  continueAsideFor,
   checkpointContinueLabel,
   headerLastContinueLabel = "Next LO",
   checkpointReady,
@@ -392,6 +399,7 @@ export function StudyJourney<TId extends string>({
                 label={checkpointContinueLabel}
                 onContinue={onCheckpointContinue}
                 enabled={continueEnabled}
+                aside={continueAsideFor?.(currentId) ?? null}
               />
             ) : null
           ) : showAdvance && continueLabel ? (
@@ -399,6 +407,7 @@ export function StudyJourney<TId extends string>({
               key={currentId}
               label={continueLabel}
               onContinue={advance}
+              aside={continueAsideFor?.(currentId) ?? null}
             />
           ) : null}
         </div>

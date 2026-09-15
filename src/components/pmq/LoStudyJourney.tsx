@@ -12,6 +12,7 @@ import { LoApplyStage } from "@/components/pmq/LoApplyStage";
 import { PracticeQuizSection } from "@/components/pmq/PracticeQuizSection";
 import { LoCheckpointStage } from "@/components/pmq/LoCheckpointStage";
 import { StudyJourney } from "@/components/course/StudyJourney";
+import { LearnBackToTopButton } from "@/components/course/LearnBackToTopButton";
 import {
   PMQ_LO_AUDIO_OVERVIEWS,
   PMQ_LO_EXPLAINER_VIDEOS,
@@ -204,6 +205,9 @@ export function LoStudyJourney({
       }}
       continueLabelFor={(currentId, defaultLabel) =>
         mediaLocked && currentId === "learn" ? "Continue to Apply" : defaultLabel
+      }
+      continueAsideFor={(currentId) =>
+        currentId === "learn" ? <LearnBackToTopButton /> : null
       }
       onStagesMarkedDone={onStagesMarkedDone}
       checkpointContinueLabel={checkpointContinueLabel}

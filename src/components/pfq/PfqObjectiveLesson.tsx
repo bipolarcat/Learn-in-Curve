@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, useTransition } from "react"
 import { useRouter } from "next/navigation";
 import { Check, Flag } from "lucide-react";
 import { StudyJourney } from "@/components/course/StudyJourney";
+import { LearnBackToTopButton } from "@/components/course/LearnBackToTopButton";
 import {
   CHECKPOINT_GATE_COPY,
   showCheckpointGateHint,
@@ -206,6 +207,9 @@ export function PfqObjectiveLessonView({
       completionPercent={completionPercent}
       progressUnitPercent={PFQ_PROGRESS_UNIT_PERCENT}
       onStagesMarkedDone={onStagesMarkedDone}
+      continueAsideFor={(currentId) =>
+        currentId === "learn" ? <LearnBackToTopButton /> : null
+      }
       checkpointContinueLabel={checkpointContinueLabel}
       headerLastContinueLabel={nextObjective ? "Next LO" : "Overview"}
       checkpointReady={checkpointReady}
