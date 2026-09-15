@@ -93,7 +93,7 @@ function StampEyebrow({
 
   if (reduce) {
     return (
-      <span className="font-stamp text-[11px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[12px] sm:tracking-[0.16em]">
+      <span className="whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]">
         {text}
       </span>
     );
@@ -102,7 +102,7 @@ function StampEyebrow({
   return (
     <span
       aria-hidden
-      className="inline-flex flex-wrap items-center justify-center font-stamp text-[11px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[12px] sm:tracking-[0.16em]"
+      className="inline-flex flex-nowrap items-center justify-center whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]"
       style={{ perspective: 800 }}
     >
       {chars.map((char, i) => (
@@ -239,7 +239,7 @@ export function HomeBrandHero() {
           */}
           <div className="relative w-full">
             <p
-              className="pointer-events-none absolute left-1/2 top-[5%] z-0 w-[min(100%,22rem)] -translate-x-1/2 px-2 sm:top-[6%] sm:w-[min(100%,26rem)]"
+              className="pointer-events-none absolute left-1/2 top-0 z-0 w-max max-w-none -translate-x-1/2 -translate-y-[42%] px-2 sm:-translate-y-[48%]"
               aria-label={EYEBROW}
             >
               <StampEyebrow text={EYEBROW} delay={0.15} />
