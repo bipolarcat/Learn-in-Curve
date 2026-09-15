@@ -7,13 +7,12 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Learn-stage “Back to Top” — icon + label on the left edge of the Continue row.
- * Circular scroll-progress ring (21st.dev bundui) + magnetic pull (21st.dev
- * Button Magnetic) on the icon only.
+ * Learn-stage “Back to Top” — progress-ring icon + label on the left edge of
+ * the Continue row. Ring from 21st.dev bundui Scroll Progress; magnetic pull
+ * from 21st.dev Button Magnetic. No arrow glyph.
  */
 
 function scrollStudyToTop() {
@@ -28,8 +27,8 @@ function scrollStudyToTop() {
   });
 }
 
-const ICON = 28;
-const STROKE = 2;
+const ICON = 22;
+const STROKE = 2.25;
 const R = (ICON - STROKE) / 2 - 0.5;
 const CX = ICON / 2;
 const CY = ICON / 2;
@@ -111,17 +110,19 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
       }
       whileTap={reduceMotion ? undefined : { scale: 0.97 }}
       className={cn(
-        "group inline-flex max-w-full items-center gap-2 rounded-lg px-0.5 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
+        "group inline-flex max-w-full items-center gap-1.5 rounded-lg px-0.5 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
         className,
       )}
     >
-      <span className="relative inline-flex size-7 shrink-0 items-center justify-center">
+      <span
+        className="relative inline-flex size-[1.375rem] shrink-0 items-center justify-center"
+        aria-hidden
+      >
         <svg
-          className="pointer-events-none absolute inset-0 size-full -rotate-90"
+          className="size-full -rotate-90"
           width={ICON}
           height={ICON}
           viewBox={`0 0 ${ICON} ${ICON}`}
-          aria-hidden
         >
           <circle
             cx={CX}
@@ -130,7 +131,7 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
             fill="none"
             stroke="currentColor"
             strokeWidth={STROKE}
-            className="text-ink/12 dark:text-white/15"
+            className="text-ink/15 dark:text-white/20"
           />
           <motion.circle
             cx={CX}
@@ -146,13 +147,8 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
             strokeDashoffset={0}
           />
         </svg>
-        <ChevronUp
-          className="relative size-3.5 text-ink/65 transition-colors duration-150 group-hover:text-orange"
-          strokeWidth={2.5}
-          aria-hidden
-        />
       </span>
-      <span className="truncate font-body text-[13px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange">
+      <span className="truncate font-body text-[12px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange sm:text-[13px]">
         Back to Top
       </span>
     </motion.button>

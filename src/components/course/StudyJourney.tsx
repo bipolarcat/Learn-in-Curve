@@ -44,41 +44,34 @@ export function StageContinueButton({
   /** Optional left-edge control (e.g. Learn “Back to Top”); Continue stays centred. */
   aside?: ReactNode;
 }) {
-  const continueBtn = (
-    <button
-      type="button"
-      aria-disabled={!enabled}
-      aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
-      className={`${productActionSecondary} ${
-        !enabled
-          ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
-          : ""
-      }`}
-      onClick={(event) => {
-        event.preventDefault();
-        if (!enabled) {
-          showCheckpointGateHint("bottom-center");
-          return;
-        }
-        onContinue();
-      }}
-    >
-      {label}
-      <CtaArrow className="!h-3.5 !w-3.5" />
-    </button>
-  );
-
-  if (!aside) {
-    return (
-      <div className="mt-6 flex justify-center sm:mt-8">{continueBtn}</div>
-    );
-  }
-
   return (
-    <div className="mt-6 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-x-2 sm:mt-8">
-      <div className="min-w-0 justify-self-start">{aside}</div>
-      <div className="justify-self-center">{continueBtn}</div>
-      <div aria-hidden className="min-w-0" />
+    <div className="relative mt-6 flex min-h-11 items-center justify-center sm:mt-8">
+      {aside ? (
+        <div className="absolute inset-y-0 left-0 z-10 flex max-w-[min(42%,11rem)] items-center">
+          {aside}
+        </div>
+      ) : null}
+      <button
+        type="button"
+        aria-disabled={!enabled}
+        aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
+        className={`${productActionSecondary} ${
+          !enabled
+            ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
+            : ""
+        }`}
+        onClick={(event) => {
+          event.preventDefault();
+          if (!enabled) {
+            showCheckpointGateHint("bottom-center");
+            return;
+          }
+          onContinue();
+        }}
+      >
+        {label}
+        <CtaArrow className="!h-3.5 !w-3.5" />
+      </button>
     </div>
   );
 }
