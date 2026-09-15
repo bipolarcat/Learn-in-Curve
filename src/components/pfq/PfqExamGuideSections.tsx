@@ -44,7 +44,7 @@ function WeightTable() {
   return (
     <>
       <p className={styles.callout}>
-        LO4, LO5 and LO7 are 27 marks between them, three quarters of pass mark.
+        LO4, LO5 and LO7 are worth 27 marks combined (three-quarters of the pass mark)
       </p>
       <div className={styles.tableWrap}>
         <table className={`${styles.table} ${styles.syllabusTable}`}>

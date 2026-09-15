@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — PFQ exam guide weight callout copy: "LO4, LO5 and LO7 are worth 27 marks combined (three-quarters of the pass mark)" (`PfqExamGuideSections`).
 - **2026-09-15** — Stamp outcome bar keeps uniform 7px corners: expanded Learn chrome no longer overflow-clips it with the Contents pill's 12px radius (`Lo1CoreContentStudy`, `OutcomeStampSwitcher`).
 - **2026-09-15** — Insights chip gets a ChevronDown that springs to point up when open (21st disclosure affordance); shared `InsightsExpand` used by PMQ tips and PFQ Learn (`InsightsDisclosure`, `PfqTakeawayBody`).
 - **2026-09-15** — PFQ Learn expand uses the PMQ Insights chip (lightbulb, Insights / Hide insights, underline→rail morph) (`PfqTakeawayBody`).
