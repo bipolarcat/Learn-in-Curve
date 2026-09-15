@@ -18,7 +18,8 @@
  * canonical origin, regardless of which hostname the user arrived on.
  *
  * Server-side equivalent is `getSiteOrigin(request)` in src/lib/site-origin.ts.
- * They must agree — both read NEXT_PUBLIC_SITE_URL first.
+ * They must agree — both read NEXT_PUBLIC_SITE_URL first, with the same
+ * loopback+LAN exception for phone-on-Wi‑Fi local testing.
  *
  * NEXT_PUBLIC_SITE_URL must be set in the deployed environment to
  * `https://www.learnincurve.com` (no trailing slash). If it is missing we fall
@@ -26,12 +27,32 @@
  * behaviour rather than crashing — a misconfigured env var should degrade, not
  * take sign-up down.
  */
+import { isPrivateLanHost } from "@/lib/site-origin";
+
 const CONFIGURED_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(
   /\/+$/,
   "",
 );
 
+const LOOPBACK = /^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/i;
+
+function configuredIsLoopback(origin: string): boolean {
+  try {
+    return LOOPBACK.test(new URL(origin).host);
+  } catch {
+    return false;
+  }
+}
+
 export function getCanonicalOrigin(): string {
+  if (
+    CONFIGURED_ORIGIN &&
+    configuredIsLoopback(CONFIGURED_ORIGIN) &&
+    typeof window !== "undefined" &&
+    isPrivateLanHost(window.location.host)
+  ) {
+    return window.location.origin;
+  }
   if (CONFIGURED_ORIGIN) return CONFIGURED_ORIGIN;
   if (typeof window !== "undefined") return window.location.origin;
   return "";
