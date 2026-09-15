@@ -71,7 +71,7 @@
     {
       "outcome_code": "6.2",
       "outcome_title": "State the purpose of critical path analysis",
-      "key_takeaway": "Critical path analysis identifies the sequence of dependent activities that determines the shortest possible project duration. The critical path is the longest path through the network, and activities on it have no float, so delaying one of them delays the whole project. Its practical use is showing the project manager which activities genuinely threaten the completion date.",
+      "key_takeaway": "Critical path analysis identifies the sequence of dependent activities that determines the shortest possible project duration. The critical path is the longest path through the network, and activities on it have no float, so delaying one of them delays the whole project. Its practical use is showing the project manager which activities genuinely threaten the completion date. Float is the amount of time an activity can be delayed without affecting a following activity or the completion date. The analysis also produces the earliest and latest start and finish times for each activity, and the total and free float. It does not produce costs.",
       "body_markdown": "There is an apparent contradiction worth understanding, because the exam plays on it. The critical path is the longest path through the network, and it determines the shortest time the project can take. Both are true at once. You cannot finish faster than the longest chain of dependent work allows.\n\nActivities on the critical path have no float. Delay one by a day and the project finishes a day later. Activities off the critical path have float and can slip a certain amount without moving the end date.\n\nSo the practical purpose is deciding where to put attention. Management effort goes where delay actually costs something.\n\nThe analysis also produces earliest and latest start and finish times for each activity, and the float available. It does not produce cost figures or a business case."
     },
     {
@@ -83,7 +83,7 @@
     {
       "outcome_code": "6.4",
       "outcome_title": "Define the term 'time boxing'",
-      "key_takeaway": "A time box is a fixed period within which work is carried out. Time and resources are fixed, and the scope delivered inside it flexes to fit. If the planned work will not fit, what is delivered is reduced rather than the box extended.",
+      "key_takeaway": "A time box is a fixed period within which work is carried out. Time and resources are fixed. Scope, and quality within agreed limits, are what may be adjusted to fit. If the planned work will not fit, what is delivered is reduced rather than the box extended.",
       "body_markdown": "The deadline is not negotiable. If the work planned for the box will not fit, the response is to reduce what is delivered rather than extend the box. That is the whole mechanism.\n\nThe reason to work this way is that fixed dates force decisions. When time can stretch, low value work stays in scope because there is always more time. When it cannot, somebody has to say which items matter most, so prioritisation happens continuously rather than once at the start.\n\nIt is worth comparing with the linear model, where scope is fixed and time and cost flex instead. Time boxing is the exact inversion of that, and the inversion is the usual wrong answer offered in questions."
     },
     {
@@ -95,7 +95,7 @@
     {
       "outcome_code": "6.6",
       "outcome_title": "Define the term 'procurement strategy'",
-      "key_takeaway": "A procurement strategy sets out the high level approach to securing the goods and services the project requires. It covers what will be made in house and what will be bought in, how many suppliers will be used, what form of contract and payment arrangement suits the work, and how supplier relationships will be managed. Detailed contract terms and tender documents sit beneath the strategy.",
+      "key_takeaway": "A procurement strategy sets out the high level approach to securing the goods and services the project requires. It covers what will be made in house and what will be bought in, how many suppliers will be used, what form of contract and payment arrangement suits the work, and how supplier relationships will be managed. Detailed contract terms and tender documents sit beneath the strategy. A fixed price arrangement moves cost risk to the supplier and reduces flexibility. A reimbursable arrangement keeps flexibility and leaves cost risk with the buyer.",
       "body_markdown": "A procurement strategy answers questions at the level of approach rather than paperwork.\n\nIt sits at strategy level because these choices shape risk before any contract is written. Fixed price arrangements move cost risk to the supplier and reduce flexibility. Reimbursable arrangements keep flexibility and leave cost risk with the buyer. Choosing between them has consequences for the schedule, the budget and the risk register.\n\nDetailed contract terms, tender documents and acceptance certificates all sit beneath the strategy. They implement it. They are not it."
     }
   ],

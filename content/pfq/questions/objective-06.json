@@ -1,1240 +1,1240 @@
 [
-  {
-    "id": "PFQP-6-1-6",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "Scheduling answers which pair of questions about project activities?",
-    "items": null,
-    "options": {
-      "a": "How much each activity costs and who approves the spend.",
-      "b": "When they will take place and what resources they require.",
-      "c": "What will be delivered and to what quality standard.",
-      "d": "Why the project is being undertaken and who benefits from it."
-    },
-    "answer": "b",
-    "explanation": "Scheduling determines when activities happen and what resources they need. Option c describes scope definition, which decides what the project delivers. Scheduling takes that agreed work and adds sequence, timing and resourcing to it.",
-    "tip": "When an option describes what the project delivers rather than when the work happens, it belongs to scope, not to scheduling.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 3
+ {
+  "id": "PFQP-6-1-6",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Scheduling answers which pair of questions about project activities?",
+  "items": null,
+  "options": {
+   "a": "How much each activity costs and who approves the spend.",
+   "b": "When they will take place and what resources they require.",
+   "c": "What will be delivered and to what quality standard.",
+   "d": "Why the project is being undertaken and who benefits from it."
   },
-  {
-    "id": "PFQP-6-1-7",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "A schedule takes the work identified in the breakdown structures and adds two dimensions. Which two?",
-    "items": null,
-    "options": {
-      "a": "Cost and quality.",
-      "b": "Sequence and time.",
-      "c": "Roles and responsibilities.",
-      "d": "Risk and assumption."
-    },
-    "answer": "b",
-    "explanation": "The breakdown structures say what the work is. The schedule adds the order activities must run in and how long each takes. Roles and responsibilities come from the organisational breakdown structure, not from the act of scheduling.",
-    "tip": "Breakdown structures answer what. Scheduling answers when and with what. Keep those two questions apart when the options blur them.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Scheduling determines when activities happen and what resources they need. Option c describes scope definition, which decides what the project delivers. Scheduling takes that agreed work and adds sequence, timing and resourcing to it.",
+  "tip": "When an option describes what the project delivers rather than when the work happens, it belongs to scope, not to scheduling.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-1-7",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A schedule takes the work identified in the breakdown structures and adds two dimensions. Which two?",
+  "items": null,
+  "options": {
+   "a": "Cost and quality.",
+   "b": "Sequence and time.",
+   "c": "Roles and responsibilities.",
+   "d": "Risk and assumption."
   },
-  {
-    "id": "PFQP-6-1-8",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "A sponsor asks whether the project is on track. The team hold a full list of work packages but have never produced a schedule. Why can they not answer?",
-    "items": null,
-    "options": {
-      "a": "The business case has not yet been formally approved.",
-      "b": "No risk register exists to explain why work has slipped.",
-      "c": "The work packages have not been assigned to named owners.",
-      "d": "Nothing states where the work should have reached by now."
-    },
-    "answer": "d",
-    "explanation": "Progress is measured against a plan that commits to timing. A list of work carries no expectation of where the project should be today, so on track has no meaning. Ownership matters, but it is not what makes measurement possible.",
-    "tip": "On track always implies a baseline. If a question has removed the schedule, it has removed the thing progress would be measured against.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "The breakdown structures say what the work is. The schedule adds the order activities must run in and how long each takes. Roles and responsibilities come from the organisational breakdown structure, not from the act of scheduling.",
+  "tip": "Breakdown structures answer what. Scheduling answers when and with what. Keep those two questions apart when the options blur them.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-1-8",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor asks whether the project is on track. The team hold a full list of work packages but have never produced a schedule. Why can they not answer?",
+  "items": null,
+  "options": {
+   "a": "The business case has not yet been formally approved.",
+   "b": "No risk register exists to explain why work has slipped.",
+   "c": "The work packages have not been assigned to named owners.",
+   "d": "Nothing states where the work should have reached by now."
   },
-  {
-    "id": "PFQP-6-1-9",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager has recorded every activity, its duration and its dependencies, but has not recorded who or what will carry each one out. What remains outstanding?",
-    "items": null,
-    "options": {
-      "a": "The work breakdown structure for the project.",
-      "b": "The critical path, which cannot be found without resources.",
-      "c": "The resourcing half of scheduling.",
-      "d": "The milestone plan used for progress reporting."
-    },
-    "answer": "c",
-    "explanation": "Scheduling covers timing and resourcing. Durations and dependencies deliver the timing, but until each activity has resources identified the schedule is incomplete. The critical path is the near miss: it follows from durations and dependencies alone.",
-    "tip": "Scheduling is a pair: when, and with what. An option that satisfies only one half of the pair is incomplete rather than correct.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Progress is measured against a plan that commits to timing. A list of work carries no expectation of where the project should be today, so on track has no meaning. Ownership matters, but it is not what makes measurement possible.",
+  "tip": "On track always implies a baseline. If a question has removed the schedule, it has removed the thing progress would be measured against.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-1-9",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager has recorded every activity, its duration and its dependencies, but has not recorded who or what will carry each one out. What remains outstanding?",
+  "items": null,
+  "options": {
+   "a": "The work breakdown structure for the project.",
+   "b": "The critical path, which cannot be found without resources.",
+   "c": "The resourcing half of scheduling.",
+   "d": "The milestone plan used for progress reporting."
   },
-  {
-    "id": "PFQP-6-1-10",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A newly appointed project manager inherits a complete set of breakdown structures and is asked to commit to a delivery date. What must be produced first?",
-    "items": null,
-    "options": {
-      "a": "A schedule, sequencing the work and setting durations and resources.",
-      "b": "A resource smoothing exercise across the identified activities.",
-      "c": "A revised business case with the delivery date written into it.",
-      "d": "A procurement strategy covering the bought in elements."
-    },
-    "answer": "a",
-    "explanation": "A date can only be committed to once the order of the work, its durations and its resourcing are established. Smoothing is tempting but presupposes a schedule: there is nothing to optimise until one exists.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 1
+  "answer": "c",
+  "explanation": "Scheduling covers timing and resourcing. Durations and dependencies deliver the timing, but until each activity has resources identified the schedule is incomplete. The critical path is the near miss: it follows from durations and dependencies alone.",
+  "tip": "Scheduling is a pair: when, and with what. An option that satisfies only one half of the pair is incomplete rather than correct.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-1-10",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A newly appointed project manager inherits a complete set of breakdown structures and is asked to commit to a delivery date. What must be produced first?",
+  "items": null,
+  "options": {
+   "a": "A schedule, sequencing the work and setting durations and resources.",
+   "b": "A resource smoothing exercise across the identified activities.",
+   "c": "A revised business case with the delivery date written into it.",
+   "d": "A procurement strategy covering the bought in elements."
   },
-  {
-    "id": "PFQP-6-1-11",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "Deciding which deliverables the project will produce is the work of scope management. What does scheduling then contribute in relation to those deliverables?",
-    "items": null,
-    "options": {
-      "a": "The acceptance criteria each of them must satisfy.",
-      "b": "Whether they justify the investment being made.",
-      "c": "When the work to produce them happens and what resources it needs.",
-      "d": "The quality standards applied while they are produced."
-    },
-    "answer": "c",
-    "explanation": "Scope decides what is produced; scheduling decides when the work happens and with what. Acceptance criteria are tempting because they attach to deliverables, but they define what good looks like rather than when work takes place.",
-    "tip": "Sort the options by the question each one answers: what, why, or when. Only the when and with what option belongs to scheduling.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "A date can only be committed to once the order of the work, its durations and its resourcing are established. Smoothing is tempting but presupposes a schedule: there is nothing to optimise until one exists.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-1-11",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Deciding which deliverables the project will produce is the work of scope management. What does scheduling then contribute in relation to those deliverables?",
+  "items": null,
+  "options": {
+   "a": "The acceptance criteria each of them must satisfy.",
+   "b": "Whether they justify the investment being made.",
+   "c": "When the work to produce them happens and what resources it needs.",
+   "d": "The quality standards applied while they are produced."
   },
-  {
-    "id": "PFQP-6-1-12",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "Which activity belongs to scheduling rather than to cost control?",
-    "items": null,
-    "options": {
-      "a": "Establishing the order activities run in and the resources each needs.",
-      "b": "Approving a change to the value of the project budget.",
-      "c": "Reporting variances between forecast and actual expenditure.",
-      "d": "Monitoring spend to date against the approved budget."
-    },
-    "answer": "a",
-    "explanation": "Scheduling establishes sequence, duration and resourcing. The other three monitor or authorise money against a baseline, which is cost control. Resourcing feeds cost, but identifying resources is not the same as controlling spend.",
-    "tip": "Resources appear in both scheduling and cost work. Ask whether the option identifies resources or tracks money already committed.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "Scope decides what is produced; scheduling decides when the work happens and with what. Acceptance criteria are tempting because they attach to deliverables, but they define what good looks like rather than when work takes place.",
+  "tip": "Sort the options by the question each one answers: what, why, or when. Only the when and with what option belongs to scheduling.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-1-12",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Which activity belongs to scheduling rather than to cost control?",
+  "items": null,
+  "options": {
+   "a": "Establishing the order activities run in and the resources each needs.",
+   "b": "Approving a change to the value of the project budget.",
+   "c": "Reporting variances between forecast and actual expenditure.",
+   "d": "Monitoring spend to date against the approved budget."
   },
-  {
-    "id": "PFQP-6-1-13",
-    "learning_outcome": "6.1",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following fall within the purpose of scheduling?",
-    "items": [
-      "Establishing the order in which activities must run.",
-      "Determining how long each activity will take.",
-      "Identifying the resources each activity requires.",
-      "Defining the acceptance criteria for each deliverable."
-    ],
-    "options": {
-      "a": "1, 3 and 4.",
-      "b": "1, 2 and 4.",
-      "c": "1, 2 and 3.",
-      "d": "2, 3 and 4."
-    },
-    "answer": "c",
-    "explanation": "Sequence, duration and resourcing are all products of scheduling. Acceptance criteria state what a finished deliverable must satisfy, which is scope and quality work carried out alongside the schedule rather than by it.",
-    "tip": "In combination questions, find the one item you can confidently rule out, then eliminate every option that contains it.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "Scheduling establishes sequence, duration and resourcing. The other three monitor or authorise money against a baseline, which is cost control. Resourcing feeds cost, but identifying resources is not the same as controlling spend.",
+  "tip": "Resources appear in both scheduling and cost work. Ask whether the option identifies resources or tracks money already committed.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-1-13",
+  "learning_outcome": "6.1",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following fall within the purpose of scheduling?",
+  "items": [
+   "Establishing the order in which activities must run.",
+   "Determining how long each activity will take.",
+   "Identifying the resources each activity requires.",
+   "Defining the acceptance criteria for each deliverable."
+  ],
+  "options": {
+   "a": "1, 3 and 4.",
+   "b": "1, 2 and 4.",
+   "c": "1, 2 and 3.",
+   "d": "2, 3 and 4."
   },
-  {
-    "id": "PFQP-6-2-6",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "An activity on the critical path finishes three days late and nothing else changes. What is the effect on the project?",
-    "items": null,
-    "options": {
-      "a": "The project will finish on time because float absorbs the delay.",
-      "b": "The project will slip only if that activity is also the longest.",
-      "c": "The effect cannot be known without recalculating every path.",
-      "d": "The project will finish three days later."
-    },
-    "answer": "d",
-    "explanation": "Critical activities have no float, so delay passes straight through to the completion date. Option a describes an activity off the critical path, where float exists to absorb slippage without moving the end date.",
-    "tip": "Zero float is the defining property of the critical path. Delay on it moves the completion date by exactly the same amount.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "Sequence, duration and resourcing are all products of scheduling. Acceptance criteria state what a finished deliverable must satisfy, which is scope and quality work carried out alongside the schedule rather than by it.",
+  "tip": "In combination questions, find the one item you can confidently rule out, then eliminate every option that contains it.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-2-6",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "An activity on the critical path finishes three days late and nothing else changes. What is the effect on the project?",
+  "items": null,
+  "options": {
+   "a": "The project will finish on time because float absorbs the delay.",
+   "b": "The project will slip only if that activity is also the longest.",
+   "c": "The effect cannot be known without recalculating every path.",
+   "d": "The project will finish three days later."
   },
-  {
-    "id": "PFQP-6-2-7",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "An activity holding five days of float is delayed by two days. What happens to the project completion date?",
-    "items": null,
-    "options": {
-      "a": "It moves by two days.",
-      "b": "It moves by three days.",
-      "c": "It moves only if the activity ends at a milestone.",
-      "d": "It does not move."
-    },
-    "answer": "d",
-    "explanation": "Float is the time an activity can slip without affecting the completion date. Using two days of a five day allowance leaves three days spare, so the end date holds. Option a treats every delay as though it were critical.",
-    "tip": "When a stem gives you a float figure, compare it with the delay. Only slippage beyond the float can move the completion date.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Critical activities have no float, so delay passes straight through to the completion date. Option a describes an activity off the critical path, where float exists to absorb slippage without moving the end date.",
+  "tip": "Zero float is the defining property of the critical path. Delay on it moves the completion date by exactly the same amount.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-2-7",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "An activity holding five days of float is delayed by two days. What happens to the project completion date?",
+  "items": null,
+  "options": {
+   "a": "It moves by two days.",
+   "b": "It moves by three days.",
+   "c": "It moves only if the activity ends at a milestone.",
+   "d": "It does not move."
   },
-  {
-    "id": "PFQP-6-2-8",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Two activities are running late. One sits on the critical path, the other holds ten days of float. The project manager has capacity to intervene on only one. Which, and why?",
-    "items": null,
-    "options": {
-      "a": "The activity with float, because recovering it is quicker and cheaper.",
-      "b": "The critical path activity, because it will be the more expensive to fix.",
-      "c": "Whichever is further behind, because delay accumulates over time.",
-      "d": "The critical path activity, because it alone threatens the completion date."
-    },
-    "answer": "d",
-    "explanation": "The practical purpose of critical path analysis is directing attention where delay actually costs the end date. The activity holding ten days of float can absorb its slippage. Cost is not what makes an activity critical.",
-    "tip": "Critical means no float, not most important or most expensive. Options that justify attention by cost or size are usually wrong.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": 3
+  "answer": "d",
+  "explanation": "Float is the time an activity can slip without affecting the completion date. Using two days of a five day allowance leaves three days spare, so the end date holds. Option a treats every delay as though it were critical.",
+  "tip": "When a stem gives you a float figure, compare it with the delay. Only slippage beyond the float can move the completion date.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-2-8",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two activities are running late. One sits on the critical path, the other holds ten days of float. The project manager has capacity to intervene on only one. Which, and why?",
+  "items": null,
+  "options": {
+   "a": "The activity with float, because recovering it is quicker and cheaper.",
+   "b": "The critical path activity, because it will be the more expensive to fix.",
+   "c": "Whichever is further behind, because delay accumulates over time.",
+   "d": "The critical path activity, because it alone threatens the completion date."
   },
-  {
-    "id": "PFQP-6-2-9",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Which of the following is not an output of critical path analysis?",
-    "items": null,
-    "options": {
-      "a": "The total and free float available to each activity.",
-      "b": "Earliest and latest start times for each activity.",
-      "c": "Earliest and latest finish times for each activity.",
-      "d": "A cost benefit comparison of the activities in the network."
-    },
-    "answer": "d",
-    "explanation": "The analysis produces timings and float. Cost figures come from estimating and the business case, not from the network. The option tempts because both feed the same plan, but critical path analysis handles time alone.",
-    "tip": "On inverted stems, tick each option you can positively justify. The one you cannot tick is the answer, even when it sounds sensible.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 9,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "The practical purpose of critical path analysis is directing attention where delay actually costs the end date. The activity holding ten days of float can absorb its slippage. Cost is not what makes an activity critical.",
+  "tip": "Critical means no float, not most important or most expensive. Options that justify attention by cost or size are usually wrong.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-2-9",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Which of the following is not an output of critical path analysis?",
+  "items": null,
+  "options": {
+   "a": "The total and free float available to each activity.",
+   "b": "Earliest and latest start times for each activity.",
+   "c": "Earliest and latest finish times for each activity.",
+   "d": "A cost benefit comparison of the activities in the network."
   },
-  {
-    "id": "PFQP-6-2-10",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "A stakeholder insists that the most commercially valuable activity must lie on the critical path. Is that reasoning sound?",
-    "items": null,
-    "options": {
-      "a": "No, criticality depends on float, not on value.",
-      "b": "Yes, because valuable activities attract the most management attention.",
-      "c": "No, because the critical path holds only externally dependent work.",
-      "d": "Yes, the critical path carries the highest value work by definition."
-    },
-    "answer": "a",
-    "explanation": "The critical path is set by dependencies and durations alone. A low value activity can sit on it and a high value one can carry float. Attention follows criticality; criticality does not follow importance.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 10,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "The analysis produces timings and float. Cost figures come from estimating and the business case, not from the network. The option tempts because both feed the same plan, but critical path analysis handles time alone.",
+  "tip": "On inverted stems, tick each option you can positively justify. The one you cannot tick is the answer, even when it sounds sensible.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-2-10",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A stakeholder insists that the most commercially valuable activity must lie on the critical path. Is that reasoning sound?",
+  "items": null,
+  "options": {
+   "a": "No, criticality depends on float, not on value.",
+   "b": "Yes, because valuable activities attract the most management attention.",
+   "c": "No, because the critical path holds only externally dependent work.",
+   "d": "Yes, the critical path carries the highest value work by definition."
   },
-  {
-    "id": "PFQP-6-2-11",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which term describes the amount of time an activity can be delayed without affecting a subsequent activity or the project completion date?",
-    "items": null,
-    "options": {
-      "a": "Time box.",
-      "b": "Critical path.",
-      "c": "Duration.",
-      "d": "Float."
-    },
-    "answer": "d",
-    "explanation": "Float is the allowance for slippage. The critical path is the sequence of activities that has none, which makes it the tempting choice because the two ideas are always taught together. Duration is simply the length of an activity.",
-    "tip": "Read whether the stem asks for an amount of time or for a sequence of activities. Float is an amount; the critical path is a route.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "The critical path is set by dependencies and durations alone. A low value activity can sit on it and a high value one can carry float. Attention follows criticality; criticality does not follow importance.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-2-11",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which term describes the amount of time an activity can be delayed without affecting a subsequent activity or the project completion date?",
+  "items": null,
+  "options": {
+   "a": "Time box.",
+   "b": "Critical path.",
+   "c": "Duration.",
+   "d": "Float."
   },
-  {
-    "id": "PFQP-6-2-12",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "What characterises the activities that do not lie on the critical path?",
-    "items": null,
-    "options": {
-      "a": "They hold float and can slip a limited amount without moving the end date.",
-      "b": "They are always shorter in duration than critical activities.",
-      "c": "They have no dependencies on any other activity.",
-      "d": "They can be delayed indefinitely without any consequence."
-    },
-    "answer": "a",
-    "explanation": "Off the critical path, activities carry float. Option d overstates it: float is a limited allowance, and once it is used up the activity begins to affect the end date. Duration has nothing to do with criticality.",
-    "tip": "Watch for options that turn a limited allowance into an unlimited one. Float is measured in days, not treated as freedom.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 1
+  "answer": "d",
+  "explanation": "Float is the allowance for slippage. The critical path is the sequence of activities that has none, which makes it the tempting choice because the two ideas are always taught together. Duration is simply the length of an activity.",
+  "tip": "Read whether the stem asks for an amount of time or for a sequence of activities. Float is an amount; the critical path is a route.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-2-12",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "What characterises the activities that do not lie on the critical path?",
+  "items": null,
+  "options": {
+   "a": "They hold float and can slip a limited amount without moving the end date.",
+   "b": "They are always shorter in duration than critical activities.",
+   "c": "They have no dependencies on any other activity.",
+   "d": "They can be delayed indefinitely without any consequence."
   },
-  {
-    "id": "PFQP-6-2-13",
-    "learning_outcome": "6.2",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following statements about the critical path are correct?",
-    "items": [
-      "It is the longest path through the project network.",
-      "It determines the shortest possible project duration.",
-      "Activities on it have no float.",
-      "It contains the activities of greatest business value."
-    ],
-    "options": {
-      "a": "1, 3 and 4.",
-      "b": "1, 2 and 3.",
-      "c": "1, 2 and 4.",
-      "d": "2, 3 and 4."
-    },
-    "answer": "b",
-    "explanation": "The longest chain of dependent work sets the shortest achievable duration, and its activities carry no float. Business value plays no part: criticality is a property of the network, not of what an activity is worth.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "Off the critical path, activities carry float. Option d overstates it: float is a limited allowance, and once it is used up the activity begins to affect the end date. Duration has nothing to do with criticality.",
+  "tip": "Watch for options that turn a limited allowance into an unlimited one. Float is measured in days, not treated as freedom.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-2-13",
+  "learning_outcome": "6.2",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following statements about the critical path are correct?",
+  "items": [
+   "It is the longest path through the project network.",
+   "It determines the shortest possible project duration.",
+   "Activities on it have no float.",
+   "It contains the activities of greatest business value."
+  ],
+  "options": {
+   "a": "1, 3 and 4.",
+   "b": "1, 2 and 3.",
+   "c": "1, 2 and 4.",
+   "d": "2, 3 and 4."
   },
-  {
-    "id": "PFQP-6-3-6",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which pair of properties defines a milestone?",
-    "items": null,
-    "options": {
-      "a": "Short duration and minimal resource consumption.",
-      "b": "Zero duration and no resource consumption.",
-      "c": "Fixed duration and a single named owner.",
-      "d": "Zero duration and a small allowance of resource."
-    },
-    "answer": "b",
-    "explanation": "A milestone is a point rather than a period, and reaching it is the result of work rather than work itself. Option a is the standard near miss: short is not zero, and any duration turns a milestone into an activity.",
-    "tip": "Zero and zero. Any option granting a milestone duration, resource or float contradicts the definition, however small the amount offered.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 3
+  "answer": "b",
+  "explanation": "The longest chain of dependent work sets the shortest achievable duration, and its activities carry no float. Business value plays no part: criticality is a property of the network, not of what an activity is worth.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-3-6",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which pair of properties defines a milestone?",
+  "items": null,
+  "options": {
+   "a": "Short duration and minimal resource consumption.",
+   "b": "Zero duration and no resource consumption.",
+   "c": "Fixed duration and a single named owner.",
+   "d": "Zero duration and a small allowance of resource."
   },
-  {
-    "id": "PFQP-6-3-7",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "A schedule contains an entry called System testing complete, with a duration of ten days and two testers assigned to it. What is wrong with the entry?",
-    "items": null,
-    "options": {
-      "a": "The name should describe the work rather than the outcome.",
-      "b": "Ten days is too short for the resources that have been assigned.",
-      "c": "Nothing, provided the two testers are available for those ten days.",
-      "d": "It has been entered as an activity, not as a milestone."
-    },
-    "answer": "d",
-    "explanation": "The name marks an event, but duration and resources belong to the work leading up to it. A milestone has neither. The entry needs splitting into a testing activity that consumes the effort and a zero duration marker.",
-    "tip": "Duration and resources in an option are the giveaway. Anything carrying either is an activity, whatever the schedule entry has been called.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "A milestone is a point rather than a period, and reaching it is the result of work rather than work itself. Option a is the standard near miss: short is not zero, and any duration turns a milestone into an activity.",
+  "tip": "Zero and zero. Any option granting a milestone duration, resource or float contradicts the definition, however small the amount offered.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-3-7",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A schedule contains an entry called System testing complete, with a duration of ten days and two testers assigned to it. What is wrong with the entry?",
+  "items": null,
+  "options": {
+   "a": "The name should describe the work rather than the outcome.",
+   "b": "Ten days is too short for the resources that have been assigned.",
+   "c": "Nothing, provided the two testers are available for those ten days.",
+   "d": "It has been entered as an activity, not as a milestone."
   },
-  {
-    "id": "PFQP-6-3-8",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A sponsor says she cannot follow a schedule of one hundred and twenty activities and wants a view she can track at board level. What should the project manager supply?",
-    "items": null,
-    "options": {
-      "a": "A short set of milestones covering key deliverables and phase ends.",
-      "b": "A single weekly percentage complete figure for the whole project.",
-      "c": "The work breakdown structure shown at its highest level.",
-      "d": "The critical path activities only, since they control the end date."
-    },
-    "answer": "a",
-    "explanation": "Milestones exist for reporting to people who need the few points showing whether the project is where it should be. The critical path is the near miss: it is a working tool for the project manager, not a governance view.",
-    "tip": "Match the answer to the audience. Senior stakeholders track events and decisions; project managers track activities and float.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "The name marks an event, but duration and resources belong to the work leading up to it. A milestone has neither. The entry needs splitting into a testing activity that consumes the effort and a zero duration marker.",
+  "tip": "Duration and resources in an option are the giveaway. Anything carrying either is an activity, whatever the schedule entry has been called.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-3-8",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A sponsor says she cannot follow a schedule of one hundred and twenty activities and wants a view she can track at board level. What should the project manager supply?",
+  "items": null,
+  "options": {
+   "a": "A short set of milestones covering key deliverables and phase ends.",
+   "b": "A single weekly percentage complete figure for the whole project.",
+   "c": "The work breakdown structure shown at its highest level.",
+   "d": "The critical path activities only, since they control the end date."
   },
-  {
-    "id": "PFQP-6-3-9",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "A work package has been reported as ninety per cent complete for three consecutive reporting cycles. What change would give an honest picture of progress?",
-    "items": null,
-    "options": {
-      "a": "Move the work package onto the critical path so it gains attention.",
-      "b": "Require a more precise percentage, calculated to one decimal place.",
-      "c": "Report against milestones, which are either reached or not reached.",
-      "d": "Add float to the activity so the reported delay disappears."
-    },
-    "answer": "c",
-    "explanation": "Percentage complete is a soft measure and easily overstated, which is exactly what ninety per cent for three cycles reveals. A milestone is binary: the deliverable is finished and accepted, or it is not.",
-    "tip": "When a question asks how to make progress honest, look for the option replacing a judgement with an observable event.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "Milestones exist for reporting to people who need the few points showing whether the project is where it should be. The critical path is the near miss: it is a working tool for the project manager, not a governance view.",
+  "tip": "Match the answer to the audience. Senior stakeholders track events and decisions; project managers track activities and float.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-3-9",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A work package has been reported as ninety per cent complete for three consecutive reporting cycles. What change would give an honest picture of progress?",
+  "items": null,
+  "options": {
+   "a": "Move the work package onto the critical path so it gains attention.",
+   "b": "Require a more precise percentage, calculated to one decimal place.",
+   "c": "Report against milestones, which are either reached or not reached.",
+   "d": "Add float to the activity so the reported delay disappears."
   },
-  {
-    "id": "PFQP-6-3-10",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "Which of these belongs in a schedule as a milestone rather than as an activity?",
-    "items": null,
-    "options": {
-      "a": "Producing the detailed design over four weeks.",
-      "b": "Reviewing the design with three engineers.",
-      "c": "Correcting the design after review comments.",
-      "d": "Sponsor approval of the design received."
-    },
-    "answer": "d",
-    "explanation": "Sponsor approval received is an event. It happens at a point, has no duration, and consumes no resource of its own. Producing the detailed design, reviewing it and correcting it each take time and people, which makes them activities leading towards the marker rather than the marker itself.",
-    "tip": "Test the wording. A milestone reads as something that has happened; an activity reads as something being done.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 1
+  "answer": "c",
+  "explanation": "Percentage complete is a soft measure and easily overstated, which is exactly what ninety per cent for three cycles reveals. A milestone is binary: the deliverable is finished and accepted, or it is not.",
+  "tip": "When a question asks how to make progress honest, look for the option replacing a judgement with an observable event.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-3-10",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Which of these belongs in a schedule as a milestone rather than as an activity?",
+  "items": null,
+  "options": {
+   "a": "Producing the detailed design over four weeks.",
+   "b": "Reviewing the design with three engineers.",
+   "c": "Correcting the design after review comments.",
+   "d": "Sponsor approval of the design received."
   },
-  {
-    "id": "PFQP-6-3-11",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [],
-    "stem": "Milestones are described as binary progress indicators. What does that mean in practice?",
-    "items": null,
-    "options": {
-      "a": "The deliverable is either finished and accepted, or it is not.",
-      "b": "The milestone is reported as either amber or red on the report.",
-      "c": "The milestone belongs either to the sponsor or to the project manager.",
-      "d": "The milestone either sits on the critical path or carries float."
-    },
-    "answer": "a",
-    "explanation": "Binary means two states with nothing in between, which is what makes a milestone harder to overstate than a percentage. Option d tempts because float is a genuine schedule idea, but a milestone has no float to carry.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Sponsor approval received is an event. It happens at a point, has no duration, and consumes no resource of its own. Producing the detailed design, reviewing it and correcting it each take time and people, which makes them activities leading towards the marker rather than the marker itself.",
+  "tip": "Test the wording. A milestone reads as something that has happened; an activity reads as something being done.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-3-11",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Milestones are described as binary progress indicators. What does that mean in practice?",
+  "items": null,
+  "options": {
+   "a": "The deliverable is either finished and accepted, or it is not.",
+   "b": "The milestone is reported as either amber or red on the report.",
+   "c": "The milestone belongs either to the sponsor or to the project manager.",
+   "d": "The milestone either sits on the critical path or carries float."
   },
-  {
-    "id": "PFQP-6-3-12",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Three of the following statements about milestones are true. Which one is false?",
-    "items": null,
-    "options": {
-      "a": "A milestone carries float that can be consumed by earlier delays.",
-      "b": "A milestone consumes no resource.",
-      "c": "A milestone gives governance a natural point at which to review the project.",
-      "d": "A milestone marks a significant event, often the completion of a key deliverable."
-    },
-    "answer": "a",
-    "explanation": "Float belongs to activities, which have duration to slip within. A milestone is a point in the schedule, so there is nothing there to delay. The other three restate the definition and the reporting purpose.",
-    "tip": "Inverted stems reward eliminating what you know. Confirm the three you can defend and whatever remains is the answer.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 2
+  "answer": "a",
+  "explanation": "Binary means two states with nothing in between, which is what makes a milestone harder to overstate than a percentage. Option d tempts because float is a genuine schedule idea, but a milestone has no float to carry.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-3-12",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following statements about milestones are true. Which one is false?",
+  "items": null,
+  "options": {
+   "a": "A milestone carries float that can be consumed by earlier delays.",
+   "b": "A milestone consumes no resource.",
+   "c": "A milestone gives governance a natural point at which to review the project.",
+   "d": "A milestone marks a significant event, often the completion of a key deliverable."
   },
-  {
-    "id": "PFQP-6-3-13",
-    "learning_outcome": "6.3",
-    "objective": 6,
-    "day": 2,
-    "verb": "state",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following are true of milestones?",
-    "items": [
-      "They have no duration.",
-      "They consume no resource.",
-      "They give senior stakeholders a small number of points to track.",
-      "They can be reported as partially complete."
-    ],
-    "options": {
-      "a": "2, 3 and 4.",
-      "b": "1, 3 and 4.",
-      "c": "1, 2 and 4.",
-      "d": "1, 2 and 3."
-    },
-    "answer": "d",
-    "explanation": "Zero duration, zero resource and a short list of tracking points cover the whole idea. Partial completion contradicts it: a milestone is binary, which is precisely why it beats percentage complete as an indicator.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "Float belongs to activities, which have duration to slip within. A milestone is a point in the schedule, so there is nothing there to delay. The other three restate the definition and the reporting purpose.",
+  "tip": "Inverted stems reward eliminating what you know. Confirm the three you can defend and whatever remains is the answer.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-3-13",
+  "learning_outcome": "6.3",
+  "objective": 6,
+  "day": 2,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following are true of milestones?",
+  "items": [
+   "They have no duration.",
+   "They consume no resource.",
+   "They give senior stakeholders a small number of points to track.",
+   "They can be reported as partially complete."
+  ],
+  "options": {
+   "a": "2, 3 and 4.",
+   "b": "1, 3 and 4.",
+   "c": "1, 2 and 4.",
+   "d": "1, 2 and 3."
   },
-  {
-    "id": "PFQP-6-4-6",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "Which of the following defines a time box?",
-    "items": null,
-    "options": {
-      "a": "A period whose end date may be extended once through change control.",
-      "b": "A period of work that ends once the agreed scope has been delivered.",
-      "c": "A fixed period within which work is carried out, with time and resources fixed.",
-      "d": "A fixed period during which no changes to requirements are permitted."
-    },
-    "answer": "c",
-    "explanation": "The defining feature is a period that does not move, with resources fixed alongside it. Option b inverts the mechanism by letting the scope decide the date, which is how the linear model behaves.",
-    "tip": "In a time box the calendar governs. Any option in which finishing the work decides when the period ends has inverted the technique.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 2
+  "answer": "d",
+  "explanation": "Zero duration, zero resource and a short list of tracking points cover the whole idea. Partial completion contradicts it: a milestone is binary, which is precisely why it beats percentage complete as an indicator.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-4-6",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Which of the following defines a time box?",
+  "items": null,
+  "options": {
+   "a": "A period whose end date may be extended once through change control.",
+   "b": "A period of work that ends once the agreed scope has been delivered.",
+   "c": "A fixed period within which work is carried out, with time and resources fixed.",
+   "d": "A fixed period during which no changes to requirements are permitted."
   },
-  {
-    "id": "PFQP-6-4-7",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "How is quality treated within a time box?",
-    "items": null,
-    "options": {
-      "a": "It may vary within agreed limits, along with scope.",
-      "b": "It is not considered, because time boxing addresses time alone.",
-      "c": "It is fixed, because resources alone are allowed to vary.",
-      "d": "It is fixed, because scope alone is allowed to vary."
-    },
-    "answer": "a",
-    "explanation": "Time and resources are fixed; scope and, within agreed limits, quality are what flex. Option d is the near miss chosen by many candidates, because scope is the more obvious variable and quality feels non negotiable.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "The defining feature is a period that does not move, with resources fixed alongside it. Option b inverts the mechanism by letting the scope decide the date, which is how the linear model behaves.",
+  "tip": "In a time box the calendar governs. Any option in which finishing the work decides when the period ends has inverted the technique.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-4-7",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "How is quality treated within a time box?",
+  "items": null,
+  "options": {
+   "a": "It may vary within agreed limits, along with scope.",
+   "b": "It is not considered, because time boxing addresses time alone.",
+   "c": "It is fixed, because resources alone are allowed to vary.",
+   "d": "It is fixed, because scope alone is allowed to vary."
   },
-  {
-    "id": "PFQP-6-4-8",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Nine days into a ten day time box, the team propose borrowing two developers from another project so that every planned feature can still be delivered. Why does this break the technique?",
-    "items": null,
-    "options": {
-      "a": "The other project would then require resource levelling.",
-      "b": "New developers would need induction, so nothing would be gained.",
-      "c": "Resources are fixed in a time box, not only the time available.",
-      "d": "Scope is fixed in a time box, so the features had to be delivered anyway."
-    },
-    "answer": "c",
-    "explanation": "Both time and resources are fixed. Flexing the team breaches the technique as surely as extending the deadline; what should give way is what gets delivered. Option d states the linear model, where scope is the fixed element.",
-    "tip": "Two things are fixed in a time box, not one. Rule out a response that adds people as readily as one that adds days.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": 3
+  "answer": "a",
+  "explanation": "Time and resources are fixed; scope and, within agreed limits, quality are what flex. Option d is the near miss chosen by many candidates, because scope is the more obvious variable and quality feels non negotiable.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-4-8",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Nine days into a ten day time box, the team propose borrowing two developers from another project so that every planned feature can still be delivered. Why does this break the technique?",
+  "items": null,
+  "options": {
+   "a": "The other project would then require resource levelling.",
+   "b": "New developers would need induction, so nothing would be gained.",
+   "c": "Resources are fixed in a time box, not only the time available.",
+   "d": "Scope is fixed in a time box, so the features had to be delivered anyway."
   },
-  {
-    "id": "PFQP-6-4-9",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A regulatory launch date cannot move. The client accepts that the first release will contain fewer features than originally listed. Which technique does this describe?",
-    "items": null,
-    "options": {
-      "a": "Resource levelling.",
-      "b": "Time boxing.",
-      "c": "Critical path analysis.",
-      "d": "Resource smoothing."
-    },
-    "answer": "b",
-    "explanation": "The date is fixed and scope gives way, which is time boxing. Smoothing tempts because it also protects a fixed end date, but it holds scope constant and reschedules work within available float instead.",
-    "tip": "A fixed date alone does not identify the technique. Ask what gives way: scope points to time boxing, float points to smoothing.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 9,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Both time and resources are fixed. Flexing the team breaches the technique as surely as extending the deadline; what should give way is what gets delivered. Option d states the linear model, where scope is the fixed element.",
+  "tip": "Two things are fixed in a time box, not one. Rule out a response that adds people as readily as one that adds days.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-4-9",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A regulatory launch date cannot move. The client accepts that the first release will contain fewer features than originally listed. Which technique does this describe?",
+  "items": null,
+  "options": {
+   "a": "Resource levelling.",
+   "b": "Time boxing.",
+   "c": "Critical path analysis.",
+   "d": "Resource smoothing."
   },
-  {
-    "id": "PFQP-6-4-10",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "Under time boxing, when does prioritisation of the work happen?",
-    "items": null,
-    "options": {
-      "a": "Once at the start, when the full scope is agreed and baselined.",
-      "b": "Continuously, because each box forces a decision about what fits.",
-      "c": "At the end of each box, when unfinished work is rescheduled.",
-      "d": "Only when a change request is raised against the baseline."
-    },
-    "answer": "b",
-    "explanation": "Fixed dates create decisions. When time cannot stretch, someone has to say which items matter most every time a box is planned. Options a and b both describe the linear, change controlled model instead.",
-    "tip": "Ask what a technique makes people do, not only what it fixes. A deadline that cannot move forces repeated choices about what to drop.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 10,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "The date is fixed and scope gives way, which is time boxing. Smoothing tempts because it also protects a fixed end date, but it holds scope constant and reschedules work within available float instead.",
+  "tip": "A fixed date alone does not identify the technique. Ask what gives way: scope points to time boxing, float points to smoothing.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-4-10",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Under time boxing, when does prioritisation of the work happen?",
+  "items": null,
+  "options": {
+   "a": "Once at the start, when the full scope is agreed and baselined.",
+   "b": "Continuously, because each box forces a decision about what fits.",
+   "c": "At the end of each box, when unfinished work is rescheduled.",
+   "d": "Only when a change request is raised against the baseline."
   },
-  {
-    "id": "PFQP-6-4-11",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A team agrees a fixed list of features for a two week period and, when the work overruns, carries on into a third week to finish the list. What have they actually done?",
-    "items": null,
-    "options": {
-      "a": "Applied resource levelling, since the end date moved.",
-      "b": "Applied resource smoothing, since the work was rescheduled.",
-      "c": "Applied time boxing correctly, since the scope was agreed in advance.",
-      "d": "Fixed the scope and let time flex, which is not time boxing."
-    },
-    "answer": "d",
-    "explanation": "In a time box the period is immovable and the scope gives way. Fixing the list and extending the period is the linear model. Levelling is the near miss because its end date also moves, but only to respect a resource limit.",
-    "tip": "Identify the element the team refused to change. That element is the one being treated as fixed, whatever they call the approach.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 11,
-    "mock_set": 1
+  "answer": "b",
+  "explanation": "Fixed dates create decisions. When time cannot stretch, someone has to say which items matter most every time a box is planned. Options a and b both describe the linear, change controlled model instead.",
+  "tip": "Ask what a technique makes people do, not only what it fixes. A deadline that cannot move forces repeated choices about what to drop.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-4-11",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team agrees a fixed list of features for a two week period and, when the work overruns, carries on into a third week to finish the list. What have they actually done?",
+  "items": null,
+  "options": {
+   "a": "Applied resource levelling, since the end date moved.",
+   "b": "Applied resource smoothing, since the work was rescheduled.",
+   "c": "Applied time boxing correctly, since the scope was agreed in advance.",
+   "d": "Fixed the scope and let time flex, which is not time boxing."
   },
-  {
-    "id": "PFQP-6-4-12",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Which of the following statements about time boxing is false?",
-    "items": null,
-    "options": {
-      "a": "Scope may be reduced so that the deadline is still met.",
-      "b": "It is associated with iterative rather than linear working.",
-      "c": "If the planned work will not fit, the box is extended until it does.",
-      "d": "Time and resources are fixed for the duration of the box."
-    },
-    "answer": "c",
-    "explanation": "Extending the box removes the one thing that makes it a time box. The response to work that will not fit is to deliver less, not to buy more time. The other three statements all belong to the definition.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 12,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "In a time box the period is immovable and the scope gives way. Fixing the list and extending the period is the linear model. Levelling is the near miss because its end date also moves, but only to respect a resource limit.",
+  "tip": "Identify the element the team refused to change. That element is the one being treated as fixed, whatever they call the approach.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-4-12",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Which of the following statements about time boxing is false?",
+  "items": null,
+  "options": {
+   "a": "Scope may be reduced so that the deadline is still met.",
+   "b": "It is associated with iterative rather than linear working.",
+   "c": "If the planned work will not fit, the box is extended until it does.",
+   "d": "Time and resources are fixed for the duration of the box."
   },
-  {
-    "id": "PFQP-6-4-13",
-    "learning_outcome": "6.4",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following are true of a time box?",
-    "items": [
-      "The period is fixed and does not move.",
-      "The resources available are fixed.",
-      "Scope may be reduced so the work fits the period.",
-      "Cost is allowed to rise so the full scope is delivered."
-    ],
-    "options": {
-      "a": "1, 3 and 4.",
-      "b": "2, 3 and 4.",
-      "c": "1, 2 and 3.",
-      "d": "1, 2 and 4."
-    },
-    "answer": "c",
-    "explanation": "Fixed time, fixed resources, flexible scope. Item 4 belongs to the linear model, where scope is protected and time and cost flex through change control. Fixed resources rule out spending more to preserve scope.",
-    "tip": "Fixed resources and rising cost cannot both be true. Spotting a contradiction between two items is quicker than checking each one.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Extending the box removes the one thing that makes it a time box. The response to work that will not fit is to deliver less, not to buy more time. The other three statements all belong to the definition.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-4-13",
+  "learning_outcome": "6.4",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following are true of a time box?",
+  "items": [
+   "The period is fixed and does not move.",
+   "The resources available are fixed.",
+   "Scope may be reduced so the work fits the period.",
+   "Cost is allowed to rise so the full scope is delivered."
+  ],
+  "options": {
+   "a": "1, 3 and 4.",
+   "b": "2, 3 and 4.",
+   "c": "1, 2 and 3.",
+   "d": "1, 2 and 4."
   },
-  {
-    "id": "PFQP-6-5-6",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Resource levelling is applied in which circumstance?",
-    "items": null,
-    "options": {
-      "a": "Where the approved budget is the binding constraint.",
-      "b": "Where the scope has been fixed by contract.",
-      "c": "Where resource availability is the binding constraint.",
-      "d": "Where the completion date is the binding constraint."
-    },
-    "answer": "c",
-    "explanation": "Levelling reschedules work so demand never exceeds what is available, which may push the completion date out. Option d is the near miss: a fixed date points to smoothing, which spends float rather than time.",
-    "tip": "Read the stem for the word cannot. Whatever cannot move is the binding constraint, and the constraint names the technique.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "Fixed time, fixed resources, flexible scope. Item 4 belongs to the linear model, where scope is protected and time and cost flex through change control. Fixed resources rule out spending more to preserve scope.",
+  "tip": "Fixed resources and rising cost cannot both be true. Spotting a contradiction between two items is quicker than checking each one.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-5-6",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Resource levelling is applied in which circumstance?",
+  "items": null,
+  "options": {
+   "a": "Where the approved budget is the binding constraint.",
+   "b": "Where the scope has been fixed by contract.",
+   "c": "Where resource availability is the binding constraint.",
+   "d": "Where the completion date is the binding constraint."
   },
-  {
-    "id": "PFQP-6-5-7",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which two techniques are named as the options for resource optimisation?",
-    "items": null,
-    "options": {
-      "a": "Resource smoothing and resource estimation.",
-      "b": "Resource levelling and resource aggregation.",
-      "c": "Resource levelling and resource smoothing.",
-      "d": "Resource aggregation and resource estimation."
-    },
-    "answer": "c",
-    "explanation": "Only levelling and smoothing are named as optimisation techniques. Aggregation and estimation are genuine resource management terms, which is what makes them attractive, but neither adjusts a schedule to make a profile achievable.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Levelling reschedules work so demand never exceeds what is available, which may push the completion date out. Option d is the near miss: a fixed date points to smoothing, which spends float rather than time.",
+  "tip": "Read the stem for the word cannot. Whatever cannot move is the binding constraint, and the constraint names the technique.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-5-7",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which two techniques are named as the options for resource optimisation?",
+  "items": null,
+  "options": {
+   "a": "Resource smoothing and resource estimation.",
+   "b": "Resource levelling and resource aggregation.",
+   "c": "Resource levelling and resource smoothing.",
+   "d": "Resource aggregation and resource estimation."
   },
-  {
-    "id": "PFQP-6-5-8",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A contractual go live date cannot move. The draft schedule shows demand peaking at twelve people one week and falling to two the next, and several of those activities carry float. What should the project manager do?",
-    "items": null,
-    "options": {
-      "a": "Smooth the schedule by moving activities within their float.",
-      "b": "Add resources so that the peak week can be delivered as planned.",
-      "c": "Level the schedule and agree a later go live date.",
-      "d": "Recalculate the critical path in order to remove the peak."
-    },
-    "answer": "a",
-    "explanation": "The fixed element is the date, and float is available, so activities shift within their slack to even out the profile. Levelling is the near miss: it would flatten the peak but only by spending the date, which is not available here.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": 3
+  "answer": "c",
+  "explanation": "Only levelling and smoothing are named as optimisation techniques. Aggregation and estimation are genuine resource management terms, which is what makes them attractive, but neither adjusts a schedule to make a profile achievable.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-5-8",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A contractual go live date cannot move. The draft schedule shows demand peaking at twelve people one week and falling to two the next, and several of those activities carry float. What should the project manager do?",
+  "items": null,
+  "options": {
+   "a": "Smooth the schedule by moving activities within their float.",
+   "b": "Add resources so that the peak week can be delivered as planned.",
+   "c": "Level the schedule and agree a later go live date.",
+   "d": "Recalculate the critical path in order to remove the peak."
   },
-  {
-    "id": "PFQP-6-5-9",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [],
-    "stem": "Resource levelling has been applied to a schedule that demanded more people than the organisation has. What should the project manager check next?",
-    "items": null,
-    "options": {
-      "a": "Whether scope can be increased to use the spare capacity created.",
-      "b": "Whether the completion date has moved and whether that is acceptable.",
-      "c": "Whether any float now remains on the critical path activities.",
-      "d": "Whether the resource estimates in the business case were correct."
-    },
-    "answer": "b",
-    "explanation": "Levelling respects the resource limit and pays for it with time, so the end date may well have moved. Confirming the new date and having it accepted is the consequence to manage. Critical path activities have no float to check.",
-    "tip": "Every optimisation technique trades something away. After applying one, ask what it spent and whether anyone has agreed to pay it.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 9,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "The fixed element is the date, and float is available, so activities shift within their slack to even out the profile. Levelling is the near miss: it would flatten the peak but only by spending the date, which is not available here.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-5-9",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Resource levelling has been applied to a schedule that demanded more people than the organisation has. What should the project manager check next?",
+  "items": null,
+  "options": {
+   "a": "Whether scope can be increased to use the spare capacity created.",
+   "b": "Whether the completion date has moved and whether that is acceptable.",
+   "c": "Whether any float now remains on the critical path activities.",
+   "d": "Whether the resource estimates in the business case were correct."
   },
-  {
-    "id": "PFQP-6-5-10",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which single question most reliably separates resource levelling from resource smoothing?",
-    "items": null,
-    "options": {
-      "a": "Are the activities concerned on the critical path?",
-      "b": "How many resources are required during the peak period?",
-      "c": "What is fixed: the resource limit or the completion date?",
-      "d": "Is the project using an iterative or a linear life cycle?"
-    },
-    "answer": "c",
-    "explanation": "Levelling holds the resource limit and lets the date move; smoothing holds the date and spends float. Whichever constraint the question fixes decides the technique. Peak size shows a problem exists but not which technique answers it.",
-    "tip": "When two techniques look alike, find the single variable that differs. Here it is which constraint the question refuses to move.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 10,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Levelling respects the resource limit and pays for it with time, so the end date may well have moved. Confirming the new date and having it accepted is the consequence to manage. Critical path activities have no float to check.",
+  "tip": "Every optimisation technique trades something away. After applying one, ask what it spent and whether anyone has agreed to pay it.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-5-10",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which single question most reliably separates resource levelling from resource smoothing?",
+  "items": null,
+  "options": {
+   "a": "Are the activities concerned on the critical path?",
+   "b": "How many resources are required during the peak period?",
+   "c": "What is fixed: the resource limit or the completion date?",
+   "d": "Is the project using an iterative or a linear life cycle?"
   },
-  {
-    "id": "PFQP-6-5-11",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Resource smoothing depends on the presence of what?",
-    "items": null,
-    "options": {
-      "a": "Spare resource capacity elsewhere in the organisation.",
-      "b": "Available float on the activities being moved.",
-      "c": "A completion date that is allowed to move.",
-      "d": "An approved change request covering the rescheduling."
-    },
-    "answer": "b",
-    "explanation": "Smoothing works by shifting activities within their float, so where there is no float there is nothing to shift. Option c describes the condition for levelling, where the completion date is what gives way instead.",
-    "tip": "Link each technique to what it spends. Smoothing spends float, levelling spends time. No float means smoothing is not available.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 11,
-    "mock_set": 1
+  "answer": "c",
+  "explanation": "Levelling holds the resource limit and lets the date move; smoothing holds the date and spends float. Whichever constraint the question fixes decides the technique. Peak size shows a problem exists but not which technique answers it.",
+  "tip": "When two techniques look alike, find the single variable that differs. Here it is which constraint the question refuses to move.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-5-11",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Resource smoothing depends on the presence of what?",
+  "items": null,
+  "options": {
+   "a": "Spare resource capacity elsewhere in the organisation.",
+   "b": "Available float on the activities being moved.",
+   "c": "A completion date that is allowed to move.",
+   "d": "An approved change request covering the rescheduling."
   },
-  {
-    "id": "PFQP-6-5-12",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager tries to even out a resource peak while holding the existing end date, but every activity in the peak lies on the critical path. What follows?",
-    "items": null,
-    "options": {
-      "a": "Smoothing cannot help, so levelling is needed and the date may move.",
-      "b": "The peak must be accepted, because critical activities cannot be moved.",
-      "c": "The critical path should be recalculated until float appears.",
-      "d": "Smoothing will still work, because critical activities carry free float."
-    },
-    "answer": "a",
-    "explanation": "Critical activities have no float, so smoothing has nothing to work with. The remaining technique that respects a resource limit is levelling, which achieves it by allowing the completion date to extend.",
-    "tip": "If a technique's raw material is missing, the technique is unavailable. Check the precondition before you check the outcome.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 12,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Smoothing works by shifting activities within their float, so where there is no float there is nothing to shift. Option c describes the condition for levelling, where the completion date is what gives way instead.",
+  "tip": "Link each technique to what it spends. Smoothing spends float, levelling spends time. No float means smoothing is not available.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-5-12",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager tries to even out a resource peak while holding the existing end date, but every activity in the peak lies on the critical path. What follows?",
+  "items": null,
+  "options": {
+   "a": "Smoothing cannot help, so levelling is needed and the date may move.",
+   "b": "The peak must be accepted, because critical activities cannot be moved.",
+   "c": "The critical path should be recalculated until float appears.",
+   "d": "Smoothing will still work, because critical activities carry free float."
   },
-  {
-    "id": "PFQP-6-5-13",
-    "learning_outcome": "6.5",
-    "objective": 6,
-    "day": 2,
-    "verb": "outline",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following statements about resource optimisation are correct?",
-    "items": [
-      "Levelling is used where resource availability is limited.",
-      "Levelling may extend the project completion date.",
-      "Smoothing uses float and leaves the completion date unchanged.",
-      "Smoothing increases the resources available during peak periods."
-    ],
-    "options": {
-      "a": "1, 3 and 4.",
-      "b": "2, 3 and 4.",
-      "c": "1, 2 and 4.",
-      "d": "1, 2 and 3."
-    },
-    "answer": "d",
-    "explanation": "The first three define the pair: levelling respects a limit and spends the date, smoothing protects the date and spends float. Neither technique creates resources; both simply reschedule the work that already exists.",
-    "tip": "No optimisation technique adds resource. If an item conjures extra people from nowhere, it cannot belong to either technique.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "Critical activities have no float, so smoothing has nothing to work with. The remaining technique that respects a resource limit is levelling, which achieves it by allowing the completion date to extend.",
+  "tip": "If a technique's raw material is missing, the technique is unavailable. Check the precondition before you check the outcome.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-5-13",
+  "learning_outcome": "6.5",
+  "objective": 6,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following statements about resource optimisation are correct?",
+  "items": [
+   "Levelling is used where resource availability is limited.",
+   "Levelling may extend the project completion date.",
+   "Smoothing uses float and leaves the completion date unchanged.",
+   "Smoothing increases the resources available during peak periods."
+  ],
+  "options": {
+   "a": "1, 3 and 4.",
+   "b": "2, 3 and 4.",
+   "c": "1, 2 and 4.",
+   "d": "1, 2 and 3."
   },
-  {
-    "id": "PFQP-6-6-6",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "A procurement strategy covers the approach to securing what?",
-    "items": null,
-    "options": {
-      "a": "The goods and services the project requires.",
-      "b": "The software licences and IT systems the project uses.",
-      "c": "The external contractors who will work on site.",
-      "d": "The physical materials bought for construction work."
-    },
-    "answer": "a",
-    "explanation": "The definition is deliberately broad: goods and services of any kind. Each other option names a real category of purchase, but narrowing the strategy to one of them leaves the rest of the project's buying unaddressed.",
-    "tip": "When options narrow a defined term down to one example, the broader wording is almost always the definition being tested.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 3
+  "answer": "d",
+  "explanation": "The first three define the pair: levelling respects a limit and spends the date, smoothing protects the date and spends float. Neither technique creates resources; both simply reschedule the work that already exists.",
+  "tip": "No optimisation technique adds resource. If an item conjures extra people from nowhere, it cannot belong to either technique.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-6-6",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A procurement strategy covers the approach to securing what?",
+  "items": null,
+  "options": {
+   "a": "The goods and services the project requires.",
+   "b": "The software licences and IT systems the project uses.",
+   "c": "The external contractors who will work on site.",
+   "d": "The physical materials bought for construction work."
   },
-  {
-    "id": "PFQP-6-6-7",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "A project requires a specialist capability the organisation does not hold in house. Which strategy level question does this raise?",
-    "items": null,
-    "options": {
-      "a": "How the supplier's invoices will be processed by finance.",
-      "b": "Whether the capability is built internally or bought in.",
-      "c": "Which named supplier should be awarded the work.",
-      "d": "What acceptance criteria the supplier's output must meet."
-    },
-    "answer": "b",
-    "explanation": "Make or buy is the first question a procurement strategy answers. Choosing a named supplier, setting acceptance criteria and handling invoices all sit beneath the strategy and implement it once the approach is settled.",
-    "tip": "Strategy questions begin with whether and how many. Implementation questions begin with which one and by when.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 7,
-    "mock_set": null
+  "answer": "a",
+  "explanation": "The definition is deliberately broad: goods and services of any kind. Each other option names a real category of purchase, but narrowing the strategy to one of them leaves the rest of the project's buying unaddressed.",
+  "tip": "When options narrow a defined term down to one example, the broader wording is almost always the definition being tested.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-6-6-7",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project requires a specialist capability the organisation does not hold in house. Which strategy level question does this raise?",
+  "items": null,
+  "options": {
+   "a": "How the supplier's invoices will be processed by finance.",
+   "b": "Whether the capability is built internally or bought in.",
+   "c": "Which named supplier should be awarded the work.",
+   "d": "What acceptance criteria the supplier's output must meet."
   },
-  {
-    "id": "PFQP-6-6-8",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Requirements for a development project are expected to evolve considerably during delivery. Which payment arrangement suits the work, and why?",
-    "items": null,
-    "options": {
-      "a": "Reimbursable, because it moves the cost risk across to the supplier.",
-      "b": "Reimbursable, because it keeps flexibility while leaving cost risk with the buyer.",
-      "c": "Fixed price, because it keeps flexibility and caps the buyer's exposure.",
-      "d": "Fixed price, because evolving requirements need the discipline of a fixed sum."
-    },
-    "answer": "b",
-    "explanation": "Reimbursable arrangements suit uncertain work because change does not require repricing, but the buyer retains the cost risk. Option b is the near miss: the right arrangement paired with the wrong risk position.",
-    "tip": "Check both halves of a because option. A correct choice attached to the wrong reason is still the wrong answer.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Make or buy is the first question a procurement strategy answers. Choosing a named supplier, setting acceptance criteria and handling invoices all sit beneath the strategy and implement it once the approach is settled.",
+  "tip": "Strategy questions begin with whether and how many. Implementation questions begin with which one and by when.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-6-8",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Requirements for a development project are expected to evolve considerably during delivery. Which payment arrangement suits the work, and why?",
+  "items": null,
+  "options": {
+   "a": "Reimbursable, because it moves the cost risk across to the supplier.",
+   "b": "Reimbursable, because it keeps flexibility while leaving cost risk with the buyer.",
+   "c": "Fixed price, because it keeps flexibility and caps the buyer's exposure.",
+   "d": "Fixed price, because evolving requirements need the discipline of a fixed sum."
   },
-  {
-    "id": "PFQP-6-6-9",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "A buyer has a fully defined scope and wants cost certainty above all else. What does choosing a fixed price arrangement cost them?",
-    "items": null,
-    "options": {
-      "a": "Flexibility, because changes become harder and more expensive to make.",
-      "b": "Quality, because the supplier is then free to reduce it at will.",
-      "c": "Speed, because fixed price work always takes longer to deliver.",
-      "d": "Nothing, because a fully defined scope removes every disadvantage."
-    },
-    "answer": "a",
-    "explanation": "Fixed price moves cost risk to the supplier and buys certainty, but it reduces flexibility because every change has to be renegotiated. Option d tempts because a defined scope reduces that problem without removing the trade off.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Reimbursable arrangements suit uncertain work because change does not require repricing, but the buyer retains the cost risk. Option b is the near miss: the right arrangement paired with the wrong risk position.",
+  "tip": "Check both halves of a because option. A correct choice attached to the wrong reason is still the wrong answer.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-6-9",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A buyer has a fully defined scope and wants cost certainty above all else. What does choosing a fixed price arrangement cost them?",
+  "items": null,
+  "options": {
+   "a": "Flexibility, because changes become harder and more expensive to make.",
+   "b": "Quality, because the supplier is then free to reduce it at will.",
+   "c": "Speed, because fixed price work always takes longer to deliver.",
+   "d": "Nothing, because a fully defined scope removes every disadvantage."
   },
-  {
-    "id": "PFQP-6-6-10",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "An invitation to tender has been issued to five suppliers. Where does that document sit in relation to the procurement strategy?",
-    "items": null,
-    "options": {
-      "a": "Within it, because supplier numbers are a strategy level decision.",
-      "b": "Beneath it, implementing the approach the strategy has set.",
-      "c": "Above it, because the tender responses will determine the strategy.",
-      "d": "Alongside it, because both are approved at the same governance point."
-    },
-    "answer": "b",
-    "explanation": "Tender documents, contract terms and acceptance certificates all put the strategy into effect. Option b tempts because how many suppliers to use is genuinely a strategy question, but issuing the document is implementation.",
-    "tip": "Separate the decision from the paperwork that carries it out. The strategy holds the decision; the document is the delivery mechanism.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 1
+  "answer": "a",
+  "explanation": "Fixed price moves cost risk to the supplier and buys certainty, but it reduces flexibility because every change has to be renegotiated. Option d tempts because a defined scope reduces that problem without removing the trade off.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-6-10",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "An invitation to tender has been issued to five suppliers. Where does that document sit in relation to the procurement strategy?",
+  "items": null,
+  "options": {
+   "a": "Within it, because supplier numbers are a strategy level decision.",
+   "b": "Beneath it, implementing the approach the strategy has set.",
+   "c": "Above it, because the tender responses will determine the strategy.",
+   "d": "Alongside it, because both are approved at the same governance point."
   },
-  {
-    "id": "PFQP-6-6-11",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "A project manager says the procurement strategy is complete because a preferred supplier has been selected. What is the flaw in that claim?",
-    "items": null,
-    "options": {
-      "a": "Selecting a supplier happens beneath the strategy, not instead of it.",
-      "b": "The strategy is complete only once the contract has been signed.",
-      "c": "The strategy is complete only once the goods have been accepted.",
-      "d": "Nothing, since supplier selection is the main output of the strategy."
-    },
-    "answer": "a",
-    "explanation": "The strategy sets the high level approach: make or buy, how many suppliers, what form of contract, how relationships are managed. Picking a particular supplier is a decision taken within that approach, so it cannot be the whole of it.",
-    "tip": "Beware options that treat one decision as the whole product. A strategy is a set of choices, not a single selection.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Tender documents, contract terms and acceptance certificates all put the strategy into effect. Option b tempts because how many suppliers to use is genuinely a strategy question, but issuing the document is implementation.",
+  "tip": "Separate the decision from the paperwork that carries it out. The strategy holds the decision; the document is the delivery mechanism.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-6-6-11",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager says the procurement strategy is complete because a preferred supplier has been selected. What is the flaw in that claim?",
+  "items": null,
+  "options": {
+   "a": "Selecting a supplier happens beneath the strategy, not instead of it.",
+   "b": "The strategy is complete only once the contract has been signed.",
+   "c": "The strategy is complete only once the goods have been accepted.",
+   "d": "Nothing, since supplier selection is the main output of the strategy."
   },
-  {
-    "id": "PFQP-6-6-12",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Which of the following would not appear in a procurement strategy?",
-    "items": null,
-    "options": {
-      "a": "The form of contract and payment arrangement that suits the work.",
-      "b": "How many suppliers the project will use.",
-      "c": "Whether elements of the work are made in house or bought in.",
-      "d": "The wording of the acceptance certificate for a specific delivery."
-    },
-    "answer": "d",
-    "explanation": "Make or buy, supplier numbers and contract form are all strategy level choices. Certificate wording for one delivery is detail that implements the strategy, and detail of exactly that kind is the standard wrong option here.",
-    "tip": "Hold on to the phrase high level. Anything specific to a single delivery, supplier or document sits beneath the strategy.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 2
+  "answer": "a",
+  "explanation": "The strategy sets the high level approach: make or buy, how many suppliers, what form of contract, how relationships are managed. Picking a particular supplier is a decision taken within that approach, so it cannot be the whole of it.",
+  "tip": "Beware options that treat one decision as the whole product. A strategy is a set of choices, not a single selection.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-6-6-12",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Which of the following would not appear in a procurement strategy?",
+  "items": null,
+  "options": {
+   "a": "The form of contract and payment arrangement that suits the work.",
+   "b": "How many suppliers the project will use.",
+   "c": "Whether elements of the work are made in house or bought in.",
+   "d": "The wording of the acceptance certificate for a specific delivery."
   },
-  {
-    "id": "PFQP-6-6-13",
-    "learning_outcome": "6.6",
-    "objective": 6,
-    "day": 2,
-    "verb": "define",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Which of the following are addressed by a procurement strategy?",
-    "items": [
-      "What will be made in house and what will be bought in.",
-      "How many suppliers will be used.",
-      "What form of contract and payment arrangement suits the work.",
-      "The signed acceptance certificate for each delivered item."
-    ],
-    "options": {
-      "a": "1, 2 and 4.",
-      "b": "1, 2 and 3.",
-      "c": "1, 3 and 4.",
-      "d": "2, 3 and 4."
-    },
-    "answer": "b",
-    "explanation": "The first three are decisions about approach, taken before any contract exists. Signed acceptance certificates are records produced during delivery, sitting beneath the strategy rather than forming any part of it.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
-  }
+  "answer": "d",
+  "explanation": "Make or buy, supplier numbers and contract form are all strategy level choices. Certificate wording for one delivery is detail that implements the strategy, and detail of exactly that kind is the standard wrong option here.",
+  "tip": "Hold on to the phrase high level. Anything specific to a single delivery, supplier or document sits beneath the strategy.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-6-6-13",
+  "learning_outcome": "6.6",
+  "objective": 6,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which of the following are addressed by a procurement strategy?",
+  "items": [
+   "What will be made in house and what will be bought in.",
+   "How many suppliers will be used.",
+   "What form of contract and payment arrangement suits the work.",
+   "The signed acceptance certificate for each delivered item."
+  ],
+  "options": {
+   "a": "1, 2 and 4.",
+   "b": "1, 2 and 3.",
+   "c": "1, 3 and 4.",
+   "d": "2, 3 and 4."
+  },
+  "answer": "b",
+  "explanation": "The first three are decisions about approach, taken before any contract exists. Signed acceptance certificates are records produced during delivery, sitting beneath the strategy rather than forming any part of it.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ }
 ]

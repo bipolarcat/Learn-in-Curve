@@ -1,215 +1,215 @@
 [
-  {
-    "id": "PFQP-3-1-8",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager asks the project management office to approve an increase to the project budget, on the grounds that the PMO issued the budgeting standard the project uses. How should this request be treated?",
-    "items": null,
-    "options": {
-      "a": "The PMO should approve it, since it owns the standard the budget was built from.",
-      "b": "The PMO should approve it, since it holds the reporting information across all projects.",
-      "c": "The PMO does not decide project matters, so the decision sits with the sponsor or governance board.",
-      "d": "The project manager should approve it, since day-to-day management is delegated to them."
-    },
-    "answer": "c",
-    "explanation": "The PMO provides standards, processes, tools, reporting and support, and holds no authority over an individual project's decisions. Option d is tempting, but a budget increase goes beyond day-to-day management and beyond the project manager's delegated limit.",
-    "tip": "The PMO supports, it does not decide. Any option giving it authority over a project decision is wrong however it is justified.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": 2
+ {
+  "id": "PFQP-3-1-8",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager asks the project management office to approve an increase to the project budget, on the grounds that the PMO issued the budgeting standard the project uses. How should this request be treated?",
+  "items": null,
+  "options": {
+   "a": "The PMO should approve it, since it owns the standard the budget was built from.",
+   "b": "The PMO should approve it, since it holds the reporting information across all projects.",
+   "c": "The PMO does not decide project matters, so the decision sits with the sponsor or governance board.",
+   "d": "The project manager should approve it, since day-to-day management is delegated to them."
   },
-  {
-    "id": "PFQP-3-1-9",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A year after handover, a new system is running correctly but the expected savings have not appeared because very few staff use it. Which role is accountable for this outcome?",
-    "items": null,
-    "options": {
-      "a": "The governance board",
-      "b": "The project manager",
-      "c": "The end users",
-      "d": "The project sponsor"
-    },
-    "answer": "d",
-    "explanation": "The sponsor is accountable for the business case and for the realisation of benefits. The project manager is tempting, but their accountability is delivering the objectives within constraints, which the correctly running system shows was achieved.",
-    "tip": "Delivered but not worth it points at the sponsor. Not delivered points at the project manager. Separate the output from the benefit.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 9,
-    "mock_set": 3
+  "answer": "c",
+  "explanation": "The PMO provides standards, processes, tools, reporting and support, and holds no authority over an individual project's decisions. Option d is tempting, but a budget increase goes beyond day-to-day management and beyond the project manager's delegated limit.",
+  "tip": "The PMO supports, it does not decide. Any option giving it authority over a project decision is wrong however it is justified.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-3-1-9",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A year after handover, a new system is running correctly but the expected savings have not appeared because very few staff use it. Which role is accountable for this outcome?",
+  "items": null,
+  "options": {
+   "a": "The governance board",
+   "b": "The project manager",
+   "c": "The end users",
+   "d": "The project sponsor"
   },
-  {
-    "id": "PFQP-3-1-10",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project is ready to hand over a new warehouse system. Whose acceptance of the output most directly determines whether the transition succeeds?",
-    "items": null,
-    "options": {
-      "a": "The project management office",
-      "b": "The governance board",
-      "c": "The project team members",
-      "d": "The end users"
-    },
-    "answer": "d",
-    "explanation": "End users are the people who will use the output once it is handed over, and their acceptance decides whether transition succeeds. The governance board is tempting because it authorises the project to proceed, but authorising is not accepting.",
-    "tip": "Authorising a stage and accepting an output are different acts. The board authorises; the people who must live with the output accept.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 10,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "The sponsor is accountable for the business case and for the realisation of benefits. The project manager is tempting, but their accountability is delivering the objectives within constraints, which the correctly running system shows was achieved.",
+  "tip": "Delivered but not worth it points at the sponsor. Not delivered points at the project manager. Separate the output from the benefit.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-3-1-10",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project is ready to hand over a new warehouse system. Whose acceptance of the output most directly determines whether the transition succeeds?",
+  "items": null,
+  "options": {
+   "a": "The project management office",
+   "b": "The governance board",
+   "c": "The project team members",
+   "d": "The end users"
   },
-  {
-    "id": "PFQP-3-1-11",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which role produces the project management plan?",
-    "items": null,
-    "options": {
-      "a": "The project sponsor",
-      "b": "The project manager",
-      "c": "The governance board",
-      "d": "The project management office"
-    },
-    "answer": "b",
-    "explanation": "The project manager produces the project management plan as part of day-to-day management. The sponsor is tempting because they own the business case, but owning the justification for a project is not the same as planning how it gets delivered.",
-    "tip": "Sponsor owns why the project exists, project manager owns how it gets done. That one contrast settles most role questions in this outcome.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "End users are the people who will use the output once it is handed over, and their acceptance decides whether transition succeeds. The governance board is tempting because it authorises the project to proceed, but authorising is not accepting.",
+  "tip": "Authorising a stage and accepting an output are different acts. The board authorises; the people who must live with the output accept.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-3-1-11",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which role produces the project management plan?",
+  "items": null,
+  "options": {
+   "a": "The project sponsor",
+   "b": "The project manager",
+   "c": "The governance board",
+   "d": "The project management office"
   },
-  {
-    "id": "PFQP-3-1-12",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which statement correctly distinguishes the product owner from the project manager?",
-    "items": null,
-    "options": {
-      "a": "The product owner is the iterative title for the project manager, with the same accountabilities.",
-      "b": "The product owner is accountable for delivering each iteration within its agreed constraints.",
-      "c": "The product owner decides what the team builds next, while the project manager is accountable for delivering it within constraints.",
-      "d": "The product owner owns the business case, so the project manager reports to them."
-    },
-    "answer": "c",
-    "explanation": "They are separate roles with different accountabilities. The product owner prioritises requirements on behalf of the people who will use the product, and the project manager is accountable for delivering within the agreed constraints. Treating the product owner as the iterative title for the project manager is the standard misconception, and the answer that gives the product owner the business case confuses the role with the sponsor.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 1
+  "answer": "b",
+  "explanation": "The project manager produces the project management plan as part of day-to-day management. The sponsor is tempting because they own the business case, but owning the justification for a project is not the same as planning how it gets delivered.",
+  "tip": "Sponsor owns why the project exists, project manager owns how it gets done. That one contrast settles most role questions in this outcome.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-3-1-12",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly distinguishes the product owner from the project manager?",
+  "items": null,
+  "options": {
+   "a": "The product owner is the iterative title for the project manager, with the same accountabilities.",
+   "b": "The product owner is accountable for delivering each iteration within its agreed constraints.",
+   "c": "The product owner decides what the team builds next, while the project manager is accountable for delivering it within constraints.",
+   "d": "The product owner owns the business case, so the project manager reports to them."
   },
-  {
-    "id": "PFQP-3-1-13",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "multi_select",
-    "traps": [
-      "multi_select",
-      "near_miss"
-    ],
-    "stem": "Four statements are made about project roles. Which three are correct?",
-    "items": [
-      "The sponsor is accountable for the business case and the realisation of benefits",
-      "Team members are accountable to the project manager for their allocated work packages",
-      "The governance board authorises the project to proceed at decision gates",
-      "The project management office decides which projects continue at each gate"
-    ],
-    "options": {
-      "a": "1, 3 and 4",
-      "b": "1, 2 and 4",
-      "c": "1, 2 and 3",
-      "d": "2, 3 and 4"
-    },
-    "answer": "c",
-    "explanation": "The first three attach each duty to the right role. Item 4 gives the project management office authority it does not hold: it provides standards, tools, reporting and support, while gate decisions belong to the governance board.",
-    "tip": "Test each item against the role's one distinguishing duty. A single misattributed responsibility removes every option containing it.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 13,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "They are separate roles with different accountabilities. The product owner prioritises requirements on behalf of the people who will use the product, and the project manager is accountable for delivering within the agreed constraints. Treating the product owner as the iterative title for the project manager is the standard misconception, and the answer that gives the product owner the business case confuses the role with the sponsor.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-3-1-13",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Four statements are made about project roles. Which three are correct?",
+  "items": [
+   "The sponsor is accountable for the business case and the realisation of benefits",
+   "Team members are accountable to the project manager for their allocated work packages",
+   "The governance board authorises the project to proceed at decision gates",
+   "The project management office decides which projects continue at each gate"
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
   },
-  {
-    "id": "PFQP-3-1-14",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "negative_stem",
-      "near_miss"
-    ],
-    "stem": "Four decisions arise on a project: releasing additional funding, authorising the project to pass its next decision gate, approving a revised business case, and sequencing next week's work. Which one is not for the sponsor or the governance board?",
-    "items": null,
-    "options": {
-      "a": "Releasing additional funding",
-      "b": "Sequencing next week's work",
-      "c": "Authorising the project to pass its next decision gate",
-      "d": "Approving a revised business case"
-    },
-    "answer": "b",
-    "explanation": "Sequencing the work is day-to-day management and belongs to the project manager. The other three involve owning, approving or funding, and any of those verbs points at the sponsor or the governance board rather than at the project manager.",
-    "tip": "Owns, approves and funds are sponsor or board verbs. Plans, coordinates, monitors and reports are project manager verbs. Sort the options by verb.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 14,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "The first three attach each duty to the right role. Item 4 gives the project management office authority it does not hold: it provides standards, tools, reporting and support, while gate decisions belong to the governance board.",
+  "tip": "Test each item against the role's one distinguishing duty. A single misattributed responsibility removes every option containing it.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-3-1-14",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Four decisions arise on a project: releasing additional funding, authorising the project to pass its next decision gate, approving a revised business case, and sequencing next week's work. Which one is not for the sponsor or the governance board?",
+  "items": null,
+  "options": {
+   "a": "Releasing additional funding",
+   "b": "Sequencing next week's work",
+   "c": "Authorising the project to pass its next decision gate",
+   "d": "Approving a revised business case"
   },
-  {
-    "id": "PFQP-3-1-15",
-    "learning_outcome": "3.1",
-    "objective": 3,
-    "day": 1,
-    "verb": "outline",
-    "type": "single",
-    "traps": [],
-    "stem": "Which role is accountable to the project manager for delivering allocated work packages?",
-    "items": null,
-    "options": {
-      "a": "The end user",
-      "b": "The product owner",
-      "c": "The project sponsor",
-      "d": "The project team member"
-    },
-    "answer": "d",
-    "explanation": "Project team members do the work that produces the outputs and are accountable to the project manager for the work packages they are given. The product owner is tempting in iterative work, but that role prioritises requirements rather than delivering packages.",
-    "tip": "Accountable to the project manager is the phrase that identifies the team member. The other roles are accountable elsewhere or for something else.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 15,
-    "mock_set": null
-  }
+  "answer": "b",
+  "explanation": "Sequencing the work is day-to-day management and belongs to the project manager. The other three involve owning, approving or funding, and any of those verbs points at the sponsor or the governance board rather than at the project manager.",
+  "tip": "Owns, approves and funds are sponsor or board verbs. Plans, coordinates, monitors and reports are project manager verbs. Sort the options by verb.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 14,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-3-1-15",
+  "learning_outcome": "3.1",
+  "objective": 3,
+  "day": 1,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Which role is accountable to the project manager for delivering allocated work packages?",
+  "items": null,
+  "options": {
+   "a": "The end user",
+   "b": "The product owner",
+   "c": "The project sponsor",
+   "d": "The project team member"
+  },
+  "answer": "d",
+  "explanation": "Project team members do the work that produces the outputs and are accountable to the project manager for the work packages they are given. The product owner is tempting in iterative work, but that role prioritises requirements rather than delivering packages.",
+  "tip": "Accountable to the project manager is the phrase that identifies the team member. The other roles are accountable elsewhere or for something else.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 15,
+  "mock_set": null
+ }
 ]

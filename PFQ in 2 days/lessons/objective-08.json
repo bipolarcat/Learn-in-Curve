@@ -66,7 +66,7 @@
     {
       "outcome_code": "8.2",
       "outcome_title": "Outline the purpose of quality management",
-      "key_takeaway": "The purpose of quality management is to ensure that the project's outputs, and the processes used to produce them, meet the required standards. It is the umbrella term covering quality planning, quality assurance and quality control. Something that describes only the inspection of deliverables is describing quality control, not quality management.",
+      "key_takeaway": "The purpose of quality management is to ensure that the project's outputs, and the processes used to produce them, meet the required standards. It is the umbrella term covering quality planning, quality assurance and quality control. Something that describes only the inspection of deliverables is describing quality control, not quality management. Checking only the outputs finds defects after the money has been spent producing them. Checking only the processes assumes that a good process cannot produce a bad output.",
       "body_markdown": "The dual scope is the point. Quality management is the umbrella that covers planning the standard, assuring the process and controlling the product.\n\nThe reason both halves matter is practical. Checking only the outputs finds defects after the money has been spent producing them. Checking only the processes assumes a good process cannot produce a bad output, which is optimistic. Managing both catches problems where they are cheapest to fix.\n\nQuality management also connects to acceptance. Handover depends on outputs meeting their agreed criteria, and quality management is what makes that a check rather than an argument."
     },
     {
@@ -84,7 +84,7 @@
     {
       "outcome_code": "8.5",
       "outcome_title": "Outline the purpose of quality assurance",
-      "key_takeaway": "The purpose of quality assurance is to provide confidence that the processes being used are appropriate and are being followed, so that the outputs they produce will meet requirements. It examines the process rather than the product, and it is normally carried out by someone independent of the team doing the work.",
+      "key_takeaway": "The purpose of quality assurance is to provide confidence that the processes being used are appropriate and are being followed, so that the outputs they produce will meet requirements. It examines the process rather than the product, and it is normally carried out by someone independent of the team doing the work. Audits and reviews are the usual mechanisms.",
       "body_markdown": "Two features distinguish assurance. It examines the process rather than the product. And it is normally carried out by someone independent of the team doing the work, because assurance given by the people being assured is worth very little.\n\nAssurance answers a forward looking question: if we carry on working this way, will the results be acceptable? Control answers a backward looking one: is this particular item acceptable?\n\nAudits and reviews are the usual mechanisms.\n\nAssurance is also what gives a governance board grounds for confidence at a decision gate. A gate decision based only on the project manager's own report is a weaker decision than one supported by an independent view."
     },
     {

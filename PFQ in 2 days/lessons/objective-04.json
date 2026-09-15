@@ -65,7 +65,7 @@
     {
       "outcome_code": "4.1",
       "outcome_title": "Define the term 'deployment baseline'",
-      "key_takeaway": "A deployment baseline is the approved plan that project progress is measured and controlled against. It normally covers scope, schedule and cost together, and is set once that plan is approved. Baseline means reference point, not start date.",
+      "key_takeaway": "A deployment baseline is the approved plan that project progress is measured and controlled against. It normally covers scope, schedule and cost together, and is set once that plan is approved. Baseline means reference point, not start date. Moving a baseline needs formal change control, because moving it invalidates every progress report that referred to the old one.",
       "body_markdown": "The word to hold on to is reference.\n\nOnce the plan is baselined, anyone can ask a precise question: are we ahead or behind, over or under, against what we agreed? Without a baseline that question has no answer, because there is nothing to compare against.\n\nA baseline normally covers scope, schedule and cost together. Changing any of them changes what the project is being measured against, which is why changes have to go through a formal process. You cannot quietly move a baseline, because moving it makes every earlier progress report meaningless.\n\nIn a linear life cycle, baselining happens at the end of the definition phase, once scope, schedule and cost are settled and approved."
     },
     {
@@ -119,7 +119,7 @@
     {
       "outcome_code": "4.10",
       "outcome_title": "Explain why establishing success criteria is important at the start, during, and at the handover of a project",
-      "key_takeaway": "Success criteria are the measures by which the success of the project is judged. At the start they define what everyone is aiming at, during the project they give changes and trade-offs a reference point, and at handover they are the basis for judging whether the project succeeded. Agreeing them at the start removes the argument at the end.",
+      "key_takeaway": "Success criteria are the measures by which the success of the project is judged. At the start they define what everyone is aiming at, during the project they give changes and trade-offs a reference point, and at handover they are the basis for judging whether the project succeeded. Agreeing them at the start removes the argument at the end. Success criteria judge the project as a whole. Acceptance criteria are different: they say whether one specific deliverable is fit for purpose.",
       "body_markdown": "The outcome names three points in time, and each has its own reason.\n\nAt the start, success criteria force disagreement into the open while it is still cheap to resolve. Without them, different stakeholders carry different definitions of success all the way to handover and only discover it there.\n\nDuring the project, they give decisions a reference. When a change is proposed or a trade-off is forced, the question becomes whether it moves the project towards or away from the agreed criteria. Without them, trade-offs get settled by whoever is loudest.\n\nAt handover, they are what acceptance is measured against, rather than expectations that formed along the way.\n\nSuccess criteria are about the project as a whole. They are not the same as acceptance criteria, which say whether one specific deliverable is fit for purpose."
     },
     {

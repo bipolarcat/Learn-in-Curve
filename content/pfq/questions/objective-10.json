@@ -1,852 +1,924 @@
 [
-  {
-    "id": "PFQP-10-1-6",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "define",
-    "type": "multi_select",
-    "traps": [
-      "multi_select",
-      "near_miss"
-    ],
-    "stem": "Four statements are made about leadership. Which three are consistent with the definition of leadership?",
-    "items": [
-      "Establishing vision and direction for the work",
-      "Influencing and aligning others towards a common purpose",
-      "Planning, organising and controlling resources to achieve defined objectives",
-      "Bringing people with you rather than compelling their compliance"
-    ],
-    "options": {
-      "a": "1, 2 and 3",
-      "b": "1, 3 and 4",
-      "c": "1, 2 and 4",
-      "d": "2, 3 and 4"
-    },
-    "answer": "c",
-    "explanation": "Statements 1, 2 and 4 all sit inside the definition: vision, direction, influence and alignment. Statement 3 is the definition of management, which is complementary to leadership but not the same, so any option containing it fails.",
-    "tip": "In a combination question, find the one item you are sure is wrong and delete every option containing it. That usually leaves one.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 1
+ {
+  "id": "PFQP-10-1-6",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Four statements are made about leadership. Which three are consistent with the definition of leadership?",
+  "items": [
+   "Establishing vision and direction for the work",
+   "Influencing and aligning others towards a common purpose",
+   "Planning, organising and controlling resources to achieve defined objectives",
+   "Bringing people with you rather than compelling their compliance"
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "1, 3 and 4",
+   "c": "1, 2 and 4",
+   "d": "2, 3 and 4"
   },
-  {
-    "id": "PFQP-10-1-7",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager in a matrix organisation has no formal authority over any of the team, who all report to line managers elsewhere. Which statement best explains how the project manager can still lead them?",
-    "items": null,
-    "options": {
-      "a": "Formal authority is delegated to a project manager automatically once the project is authorised.",
-      "b": "Leadership works through influence and alignment, so it does not depend on holding authority over people.",
-      "c": "The project manager should ask the line managers to issue instructions on the project's behalf.",
-      "d": "The project manager leads by planning, organising and controlling the work, which needs no influence."
-    },
-    "answer": "b",
-    "explanation": "Leadership is defined through influence and alignment, not position, which is exactly why project managers can lead people who report elsewhere. Option d is tempting because planning and controlling are real project manager duties, but they describe management rather than leadership.",
-    "tip": "When a stem stresses that a project manager lacks authority, the examiner is pointing at influence. Pick the option built on influence, not on position.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 7,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Statements 1, 2 and 4 all sit inside the definition: vision, direction, influence and alignment. Statement 3 is the definition of management, which is complementary to leadership but not the same, so any option containing it fails.",
+  "tip": "In a combination question, find the one item you are sure is wrong and delete every option containing it. That usually leaves one.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-10-1-7",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager in a matrix organisation has no formal authority over any of the team, who all report to line managers elsewhere. Which statement best explains how the project manager can still lead them?",
+  "items": null,
+  "options": {
+   "a": "Formal authority is delegated to a project manager automatically once the project is authorised.",
+   "b": "Leadership works through influence and alignment, so it does not depend on holding authority over people.",
+   "c": "The project manager should ask the line managers to issue instructions on the project's behalf.",
+   "d": "The project manager leads by planning, organising and controlling the work, which needs no influence."
   },
-  {
-    "id": "PFQP-10-1-8",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager spends Monday morning agreeing the schedule, allocating resources and checking progress against the plan, then spends the afternoon setting out where the project is heading and persuading a reluctant supplier to commit to it. Which description is correct?",
-    "items": null,
-    "options": {
-      "a": "Both activities are leadership, because a project manager performs them.",
-      "b": "Both activities are management, because they take place inside a project.",
-      "c": "The morning is leadership and the afternoon is management.",
-      "d": "The morning is management and the afternoon is leadership."
-    },
-    "answer": "d",
-    "explanation": "Planning, organising and controlling the work is management. Setting direction and bringing people with you is leadership. Option c reverses them, which is the standard error, and both activities genuinely belong to the same project manager's day.",
-    "tip": "Leadership and management are complementary, so a stem describing both is not a trick. Decide which half is direction setting and which is control.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 8,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Leadership is defined through influence and alignment, not position, which is exactly why project managers can lead people who report elsewhere. Option d is tempting because planning and controlling are real project manager duties, but they describe management rather than leadership.",
+  "tip": "When a stem stresses that a project manager lacks authority, the examiner is pointing at influence. Pick the option built on influence, not on position.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-1-8",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager spends Monday morning agreeing the schedule, allocating resources and checking progress against the plan, then spends the afternoon setting out where the project is heading and persuading a reluctant supplier to commit to it. Which description is correct?",
+  "items": null,
+  "options": {
+   "a": "Both activities are leadership, because a project manager performs them.",
+   "b": "Both activities are management, because they take place inside a project.",
+   "c": "The morning is leadership and the afternoon is management.",
+   "d": "The morning is management and the afternoon is leadership."
   },
-  {
-    "id": "PFQP-10-1-9",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [],
-    "stem": "Leadership aligns others towards which of the following?",
-    "items": null,
-    "options": {
-      "a": "The approved project management plan",
-      "b": "An agreed set of tolerances",
-      "c": "A common purpose",
-      "d": "The delegated authority of the project manager"
-    },
-    "answer": "c",
-    "explanation": "The definition ends with aligning others towards a common purpose. Tolerances and the project management plan are real project concepts, which makes them tempting, but they belong to control and planning rather than to the definition of leadership.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Planning, organising and controlling the work is management. Setting direction and bringing people with you is leadership. Option c reverses them, which is the standard error, and both activities genuinely belong to the same project manager's day.",
+  "tip": "Leadership and management are complementary, so a stem describing both is not a trick. Decide which half is direction setting and which is control.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-1-9",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Leadership aligns others towards which of the following?",
+  "items": null,
+  "options": {
+   "a": "The approved project management plan",
+   "b": "An agreed set of tolerances",
+   "c": "A common purpose",
+   "d": "The delegated authority of the project manager"
   },
-  {
-    "id": "PFQP-10-1-10",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager tells a team member to change their approach, citing the project manager's position. The team member makes the change but does not agree with it and does the minimum required. Which statement best describes what has happened?",
-    "items": null,
-    "options": {
-      "a": "Leadership has been exercised, because the team member changed their behaviour.",
-      "b": "Both leadership and management have been exercised, because direction was given.",
-      "c": "Authority has been exercised and has produced compliance, but leadership has not produced commitment.",
-      "d": "Management has failed, because the instruction was not carried out as intended."
-    },
-    "answer": "c",
-    "explanation": "Authority compels compliance, while leadership works through influence and produces commitment, which is more durable. Option a is tempting because behaviour did change, but a changed action with no agreement behind it is compliance rather than alignment.",
-    "tip": "Compliance and commitment are the words that separate authority from leadership. If an option stops at behaviour changing, it is describing authority.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "The definition ends with aligning others towards a common purpose. Tolerances and the project management plan are real project concepts, which makes them tempting, but they belong to control and planning rather than to the definition of leadership.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-1-10",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager tells a team member to change their approach, citing the project manager's position. The team member makes the change but does not agree with it and does the minimum required. Which statement best describes what has happened?",
+  "items": null,
+  "options": {
+   "a": "Leadership has been exercised, because the team member changed their behaviour.",
+   "b": "Both leadership and management have been exercised, because direction was given.",
+   "c": "Authority has been exercised and has produced compliance, but leadership has not produced commitment.",
+   "d": "Management has failed, because the instruction was not carried out as intended."
   },
-  {
-    "id": "PFQP-10-1-11",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "negative_stem",
-      "near_miss"
-    ],
-    "stem": "Three of the following statements about leadership are correct. Which one is not?",
-    "items": null,
-    "options": {
-      "a": "It establishes vision and direction.",
-      "b": "It influences and aligns others towards a common purpose.",
-      "c": "It is complementary to management, and a project normally needs both.",
-      "d": "It depends on the formal position a person holds in the organisation."
-    },
-    "answer": "d",
-    "explanation": "Leadership is not formal authority. Position can compel compliance but cannot create commitment, and project managers routinely lead people who report elsewhere. The other three statements come straight from the definition and from the relationship with management.",
-    "tip": "Inverted stems reward eliminating what you know is true. Mark the three you can defend and the remaining option is the answer.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 11,
-    "mock_set": 3
+  "answer": "c",
+  "explanation": "Authority compels compliance, while leadership works through influence and produces commitment, which is more durable. Option a is tempting because behaviour did change, but a changed action with no agreement behind it is compliance rather than alignment.",
+  "tip": "Compliance and commitment are the words that separate authority from leadership. If an option stops at behaviour changing, it is describing authority.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-10-1-11",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following statements about leadership are correct. Which one is not?",
+  "items": null,
+  "options": {
+   "a": "It establishes vision and direction.",
+   "b": "It influences and aligns others towards a common purpose.",
+   "c": "It is complementary to management, and a project normally needs both.",
+   "d": "It depends on the formal position a person holds in the organisation."
   },
-  {
-    "id": "PFQP-10-1-12",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A newly appointed project manager writes a clear plan and monitors it rigorously, but the team does not understand why the project matters and works without enthusiasm. What is most obviously missing?",
-    "items": null,
-    "options": {
-      "a": "Management, because the plan is not being controlled tightly enough.",
-      "b": "Leadership, because vision and direction have not been established and the team is not aligned.",
-      "c": "Formal authority, because the project manager cannot compel the team to work harder.",
-      "d": "Governance, because no framework of accountability has been set for the project."
-    },
-    "answer": "b",
-    "explanation": "The plan and the monitoring show management is present. What is absent is vision, direction and alignment, which is leadership. Option c is tempting, but authority produces compliance at best and cannot supply the sense of purpose the team lacks.",
-    "tip": "Read the scenario for what is already happening. The answer is usually the half of the leadership and management pair that the stem never mentions.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 12,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Leadership is not formal authority. Position can compel compliance but cannot create commitment, and project managers routinely lead people who report elsewhere. The other three statements come straight from the definition and from the relationship with management.",
+  "tip": "Inverted stems reward eliminating what you know is true. Mark the three you can defend and the remaining option is the answer.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-10-1-12",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A newly appointed project manager writes a clear plan and monitors it rigorously, but the team does not understand why the project matters and works without enthusiasm. What is most obviously missing?",
+  "items": null,
+  "options": {
+   "a": "Management, because the plan is not being controlled tightly enough.",
+   "b": "Leadership, because vision and direction have not been established and the team is not aligned.",
+   "c": "Formal authority, because the project manager cannot compel the team to work harder.",
+   "d": "Governance, because no framework of accountability has been set for the project."
   },
-  {
-    "id": "PFQP-10-1-13",
-    "learning_outcome": "10.1",
-    "objective": 10,
-    "day": 2,
-    "verb": "define",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which statement best describes the relationship between leadership and management on a project?",
-    "items": null,
-    "options": {
-      "a": "Management applies to the project team and leadership applies only to external stakeholders.",
-      "b": "They are the same activity described in two different vocabularies.",
-      "c": "Leadership replaces management once a project team is established and working well.",
-      "d": "They are distinct but complementary, and a project manager is normally doing both at once."
-    },
-    "answer": "d",
-    "explanation": "The two are different: management plans, organises and controls, while leadership sets direction and aligns people. They are complementary rather than alternatives, and the same person usually does both. Option b is the most common misconception here.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "The plan and the monitoring show management is present. What is absent is vision, direction and alignment, which is leadership. Option c is tempting, but authority produces compliance at best and cannot supply the sense of purpose the team lacks.",
+  "tip": "Read the scenario for what is already happening. The answer is usually the half of the leadership and management pair that the stem never mentions.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-1-13",
+  "learning_outcome": "10.1",
+  "objective": 10,
+  "day": 2,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement best describes the relationship between leadership and management on a project?",
+  "items": null,
+  "options": {
+   "a": "Management applies to the project team and leadership applies only to external stakeholders.",
+   "b": "They are the same activity described in two different vocabularies.",
+   "c": "Leadership replaces management once a project team is established and working well.",
+   "d": "They are distinct but complementary, and a project manager is normally doing both at once."
   },
-  {
-    "id": "PFQP-10-2-6",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager only learns of serious problems when they can no longer be hidden, having received confident status reports up to that point. Which change is most likely to improve how the team performs?",
-    "items": null,
-    "options": {
-      "a": "Increase the frequency of formal written status reporting.",
-      "b": "Build trust and openness so that bad news can be raised early.",
-      "c": "Move reporting responsibility up to the governance board.",
-      "d": "Recognise the contribution of team members who report on time."
-    },
-    "answer": "b",
-    "explanation": "A team that can raise bad news early lets the leader deal with problems while they are still small. Increasing the frequency of formal written reporting only produces more of the same reassuring reports, because the reason the team is not reporting problems is that it does not yet feel able to.",
-    "tip": "When a stem describes concealment, look for the option that changes the climate, not the one that adds another process.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 3
+  "answer": "d",
+  "explanation": "The two are different: management plans, organises and controls, while leadership sets direction and aligns people. They are complementary rather than alternatives, and the same person usually does both. Option b is the most common misconception here.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-2-6",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager only learns of serious problems when they can no longer be hidden, having received confident status reports up to that point. Which change is most likely to improve how the team performs?",
+  "items": null,
+  "options": {
+   "a": "Increase the frequency of formal written status reporting.",
+   "b": "Build trust and openness so that bad news can be raised early.",
+   "c": "Move reporting responsibility up to the governance board.",
+   "d": "Recognise the contribution of team members who report on time."
   },
-  {
-    "id": "PFQP-10-2-7",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Eighteen months into a two year project the team is working competently but effort is flagging, and several members say the end still feels a long way off. Which leader action addresses this most directly?",
-    "items": null,
-    "options": {
-      "a": "Restate the roles and responsibilities on the responsibility assignment matrix.",
-      "b": "Involve the team in deciding the sequence of the remaining work.",
-      "c": "Increase the amount of routine feedback given to individuals.",
-      "d": "Recognise the contribution people have made so far."
-    },
-    "answer": "d",
-    "explanation": "Recognition of contribution sustains effort, and it matters most on long projects where the end feels distant. The other options are all genuine ways a leader improves performance, which is what makes them tempting, but they address different problems.",
-    "tip": "Several options can be good practice at once. Pick the one aimed at the specific symptom the stem actually describes.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 7,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "A team that can raise bad news early lets the leader deal with problems while they are still small. Increasing the frequency of formal written reporting only produces more of the same reassuring reports, because the reason the team is not reporting problems is that it does not yet feel able to.",
+  "tip": "When a stem describes concealment, look for the option that changes the climate, not the one that adds another process.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-10-2-7",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Eighteen months into a two year project the team is working competently but effort is flagging, and several members say the end still feels a long way off. Which leader action addresses this most directly?",
+  "items": null,
+  "options": {
+   "a": "Restate the roles and responsibilities on the responsibility assignment matrix.",
+   "b": "Involve the team in deciding the sequence of the remaining work.",
+   "c": "Increase the amount of routine feedback given to individuals.",
+   "d": "Recognise the contribution people have made so far."
   },
-  {
-    "id": "PFQP-10-2-8",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [],
-    "stem": "Why does a leader give feedback routinely rather than saving it for a scheduled review?",
-    "items": null,
-    "options": {
-      "a": "It transfers accountability for the work package to the individual.",
-      "b": "It removes the need to define roles and objectives in advance.",
-      "c": "It lets people correct course while correction is still cheap.",
-      "d": "It guarantees that conflict within the team will not arise."
-    },
-    "answer": "c",
-    "explanation": "Routine feedback allows correction early, when it costs little. Option c is tempting because team members are accountable to the project manager for their work packages, but that accountability comes from the allocation of work, not from feedback.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 8,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Recognition of contribution sustains effort, and it matters most on long projects where the end feels distant. The other options are all genuine ways a leader improves performance, which is what makes them tempting, but they address different problems.",
+  "tip": "Several options can be good practice at once. Pick the one aimed at the specific symptom the stem actually describes.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-2-8",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [],
+  "stem": "Why does a leader give feedback routinely rather than saving it for a scheduled review?",
+  "items": null,
+  "options": {
+   "a": "It transfers accountability for the work package to the individual.",
+   "b": "It removes the need to define roles and objectives in advance.",
+   "c": "It lets people correct course while correction is still cheap.",
+   "d": "It guarantees that conflict within the team will not arise."
   },
-  {
-    "id": "PFQP-10-2-9",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager decides the approach to a difficult work package alone and announces it. The team carries it out without objection but shows little commitment to making it succeed. Which leader behaviour would most likely have changed this?",
-    "items": null,
-    "options": {
-      "a": "Giving the team clearer written objectives for the work package.",
-      "b": "Recognising the team's contribution once the work package is complete.",
-      "c": "Involving the team in the decision so that they helped shape it.",
-      "d": "Providing more frequent feedback on progress during the work package."
-    },
-    "answer": "c",
-    "explanation": "Involvement in decisions increases commitment because people support what they helped shape. Option a is tempting since clarity does improve performance, but the team here understands the decision perfectly well; what they lack is any stake in it.",
-    "tip": "Distinguish not understanding the work from not being committed to it. Clarity fixes the first, involvement fixes the second.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Routine feedback allows correction early, when it costs little. Option c is tempting because team members are accountable to the project manager for their work packages, but that accountability comes from the allocation of work, not from feedback.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-2-9",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager decides the approach to a difficult work package alone and announces it. The team carries it out without objection but shows little commitment to making it succeed. Which leader behaviour would most likely have changed this?",
+  "items": null,
+  "options": {
+   "a": "Giving the team clearer written objectives for the work package.",
+   "b": "Recognising the team's contribution once the work package is complete.",
+   "c": "Involving the team in the decision so that they helped shape it.",
+   "d": "Providing more frequent feedback on progress during the work package."
   },
-  {
-    "id": "PFQP-10-2-10",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Four actions are proposed by a team leader. Which three are likely to improve team performance?",
-    "items": [
-      "Making sure every member knows what they are responsible for",
-      "Giving feedback routinely rather than storing it up",
-      "Restricting project information to the leader so that messages stay consistent",
-      "Recognising individual contributions to the team's progress"
-    ],
-    "options": {
-      "a": "1, 2 and 3",
-      "b": "1, 2 and 4",
-      "c": "1, 3 and 4",
-      "d": "2, 3 and 4"
-    },
-    "answer": "b",
-    "explanation": "Clarity of role, routine feedback and recognition all improve performance. Restricting information works against the trust and openness a leader depends on, and the stated reason of consistent messaging is what makes item 3 sound reasonable.",
-    "tip": "Anti-patterns in this outcome usually arrive with a sensible sounding justification attached. Judge the action, not the reason given for it.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "Involvement in decisions increases commitment because people support what they helped shape. Option a is tempting since clarity does improve performance, but the team here understands the decision perfectly well; what they lack is any stake in it.",
+  "tip": "Distinguish not understanding the work from not being committed to it. Clarity fixes the first, involvement fixes the second.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-2-10",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Four actions are proposed by a team leader. Which three are likely to improve team performance?",
+  "items": [
+   "Making sure every member knows what they are responsible for",
+   "Giving feedback routinely rather than storing it up",
+   "Restricting project information to the leader so that messages stay consistent",
+   "Recognising individual contributions to the team's progress"
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "1, 2 and 4",
+   "c": "1, 3 and 4",
+   "d": "2, 3 and 4"
   },
-  {
-    "id": "PFQP-10-2-11",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Three of the following are ways a team leader improves team performance. Which one is not?",
-    "items": null,
-    "options": {
-      "a": "Making objectives and responsibilities explicit.",
-      "b": "Creating an environment where problems can be raised early.",
-      "c": "Recognising contribution during a long delivery phase.",
-      "d": "Avoiding disagreements so that the team stays productive."
-    },
-    "answer": "d",
-    "explanation": "Unaddressed conflict does not disappear, and openness with early feedback is what lets a leader deal with it while it is small. Avoiding disagreement sounds protective of productivity, which is exactly why it appears in exam options.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Clarity of role, routine feedback and recognition all improve performance. Restricting information works against the trust and openness a leader depends on, and the stated reason of consistent messaging is what makes item 3 sound reasonable.",
+  "tip": "Anti-patterns in this outcome usually arrive with a sensible sounding justification attached. Judge the action, not the reason given for it.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-10-2-11",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are ways a team leader improves team performance. Which one is not?",
+  "items": null,
+  "options": {
+   "a": "Making objectives and responsibilities explicit.",
+   "b": "Creating an environment where problems can be raised early.",
+   "c": "Recognising contribution during a long delivery phase.",
+   "d": "Avoiding disagreements so that the team stays productive."
   },
-  {
-    "id": "PFQP-10-2-12",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Two team members have independently produced the same piece of analysis while a third task has been left undone by everyone. Which factor is most directly responsible?",
-    "items": null,
-    "options": {
-      "a": "Lack of involvement of the team in decisions.",
-      "b": "Lack of trust and openness within the team.",
-      "c": "Lack of recognition for individual contribution.",
-      "d": "Lack of clarity about roles and objectives."
-    },
-    "answer": "d",
-    "explanation": "Ambiguity about who is responsible for what produces both gaps and duplication, which is precisely the pattern described. The other three are genuine influences on performance, but none explains work being done twice and other work not at all.",
-    "tip": "Gaps and duplication together are the signature of unclear responsibilities. It is also why the responsibility assignment matrix exists.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 1
+  "answer": "d",
+  "explanation": "Unaddressed conflict does not disappear, and openness with early feedback is what lets a leader deal with it while it is small. Avoiding disagreement sounds protective of productivity, which is exactly why it appears in exam options.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-2-12",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two team members have independently produced the same piece of analysis while a third task has been left undone by everyone. Which factor is most directly responsible?",
+  "items": null,
+  "options": {
+   "a": "Lack of involvement of the team in decisions.",
+   "b": "Lack of trust and openness within the team.",
+   "c": "Lack of recognition for individual contribution.",
+   "d": "Lack of clarity about roles and objectives."
   },
-  {
-    "id": "PFQP-10-2-13",
-    "learning_outcome": "10.2",
-    "objective": 10,
-    "day": 2,
-    "verb": "explain",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project's communication plan states that issues must be raised as soon as they are identified. The project manager conceals a slipped milestone from the team for two weeks, and within a month team members are doing the same. Which conclusion follows?",
-    "items": null,
-    "options": {
-      "a": "The communication plan was written at too high a level to be followed.",
-      "b": "The team lacks the role clarity needed to know when an issue should be reported.",
-      "c": "The leader's own behaviour sets the standard, whatever the stated policy says.",
-      "d": "The team requires more frequent feedback on how well it is reporting."
-    },
-    "answer": "c",
-    "explanation": "A leader who conceals problems ends up with a team that conceals problems, regardless of policy. Option b is tempting because role clarity genuinely improves performance, but nobody here is confused about what to report; they are copying what they see.",
-    "tip": "Where a stem contrasts a written policy with what the leader actually does, the behaviour wins. Policies do not set the standard, people do.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Ambiguity about who is responsible for what produces both gaps and duplication, which is precisely the pattern described. The other three are genuine influences on performance, but none explains work being done twice and other work not at all.",
+  "tip": "Gaps and duplication together are the signature of unclear responsibilities. It is also why the responsibility assignment matrix exists.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-10-2-13",
+  "learning_outcome": "10.2",
+  "objective": 10,
+  "day": 2,
+  "verb": "explain",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project's communication plan states that issues must be raised as soon as they are identified. The project manager conceals a slipped milestone from the team for two weeks, and within a month team members are doing the same. Which conclusion follows?",
+  "items": null,
+  "options": {
+   "a": "The communication plan was written at too high a level to be followed.",
+   "b": "The team lacks the role clarity needed to know when an issue should be reported.",
+   "c": "The leader's own behaviour sets the standard, whatever the stated policy says.",
+   "d": "The team requires more frequent feedback on how well it is reporting."
   },
-  {
-    "id": "PFQP-10-3-6",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A team member's line manager reassigns them to urgent operational work for a fortnight without consulting the project manager. Which challenge of leading a project team does this illustrate?",
-    "items": null,
-    "options": {
-      "a": "Members bring varying skills, experience and working styles.",
-      "b": "Conflict arises from competing priorities and personality differences.",
-      "c": "Membership of a project team is temporary and changing.",
-      "d": "The project manager has responsibility without complete formal authority."
-    },
-    "answer": "d",
-    "explanation": "In a matrix organisation team members report to a line manager as well as to the project, so the project manager carries responsibility without full authority. Option c is tempting, but the loss here comes from divided reporting, not from a phase change.",
-    "tip": "Where a stem names a line manager, the examiner is testing matrix reporting and incomplete authority rather than any other challenge.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 6,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "A leader who conceals problems ends up with a team that conceals problems, regardless of policy. Option b is tempting because role clarity genuinely improves performance, but nobody here is confused about what to report; they are copying what they see.",
+  "tip": "Where a stem contrasts a written policy with what the leader actually does, the behaviour wins. Policies do not set the standard, people do.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-3-6",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team member's line manager reassigns them to urgent operational work for a fortnight without consulting the project manager. Which challenge of leading a project team does this illustrate?",
+  "items": null,
+  "options": {
+   "a": "Members bring varying skills, experience and working styles.",
+   "b": "Conflict arises from competing priorities and personality differences.",
+   "c": "Membership of a project team is temporary and changing.",
+   "d": "The project manager has responsibility without complete formal authority."
   },
-  {
-    "id": "PFQP-10-3-7",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "As a project moves from design into build, four specialists leave the team and six new people join. The project manager notices the team is again debating how it should work rather than delivering. Which challenge does this best illustrate?",
-    "items": null,
-    "options": {
-      "a": "The project manager has responsibility without complete formal authority.",
-      "b": "Project teams are usually dispersed across locations and time zones.",
-      "c": "Project team membership is temporary and changing, so the team repeatedly re-forms.",
-      "d": "Project work carries inherent pressure from deadlines, uncertainty and change."
-    },
-    "answer": "c",
-    "explanation": "People join and leave as phases change, so the team re-forms and can revisit earlier development stages. Option d is tempting because a phase transition is pressured, but the behaviour described is a team working out how to operate together again.",
-    "tip": "Changing membership and Tuckman are linked deliberately. A team that starts arguing about how to work has usually just changed shape.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 7,
-    "mock_set": 3
+  "answer": "d",
+  "explanation": "In a matrix organisation team members report to a line manager as well as to the project, so the project manager carries responsibility without full authority. Option c is tempting, but the loss here comes from divided reporting, not from a phase change.",
+  "tip": "Where a stem names a line manager, the examiner is testing matrix reporting and incomplete authority rather than any other challenge.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-10-3-7",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "As a project moves from design into build, four specialists leave the team and six new people join. The project manager notices the team is again debating how it should work rather than delivering. Which challenge does this best illustrate?",
+  "items": null,
+  "options": {
+   "a": "The project manager has responsibility without complete formal authority.",
+   "b": "Project teams are usually dispersed across locations and time zones.",
+   "c": "Project team membership is temporary and changing, so the team repeatedly re-forms.",
+   "d": "Project work carries inherent pressure from deadlines, uncertainty and change."
   },
-  {
-    "id": "PFQP-10-3-8",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "multi_select",
-    "traps": [
-      "multi_select"
-    ],
-    "stem": "Four features of a project team are listed. Which three make the team harder to lead?",
-    "items": [
-      "Members are spread across three countries and several time zones",
-      "The whole team works from a single office",
-      "Members report to line managers as well as to the project",
-      "Membership changes as the project moves between phases"
-    ],
-    "options": {
-      "a": "1, 2 and 3",
-      "b": "1, 2 and 4",
-      "c": "1, 3 and 4",
-      "d": "2, 3 and 4"
-    },
-    "answer": "c",
-    "explanation": "Dispersal, matrix reporting and changing membership are all genuine challenges. Co-location is not: putting the team in one place removes several of these problems, and it is the standard odd one out in lists of this kind.",
-    "tip": "In a list of team challenges, hunt for the item that is actually a help. Delete every option containing it and the answer appears.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 8,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "People join and leave as phases change, so the team re-forms and can revisit earlier development stages. Option d is tempting because a phase transition is pressured, but the behaviour described is a team working out how to operate together again.",
+  "tip": "Changing membership and Tuckman are linked deliberately. A team that starts arguing about how to work has usually just changed shape.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-10-3-8",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Four features of a project team are listed. Which three make the team harder to lead?",
+  "items": [
+   "Members are spread across three countries and several time zones",
+   "The whole team works from a single office",
+   "Members report to line managers as well as to the project",
+   "Membership changes as the project moves between phases"
+  ],
+  "options": {
+   "a": "1, 2 and 3",
+   "b": "1, 2 and 4",
+   "c": "1, 3 and 4",
+   "d": "2, 3 and 4"
   },
-  {
-    "id": "PFQP-10-3-9",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "negative_stem"
-    ],
-    "stem": "Three of the following make a project team harder to develop and lead. Which one does not?",
-    "items": null,
-    "options": {
-      "a": "Skills, experience and working styles vary across the team.",
-      "b": "The same people remain in the team from start to finish.",
-      "c": "Deadlines, uncertainty and change all fall on the same people.",
-      "d": "Team members are located in different places and time zones."
-    },
-    "answer": "b",
-    "explanation": "Stable membership removes the repeated re-forming that makes project teams difficult, so it helps rather than hinders. The other three are all listed challenges, and mixed skills is the one candidates most often mistake for a benefit.",
-    "tip": "Read inverted stems twice. Three options will be challenges you recognise, and the odd one out is usually phrased as something reassuring.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 9,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Dispersal, matrix reporting and changing membership are all genuine challenges. Co-location is not: putting the team in one place removes several of these problems, and it is the standard odd one out in lists of this kind.",
+  "tip": "In a list of team challenges, hunt for the item that is actually a help. Delete every option containing it and the answer appears.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-3-9",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following make a project team harder to develop and lead. Which one does not?",
+  "items": null,
+  "options": {
+   "a": "Skills, experience and working styles vary across the team.",
+   "b": "The same people remain in the team from start to finish.",
+   "c": "Deadlines, uncertainty and change all fall on the same people.",
+   "d": "Team members are located in different places and time zones."
   },
-  {
-    "id": "PFQP-10-3-10",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [],
-    "stem": "Conflict within a project team is described as arising from which combination?",
-    "items": null,
-    "options": {
-      "a": "Poor written communication, weak reporting and infrequent meetings.",
-      "b": "Unclear governance, missing tolerances and an absent sponsor.",
-      "c": "Inaccurate estimates, optimistic scheduling and late change requests.",
-      "d": "Competing priorities, personality differences and resource pressure."
-    },
-    "answer": "d",
-    "explanation": "Those three are the named sources of conflict on a project team. The other options list real project problems, which makes them plausible, but they describe planning, governance or communication weaknesses rather than the origins of conflict between people.",
-    "tip": "When every option sounds like a real project problem, check which one describes people rather than plans or processes.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 10,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Stable membership removes the repeated re-forming that makes project teams difficult, so it helps rather than hinders. The other three are all listed challenges, and mixed skills is the one candidates most often mistake for a benefit.",
+  "tip": "Read inverted stems twice. Three options will be challenges you recognise, and the odd one out is usually phrased as something reassuring.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-3-10",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Conflict within a project team is described as arising from which combination?",
+  "items": null,
+  "options": {
+   "a": "Poor written communication, weak reporting and infrequent meetings.",
+   "b": "Unclear governance, missing tolerances and an absent sponsor.",
+   "c": "Inaccurate estimates, optimistic scheduling and late change requests.",
+   "d": "Competing priorities, personality differences and resource pressure."
   },
-  {
-    "id": "PFQP-10-3-11",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Why is a project team generally harder to lead than a permanent line team?",
-    "items": null,
-    "options": {
-      "a": "It is always larger than a line team and therefore harder to communicate with.",
-      "b": "Its members are accountable to the governance board rather than to the project manager.",
-      "c": "Its members are selected for a balance of behavioural roles rather than for availability.",
-      "d": "Its membership is temporary and changing, and the project manager's authority is often incomplete."
-    },
-    "answer": "d",
-    "explanation": "The difficulties follow from what a project is: people join and leave, and in a matrix they report elsewhere as well. Option c inverts reality, because project teams are usually assembled from whoever was available rather than selected for balance.",
-    "tip": "Watch for options that invert a fact you know. Project teams are assembled from who is available, not chosen for role balance.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 11,
-    "mock_set": null
+  "answer": "d",
+  "explanation": "Those three are the named sources of conflict on a project team. The other options list real project problems, which makes them plausible, but they describe planning, governance or communication weaknesses rather than the origins of conflict between people.",
+  "tip": "When every option sounds like a real project problem, check which one describes people rather than plans or processes.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-3-11",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Why is a project team generally harder to lead than a permanent line team?",
+  "items": null,
+  "options": {
+   "a": "It is always larger than a line team and therefore harder to communicate with.",
+   "b": "Its members are accountable to the governance board rather than to the project manager.",
+   "c": "Its members are selected for a balance of behavioural roles rather than for availability.",
+   "d": "Its membership is temporary and changing, and the project manager's authority is often incomplete."
   },
-  {
-    "id": "PFQP-10-3-12",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project team is working to a fixed launch date, the requirements are still moving, and the technical approach is not yet proven. Which challenge of leading a project team is most directly described?",
-    "items": null,
-    "options": {
-      "a": "Membership of the team is temporary and changing.",
-      "b": "The team is dispersed across locations and time zones.",
-      "c": "The work itself carries pressure from deadlines, uncertainty and change.",
-      "d": "The project manager has responsibility without complete formal authority."
-    },
-    "answer": "c",
-    "explanation": "Deadlines, uncertainty and change are inherent in project work and all fall on the same people. Nothing in the stem mentions members joining or leaving, dispersal or reporting lines, so the other three challenges are real but not the ones described.",
-    "tip": "Match the challenge to the evidence actually given. If the stem never mentions location or reporting lines, those options are not the answer.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 12,
-    "mock_set": 1
+  "answer": "d",
+  "explanation": "The difficulties follow from what a project is: people join and leave, and in a matrix they report elsewhere as well. Option c inverts reality, because project teams are usually assembled from whoever was available rather than selected for balance.",
+  "tip": "Watch for options that invert a fact you know. Project teams are assembled from who is available, not chosen for role balance.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-3-12",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project team is working to a fixed launch date, the requirements are still moving, and the technical approach is not yet proven. Which challenge of leading a project team is most directly described?",
+  "items": null,
+  "options": {
+   "a": "Membership of the team is temporary and changing.",
+   "b": "The team is dispersed across locations and time zones.",
+   "c": "The work itself carries pressure from deadlines, uncertainty and change.",
+   "d": "The project manager has responsibility without complete formal authority."
   },
-  {
-    "id": "PFQP-10-3-13",
-    "learning_outcome": "10.3",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager leads a team working from three countries and communicating almost entirely by video call and messaging. Two members have quietly disengaged and a disagreement between them has gone unnoticed for weeks. Which challenge does this illustrate?",
-    "items": null,
-    "options": {
-      "a": "The project manager lacks formal authority over the team members.",
-      "b": "Dispersal reduces non-verbal signal, making disengagement and conflict harder to spot.",
-      "c": "Team membership is temporary, so the team is repeatedly re-forming.",
-      "d": "Skills, experience and working styles vary across the team."
-    },
-    "answer": "b",
-    "explanation": "Working across locations and time zones strips out the non-verbal signals a leader relies on, so problems stay hidden longer. Option d is tempting because differing styles do cause friction, but the stem gives no evidence of any skills mismatch.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 13,
-    "mock_set": null
+  "answer": "c",
+  "explanation": "Deadlines, uncertainty and change are inherent in project work and all fall on the same people. Nothing in the stem mentions members joining or leaving, dispersal or reporting lines, so the other three challenges are real but not the ones described.",
+  "tip": "Match the challenge to the evidence actually given. If the stem never mentions location or reporting lines, those options are not the answer.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-10-3-13",
+  "learning_outcome": "10.3",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager leads a team working from three countries and communicating almost entirely by video call and messaging. Two members have quietly disengaged and a disagreement between them has gone unnoticed for weeks. Which challenge does this illustrate?",
+  "items": null,
+  "options": {
+   "a": "The project manager lacks formal authority over the team members.",
+   "b": "Dispersal reduces non-verbal signal, making disengagement and conflict harder to spot.",
+   "c": "Team membership is temporary, so the team is repeatedly re-forming.",
+   "d": "Skills, experience and working styles vary across the team."
   },
-  {
-    "id": "PFQP-10-4-9",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A team that has been delivering effectively for months loses two members and gains three new ones. What does Tuckman's model suggest the project manager should expect?",
-    "items": null,
-    "options": {
-      "a": "The model no longer applies once a team has reached performing.",
-      "b": "The team will remain at performing because its working practices are already agreed.",
-      "c": "The team will move straight to norming because trust has already been established.",
-      "d": "The team may revisit earlier stages rather than continue performing."
-    },
-    "answer": "d",
-    "explanation": "Project teams change membership constantly, and a team that gains or loses people can go back through earlier stages. Option c is tempting because some trust does survive, but the model promises no shortcut past forming and storming.",
-    "tip": "Performing is not a permanent state. Any stem mentioning members joining or leaving is usually asking about revisiting earlier stages.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 9,
-    "mock_set": 2
+  "answer": "b",
+  "explanation": "Working across locations and time zones strips out the non-verbal signals a leader relies on, so problems stay hidden longer. Option d is tempting because differing styles do cause friction, but the stem gives no evidence of any skills mismatch.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-4-9",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team that has been delivering effectively for months loses two members and gains three new ones. What does Tuckman's model suggest the project manager should expect?",
+  "items": null,
+  "options": {
+   "a": "The model no longer applies once a team has reached performing.",
+   "b": "The team will remain at performing because its working practices are already agreed.",
+   "c": "The team will move straight to norming because trust has already been established.",
+   "d": "The team may revisit earlier stages rather than continue performing."
   },
-  {
-    "id": "PFQP-10-4-10",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "Which sequence gives the stages of Tuckman's model in the correct order?",
-    "items": null,
-    "options": {
-      "a": "Forming, norming, storming, performing",
-      "b": "Storming, forming, norming, performing",
-      "c": "Forming, storming, norming, performing",
-      "d": "Forming, storming, performing, norming"
-    },
-    "answer": "c",
-    "explanation": "The order is forming, storming, norming, performing: polite, then conflict, then settled, then effective. Option a is the usual error, produced by assuming a team agrees its working practices before it argues about them.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": true,
-    "variant": 10,
-    "mock_set": 1
+  "answer": "d",
+  "explanation": "Project teams change membership constantly, and a team that gains or loses people can go back through earlier stages. Option c is tempting because some trust does survive, but the model promises no shortcut past forming and storming.",
+  "tip": "Performing is not a permanent state. Any stem mentioning members joining or leaving is usually asking about revisiting earlier stages.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-10-4-10",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which sequence gives the stages of Tuckman's model in the correct order?",
+  "items": null,
+  "options": {
+   "a": "Forming, norming, storming, performing",
+   "b": "Storming, forming, norming, performing",
+   "c": "Forming, storming, norming, performing",
+   "d": "Forming, storming, performing, norming"
   },
-  {
-    "id": "PFQP-10-4-11",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project team produces plenty of ideas and turns them into working output, but small errors keep reaching the customer. Which Belbin role is the team most obviously missing?",
-    "items": null,
-    "options": {
-      "a": "Plant",
-      "b": "Completer finisher",
-      "c": "Implementer",
-      "d": "Resource investigator"
-    },
-    "answer": "b",
-    "explanation": "The completer finisher checks the detail and catches errors before work leaves the team. This team already generates ideas, which is the plant, and already turns them into working output, which is the implementer, so neither of those is what is missing.",
-    "tip": "Match a Belbin role to what it contributes, not to what its name sounds like. Then check which contributions the stem says are already present.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 11,
-    "mock_set": 2
+  "answer": "c",
+  "explanation": "The order is forming, storming, norming, performing: polite, then conflict, then settled, then effective. Option a is the usual error, produced by assuming a team agrees its working practices before it argues about them.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-10-4-11",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project team produces plenty of ideas and turns them into working output, but small errors keep reaching the customer. Which Belbin role is the team most obviously missing?",
+  "items": null,
+  "options": {
+   "a": "Plant",
+   "b": "Completer finisher",
+   "c": "Implementer",
+   "d": "Resource investigator"
   },
-  {
-    "id": "PFQP-10-4-12",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "In workshops a project manager finds that two confident members dominate the discussion while several others, who hold relevant knowledge, say very little. Which Belbin role is most needed?",
-    "items": null,
-    "options": {
-      "a": "Implementer",
-      "b": "Plant",
-      "c": "Completer finisher",
-      "d": "Coordinator"
-    },
-    "answer": "d",
-    "explanation": "The coordinator draws contributions out of others, which is exactly the gap described. The plant is tempting because a workshop is about ideas, but this team is not short of ideas; it is failing to reach the ones it already holds.",
-    "tip": null,
-    "active": true,
-    "mock_suitable": false,
-    "variant": 12,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "The completer finisher checks the detail and catches errors before work leaves the team. This team already generates ideas, which is the plant, and already turns them into working output, which is the implementer, so neither of those is what is missing.",
+  "tip": "Match a Belbin role to what it contributes, not to what its name sounds like. Then check which contributions the stem says are already present.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-10-4-12",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "In workshops a project manager finds that two confident members dominate the discussion while several others, who hold relevant knowledge, say very little. Which Belbin role is most needed?",
+  "items": null,
+  "options": {
+   "a": "Implementer",
+   "b": "Plant",
+   "c": "Completer finisher",
+   "d": "Coordinator"
   },
-  {
-    "id": "PFQP-10-4-13",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project team needs someone to find suppliers, contacts and opportunities outside its own membership. Which Belbin role contributes this?",
-    "items": null,
-    "options": {
-      "a": "Resource investigator",
-      "b": "Coordinator",
-      "c": "Plant",
-      "d": "Implementer"
-    },
-    "answer": "a",
-    "explanation": "The resource investigator looks outside the team for contacts, suppliers and opportunities. The coordinator also works by drawing on other people, which is what makes it tempting here, but it does so within the team rather than beyond its boundary.",
-    "tip": "Two Belbin roles work mainly through other people, but one works inside the team and one outside it. Direction of travel separates them.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 13,
-    "mock_set": 3
+  "answer": "d",
+  "explanation": "The coordinator draws contributions out of others, which is exactly the gap described. The plant is tempting because a workshop is about ideas, but this team is not short of ideas; it is failing to reach the ones it already holds.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-4-13",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project team needs someone to find suppliers, contacts and opportunities outside its own membership. Which Belbin role contributes this?",
+  "items": null,
+  "options": {
+   "a": "Resource investigator",
+   "b": "Coordinator",
+   "c": "Plant",
+   "d": "Implementer"
   },
-  {
-    "id": "PFQP-10-4-14",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "near_miss"
-    ],
-    "stem": "A project manager finds that the team resolves issues among themselves, needs little intervention, and is delivering steadily. Which stage of Tuckman's model has the team reached?",
-    "items": null,
-    "options": {
-      "a": "Norming",
-      "b": "Performing",
-      "c": "Storming",
-      "d": "Forming"
-    },
-    "answer": "b",
-    "explanation": "Performing is the stage of effective delivery where the leader can step back. Norming is tempting because the team is clearly settled, but norming describes roles and working practices being agreed rather than sustained delivery with little intervention.",
-    "tip": "Norming is about agreeing how to work. Performing is about the work getting done. Decide whether the stem describes settling or delivering.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 14,
-    "mock_set": 1
+  "answer": "a",
+  "explanation": "The resource investigator looks outside the team for contacts, suppliers and opportunities. The coordinator also works by drawing on other people, which is what makes it tempting here, but it does so within the team rather than beyond its boundary.",
+  "tip": "Two Belbin roles work mainly through other people, but one works inside the team and one outside it. Direction of travel separates them.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-10-4-14",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager finds that the team resolves issues among themselves, needs little intervention, and is delivering steadily. Which stage of Tuckman's model has the team reached?",
+  "items": null,
+  "options": {
+   "a": "Norming",
+   "b": "Performing",
+   "c": "Storming",
+   "d": "Forming"
   },
-  {
-    "id": "PFQP-10-4-15",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "single",
-    "traps": [
-      "negative_stem",
-      "near_miss"
-    ],
-    "stem": "Three of the following statements about Belbin's model are correct. Which one is not?",
-    "items": null,
-    "options": {
-      "a": "It describes behavioural roles that individuals adopt within a team.",
-      "b": "Its roles group broadly into action-oriented, people-oriented and thinking-oriented types.",
-      "c": "It helps a project manager allocate work to strengths and spot gaps in the team.",
-      "d": "It assigns each person a permanent personality type that applies in any setting."
-    },
-    "answer": "d",
-    "explanation": "Belbin describes behavioural roles adopted in a team context, used to understand balance and gaps rather than to label people permanently. Option d is tempting because the roles carry memorable names that sound like personality descriptions.",
-    "tip": "Behavioural role within a team, not personality type for life. That distinction is the most common Belbin misconception in exam options.",
-    "active": true,
-    "mock_suitable": false,
-    "variant": 15,
-    "mock_set": null
+  "answer": "b",
+  "explanation": "Performing is the stage of effective delivery where the leader can step back. Norming is tempting because the team is clearly settled, but norming describes roles and working practices being agreed rather than sustained delivery with little intervention.",
+  "tip": "Norming is about agreeing how to work. Performing is about the work getting done. Decide whether the stem describes settling or delivering.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 14,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-10-4-15",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following statements about Belbin's model are correct. Which one is not?",
+  "items": null,
+  "options": {
+   "a": "It describes behavioural roles that individuals adopt within a team.",
+   "b": "Its roles group broadly into action-oriented, people-oriented and thinking-oriented types.",
+   "c": "It helps a project manager allocate work to strengths and spot gaps in the team.",
+   "d": "It assigns each person a permanent personality type that applies in any setting."
   },
-  {
-    "id": "PFQP-10-4-16",
-    "learning_outcome": "10.4",
-    "objective": 10,
-    "day": 2,
-    "verb": "outline",
-    "type": "multi_select",
-    "traps": [
-      "multi_select",
-      "near_miss"
-    ],
-    "stem": "Four statements are made about the two team development models. Which three are correct?",
-    "items": [
-      "Tuckman describes the stages a team passes through over time",
-      "Belbin describes the roles individuals adopt within a team",
-      "Belbin's practical use is understanding balance and spotting gaps",
-      "Once a team reaches performing, Tuckman's earlier stages cannot recur"
-    ],
-    "options": {
-      "a": "1, 2 and 4",
-      "b": "1, 3 and 4",
-      "c": "1, 2 and 3",
-      "d": "2, 3 and 4"
-    },
-    "answer": "c",
-    "explanation": "One model is about time and the other about composition, and Belbin is used for balance. Item 4 is wrong because project teams change membership, so a team that gains or loses people can revisit earlier stages.",
-    "tip": "Tuckman is stages, Belbin is roles. One is time, the other is composition. That single contrast answers most questions naming both models.",
-    "active": true,
-    "mock_suitable": true,
-    "variant": 16,
-    "mock_set": 3
-  }
+  "answer": "d",
+  "explanation": "Belbin describes behavioural roles adopted in a team context, used to understand balance and gaps rather than to label people permanently. Option d is tempting because the roles carry memorable names that sound like personality descriptions.",
+  "tip": "Behavioural role within a team, not personality type for life. That distinction is the most common Belbin misconception in exam options.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 15,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-4-16",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Four statements are made about the two team development models. Which three are correct?",
+  "items": [
+   "Tuckman describes the stages a team passes through over time",
+   "Belbin describes the roles individuals adopt within a team",
+   "Belbin's practical use is understanding balance and spotting gaps",
+   "Once a team reaches performing, Tuckman's earlier stages cannot recur"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 3 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "One model is about time and the other about composition, and Belbin is used for balance. Item 4 is wrong because project teams change membership, so a team that gains or loses people can revisit earlier stages.",
+  "tip": "Tuckman is stages, Belbin is roles. One is time, the other is composition. That single contrast answers most questions naming both models.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 16,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-10-4-17",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "In Tuckman's model, the stage at which productivity often dips as members challenge roles and each other is:",
+  "items": null,
+  "options": {
+   "a": "storming.",
+   "b": "forming.",
+   "c": "norming.",
+   "d": "performing."
+  },
+  "answer": "a",
+  "explanation": "Storming is a normal and necessary stage rather than a sign of failure. A leader who suppresses it usually finds the same disagreements resurfacing later and less openly.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 17,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-4-18",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Which of Belbin's team roles generates ideas for the team?",
+  "items": null,
+  "options": {
+   "a": "Plant.",
+   "b": "Implementer.",
+   "c": "Completer finisher.",
+   "d": "Teamworker."
+  },
+  "answer": "a",
+  "explanation": "The plant generates ideas, the implementer turns them into action, the completer finisher checks the detail and the teamworker smooths relationships within the team.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 18,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-10-4-19",
+  "learning_outcome": "10.4",
+  "objective": 10,
+  "day": 2,
+  "verb": "outline",
+  "type": "single",
+  "traps": [],
+  "stem": "Belbin's model describes:",
+  "items": null,
+  "options": {
+   "a": "the behavioural roles people adopt within a team.",
+   "b": "the stages a team passes through over time.",
+   "c": "a permanent personality type held by each individual.",
+   "d": "the reporting lines within a project organisation."
+  },
+  "answer": "a",
+  "explanation": "Belbin describes behaviour within a team setting, not a fixed personality type. The stages a team passes through are Tuckman's model.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 19,
+  "mock_set": null
+ }
 ]
