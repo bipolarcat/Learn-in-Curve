@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — Auth “Last used”: dropped broken CSS-module classes (were undefined → plain text under the button). Pill is absolute inside the CTA with Tailwind + inline `scale(0.58)` / `textSizeAdjust` so the label stays centred and the chip stays tiny on mobile (`AuthForm`).
 - **2026-09-15** — Auth “Last used” fixed for real: CSS module classes were missing so the pill sat in the button flex row (off-centre label + oversized). Pill is now absolutely positioned on a wrapper outside the button; compact scale via `AuthForm.module.css` (`AuthForm`).
 - **2026-09-15** — Auth “Last used” pill: lock mobile type size (`text-size-adjust`) + slight scale so iOS doesn’t inflate it (`AuthForm`).
 - **2026-09-15** — Auth “Last used” pill tightened (8px type, tighter pad) (`AuthForm`).
