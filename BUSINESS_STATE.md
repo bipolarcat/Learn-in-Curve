@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — Profile delete control: "Delete account" label beside trash; hover/active is rust text+icon only (no red fill) (`DashboardProfileMenu`).
 - **2026-09-15** — Profile menu: drop fields-block bottom pad so gap above trash matches gap under trash to the popup edge (`DashboardProfileMenu`).
 - **2026-09-15** — Profile menu footer row tighter (`py-1`) around the delete trash (`DashboardProfileMenu`).
 - **2026-09-15** — Delete-account trash sits at the left of the profile footer row (`DashboardProfileMenu`).

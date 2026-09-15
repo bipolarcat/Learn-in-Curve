@@ -593,17 +593,15 @@ export function DashboardProfileMenu({
             setDeleteError(null);
           }}
           disabled={saving || deleteBusy}
-          aria-label={
-            deleteOpen ? "Cancel delete account" : "Delete my account"
-          }
           aria-pressed={deleteOpen}
-          className={`inline-flex size-7 shrink-0 items-center justify-center rounded-lg transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
+          className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm font-body text-[11px] font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50 ${
             deleteOpen
-              ? "bg-rust/[0.1] text-rust"
-              : "text-ink/40 hover:bg-rust/[0.08] hover:text-rust"
+              ? "text-rust"
+              : "text-ink/40 hover:text-rust"
           }`}
         >
-          <Trash2 className="size-3.5" strokeWidth={2} aria-hidden />
+          <Trash2 className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
+          <span>{deleteOpen ? "Cancel delete" : "Delete account"}</span>
         </button>
         <div className="min-h-[1rem] min-w-0 flex-1" aria-live="polite">
           {!deleteOpen && error ? (
