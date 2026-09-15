@@ -77,7 +77,7 @@ const COMMAND_WORD_GROUPS = [
 const GLOBAL_FURTHER_READING = [
   {
     title: "APM Body of Knowledge, 8th Edition",
-    body: "The official reference for all 24 PMQ learning objectives.",
+    body: "The official reference behind APM’s foundation and practitioner syllabuses.",
     href: "https://www.apm.org.uk/book-shop/apm-body-of-knowledge-8th-edition/",
     linkLabel: "Visit website →",
     icon: "📚",
