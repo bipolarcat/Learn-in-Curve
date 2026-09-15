@@ -9,6 +9,10 @@ import type { CourseSlug } from "@/lib/courses/types";
 import { isPmqStudySurface } from "@/lib/pmq/constants";
 import { isPfqStudySurface } from "@/lib/pfq/constants";
 import type { HeaderAccount } from "@/components/SiteHeaderMenu";
+import type { PmqTier } from "@/lib/pmq/tiers";
+import type { PfqTier } from "@/lib/pfq/tiers";
+
+type PaidTier = PmqTier | PfqTier;
 
 type SiteHeaderProps = {
   isSignedIn?: boolean;
@@ -19,28 +23,57 @@ type SiteHeaderProps = {
    * Always unpinned on PMQ/PFQ overview + study pages.
    */
   pinned?: boolean;
+  /** Per-course paid tier — drives the Pro / AI Pro mark beside the course name. */
+  courseTiers?: Partial<Record<CourseSlug, PaidTier>>;
 };
 
-function courseDisplayNameFromPath(
+/** Same chrome marks as CourseHeader (beside course name). */
+const proMark =
+  "inline-flex h-[1.125rem] shrink-0 items-center rounded-[0.25rem] bg-teal/[0.12] px-1 text-[10px] font-semibold tracking-tight text-teal dark:bg-teal/[0.2] dark:text-teal";
+
+const aiProMark =
+  "inline-flex h-[1.125rem] shrink-0 items-center rounded-[0.25rem] bg-[color-mix(in_srgb,var(--gold)_32%,rgb(var(--paper-rgb)))] px-1 text-[10px] font-semibold tracking-tight text-[color-mix(in_srgb,var(--gold)_55%,#241a12)]";
+
+function courseContextFromPath(
   pathname: string | null | undefined,
-): string | null {
+): { slug: CourseSlug; displayName: string } | null {
   if (!pathname?.startsWith("/courses/")) return null;
   const parts = pathname.split("/").filter(Boolean);
   // courses / {slug} / … — overview is exactly two segments
   if (parts.length < 3) return null;
 
-  const slug = parts[1];
-  const product = COURSE_STATIC[slug as CourseSlug];
+  const slug = parts[1] as CourseSlug;
+  const product = COURSE_STATIC[slug];
   if (!product) return null;
 
   const section = parts[2];
   // LO study surfaces
-  if (section === "lo") return product.displayName;
+  if (section === "lo") return { slug, displayName: product.displayName };
   // PFQ objective lessons live under /learn/{n}
-  if (section === "learn" && parts.length >= 4) return product.displayName;
+  if (section === "learn" && parts.length >= 4) {
+    return { slug, displayName: product.displayName };
+  }
   // Mock exams
-  if (section === "mock") return product.displayName;
+  if (section === "mock") return { slug, displayName: product.displayName };
 
+  return null;
+}
+
+function TierMark({ tier }: { tier: PaidTier | undefined }) {
+  if (tier === "ai_pro") {
+    return (
+      <span className={aiProMark} aria-label="AI Pro unlocked">
+        AI Pro
+      </span>
+    );
+  }
+  if (tier === "pro") {
+    return (
+      <span className={proMark} aria-label="Pro unlocked">
+        Pro
+      </span>
+    );
+  }
   return null;
 }
 
@@ -48,11 +81,13 @@ export function SiteHeader({
   isSignedIn = false,
   account = null,
   pinned = true,
+  courseTiers,
 }: SiteHeaderProps) {
   const pathname = usePathname();
   const isPinned =
     pinned && !isPmqStudySurface(pathname) && !isPfqStudySurface(pathname);
-  const courseName = courseDisplayNameFromPath(pathname);
+  const course = courseContextFromPath(pathname);
+  const tier = course ? courseTiers?.[course.slug] : undefined;
 
   const nav = (
     <nav
@@ -73,14 +108,17 @@ export function SiteHeader({
           </span>
         </Link>
 
-        {courseName ? (
+        {course ? (
           <>
             <span
               className="h-6 w-[1.5px] shrink-0 self-center rounded-full bg-ink/35 sm:h-7"
               aria-hidden
             />
-            <span className="min-w-0 truncate font-body text-[13px] font-extralight leading-none tracking-tight text-ink/75 sm:text-[14px]">
-              {courseName}
+            <span className="flex min-w-0 items-center gap-1.5">
+              <span className="min-w-0 truncate font-body text-[13px] font-extralight leading-none tracking-tight text-ink/75 sm:text-[14px]">
+                {course.displayName}
+              </span>
+              <TierMark tier={tier} />
             </span>
           </>
         ) : null}
