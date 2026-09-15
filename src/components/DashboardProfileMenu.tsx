@@ -473,7 +473,7 @@ export function DashboardProfileMenu({
           </div>
         </div>
       ) : (
-        <div className="space-y-2.5 px-3 py-2.5">
+        <div className="space-y-2.5 px-3 pt-2.5 pb-0">
         <fieldset>
           <legend className="sr-only">Avatar</legend>
           <div className="grid w-full grid-cols-5 items-center justify-items-center gap-1">
