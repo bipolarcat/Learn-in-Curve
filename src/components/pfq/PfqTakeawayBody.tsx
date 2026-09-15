@@ -20,14 +20,9 @@ export function PfqTakeawayBody({
   return (
     <div className="min-w-0">
       {takeaway ? (
-        <div className="rounded-lg border border-black/[0.10] bg-black/[0.02] p-4 dark:border-white/[0.14] dark:bg-white/[0.04]">
-          <p className="m-0 mb-2 font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-ink/60">
-            Key takeaway
-          </p>
-          <p className="m-0 font-body text-[16px] leading-relaxed text-ink">
-            {takeaway}
-          </p>
-        </div>
+        <p className="m-0 font-body text-[16px] leading-relaxed text-ink">
+          {takeaway}
+        </p>
       ) : null}
 
       {body ? (

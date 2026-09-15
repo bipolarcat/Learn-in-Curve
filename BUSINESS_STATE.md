@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — PFQ key takeaway is plain body type (no boxed plate or Key takeaway label) (`PfqTakeawayBody`).
 - **2026-09-15** — PFQ Learn keeps Lo1 stamp/Contents chrome and restores Claude's Key takeaway + Understand it split (`bodyVariant="pfq-takeaway"`, `PfqTakeawayBody`).
 - **2026-09-15** — Restored PFQ Learn to the earlier Lo1CoreContentStudy chrome (stamps / sticky Contents); kept current lesson content via `toPmqCoreBlocks`. Removed Claude's `PfqCoreContentStudy` takeaway/collapse shell.
 - **2026-09-15** — Checkpoint stage aligned on PMQ + PFQ: Complete pill top-right, support line under title, Previous left / Next right outside the card, no centered Continue (`LoCheckpointStage`, `PfqObjectiveLesson`, `LoStudyJourney`).
