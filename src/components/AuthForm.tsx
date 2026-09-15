@@ -146,8 +146,8 @@ function LastUsedPill({
       aria-hidden
       className={
         tone === "on-action"
-          ? "pointer-events-none absolute right-2 top-1.5 z-[1] inline-flex items-center rounded-full bg-paper/20 px-1.5 py-0.5 font-body text-[9px] font-semibold uppercase tracking-[0.04em] text-paper/90"
-          : "pointer-events-none absolute right-2 top-1.5 z-[1] inline-flex items-center rounded-full bg-ink/[0.06] px-1.5 py-0.5 font-body text-[9px] font-semibold uppercase tracking-[0.04em] text-ink/55"
+          ? "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex items-center rounded-full bg-paper/20 px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] text-paper/90"
+          : "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex items-center rounded-full bg-ink/[0.06] px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] text-ink/55"
       }
     >
       Last used
