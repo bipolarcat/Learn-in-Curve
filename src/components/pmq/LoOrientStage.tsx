@@ -36,6 +36,9 @@ const headingClass =
 /** Shared body — Context prose and outcome lines use the exact same size. */
 const bodyClass =
   "w-full min-w-0 text-left font-body text-[15px] font-normal leading-[1.65] text-pretty text-ink/85";
+/** Outcome lines: wrap at the full row (no text-pretty early breaks). */
+const outcomeBodyClass =
+  "m-0 w-full min-w-0 text-left font-body text-[15px] font-normal leading-[1.65] text-ink/85";
 
 /**
  * Shared 2-col track: col 1 = pathway icon / 1A–1C badges (centred),
@@ -223,7 +226,7 @@ export function LoOrientStage({
                       )
                     ) : null}
                   </IconCell>
-                  <p className={`${bodyClass} m-0`}>
+                  <p className={outcomeBodyClass}>
                     {code ? <span className="sr-only">{code}: </span> : null}
                     {text}
                   </p>
