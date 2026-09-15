@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — Orient Key definitions body is flush (no icon-column indent) so definition plates share the card’s left/right inset (`LoOrientStage` `flushBody`).
 - **2026-09-15** — Dropped `cursor: wait` / `cursor-wait` site-wide so Mac no longer shows the spinning wait disc beside the pointer on click; pending CTAs keep opacity / in-button spinners only.
 - **2026-09-15** — Header Menu open state stays solid ink on touch (dropped `headerIcon` hover wash that stuck grey on mobile) (`SiteHeaderMenu`).
 - **2026-09-15** — Header Menu trigger: no sticky tap highlight — fine-pointer-only hover, blur on dismiss (`headerMenuTrigger`, `SiteHeaderMenu`).

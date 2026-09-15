@@ -253,6 +253,7 @@ export function LoOrientStage({
           title="Key definitions"
           subtitle="Reveal a term to see its Plain English and APM definitions."
           className="overflow-visible"
+          flushBody
         >
           <div className="w-full min-w-0 max-w-full">
             <DefinitionsReveal definitions={definitions} showLead={false} />
