@@ -65,34 +65,33 @@ function isInk(r: number, g: number, b: number): boolean {
   return (r + g + b) / 3 <= 95;
 }
 
-/** Two-pass key: mark ink neighborhoods once, then punch isolated cream. */
 function keyFrame(ctx: CanvasRenderingContext2D, w: number, h: number) {
   const img = ctx.getImageData(0, 0, w, h);
   const data = img.data;
-  const nearInk = new Uint8Array(w * h);
 
   for (let y = 0; y < h; y++) {
     for (let x = 0; x < w; x++) {
       const i = (y * w + x) * 4;
-      if (!isInk(data[i], data[i + 1], data[i + 2])) continue;
-      for (let dy = -1; dy <= 1; dy++) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      if (!isStrongPlate(r, g, b)) continue;
+
+      let touchesInk = false;
+      for (let dy = -1; dy <= 1 && !touchesInk; dy++) {
         for (let dx = -1; dx <= 1; dx++) {
           if (dx === 0 && dy === 0) continue;
           const nx = x + dx;
           const ny = y + dy;
           if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
-          nearInk[ny * w + nx] = 1;
+          const ni = (ny * w + nx) * 4;
+          if (isInk(data[ni], data[ni + 1], data[ni + 2])) {
+            touchesInk = true;
+            break;
+          }
         }
       }
-    }
-  }
-
-  for (let y = 0; y < h; y++) {
-    for (let x = 0; x < w; x++) {
-      const idx = y * w + x;
-      const i = idx * 4;
-      if (!isStrongPlate(data[i], data[i + 1], data[i + 2])) continue;
-      if (nearInk[idx]) continue;
+      if (touchesInk) continue;
       data[i + 3] = 0;
     }
   }
@@ -233,7 +232,7 @@ export function HeroAnimalsScene() {
       const cssH = Math.max(1, Math.round(rect.height));
       if (!isSaneBox(cssW, cssH)) return null;
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const bw = Math.max(1, Math.round(cssW * dpr));
       const bh = Math.max(1, Math.round(cssH * dpr));
 
