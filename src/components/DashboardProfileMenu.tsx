@@ -584,7 +584,7 @@ export function DashboardProfileMenu({
       </div>
       )}
 
-      <div className="flex items-center gap-2 px-3 pb-2.5 pt-0.5">
+      <div className="flex items-center gap-2 px-3 py-1">
         <button
           type="button"
           onClick={() => {
