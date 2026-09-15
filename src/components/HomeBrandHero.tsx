@@ -1,6 +1,5 @@
 "use client";
 
-import { type ReactNode } from "react";
 import {
   motion,
   useReducedMotion,
@@ -40,46 +39,10 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0, filter: "blur(0px)" };
 
-function StaggerWords({
-  text,
-  delay = 0,
-  stagger = 0.055,
-  className = "",
-  wordClassName = "",
-}: {
-  text: string;
-  delay?: number;
-  stagger?: number;
-  className?: string;
-  wordClassName?: string;
-}) {
-  const reduce = useReducedMotion();
-  const words = text.split(" ");
-
-  return (
-    <span className={className} aria-hidden={true}>
-      {words.map((word, i) => (
-        <motion.span
-          key={`${word}-${i}`}
-          className={`inline-block ${wordClassName}`.trim()}
-          custom={delay + i * stagger}
-          variants={wordVariants}
-          initial={reduce ? false : "hidden"}
-          animate={reduce ? staticWord : "show"}
-          style={{ whiteSpace: "pre" }}
-        >
-          {word}
-          {i < words.length - 1 ? "\u00A0" : ""}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
 /**
  * Brand stamp eyebrow — Space Mono + per-character vertical roll
  * (21st Text Roll / mask-reveal lane). Distinct from the soft blur on the
- * headline and subcopy.
+ * headline.
  */
 function StampEyebrow({
   text,
@@ -192,32 +155,6 @@ function Headline() {
   );
 }
 
-function FadeBlock({
-  children,
-  delay,
-  className = "",
-}: {
-  children: ReactNode;
-  delay: number;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 12, filter: "blur(8px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={
-        reduce
-          ? { duration: 0 }
-          : { duration: 0.7, delay, ease: EASE }
-      }
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 /**
  * Home brand hero — animals lead; Space Mono stamp eyebrow sits *behind*
  * the scene so giraffe horns overlap the type (layered depth). Then PFQ/PMQ
@@ -253,22 +190,11 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p
-            className="mx-auto mb-7 max-w-[36rem] sm:mb-8"
-            aria-label={SUBCOPY}
-          >
-            <StaggerWords
-              text={SUBCOPY}
-              delay={1.55}
-              stagger={0.028}
-              className="text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[18px]"
-            />
+          <p className="mx-auto mb-7 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-8 sm:text-[18px]">
+            {SUBCOPY}
           </p>
 
-          <FadeBlock
-            delay={2.15}
-            className="hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
-          >
+          <div className="hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <FreeMockExamLink
               className={stampCtaTealFlat}
               from="home"
@@ -279,7 +205,7 @@ export function HomeBrandHero() {
               className={stampCtaSecondaryFlat}
               showArrow={false}
             />
-          </FadeBlock>
+          </div>
         </div>
       </div>
     </section>
