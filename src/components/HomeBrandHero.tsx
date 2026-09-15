@@ -178,34 +178,38 @@ function CurveAccent({ delay = 0 }: { delay?: number }) {
 
 function Headline() {
   const reduce = useReducedMotion();
-  // Word timings — “curve.” is its own accent, not in the word loop.
-  const lead = "PFQ or PMQ. Wherever you are on the";
-  const leadWords = lead.split(" ");
+  const line1 = ["PFQ", "or", "PMQ."];
+  const line2 = ["Wherever", "you", "are", "on", "the"];
   const leadStagger = 0.06;
   const leadStart = 0.55;
-  const curveDelay = leadStart + leadWords.length * leadStagger + 0.08;
+  const curveDelay = leadStart + (line1.length + line2.length) * leadStagger + 0.08;
+
+  const renderWords = (words: string[], indexOffset: number) =>
+    words.map((word, i) => (
+      <motion.span
+        key={`${word}-${indexOffset + i}`}
+        className="inline-block"
+        custom={leadStart + (indexOffset + i) * leadStagger}
+        variants={wordVariants}
+        initial={reduce ? false : "hidden"}
+        animate={reduce ? staticWord : "show"}
+        style={{ whiteSpace: "pre" }}
+      >
+        {word}
+        {"\u00A0"}
+      </motion.span>
+    ));
 
   return (
     <h1
       id="home-brand-hero-title"
-      className="mb-3 max-w-[22ch] text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-4 sm:max-w-none"
+      className="mb-3 text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-4"
       aria-label={HEADLINE}
     >
       <span aria-hidden className="inline">
-        {leadWords.map((word, i) => (
-          <motion.span
-            key={`${word}-${i}`}
-            className="inline-block"
-            custom={leadStart + i * leadStagger}
-            variants={wordVariants}
-            initial={reduce ? false : "hidden"}
-            animate={reduce ? staticWord : "show"}
-            style={{ whiteSpace: "pre" }}
-          >
-            {word}
-            {"\u00A0"}
-          </motion.span>
-        ))}
+        {renderWords(line1, 0)}
+        <br />
+        {renderWords(line2, line1.length)}
         <CurveAccent delay={curveDelay} />
       </span>
     </h1>
