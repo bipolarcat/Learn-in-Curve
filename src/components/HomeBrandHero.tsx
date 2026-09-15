@@ -76,6 +76,60 @@ function StaggerWords({
   );
 }
 
+/**
+ * Brand stamp eyebrow — Space Mono + per-character vertical roll
+ * (21st Text Roll / mask-reveal lane). Distinct from the soft blur on the
+ * headline and subcopy.
+ */
+function StampEyebrow({
+  text,
+  delay = 0.35,
+}: {
+  text: string;
+  delay?: number;
+}) {
+  const reduce = useReducedMotion();
+  const chars = Array.from(text);
+
+  if (reduce) {
+    return (
+      <span className="font-stamp text-[11px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[12px] sm:tracking-[0.16em]">
+        {text}
+      </span>
+    );
+  }
+
+  return (
+    <span
+      aria-hidden
+      className="inline-flex flex-wrap items-center justify-center font-stamp text-[11px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[12px] sm:tracking-[0.16em]"
+      style={{ perspective: 800 }}
+    >
+      {chars.map((char, i) => (
+        <span
+          key={`${char}-${i}`}
+          className="inline-block overflow-hidden align-bottom"
+          style={{ height: "1.15em" }}
+        >
+          <motion.span
+            className="inline-block origin-bottom"
+            style={{ whiteSpace: "pre" }}
+            initial={{ y: "110%", rotateX: -70, opacity: 0.35 }}
+            animate={{ y: "0%", rotateX: 0, opacity: 1 }}
+            transition={{
+              duration: 0.55,
+              delay: delay + i * 0.018,
+              ease: EASE,
+            }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /** “curve.” — 21st BouncingText (GSAP SplitText bounce), then a static period. */
 function CurveAccent() {
   const reduce = useReducedMotion();
@@ -165,8 +219,8 @@ function FadeBlock({
 }
 
 /**
- * Home brand hero — eyebrow above animals, restaged PFQ/PMQ copy, word-stagger
- * blur entrance + 21st BouncingText on “curve”. `HeroAnimalsScene` is untouched.
+ * Home brand hero — animals first, Space Mono stamp eyebrow beneath, then
+ * PFQ/PMQ lockup + 21st BouncingText on “curve”. `HeroAnimalsScene` untouched.
  */
 export function HomeBrandHero() {
   return (
@@ -177,20 +231,15 @@ export function HomeBrandHero() {
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
-          <p className="mb-3 sm:mb-4" aria-label={EYEBROW}>
-            <StaggerWords
-              text={EYEBROW}
-              delay={0.08}
-              stagger={0.04}
-              className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-teal sm:text-[12px] sm:tracking-[0.18em]"
-            />
-          </p>
-
           <div className="w-full">
             <HeroAnimalsScene />
           </div>
 
-          <div className="mt-1 w-full sm:mt-2">
+          <p className="mb-3 mt-3 sm:mb-4 sm:mt-3.5" aria-label={EYEBROW}>
+            <StampEyebrow text={EYEBROW} delay={0.2} />
+          </p>
+
+          <div className="mt-0 w-full sm:mt-0.5">
             <Headline />
           </div>
 
@@ -202,7 +251,7 @@ export function HomeBrandHero() {
               text={SUBCOPY}
               delay={1.55}
               stagger={0.028}
-              className="text-pretty text-[16px] leading-relaxed text-ink/80 sm:text-[18px]"
+              className="text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[18px]"
             />
           </p>
 

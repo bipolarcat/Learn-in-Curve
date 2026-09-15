@@ -79,7 +79,8 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         body: ["var(--font-figtree)", "sans-serif"],
-        stamp: ["var(--font-figtree)", "sans-serif"],
+        /** Space Mono — eyebrows, tags, badges, ticket chrome (BRAND_KIT_v4). */
+        stamp: ["var(--font-space-mono)", "ui-monospace", "monospace"],
       },
       borderRadius: {
         lg: "26px",

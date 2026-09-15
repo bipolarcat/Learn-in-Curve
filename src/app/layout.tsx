@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree } from "next/font/google";
+import { Fraunces, Figtree, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { IntercomProvider } from "@/components/IntercomProvider";
@@ -21,6 +21,13 @@ const figtree = Figtree({
   display: "swap",
 });
 
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Learn in Curve — APM PFQ & PMQ exam revision",
   description:
@@ -35,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${figtree.variable}`}
+      className={`${fraunces.variable} ${figtree.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
     >
       <head>
