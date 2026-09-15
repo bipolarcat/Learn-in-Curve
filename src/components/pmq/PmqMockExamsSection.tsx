@@ -87,6 +87,40 @@ function MockExamConsoleTimer({ summary }: { summary: MockExamSetSummary }) {
   );
 }
 
+export function MockExamRowStatus({
+  status,
+  tone,
+  children,
+}: {
+  status: string;
+  tone: "done" | "open" | "plain";
+  children?: React.ReactNode;
+}) {
+  const referAt = status.endsWith("Refer") ? status.lastIndexOf("Refer") : -1;
+  const body =
+    status === "Passed" ? (
+      <span className={styles.rowStatusPass}>{status}</span>
+    ) : referAt >= 0 ? (
+      <>
+        {status.slice(0, referAt)}
+        <span className={styles.rowStatusRefer}>Refer</span>
+      </>
+    ) : (
+      status
+    );
+
+  return (
+    <span
+      className={`${styles.rowStatus} ${
+        tone === "open" ? styles.rowStatusOpen : ""
+      }`}
+    >
+      {body}
+      {children}
+    </span>
+  );
+}
+
 /**
  * Exam 1 free (LIC-39). Exams 2–3 Pro, exam 4 AI Pro (LIC-40 / LIC-98).
  * Flat console paired with the 5-day plan — PFQ-parity Start / Resume / View result.
@@ -198,18 +232,9 @@ export function PmqMockExamsSection({
                   <div className="min-w-0 flex-1">
                     <p className={styles.rowTitle}>Mock exam {examSet}</p>
                     {state.status ? (
-                      <span
-                        className={`${styles.rowStatus} ${
-                          state.tone === "done"
-                            ? styles.rowStatusDone
-                            : state.tone === "open"
-                              ? styles.rowStatusOpen
-                              : ""
-                        }`}
-                      >
-                        {state.status}
+                      <MockExamRowStatus status={state.status} tone={state.tone}>
                         <MockExamConsoleTimer summary={summary} />
-                      </span>
+                      </MockExamRowStatus>
                     ) : null}
                   </div>
                 </div>

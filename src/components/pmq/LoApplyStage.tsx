@@ -94,11 +94,11 @@ export function LoApplyStage({
           <SectionTitle
             id="lo-apply-misconceptions"
             icon={CircleAlert}
-            subtitle="Spot the trap · open for the right take"
+            subtitle="Open a trap for the right take"
           >
             Common misconceptions
           </SectionTitle>
-          <div className="mt-3 w-full min-w-0 sm:mt-3.5">
+          <div className="mt-2.5 w-full min-w-0">
             <MisconceptionsList items={misconceptions} />
           </div>
         </section>
@@ -117,7 +117,7 @@ export function LoApplyStage({
           >
             Memory aids
           </SectionTitle>
-          <div className="mt-3 w-full min-w-0 sm:mt-3.5">
+          <div className="mt-2.5 w-full min-w-0">
             <MemoryAidsList items={memoryAids} />
           </div>
         </section>

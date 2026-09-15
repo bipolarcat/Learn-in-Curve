@@ -606,27 +606,27 @@
     {
       "type": "cue",
       "acronym": "Hygiene stops the moaning, motivators start the working",
-      "expansion": "Herzberg. Pay and conditions remove dissatisfaction but do not motivate; achievement, recognition, responsibility and the work itself create satisfaction."
+      "expansion": "Herzberg. Pay and conditions remove dissatisfaction. Achievement and recognition motivate."
     },
     {
       "type": "cue",
       "acronym": "X assumes shirking, Y assumes willing",
-      "expansion": "McGregor. Theory X assumes people dislike work and need control; Theory Y assumes they will seek responsibility given the right conditions. Either assumption tends to become self-fulfilling."
+      "expansion": "McGregor. Either assumption tends to become self-fulfilling."
     },
     {
       "type": "cue",
       "acronym": "Instruction for skill, support for nerve",
-      "expansion": "The two dials of situational leadership. How much instruction depends on capability; how much support depends on confidence. Two independent settings, four combinations."
+      "expansion": "Situational leadership's two dials. Capability sets instruction, confidence sets support."
     },
     {
       "type": "cue",
       "acronym": "Person plus task, not person",
-      "expansion": "Situational leadership reads the combination. The same individual needs instructing on an unfamiliar task and trusting on one they have mastered."
+      "expansion": "The same person needs instructing on a new task, trusting on a mastered one."
     },
     {
       "type": "cue",
       "acronym": "Every leader casts a shadow",
-      "expansion": "The behaviour a team adopts because of how the leader acts, including the parts never intended. Self-awareness means knowing what your shadow encourages."
+      "expansion": "The behaviour a team copies from you, including what you never intended."
     }
   ],
   "progress_checkpoint": [

@@ -12,8 +12,13 @@ import {
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import {
   canAccessPfqFullPractice,
+  canAccessPfqQuizSet,
   type PfqTier,
 } from "@/lib/pfq/tiers";
+import {
+  pfqPracticeSetCount,
+  pfqPracticeSetIds,
+} from "@/lib/pfq/quiz-sets";
 import { PFQ_PRACTICE_ENABLED } from "@/lib/pfq/constants";
 import { PFQ_OBJECTIVES, PFQ_OUTCOME_COUNT } from "@/lib/pfq/outcomes";
 import { buildCoverageFromSignals } from "@/lib/pfq/coverage";
@@ -21,6 +26,7 @@ import { upsertCoverageSignals } from "@/lib/pfq/coverage-signals";
 import {
   getPfqFreeSampleQuestionIds,
   PFQ_FREE_SAMPLE_SIZE,
+  PFQ_FREE_SAMPLE_PER_OBJECTIVE,
 } from "@/lib/pfq/free-sample";
 import { asQuestionRow } from "@/lib/pfq/question-row";
 import { pfqOutcomeDisplayTitle } from "@/lib/pfq/outcome-titles";
@@ -65,6 +71,137 @@ async function requirePfqProUser(): Promise<
     return { ok: false, error: "PFQ Pro is required." };
   }
   return { ok: true, userId: access.userId };
+}
+
+export type GetPfqPracticeInventoryResult =
+  | { ok: true; totalSets: number; practiceCount: number }
+  | { ok: false; error: string };
+
+export async function getPfqPracticeInventory(input: {
+  objective: number;
+}): Promise<GetPfqPracticeInventoryResult> {
+  try {
+    const access = await requireSignedInPfqUser();
+    if (!access.ok) return access;
+
+    const objective = Number(input.objective);
+    if (!PFQ_OBJECTIVES.some((o) => o.objective === objective)) {
+      return { ok: false, error: "Unknown learning objective." };
+    }
+
+    const supabase = createServiceClient();
+    const { count, error } = await supabase
+      .from("pfq_questions")
+      .select("id", { count: "exact", head: true })
+      .eq("active", true)
+      .eq("objective", objective)
+      .is("mock_set", null);
+    if (error) throw error;
+
+    const practiceCount = count ?? 0;
+    return {
+      ok: true,
+      practiceCount,
+      totalSets: pfqPracticeSetCount(practiceCount),
+    };
+  } catch (err) {
+    console.error("[pfq] practiceInventory", err);
+    return { ok: false, error: "Couldn’t load practice sets." };
+  }
+}
+
+export type StartPfqPracticeSetResult =
+  | {
+      ok: true;
+      sessionId: string;
+      setNumber: number;
+      questions: PfqPublicQuestion[];
+    }
+  | { ok: false; error: string; code?: "locked" | "not_signed_in" };
+
+export async function startPfqPracticeSet(input: {
+  objective: number;
+  setNumber: number;
+}): Promise<StartPfqPracticeSetResult> {
+  try {
+    const access = await requireSignedInPfqUser();
+    if (!access.ok) {
+      return { ok: false, error: access.error, code: "not_signed_in" };
+    }
+
+    const objective = Number(input.objective);
+    const setNumber = Number(input.setNumber);
+    const meta = PFQ_OBJECTIVES.find((o) => o.objective === objective);
+    if (!meta) return { ok: false, error: "Unknown learning objective." };
+    if (!Number.isInteger(setNumber) || setNumber < 1) {
+      return { ok: false, error: "Unknown set." };
+    }
+    if (!canAccessPfqQuizSet(access.tier, setNumber)) {
+      return { ok: false, error: "PFQ Pro is required.", code: "locked" };
+    }
+
+    const supabase = createServiceClient();
+    const { data: bank, error: bankError } = await supabase
+      .from("pfq_questions")
+      .select("*")
+      .eq("active", true)
+      .eq("objective", objective)
+      .is("mock_set", null);
+    if (bankError) throw bankError;
+
+    const rows = (bank ?? []).map((r) =>
+      asQuestionRow(r as Record<string, unknown>),
+    );
+    const sets = pfqPracticeSetIds(rows, objective);
+    const questionIds = sets[setNumber - 1];
+    if (!questionIds?.length) {
+      return { ok: false, error: "This set isn’t ready yet." };
+    }
+
+    const byId = new Map(rows.map((q) => [q.id, q]));
+    const optionOrders = buildOptionOrdersForAttempt(questionIds);
+
+    const { data: session, error: sessionError } = await supabase
+      .from("pfq_practice_sessions")
+      .insert({
+        user_id: access.userId,
+        objective,
+        question_ids: questionIds,
+      })
+      .select("id")
+      .single();
+    if (sessionError) throw sessionError;
+
+    const answerRows = questionIds.map((question_id) => ({
+      session_id: session.id,
+      question_id,
+      option_order: optionOrders[question_id],
+      selected: null,
+      correct: null,
+      answered_at: null,
+    }));
+    const { error: answersError } = await supabase
+      .from("pfq_practice_answers")
+      .insert(answerRows);
+    if (answersError) throw answersError;
+
+    const questions = questionIds.map((id) => {
+      const q = byId.get(id)!;
+      return toPublicPfqQuestion(q, optionOrders[id]!);
+    });
+
+    assertNoSecretsInPublicPayload({ questions });
+
+    return {
+      ok: true,
+      sessionId: session.id,
+      setNumber,
+      questions,
+    };
+  } catch (err) {
+    console.error("[pfq] startPracticeSet", err);
+    return { ok: false, error: "Couldn’t start this set. Try again." };
+  }
 }
 
 export type StartPfqPracticeResult =
@@ -425,7 +562,7 @@ export async function finishPfqFreeSampleSummary(
     }
 
     const testedCount = seen.size;
-    const untestedCount = Math.max(0, PFQ_OUTCOME_COUNT - PFQ_FREE_SAMPLE_SIZE);
+    const untestedCount = Math.max(0, PFQ_OUTCOME_COUNT - testedCount);
 
     return {
       ok: true,
@@ -434,8 +571,8 @@ export async function finishPfqFreeSampleSummary(
       missed,
       untestedCount,
       proBlurb: {
-        headline: "Unlock the full bank and three mock exams",
-        body: `You sampled ${PFQ_FREE_SAMPLE_SIZE} of ${PFQ_OUTCOME_COUNT} outcomes. Pro unlocks the full practice bank and three timed mock exams so you can finish the syllabus under exam conditions.`,
+        headline: "Unlock extra quiz sets and three mock exams",
+        body: `The free sample is ${PFQ_FREE_SAMPLE_PER_OBJECTIVE} questions from each of the ${PFQ_OBJECTIVES.length} objectives, ${PFQ_FREE_SAMPLE_SIZE} in total, and it touched ${testedCount} of ${PFQ_OUTCOME_COUNT} outcomes. Pro unlocks further quiz sets and three timed mock exams so you can finish the syllabus under exam conditions.`,
       },
     };
   } catch (err) {

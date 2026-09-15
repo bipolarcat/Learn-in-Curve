@@ -65,6 +65,10 @@ decision below are independent of the payment question.
       § retention / marketing lists mentions this lead path before pushing paid
       traffic at the page (same PECR rule as the newsletter waitlist). No new
       third-party processor — Supabase only.
+      **2026-09-14:** three readiness checks (PMQ / PFQ / PMP) share `leads` with
+      required `exam_id`; hub at `/mock-me`. PMP is waitlist/readiness only (no
+      course sale). PMI disclaimer on the PMP child. Still confirm Privacy Policy
+      covers this lead path before paid traffic.
       **2026-08-13:** newsletter form now records `marketing_consent = true` on
       the server (submitting "Join our newsletter" is the consent act). Five
       existing `false` rows were **not** backfilled — those addresses may only

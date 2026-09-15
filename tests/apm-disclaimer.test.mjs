@@ -99,7 +99,7 @@ test("PMQ course overview footer enables the APM disclaimer", async () => {
 test("APM_DISCLAIMER is not duplicated on marketing page bottoms", async () => {
   const [pmq, freeMock] = await Promise.all([
     read("src/app/(site)/pmq/page.tsx"),
-    read("src/app/(site)/free-mock-exam/page.tsx"),
+    read("src/app/(site)/free-mock-exam/apm-pmq/page.tsx"),
   ]);
 
   assert.doesNotMatch(
@@ -110,7 +110,7 @@ test("APM_DISCLAIMER is not duplicated on marketing page bottoms", async () => {
   assert.doesNotMatch(
     freeMock,
     /Not affiliated with, endorsed by, or acting on behalf of APM/,
-    "free-mock-exam must not duplicate the SiteFooter APM disclaimer line",
+    "free-mock-exam/apm-pmq must not duplicate the SiteFooter APM disclaimer line",
   );
 });
 

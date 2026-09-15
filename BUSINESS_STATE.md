@@ -19,6 +19,128 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes at the project root. Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-15** — Restored PFQ Learn to the earlier Lo1CoreContentStudy chrome (stamps / sticky Contents); kept current lesson content via `toPmqCoreBlocks`. Removed Claude's `PfqCoreContentStudy` takeaway/collapse shell.
+- **2026-09-15** — Checkpoint stage aligned on PMQ + PFQ: Complete pill top-right, support line under title, Previous left / Next right outside the card, no centered Continue (`LoCheckpointStage`, `PfqObjectiveLesson`, `LoStudyJourney`).
+- **2026-09-15** — Pathway tab hover/selected use the same rectangular radius (`rounded-sm`) so hover matches the clicked pill (`expandable-tabs`).
+- **2026-09-15** — Course name in site header uses darker grey (`text-ink/75`).
+- **2026-09-15** — Course name in site header only on LO + mock routes (not course overview) (`SiteHeader`).
+- **2026-09-15** — Course header label: taller hairline (1.5px so it survives mobile subpixels), slightly darker/larger type (`SiteHeader`).
+- **2026-09-15** — Site header shows quiet course name after a hairline (e.g. PMQ in 5 Days / PFQ in 2 Days) on `/courses/{slug}/*` (`SiteHeader`).
+- **2026-09-15** — PFQ checkpoint drops the bottom StageContinueButton (in-panel Next only); PMQ keeps the bottom Continue (`StudyJourney.showCheckpointContinueButton`).
+- **2026-09-15** — PFQ checkpoint title/support gap tightened (`PfqObjectiveLesson`).
+- **2026-09-15** — PFQ checkpoint stage title is Checkpoint; support line is recall-confident copy (`PfqObjectiveLesson`).
+- **2026-09-15** — Checkpoint Next when checklist incomplete: muted empty style (no wait cursor), still clickable; toast keeps PMQ copy (`CheckpointGateHint`, `PfqObjectiveLesson`, `StageContinueButton`).
+- **2026-09-15** — Removed Reset checklist from PFQ checkpoint stage (`PfqCheckpointList`). PMQ checklist already had no reset control.
+- **2026-09-15** — PFQ study surfaces unpin the site header (same as PMQ): overview, learn, practice, mock scroll the bar away (`isPfqStudySurface`, `SiteHeader`).
+- **2026-09-15** — Removed duplicate `PFQ_ATP_DISCLAIMER` block from PFQ learn objective pages (`pfq-in-2-days/learn/[objective]/page.tsx`). Disclaimer remains on overview/pricing/footer paths.
+- **2026-09-14** — Three-exam free mock: hub `/mock-me`, children `/free-mock-exam/apm-pmq|apm-pfq|pmp`, 301 from `/free-mock-exam` to the PMQ child (`next.config.ts`). Generalised `FreeMockExamClient` + adapters (`types.ts`, `banks.ts`, `config.ts`); `leads.exam_id` migration; `PMI_DISCLAIMER`; PostHog `exam_id` + `free_mock_lead_captured`. Tests: `free-mock-banks`, `pmi-disclaimer`, `free-mock-redirect`.
+- **2026-09-14** — Reverted About hero restage: back to plain centered title + support on the 48rem rail; removed `AboutHero` blur-fade plate (`about/page.tsx`, `AboutPage.module.css`).
+- **2026-09-14** — About page (hero, story, founder) uses full `max-w-wrap` width to match SiteHeader; dropped the 48rem `--about-rail` (`AboutPage.module.css`).
+- **2026-09-14** — About hero plate is full `max-w-wrap` width (matches SiteHeader), not the narrower 48rem story rail (`AboutPage.module.css`).
+- **2026-09-14** — About hero restaged: paper plate lockup (Mobbin Plain/Supabase centered), orange rule + stamp dot, 21st.dev Blur Fade / word blur on title (`AboutHero`, `AboutPage.module.css`). Copy unchanged.
+- **2026-09-14** — About founder bio drops bold on “learning is now at your fingertips” (`about/page.tsx`, `ABOUT_PAGE_COPY.md`).
+- **2026-09-14** — About founder bio is first-person (fingertips / curiosity / AI-first close); `ABOUT_PAGE_COPY.md` synced (`about/page.tsx`).
+- **2026-09-14** — PMQ FAQ “What is the exam format?” now points at Exam Essentials instead of repeating the paper rules (`PmqFaqSection`).
+- **2026-09-14** — PMQ FAQ “How does it help your career?” answer swapped to the shorter ChPP/skills copy; dropped the unsubstantiated higher-salary line (`PmqFaqSection`).
+- **2026-09-14** — Polish misconceptions audit: trap/right take `15px` (match Apply body); trigger `min-h-11`; spring only height, chevron, highlight opacity (no padding); chevron `ink/55`; marks stroke `paper` (`MisconceptionsList`).
+- **2026-09-14** — Memory-aid tiles keep one orange mnemonic; type stepped down (front 15px, expansion 12px) (`MemoryFlashCard.module.css`).
+- **2026-09-14** — Memory-aid tiles: smaller type; comma steps and short acronyms take brand colours per chunk (orange / teal / olive / rust / maroon) (`MemoryAidsList`, `MemoryFlashCard.module.css`).
+- **2026-09-14** — Polish misconception accordion uses the 21st.dev expandable-tabs spring (`bounce: 0.12`, 0.4s) on height, chevron, highlight and gap (`MisconceptionsList`).
+- **2026-09-14** — Polish open misconception keeps the hairline above the pill, with `py-2.5` so there is a clear gap between the line and the wash (`MisconceptionsList`).
+- **2026-09-14** — Polish open misconception: flatter `rounded-md` wash with `px-1.5` so X/tick stay inside; `py-2` gap and the neighbour hairline dropped so the pill does not sit on the line above (`MisconceptionsList`).
+- **2026-09-14** — Polish misconception copy fills the row: dropped `text-pretty` and side inset; chevron overlays so trap text can use the width (`MisconceptionsList`).
+- **2026-09-14** — Polish open-misconception wash is inset (`px-2.5 py-1`, `rounded-xl`) so the X sits inside the pill, with `my-1.5` so it separates from the row above (`MisconceptionsList`).
+- **2026-09-14** — Polish misconceptions: olive tick mark on the right take (matches the rust X); light wash on the open row; tighter wrong/right gap; touch blur + hover gated to fine pointers so tap highlight does not stick (`MisconceptionsList`).
+- **2026-09-14** — Polish trap mark is a 14px rust disc with a white X, leading the sentence (`MisconceptionsList`).
+- **2026-09-14** — Polish trap X is a 9px rust ×, superscript, so it stays small on mobile (`MisconceptionsList`).
+- **2026-09-14** — Polish misconception traps end with a rust X mark (`MisconceptionsList`).
+- **2026-09-14** — Polish misconceptions are a flat FAQ accordion: trap as the row, Right take on open, one at a time, all closed by default. No nested plates (`MisconceptionsList`, `LoApplyStage`).
+- **2026-09-14** — Polish misconceptions are 2-up contrast tiles: rust Wrong over olive Right, both visible (Vestiaire good/bad pair — no accordion) (`MisconceptionsList`).
+- **2026-09-14** — Pathway tabs spring a shared layoutId pill between stages (21st.dev expandable-tabs; bounce 0.12 / 0.4s). Tab width stays CSS (LIC-106) (`ExpandableTabs`, `LoPageHeader`).
+- **2026-09-14** — Restored Core→Contents shared-element morph: 21st.dev Morphing Popover spring (`bounce: 0.1`, 400ms) + label `layout="position"`; gutter stays `px-3.5 sm:px-8` (`Lo1CoreContentStudy`).
+- **2026-09-14** — Core stamp bar and Contents pill use the same left/right gutter as the lesson (`px-3.5 sm:px-8`) (`Lo1CoreContentStudy`).
+- **2026-09-14** — Core chrome is full card width (padding lives on the lesson body only). Stamp track and Contents pill are flush to the card’s inner right edge (`Lo1CoreContentStudy`).
+- **2026-09-14** — Core stamp bar and Contents pill share the lesson column (`px-3.5 sm:px-8`); dropped layoutId so Framer can no longer shrink the bar short of tables (`Lo1CoreContentStudy`).
+- **2026-09-14** — Compact Contents pill sits on the card’s inner right edge (`pr-0`), not inset by the lesson gutter (`Lo1CoreContentStudy`).
+- **2026-09-14** — Expanded Core stamp bar is flush to the card’s inner right edge (`pr-0`); heading keeps the left gutter (`Lo1CoreContentStudy`).
+- **2026-09-14** — Expanded Core chrome is `block w-full` (not `flex justify-end`), so the 3A/3B stamp bar reaches the card’s right content edge on mobile and desktop (`Lo1CoreContentStudy`).
+- **2026-09-14** — Stamp bar corners are uniform `7px` (chrome no longer clips the bottom with a 16px radius). Core→Contents morph uses 21st.dev Morphing Popover: `MotionConfig` spring bounce 0.05 / 0.4s plus shared label `layoutId` + `layout="position"` (`Lo1CoreContentStudy`, `OutcomeStampSwitcher`).
+- **2026-09-14** — Core→Contents morph is one shared-element tween (layoutId, ease-out-quint) shrinking toward the top-right; sticky strip always `justify-end` so the pill no longer snaps left then slides (`Lo1CoreContentStudy`).
+- **2026-09-14** — Restored Core→Contents `layout="position"` morph (no width stretch) and fixed Contents menu: portal is a body sibling, never inside AnimatePresence (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn Core crashed on localhost: Framer Motion import was dropped when the Contents menu moved to a portal; restored `AnimatePresence` / `motion` (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents dropdown is `position: fixed` to the visual viewport on open, so mobile no longer clips 1A under the browser chrome (`Lo1CoreContentStudy`).
+- **2026-09-14** — Mobile Contents control is a dedicated `inline-flex h-9 rounded-xl` chip (no Framer layout width), same rectangle as desktop (`Lo1CoreContentStudy`).
+- **2026-09-14** — Mobile Contents control is the same top-right `rounded-xl` rectangle as desktop; sticky strip stays full width so the pill cannot stretch (`Lo1CoreContentStudy`).
+- **2026-09-14** — Mobile Contents pill matches desktop: same `h-9` rectangle, `rounded-xl`, 12px type (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents morph is Apple-quiet: layout spring bounce 0.05, fade the label, clip overflow. No letter stagger, squash, or icon spin (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents pill is top-right on mobile too (smaller `h-8`); morph is a juicier layout spring plus 21st.dev letter stagger, icon spin-out, and scale pulse (`Lo1CoreContentStudy`).
+- **2026-09-14** — Core chrome morph uses one layoutId surface (21st.dev Morphing Popover / Family Button): full-width bar on mobile, corner pill from `sm`; label shares `layout="position"` (`Lo1CoreContentStudy`).
+- **2026-09-14** — Reverted Contents-pill morph delay; collapse is back to card-top minus 64px (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents pill morphs only after the outcome heading has left the top of the viewport, not at card-top minus 64px (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents dropdown is opaque paper (no show-through) and lists outcome codes as type, no teal stamps (`Lo1CoreContentStudy`).
+- **2026-09-14** — Contents dropdown is the same width as the pill; stamp rows `h-9`; 21st.dev Morphing Popover spring + origin-top-right blur (`Lo1CoreContentStudy`).
+- **2026-09-14** — Desktop Learn: Core content bar morphs into a sticky top-right cream glass pill on scroll (arrows + outcome codes) (`Lo1CoreContentStudy`).
+- **2026-09-14** — Scrollbar track is a whisper of ink (`/ 0.06`) instead of the sand trough (`globals.css`). Thumb + hover unchanged.
+- **2026-09-14** — FAQ card stays put on open: pin its viewport top (site `scroll-behavior: smooth` was easing a 1px anchor shift), and clip with measured `grid-template-rows` px instead of `0fr`/`1fr` (`FaqAccordion`).
+- **2026-09-14** — FAQ accordion: measure answer height and spring to that pixel value so panels actually open (`FaqAccordion`). The `height: auto` attempt stayed at 0 against the CSS collapse.
+- **2026-09-14** — FAQ accordion: pixel-height Apple spring instead of `0fr`/`1fr` (fixes the card jog on the PMQ Learn overview). `FaqAccordion`.
+- **2026-09-14** — Desktop Learn: outcome stamp and heading sit on one line (`Lo1CoreContentStudy`).
+- **2026-09-14** — Homepage newsletter: drop the form footnote; unsubscribe + privacy sit on the subjects line (`NotifyBand`, `NewsletterSignup` notify).
+- **2026-09-14** — Learn mobile Core sticky header matches the card’s top radius (`rounded-t-2xl`, `Lo1CoreContentStudy`).
+- **2026-09-14** — Reverted exam-booklet Learn; desktop sticky outcome bar + mobile stamp header are back (`Lo1CoreContentStudy`).
+- **2026-09-14** — Reverted the mobile-only outcome dock; Learn mobile sticky header is the full Core content block again (`Lo1CoreContentStudy`).
+- **2026-09-14** — Mock overview status: Refer in rust, Passed in olive, rest stays grey (`MockExamRowStatus`).
+- **2026-09-14** — PMQ mock overview: “Completed · Refer” uses the same light-grey status as PFQ; olive stays on Passed (`mockExamSelectorState`).
+- **2026-09-14** — Learn desktop: horizontal outcome nav in a sticky header-chrome bar; core card is full wrap width (`Lo1CoreContentStudy`).
+- **2026-09-14** — Reverted Learn pathway tab to Lucide BookOpen (`LoPageHeader`).
+- **2026-09-14** — Learn pathway tab: custom desk-lamp mark instead of Lucide BookOpen (`LoPageHeader`).
+- **2026-09-14** — Site-wide scrollbar: 12px paper trough, teal squircle thumb, orange hover, no Windows arrows (`globals.css`; Sly + markdown panes inherit).
+- **2026-09-14** — PFQ review meta outcome is `[Learning Outcome 8.2]` (`PfqResults`).
+- **2026-09-14** — PFQ review meta outcome is `[LO 8.2]` (`PfqResults`).
+- **2026-09-14** — PFQ review “Explanation” heading is orange (`PfqResults`, `reviewNoteTitleAccent`).
+- **2026-09-14** — PFQ review rail cells match the mark plate: olive on correct, orange on miss (`PfqResults`, `railCellPass` / `railCellMiss`).
+- **2026-09-14** — PFQ review mark: orange on 0/partial, olive on full marks; question/answer/explanation use full card width (`PfqResults`, `reviewMarkPass`).
+- **2026-09-14** — PFQ answer-review mark (`0/1`) is a small orange plate in the card’s top-right (`PfqResults`, `reviewMark`).
+- **2026-09-14** — Learn desktop: rail sits in the page gutter beside the card; Core content is full-card prose (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn desktop: restore a hug-width left rail; article takes the remaining card width (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn desktop: jump bar sits under Core content so the article uses the full card width (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn desktop rail: compact list + sliding selection, no timeline dots or duplicate title (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn desktop: drop the subtitle under Core content (`Lo1CoreContentStudy`).
+- **2026-09-14** — Learn desktop: one page scroll instead of a nested core-content pane. Sticky outcome rail kept; custom spine scrollbar removed (`Lo1CoreContentStudy`).
+- **2026-09-13** — PMQ mock: written answer and dropdown blanks no longer get an orange/filled highlight while answering (`answerField`, `InlineDropdownResponseFields` `quiet`).
+- **2026-09-13** — PFQ mock results: tighter gap between verdict and “Pass mark is 36/60” (`resultVerdictStack`).
+- **2026-09-13** — PFQ mock results pass-mark line is “Pass mark is 36/60” (`PfqResults`).
+- **2026-09-13** — PFQ mock results: remove the coverage map (`PfqResults`). Score card, review, and back link stay.
+- **2026-09-13** — PFQ mock results: drop the Tip block from answer review (`PfqResults`). Practice tips unchanged.
+- **2026-09-13** — PFQ mock results match PMQ: quiet score card, Review answers rail + one-question card, Back to course overview (`PfqResults`). Coverage map stays under the card.
+- **2026-09-13** — Ops: reset all three PMQ mock sittings for `sim.samaar@yahoo.in` (`exam_sessions` 1–3 + attempts/flags deleted). PFQ papers 2/3 had no sittings.
+- **2026-09-13** — PFQ overview: remove Format traps card (`PfqOverview`).
+- **2026-09-13** — PFQ Weight callout ends “three quarters of pass mark” (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Weight tab: orange callout for LO4/5/7 27 marks; last row “A second question from any one outcome” (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Weight table note row: LO4/5/7 27-mark line (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Weight tab: LO4/5/7 27-mark line, doubled-outcome row, Total 60 (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Exam essentials: keep Structure and Weight tabs only (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Exam essentials Weight table: drop the Day column (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Exam essentials Weight tab: drop the paper-weight callout (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ Exam essentials Structure tab: six “How the exam works” bullets (`PfqExamGuideSections`).
+- **2026-09-13** — PFQ overview: remove More resources card (`PfqOverview`, `PfqOverviewSections`).
+- **2026-09-13** — PFQ overview FAQs replaced with the six study-route items (`PfqOverviewSections`).
+- **2026-09-13** — PFQ mock question header: “Question N of 60” only — drop “1 mark” (`PfqMockRunner`).
+- **2026-09-13** — PFQ mock rail: drop the “60 questions” label (`PfqMockRunner`).
+- **2026-09-13** — Mock answered rail cells: darker ink fill + heavier type (`MockExamRunner.module.css`).
+- **2026-09-13** — Mock question rail: answered cells use ink fill, not olive, so they do not read as correct (`MockExamRunner.module.css` — PFQ and PMQ).
+- **2026-09-13** — PFQ mock sittings persist: parse mock_set from number or string so resume/timer/header number work; console shows three papers; overview refetches live summaries (`parsePfqMockSet`, `PfqMockConsole`).
+- **2026-09-13** — PFQ mock header/console clock is MM:SS (no hours); 60-question rail uses a compact 15/20 grid at PMQ cell size (`formatPfqExamClock`, `railCompact`).
+- **2026-09-13** — PFQ mock exam matches PMQ sitting rules and chrome: one attempt per paper, clock keeps running after leave, overview row shows In progress + timer chip, start card / question rail / header clock reuse PMQ mock styles (`PfqMockSession`, `PfqMockRunner`, `PfqMockConsole`, `actions.ts`).
+- **2026-09-13** — Day-plan in-progress tab label stays muted ink (not orange) so PFQ matches PMQ (`PmqDayPlan.module.css`).
+- **2026-09-13** — PFQ drill hint copy matches PMQ (`PfqPracticeQuizSection`).
+- **2026-09-13** — PFQ drill play chrome matches PMQ QuizRunner: numbered Q rail, no inner card border, no outcome hint (`PfqPracticeSetPlay`).
+- **2026-09-12** — PFQ drill matches PMQ Practise quiz: sets of 5, Generate button, set 1 free per LO, sets 2+ Pro. Both mock papers Pro-locked (`PfqPracticeQuizSection`, `PfqMockConsole`, `quiz-sets.ts`). Product is two papers, not three.
+- **2026-09-12** — Learn For/Against tables: 50/50 columns (`table-fixed`) so the split is even (`StudyTable`).
+- **2026-09-12** — Learn two-col For/Against tables: first column is body weight, not a row heading (`StudyTable`). Same pattern on LO1 extend and LO9 benefits.
+- **2026-09-12** — Learn section break: 32px before each ## after the first (`CoreContentBlock`). `first:mt-0` on the heading had collapsed Insights into the next title.
+- **2026-09-12** — Learn recall apps sit after the ## text (not far-right) (`CoreContentBlock`, `StudyTable`).
+- **2026-09-12** — Learn recall apps: heading row is the only owner (tables no longer park icons on the grid). All 231 v2 activities match a `##` (`CoreContentBlock`, `StudyTable`).
 - **2026-09-12** — Learn recall apps: list-only sections hoist Pair up / Lineup / Group up onto the ## heading row (no stray icon after Insights) (`CoreContentBlock`, `StudyTable`).
 - **2026-09-12** — Auth sign-in: quiet “Last used” pill on Google or email button (`AuthForm`, `auth-hints` last-method key).
 - **2026-09-12** — PFQ↔PMQ remaining parity Phase 1–3: overview stack (day-plan subtitle + Continue · LO N, quiet mock console, tabbed Exam essentials, Trap teaser, further reading, FAQs); ATP disclaimer on learn overview via `SiteFooter`; pathway Orient=`LoOrientStage`, Learn=`Lo1CoreContentStudy`, Polish/Lock-in labels + Lock-in chrome; quiet runner card chrome (`PfqOverview*`, `PfqObjectiveLesson`, `PfqMockConsole`, `CoursesSiteFooter`).

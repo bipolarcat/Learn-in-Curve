@@ -39,14 +39,12 @@ const FAQ_ITEMS = [
     question: "How does it help your career?",
     answer: (
       <p>
-        Holding a PMQ signals to employers that you have a comprehensive,
-        standardised understanding of project management. It serves as a stepping
-        stone toward becoming a Chartered Project Professional (ChPP) – the
-        industry&apos;s highest standard. Qualified project managers typically
-        command higher salaries, and the certification is respected across
-        sectors globally. You gain a toolkit of technical, commercial, and
-        people-management skills – including risk, resource, and stakeholder
-        management – that apply immediately to real-world projects.
+        PMQ demonstrates to employers that you have a comprehensive
+        understanding of project management. It provides a strong foundation
+        towards becoming a Chartered Project Professional (ChPP), the
+        profession&apos;s highest standard. The qualification is respected
+        across sectors globally and equips you with practical skills in risk,
+        resource, stakeholder, commercial and people management.
       </p>
     ),
   },
@@ -54,13 +52,8 @@ const FAQ_ITEMS = [
     question: "What is the exam format?",
     answer: (
       <p>
-        The exam lasts 2.5 hours and is split into two parts with an optional
-        30-minute break. You will encounter four question types: multiple
-        response (selecting correct combinations), select from a list (filling
-        in missing words), short response (a word, phrase, or sentence), and
-        long response (written explanations of project scenarios). The exam is
-        conducted online via remote proctoring – you can sit it from home or a
-        location of your choice.
+        The exam format is explained in detail in the Exam Essentials section
+        above.
       </p>
     ),
   },

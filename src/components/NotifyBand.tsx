@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import {
   motion,
   useMotionValueEvent,
@@ -50,9 +51,17 @@ export function NotifyBand() {
         </div>
       </div>
 
-      <p className="border-t border-black/[0.08] pt-2.5 text-[12px] leading-snug text-ink/65 sm:pt-3 sm:text-[13px] lg:whitespace-nowrap dark:border-white/[0.12]">
+      <p className="border-t border-black/[0.08] pt-2.5 text-[12px] leading-snug text-ink/65 sm:pt-3 sm:text-[13px] dark:border-white/[0.12]">
         Learn in <span className="font-semibold text-orange">Curve</span> is
-        built around two subjects: Project management and AI.
+        built around two subjects: Project management and AI. Unsubscribe any
+        time.{" "}
+        <Link
+          href="/privacy"
+          className="underline decoration-ink/25 underline-offset-2 hover:text-ink"
+        >
+          Privacy notice
+        </Link>
+        .
       </p>
     </div>
   );

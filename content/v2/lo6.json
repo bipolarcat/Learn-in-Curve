@@ -564,27 +564,27 @@
     {
       "type": "cue",
       "acronym": "Reviews look in, assurance looks on",
-      "expansion": "Reviews are internal to the change initiative. Assurance is independent of it. The one distinction LO6 and LO7 both turn on."
+      "expansion": "Reviews are internal to the initiative. Assurance is independent of it."
     },
     {
       "type": "cue",
       "acronym": "Back then forward",
-      "expansion": "Every decision gate asks both. Backward: did it achieve what it should? Forward: is the business case still viable for acceptable cost and risk?"
+      "expansion": "Every gate asks both: did it achieve, and is it still viable."
     },
     {
       "type": "cue",
       "acronym": "Plan, budget, scope, quality",
-      "expansion": "The four things deviations are recorded against, judged by tolerances set in the master plan and business case."
+      "expansion": "The four things deviations are recorded against, judged by set tolerances."
     },
     {
       "type": "cue",
       "acronym": "Deviation, reason, response",
-      "expansion": "The three parts of a useful review finding. The response is where the value is; a deviation without one is only a number."
+      "expansion": "A finding without a response is only a number."
     },
     {
       "type": "cue",
       "acronym": "Collect, store, curate, share, archive, destroy",
-      "expansion": "The six stages of information management. Destruction is a planned stage subject to statutory requirements, not an oversight."
+      "expansion": "Six stages. Destruction is a planned stage, not an oversight."
     }
   ],
   "progress_checkpoint": [

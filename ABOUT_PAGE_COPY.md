@@ -45,11 +45,15 @@ We don't chase hype. We focus on building tools that genuinely help people learn
 
 ## Founder
 
-**Lead (bold):** Learn in Curve was founded by Sim Samaar Shened, a project management professional who experienced first-hand how expensive, time-consuming, and inaccessible professional learning can be.
+**Lead:** I founded Learn in Curve after experiencing first-hand how expensive, time-consuming, and inaccessible professional learning can be.
 
-While managing complex projects and working towards industry certifications, Sim recognised an opportunity to use AI to transform how professionals learn by making study more personalised, practical, and genuinely effective.
+While managing complex projects and working towards industry certifications, I saw an opportunity to use AI to make learning more personalised, practical, and genuinely effective.
 
-What began as a tool to solve his own challenges has evolved into Learn in Curve: an AI-first learning platform built to help professionals master new skills, earn certifications, and accelerate their careers.
+For me, the biggest benefit of AI is simple: learning is now at your fingertips. You no longer need to search through endless pages or watch a two-hour YouTube video just to understand one small topic. You can ask a question, explore an idea, and get to the answer in minutes. The speed at which you can learn is what makes AI so powerful.
+
+I believe curiosity is all you really need. If you are curious and willing to keep learning, AI gives you the ability to learn faster than ever before. And in a world where the ability to learn quickly can set you apart, that is incredibly powerful.
+
+What started as a tool to solve my own challenges has grown into Learn in Curve, an AI-first learning platform built to help professionals master new skills, earn certifications, and accelerate their careers.
 
 Built by one founder. Driven by one belief: exceptional learning should be accessible to everyone.
 

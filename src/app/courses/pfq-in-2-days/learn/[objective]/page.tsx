@@ -11,7 +11,8 @@ import { getPfqLesson } from "@/lib/pfq/content";
 import { pfqSectionId } from "@/lib/pfq/section-ids";
 import { pfqObjectiveDisplayTitle } from "@/lib/pfq/outcome-titles";
 import { PfqObjectiveLessonView } from "@/components/pfq/PfqObjectiveLesson";
-import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
+import { getPfqTier } from "@/lib/pfq/entitlement";
+import { getPfqPracticeInventory } from "@/lib/pfq/practice-actions";
 import {
   getPfqReachedCountFromProgress,
   getPfqReachedStageIds,
@@ -117,6 +118,11 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     reachedUnits * PFQ_PROGRESS_UNIT_PERCENT,
   );
 
+  const [tier, inventory] = await Promise.all([
+    getPfqTier(supabase, user.id),
+    getPfqPracticeInventory({ objective }),
+  ]);
+
   return (
     <div className="min-w-0">
       <PfqObjectiveLessonView
@@ -125,10 +131,9 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
         completed={completed}
         dbReachedStageIds={dbReachedStageIds}
         completionPercent={completionPercent}
+        userTier={tier}
+        practiceTotalSets={inventory.ok ? inventory.totalSets : 0}
       />
-      <p className="mx-auto mt-4 max-w-wrap px-3 pb-10 font-body text-[12px] leading-relaxed text-ink/55 sm:px-5">
-        {PFQ_ATP_DISCLAIMER}
-      </p>
     </div>
   );
 }

@@ -1,0 +1,1250 @@
+[
+ {
+  "id": "PFQP-1-1-6",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "The definition of a project rests on two characteristics that separate it from every other kind of organisational work. Which pair are they?",
+  "items": null,
+  "options": {
+   "a": "Repeatable and controlled",
+   "b": "Funded and resourced",
+   "c": "Complex and strategic",
+   "d": "Unique and transient"
+  },
+  "answer": "d",
+  "explanation": "Unique means the work is not a straight repeat; transient means it has a defined beginning and end. Funded and resourced tempts because a project has both, but so does a payroll department, so neither separates them.",
+  "tip": "When two options both look defensible, ask which one business as usual would fail. That is the discriminator the examiner wants.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-1-7",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A council collects refuse on a fixed route every week, using a permanent crew and an annual budget agreed by its committee. Applying the definition of a project, why is this not one?",
+  "items": null,
+  "options": {
+   "a": "It has no dedicated budget",
+   "b": "It has no point at which it finishes",
+   "c": "It has no stated objectives",
+   "d": "It has no assigned team"
+  },
+  "answer": "b",
+  "explanation": "Transience is missing: the service is expected to continue indefinitely. The budget option tempts because candidates associate budgets with projects, but the stem states the collection has one, and business as usual routinely does.",
+  "tip": "Read the stem for facts that already kill an option. Here the budget and the crew are given, so any option denying them is dead.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-1-8",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A pharmaceutical firm is preparing its fifteenth clinical trial using a familiar protocol template, but with a new compound, a new patient cohort and a new site. Under the definition, is this a project?",
+  "items": null,
+  "options": {
+   "a": "No, because the protocol template has been used before",
+   "b": "No, because running trials is a routine part of the firm's operations",
+   "c": "Yes, because this endeavour is not a straight repeat and it will end",
+   "d": "Yes, because it is technically complex and carries significant risk"
+  },
+  "answer": "c",
+  "explanation": "Uniqueness does not require novelty, only that the work cannot be repeated without thinking. The template option tempts by treating reuse as proof of repetition, but the compound, cohort and site all differ.",
+  "tip": "Uniqueness is judged on this endeavour in this context, never on whether anyone anywhere has done something similar before.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-1-9",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "The definition describes a project as undertaken to bring about change. What does that clause contribute?",
+  "items": null,
+  "options": {
+   "a": "It requires the change to be expressed in financial terms",
+   "b": "It requires the change to occur outside the organisation",
+   "c": "It confirms that change arising by accident still counts",
+   "d": "It states the purpose: moving the organisation from one state to another"
+  },
+  "answer": "d",
+  "explanation": "The clause supplies the project's purpose, moving the organisation from one state to another, rather than any measurement rule. The accidental change option tempts because change did occur, but the definition also demands planned objectives, so unintended change never qualifies.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-1-10",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following are stated in, or required by, the definition of a project?",
+  "items": [
+   "It is transient",
+   "It is unique",
+   "It is undertaken to bring about change",
+   "It is repeated to a standard specification"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 2 and 3",
+   "c": "1, 3 and 4",
+   "d": "2, 3 and 4"
+  },
+  "answer": "b",
+  "explanation": "Transience, uniqueness and intended change all sit in the definition. Repetition to a standard specification describes business as usual and is the intruder, tempting because many projects do follow standard methods.",
+  "tip": "In combination questions, find the single item you can reject outright, then eliminate every option containing it.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-1-11",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are true of a project as defined by APM. Which one is NOT true?",
+  "items": null,
+  "options": {
+   "a": "It has a defined beginning and a defined end",
+   "b": "It achieves objectives that were planned in advance",
+   "c": "It produces an output that can be reproduced without further thought",
+   "d": "It exists to bring about change"
+  },
+  "answer": "c",
+  "explanation": "Reproducibility without thought is the opposite of uniqueness and describes operational work. It tempts because projects do produce repeatable assets, but the endeavour that produced them is not itself repeatable.",
+  "tip": "On inverted stems, tick the three you can justify from the definition first. The one left unticked is your answer.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-1-12",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A catering firm is delivering a client's annual awards dinner. It has run the dinner for six years, but this year the venue, menu and guest numbers all differ. Which feature most strongly supports calling it a project?",
+  "items": null,
+  "options": {
+   "a": "The firm has delivered the event before",
+   "b": "The event is staffed by a permanent catering team",
+   "c": "The client is an existing account",
+   "d": "The work has a fixed date after which it is complete"
+  },
+  "answer": "d",
+  "explanation": "Transience is the strongest support: the dinner happens, then the work is over. The permanent team tempts because staffing feels project-like, but a permanent function points towards business as usual rather than away from it.",
+  "tip": "Prior delivery of something similar never rules a project out. Ask instead whether this instance has an end point.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-1-13",
+  "learning_outcome": "1.1",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly describes what 'transient' and 'unique' each contribute to the definition of a project?",
+  "items": null,
+  "options": {
+   "a": "Transient fixes the delivery deadline; unique fixes that the objectives are unusual",
+   "b": "Transient fixes that the team is temporary; unique fixes that no organisation has attempted it before",
+   "c": "Transient fixes the budget period; unique fixes that the output uses novel technology",
+   "d": "Transient fixes that the work ends; unique fixes that it cannot simply be repeated from last time"
+  },
+  "answer": "d",
+  "explanation": "Transience is about the endeavour ending, uniqueness about it not being a straight repeat. The temporary team option tempts because teams do disband, but that is a consequence of transience rather than its meaning.",
+  "tip": "Distractors often swap a definition for one of its symptoms. The symptom is true but it is not what the word means.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-6",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "In the comparison between projects and business as usual, where is risk typically concentrated in each?",
+  "items": null,
+  "options": {
+   "a": "In cost overrun for projects and in staff turnover for business as usual",
+   "b": "In stakeholder resistance for projects and in regulation for business as usual",
+   "c": "In doing something new for projects and in service continuity for business as usual",
+   "d": "In scope change for projects and in demand growth for business as usual"
+  },
+  "answer": "c",
+  "explanation": "Projects carry the risk of novelty; operations carry the risk of the service stopping. Cost overrun tempts because it is the failure candidates associate with projects, but it is one symptom rather than where risk concentrates.",
+  "tip": "Comparison questions reward the general principle over the vivid example. Pick the option that would hold for any project.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-7",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A new finance system has gone live, the project team has been disbanded, and the finance department now runs the monthly close on it. Which statement describes what has happened?",
+  "items": null,
+  "options": {
+   "a": "The project has switched from a linear to an iterative approach",
+   "b": "The project has entered its benefits realisation phase",
+   "c": "The project has been absorbed into a programme",
+   "d": "The output has been handed over to business as usual at transition"
+  },
+  "answer": "d",
+  "explanation": "Handover plus dissolution of the temporary structure is transition. Benefits realisation tempts because value follows use, but it is a phase only in an extended life cycle and nothing here says benefits are being measured.",
+  "tip": "Handover of an output to an operating function is the single relationship between projects and business as usual. Name it transition.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-2-8",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which of the following is true of business as usual but not of a project?",
+  "items": null,
+  "options": {
+   "a": "It operates within an agreed budget",
+   "b": "It has identifiable stakeholders",
+   "c": "It produces outputs",
+   "d": "It is expected to continue indefinitely"
+  },
+  "answer": "d",
+  "explanation": "Budgets, stakeholders and outputs belong to both, which is why three options fail. Only the absence of a planned end belongs to business as usual alone, and continuity is exactly what a project lacks.",
+  "tip": "Three shared attributes and one genuine difference is a common option pattern. The odd one out is usually about time.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-9",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "An operations director wants the weekly payroll run placed under formal change control and a governance board, as the company's new depot build is. Why is that inappropriate?",
+  "items": null,
+  "options": {
+   "a": "Payroll has no stakeholders who could be consulted",
+   "b": "Payroll sustains current operations rather than delivering change, so project controls do not fit",
+   "c": "Payroll has no budget against which a change could be assessed",
+   "d": "Payroll produces no output that could be changed"
+  },
+  "answer": "b",
+  "explanation": "The difference in purpose, sustaining rather than changing, is what makes project controls inappropriate. The no-budget option tempts because it sounds like a practical obstacle, but a payroll function certainly has a budget.",
+  "tip": "Any option claiming business as usual has no budget, stakeholders, objectives or outputs is false. Rule it out on sight.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-10",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following are found in both projects and business as usual?",
+  "items": [
+   "An agreed budget",
+   "Identifiable stakeholders",
+   "Stated objectives",
+   "A planned end date"
+  ],
+  "options": {
+   "a": "2, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "Budgets, stakeholders and objectives are shared. The planned end date is the intruder and belongs to projects only, tempting because it feels like the most obviously project-like item in the list.",
+  "tip": "When asked what two things share, the item that defines one of them is always the intruder.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-11",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the statements below are true differences between a project and business as usual. Which one is false?",
+  "items": null,
+  "options": {
+   "a": "A project has a defined end; business as usual has none planned",
+   "b": "A project delivers change; business as usual sustains current operations",
+   "c": "A project team disbands at closure; a business as usual function is permanent",
+   "d": "A project has measurable objectives; business as usual has none"
+  },
+  "answer": "d",
+  "explanation": "Operational functions have objectives, often tightly measured service levels. The statement tempts because objectives feel like project language, but denying them to business as usual is one of the classic false contrasts.",
+  "tip": "Beware differences invented by taking away something ordinary. Real differences here are about time, change and permanence.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-2-12",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A hospital forms a temporary team to introduce a new patient booking system. Once live, booking desk staff will operate it every day. How do the two pieces of work relate?",
+  "items": null,
+  "options": {
+   "a": "The booking desk becomes a sub-project of the system project",
+   "b": "The project delivers the output and business as usual then operates it",
+   "c": "The two run in parallel indefinitely, which makes them a programme",
+   "d": "Business as usual defines the scope the project must deliver"
+  },
+  "answer": "b",
+  "explanation": "The relationship runs one way: projects hand outputs to operations. The programme option tempts because two connected activities are involved, but a programme coordinates related projects, not a project and the function that receives it.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-2-13",
+  "learning_outcome": "1.2",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A candidate is unsure whether an activity described in an exam question is a project or business as usual. Which single question resolves it most reliably?",
+  "items": null,
+  "options": {
+   "a": "Does the work have a dedicated budget?",
+   "b": "Does the work have its own team?",
+   "c": "Is there a point at which the work finishes?",
+   "d": "Are the work's objectives documented?"
+  },
+  "answer": "c",
+  "explanation": "Only transience separates the two reliably, so asking when the work finishes settles it. The dedicated budget question tempts because separately funded work feels project-like, but operational services are funded separately all the time.",
+  "tip": "Learn one test and use it every time: when does this finish? If the honest answer is never, it is business as usual.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-3-6",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Project management is defined as the application of five things to achieve specific project objectives. Which list is correct?",
+  "items": null,
+  "options": {
+   "a": "Processes, methods, tools, techniques and templates",
+   "b": "Processes, methods, knowledge, skills and experience",
+   "c": "Planning, monitoring, controlling, reporting and closing",
+   "d": "Governance, assurance, sponsorship, delivery and review"
+  },
+  "answer": "b",
+  "explanation": "The definition names processes, methods, knowledge, skills and experience. The tools and templates list tempts because it shares its first two words and describes things project managers genuinely use, but it drops the human contribution entirely.",
+  "tip": "Check the tail of a list as carefully as the head. Distractors are frequently built by keeping the opening words intact.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-3-7",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A company buys a scheduling package and announces that it now has project management in place. Why is that claim wrong?",
+  "items": null,
+  "options": {
+   "a": "The package would need configuring before the claim held",
+   "b": "Project management requires a formally certified project manager",
+   "c": "The package cannot by itself produce a project management plan",
+   "d": "Software supports the practice; the definition describes applying processes, methods, knowledge, skills and experience"
+  },
+  "answer": "d",
+  "explanation": "Project management is a practice, not a tool. The certified manager option tempts because qualifications feel like the missing ingredient, but the definition never mentions a job title or a certificate.",
+  "tip": "Software, governance and job titles are the three things project management is repeatedly mistaken for. Reject all three.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-3-8",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A board sets the framework of authority and decision rights within which a project must operate. What is being described?",
+  "items": null,
+  "options": {
+   "a": "Assurance of the project management plan",
+   "b": "Project management, in its planning form",
+   "c": "Portfolio management, applied to a single project",
+   "d": "Governance, which project management operates inside"
+  },
+  "answer": "d",
+  "explanation": "Setting authority and decision rights is governance, and project management operates within that frame. Portfolio management tempts because boards also select and prioritise investment, but nothing here concerns choosing between competing pieces of work.",
+  "tip": "Governance sets the frame; project management works inside it. Keep the two apart and a whole family of distractors falls away.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-3-9",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "Two project managers follow identical documented processes, but one consistently achieves better outcomes because of how she reads stakeholders and judges when to escalate. Which part of the definition accounts for the difference?",
+  "items": null,
+  "options": {
+   "a": "Processes",
+   "b": "Methods",
+   "c": "Knowledge, skills and experience",
+   "d": "Specific project objectives"
+  },
+  "answer": "c",
+  "explanation": "The definition deliberately includes the human contribution, which is what separates the two managers here. Methods tempts because judgement feels like technique, but the stem states both follow the same documented approach.",
+  "tip": "Candidates drop the last two ingredients under time pressure. Recite all five: processes, methods, knowledge, skills, experience.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-3-10",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following statements about project management are correct?",
+  "items": [
+   "It is the application of processes and methods",
+   "It draws on knowledge, skills and experience",
+   "It is directed at achieving specific project objectives",
+   "It guarantees delivery within the original budget"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 3 and 4",
+   "c": "2, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "The first three restate the definition. The guarantee is the intruder, tempting because delivering to budget is what organisations want, but the practice manages towards objectives rather than assuring them.",
+  "tip": "Guarantee language, ensures, removes, delivers without fail, is almost always the wrong answer in this exam.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-3-11",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are consistent with the definition of project management. Which one is NOT?",
+  "items": null,
+  "options": {
+   "a": "It is a practice rather than a job title",
+   "b": "It is applied to achieve specific project objectives",
+   "c": "It combines documented process with individual judgement",
+   "d": "It removes the risk that the project will fail"
+  },
+  "answer": "d",
+  "explanation": "Nothing in the definition removes risk; it improves the odds of meeting objectives. The statement tempts because reducing failure is genuinely why organisations invest in the practice, but reduce and remove are not the same claim.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-3-12",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor asks whether appointing an experienced project manager will ensure the project finishes on time. What is the correct response, based on the definition?",
+  "items": null,
+  "options": {
+   "a": "Yes, once the project management plan has been approved",
+   "b": "Yes, because achieving objectives is the stated result in the definition",
+   "c": "No, because the practice is applied to achieve objectives, not to guarantee them",
+   "d": "No, because time is controlled by governance rather than by project management"
+  },
+  "answer": "c",
+  "explanation": "Application of the practice pursues objectives; it does not assure them. The second option tempts because the definition does mention achieving objectives, but achieving is the aim of the application, not a promised outcome.",
+  "tip": "When an option quotes the syllabus accurately but converts an aim into a promise, the accuracy is the bait.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-3-13",
+  "learning_outcome": "1.3",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly separates project management from governance?",
+  "items": null,
+  "options": {
+   "a": "Governance applies processes and methods; project management sets the authority framework",
+   "b": "Project management applies processes, methods, knowledge, skills and experience; governance sets the authority framework it operates inside",
+   "c": "They are the same practice described at two organisational levels",
+   "d": "Governance is project management carried out by the sponsor"
+  },
+  "answer": "b",
+  "explanation": "The two roles are distinct and the option states each correctly. The reversed pairing tempts because it uses exactly the right vocabulary, so a candidate skimming for familiar words can pick it without noticing the swap.",
+  "tip": "Reversed pairs read as familiar because every word is right. Slow down and check which term owns which activity.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-4-6",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "The purpose of project management has two halves. The first is to achieve project objectives within agreed constraints. What is the second?",
+  "items": null,
+  "options": {
+   "a": "To maintain full utilisation of the organisation's resources",
+   "b": "To remove uncertainty from the delivery of the work",
+   "c": "To keep the project's stakeholders satisfied throughout",
+   "d": "To deliver beneficial change"
+  },
+  "answer": "d",
+  "explanation": "Beneficial change is the second half and the one candidates omit. Keeping stakeholders satisfied tempts because it is genuinely important, but satisfaction is a means of achieving the purpose rather than the purpose itself.",
+  "tip": "Learn the purpose as two clauses. If your recall stops at constraints, you will miss the half that carries the mark.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-4-7",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A depot refurbishment finished on schedule and forty thousand pounds under budget, but throughput at the depot is unchanged a year later. What does this say about the purpose of project management?",
+  "items": null,
+  "options": {
+   "a": "The purpose was achieved, because the agreed constraints were held",
+   "b": "The purpose was achieved, because the output was delivered as specified",
+   "c": "The purpose was not fully achieved, because no beneficial change resulted",
+   "d": "The purpose no longer applies once the project has closed"
+  },
+  "answer": "c",
+  "explanation": "Holding constraints satisfies only the first half of the purpose. The constraints option tempts strongly because time and cost performance is what gets celebrated, but an organisation no better off has gained no beneficial change.",
+  "tip": "On time and on budget is never sufficient evidence in this exam. Ask what changed for the organisation afterwards.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-4-8",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Training is delivered to three hundred staff and average call handling time subsequently falls by eighteen per cent. Which item is the output and which is the benefit?",
+  "items": null,
+  "options": {
+   "a": "The reduction in handling time is the output; the training is the benefit",
+   "b": "The delivered training is the output; the reduction in handling time is the benefit",
+   "c": "Both are outputs, because both were planned in advance",
+   "d": "Both are benefits, because both were measured"
+  },
+  "answer": "b",
+  "explanation": "The project delivers training; the improvement that follows once people use it is the benefit. The reversed pairing tempts because the measured figure looks like the concrete deliverable, but measurement does not make something an output.",
+  "tip": "Outputs are what the project hands over. Benefits arrive later, only when somebody uses the output.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-4-9",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager states that once the new warehouse is handed over, whether stock accuracy improves is not something she answers for. Under the split the syllabus draws, is she right?",
+  "items": null,
+  "options": {
+   "a": "No, because accountability for benefits always rests with the portfolio",
+   "b": "No, the project manager is accountable for benefits until the project formally closes",
+   "c": "Yes, because benefits sit entirely with business as usual managers",
+   "d": "Yes, the project manager is accountable for outputs and the sponsor for benefits"
+  },
+  "answer": "d",
+  "explanation": "The syllabus splits accountability cleanly between output and benefit. Placing benefits with business as usual tempts because operational staff do the using, but named accountability sits with the sponsor.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-4-10",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following make up the purpose of project management?",
+  "items": [
+   "Achieving the project's objectives",
+   "Working within the agreed constraints",
+   "Delivering beneficial change",
+   "Removing uncertainty from the project"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 3 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Objectives, constraints and beneficial change are the three elements. Removing uncertainty is the intruder, tempting because managing uncertainty really is part of the job, but uncertainty is managed rather than removed.",
+  "tip": "Watch for an absolute verb slipped into an otherwise correct item. Removed, eliminated and guaranteed are the usual giveaways.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-4-11",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are consistent with the purpose of project management. Which one is NOT?",
+  "items": null,
+  "options": {
+   "a": "Objectives are achieved within the constraints that were agreed",
+   "b": "All available resources are kept fully utilised throughout the project",
+   "c": "The change delivered leaves the organisation better off",
+   "d": "Time, cost, quality and scope are managed against what was agreed"
+  },
+  "answer": "b",
+  "explanation": "Full utilisation is a resource management aim borrowed from elsewhere in the syllabus, not the purpose of project management. It tempts because efficiency sounds like good practice, and idle resources feel like a failure.",
+  "tip": "Options that are sensible management advice but come from a different syllabus area are a favourite distractor source.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-4-12",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor asks the project manager to summarise in one sentence what the project is ultimately for. Which answer is consistent with the syllabus?",
+  "items": null,
+  "options": {
+   "a": "To remove the uncertainty surrounding the intended outcome",
+   "b": "To satisfy the stakeholders who funded the work",
+   "c": "To use the allocated budget and resources efficiently",
+   "d": "To deliver beneficial change by achieving the objectives within the agreed constraints"
+  },
+  "answer": "d",
+  "explanation": "Only this option carries both halves of the purpose. Satisfying funders tempts because sponsors do judge success, but stakeholder satisfaction is a means towards beneficial change rather than the reason the project exists.",
+  "tip": "The correct statement of purpose almost always contains two ideas at once. A single-clause option is usually incomplete.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-4-13",
+  "learning_outcome": "1.4",
+  "objective": 1,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement about constraints and benefits is correct?",
+  "items": null,
+  "options": {
+   "a": "Holding the agreed constraints is by itself sufficient for the purpose to be met",
+   "b": "Benefits are one of the agreed constraints placed on a project",
+   "c": "Constraints are set by the sponsor and benefits are set by the project manager",
+   "d": "Constraints bound how objectives are achieved; benefits are the improvement that follows from using the outputs"
+  },
+  "answer": "d",
+  "explanation": "Constraints bound the delivery, benefits describe the improvement afterwards. Treating benefits as a constraint tempts because both are agreed in advance, but a constraint limits the work whereas a benefit results from it.",
+  "tip": "Time, cost, quality and scope are the constraints. Anything that arrives after use is a benefit, not a boundary.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-5-5",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A programme includes business as usual activity alongside its projects. Which statement explains why?",
+  "items": null,
+  "options": {
+   "a": "Programmes replace business as usual for the duration of the work",
+   "b": "Operational budgets are used to fund the programme's projects",
+   "c": "The outcomes and benefits sought require operational change as well as project outputs",
+   "d": "Including operations is what makes a programme strategic rather than tactical"
+  },
+  "answer": "c",
+  "explanation": "A programme coordinates related projects and operational activity because the benefits need both. The strategic option tempts because programmes do serve strategy, but strategic alignment is what defines a portfolio.",
+  "tip": "If an option reaches for the word strategic, check whether the question is actually about portfolios.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 5,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-5-6",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "An insurer is running a claims system replacement, a claims process redesign and a retraining exercise. All three must land together for claims cost to fall. What level of management does this call for?",
+  "items": null,
+  "options": {
+   "a": "Portfolio management, because the work is strategically significant",
+   "b": "Project management, because each piece has its own objectives",
+   "c": "Programme management, because related work is coordinated to deliver benefits none would produce alone",
+   "d": "Business as usual, because claims handling is an ongoing service"
+  },
+  "answer": "c",
+  "explanation": "The components are related and the benefit depends on coordinating them, which is the programme test. Portfolio tempts because the work matters strategically, but portfolios decide what to fund rather than coordinate connected delivery.",
+  "tip": "Ask whether the components depend on each other. Dependence points to programme; independence points to portfolio.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-5-7",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A finance committee meets to decide which of eleven proposed investments to fund next year and in what order. The eleven have no connection to one another. What is the committee doing?",
+  "items": null,
+  "options": {
+   "a": "Programme management",
+   "b": "Portfolio management",
+   "c": "Change control",
+   "d": "Project management"
+  },
+  "answer": "b",
+  "explanation": "Selection and prioritisation of unrelated investments against strategy is portfolio management. Programme tempts because a group of work is being handled together, but programme components must be related and these explicitly are not.",
+  "tip": "Grouping alone never makes a programme. Check whether the items are connected to each other before choosing.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-5-8",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement about the relationship between projects, programmes and portfolios is correct?",
+  "items": null,
+  "options": {
+   "a": "Every project must sit inside a programme before it can enter a portfolio",
+   "b": "A portfolio may contain programmes but not projects directly",
+   "c": "A programme is a project that exceeds a defined size threshold",
+   "d": "A project can sit directly within a portfolio with no programme above it"
+  },
+  "answer": "d",
+  "explanation": "The hierarchy is real but not rigid, so a project may sit straight in a portfolio. The compulsory programme layer tempts because the three levels are usually drawn stacked, and a diagram is easily mistaken for a rule.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-5-9",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following describe portfolio management?",
+  "items": [
+   "Selecting which investments the organisation should make",
+   "Prioritising work against strategic objectives",
+   "Controlling the organisation's projects and programmes",
+   "Coordinating related projects to deliver shared benefits"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "2, 3 and 4",
+   "c": "1, 2 and 3",
+   "d": "1, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Selection, prioritisation and control are the three portfolio activities. Coordinating related projects is the intruder and is the definition of a programme, which makes it the most tempting item in the list.",
+  "tip": "Programme and portfolio wording is engineered to be swapped. Coordination means programme; prioritisation means portfolio.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-5-10",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are true of programme management. Which one is false?",
+  "items": null,
+  "options": {
+   "a": "Its components are related to one another",
+   "b": "Its contents are selected and prioritised against the organisation's strategy",
+   "c": "It may include business as usual activity as well as projects",
+   "d": "It pursues benefits that managing the components individually would not deliver"
+  },
+  "answer": "b",
+  "explanation": "Selection and prioritisation against strategy belongs to portfolio management. It tempts because programmes clearly do support strategy, but supporting strategy is not the same as deciding what the organisation should fund.",
+  "tip": "In an inverted stem, the false option is often a correct definition of the neighbouring term. Name that neighbour before answering.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-5-11",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A director argues that a piece of work must be a programme because it is far too big to be a project. What is wrong with that reasoning?",
+  "items": null,
+  "options": {
+   "a": "Nothing, size is the accepted distinction between the two",
+   "b": "Programmes are distinguished by budget rather than by size",
+   "c": "Programmes are distinguished by duration rather than by size",
+   "d": "Size is irrelevant; a programme coordinates related projects, and a very large single endeavour is still a project"
+  },
+  "answer": "d",
+  "explanation": "Programmes are defined by coordination of related components, never by scale. The budget option tempts because it swaps one measure for another and so feels like a correction, but any threshold-based answer misses the point.",
+  "tip": "Reject every option that distinguishes programme from project using a threshold: size, budget, duration or headcount.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-5-12",
+  "learning_outcome": "1.5",
+  "objective": 1,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A programme delivering a new distribution network is stopped early because the organisation has shifted its strategy to direct-to-consumer sales. Which level took that decision, and on what basis?",
+  "items": null,
+  "options": {
+   "a": "Business as usual, because operations could not absorb the change",
+   "b": "The programme, because its components were no longer related to each other",
+   "c": "The project, because its objectives could no longer be achieved",
+   "d": "The portfolio, because the work no longer aligns with strategic objectives"
+  },
+  "answer": "d",
+  "explanation": "Deciding whether work should still be funded against strategy is portfolio control. The programme option tempts because the programme is the thing being stopped, but a programme cannot judge its own strategic fit.",
+  "tip": "Identify who is making the decision, not what is being decided about. Strategic fit decisions always sit at portfolio level.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-6-5",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "What do the six letters of PESTLE stand for?",
+  "items": null,
+  "options": {
+   "a": "Political, economic, strategic, technological, legal, environmental",
+   "b": "Political, economic, sociological, technological, legal, environmental",
+   "c": "Political, external, sociological, technical, legislative, ecological",
+   "d": "Practical, economic, sociological, technological, legal, external"
+  },
+  "answer": "b",
+  "explanation": "Sociological is the S, covering public attitudes and demographic change. Strategic tempts because it is a familiar management word and only one letter is altered, which is exactly how the distractor is built.",
+  "tip": "Recite the six headings in order before reading the options. Then look for the single word that has been substituted.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 5,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-1-6-6",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [],
+  "stem": "A rail project team lists ageing signalling technology, rising steel prices and a forthcoming general election as factors it cannot control but will be affected by. Which technique are they applying?",
+  "items": null,
+  "options": {
+   "a": "Requirements management",
+   "b": "Risk analysis",
+   "c": "Stakeholder analysis",
+   "d": "PESTLE analysis"
+  },
+  "answer": "d",
+  "explanation": "Scanning uncontrollable external factors under fixed headings is PESTLE. Risk analysis tempts because these factors are clearly threats, but analysis assigns probability and impact and nothing here has been assessed.",
+  "tip": "Identifying what is out there is PESTLE. Judging how likely or how damaging it is belongs to risk analysis.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 6,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-6-7",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team has completed a PESTLE analysis and produced a list of twenty external factors. What must happen before the project can respond to them?",
+  "items": null,
+  "options": {
+   "a": "Nothing, because the analysis already ranks them by importance",
+   "b": "Nothing, because PESTLE outputs are recorded as agreed responses",
+   "c": "They must be converted into stakeholder categories",
+   "d": "They must be assessed for probability and impact through risk analysis"
+  },
+  "answer": "d",
+  "explanation": "PESTLE identifies but never evaluates, so the factors feed risk analysis next. The ranking option tempts because a structured six-heading output looks like a prioritised list, yet the headings organise factors rather than rank them.",
+  "tip": "PESTLE produces no probability, no impact and no response. If an option offers any of the three, it is wrong.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-1-6-8",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which of the following factors would a project manager record under the sociological heading of a PESTLE analysis?",
+  "items": null,
+  "options": {
+   "a": "A rise in the central bank's base rate",
+   "b": "A change to data protection legislation",
+   "c": "A shift in public attitudes towards single-use packaging",
+   "d": "The arrival of a cheaper battery chemistry"
+  },
+  "answer": "c",
+  "explanation": "Public attitude is sociological. The legislation option tempts because rules about personal data feel social in subject matter, but a statutory change belongs under legal regardless of what it regulates.",
+  "tip": "Classify by the nature of the factor, not by its topic. Laws are legal, prices are economic, attitudes are sociological.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-1-6-9",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "multi_select",
+  "traps": [
+   "multi_select"
+  ],
+  "stem": "Which three of the following would a PESTLE analysis capture?",
+  "items": [
+   "A change of government",
+   "A movement in interest rates",
+   "A new flood defence regulation affecting the site",
+   "A shortage of qualified electricians within the project team"
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 4",
+   "c": "1, 2 and 3",
+   "d": "2, 3 and 4"
+  },
+  "answer": "c",
+  "explanation": "Government, interest rates and regulation are all external. The electrician shortage is the intruder because it is internal to the project, tempting since resource availability genuinely threatens delivery.",
+  "tip": "PESTLE only ever looks outwards. Team capability, resourcing and schedule pressure are internal and belong elsewhere.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-6-10",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are true of PESTLE analysis. Which one is NOT?",
+  "items": null,
+  "options": {
+   "a": "It scans the environment outside the project",
+   "b": "It works to six fixed headings",
+   "c": "It provides an input to risk identification",
+   "d": "It ranks the factors it finds by the severity of their effect"
+  },
+  "answer": "d",
+  "explanation": "Ranking by severity is risk analysis, not identification. It tempts because a six-heading structure looks analytical and teams often do sort the output, but PESTLE itself supplies no measure of severity.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-6-11",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager says her team already understands its environment and does not need six prescribed headings. What does the structure actually add?",
+  "items": null,
+  "options": {
+   "a": "It converts environmental factors into contractual obligations",
+   "b": "It removes the need for a separate risk identification activity",
+   "c": "It forces attention onto categories the team would otherwise overlook, such as legal or sociological",
+   "d": "It weights each category so resources can be allocated between them"
+  },
+  "answer": "c",
+  "explanation": "Teams notice the categories they are comfortable with and miss the rest, which is what fixed headings correct. The replacement option tempts because PESTLE does feed risk work, but feeding it is not the same as replacing it.",
+  "tip": "The value of a checklist technique is coverage. Look for the option about what would otherwise be missed.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-1-6-12",
+  "learning_outcome": "1.6",
+  "objective": 1,
+  "day": 1,
+  "verb": "describe",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which factor would a project manager record under the environmental heading rather than under any other PESTLE heading?",
+  "items": null,
+  "options": {
+   "a": "A statutory requirement to report carbon emissions",
+   "b": "The risk of flooding on the construction site",
+   "c": "Public pressure from a local campaign group",
+   "d": "A grant available for low-carbon plant"
+  },
+  "answer": "b",
+  "explanation": "Flooding is a physical environmental condition. The emissions reporting duty tempts hardest because it mentions carbon, but a statutory requirement is legal; the subject matter does not decide the heading.",
+  "tip": "Three of these concern the environment as a topic. Only one is environmental as a category. Sort by mechanism.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ }
+]

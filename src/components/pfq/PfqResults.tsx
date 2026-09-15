@@ -1,131 +1,200 @@
 "use client";
 
-import Link from "next/link";
-import { PfqCoverageMap } from "@/components/pfq/PfqCoverageMap";
-import { PfqTip } from "@/components/pfq/PfqTip";
-import styles from "@/components/pfq/PfqResults.module.css";
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { Spinner } from "@/components/ui/spinner";
+import styles from "@/components/pmq/MockExamRunner.module.css";
+import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
+import type { PfqMockSet } from "@/lib/pfq/generator";
 import { PFQ_PASS_MARK } from "@/lib/pfq/outcomes";
-import { pfqLessonHref } from "@/lib/pfq/lesson-href";
-import { PFQ_MOCK_HREF, PFQ_TRAP_SCHOOL_HREF } from "@/lib/pfq/constants";
-import type { PfqResultsPayload } from "@/lib/pfq/types";
-import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
+import type { PfqResultsPayload, PfqReviewQuestion } from "@/lib/pfq/types";
 
 type Props = {
   results: PfqResultsPayload;
+  mockSet?: PfqMockSet | null;
 };
 
-export function PfqResults({ results }: Props) {
+function formatChoice(
+  letter: string | null,
+  options: PfqReviewQuestion["options"],
+): string {
+  if (!letter) return "Not answered";
+  const key = letter.toLowerCase();
+  const text = options[key];
+  return text ? `${key.toUpperCase()}) ${text}` : key.toUpperCase();
+}
+
+export function PfqResults({ results, mockSet }: Props) {
+  const router = useRouter();
+  const [overviewPending, startOverview] = useTransition();
+  const [showReview, setShowReview] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const percentage = Math.round((results.score / results.maxScore) * 100);
+  const current = results.reviews[reviewIndex];
+  const title = mockSet ? `Mock Exam ${mockSet}` : "Mock exam";
+
   return (
-    <div className={styles.wrap}>
-      <header className={styles.header}>
-        <p className={styles.kicker}>Provisional result</p>
-        <p className={styles.scoreLine}>
-          <span className={styles.scoreNum}>{results.score}</span>
-          <span className={styles.scoreMax}>/{results.maxScore}</span>
-          <span
-            className={
-              results.passed ? styles.passPill : styles.failPill
-            }
-          >
-            {results.passed ? "Pass" : "Below pass"}
+    <div className={styles.resultWrap}>
+      <section
+        className={styles.resultCard}
+        aria-labelledby="pfq-mock-result-title"
+      >
+        <h1 id="pfq-mock-result-title" className={styles.resultTitle}>
+          {title}
+        </h1>
+        <p className={styles.resultMeta}>Final result · attempt complete</p>
+        <p className={styles.resultScore}>
+          {results.score} / {results.maxScore}
+          <span className={styles.resultPctSep} aria-hidden>
+            ·
           </span>
+          <span className={styles.resultPct}>{percentage}%</span>
         </p>
-        <p className={styles.passHint}>
-          Pass mark on the real PFQ is {PFQ_PASS_MARK}/{results.maxScore}. No
-          negative marking. Unanswered scored 0.
-        </p>
-      </header>
-
-      <PfqCoverageMap
-        headlineCorrect={results.outcomesAnsweredCorrectly}
-        outcomeCount={results.outcomeCount}
-        coverage={results.coverage}
-        objectives={results.objectives}
-      />
-
-      <section className={styles.gaps}>
-        <h2 className={styles.sectionTitle}>Gaps by marks at risk</h2>
-        <p className={styles.sectionSub}>
-          Ordered by how many marks each outcome cost you on this sitting.
-        </p>
-        <ol className={styles.gapList}>
-          {results.gaps.map((gap) => {
-            const objective = Number(gap.code.split(".")[0]);
-            const lessonHref = pfqLessonHref(objective, gap.code);
-            return (
-            <li key={gap.code} className={styles.gapItem}>
-              <div className={styles.gapHead}>
-                <span className={styles.gapCode}>{gap.code}</span>
-                <span className={styles.gapTitle}>{gap.title}</span>
-                <span className={styles.gapMeta}>
-                  {gap.marks} mark{gap.marks === 1 ? "" : "s"} · Day {gap.day}
-                </span>
-              </div>
-              {gap.explanation ? (
-                <p className={styles.gapExplain}>{gap.explanation}</p>
-              ) : null}
-              <p className={styles.gapLink}>
-                <Link href={lessonHref}>Study outcome {gap.code}</Link>
-              </p>
-            </li>
-            );
-          })}
-        </ol>
+        <div className={styles.resultVerdictStack}>
+          <p
+            className={`${styles.resultVerdict} ${
+              results.passed
+                ? styles.resultVerdictPass
+                : styles.resultVerdictRefer
+            }`}
+          >
+            {results.passed ? "Pass - well done." : "Refer - keep going."}
+          </p>
+          <p className={styles.resultMeta}>
+            Pass mark is {PFQ_PASS_MARK}/{results.maxScore}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setShowReview((open) => !open)}
+          aria-label={showReview ? "Hide answer review" : "Review answers"}
+          className={styles.resultBtnSecondary}
+        >
+          {showReview ? "Hide answer review" : "Review answers"}
+        </button>
       </section>
 
-      <section className={styles.review}>
-        <h2 className={styles.sectionTitle}>Question review</h2>
-        <ul className={styles.reviewList}>
-          {results.reviews.map((q, index) => (
-            <li
-              key={q.id}
-              className={`${styles.reviewItem} ${
-                q.correct ? styles.reviewOk : styles.reviewBad
-              }`}
-            >
-              <p className={styles.reviewMeta}>
-                Q{index + 1} · {q.learning_outcome} · Day {q.day}
-                {q.flagged ? " · flagged" : ""}
-              </p>
-              <p className={styles.reviewStem}>{q.stem}</p>
-              {q.items?.length ? (
-                <ol className={styles.items}>
-                  {q.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ol>
-              ) : null}
-              <ul className={styles.options}>
-                {Object.entries(q.options).map(([key, text]) => (
-                  <li
-                    key={key}
-                    className={
-                      key === q.answer
-                        ? styles.optCorrect
-                        : key === q.selected
-                          ? styles.optSelected
-                          : undefined
-                    }
+      {showReview && current ? (
+        <section className={styles.reviewStack} aria-label="Answer review">
+          <nav
+            aria-label="Review questions"
+            className={`${styles.rail} ${styles.railCompact}`}
+          >
+            <div className={`${styles.railGrid} ${styles.railGridCompact}`}>
+              {results.reviews.map((question, index) => {
+                const selected = index === reviewIndex;
+                return (
+                  <button
+                    key={question.id}
+                    type="button"
+                    aria-current={selected ? "step" : undefined}
+                    aria-label={`Question ${index + 1}, ${
+                      question.correct ? "correct" : "incorrect"
+                    }`}
+                    onClick={() => setReviewIndex(index)}
+                    className={`${styles.railCell} ${
+                      selected ? styles.railCellCurrent : ""
+                    } ${
+                      question.correct
+                        ? styles.railCellPass
+                        : styles.railCellMiss
+                    }`}
                   >
-                    <strong>{key.toUpperCase()}.</strong> {text}
-                  </li>
+                    {index + 1}
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
+          <article className={`${styles.reviewCard} ${styles.reviewCardMarked}`}>
+            <p
+              className={`${styles.reviewMark} ${
+                current.correct ? styles.reviewMarkPass : ""
+              }`}
+              aria-label={`${current.correct ? 1 : 0} of 1 marks`}
+            >
+              {current.correct ? 1 : 0}/1
+            </p>
+            <p className={styles.reviewMeta}>
+              {`Question ${reviewIndex + 1} · [Learning Outcome ${current.learning_outcome}]`}
+            </p>
+            <h2 className={styles.reviewPrompt}>{current.stem}</h2>
+            {current.items?.length ? (
+              <ol className="mb-0 mt-3 list-decimal space-y-1.5 pl-5 font-body text-[13px] font-medium leading-snug text-ink/80">
+                {current.items.map((item) => (
+                  <li key={item}>{item}</li>
                 ))}
-              </ul>
-              <p className={styles.explanation}>{q.explanation}</p>
-              <PfqTip tip={q.tip} />
-            </li>
-          ))}
-        </ul>
-      </section>
+              </ol>
+            ) : null}
+            <ReviewAnswer
+              label="Your answer"
+              body={formatChoice(current.selected, current.options)}
+            />
+            <ReviewAnswer
+              label="Correct answer"
+              body={formatChoice(current.answer, current.options)}
+              positive
+            />
+            {current.explanation.trim() ? (
+              <ReviewAnswer
+                label="Explanation"
+                body={current.explanation}
+                accent
+              />
+            ) : null}
+          </article>
+        </section>
+      ) : null}
 
-      <div className={styles.actions}>
-        <Link href={PFQ_MOCK_HREF} className={stampCtaPrimary}>
-          Sit another mock
-        </Link>
-        <Link href={PFQ_TRAP_SCHOOL_HREF} className={stampCtaSecondary}>
-          Trap School
-        </Link>
+      <div className={styles.resultFooter}>
+        <button
+          type="button"
+          disabled={overviewPending}
+          aria-busy={overviewPending}
+          aria-label={
+            overviewPending
+              ? "Opening course overview"
+              : "Back to course overview"
+          }
+          className={styles.resultBack}
+          onClick={() => {
+            startOverview(() => {
+              router.push(PFQ_LEARN_HREF);
+            });
+          }}
+        >
+          {overviewPending ? (
+            <Spinner variant="ring" size={14} className="text-orange" aria-hidden />
+          ) : (
+            "← Back to course overview"
+          )}
+        </button>
       </div>
+    </div>
+  );
+}
+
+function ReviewAnswer({
+  label,
+  body,
+  positive = false,
+  accent = false,
+}: {
+  label: string;
+  body: string;
+  positive?: boolean;
+  accent?: boolean;
+}) {
+  return (
+    <div className={styles.reviewNote}>
+      <h3
+        className={`${styles.reviewNoteTitle} ${
+          positive ? styles.reviewNoteTitlePositive : ""
+        } ${accent ? styles.reviewNoteTitleAccent : ""}`}
+      >
+        {label}
+      </h3>
+      <p className={styles.reviewNoteBody}>{body}</p>
     </div>
   );
 }

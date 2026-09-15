@@ -2,21 +2,18 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Lock } from "lucide-react";
 import { CtaArrow } from "@/components/stamp-chip";
 import { productActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
 import {
-  PFQ_PRACTICE_HREF,
-  PFQ_TRAP_SCHOOL_HREF,
-} from "@/lib/pfq/constants";
-import {
   listPfqMockSetSummaries,
   type PfqMockSetSummary,
 } from "@/lib/pfq/actions";
-import { PFQ_MOCK_SETS, type PfqMockSet } from "@/lib/pfq/generator";
+import { PFQ_MOCK_SETS } from "@/lib/pfq/generator";
 import {
   emptyPfqMockSummary,
-  formatExamClock,
+  formatPfqExamClock,
   pfqMockConsoleSecondsRemaining,
   pfqMockSelectorState,
 } from "@/lib/pfq/mock-console";
@@ -25,6 +22,8 @@ import {
   PFQ_PASS_MARK,
   PFQ_QUESTION_COUNT,
 } from "@/lib/pfq/outcomes";
+import { canAccessPfqMock, type PfqTier } from "@/lib/pfq/tiers";
+import { MockExamRowStatus } from "@/components/pmq/PmqMockExamsSection";
 import styles from "@/components/pmq/PmqMockExamsSection.module.css";
 
 const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:cursor-wait disabled:opacity-70`;
@@ -41,13 +40,15 @@ function PfqMockConsoleTimer({ summary }: { summary: PfqMockSetSummary }) {
     if (pfqMockConsoleSecondsRemaining(summary, Date.now()) == null) return;
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
+    // Restart when the active sitting/deadline identity changes — not on every tick.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional
   }, [now == null, summary.activeAttemptId, summary.endsAt]);
 
   if (now == null) return null;
   const seconds = pfqMockConsoleSecondsRemaining(summary, now);
   if (seconds == null) return null;
 
-  const label = formatExamClock(seconds);
+  const label = formatPfqExamClock(seconds);
   return (
     <>
       {" · "}
@@ -59,15 +60,28 @@ function PfqMockConsoleTimer({ summary }: { summary: PfqMockSetSummary }) {
 }
 
 /**
- * Three-paper Surpass-alike mock console — PMQ overview parity for status,
- * live timer while in progress, and Start / Resume / View result actions.
+ * Two-paper mock console — PMQ overview parity: status line, live timer
+ * chip while in progress, Start / Resume / View result.
  */
-export function PfqMockConsole() {
+export function PfqMockConsole({
+  userTier = "starter",
+  summaries: summariesProp,
+}: {
+  userTier?: PfqTier;
+  summaries?: PfqMockSetSummary[];
+}) {
   const router = useRouter();
-  const [pendingSet, setPendingSet] = useState<PfqMockSet | "aux" | null>(null);
+  const [pendingSet, setPendingSet] = useState<number | null>(null);
   const [pending, startTransition] = useTransition();
-  const [summaries, setSummaries] = useState<PfqMockSetSummary[]>(() =>
-    PFQ_MOCK_SETS.map(emptyPfqMockSummary),
+  const [liveSummaries, setLiveSummaries] = useState<PfqMockSetSummary[] | null>(
+    null,
+  );
+  const summaries = useMemo(
+    () =>
+      liveSummaries ??
+      summariesProp ??
+      PFQ_MOCK_SETS.map((set) => emptyPfqMockSummary(set)),
+    [liveSummaries, summariesProp],
   );
   const minutes = Math.round(PFQ_DURATION_SECONDS / 60);
 
@@ -76,7 +90,7 @@ export function PfqMockConsole() {
     void (async () => {
       const result = await listPfqMockSetSummaries();
       if (cancelled || !result.ok) return;
-      setSummaries(result.summaries);
+      setLiveSummaries(result.summaries);
     })();
     return () => {
       cancelled = true;
@@ -88,8 +102,8 @@ export function PfqMockConsole() {
     return active?.mockSet ?? null;
   }, [summaries]);
 
-  function openPath(path: string, key: PfqMockSet | "aux") {
-    setPendingSet(key);
+  function openPath(path: string, set: number) {
+    setPendingSet(set);
     startTransition(() => {
       router.push(path);
     });
@@ -97,14 +111,14 @@ export function PfqMockConsole() {
 
   return (
     <section aria-labelledby="pfq-mock-heading">
-      <div className={styles.panel}>
+      <div className={styles.panel} data-mock-exams="pfq">
         <div className={styles.titleBar}>
           <h2 id="pfq-mock-heading" className={styles.title}>
             Mock <span className={styles.titleAccent}>exams</span>
           </h2>
-          <p className={styles.subtitle}>
+          <p className={styles.subtitle} aria-label="Exam format">
             {PFQ_QUESTION_COUNT} questions · {minutes} minutes · pass{" "}
-            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT} · three papers
+            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}
           </p>
         </div>
         <div className={styles.meta}>
@@ -115,28 +129,49 @@ export function PfqMockConsole() {
         </div>
         <ul className={styles.list} aria-label="Mock exam papers">
           {summaries.map((summary) => {
+            const unlocked = canAccessPfqMock(userTier);
+            if (!unlocked) {
+              return (
+                <li
+                  key={summary.mockSet}
+                  className={`${styles.row} ${styles.rowLocked}`}
+                  aria-label={`Mock exam ${summary.mockSet}, locked — Pro Bundle`}
+                >
+                  <div className={styles.rowMain}>
+                    <p className={styles.rowTitle}>
+                      Mock exam {summary.mockSet}
+                      <Lock
+                        className={styles.rowLockIcon}
+                        fill="currentColor"
+                        strokeWidth={0}
+                        aria-hidden
+                      />
+                    </p>
+                  </div>
+                  <div className={styles.rowAction}>
+                    <span className={styles.rowLock}>
+                      <span className={styles.lockProMark}>Pro</span> Bundle
+                    </span>
+                  </div>
+                </li>
+              );
+            }
+
             const state = pfqMockSelectorState(summary, activeOtherSet);
             const rowPending = pending && pendingSet === summary.mockSet;
             return (
               <li key={summary.mockSet} className={styles.row}>
                 <div className={styles.rowMain}>
-                  <p className={styles.rowTitle}>
-                    Mock exam {summary.mockSet}
+                  <div className="min-w-0 flex-1">
+                    <p className={styles.rowTitle}>
+                      Mock exam {summary.mockSet}
+                    </p>
                     {state.status ? (
-                      <span
-                        className={`${styles.rowStatus} ${
-                          state.tone === "done"
-                            ? styles.rowStatusDone
-                            : state.tone === "open"
-                              ? styles.rowStatusOpen
-                              : ""
-                        }`}
-                      >
-                        {state.status}
+                      <MockExamRowStatus status={state.status} tone={state.tone}>
                         <PfqMockConsoleTimer summary={summary} />
-                      </span>
+                      </MockExamRowStatus>
                     ) : null}
-                  </p>
+                  </div>
                 </div>
                 {state.enabled ? (
                   <button
@@ -151,7 +186,7 @@ export function PfqMockConsole() {
                       <Spinner
                         variant="bars"
                         size={14}
-                        className="text-ink/50"
+                        className="text-ink"
                         aria-hidden
                       />
                     ) : (
@@ -167,45 +202,6 @@ export function PfqMockConsole() {
               </li>
             );
           })}
-          <li className={styles.row}>
-            <div className={styles.rowMain}>
-              <div className="min-w-0 flex-1">
-                <p className={styles.rowTitle}>Practise by objective</p>
-                <p className="m-0 mt-0.5 text-[12px] font-medium leading-snug tracking-tight text-ink/50 text-pretty">
-                  Untimed drills that feed the same coverage map as the mock.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              disabled={pending}
-              className={rowActionClass}
-              onClick={() => openPath(PFQ_PRACTICE_HREF, "aux")}
-            >
-              Practise
-              <CtaArrow className="!h-2.5 !w-2.5" />
-            </button>
-          </li>
-          <li className={styles.row}>
-            <div className={styles.rowMain}>
-              <div className="min-w-0 flex-1">
-                <p className={styles.rowTitle}>Trap School</p>
-                <p className="m-0 mt-0.5 text-[12px] font-medium leading-snug tracking-tight text-ink/50 text-pretty">
-                  Negative stems, near-misses, multi-selects. Format traps that
-                  cost marks even when you know the syllabus.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              disabled={pending}
-              className={rowActionClass}
-              onClick={() => openPath(PFQ_TRAP_SCHOOL_HREF, "aux")}
-            >
-              Open
-              <CtaArrow className="!h-2.5 !w-2.5" />
-            </button>
-          </li>
         </ul>
       </div>
     </section>

@@ -476,27 +476,27 @@
     {
       "type": "cue",
       "acronym": "Collect, align, manage",
-      "expansion": "The three verbs of integrated planning. Collecting gathers the plans, aligning makes them agree, managing keeps them agreeing as things change."
+      "expansion": "Gather the plans, make them agree, keep them agreeing."
     },
     {
       "type": "cue",
       "acronym": "Estimate, depend, risk",
-      "expansion": "The three techniques that make an initial integrated plan possible and give stakeholders enough confidence to sign it off."
+      "expansion": "The three techniques behind a signed-off initial integrated plan."
     },
     {
       "type": "cue",
       "acronym": "Top-down guesses early, bottom-up checks later",
-      "expansion": "Parametric and analogous work from history when detail is thin. Analytical and Delphi break the work down to validate once detail exists."
+      "expansion": "Parametric and analogous use history. Analytical and Delphi need detail."
     },
     {
       "type": "cue",
       "acronym": "Cannot, should not, same person",
-      "expansion": "The three dependency types. Hard means cannot, preferential means should not, resource means the same resource is needed. Only the first is immovable."
+      "expansion": "Hard, preferential, resource dependency. Only hard is immovable."
     },
     {
       "type": "cue",
       "acronym": "Because, might, then",
-      "expansion": "Describing a risk in three parts. Because of this cause, this event might occur, and then this would be the impact on objectives."
+      "expansion": "Because of this cause, this event might occur, then this impact."
     }
   ],
   "progress_checkpoint": [

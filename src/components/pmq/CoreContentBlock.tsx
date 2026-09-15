@@ -201,8 +201,8 @@ export function CoreContentBlock({
   const blockWorked = activitiesEnabled ? (block.worked_examples ?? []) : [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
   const sections = splitSections(block.body_markdown);
-  /** Hoist Pair up / Group up onto ##; drop LEVEL column label. */
-  const toolbarOnHeading = studyTables;
+  /** Hoist Pair up / Lineup / Group up onto ##; drop LEVEL column label. */
+  const toolbarOnHeading = studyTables || activitiesEnabled;
   /** Insights disclosure instead of exam-tip cards. */
   const insightsDisclosure = true;
   const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
@@ -271,13 +271,11 @@ export function CoreContentBlock({
                 <div
                   className={
                     insightsDisclosure
-                      ? "mt-5 mb-0.5 flex min-w-0 flex-nowrap items-center justify-between gap-1.5 first:mt-0"
-                      : "mt-5 mb-1 flex min-w-0 flex-nowrap items-center justify-between gap-1.5 first:mt-0"
+                      ? "mt-5 mb-0.5 min-w-0 first:mt-0"
+                      : "mt-5 mb-1 min-w-0 first:mt-0"
                   }
                 >
-                  <Tag
-                    className={`${sectionH2Class} m-0 min-w-0 flex-1 leading-snug`}
-                  >
+                  <Tag className={`${sectionH2Class} m-0 inline leading-snug`}>
                     {mapHeadingChildren(children)}
                   </Tag>
                   <StudyHeadingChromeSlot />
@@ -335,9 +333,7 @@ export function CoreContentBlock({
 
         const sectionBody = (
           <>
-            {toolbarOnHeading &&
-            !sectionHasTable &&
-            sectionActivities.length > 0 ? (
+            {toolbarOnHeading && sectionActivities.length > 0 ? (
               <HoistActivitiesToHeading activities={sectionActivities} />
             ) : null}
             <ReactMarkdown
@@ -374,7 +370,7 @@ export function CoreContentBlock({
           <div
             key={section.heading ?? `section-${index}`}
             className={cn(
-              "min-w-0",
+              "mt-8 min-w-0 first:mt-0",
               tipsFollowMedia && "insights-after-media [&_figure]:!mb-1.5",
             )}
           >

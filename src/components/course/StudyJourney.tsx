@@ -6,6 +6,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useTransition,
   type ReactNode,
 } from "react";
 import {
@@ -13,15 +14,23 @@ import {
   showCheckpointGateHint,
 } from "@/components/pmq/CheckpointGateHint";
 import { productActionSecondary } from "@/components/ui/semantic";
-import { Spinner } from "@/components/ui/spinner";
 import { CtaArrow } from "@/components/stamp-chip";
 import {
   collectUnlockedStages,
   type CourseStageDef,
 } from "@/lib/course/stages";
 
-/** Hold ∞ long enough for the bars spinner to read before a sync stage swap. */
-const STAGE_CONTINUE_ADVANCE_MS = 420;
+function scrollStudyToTop() {
+  requestAnimationFrame(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  });
+}
 
 export function StageContinueButton({
   label,
@@ -32,50 +41,28 @@ export function StageContinueButton({
   onContinue: () => void;
   enabled?: boolean;
 }) {
-  const [pending, setPending] = useState(false);
-
   return (
     <div className="mt-6 flex justify-center sm:mt-8">
       <button
         type="button"
-        disabled={pending}
-        aria-busy={pending}
         aria-disabled={!enabled}
-        aria-label={
-          !enabled ? CHECKPOINT_GATE_COPY : pending ? "Advancing" : label
-        }
-        className={`${productActionSecondary} disabled:cursor-wait disabled:opacity-90 ${
+        aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
+        className={`${productActionSecondary} ${
           !enabled
-            ? "!cursor-not-allowed !opacity-40 hover:!bg-paper hover:!opacity-40"
+            ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
             : ""
         }`}
         onClick={(event) => {
           event.preventDefault();
-          if (pending) return;
           if (!enabled) {
             showCheckpointGateHint("bottom-center");
             return;
           }
-          setPending(true);
-          window.setTimeout(() => {
-            onContinue();
-            setPending(false);
-          }, STAGE_CONTINUE_ADVANCE_MS);
+          onContinue();
         }}
       >
-        {pending ? (
-          <Spinner
-            variant="bars"
-            size={14}
-            className="text-ink/55"
-            aria-hidden
-          />
-        ) : (
-          <>
-            {label}
-            <CtaArrow className="!h-3.5 !w-3.5" />
-          </>
-        )}
+        {label}
+        <CtaArrow className="!h-3.5 !w-3.5" />
       </button>
     </div>
   );
@@ -122,6 +109,11 @@ type StudyJourneyProps<TId extends string> = {
   headerLastContinueLabel?: string;
   checkpointReady: boolean;
   onCheckpointContinue: () => void;
+  /**
+   * When false, hide the bottom Continue on the last (checkpoint) stage.
+   * PFQ uses in-panel Previous/Next instead. PMQ keeps the bottom button.
+   */
+  showCheckpointContinueButton?: boolean;
   srTitle: string;
   renderChrome: (ctx: StudyJourneyChromeContext<TId>) => ReactNode;
   renderStage: (
@@ -164,10 +156,12 @@ export function StudyJourney<TId extends string>({
   headerLastContinueLabel = "Next LO",
   checkpointReady,
   onCheckpointContinue,
+  showCheckpointContinueButton = true,
   srTitle,
   renderChrome,
   renderStage,
 }: StudyJourneyProps<TId>) {
+  const [, startStageTransition] = useTransition();
   const stageIdsKey = stages.map((s) => s.id).join("|");
   const stageIds = useMemo(
     () => stageIdsKey.split("|") as TId[],
@@ -254,9 +248,10 @@ export function StudyJourney<TId extends string>({
 
   const selectStage = useCallback(
     (id: TId) => {
-      if (unlockedIds.has(id)) setCurrentId(id);
+      if (!unlockedIds.has(id)) return;
+      startStageTransition(() => setCurrentId(id));
     },
-    [unlockedIds],
+    [unlockedIds, startStageTransition],
   );
 
   const jumpToStage = useCallback(
@@ -265,12 +260,14 @@ export function StudyJourney<TId extends string>({
       const currentIdx = stageIds.indexOf(currentId);
       if (targetIdx < 0 || currentIdx < 0) return;
       if (targetIdx === currentIdx) {
-        setCurrentId(id);
+        startStageTransition(() => setCurrentId(id));
         return;
       }
       if (targetIdx < currentIdx) {
         // Only revisit already-unlocked earlier stages.
-        if (unlockedIds.has(id)) setCurrentId(id);
+        if (unlockedIds.has(id)) {
+          startStageTransition(() => setCurrentId(id));
+        }
         return;
       }
 
@@ -280,25 +277,18 @@ export function StudyJourney<TId extends string>({
         if (stage) newlyDone.push(stage);
       }
 
-      setDoneIds((prev) => {
-        const next = new Set(prev);
-        for (const doneId of newlyDone) next.add(doneId);
-        return next;
-      });
-      setCurrentId(id);
-      onStagesMarkedDone?.(newlyDone);
-
-      requestAnimationFrame(() => {
-        const reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-        window.scrollTo({
-          top: 0,
-          behavior: reduceMotion ? "auto" : "smooth",
+      startStageTransition(() => {
+        setDoneIds((prev) => {
+          const next = new Set(prev);
+          for (const doneId of newlyDone) next.add(doneId);
+          return next;
         });
+        setCurrentId(id);
       });
+      scrollStudyToTop();
+      window.setTimeout(() => onStagesMarkedDone?.(newlyDone), 0);
     },
-    [stageIds, currentId, unlockedIds, onStagesMarkedDone],
+    [stageIds, currentId, unlockedIds, onStagesMarkedDone, startStageTransition],
   );
 
   const advance = useCallback(() => {
@@ -315,29 +305,23 @@ export function StudyJourney<TId extends string>({
       ? stagesCompletedOnAdvance(currentId)
       : [currentId];
 
-    setDoneIds((prev) => {
-      const next = new Set(prev);
-      for (const id of newlyDone) next.add(id);
-      return next;
-    });
-    setCurrentId(nextId);
-    onStagesMarkedDone?.(newlyDone);
-
-    requestAnimationFrame(() => {
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      window.scrollTo({
-        top: 0,
-        behavior: reduceMotion ? "auto" : "smooth",
+    startStageTransition(() => {
+      setDoneIds((prev) => {
+        const next = new Set(prev);
+        for (const id of newlyDone) next.add(id);
+        return next;
       });
+      setCurrentId(nextId);
     });
+    scrollStudyToTop();
+    window.setTimeout(() => onStagesMarkedDone?.(newlyDone), 0);
   }, [
     currentId,
     stageIds,
     resolveNextIndex,
     stagesCompletedOnAdvance,
     onStagesMarkedDone,
+    startStageTransition,
   ]);
 
   const timestampSet = useMemo(
@@ -402,12 +386,14 @@ export function StudyJourney<TId extends string>({
           {renderStage(currentId, { selectStage, jumpToStage })}
 
           {isLast ? (
-            <StageContinueButton
-              key="checkpoint-continue"
-              label={checkpointContinueLabel}
-              onContinue={onCheckpointContinue}
-              enabled={continueEnabled}
-            />
+            showCheckpointContinueButton ? (
+              <StageContinueButton
+                key="checkpoint-continue"
+                label={checkpointContinueLabel}
+                onContinue={onCheckpointContinue}
+                enabled={continueEnabled}
+              />
+            ) : null
           ) : showAdvance && continueLabel ? (
             <StageContinueButton
               key={currentId}

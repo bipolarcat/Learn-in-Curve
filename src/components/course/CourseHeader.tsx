@@ -42,6 +42,8 @@ type CourseHeaderProps = {
   showOverviewLink?: boolean;
   /** Optional trailing meta (e.g. mock overall timer). Replaces streak/% when set alone. */
   trailing?: ReactNode;
+  /** Overview back target. Defaults to `/courses/{slug}`. PFQ study hub is `/learn`. */
+  overviewHref?: string;
 };
 
 const chromeBar =
@@ -55,7 +57,13 @@ const proMark =
 const aiProMark =
   "inline-flex h-[1.125rem] shrink-0 items-center rounded-[0.25rem] bg-[color-mix(in_srgb,var(--gold)_32%,rgb(var(--paper-rgb)))] px-1 text-[10px] font-semibold tracking-tight text-[color-mix(in_srgb,var(--gold)_55%,#241a12)]";
 
-function OverviewBackButton({ slug }: { slug: CourseSlug }) {
+function OverviewBackButton({
+  slug,
+  href,
+}: {
+  slug: CourseSlug;
+  href?: string;
+}) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
@@ -68,7 +76,7 @@ function OverviewBackButton({ slug }: { slug: CourseSlug }) {
       className="inline-flex min-h-8 shrink-0 items-center gap-1 rounded-md px-0.5 font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:cursor-wait disabled:opacity-80"
       onClick={() => {
         startTransition(() => {
-          router.push(`/courses/${slug}`);
+          router.push(href ?? `/courses/${slug}`);
         });
       }}
     >
@@ -101,6 +109,7 @@ export function CourseHeader({
   showStats = false,
   showOverviewLink = true,
   trailing,
+  overviewHref,
 }: CourseHeaderProps) {
   const onLoPage = showOverviewLink && breadcrumb.length > 0;
   const currentLoLabel = onLoPage
@@ -135,7 +144,7 @@ export function CourseHeader({
                 className="flex min-w-0 items-center gap-1.5 text-[12px] leading-none sm:gap-2 sm:text-[13px]"
                 aria-label="Location"
               >
-                <OverviewBackButton slug={slug} />
+                <OverviewBackButton slug={slug} href={overviewHref} />
                 <span className={metaSep} aria-hidden>
                   |
                 </span>

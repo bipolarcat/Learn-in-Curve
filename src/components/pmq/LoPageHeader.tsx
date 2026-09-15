@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import {
   AudioLines,
@@ -47,9 +47,6 @@ type LoPageHeaderProps = {
   unitLabel?: string;
 };
 
-/** Hold ∞ long enough to read before a sync stage swap. */
-const MOBILE_NEXT_ADVANCE_MS = 420;
-
 const chromeShell =
   "w-full max-w-wrap overflow-visible rounded-xl border border-black/[0.08] bg-paper/90 px-2 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-3 sm:py-1.5 dark:border-white/[0.12]";
 
@@ -81,54 +78,28 @@ function PathwayNextButton({
   onContinue: () => void;
   enabled?: boolean;
 }) {
-  const [pending, setPending] = useState(false);
-
   return (
     <div className="relative inline-flex shrink-0">
       <button
         type="button"
-        disabled={pending}
-        aria-busy={pending}
         aria-disabled={!enabled}
-        aria-label={
-          !enabled
-            ? CHECKPOINT_GATE_COPY
-            : pending
-              ? "Advancing"
-              : label
-        }
-        className={`${continueNextClass} disabled:cursor-wait disabled:opacity-100 ${
+        aria-label={!enabled ? CHECKPOINT_GATE_COPY : label}
+        className={`${continueNextClass} ${
           !enabled
             ? "!cursor-not-allowed !text-ink/30 hover:!opacity-100 hover:!text-ink/30 active:!opacity-100 active:!text-ink/30"
             : ""
         }`}
         onClick={(event) => {
           event.preventDefault();
-          if (pending) return;
           if (!enabled) {
             showCheckpointGateHint("top-right");
             return;
           }
-          setPending(true);
-          window.setTimeout(() => {
-            onContinue();
-            setPending(false);
-          }, MOBILE_NEXT_ADVANCE_MS);
+          onContinue();
         }}
       >
-        {pending ? (
-          <Spinner
-            variant="ring"
-            size={14}
-            className={enabled ? "text-orange" : "text-ink/30"}
-            aria-hidden
-          />
-        ) : (
-          <>
-            {label === "Next LO" ? "Next LO" : "Next"}
-            <NextFfGlyph />
-          </>
-        )}
+        {label === "Next LO" ? "Next LO" : "Next"}
+        <NextFfGlyph />
       </button>
     </div>
   );

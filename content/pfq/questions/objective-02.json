@@ -1,0 +1,842 @@
+[
+ {
+  "id": "PFQP-2-1-7",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A candidate lists the phases of a typical linear life cycle as concept, feasibility, definition, deployment and transition. What is wrong with that list?",
+  "items": null,
+  "options": {
+   "a": "Transition should be placed before deployment",
+   "b": "Definition should be placed before concept",
+   "c": "Feasibility is an activity carried out within concept, not a phase in its own right",
+   "d": "Deployment should be separated into build and test"
+  },
+  "answer": "c",
+  "explanation": "The typical linear life cycle has four phases and feasibility sits inside concept. The list tempts because feasibility work genuinely happens early, and inserting it produces a sequence that still reads sensibly.",
+  "tip": "Count the phases before checking their order. A five-item linear list almost always contains feasibility as the intruder.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-2-1-8",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A project manager explains that most of the money on a linear project will be spent in one particular phase, and that the two phases before it exist precisely to protect that spend. Which phase is she describing?",
+  "items": null,
+  "options": {
+   "a": "Concept, because early decisions set the direction",
+   "b": "Transition, because handover is resource intensive",
+   "c": "Definition, because detailed planning consumes the largest effort",
+   "d": "Deployment, because it is normally the longest and most expensive phase"
+  },
+  "answer": "d",
+  "explanation": "Deployment is where the work happens and the outputs are produced, which is why concept and definition come first. Definition tempts because planning feels effort heavy, but planning is deliberately cheap relative to building.",
+  "tip": "Concept and definition are cheap by design. Any question about cost concentration points to deployment.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-1-9",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "Why does a linear life cycle make formal change control necessary?",
+  "items": null,
+  "options": {
+   "a": "Because decision gates take the place of the project management plan",
+   "b": "Because the phases can be repeated, so successive versions have to be tracked",
+   "c": "Because the transition phase has no defined end point",
+   "d": "Because the full scope is agreed before delivery starts, so later changes must be requested, evaluated and approved"
+  },
+  "answer": "d",
+  "explanation": "Fixing scope up front is precisely what creates the need for a formal route to change it. The repetition option tempts because version control sounds like change control, but linear phases run once.",
+  "tip": "Link each life cycle property to its consequence. Fixed scope up front creates change control; time boxing controls iteration.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-2-1-10",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following statements are true of a typical linear project life cycle?",
+  "items": [
+   "The phases run once, in sequence",
+   "The full scope is agreed before delivery begins",
+   "Decision gates sit between the phases",
+   "The delivery phase repeats until users are satisfied"
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 3",
+   "c": "2, 3 and 4",
+   "d": "1, 2 and 4"
+  },
+  "answer": "b",
+  "explanation": "Single pass, scope agreed in advance and gates between phases all describe linear work. Repeating delivery until users are satisfied is the intruder and describes an iterative approach, which is why it reads plausibly.",
+  "tip": "The word repeats is the fastest linear or iterative test there is. Linear phases run once and only once.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-1-11",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are true of the concept phase. Which one is NOT?",
+  "items": null,
+  "options": {
+   "a": "It establishes whether there is a need worth addressing",
+   "b": "Feasibility work is carried out within it",
+   "c": "Work in this phase is deliberately kept inexpensive",
+   "d": "The project management plan is produced within it"
+  },
+  "answer": "d",
+  "explanation": "The project management plan is produced in definition, where scope, schedule, cost, risk and quality are settled. It tempts because planning feels like an early activity and concept is the earliest phase.",
+  "tip": "Concept asks whether to do it at all. Definition works out how. Sort early-phase options by that question.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-1-12",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor complains that a great deal of time was spent before any physical work began. The project manager replies that this is by design. What is her argument?",
+  "items": null,
+  "options": {
+   "a": "Deployment cannot begin until transition has been planned in full",
+   "b": "Concept and definition consume most of a linear project's budget",
+   "c": "Concept and definition are inexpensive relative to deployment and exist to avoid committing to the wrong work",
+   "d": "Decision gates require a fixed proportion of budget to be spent in advance"
+  },
+  "answer": "c",
+  "explanation": "The early phases exist so that most of what is examined never proceeds to expensive delivery. The budget claim tempts by echoing the same idea, but it inverts where the money actually goes.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-1-13",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "What does the word linear specifically tell you about this life cycle?",
+  "items": null,
+  "options": {
+   "a": "That it contains exactly four phases",
+   "b": "That the phases run once, in order, with scope agreed before delivery begins",
+   "c": "That the project cannot be stopped once deployment has started",
+   "d": "That benefits are measured after transition has completed"
+  },
+  "answer": "b",
+  "explanation": "Linear describes the single ordered pass and the scope commitment that goes with it. The four-phase option tempts because the count is true of the typical linear life cycle, but the count is not what the word means.",
+  "tip": "A true statement is not automatically the answer. Check that it answers the question actually asked.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-1-14",
+  "learning_outcome": "2.1",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A council is replacing street lighting to a fully specified design. Requirements are known and stable, and late change would be expensive. Which life cycle fits, and why?",
+  "items": null,
+  "options": {
+   "a": "Iterative, because user feedback would improve the design",
+   "b": "Extended, because the benefits must be confirmed after handover",
+   "c": "Linear, because scope can be defined in advance and the phases can run once in sequence",
+   "d": "Hybrid, because the specification is already fixed"
+  },
+  "answer": "c",
+  "explanation": "Knowable requirements and expensive change are the conditions linear work suits. Hybrid tempts because a fixed specification sounds like the linear half of a hybrid, but nothing in the stem requires an iterative element.",
+  "tip": "Match the life cycle to the certainty of requirements. Knowable and stable means linear; emerging means iterative.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 14,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-2-2-7",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "A candidate can name the phases of an iterative life cycle but cannot remember which of them cycles. Which phase repeats?",
+  "items": null,
+  "options": {
+   "a": "Concept",
+   "b": "Definition",
+   "c": "Deployment",
+   "d": "Development"
+  },
+  "answer": "d",
+  "explanation": "Development repeats, each pass producing something usable. Deployment tempts because delivery to users happens repeatedly in practice, but the phase that cycles in the syllabus model is development.",
+  "tip": "Concept and definition still happen once in iterative work. Only development goes round.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-2-8",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A charity wants a new supporter database, but its fundraising team cannot describe precisely which reports it will need until it sees something working. What does that tell the project manager?",
+  "items": null,
+  "options": {
+   "a": "The project should be deferred until requirements are fully documented",
+   "b": "An iterative approach suits, because requirements will emerge through feedback on working increments",
+   "c": "A linear approach suits, because a full specification protects the budget",
+   "d": "An extended life cycle suits, because the benefits are uncertain"
+  },
+  "answer": "b",
+  "explanation": "Uncertain requirements are exactly the condition iterative work addresses. The extended option tempts because uncertainty is mentioned, but extended concerns adoption and benefits after handover, not how requirements are settled.",
+  "tip": "Uncertainty about what to build points to iterative. Uncertainty about whether benefits land points to extended.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-2-9",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team lead claims that because the project is iterative there is no need to produce a project management plan or agree a budget. Why is that wrong?",
+  "items": null,
+  "options": {
+   "a": "Iterative projects agree their scope in full before development begins",
+   "b": "Iterative projects have no concept phase, so planning must be documented instead",
+   "c": "Concept and definition still occur; high-level scope, budget and objectives are agreed and only the detail is deferred",
+   "d": "Planning on iterative projects is carried out by users rather than by the project team"
+  },
+  "answer": "c",
+  "explanation": "What changes is when the detail is settled, not whether planning happens. The full scope option tempts because it correctly denies the claim, but it describes linear work rather than iterative.",
+  "tip": "Iterative defers detail, not planning. Any option removing concept, definition, budget or documentation is a distractor.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-2-10",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Midway through an iterative development, users request a feature nobody envisaged at the outset. The current iteration has three days left. What normally happens?",
+  "items": null,
+  "options": {
+   "a": "The feature is rejected because scope was baselined during definition",
+   "b": "The current iteration is extended so the feature can be included",
+   "c": "The feature is prioritised into a later iteration and the current iteration's time and resources stay fixed",
+   "d": "The project returns to the definition phase so that everything can be rebaselined"
+  },
+  "answer": "c",
+  "explanation": "Time and resources are fixed per iteration and scope flexes within them, so new work is re-prioritised. Extending the iteration tempts because it seems accommodating, but it destroys the mechanism that stops the project running forever.",
+  "tip": "In iterative work the boundary never moves. Late requests change what is built next, not when the iteration ends.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-2-2-11",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following appear in a typical iterative project life cycle?",
+  "items": [
+   "Concept",
+   "Definition",
+   "Development",
+   "Feasibility"
+  ],
+  "options": {
+   "a": "1, 3 and 4",
+   "b": "1, 2 and 3",
+   "c": "2, 3 and 4",
+   "d": "1, 2 and 4"
+  },
+  "answer": "b",
+  "explanation": "Concept, definition and development are all present, with development repeating. Feasibility is the intruder in both life cycles, tempting because feasibility work is real and clearly happens somewhere early.",
+  "tip": "Feasibility is an activity, never a phase. It is offered as a phase in both linear and iterative questions.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 11,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-2-2-12",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "negative_stem"
+  ],
+  "stem": "Three of the following are true of an iterative life cycle. Which one is false?",
+  "items": null,
+  "options": {
+   "a": "Each iteration produces something usable",
+   "b": "Time and resources are fixed for each iteration",
+   "c": "The complete detailed scope is agreed before development begins",
+   "d": "Concept and definition phases still take place"
+  },
+  "answer": "c",
+  "explanation": "Fixing detailed scope up front is the linear approach. It tempts because iterative projects do agree high-level scope in definition, so the statement is half right and reads like careful practice.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-2-13",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [],
+  "stem": "An iterative project has run for eleven months with no end in sight, because each round of feedback adds more work. Which mechanism should have prevented this?",
+  "items": null,
+  "options": {
+   "a": "An extended life cycle covering adoption and benefits",
+   "b": "Change control, which evaluates and approves each request formally",
+   "c": "A decision gate placed at the end of the definition phase",
+   "d": "Time boxing, which fixes time and resources for each iteration so that scope flexes within them"
+  },
+  "answer": "d",
+  "explanation": "Time boxing is what stops an iterative project running forever. Change control tempts because it does police scope, but it belongs to work where scope was baselined up front rather than flexed each iteration.",
+  "tip": "Change control guards a fixed scope. Time boxing guards a fixed time. Match the control to what the approach fixes.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-2-2-14",
+  "learning_outcome": "2.2",
+  "objective": 2,
+  "day": 1,
+  "verb": "state",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which statement correctly contrasts what is fixed in linear work with what is fixed in iterative work?",
+  "items": null,
+  "options": {
+   "a": "Linear fixes time and cost and flexes scope; iterative fixes scope and flexes time and cost",
+   "b": "Both fix scope, and only the sequence of the phases differs",
+   "c": "Both fix time and cost, and only the amount of documentation differs",
+   "d": "Linear fixes scope and flexes time and cost; iterative fixes time and cost and flexes scope"
+  },
+  "answer": "d",
+  "explanation": "Linear commits to scope and lets time and cost absorb variation; iterative does the reverse. The reversed pairing tempts because it contains every correct term, so it looks right to anyone matching words rather than roles.",
+  "tip": "Almost every linear against iterative question reduces to one query: what is fixed, and what is allowed to move?",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 14,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-6",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Which of the following distinguishes a hybrid life cycle from an extended one?",
+  "items": null,
+  "options": {
+   "a": "A hybrid applies to programmes; an extended one applies to projects",
+   "b": "A hybrid adds adoption and benefits realisation; an extended one mixes approaches",
+   "c": "A hybrid repeats development; an extended one repeats transition",
+   "d": "A hybrid combines linear and iterative approaches; an extended one adds phases after handover"
+  },
+  "answer": "d",
+  "explanation": "Hybrid mixes approaches within one project; extended runs past handover into adoption and benefits. The reversed option tempts because both definitions are present and correct, merely attached to the wrong terms.",
+  "tip": "Two words settle this pair: hybrid mixes, extended extends. Say them before reading any option.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-2-3-7",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A new hospital wing is being built while the theatre booking software that will run inside it is developed in two-week cycles with clinicians. Both sit within one project. What is this?",
+  "items": null,
+  "options": {
+   "a": "A programme, because two related pieces of work are coordinated",
+   "b": "An extended life cycle, because the software will require adoption",
+   "c": "Two separate projects that happen to share a sponsor",
+   "d": "A hybrid life cycle, because linear and iterative approaches are combined in one project"
+  },
+  "answer": "d",
+  "explanation": "Different parts of the work use the approach each needs, within a single project. The programme option tempts because coordination of connected work is described, but the stem states explicitly that this is one project.",
+  "tip": "Read the stem for the words one project. They rule out every programme and multiple project option immediately.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-8",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "In a hybrid project, what does the organisation gain from the linear element and what does the delivery team gain from the iterative element?",
+  "items": null,
+  "options": {
+   "a": "The organisation gains delivery speed; the team gains fuller documentation",
+   "b": "The organisation gains financial control and governance; the team gains a feedback loop",
+   "c": "The organisation gains benefits measurement; the team gains a fixed scope",
+   "d": "The organisation gains a guaranteed delivery date; the team gains freedom from decision gates"
+  },
+  "answer": "b",
+  "explanation": "A fixed business case and budget give control, while iterative delivery gives feedback. The benefits measurement option tempts because value matters to organisations, but measuring benefits belongs to the extended life cycle.",
+  "tip": "Hybrid exists to serve two different needs at once. Look for an option naming a control benefit and a learning benefit.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-9",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager describes her approach: concept and definition run once and are signed off, then delivery proceeds in three-week increments with re-prioritisation at each boundary. A colleague calls this iterative. Who is right?",
+  "items": null,
+  "options": {
+   "a": "The colleague, because delivery is iterative and delivery defines the life cycle",
+   "b": "The colleague, because concept and definition exist in iterative life cycles too",
+   "c": "The project manager, because linear and iterative elements are combined in one project, which is hybrid",
+   "d": "Neither, because re-prioritisation at boundaries makes the life cycle extended"
+  },
+  "answer": "c",
+  "explanation": "Combining a signed-off linear front end with iterative delivery is the standard shape of a hybrid. The second option tempts because its statement about concept and definition is perfectly true, but it supports the wrong conclusion.",
+  "tip": "A true premise can still yield a wrong answer. Check the conclusion, not just the sentence attached to it.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-10",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following must be present for a life cycle to be described as hybrid?",
+  "items": [
+   "Elements of the linear approach are used",
+   "Elements of the iterative approach are used",
+   "Both are used within a single project",
+   "Adoption and benefits realisation phases are added"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "2, 3 and 4",
+   "c": "1, 3 and 4",
+   "d": "1, 2 and 3"
+  },
+  "answer": "d",
+  "explanation": "Linear elements, iterative elements and a single project are the three conditions. Adoption and benefits realisation is the intruder because it defines the extended life cycle, the term most often confused with hybrid.",
+  "tip": "The single project condition matters. Two projects using different approaches are two projects, not one hybrid.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-2-3-11",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are consistent with a hybrid life cycle. Which one is NOT?",
+  "items": null,
+  "options": {
+   "a": "Fixed governance and an agreed budget at the front of the project",
+   "b": "Two related projects coordinated to deliver shared benefits",
+   "c": "Delivery carried out in repeated increments",
+   "d": "Different parts of the work managed using different approaches"
+  },
+  "answer": "b",
+  "explanation": "Coordinating related projects is programme management, which sits above the life cycle question entirely. It tempts because combining things is the idea behind hybrid, and this option also describes a combination.",
+  "tip": "Hybrid combines approaches inside one project. Programmes combine projects. Check what is being combined.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-12",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A construction manager objects that a building cannot be constructed in iterations, so a hybrid approach is impossible on his project. How should that be answered?",
+  "items": null,
+  "options": {
+   "a": "He is correct, because hybrid applies only to software projects",
+   "b": "He is correct, because hybrid requires every part of the work to iterate",
+   "c": "Hybrid lets each part of the work use the approach it needs, so the structure can be linear while the systems within it iterate",
+   "d": "He is correct, and the project should adopt an extended life cycle instead"
+  },
+  "answer": "c",
+  "explanation": "Hybrids frequently arise precisely because parts of a project have different characteristics. The requirement that everything iterates tempts because hybrid does involve iteration, but only in the parts that suit it.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 12,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-3-13",
+  "learning_outcome": "2.3",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A team is deciding whether it needs a hybrid or an extended life cycle. Which question settles it?",
+  "items": null,
+  "options": {
+   "a": "Will the project be governed by a steering board or by a sponsor alone?",
+   "b": "Is the project large enough to justify more than four phases?",
+   "c": "Are we mixing two delivery approaches, or continuing past handover into adoption and benefits?",
+   "d": "Is scope fixed at definition or at each iteration boundary?"
+  },
+  "answer": "c",
+  "explanation": "The two terms answer entirely different questions, and this option states both. The scope timing question tempts because it is a genuinely useful test, but it separates linear from iterative rather than hybrid from extended.",
+  "tip": "Ask what a term is contrasted with. Hybrid contrasts with a single approach; extended contrasts with stopping at handover.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 13,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-2-4-6",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Six months after a new case management system was handed over, only a third of caseworkers use it and the expected time savings have not appeared. Which life cycle would have kept the project answerable for this?",
+  "items": null,
+  "options": {
+   "a": "Hybrid",
+   "b": "Iterative",
+   "c": "Extended",
+   "d": "Linear"
+  },
+  "answer": "c",
+  "explanation": "An extended life cycle keeps someone accountable through adoption and benefits realisation rather than stopping at transition. Iterative tempts because user feedback would have improved the system, but feedback during build does not create post-handover accountability.",
+  "tip": "Problems that appear after handover point to the extended life cycle, whatever the delivery approach was.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 6,
+  "mock_set": 3
+ },
+ {
+  "id": "PFQP-2-4-7",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "A project manager proposes lengthening the deployment phase so that late requirement changes can be absorbed, and calls the result an extended life cycle. Why is that wrong?",
+  "items": null,
+  "options": {
+   "a": "Deployment cannot be lengthened once the plan has been baselined",
+   "b": "Absorbing late change is change control; an extended life cycle adds adoption and benefits realisation after handover",
+   "c": "Lengthening deployment would make the life cycle hybrid rather than extended",
+   "d": "An extended life cycle shortens deployment rather than lengthening it"
+  },
+  "answer": "b",
+  "explanation": "Extended is about what happens after handover, not about stretching delivery. The hybrid option tempts because it correctly rejects the label, but lengthening a phase does not introduce an iterative element either.",
+  "tip": "The word extended invites the idea of a longer phase. It means extra phases after transition, not a longer one.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 7,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-4-8",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A programme office asks what an extended life cycle requires that a standard linear one does not, in terms of what the project must retain after handover. Which answer is correct?",
+  "items": null,
+  "options": {
+   "a": "A larger deployment team to finish outstanding work",
+   "b": "A change control board to process post-handover requests",
+   "c": "A permanent operational function to run the output",
+   "d": "Capacity to support adoption and to measure whether the expected benefits arrive"
+  },
+  "answer": "d",
+  "explanation": "Adoption support and benefits measurement are exactly what the two extra phases require. The permanent operational function tempts because someone must run the output, but that is business as usual and exists either way.",
+  "tip": "Ask what the extra phases actually need doing. Training and measurement, not more building and not more governance.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 8,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-4-9",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "An extended project life cycle is built on which underlying life cycle, and what does it do to it?",
+  "items": null,
+  "options": {
+   "a": "A programme structure, into which business as usual activity is absorbed",
+   "b": "An iterative life cycle, whose development phase repeats until the benefits appear",
+   "c": "A hybrid life cycle, whose linear and iterative parts are run in sequence",
+   "d": "A linear life cycle, to which adoption and benefits realisation are added"
+  },
+  "answer": "d",
+  "explanation": "Extended takes the phases of a linear life cycle and adds two more after them. The iterative option tempts because repeating until benefits appear sounds like a benefits focus, but repetition concerns development, not adoption.",
+  "tip": "Extended and linear share their first four phases. If an option starts anywhere other than linear, it is wrong.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 9,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-4-10",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "multi_select",
+  "traps": [
+   "multi_select",
+   "near_miss"
+  ],
+  "stem": "Which three of the following would you expect to find in an extended project life cycle?",
+  "items": [
+   "Definition",
+   "Transition",
+   "Benefits realisation",
+   "Repeated development iterations"
+  ],
+  "options": {
+   "a": "1, 2 and 4",
+   "b": "1, 2 and 3",
+   "c": "2, 3 and 4",
+   "d": "1, 3 and 4"
+  },
+  "answer": "b",
+  "explanation": "An extended life cycle keeps the linear phases and adds benefits realisation. Repeated development iterations is the intruder and belongs to iterative work, tempting because both approaches depart from the plain linear model.",
+  "tip": "Departing from linear does not make two approaches the same. Extended adds phases at the end; iterative repeats one in the middle.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 10,
+  "mock_set": 1
+ },
+ {
+  "id": "PFQP-2-4-11",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "negative_stem",
+   "near_miss"
+  ],
+  "stem": "Three of the following are true of an extended project life cycle. Which one is false?",
+  "items": null,
+  "options": {
+   "a": "It is concerned with whether the output is actually used",
+   "b": "It measures and confirms the expected improvement",
+   "c": "Accountability continues beyond the point of handover",
+   "d": "It combines linear and iterative approaches within one project"
+  },
+  "answer": "d",
+  "explanation": "Combining approaches within one project is the definition of hybrid. It tempts because both terms describe departures from a standard linear life cycle, and candidates who learn them together frequently swap them.",
+  "tip": null,
+  "active": true,
+  "mock_suitable": false,
+  "variant": 11,
+  "mock_set": null
+ },
+ {
+  "id": "PFQP-2-4-12",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [],
+  "stem": "A sponsor argues that adding adoption and benefits realisation phases is wasted money, because the output was delivered exactly as specified. Which argument from the syllabus contradicts him?",
+  "items": null,
+  "options": {
+   "a": "The project management plan must stay live until the portfolio formally closes it",
+   "b": "Decision gates require a formal review after every phase, including handover",
+   "c": "The purpose of project management is beneficial change, and an output nobody uses delivers none",
+   "d": "Change control cannot be closed out until the benefits have been measured"
+  },
+  "answer": "c",
+  "explanation": "The extended life cycle exists because delivery alone does not satisfy the purpose of project management. The decision gate option tempts because gates are a real linear feature, but gates decide continuation rather than justify extra phases.",
+  "tip": "Objective 2 questions often turn on objective 1. Beneficial change is why the extended life cycle exists at all.",
+  "active": true,
+  "mock_suitable": true,
+  "variant": 12,
+  "mock_set": 2
+ },
+ {
+  "id": "PFQP-2-4-13",
+  "learning_outcome": "2.4",
+  "objective": 2,
+  "day": 1,
+  "verb": "define",
+  "type": "single",
+  "traps": [
+   "near_miss"
+  ],
+  "stem": "Two projects deliver identical warehouse management systems. Project A closes at handover. Project B runs training and support, then measures stock accuracy a year later. Which statement is correct?",
+  "items": null,
+  "options": {
+   "a": "Project B is hybrid and project A is linear",
+   "b": "Both are linear, and project B has simply overrun",
+   "c": "Project B is using an extended life cycle and project A a standard linear one",
+   "d": "Project B has handed its work to a programme"
+  },
+  "answer": "c",
+  "explanation": "Training is adoption and measurement is benefits realisation, which are the two added phases. The overrun option tempts because the second project runs longer, but planned extra phases are not the same as late delivery.",
+  "tip": "A longer project is not automatically an extended one. Look for adoption and benefits work, not just extra elapsed time.",
+  "active": true,
+  "mock_suitable": false,
+  "variant": 13,
+  "mock_set": null
+ }
+]

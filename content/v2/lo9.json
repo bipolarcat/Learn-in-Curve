@@ -481,27 +481,27 @@
     {
       "type": "cue",
       "acronym": "Identify, define, plan, track, realise",
-      "expansion": "The five benefits management processes in order, exactly as the syllabus names them for 9a."
+      "expansion": "The five benefits management processes, in order."
     },
     {
       "type": "cue",
       "acronym": "Baseline, target, measure",
-      "expansion": "The three items in a benefit profile that make a benefit provable. Miss the baseline and you can never demonstrate the improvement."
+      "expansion": "Benefit profile essentials. No baseline, no provable improvement."
     },
     {
       "type": "cue",
       "acronym": "Adoption is the verb",
-      "expansion": "Output, outcome and benefit are the nouns; adoption is what moves between them. Nothing advances along that chain on its own."
+      "expansion": "Output, outcome and benefit are nouns. Adoption moves between them."
     },
     {
       "type": "cue",
       "acronym": "Adopt more, or re-baseline",
-      "expansion": "The only two honest responses when benefits are not being realised as planned. Quietly missing the target is not one of them."
+      "expansion": "The only two honest responses when benefits fall short."
     },
     {
       "type": "cue",
       "acronym": "Linear at the end, iterative as you go",
-      "expansion": "Benefits timing by life cycle. Linear realises once all outputs are delivered; iterative realises incrementally throughout."
+      "expansion": "Linear realises once outputs are delivered. Iterative realises incrementally."
     }
   ],
   "progress_checkpoint": [

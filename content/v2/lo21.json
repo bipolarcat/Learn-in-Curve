@@ -560,27 +560,27 @@
     {
       "type": "cue",
       "acronym": "Levelling asks when, smoothing asks what",
-      "expansion": "Levelling asks when the work finishes given the people you actually have. Smoothing asks what resource is needed to hit what was promised. The two questions are the whole distinction."
+      "expansion": "When will it finish with these people, versus what resource hits the date."
     },
     {
       "type": "cue",
       "acronym": "Levelling moves the date, smoothing moves the money",
-      "expansion": "Levelling holds resource constraints fixed and lets the timeline extend. Smoothing holds scope, quality and time and accepts an impact on cost."
+      "expansion": "Levelling extends time. Smoothing holds time and accepts cost."
     },
     {
       "type": "cue",
       "acronym": "R does it, A owns it",
-      "expansion": "Responsible conducts the work; Accountable owns it and approves it when complete. Consulted feeds in during decisions; Informed only hears about progress."
+      "expansion": "Consulted feeds in during decisions. Informed only hears about progress."
     },
     {
       "type": "cue",
       "acronym": "Work down, people across",
-      "expansion": "The WBS supplies the rows, the OBS supplies the columns, and the RAM is what they make where they meet."
+      "expansion": "WBS rows, OBS columns. The RAM is where they meet."
     },
     {
       "type": "cue",
       "acronym": "Linear front-loads, iterative sustains",
-      "expansion": "The same specialist skills a linear project concentrates early are needed across every iteration in an iterative one. Life cycle choice changes the demand curve, not only the dates."
+      "expansion": "Life cycle choice changes the demand curve, not only the dates."
     }
   ],
   "progress_checkpoint": [

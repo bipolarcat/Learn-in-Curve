@@ -284,6 +284,19 @@
   color: rgb(var(--ink-rgb) / 0.72);
 }
 
+.resultVerdictStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin-top: 0.55rem;
+}
+
+.resultVerdictStack .resultVerdict,
+.resultVerdictStack .resultMeta {
+  margin: 0;
+}
+
 .resultVerdictPass {
   color: var(--olive);
 }
@@ -348,6 +361,7 @@
 }
 
 .reviewCard {
+  position: relative;
   width: 100%;
   padding: 1rem 1rem 1.15rem;
   border: 1px solid rgb(0 0 0 / 0.08);
@@ -357,6 +371,33 @@
     0 1px 2px rgb(var(--ink-rgb) / 0.04),
     0 6px 20px rgb(var(--ink-rgb) / 0.06);
   backdrop-filter: blur(24px);
+}
+
+.reviewCardMarked .reviewMeta {
+  padding-right: 2.35rem;
+}
+
+.reviewMark {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  margin: 0;
+  min-width: 2.15rem;
+  padding: 0.2rem 0.38rem;
+  border-radius: 0.32rem;
+  font-size: 0.6875rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--orange);
+  background: color-mix(in srgb, var(--orange) 14%, transparent);
+}
+
+.reviewMarkPass {
+  color: var(--olive);
+  background: color-mix(in srgb, var(--olive) 16%, transparent);
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -407,6 +448,10 @@
 
 .reviewNoteTitlePositive {
   color: var(--olive);
+}
+
+.reviewNoteTitleAccent {
+  color: var(--orange);
 }
 
 .reviewNoteBody {
@@ -714,6 +759,39 @@
   }
 }
 
+/* PFQ: 60 cells at PMQ cell size (20-across), not 10 huge squares. */
+.railCompact {
+  padding: 0.25rem 0.3rem 0.3rem;
+}
+
+.railCompact .railTop {
+  justify-content: flex-end;
+  margin-bottom: 0.2rem;
+}
+
+.railGridCompact {
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 0.08rem;
+}
+
+@media (min-width: 28rem) {
+  .railGridCompact {
+    grid-template-columns: repeat(20, minmax(0, 1fr));
+  }
+}
+
+.railCompact .railCell {
+  min-height: 0;
+  font-size: 0.5rem;
+}
+
+.railCompact .railFlagIcon {
+  top: 0.08rem;
+  right: 0.08rem;
+  width: 0.32rem;
+  height: 0.32rem;
+}
+
 .railCell {
   position: relative;
   display: grid;
@@ -746,8 +824,41 @@
 }
 
 .railCellAnswered {
-  background: color-mix(in srgb, var(--olive) 22%, transparent);
+  background: rgb(var(--ink-rgb) / 0.28);
+  color: rgb(var(--ink-rgb));
+  font-weight: 750;
+}
+
+.railCellPass {
   color: var(--olive);
+  background: color-mix(in srgb, var(--olive) 16%, transparent);
+}
+
+.railCellMiss {
+  color: var(--orange);
+  background: color-mix(in srgb, var(--orange) 14%, transparent);
+}
+
+.railCellPass:hover:not(:disabled) {
+  color: var(--olive);
+  background: color-mix(in srgb, var(--olive) 24%, transparent);
+}
+
+.railCellMiss:hover:not(:disabled) {
+  color: var(--orange);
+  background: color-mix(in srgb, var(--orange) 22%, transparent);
+}
+
+.railCellCurrent.railCellPass {
+  color: var(--olive);
+  background: color-mix(in srgb, var(--olive) 16%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--olive);
+}
+
+.railCellCurrent.railCellMiss {
+  color: var(--orange);
+  background: color-mix(in srgb, var(--orange) 14%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--orange);
 }
 
 .railCellFlagged {
@@ -935,9 +1046,11 @@
   color: rgb(var(--ink-rgb));
 }
 
+.answerField:focus,
 .answerField:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgb(var(--paper-rgb)), 0 0 0 4px var(--orange);
+  border-color: rgb(var(--ink-rgb) / 0.22);
+  box-shadow: none;
 }
 
 .answerHint {

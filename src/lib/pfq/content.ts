@@ -25,7 +25,6 @@ export type PfqCoreContentBlock = {
   outcome_title: string;
   key_takeaway: string;
   body_markdown: string;
-  watch_for: string;
   /** Optional — diagrams decision pending; treat as absent for now. */
   diagrams?: unknown;
 };
@@ -85,7 +84,6 @@ function collectTextStrings(lesson: PfqObjectiveLesson): string[] {
       block.outcome_title,
       block.key_takeaway,
       block.body_markdown,
-      block.watch_for,
     );
   }
   for (const m of lesson.misconceptions) {
@@ -217,7 +215,6 @@ export function validatePfqObjectiveLesson(
       "outcome_title",
       "key_takeaway",
       "body_markdown",
-      "watch_for",
     ] as const) {
       if (!isNonEmptyString(block[key])) {
         failures.push({
@@ -268,7 +265,6 @@ export function validatePfqObjectiveLesson(
       outcome_title: String(b.outcome_title),
       key_takeaway: String(b.key_takeaway),
       body_markdown: String(b.body_markdown),
-      watch_for: String(b.watch_for),
       ...(b.diagrams !== undefined ? { diagrams: b.diagrams } : {}),
     })),
     misconceptions: (o.misconceptions as PfqMisconception[]).map((m) => ({

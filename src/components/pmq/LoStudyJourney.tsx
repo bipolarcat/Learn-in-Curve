@@ -209,6 +209,7 @@ export function LoStudyJourney({
       checkpointContinueLabel={checkpointContinueLabel}
       checkpointReady={checkpointReady}
       onCheckpointContinue={goNextLo}
+      showCheckpointContinueButton={false}
       srTitle={`LO ${loNumber}: ${loTitle}`}
       renderChrome={(ctx) => (
         <LoPageHeader

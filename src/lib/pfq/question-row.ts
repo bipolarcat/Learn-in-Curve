@@ -1,12 +1,5 @@
+import { parsePfqMockSet } from "./generator.ts";
 import type { PfqQuestionRow } from "./types.ts";
-
-function asMockSet(value: unknown): 1 | 2 | 3 | null {
-  if (value === 1 || value === 2 || value === 3) return value;
-  if (value === "1" || value === "2" || value === "3") {
-    return Number(value) as 1 | 2 | 3;
-  }
-  return null;
-}
 
 /** Map a DB / JSON row into a typed PfqQuestionRow. */
 export function asQuestionRow(raw: Record<string, unknown>): PfqQuestionRow {
@@ -26,7 +19,7 @@ export function asQuestionRow(raw: Record<string, unknown>): PfqQuestionRow {
     tip: typeof raw.tip === "string" && raw.tip.length > 0 ? raw.tip : null,
     active: raw.active !== false,
     mock_suitable: Boolean(raw.mock_suitable),
-    mock_set: asMockSet(raw.mock_set),
+    mock_set: parsePfqMockSet(raw.mock_set),
     variant: Number(raw.variant ?? 1),
   };
 }

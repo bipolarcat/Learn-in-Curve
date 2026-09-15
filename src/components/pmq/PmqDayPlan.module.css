@@ -117,10 +117,6 @@
   color: var(--olive);
 }
 
-.dayTabProgress:not(.dayTabSelected) .dayTabNum {
-  color: var(--orange);
-}
-
 .dayTabNum {
   font-size: 0.75rem;
   font-weight: 650;

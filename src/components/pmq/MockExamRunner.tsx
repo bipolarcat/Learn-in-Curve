@@ -1032,6 +1032,7 @@ function QuestionScreen({
           options={(question.options as Record<string, string[]>) ?? {}}
           values={dropdowns}
           disabled={locked}
+          quiet
           onChange={(key, value) =>
             onAnswerChange({ ...dropdowns, [key]: value })
           }

@@ -2,14 +2,19 @@
 
 import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Flag } from "lucide-react";
+import { Check, Flag } from "lucide-react";
 import { StudyJourney } from "@/components/course/StudyJourney";
+import {
+  CHECKPOINT_GATE_COPY,
+  showCheckpointGateHint,
+} from "@/components/pmq/CheckpointGateHint";
 import { LoPageHeader } from "@/components/pmq/LoPageHeader";
 import { LoApplyStage } from "@/components/pmq/LoApplyStage";
 import { LoOrientStage } from "@/components/pmq/LoOrientStage";
 import { Lo1CoreContentStudy } from "@/components/pmq/Lo1CoreContentStudy";
 import { PfqCheckpointList } from "@/components/pfq/PfqCheckpointList";
-import { PfqPracticeRunner } from "@/components/pfq/PfqPracticeRunner";
+import { PfqPracticeQuizSection } from "@/components/pfq/PfqPracticeQuizSection";
+import type { PfqTier } from "@/lib/pfq/tiers";
 import {
   productActionSecondary,
   productSurfaceOpaque,
@@ -35,6 +40,8 @@ type Props = {
   completed: boolean;
   dbReachedStageIds: PfqStageId[];
   completionPercent?: number;
+  userTier: PfqTier;
+  practiceTotalSets: number;
 };
 
 function firstMarkdownHeading(md: string): string | null {
@@ -83,6 +90,8 @@ export function PfqObjectiveLessonView({
   completed,
   dbReachedStageIds,
   completionPercent = 0,
+  userTier,
+  practiceTotalSets,
 }: Props) {
   const stages = useMemo(() => buildPfqStages(), []);
   const sealed = completed;
@@ -207,6 +216,7 @@ export function PfqObjectiveLessonView({
       headerLastContinueLabel={nextObjective ? "Next LO" : "Overview"}
       checkpointReady={checkpointReady}
       onCheckpointContinue={goNext}
+      showCheckpointContinueButton={false}
       srTitle={`LO ${lesson.objective_number}: ${lesson.title}`}
       renderChrome={(ctx) => (
         <LoPageHeader
@@ -273,48 +283,67 @@ export function PfqObjectiveLessonView({
 
         if (currentId === "drill") {
           return (
-            <PfqPracticeRunner
+            <PfqPracticeQuizSection
               objective={lesson.objective_number}
               objectiveTitle={lesson.title}
-              embedded
+              userTier={userTier}
+              totalSets={practiceTotalSets}
             />
           );
         }
 
         if (currentId === "checkpoint") {
+          const showDone = sealed || checkpointReady;
           return (
-            <section
-              className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
-              aria-labelledby="pfq-lock-in"
-            >
-              <div className="mb-3 flex min-w-0 items-start gap-2">
-                <Flag
-                  className="mt-0.5 size-7 shrink-0 text-orange sm:size-8"
-                  strokeWidth={1.75}
-                  aria-hidden
-                />
-                <div className="min-w-0">
-                  <h2
-                    id="pfq-lock-in"
-                    className="font-body text-lg font-semibold leading-none tracking-tight text-ink"
-                  >
-                    Lock in
-                  </h2>
-                  <p className="mt-1.5 m-0 font-body text-[14px] leading-relaxed text-ink/70">
-                    Tick when you can do each of these. Completing every item
-                    marks this objective done. Self-assessment stays off the
-                    coverage map; that number only moves when you answer
-                    practice or mock questions.
-                  </p>
+            <div className="w-full min-w-0">
+              <section
+                className={`${productSurfaceOpaque} ${motion.panel} w-full min-w-0 p-4 sm:p-5`}
+                aria-labelledby="pfq-lock-in"
+              >
+                <div className="flex w-full min-w-0 items-start gap-2 sm:gap-2.5">
+                  <Flag
+                    className="mt-0.5 size-7 shrink-0 text-orange sm:size-8"
+                    strokeWidth={1.75}
+                    aria-hidden
+                  />
+                  <div className="min-w-0 flex-1">
+                    <h2
+                      id="pfq-lock-in"
+                      className="font-body text-lg font-semibold leading-none tracking-tight text-ink"
+                    >
+                      Checkpoint
+                    </h2>
+                    <p className="mt-0.5 m-0 font-body text-[14px] leading-relaxed text-ink/70">
+                      Tick off each checkpoint once you&apos;re able to recall
+                      it confidently.
+                    </p>
+                  </div>
+                  {showDone ? (
+                    <span
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-olive/15 bg-olive/[0.08] py-1 pl-1 pr-2.5 font-body text-[11px] font-semibold tracking-tight text-olive"
+                      aria-live="polite"
+                    >
+                      <span
+                        className="inline-flex size-4 items-center justify-center rounded-full bg-olive text-paper"
+                        aria-hidden
+                      >
+                        <Check className="size-2.5" strokeWidth={3} />
+                      </span>
+                      Complete
+                    </span>
+                  ) : null}
                 </div>
-              </div>
-              <PfqCheckpointList
-                objective={lesson.objective_number}
-                items={lesson.progress_checkpoint}
-                initialCompleted={checklistState}
-                initiallyComplete={completed}
-                onReadyChange={onChecklistReadyChange}
-              />
+                <div className="mt-3 w-full min-w-0 sm:mt-3.5">
+                  <PfqCheckpointList
+                    objective={lesson.objective_number}
+                    items={lesson.progress_checkpoint}
+                    initialCompleted={checklistState}
+                    initiallyComplete={completed}
+                    onReadyChange={onChecklistReadyChange}
+                  />
+                </div>
+              </section>
+
               <nav
                 className="mt-6 flex flex-wrap items-center justify-between gap-3 sm:mt-8"
                 aria-label="Learning objective navigation"
@@ -336,20 +365,40 @@ export function PfqObjectiveLessonView({
                       />
                     ) : (
                       <>
-                        <CtaArrowLeft className="!h-2.5 !w-2.5" />
+                        <CtaArrowLeft className="!h-3.5 !w-3.5" />
                         Previous: LO{prevObjective}
                       </>
                     )}
                   </button>
                 ) : (
-                  <span />
+                  <span aria-hidden className="min-h-9" />
                 )}
                 <button
                   type="button"
-                  disabled={navPending || (sealed ? false : !checkpointReady)}
+                  disabled={navPending}
+                  aria-disabled={
+                    navPending || (sealed ? false : !checkpointReady)
+                  }
                   aria-busy={pendingHref === nextHref}
-                  className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90`}
-                  onClick={() => go(nextHref)}
+                  aria-label={
+                    !sealed && !checkpointReady
+                      ? CHECKPOINT_GATE_COPY
+                      : nextObjective
+                        ? `Next: LO${nextObjective}`
+                        : "Back to overview"
+                  }
+                  className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90 ${
+                    !sealed && !checkpointReady
+                      ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    if (!sealed && !checkpointReady) {
+                      showCheckpointGateHint("bottom-center");
+                      return;
+                    }
+                    go(nextHref);
+                  }}
                 >
                   {pendingHref === nextHref ? (
                     <Spinner
@@ -363,12 +412,12 @@ export function PfqObjectiveLessonView({
                       {nextObjective
                         ? `Next: LO${nextObjective}`
                         : "Back to overview"}
-                      <CtaArrow className="!h-2.5 !w-2.5" />
+                      <CtaArrow className="!h-3.5 !w-3.5" />
                     </>
                   )}
                 </button>
               </nav>
-            </section>
+            </div>
           );
         }
 

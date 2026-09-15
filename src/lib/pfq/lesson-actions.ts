@@ -105,7 +105,8 @@ export async function markPfqStageReached(input: {
       if (error) throw error;
     }
 
-    revalidateLesson(input.objective);
+    // Overview only — revalidating this objective page flashes the lesson.
+    revalidatePath(PFQ_LEARN_HREF);
     return { ok: true };
   } catch (err) {
     console.error("[pfq] markStageReached", err);

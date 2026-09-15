@@ -48,7 +48,7 @@ export const PFQ_PLANS: PfqPlan[] = [
     priceCents: PFQ_PRO_PRICE_CENTS,
     priceNote: "one-off · no subscription",
     tagline:
-      "Lessons, practice, a full mock, and a coverage map for every PFQ learning outcome.",
+      "Lessons, practice sets, three timed mocks, and a coverage map for every PFQ learning outcome.",
     ctaLabel: "Get Pro Bundle",
     features: [
       {
@@ -61,7 +61,7 @@ export const PFQ_PLANS: PfqPlan[] = [
         label: "practice questions, tagged to the outcome they test",
         value: "306",
       },
-      { icon: "mock", label: "full 60-question mock exam", value: "1" },
+      { icon: "mock", label: "timed 60-question mock exams", value: "3" },
       { icon: "report", label: "Coverage map of the 59 outcomes" },
       {
         icon: "misconceptions",

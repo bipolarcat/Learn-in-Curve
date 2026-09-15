@@ -586,22 +586,22 @@
     {
       "type": "acronym",
       "acronym": "CDDT",
-      "expansion": "Concept, Definition, Deployment, Transition, the four phases, in order."
+      "expansion": "Concept, Definition, Deployment, Transition. In that order."
     },
     {
       "type": "acronym",
       "acronym": "CDDT + AB",
-      "expansion": "Add Adoption and Benefits realisation and you have the extended life cycle."
+      "expansion": "Plus Adoption and Benefits realisation: the extended life cycle."
     },
     {
       "type": "cue",
       "acronym": "Built it, used it, worth it",
-      "expansion": "Output, outcome, benefit. Three words, always in that order."
+      "expansion": "Output, outcome, benefit. Always that order."
     },
     {
       "type": "cue",
       "acronym": "Stadium or software?",
-      "expansion": "Cost of change decides most scenarios. You cannot un-build a stadium; you can rewrite code. High cost of change points to linear."
+      "expansion": "High cost of change points to linear. Low points to iterative."
     }
   ],
   "progress_checkpoint": [

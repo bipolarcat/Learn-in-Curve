@@ -368,27 +368,27 @@
     {
       "type": "cue",
       "acronym": "Reviews look in, assurance looks on",
-      "expansion": "Reviews sit inside the initiative; assurance stands outside it. The same cue appears in LO6 because the same distinction decides both."
+      "expansion": "Reviews sit inside the initiative. Assurance stands outside it."
     },
     {
       "type": "cue",
       "acronym": "Inside, checking, independent",
-      "expansion": "The three lines of defence in order. First line inside the project, second line checking that the controls work, third line independent audit of both."
+      "expansion": "Three lines of defence: the project, the control owners, independent audit."
     },
     {
       "type": "cue",
       "acronym": "Governance decides, assurance informs",
-      "expansion": "Assurance and audit are not decision-making functions. They supply the evidence; the governance tiers take the decision."
+      "expansion": "Assurance supplies the evidence. Governance takes the decision."
     },
     {
       "type": "cue",
       "acronym": "Missed it, or ignored it",
-      "expansion": "The two ways assurance fails. Uninsightful assurance misses the finding; the second failure is a real finding nobody acts on."
+      "expansion": "Two failures: assurance misses the finding, or nobody acts on it."
     },
     {
       "type": "cue",
       "acronym": "Assurance goes where the risk is",
-      "expansion": "Risk analysis guides assurance towards the greatest vulnerabilities, and an effective plan is targeted at the greatest significance and risk, not spread evenly."
+      "expansion": "Target it at greatest significance and risk, never spread evenly."
     }
   ],
   "progress_checkpoint": [

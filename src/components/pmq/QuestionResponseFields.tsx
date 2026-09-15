@@ -77,6 +77,7 @@ export function InlineDropdownResponseFields({
   questionTotal,
   onChange,
   getState,
+  quiet = false,
 }: {
   prompt: string;
   options: Record<string, string[]>;
@@ -86,6 +87,8 @@ export function InlineDropdownResponseFields({
   questionTotal?: number;
   onChange: (key: string, value: string) => void;
   getState?: (key: string) => ResponseVisualState;
+  /** No filled-selected wash or orange focus ring (mock exam). */
+  quiet?: boolean;
 }) {
   const parts = prompt.split(/__\(([a-z])\)__/gi);
   return (
@@ -101,7 +104,9 @@ export function InlineDropdownResponseFields({
         if (!keyMatch) return <span key={index}>{part}</span>;
         const key = keyMatch[1].toLowerCase();
         const selected = values[key] ?? "";
-        const state = getState?.(key) ?? (selected ? "selected" : "default");
+        const state = quiet
+          ? "default"
+          : (getState?.(key) ?? (selected ? "selected" : "default"));
         return (
           <select
             key={`${key}-${index}`}
@@ -109,7 +114,11 @@ export function InlineDropdownResponseFields({
             disabled={disabled}
             aria-label={`Blank ${key.toUpperCase()}`}
             onChange={(event) => onChange(key, event.target.value)}
-            className={`mx-0.5 my-0.5 inline-block h-8 w-[8.75rem] shrink-0 cursor-pointer appearance-auto rounded-md border px-2 py-0 align-baseline font-body text-[13px] font-medium leading-none transition-[background-color,border-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default ${DROPDOWN_STYLES[state]}`}
+            className={`mx-0.5 my-0.5 inline-block h-8 w-[8.75rem] shrink-0 cursor-pointer appearance-auto rounded-md border px-2 py-0 align-baseline font-body text-[13px] font-medium leading-none transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] focus:outline-none focus-visible:outline-none disabled:cursor-default ${
+              quiet
+                ? "focus:border-ink/25 focus-visible:border-ink/25 focus-visible:ring-0"
+                : "focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            } ${DROPDOWN_STYLES[state]}`}
           >
             <option value="" disabled>
               Choose…

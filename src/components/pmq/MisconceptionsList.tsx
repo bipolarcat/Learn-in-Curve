@@ -1,11 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
 import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+  useId,
+  useState,
+  type ReactNode,
+} from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import type { Misconception } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
@@ -13,166 +14,211 @@ type MisconceptionsListProps = {
   items: Misconception[];
 };
 
-const fieldLabelClass =
-  "font-body text-[12px] font-semibold tracking-tight text-ink/55";
+const markClass = "size-3.5 shrink-0";
 const trapClass =
-  "mt-1 block w-full min-w-0 font-body text-[15px] font-medium leading-snug tracking-tight text-pretty text-ink";
+  "min-w-0 w-full flex-1 font-body text-[15px] font-medium leading-snug tracking-tight text-ink";
 const rightClass =
-  "mt-1 w-full min-w-0 font-body text-[15px] font-normal italic leading-snug text-pretty text-ink/90";
+  "min-w-0 w-full flex-1 font-body text-[15px] font-normal leading-[1.5] tracking-tight text-ink/85";
 
-/** Soft disclosure curve — same family as Insights. */
-const panelEase = [0.22, 1, 0.36, 1] as const;
+/** 21st.dev expandable-tabs / Morphing Popover spring — snappy, slight settle. */
+const accordionSpring = {
+  type: "spring" as const,
+  bounce: 0.12,
+  duration: 0.4,
+};
 
 /**
- * Common misconceptions — one open at a time.
- * Quiet plates; Framer height/opacity expand (no measured-height chop).
+ * Common misconceptions — flat FAQ accordion inside the Polish card.
+ * Closed: the trap only. Open: the right take. One row at a time, all
+ * closed by default, no nested plates.
  */
 export function MisconceptionsList({ items }: MisconceptionsListProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const uid = useId();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const reduceMotion = useReducedMotion();
+  const spring = reduceMotion ? { duration: 0.01 } : accordionSpring;
 
   if (items.length === 0) return null;
 
   return (
-    <div
-      className="flex w-full min-w-0 flex-col gap-2"
+    <ul
+      className="m-0 w-full list-none p-0"
       aria-label="Common misconceptions"
     >
-      {items.map((item, index) => (
-        <MisconceptionPlate
-          key={`${index}-${item.wrong.slice(0, 40)}`}
-          item={item}
-          number={index + 1}
-          open={openIndex === index}
-          onToggle={() =>
-            setOpenIndex((current) => (current === index ? null : index))
-          }
-        />
-      ))}
-    </div>
+      {items.map((item, index) => {
+        const open = openIndex === index;
+        const isFirst = index === 0;
+        const isLast = index === items.length - 1;
+        const triggerId = `${uid}-trigger-${index}`;
+        const panelId = `${uid}-panel-${index}`;
+        const wrong = item.wrong.trim();
+        const right = item.right.trim();
+
+        return (
+          <li
+            key={`${index}-${wrong.slice(0, 40)}`}
+            className={cn(
+              "w-full min-w-0 overflow-visible [overflow-anchor:none]",
+              open && "py-2.5",
+              open &&
+                isFirst &&
+                "border-t border-black/[0.07] dark:border-white/[0.1]",
+              !isLast &&
+                "border-b border-black/[0.07] dark:border-white/[0.1]",
+              !open &&
+                "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink/[0.035]",
+            )}
+          >
+            <div
+              className={cn(
+                "relative w-full min-w-0 rounded-md",
+                open && "px-1.5 py-1",
+              )}
+            >
+              <motion.div
+                aria-hidden
+                initial={false}
+                animate={{ opacity: open ? 1 : 0 }}
+                transition={spring}
+                className="pointer-events-none absolute inset-0 rounded-md bg-ink/[0.045] dark:bg-white/[0.06]"
+              />
+              <button
+                type="button"
+                id={triggerId}
+                aria-expanded={open}
+                aria-controls={panelId}
+                aria-label={`Wrong: ${wrong}`}
+                onClick={() => setOpenIndex(open ? null : index)}
+                onPointerUp={(event) => {
+                  if (event.pointerType === "touch") event.currentTarget.blur();
+                }}
+                className={cn(
+                  "relative flex min-h-11 w-full min-w-0 items-center gap-1.5 py-1.5 pr-5 text-left",
+                  "touch-manipulation [-webkit-tap-highlight-color:transparent]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange/50",
+                )}
+              >
+                <WrongMark className={`${markClass} text-rust`} />
+                <span className={trapClass}>{wrong}</span>
+                <motion.span
+                  className={cn(
+                    "absolute right-0 top-1/2 inline-flex",
+                    open ? "text-orange" : "text-ink/55",
+                  )}
+                  initial={false}
+                  animate={{ rotate: open ? 180 : 0, y: "-50%" }}
+                  transition={spring}
+                  aria-hidden
+                >
+                  <ChevronDown className="size-3.5" strokeWidth={2.25} />
+                </motion.span>
+              </button>
+              <Collapse
+                open={open}
+                id={panelId}
+                labelledBy={triggerId}
+                spring={spring}
+                reduceMotion={Boolean(reduceMotion)}
+              >
+                <div className="relative flex w-full min-w-0 items-start gap-1.5 pb-1.5">
+                  <RightMark className={`${markClass} mt-0.5 text-olive`} />
+                  <p className={rightClass}>
+                    <span className="sr-only">Right. </span>
+                    {right}
+                  </p>
+                </div>
+              </Collapse>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
-function MisconceptionPlate({
-  item,
-  number,
-  open,
-  onToggle,
-}: {
-  item: Misconception;
-  number: number;
-  open: boolean;
-  onToggle: () => void;
-}) {
-  const panelId = useId();
-  const summaryId = useId();
-  const reduceMotion = useReducedMotion();
-  const trapText = item.wrong.trim();
-  const rightText = item.right.trim();
-
-  const panelTransition = reduceMotion
-    ? { duration: 0.01 }
-    : { duration: 0.32, ease: panelEase };
-
+/** Filled rust disc with a white X — exam-wrong mark. */
+function WrongMark({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "min-w-0 overflow-hidden rounded-2xl border border-black/[0.08] bg-paper dark:border-white/[0.12]",
-      )}
+    <svg
+      viewBox="0 0 16 16"
+      className={className}
+      fill="none"
+      aria-hidden
     >
-      <h3 className="m-0">
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls={panelId}
-          aria-label={
-            open
-              ? `Hide the right take for misconception ${number}. Trap: ${trapText}`
-              : `Show the right take for misconception ${number}. Trap: ${trapText}`
-          }
-          onClick={onToggle}
-          onPointerUp={(event) => {
-            if (event.pointerType === "touch") event.currentTarget.blur();
-          }}
-          className={cn(
-            "group flex w-full items-start gap-2 py-2.5 pl-3 pr-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] touch-manipulation [-webkit-tap-highlight-color:transparent]",
-            "active:bg-ink/[0.04] [@media(hover:hover)]:hover:bg-ink/[0.025]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange/50",
-            open ? "rounded-t-2xl" : "rounded-2xl",
-          )}
-        >
-          <span className="min-w-0 flex-1">
-            {/* Bullet + label share one baseline so the dot lines up with “Wrong”. */}
-            <span className="flex items-center gap-2">
-              <span
-                className={cn(
-                  "block size-1.5 shrink-0 rounded-full bg-rust/55 transition-colors duration-150 ease-[var(--ease-out-quint)]",
-                  open && "bg-rust",
-                )}
-                aria-hidden
-              />
-              <span className={fieldLabelClass}>
-                Wrong{" "}
-                <span className="tabular-nums text-ink/40">{number}</span>
-              </span>
-            </span>
-            <span id={summaryId} className={`${trapClass} pl-3.5`}>
-              {trapText}
-            </span>
-          </span>
-          <motion.svg
-            className="mt-0.5 size-3.5 shrink-0 text-ink/40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden
-            animate={{ rotate: open ? 180 : 0 }}
-            transition={
-              reduceMotion
-                ? { duration: 0.01 }
-                : { duration: 0.28, ease: panelEase }
-            }
-          >
-            <path d="M6 9L12 15L18 9" />
-          </motion.svg>
-        </button>
-      </h3>
+      <circle cx="8" cy="8" r="8" fill="currentColor" />
+      <path
+        d="M5.15 5.15 10.85 10.85M10.85 5.15 5.15 10.85"
+        className="text-paper"
+        stroke="currentColor"
+        strokeWidth="2.15"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
-      <AnimatePresence initial={false}>
-        {open ? (
-          <motion.div
-            id={panelId}
-            key="right"
-            role="region"
-            aria-labelledby={summaryId}
-            initial={reduceMotion ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={
-              reduceMotion
-                ? { opacity: 0 }
-                : { height: 0, opacity: 0 }
+/** Filled olive disc with a paper tick — matches WrongMark. */
+function RightMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      className={className}
+      fill="none"
+      aria-hidden
+    >
+      <circle cx="8" cy="8" r="8" fill="currentColor" />
+      <path
+        d="M4.45 8.2 6.95 10.7 11.6 5.4"
+        className="text-paper"
+        stroke="currentColor"
+        strokeWidth="2.15"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Collapse({
+  open,
+  id,
+  labelledBy,
+  children,
+  spring,
+  reduceMotion,
+}: {
+  open: boolean;
+  id: string;
+  labelledBy: string;
+  children: ReactNode;
+  spring:
+    | { type: "spring"; bounce: number; duration: number }
+    | { duration: number };
+  reduceMotion: boolean;
+}) {
+  return (
+    <motion.div
+      id={id}
+      role="region"
+      aria-labelledby={labelledBy}
+      aria-hidden={!open}
+      inert={!open ? true : undefined}
+      initial={false}
+      animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+      transition={
+        reduceMotion
+          ? { duration: 0.01 }
+          : {
+              height: spring,
+              opacity: {
+                duration: open ? 0.2 : 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              },
             }
-            transition={panelTransition}
-            className="overflow-hidden"
-          >
-            <div className="px-3 pb-2.5 pr-2.5">
-              <p className="m-0 flex items-center gap-2">
-                <span
-                  className="block size-1.5 shrink-0 rounded-full bg-olive"
-                  aria-hidden
-                />
-                <span className={fieldLabelClass}>
-                  Right{" "}
-                  <span className="tabular-nums text-ink/40">{number}</span>
-                </span>
-              </p>
-              <p className={`${rightClass} pl-3.5`}>{rightText}</p>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </div>
+      }
+      className="relative overflow-hidden [overflow-anchor:none]"
+    >
+      {children}
+    </motion.div>
   );
 }

@@ -153,8 +153,13 @@
   color: rgb(var(--ink-rgb) / 0.4);
 }
 
-.rowStatusDone {
+.rowStatusDone,
+.rowStatusPass {
   color: var(--olive);
+}
+
+.rowStatusRefer {
+  color: var(--rust);
 }
 
 .rowStatusOpen {

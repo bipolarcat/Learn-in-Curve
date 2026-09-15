@@ -2,21 +2,23 @@
 
 import { createServiceClient } from "@/lib/supabase/admin";
 import { isInternalEmail } from "@/lib/email/internal";
+import { captureServer } from "@/lib/analytics/server";
+import { getFreeMockBank } from "@/lib/free-mock/banks";
+import { isFreeMockExamId } from "@/lib/free-mock/config";
 import {
-  FREE_MOCK_MAX_SCORE,
-  FREE_MOCK_QUESTIONS,
-} from "@/content/free-mock-exam";
-import {
-  buildLoBreakdown,
+  buildCategoryBreakdown,
   isQuestionCorrect,
-  weakestLos,
+  toLoBreakdownRows,
+  weakestCategories,
   type FreeMockAnswer,
   type LoBreakdownRow,
 } from "@/lib/free-mock/scoring";
+import type { FreeMockExamId } from "@/lib/free-mock/types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export type SubmitFreeMockLeadInput = {
+  examId: FreeMockExamId;
   email: string;
   marketingConsent: boolean;
   answers: Record<string, FreeMockAnswer>;
@@ -61,19 +63,27 @@ function clip(value: string | null | undefined, max = 200): string | null {
 export async function submitFreeMockLead(
   input: SubmitFreeMockLeadInput,
 ): Promise<SubmitFreeMockLeadResult> {
+  if (!isFreeMockExamId(input.examId)) {
+    return { ok: false, error: "Invalid exam." };
+  }
+
   const email = normalizeEmail(input.email);
   if (!email) {
     return { ok: false, error: "Enter a valid email address." };
   }
 
+  const examId = input.examId;
+  const items = getFreeMockBank(examId);
+  const maxScore = items.length;
   const answers = input.answers ?? {};
   let score = 0;
-  for (const q of FREE_MOCK_QUESTIONS) {
-    if (isQuestionCorrect(q, answers[q.id])) score += 1;
+  for (const item of items) {
+    if (isQuestionCorrect(item, answers[item.id])) score += 1;
   }
 
-  const loBreakdown = buildLoBreakdown(FREE_MOCK_QUESTIONS, answers);
-  const weakest = weakestLos(loBreakdown, 3);
+  const categoryBreakdown = buildCategoryBreakdown(items, answers);
+  const loBreakdown = toLoBreakdownRows(categoryBreakdown);
+  const weakest = toLoBreakdownRows(weakestCategories(categoryBreakdown, 3));
   const isInternal = isInternalEmail(email);
   const marketingConsent = isInternal ? false : Boolean(input.marketingConsent);
   const now = new Date().toISOString();
@@ -83,8 +93,9 @@ export async function submitFreeMockLead(
     const supabase = createServiceClient();
     const { error } = await supabase.from("leads").insert({
       email,
+      exam_id: examId,
       score,
-      max_score: FREE_MOCK_MAX_SCORE,
+      max_score: maxScore,
       weakest_los: weakest.map((w) => w.lo_code),
       lo_breakdown: loBreakdown,
       marketing_consent: marketingConsent,
@@ -108,10 +119,25 @@ export async function submitFreeMockLead(
     return { ok: false, error: "Could not save your results. Try again." };
   }
 
+  try {
+    await captureServer(email, "free_mock_lead_captured", {
+      exam_id: examId,
+      score,
+      max_score: maxScore,
+      marketing_consent: marketingConsent,
+      lead_source: "free_mock_exam",
+      utm_source: clip(attr.utm_source),
+      utm_medium: clip(attr.utm_medium),
+      utm_campaign: clip(attr.utm_campaign),
+    });
+  } catch (err) {
+    console.error("[submitFreeMockLead] analytics", err);
+  }
+
   return {
     ok: true,
     score,
-    maxScore: FREE_MOCK_MAX_SCORE,
+    maxScore,
     loBreakdown,
     weakest,
   };

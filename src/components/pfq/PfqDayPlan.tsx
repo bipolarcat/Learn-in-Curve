@@ -193,7 +193,6 @@ export function PfqDayPlan({
           ).length;
           const total = objectives.length;
           const done = total > 0 && doneCount >= total;
-          const inProgress = doneCount > 0 && !done;
           const selected = day === selectedDay;
 
           return (
@@ -207,9 +206,7 @@ export function PfqDayPlan({
               tabIndex={selected ? 0 : -1}
               className={`${styles.dayTab} ${
                 selected ? styles.dayTabSelected : ""
-              } ${done ? styles.dayTabDone : ""} ${
-                inProgress && !selected ? styles.dayTabProgress : ""
-              }`}
+              } ${done ? styles.dayTabDone : ""}`}
               onClick={() => setSelectedDay(day)}
             >
               <span className={styles.dayTabNum}>Day {day}</span>

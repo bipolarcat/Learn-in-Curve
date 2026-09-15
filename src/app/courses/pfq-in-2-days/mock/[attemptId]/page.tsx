@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { PfqMockRunner } from "@/components/pfq/PfqMockRunner";
-import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
+import { PfqMockSession } from "@/components/pfq/PfqMockSession";
+import { loadPfqAttempt } from "@/lib/pfq/actions";
 import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
+import { getPfqTier } from "@/lib/pfq/entitlement";
+import { createClient } from "@/lib/supabase/server";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 
 type Props = {
@@ -22,12 +24,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PfqMockAttemptPage({ params }: Props) {
   await requirePfqProOrRedirect();
   const { attemptId } = await params;
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const [tier, loaded] = await Promise.all([
+    getPfqTier(supabase, user?.id),
+    loadPfqAttempt({ attemptId }),
+  ]);
+  const mockSet = loaded.ok ? loaded.mockSet ?? undefined : undefined;
+
   return (
-    <div className="mx-auto w-full max-w-wrap px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">
-      <PfqMockRunner attemptId={attemptId} />
-      <p className="mt-10 max-w-3xl font-body text-[12px] leading-relaxed text-ink/55">
-        {PFQ_ATP_DISCLAIMER}
-      </p>
-    </div>
+    <PfqMockSession userTier={tier} attemptId={attemptId} mockSet={mockSet} />
   );
 }

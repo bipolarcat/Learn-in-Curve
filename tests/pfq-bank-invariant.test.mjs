@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { PFQ_EXPECTED_OUTCOMES } from "../src/lib/pfq/outcomes.ts";
+import { PFQ_EXPECTED_OUTCOMES, PFQ_OBJECTIVES } from "../src/lib/pfq/outcomes.ts";
 import {
   validateCombinedPfqBank,
   validatePfqBank,
@@ -18,6 +18,7 @@ import {
   getPfqFreeSampleQuestionIds,
   selectPfqFreeSampleIds,
   PFQ_FREE_SAMPLE_SIZE,
+  PFQ_FREE_SAMPLE_PER_OBJECTIVE,
 } from "../src/lib/pfq/free-sample.ts";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
@@ -175,74 +176,62 @@ test("public payload never includes answer, explanation, or tip keys", async () 
   );
 });
 
-test("free sample picks first 50 outcomes with lowest variant practice rows", () => {
+test("free sample picks 5 practice rows per objective, spread across outcomes", () => {
   __clearPfqFreeSampleCacheForTests();
-  const rows = PFQ_EXPECTED_OUTCOMES.flatMap((code, i) => [
-    {
-      id: `FS-${code}-mock`,
-      learning_outcome: code,
-      objective: Number(code.split(".")[0]),
-      day: 1,
-      verb: "define",
-      type: "single",
-      traps: [],
-      stem: "s",
-      items: null,
-      options: { a: "A", b: "B", c: "C", d: "D" },
-      answer: "a",
-      explanation: "e",
-      tip: null,
-      active: true,
-      mock_suitable: true,
-      mock_set: 1,
-      variant: 1,
-    },
-    {
-      id: `FS-${code}-v2`,
-      learning_outcome: code,
-      objective: Number(code.split(".")[0]),
-      day: 1,
-      verb: "define",
-      type: "single",
-      traps: [],
-      stem: "s",
-      items: null,
-      options: { a: "A", b: "B", c: "C", d: "D" },
-      answer: "a",
-      explanation: "e",
-      tip: null,
-      active: true,
-      mock_suitable: false,
-      mock_set: null,
-      variant: 2,
-    },
-    {
-      id: `FS-${code}-v1`,
-      learning_outcome: code,
-      objective: Number(code.split(".")[0]),
-      day: 1,
-      verb: "define",
-      type: "single",
-      traps: [],
-      stem: "s",
-      items: null,
-      options: { a: "A", b: "B", c: "C", d: "D" },
-      answer: "a",
-      explanation: "e",
-      tip: null,
-      active: true,
-      mock_suitable: false,
-      mock_set: null,
-      variant: 1,
-    },
+  const make = (code, variant, mockSet) => ({
+    id: `FS-${code}-v${variant}${mockSet ? "-m" : ""}`,
+    learning_outcome: code,
+    objective: Number(code.split(".")[0]),
+    day: 1,
+    verb: "define",
+    type: "single",
+    traps: [],
+    stem: "s",
+    items: null,
+    options: { a: "A", b: "B", c: "C", d: "D" },
+    answer: "a",
+    explanation: "e",
+    tip: null,
+    active: true,
+    mock_suitable: Boolean(mockSet),
+    mock_set: mockSet ?? null,
+    variant,
+  });
+
+  // six practice variants per outcome, so even a single-outcome objective
+  // (objective 3) can supply five.
+  const rows = PFQ_EXPECTED_OUTCOMES.flatMap((code) => [
+    make(code, 1, 1),
+    ...[6, 5, 4, 3, 2, 1].map((variant) => make(code, variant, null)),
   ]);
 
   const ids = selectPfqFreeSampleIds(rows);
   assert.equal(ids.length, PFQ_FREE_SAMPLE_SIZE);
-  for (let i = 0; i < PFQ_FREE_SAMPLE_SIZE; i += 1) {
-    const code = PFQ_EXPECTED_OUTCOMES[i];
-    assert.equal(ids[i], `FS-${code}-v1`);
+  assert.equal(new Set(ids).size, ids.length);
+
+  // never a mock row
+  assert.equal(ids.some((id) => id.endsWith("-m")), false);
+
+  // exactly 5 per objective
+  const perObjective = new Map();
+  for (const id of ids) {
+    const code = id.split("-")[1];
+    const objective = code.split(".")[0];
+    perObjective.set(objective, (perObjective.get(objective) ?? 0) + 1);
   }
+  assert.equal(perObjective.size, PFQ_OBJECTIVES.length);
+  for (const count of perObjective.values()) {
+    assert.equal(count, PFQ_FREE_SAMPLE_PER_OBJECTIVE);
+  }
+
+  // objective 1 has 6 outcomes, so pass one takes the first 5 at variant 1
+  assert.deepEqual(ids.slice(0, 5), [
+    "FS-1.1-v1",
+    "FS-1.2-v1",
+    "FS-1.3-v1",
+    "FS-1.4-v1",
+    "FS-1.5-v1",
+  ]);
 });
 
 test("free sample cache returns same ids until cleared", async () => {

@@ -358,23 +358,44 @@ export function trackActivityAbandoned(props: ActivityAnalyticsBase & { moves: n
 
 // —— Growth: free mock / leads ——————————————————————————————————————
 
-export function trackFreeMockStarted(): void {
+export function trackFreeMockStarted(props: {
+  exam_id: "apm-pmq" | "apm-pfq" | "pmp";
+}): void {
   capture("free_mock_started", {
     ...attributionProps(),
+    exam_id: props.exam_id,
     course: ANALYTICS_COURSE_PMQ,
   });
 }
 
 export function trackFreeMockCompleted(props: {
+  exam_id: "apm-pmq" | "apm-pfq" | "pmp";
   score: number;
   max_score: number;
   marketing_consent: boolean;
 }): void {
   capture("free_mock_completed", {
     ...attributionProps(),
+    exam_id: props.exam_id,
     score: props.score,
     max_score: props.max_score,
     marketing_consent: props.marketing_consent,
+  });
+}
+
+export function trackFreeMockLeadCaptured(props: {
+  exam_id: "apm-pmq" | "apm-pfq" | "pmp";
+  score: number;
+  max_score: number;
+  marketing_consent: boolean;
+}): void {
+  capture("free_mock_lead_captured", {
+    ...attributionProps(),
+    exam_id: props.exam_id,
+    score: props.score,
+    max_score: props.max_score,
+    marketing_consent: props.marketing_consent,
+    lead_source: "free_mock_exam",
   });
 }
 
@@ -383,6 +404,7 @@ export function trackLeadCaptured(props: {
   max_score: number;
   marketing_consent: boolean;
   lead_source: "free_mock_exam";
+  exam_id?: "apm-pmq" | "apm-pfq" | "pmp";
 }): void {
   capture("lead_captured", {
     ...attributionProps(),
@@ -390,6 +412,7 @@ export function trackLeadCaptured(props: {
     max_score: props.max_score,
     marketing_consent: props.marketing_consent,
     lead_source: props.lead_source,
+    ...(props.exam_id ? { exam_id: props.exam_id } : {}),
   });
 }
 

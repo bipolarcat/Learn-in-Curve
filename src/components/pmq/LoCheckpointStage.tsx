@@ -3,11 +3,14 @@
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Check, Flag } from "lucide-react";
+import {
+  CHECKPOINT_GATE_COPY,
+  showCheckpointGateHint,
+} from "@/components/pmq/CheckpointGateHint";
 import { ProgressCheckpointList } from "@/components/pmq/ProgressCheckpointList";
 import { LoCheckpointCelebration } from "@/components/pmq/LoCheckpointCelebration";
 import { QaCompleteButton } from "@/components/pmq/QaCompleteButton";
 import {
-  productActionPrimary,
   productActionSecondary,
   productSurfaceOpaque,
 } from "@/components/ui/semantic";
@@ -48,7 +51,7 @@ function LoAdjacentNav({
   currentLo: number;
   nextEnabled?: boolean;
   onNextBlocked?: () => void;
-  /** When false, only Previous is shown (Continue lives in StageContinueButton). */
+  /** When false, only Previous is shown. */
   showNext?: boolean;
 }) {
   const router = useRouter();
@@ -117,7 +120,7 @@ function LoAdjacentNav({
           aria-disabled={!nextEnabled}
           aria-label={
             !nextEnabled
-              ? "Tick off all the checkpoints to complete this learning objective"
+              ? CHECKPOINT_GATE_COPY
               : pendingHref === nextHref
                 ? next
                   ? "Opening next learning objective"
@@ -128,7 +131,7 @@ function LoAdjacentNav({
           }
           title={
             !nextEnabled
-              ? "Tick off all the checkpoints to complete this learning objective"
+              ? CHECKPOINT_GATE_COPY
               : next
                 ? `LO${next.order_index}: ${next.title}`
                 : "Course overview"
@@ -140,9 +143,9 @@ function LoAdjacentNav({
             }
             go(nextHref);
           }}
-          className={`group ${productActionPrimary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90 ${
+          className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90 ${
             !nextEnabled
-              ? "!cursor-not-allowed !opacity-40 hover:!bg-action hover:!opacity-40"
+              ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
               : ""
           }`}
         >
@@ -150,7 +153,7 @@ function LoAdjacentNav({
             <Spinner
               variant="bars"
               size={14}
-              className="text-paper"
+              className="text-ink/55"
               aria-hidden
             />
           ) : (
@@ -187,9 +190,17 @@ export function LoCheckpointStage({
   const [celebrating, setCelebrating] = useState(false);
   const celebratedRef = useRef(sealed);
   const emptySealTried = useRef(false);
+  const [listReady, setListReady] = useState(
+    () =>
+      sealed ||
+      checkpointTotal <= 0 ||
+      (checkpointTotal > 0 &&
+        completedCheckpoints.length >= checkpointTotal),
+  );
 
   const handleReadyChange = useCallback(
     (ready: boolean) => {
+      setListReady(ready);
       onChecklistReadyChange?.(sealed || ready);
     },
     [onChecklistReadyChange, sealed],
@@ -280,6 +291,7 @@ export function LoCheckpointStage({
     celebrating ||
     (checkpointTotal > 0 &&
       completedCheckpoints.length >= checkpointTotal);
+  const nextEnabled = sealed || listReady || checkpointTotal <= 0;
 
   return (
     <div className="lo-checkpoint-stage w-full min-w-0">
@@ -287,18 +299,24 @@ export function LoCheckpointStage({
         className={`${productSurfaceOpaque} ${motion.panel} w-full p-4 sm:p-5`}
         aria-labelledby="lo-checkpoint-title"
       >
-        <div className="flex w-full min-w-0 items-center gap-2 sm:gap-2.5">
+        <div className="flex w-full min-w-0 items-start gap-2 sm:gap-2.5">
           <Flag
-            className="size-7 shrink-0 text-orange sm:size-8"
+            className="mt-0.5 size-7 shrink-0 text-orange sm:size-8"
             strokeWidth={1.75}
             aria-hidden
           />
-          <h2
-            id="lo-checkpoint-title"
-            className="min-w-0 flex-1 font-body text-lg font-semibold leading-snug tracking-tight text-ink"
-          >
-            Checkpoint
-          </h2>
+          <div className="min-w-0 flex-1">
+            <h2
+              id="lo-checkpoint-title"
+              className="font-body text-lg font-semibold leading-none tracking-tight text-ink"
+            >
+              Checkpoint
+            </h2>
+            <p className="mt-0.5 m-0 font-body text-[14px] leading-relaxed text-ink/70">
+              Tick off each checkpoint once you&apos;re able to recall it
+              confidently.
+            </p>
+          </div>
           {showDone ? (
             <span
               className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-olive/15 bg-olive/[0.08] py-1 pl-1 pr-2.5 font-body text-[11px] font-semibold tracking-tight text-olive"
@@ -349,7 +367,9 @@ export function LoCheckpointStage({
       <LoAdjacentNav
         sections={allSections}
         currentLo={loNumber}
-        showNext={false}
+        showNext
+        nextEnabled={nextEnabled}
+        onNextBlocked={() => showCheckpointGateHint("bottom-center")}
       />
 
       <LoCheckpointCelebration open={celebrating} onDone={endCelebration} />

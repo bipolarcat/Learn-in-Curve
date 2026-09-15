@@ -190,10 +190,10 @@ export function PfqPracticeRunner({
         )}
         <p className={styles.lead}>
           {sampleSummary.untestedCount} outcomes were not tested in this free
-          sample.
+          sample. Pro covers every one of them.
         </p>
         <p className={styles.lead}>
-          Pro adds the full practice bank, three timed mock exams, and a
+          Pro adds the full practice bank, two timed mock exams, and a
           per-outcome coverage report.
         </p>
         {error ? (

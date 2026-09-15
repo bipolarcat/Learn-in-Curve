@@ -443,27 +443,27 @@
     {
       "type": "cue",
       "acronym": "Criteria at handover, benefits after adoption",
-      "expansion": "Success criteria are known at handover and the project manager is accountable. Benefits usually arrive after adoption into business as usual, and the sponsor is accountable."
+      "expansion": "Project manager accountable for criteria. Sponsor accountable for benefits."
     },
     {
       "type": "cue",
       "acronym": "Benefits, criteria, objectives, requirements",
-      "expansion": "The chain every requirement should trace back up. If a requirement cannot be linked to a benefit, ask what it is doing in the project."
+      "expansion": "The trace chain. A requirement linking to no benefit does not belong."
     },
     {
       "type": "cue",
       "acronym": "Gather, analyse, prioritise, review",
-      "expansion": "The four steps of requirements management. The baseline gets set after prioritisation, and review never stops."
+      "expansion": "The baseline is set after prioritisation. Review never stops."
     },
     {
       "type": "cue",
       "acronym": "Plan, identify, control, account, audit",
-      "expansion": "The five configuration management steps in order: planning, identification, control, status accounting, verification audit."
+      "expansion": "The five configuration management steps, in order."
     },
     {
       "type": "cue",
       "acronym": "Requirements set the scope, configuration keeps it honest",
-      "expansion": "Requirements management establishes what is being built. Configuration management maintains an accurate, traceable record of what it currently is."
+      "expansion": "Requirements say what is being built. Configuration records what it currently is."
     }
   ],
   "progress_checkpoint": [

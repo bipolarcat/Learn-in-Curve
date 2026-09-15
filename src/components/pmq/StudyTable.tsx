@@ -79,9 +79,9 @@ export function StudyHeadingChromeSlot() {
   const { activities } = ctx.chrome;
   if (!activities?.length) return null;
   return (
-    <div className="flex shrink-0 flex-nowrap items-center justify-end gap-1">
+    <span className="ml-1.5 inline-flex align-middle">
       <ActivityRowHead activities={activities} compact />
-    </div>
+    </span>
   );
 }
 
@@ -130,6 +130,15 @@ function rowsFromSection(section: El | undefined): ReactNode[][] {
 }
 
 type Parsed = { headers: string[]; rows: ReactNode[][] };
+
+/** For / Against columns are peer arguments, not a labelled key + value. */
+function firstColumnIsRowHeading(headers: string[]): boolean {
+  const [left = "", right = ""] = headers.map((header) =>
+    header.trim().toLowerCase(),
+  );
+  const forOrAgainst = (header: string) => /^(for|against)\b/.test(header);
+  return !(forOrAgainst(left) && forOrAgainst(right));
+}
 
 function parseMarkdownTable(children: ReactNode): Parsed | null {
   const sections = childArray(children);
@@ -183,32 +192,19 @@ function ActivityRowHead({
   );
 }
 
-/** LO2: register Pair up / Group up on the ## heading row when the slot is live. */
-function useHoistActivitiesToHeading(
-  toolbarOnHeading: boolean,
-  activities?: LoActivity[],
-) {
-  const headingChrome = useContext(HeadingChromeContext);
-  const setChrome = headingChrome?.setChrome;
-  const slotMounted = headingChrome?.slotMounted ?? false;
-  const hoistToHeading = toolbarOnHeading && slotMounted && Boolean(setChrome);
-
-  useEffect(() => {
-    if (!hoistToHeading || !setChrome) return;
-    setChrome({ activities });
-    return () => setChrome(null);
-  }, [hoistToHeading, setChrome, activities]);
-
-  return hoistToHeading;
-}
-
-/** List-only sections (no table) still park Pair up / Lineup / Group up on ##. */
+/** Register Pair up / Lineup / Group up on the ## heading row. */
 export function HoistActivitiesToHeading({
   activities,
 }: {
   activities?: LoActivity[];
 }) {
-  useHoistActivitiesToHeading(true, activities);
+  const headingChrome = useContext(HeadingChromeContext);
+  const setChrome = headingChrome?.setChrome;
+  useEffect(() => {
+    if (!setChrome) return;
+    setChrome({ activities });
+    return () => setChrome(null);
+  }, [setChrome, activities]);
   return null;
 }
 
@@ -223,14 +219,11 @@ function TwoColumnTable({
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
-  const hoistToHeading = useHoistActivitiesToHeading(
-    toolbarOnHeading,
-    activities,
-  );
+  const labelColumn = firstColumnIsRowHeading(headers);
 
   return (
     <figure className={cn(styles.figure, "not-prose min-w-0")}>
-      {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
+      {!toolbarOnHeading && (activities?.length ?? 0) > 0 ? (
         <div className="mb-1.5 flex flex-wrap items-center justify-end gap-2">
           <ActivityRowHead activities={activities} />
         </div>
@@ -242,19 +235,26 @@ function TwoColumnTable({
             styles.table,
             styles.tableTwoCol,
             "w-full min-w-0 border-collapse font-body text-[13.5px] leading-[1.5] text-ink [&_p]:m-0",
+            !labelColumn && "table-fixed",
           )}
         >
           <thead>
             <tr className="border-b border-black/[0.08] dark:border-white/[0.12]">
               <th
                 scope="col"
-                className="w-[38%] px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
+                className={cn(
+                  "px-3.5 py-2.5 text-left align-top font-semibold tracking-tight",
+                  labelColumn ? "w-[38%]" : "w-1/2",
+                )}
               >
                 {headers[0]}
               </th>
               <th
                 scope="col"
-                className="px-3.5 py-2.5 text-left align-top font-semibold tracking-tight"
+                className={cn(
+                  "px-3.5 py-2.5 text-left align-top font-semibold tracking-tight",
+                  !labelColumn && "w-1/2",
+                )}
               >
                 {headers[1]}
               </th>
@@ -271,7 +271,14 @@ function TwoColumnTable({
                 >
                   <td className="px-3.5 py-2.5 align-top">
                     <div className="flex items-center gap-1.5">
-                      <span className="min-w-0 flex-1 font-semibold leading-[1.5]">
+                      <span
+                        className={cn(
+                          "min-w-0 flex-1 leading-[1.5]",
+                          labelColumn
+                            ? "font-semibold"
+                            : "font-normal text-ink/85",
+                        )}
+                      >
                         {row[0]}
                       </span>
                       {worked ? (
@@ -455,18 +462,13 @@ function MultiColumnStudyTables({
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
-  const hoistToHeading = useHoistActivitiesToHeading(
-    toolbarOnHeading,
-    activities,
-  );
-
   return (
     <MultiColumnTable
       headers={headers}
       rows={rows}
       activities={activities}
       workedExamples={workedExamples}
-      hoistToHeading={hoistToHeading}
+      hoistToHeading={toolbarOnHeading}
     />
   );
 }

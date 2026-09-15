@@ -506,27 +506,27 @@
     {
       "type": "cue",
       "acronym": "Worth it, pays back, can buy it, can afford it, can run it",
-      "expansion": "The five cases in order: strategic (worth doing), economic (returns), commercial (procurable), financial (affordable now), management (deliverable)."
+      "expansion": "Strategic, economic, commercial, financial, management. In that order."
     },
     {
       "type": "cue",
       "acronym": "Value versus affordability",
-      "expansion": "Economic case = is it worth it. Financial case = can we pay for it now. The two get confused more than any other pair in this LO."
+      "expansion": "Economic = is it worth it. Financial = can we pay now."
     },
     {
       "type": "cue",
       "acronym": "S and W are mine, O and T are the world's",
-      "expansion": "SWOT's axis pair. Strengths and weaknesses are internal to the organisation; opportunities and threats are external conditions."
+      "expansion": "SWOT: strengths and weaknesses internal, opportunities and threats external."
     },
     {
       "type": "cue",
       "acronym": "PESTLE finds it, SWOT weighs it, VUCA doubts it",
-      "expansion": "PESTLE scans the external environment, SWOT tests those factors against internal capability, VUCA sets how much confidence the resulting plan deserves."
+      "expansion": "Scan the environment, test against capability, set confidence in the plan."
     },
     {
       "type": "cue",
       "acronym": "Still worth doing?",
-      "expansion": "The question the business case answers at every control point. Not 'was this a good idea' but 'is it still the best use of this money right now'."
+      "expansion": "The business case question at every control point. Not was it, is it."
     }
   ],
   "progress_checkpoint": [

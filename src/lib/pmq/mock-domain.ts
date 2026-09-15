@@ -157,7 +157,7 @@ export function mockExamSelectorState(
                     : null;
 
   const tone: MockExamSelectorState["tone"] =
-    status === "Passed" || (status != null && status.startsWith("Completed"))
+    status === "Passed"
       ? "done"
       : status === "In progress" ||
           status === "On break" ||

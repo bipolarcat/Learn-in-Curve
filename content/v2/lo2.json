@@ -659,28 +659,28 @@
   "memory_aids": [
     {
       "type": "cue",
-      "acronym": "Who decides what?",
-      "expansion": "The one-line definition of governance. If a question is really asking about authority, accountability or escalation, it is a governance question."
+      "acronym": "Authority, accountability, escalation",
+      "expansion": "Any question really asking about those three is a governance question."
     },
     {
       "type": "cue",
       "acronym": "Right things, right way",
-      "expansion": "The two purposes of governance. Right things = serving the investing organisation. Right way = complying with good practice, ethics, policy, regulation and legislation."
+      "expansion": "Right things = for the investing organisation. Right way = ethics, policy, regulation."
     },
     {
       "type": "cue",
       "acronym": "Worth doing / getting done",
-      "expansion": "Sponsor is accountable for the project being worth doing (business case, benefits). Project manager is responsible for it getting done (outputs, delivery)."
+      "expansion": "Sponsor = worth doing (business case). Project manager = getting done (delivery)."
     },
     {
       "type": "cue",
-      "acronym": "Function, both, project",
-      "expansion": "Who does the person report to? Functional = their function only. Matrix = both function and project manager. Project = the project manager only. Name the structure by naming the reporting line."
+      "acronym": "Reports to: function / both / PM",
+      "expansion": "Functional, matrix, project. Name the structure by naming the reporting line."
     },
     {
       "type": "cue",
       "acronym": "Gates or cycles",
-      "expansion": "Linear governs at decision gates between phases. Iterative governs at the end of every iteration, asking whether the value proposition remains positive."
+      "expansion": "Linear governs at decision gates. Iterative governs at each iteration end."
     }
   ],
   "progress_checkpoint": [

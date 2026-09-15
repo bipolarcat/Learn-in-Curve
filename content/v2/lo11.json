@@ -515,27 +515,27 @@
     {
       "type": "cue",
       "acronym": "Negative down, positive up, none risky",
-      "expansion": "The three states and their effects. Negative conflict drives performance down, positive conflict drives it up, and no conflict creates additional risk through groupthink and risky shift."
+      "expansion": "No conflict at all brings groupthink and risky shift."
     },
     {
       "type": "cue",
       "acronym": "Issue or person?",
-      "expansion": "The diagnostic question for whether conflict has turned negative. Emotion is fine; personalisation is the failure point, because acrimony starts the moment it stops being about the issue."
+      "expansion": "Emotion is fine. Personalisation is the failure point."
     },
     {
       "type": "cue",
       "acronym": "Assertive is my outcome, cooperative is your relationship",
-      "expansion": "The two axes of the five-strategy model. Decide which of outcome and relationship matters more here, and the strategy follows from that."
+      "expansion": "Decide which of the two matters more here and the strategy follows."
     },
     {
       "type": "cue",
       "acronym": "Rapport before options",
-      "expansion": "The resolution sequence: engage, build rapport, share, agree criteria, explore options. Without rapport the parties will not listen, so the later steps cannot work."
+      "expansion": "Engage, build rapport, share, agree criteria, explore options."
     },
     {
       "type": "cue",
       "acronym": "Mediators talk, arbitrators decide",
-      "expansion": "A mediator helps the protagonists communicate. An arbitrator judges and makes the decision."
+      "expansion": "A mediator helps them communicate. An arbitrator makes the decision."
     }
   ],
   "progress_checkpoint": [

@@ -716,27 +716,27 @@
     {
       "type": "cue",
       "acronym": "Risk hasn't happened, issue has",
-      "expansion": "A risk is future uncertainty. An issue has already breached tolerance, or definitely will. That decides which process applies."
+      "expansion": "Risk is future uncertainty. An issue has breached tolerance, or definitely will."
     },
     {
       "type": "cue",
       "acronym": "Problem is mine, issue is theirs",
-      "expansion": "A problem sits inside the project manager's tolerances and gets dealt with. An issue exceeds them and needs the sponsor's support to resolve."
+      "expansion": "A problem sits inside tolerance. An issue exceeds it and needs the sponsor."
     },
     {
       "type": "cue",
       "acronym": "Avoid mirrors exploit, reduce mirrors enhance, transfer mirrors share",
-      "expansion": "Three proactive responses each side, using the same three mechanisms pointed in opposite directions: change the scope, change the probability or impact, or involve another party."
+      "expansion": "The same three mechanisms, pointed at threats or at opportunities."
     },
     {
       "type": "cue",
       "acronym": "Accept the threat, reject the opportunity",
-      "expansion": "The two reactive responses. Accept means carrying a threat with a contingent plan ready. Reject means judging an opportunity not worth chasing."
+      "expansion": "Accept carries a threat with a contingent plan. Reject judges it not worth chasing."
     },
     {
       "type": "cue",
       "acronym": "Tolerance is the trigger",
-      "expansion": "Agreed tolerances are what convert a judgement call into a rule. Inside them the project manager acts; outside them it escalates."
+      "expansion": "Inside it the project manager acts. Outside it, escalate."
     }
   ],
   "progress_checkpoint": [

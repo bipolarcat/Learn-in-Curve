@@ -4,10 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import {
-  resetPfqObjectiveProgress,
   updatePfqCheckpoint,
 } from "@/lib/pfq/lesson-actions";
-import { stampCtaSecondary } from "@/components/stamp-chip";
 import { LoCheckpointCelebration } from "@/components/pmq/LoCheckpointCelebration";
 
 type Props = {
@@ -91,29 +89,8 @@ export function PfqCheckpointList({
     })();
   };
 
-  const reset = () => {
-    setError("");
-    void (async () => {
-      const result = await resetPfqObjectiveProgress({ objective });
-      if (!result.ok) {
-        setError(result.error);
-        return;
-      }
-      setCompleted(new Set());
-      setIsComplete(false);
-      wasCompleteRef.current = false;
-      setCelebrating(false);
-      router.refresh();
-    })();
-  };
-
   return (
     <div className="flex w-full flex-col gap-3">
-      {isComplete ? (
-        <p className="m-0 font-body text-[13px] font-semibold tracking-wide uppercase text-[color:rgb(var(--olive-rgb,90_110_60))]">
-          Objective complete
-        </p>
-      ) : null}
       <ul className="m-0 w-full list-none divide-y divide-ink/10 p-0">
         {items.map((item, index) => {
           const isChecked = completed.has(index);
@@ -154,11 +131,6 @@ export function PfqCheckpointList({
           );
         })}
       </ul>
-      {isComplete || completed.size > 0 ? (
-        <button type="button" className={stampCtaSecondary} onClick={() => reset()}>
-          Reset checklist
-        </button>
-      ) : null}
       {error ? (
         <p
           className="m-0 font-body text-sm text-[color:rgb(var(--rust-rgb,180_65_45))]"

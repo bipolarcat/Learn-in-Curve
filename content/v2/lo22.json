@@ -493,27 +493,27 @@
     {
       "type": "cue",
       "acronym": "Scheduled, performed, actual",
-      "expansion": "BCWS is what you planned to have done, BCWP is what you have done, ACWP is what you actually paid. Only the last is real money; the first two are budgeted figures."
+      "expansion": "BCWS planned, BCWP done, ACWP paid. Only ACWP is real money."
     },
     {
       "type": "cue",
       "acronym": "Variances subtract, indices divide",
-      "expansion": "CV and SV subtract from earned value; CPI and SPI divide it. Cost measures compare against actual cost, schedule measures against planned value."
+      "expansion": "CV and SV subtract. CPI and SPI divide. Both from earned value."
     },
     {
       "type": "cue",
       "acronym": "Below one is bad, both times",
-      "expansion": "CPI under 1.0 means over budget. SPI under 1.0 means behind schedule. And a negative variance must agree with its index, so if they disagree, an input is wrong."
+      "expansion": "CPI under 1.0 is over budget, SPI under 1.0 is behind schedule."
     },
     {
       "type": "cue",
       "acronym": "Known risk, planned contingency; unknown issue, management reserve",
-      "expansion": "Contingency covers the risks you identified. Management reserve covers what you did not, and the governance board releases it. Beyond both, it is a change request."
+      "expansion": "Governance releases the reserve. Beyond both, it is a change request."
     },
     {
       "type": "cue",
       "acronym": "Easier to control, harder to forecast",
-      "expansion": "Iterative projects: mostly fixed cost per iteration and commitment managed by iteration count, but chosen under uncertainty, which makes early funding assessment difficult."
+      "expansion": "Iterative: fixed cost per iteration, but iteration count chosen under uncertainty."
     }
   ],
   "progress_checkpoint": [

@@ -3,7 +3,17 @@ import type { PfqQuestionRow } from "./types.ts";
 
 export type PfqMockSet = 1 | 2 | 3;
 
+/** Three timed papers, all Pro. */
 export const PFQ_MOCK_SETS = [1, 2, 3] as const;
+
+/** Accept number or numeric string — PostgREST often returns int as string. */
+export function parsePfqMockSet(raw: unknown): PfqMockSet | null {
+  if (raw === 1 || raw === 2 || raw === 3) return raw;
+  if (raw === "1" || raw === "2" || raw === "3") {
+    return Number(raw) as PfqMockSet;
+  }
+  return null;
+}
 
 function assertMockPaperShape(drawn: PfqQuestionRow[], mockSet: PfqMockSet): void {
   if (drawn.length !== 60) {

@@ -637,27 +637,27 @@
     {
       "type": "cue",
       "acronym": "Zero float means critical",
-      "expansion": "Float is latest start minus earliest start. An activity with none of it cannot slip at all without moving the project's end date."
+      "expansion": "Float is latest start minus earliest start. None means no slip."
     },
     {
       "type": "cue",
       "acronym": "Path counts tasks, chain counts people",
-      "expansion": "Critical path emphasises activities and ignores resource constraints. Critical chain starts from resources and builds a schedule that respects them."
+      "expansion": "Critical path ignores resource constraints. Critical chain starts from them."
     },
     {
       "type": "cue",
       "acronym": "Safety in every task, or safety at the end",
-      "expansion": "Critical path leaves padding inside each estimate. Critical chain strips it out and pools it in one buffer, which is why the buffer goes further."
+      "expansion": "Path pads each estimate. Chain pools the padding into one buffer."
     },
     {
       "type": "cue",
       "acronym": "Compress the critical, and nothing else",
-      "expansion": "Shortening an activity with float only increases its float. Only work on the critical path changes the project duration, and that holds until another path becomes critical."
+      "expansion": "Shortening a task that has float only grows its float."
     },
     {
       "type": "cue",
       "acronym": "Baseline, actuals, assessment",
-      "expansion": "The three elements of performance measurement. Something to measure against, something measured, and a judgement about what it means."
+      "expansion": "Something to measure against, something measured, a judgement on what it means."
     }
   ],
   "progress_checkpoint": [

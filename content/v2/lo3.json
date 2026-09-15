@@ -461,22 +461,22 @@
     {
       "type": "cue",
       "acronym": "People, planet, profit",
-      "expansion": "The three Ps of the triple bottom line: social, environmental, economic. Three scorecards reported together instead of one."
+      "expansion": "Triple bottom line: social, environmental, economic. Three scorecards reported together."
     },
     {
       "type": "cue",
       "acronym": "Reduce is sustainable, restore is regenerative",
-      "expansion": "Sustainable = reduce, reuse, recycle, doing less harm. Regenerative = enhance and improve, actively leaving things better."
+      "expansion": "Sustainable = less harm. Regenerative = actively better."
     },
     {
       "type": "cue",
       "acronym": "Product across its life, project before it starts",
-      "expansion": "LCA follows a product from raw material to disposal. EIA judges a project or plan before the decision to proceed. The subject and the timing are both different."
+      "expansion": "LCA follows a product to disposal. EIA judges a project before approval."
     },
     {
       "type": "cue",
       "acronym": "Set it, track it, certify it, keep watching",
-      "expansion": "The measurement chain: KPIs at definition, monitoring through deployment, certification at transition, continued monitoring into adoption."
+      "expansion": "KPIs at definition, monitoring through deployment, certification at transition, monitoring into adoption."
     }
   ],
   "progress_checkpoint": [

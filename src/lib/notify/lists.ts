@@ -66,6 +66,9 @@ export const PFQ_LIST_KEY = "pfq-in-2-days";
 /** Launch waitlist for the PFQ AI Pro Bundle (not yet purchasable). */
 export const PFQ_AI_PRO_NOTIFY_KEY = "pfq-in-2-days-ai-pro";
 
+/** Launch waitlist for future PMP readiness material (not a course sale). */
+export const PMP_LIST_KEY = "pmp-readiness";
+
 export const NOTIFY_LISTS: NotifyList[] = [
   {
     key: AI_PRO_LIST_KEY,
@@ -106,6 +109,21 @@ export const NOTIFY_LISTS: NotifyList[] = [
     heading: "You're on the list",
     body: [
       "You'll be the first to know when the PFQ AI Pro Bundle launches.",
+      "One email when it's ready. Nothing else.",
+    ],
+    illustrationUrl:
+      "https://dbjoimidfbftammchnql.supabase.co/storage/v1/object/public/email-assets/notify-illustration.jpg",
+    illustrationAlt: "A cheerful dog character throwing a paper plane into a mailbox",
+  },
+  {
+    key: PMP_LIST_KEY,
+    kind: "launch",
+    label: "PMP readiness",
+    subjectCopy: "a PMP readiness course",
+    subject: "You're on the list for PMP readiness updates",
+    heading: "You're on the list",
+    body: [
+      "We'll let you know when we have more PMP readiness material ready.",
       "One email when it's ready. Nothing else.",
     ],
     illustrationUrl:

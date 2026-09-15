@@ -485,27 +485,27 @@
     {
       "type": "cue",
       "acronym": "Plan it on day one",
-      "expansion": "Transition planning starts at the beginning of the project, and acceptance and transition plans live in the project management plan. Most marks in 8a trace back to this."
+      "expansion": "Transition planning starts at project start. The plans live in the PMP."
     },
     {
       "type": "cue",
       "acronym": "Offline, then live, then sign",
-      "expansion": "The acceptance sequence. Components tested in a safe non-operational mode, the full set tested in operational mode with users present, then sponsor sign-off against acceptance criteria."
+      "expansion": "Non-operational test, operational test with users, then sponsor sign-off."
     },
     {
       "type": "cue",
-      "acronym": "Training, knowledge transfer, job changes → phased",
-      "expansion": "The three signals in a scenario that make phased adoption the defensible transition strategy."
+      "acronym": "Training, knowledge transfer, job changes = phased",
+      "expansion": "Those three signals in a scenario point to phased adoption."
     },
     {
       "type": "cue",
       "acronym": "Explicit is written, tacit is known",
-      "expansion": "Explicit knowledge is documents and data and hands over easily. Tacit knowledge lives in people, resists being expressed, and is the half that leaves when the team disperses."
+      "expansion": "Explicit hands over easily. Tacit lives in people and leaves with them."
     },
     {
       "type": "cue",
       "acronym": "Ownership transferred is risk transferred",
-      "expansion": "Assigning ownership of an output moves the risk that comes with it. Until someone in the permanent organisation accepts it, the risk still sits with a team about to disband."
+      "expansion": "Until the permanent organisation accepts an output, its risk stays with the team."
     }
   ],
   "progress_checkpoint": [

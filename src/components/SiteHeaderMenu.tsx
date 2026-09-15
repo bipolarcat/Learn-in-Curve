@@ -57,7 +57,7 @@ const MENU_ITEMS: ReadonlyArray<{
 }> = [
   { href: "/courses", label: "Explore Courses", icon: MenuCoursesIcon },
   {
-    href: "/free-mock-exam",
+    href: "/mock-me",
     label: "Mock Me",
     icon: MenuMockMeIcon,
     badge: "New",
@@ -93,10 +93,11 @@ function writeMenuNewSeen(hrefs: string[]): void {
 function badgeKeyForPath(pathname: string | null): string | null {
   if (!pathname) return null;
   if (
+    pathname === "/mock-me" ||
     pathname === "/free-mock-exam" ||
     pathname.startsWith("/free-mock-exam/")
   ) {
-    return "/free-mock-exam";
+    return "/mock-me";
   }
   if (pathname === "/library" || pathname.startsWith("/library/")) {
     return "/library";

@@ -7,6 +7,7 @@ import {
   buildOptionOrdersForAttempt,
   drawPfqMockQuestionIds,
   PFQ_MOCK_SETS,
+  parsePfqMockSet,
   type PfqMockSet,
 } from "@/lib/pfq/generator";
 import { PFQ_DURATION_SECONDS, PFQ_PASS_MARK, PFQ_QUESTION_COUNT } from "@/lib/pfq/outcomes";
@@ -63,8 +64,7 @@ function normalizeGuestToken(raw: unknown): string | null {
 }
 
 function parseMockSet(raw: unknown): PfqMockSet | null {
-  if (raw === 1 || raw === 2 || raw === 3) return raw;
-  return null;
+  return parsePfqMockSet(raw);
 }
 
 async function loadQuestionsByIds(
@@ -123,6 +123,57 @@ export async function startPfqAttempt(input: {
     const guestToken = null;
 
     const supabase = createServiceClient();
+
+    const { data: prior, error: priorError } = await supabase
+      .from("pfq_attempts")
+      .select("id, mock_set, started_at, submitted_at")
+      .eq("user_id", userId)
+      .not("mock_set", "is", null)
+      .order("started_at", { ascending: false });
+    if (priorError) throw priorError;
+
+    const openSame = (prior ?? []).find(
+      (row) => parseMockSet(row.mock_set) === mockSet && !row.submitted_at,
+    );
+    if (openSame) {
+      const loaded = await loadPfqAttempt({ attemptId: String(openSame.id) });
+      if (!loaded.ok) return loaded;
+      if (loaded.status === "submitted") {
+        return { ok: false, error: "This paper is already finished." };
+      }
+      return {
+        ok: true,
+        attemptId: loaded.attemptId,
+        startedAt: loaded.startedAt,
+        endsAt: loaded.endsAt,
+        questions: loaded.questions,
+        answers: loaded.answers,
+        flags: loaded.flags,
+        mockSet,
+      };
+    }
+
+    const finishedSame = (prior ?? []).find(
+      (row) => parseMockSet(row.mock_set) === mockSet && row.submitted_at,
+    );
+    if (finishedSame) {
+      return { ok: false, error: "You already sat this paper." };
+    }
+
+    const openOther = (prior ?? []).find((row) => {
+      const set = parseMockSet(row.mock_set);
+      return set != null && set !== mockSet && !row.submitted_at;
+    });
+    if (openOther) {
+      const other = parseMockSet(openOther.mock_set);
+      return {
+        ok: false,
+        error: other
+          ? `Finish exam ${other} first.`
+          : "Finish your open mock first.",
+      };
+    }
+
     const { data: bank, error: bankError } = await supabase
       .from("pfq_questions")
       .select("*")
@@ -218,16 +269,49 @@ export async function listPfqMockSetSummaries(): Promise<
 > {
   try {
     const access = await requirePfqProUser();
-    if (!access.ok) return access;
+    if (!access.ok) {
+      return {
+        ok: true,
+        summaries: PFQ_MOCK_SETS.map((mockSet) => ({
+          mockSet,
+          activeAttemptId: null,
+          endsAt: null,
+          latestAttemptId: null,
+          lastScore: null,
+          lastSubmittedAt: null,
+          passed: false,
+        })),
+      };
+    }
 
     const supabase = createServiceClient();
-    const { data, error } = await supabase
-      .from("pfq_attempts")
-      .select("id, mock_set, score, submitted_at, started_at")
-      .eq("user_id", access.userId)
-      .not("mock_set", "is", null)
-      .order("started_at", { ascending: false });
+    const loadAttempts = () =>
+      supabase
+        .from("pfq_attempts")
+        .select("id, mock_set, score, submitted_at, started_at")
+        .eq("user_id", access.userId)
+        .not("mock_set", "is", null)
+        .order("started_at", { ascending: false });
+
+    let { data, error } = await loadAttempts();
     if (error) throw error;
+
+    let expired = false;
+    for (const raw of data ?? []) {
+      if (raw.submitted_at) continue;
+      const started = new Date(String(raw.started_at)).getTime();
+      if (Date.now() >= started + PFQ_DURATION_SECONDS * 1000) {
+        await submitPfqAttempt({
+          attemptId: String(raw.id),
+          reason: "timeout",
+        });
+        expired = true;
+      }
+    }
+    if (expired) {
+      ({ data, error } = await loadAttempts());
+      if (error) throw error;
+    }
 
     type Row = {
       activeAttemptId: string | null;
@@ -297,6 +381,7 @@ export type ResumePfqAttemptResult =
       ok: true;
       status: "in_progress" | "submitted";
       attemptId: string;
+      mockSet: PfqMockSet | null;
       startedAt: string;
       endsAt: string;
       submittedAt: string | null;
@@ -383,6 +468,7 @@ export async function loadPfqAttempt(input: {
         ok: true,
         status: "submitted",
         attemptId: row.id,
+        mockSet: parseMockSet(row.mock_set),
         startedAt: row.started_at,
         endsAt,
         submittedAt: row.submitted_at,
@@ -410,6 +496,7 @@ export async function loadPfqAttempt(input: {
       ok: true,
       status: "in_progress",
       attemptId: row.id,
+      mockSet: parseMockSet(row.mock_set),
       startedAt: row.started_at,
       endsAt,
       submittedAt: null,
@@ -448,6 +535,15 @@ export async function savePfqAnswer(input: {
     if (row.submitted_at) return { ok: false, error: "Attempt already submitted." };
     if (!(await assertAttemptAccess(row, guestToken, userId))) {
       return { ok: false, error: "Access denied." };
+    }
+    const started = new Date(row.started_at).getTime();
+    if (Date.now() >= started + PFQ_DURATION_SECONDS * 1000) {
+      await submitPfqAttempt({
+        attemptId: row.id,
+        guestToken,
+        reason: "timeout",
+      });
+      return { ok: false, error: "Time is up." };
     }
     if (!row.question_ids.includes(input.questionId)) {
       return { ok: false, error: "Unknown question." };
@@ -497,6 +593,15 @@ export async function togglePfqFlag(input: {
     if (row.submitted_at) return { ok: false, error: "Attempt already submitted." };
     if (!(await assertAttemptAccess(row, guestToken, userId))) {
       return { ok: false, error: "Access denied." };
+    }
+    const started = new Date(row.started_at).getTime();
+    if (Date.now() >= started + PFQ_DURATION_SECONDS * 1000) {
+      await submitPfqAttempt({
+        attemptId: row.id,
+        guestToken,
+        reason: "timeout",
+      });
+      return { ok: false, error: "Time is up." };
     }
 
     const { error: updateError } = await supabase

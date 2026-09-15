@@ -21,7 +21,7 @@ const PFQ_PRICE_LABEL = formatPfqPriceGbp();
 
 export const metadata: Metadata = {
   title: "Plans & pricing — PFQ in 2 Days | Learn in Curve",
-  description: `Pro Bundle ${PFQ_PRICE_LABEL} for the APM Project Fundamentals Qualification — lessons, practice, timed mock, coverage map. AI Pro launching soon.`,
+  description: `Pro Bundle ${PFQ_PRICE_LABEL} for the APM Project Fundamentals Qualification — lessons, practice sets, three timed mocks, coverage map. AI Pro launching soon.`,
   alternates: { canonical: `${SITE_URL}${PFQ_PRICING_HREF}` },
 };
 
@@ -58,9 +58,9 @@ export default async function PfqPricingPage({ searchParams }: Props) {
             <span className="block">One payment. No subscription.</span>
           </h1>
           <p className="mt-3.5 max-w-[38rem] text-left text-[15px] leading-relaxed text-pretty text-ink/72">
-            Unlock the full PFQ course — 59 lessons, 306 tagged practice
-            questions, a timed mock, and a coverage map. AI Pro is on the
-            waitlist.
+            Unlock the full PFQ course: 59 lessons, extra quiz sets beyond the
+            five free questions on each objective, three timed mock exams, and a
+            coverage map. AI Pro is on the waitlist.
           </p>
         </header>
 

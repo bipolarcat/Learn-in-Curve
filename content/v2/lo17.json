@@ -473,27 +473,27 @@
     {
       "type": "cue",
       "acronym": "Frame the problem, not the answer",
-      "expansion": "State the objective as the problem to be solved. Describe it as a bridge and bridges are all you will consider."
+      "expansion": "Describe it as a bridge and bridges are all you will consider."
     },
     {
       "type": "cue",
       "acronym": "Criteria before options",
-      "expansion": "Agree evaluation criteria with stakeholders before identifying options, so the criteria cannot be bent to fit a preferred answer."
+      "expansion": "Agree criteria first, so they cannot be bent to a preferred answer."
     },
     {
       "type": "cue",
       "acronym": "Products, work, people, money",
-      "expansion": "The four breakdown structures. PBS is what gets created, WBS what gets done, OBS who does it, CBS what it costs."
+      "expansion": "PBS what is created, WBS what is done, OBS who, CBS cost."
     },
     {
       "type": "cue",
       "acronym": "Linear fixes at approval, iterative fixes in stages",
-      "expansion": "Approving a linear scope definition fixes it, and only change control moves it. Iterative holds a prioritised backlog and commits a slice at a time."
+      "expansion": "Linear moves scope only by change control. Iterative commits a slice at a time."
     },
     {
       "type": "cue",
       "acronym": "Viable works, marketable sells",
-      "expansion": "MVP is the smallest thing that functions and teaches you something. MMP is the smallest thing users will actually accept, and where benefits can begin."
+      "expansion": "MVP is the smallest thing that functions. MMP is the smallest users accept."
     }
   ],
   "progress_checkpoint": [

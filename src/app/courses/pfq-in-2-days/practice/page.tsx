@@ -42,8 +42,9 @@ export default async function PfqPracticeIndexPage() {
         Practice
       </h1>
       <p className="m-0 max-w-xl font-body text-[15px] leading-relaxed text-ink/75">
-        Untimed drills. Results update the coverage map by learning outcome
-        (most recent answer wins).
+        Untimed drills in sets of five. Set 1 is free on every objective. More
+        sets and both mock exams unlock with Pro. Results update the coverage
+        map by learning outcome (most recent answer wins).
       </p>
 
       <section className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-paper p-4 sm:p-5">
@@ -51,8 +52,8 @@ export default async function PfqPracticeIndexPage() {
           Free sample
         </h2>
         <p className="m-0 max-w-xl font-body text-[14px] leading-relaxed text-ink/70">
-          Fifty questions across fifty learning outcomes. Immediate feedback,
-          then a short report on what you missed.
+          Five questions from each of the ten objectives, fifty in all.
+          Immediate feedback, then a short report on what you missed.
         </p>
         <Link
           href={`${PFQ_PRACTICE_HREF}/sample`}
@@ -62,36 +63,33 @@ export default async function PfqPracticeIndexPage() {
         </Link>
       </section>
 
-      {showFullBank ? (
-        <>
-          <h2 className="m-0 font-display text-xl font-semibold tracking-[-0.02em] text-ink">
-            Practice by objective
-          </h2>
-          <ul className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
-            {PFQ_OBJECTIVES.map((obj) => (
-              <li key={obj.objective}>
-                <Link
-                  href={`${PFQ_PRACTICE_HREF}/${obj.objective}`}
-                  className={stampCtaSecondary}
-                >
-                  LO{obj.objective} · {obj.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
+      <h2 className="m-0 font-display text-xl font-semibold tracking-[-0.02em] text-ink">
+        Practice by objective
+      </h2>
+      {!showFullBank ? (
         <p className="m-0 max-w-xl font-body text-[14px] leading-relaxed text-ink/70">
-          Objective-by-objective practice and the full bank unlock with Pro.{" "}
+          Five free questions on each objective. Generate more sets with{" "}
           <Link
             href={PFQ_PRICING_HREF}
             className="underline decoration-ink/25 underline-offset-2 hover:text-ink"
           >
-            See plans
+            Pro
           </Link>
           .
         </p>
-      )}
+      ) : null}
+      <ul className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
+        {PFQ_OBJECTIVES.map((obj) => (
+          <li key={obj.objective}>
+            <Link
+              href={`${PFQ_PRACTICE_HREF}/${obj.objective}`}
+              className={stampCtaSecondary}
+            >
+              LO{obj.objective} · {obj.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
 
       <p className="m-0 max-w-3xl border-t border-ink/10 pt-6 font-body text-[12px] leading-relaxed text-ink/55">
         {PFQ_ATP_DISCLAIMER}

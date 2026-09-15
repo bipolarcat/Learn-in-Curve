@@ -7,29 +7,27 @@ import {
   McqResponseFields,
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
+import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import {
   stampCtaCompact,
   stampCtaPrimary,
   stampCtaSecondaryFlat,
 } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
-import {
-  FREE_MOCK_MAX_SCORE,
-  FREE_MOCK_QUESTIONS,
-  type FreeMockQuestion,
-} from "@/content/free-mock-exam";
 import { getAttribution } from "@/lib/analytics/attribution";
 import {
   trackFreeMockCompleted,
+  trackFreeMockLeadCaptured,
   trackFreeMockStarted,
-  trackLeadCaptured,
 } from "@/lib/analytics/events";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
+import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
   isQuestionCorrect,
   type FreeMockAnswer,
   type LoBreakdownRow,
 } from "@/lib/free-mock/scoring";
+import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 
 type Phase = "quiz" | "gate" | "results";
@@ -45,25 +43,51 @@ type NavAction = "prev" | "next";
 
 const NAV_SPINNER_MS = 280;
 
-function emptyDropdownValues(question: FreeMockQuestion): Record<string, string> {
-  if (question.type !== "dropdown") return {};
-  return Object.fromEntries(Object.keys(question.dropdowns).map((k) => [k, ""]));
+export type FreeMockExamClientProps = {
+  examId: FreeMockExamId;
+  items: FreeMockItem[];
+  config: Pick<
+    FreeMockExamConfig,
+    | "displayName"
+    | "mark"
+    | "gatePrompt"
+    | "marketingConsentLabel"
+    | "breakdownNoun"
+    | "breakdownNounPlural"
+    | "resultsCtaKind"
+    | "ctaHref"
+    | "ctaLabel"
+    | "waitlistNotifyKey"
+    | "waitlistSubjectLabel"
+    | "waitlistCourseCopy"
+    | "disclaimer"
+  >;
+};
+
+function emptyDropdownValues(item: FreeMockItem): Record<string, string> {
+  if (item.type !== "dropdown" || !item.dropdowns) return {};
+  return Object.fromEntries(Object.keys(item.dropdowns).map((k) => [k, ""]));
 }
 
 function answerComplete(
-  question: FreeMockQuestion,
+  item: FreeMockItem,
   draft: FreeMockAnswer | null,
 ): boolean {
   if (!draft) return false;
-  if (question.type === "dropdown") {
-    if (draft.kind !== "dropdown") return false;
-    return Object.keys(question.dropdowns).every((k) => Boolean(draft.values[k]));
+  if (item.type === "dropdown") {
+    if (draft.kind !== "dropdown" || !item.dropdowns) return false;
+    return Object.keys(item.dropdowns).every((k) => Boolean(draft.values[k]));
   }
   return draft.kind === "mcq" && Boolean(draft.letter);
 }
 
-export function FreeMockExamClient() {
-  const total = FREE_MOCK_QUESTIONS.length;
+export function FreeMockExamClient({
+  examId,
+  items,
+  config,
+}: FreeMockExamClientProps) {
+  const total = items.length;
+  const maxScore = total;
   const [qi, setQi] = useState(0);
   const [answers, setAnswers] = useState<Record<string, FreeMockAnswer>>({});
   const [draft, setDraft] = useState<FreeMockAnswer | null>(null);
@@ -79,28 +103,31 @@ export function FreeMockExamClient() {
   useEffect(() => {
     if (startedTracked.current) return;
     startedTracked.current = true;
-    trackFreeMockStarted();
-  }, []);
+    trackFreeMockStarted({ exam_id: examId });
+  }, [examId]);
 
-  const question = FREE_MOCK_QUESTIONS[qi];
+  const question = items[qi];
   const locked = Boolean(answers[question.id]);
 
   const localScore = useMemo(() => {
-    return FREE_MOCK_QUESTIONS.reduce(
-      (n, q) => n + (isQuestionCorrect(q, answers[q.id]) ? 1 : 0),
+    return items.reduce(
+      (n, item) => n + (isQuestionCorrect(item, answers[item.id]) ? 1 : 0),
       0,
     );
-  }, [answers]);
+  }, [answers, items]);
 
-  const syncDraftForIndex = (index: number, nextAnswers: Record<string, FreeMockAnswer>) => {
-    const q = FREE_MOCK_QUESTIONS[index];
-    const existing = nextAnswers[q.id];
+  const syncDraftForIndex = (
+    index: number,
+    nextAnswers: Record<string, FreeMockAnswer>,
+  ) => {
+    const item = items[index];
+    const existing = nextAnswers[item.id];
     if (existing) {
       setDraft(existing);
       return;
     }
-    if (q.type === "dropdown") {
-      setDraft({ kind: "dropdown", values: emptyDropdownValues(q) });
+    if (item.type === "dropdown") {
+      setDraft({ kind: "dropdown", values: emptyDropdownValues(item) });
     } else {
       setDraft({ kind: "mcq", letter: "" });
     }
@@ -108,7 +135,7 @@ export function FreeMockExamClient() {
 
   const goTo = (index: number, nextAnswers = answers) => {
     if (index < 0 || index >= total) return;
-    const firstUnanswered = FREE_MOCK_QUESTIONS.findIndex((q) => !nextAnswers[q.id]);
+    const firstUnanswered = items.findIndex((item) => !nextAnswers[item.id]);
     const frontier = firstUnanswered === -1 ? total - 1 : firstUnanswered;
     if (index > frontier) return;
     setQi(index);
@@ -118,7 +145,6 @@ export function FreeMockExamClient() {
   const withNavPending = (kind: NavAction, action: () => void) => {
     if (navPending) return;
     setNavPending(kind);
-    // Let the bars spinner paint, then run the nav — never on hover.
     window.setTimeout(() => {
       action();
       setNavPending(null);
@@ -132,7 +158,6 @@ export function FreeMockExamClient() {
 
   const handleContinue = () => {
     if (navPending) return;
-    // Incomplete answers: no click action, no spinner (button stays disabled).
     if (!locked && !answerComplete(question, draft)) return;
 
     if (locked) {
@@ -168,6 +193,7 @@ export function FreeMockExamClient() {
     try {
       const attr = getAttribution();
       const result = await submitFreeMockLead({
+        examId,
         email,
         marketingConsent,
         answers,
@@ -191,15 +217,16 @@ export function FreeMockExamClient() {
         weakest: result.weakest,
       });
       trackFreeMockCompleted({
+        exam_id: examId,
         score: result.score,
         max_score: result.maxScore,
         marketing_consent: marketingConsent,
       });
-      trackLeadCaptured({
+      trackFreeMockLeadCaptured({
+        exam_id: examId,
         score: result.score,
         max_score: result.maxScore,
         marketing_consent: marketingConsent,
-        lead_source: "free_mock_exam",
       });
       setPhase("results");
     } finally {
@@ -220,11 +247,10 @@ export function FreeMockExamClient() {
           id="free-mock-gate-title"
           className="m-0 mt-2 font-display text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink"
         >
-          You scored {localScore}/{FREE_MOCK_MAX_SCORE}.
+          You scored {localScore}/{maxScore}.
         </h2>
         <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
-          Enter your email to get your test summary and identify your weakest
-          learning objectives, so you know exactly what to revise first.
+          {config.gatePrompt}
         </p>
         <form onSubmit={handleGateSubmit} className="mt-6 flex max-w-md flex-col gap-4">
           <label className="flex flex-col gap-1.5">
@@ -250,8 +276,7 @@ export function FreeMockExamClient() {
               className="mt-0.5 size-4 shrink-0 rounded border-ink/25"
             />
             <span>
-              Email me PMQ study tips and product updates. You can
-              unsubscribe any time. See our{" "}
+              {config.marketingConsentLabel} See our{" "}
               <Link href="/privacy" className="text-orange underline-offset-2 hover:underline">
                 Privacy Policy
               </Link>
@@ -282,6 +307,8 @@ export function FreeMockExamClient() {
   }
 
   if (phase === "results" && results) {
+    const categoryHeader =
+      config.breakdownNoun === "domain" ? "Domain" : "LO";
     return (
       <section
         className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
@@ -297,14 +324,15 @@ export function FreeMockExamClient() {
           {results.score}/{results.maxScore}
         </h2>
         <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
-          Here&apos;s how you did across the learning objectives in this check.
+          Here&apos;s how you did across the {config.breakdownNounPlural} in
+          this check.
         </p>
 
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
             <thead>
               <tr className="border-b border-ink/10 text-left text-ink/55">
-                <th className="py-2 pr-3 font-semibold">LO</th>
+                <th className="py-2 pr-3 font-semibold">{categoryHeader}</th>
                 <th className="py-2 pr-3 font-semibold">Topic</th>
                 <th className="py-2 font-semibold">Score</th>
               </tr>
@@ -312,7 +340,9 @@ export function FreeMockExamClient() {
             <tbody>
               {results.loBreakdown.map((row) => (
                 <tr key={row.lo_code} className="border-b border-ink/5">
-                  <td className="py-2 pr-3 font-semibold text-ink">{row.lo_code}</td>
+                  <td className="py-2 pr-3 font-semibold text-ink">
+                    {row.lo_code}
+                  </td>
                   <td className="py-2 pr-3 text-ink/80">{row.lo_title}</td>
                   <td className="py-2 text-ink">
                     {row.correct}/{row.total}
@@ -324,16 +354,35 @@ export function FreeMockExamClient() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link
-            href="/courses/pmq-in-5-days"
-            className={stampCtaPrimary}
-          >
-            Start PMQ in 5 Days for free
-          </Link>
-          <Link href="/courses" className={stampCtaSecondaryFlat}>
-            Browse courses
-          </Link>
+          {config.resultsCtaKind === "course" && config.ctaHref ? (
+            <Link href={config.ctaHref} className={stampCtaPrimary}>
+              {config.ctaLabel}
+            </Link>
+          ) : config.waitlistNotifyKey ? (
+            <JoinWaitlistButton
+              className={stampCtaPrimary}
+              notifyKey={config.waitlistNotifyKey}
+              subjectLabel={config.waitlistSubjectLabel ?? config.displayName}
+              courseCopy={
+                config.waitlistCourseCopy ?? `a ${config.displayName} readiness course`
+              }
+              label={config.ctaLabel}
+            />
+          ) : null}
+          {config.resultsCtaKind === "course" ? (
+            <Link href="/courses" className={stampCtaSecondaryFlat}>
+              Browse courses
+            </Link>
+          ) : (
+            <Link href="/mock-me" className={stampCtaSecondaryFlat}>
+              More readiness checks
+            </Link>
+          )}
         </div>
+
+        <p className="mt-8 max-w-[40rem] font-body text-[12px] leading-relaxed text-ink/55">
+          {config.disclaimer}
+        </p>
       </section>
     );
   }
@@ -353,8 +402,7 @@ export function FreeMockExamClient() {
         ? lockedAnswer.values
         : emptyDropdownValues(question);
 
-  const canContinue =
-    locked || answerComplete(question, draft);
+  const canContinue = locked || answerComplete(question, draft);
   const continueLabel = qi < total - 1 ? "Continue" : "Finish";
 
   return (
@@ -365,7 +413,7 @@ export function FreeMockExamClient() {
     >
       <div className="mb-1 text-left">
         <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">
-          Free mock exam
+          Free {config.mark} readiness check
         </p>
         <h2
           id="free-mock-quiz-title"
@@ -376,7 +424,7 @@ export function FreeMockExamClient() {
       </div>
 
       <div className={styles.body}>
-        <div className={styles.runner} aria-label="Free mock exam">
+        <div className={styles.runner} aria-label={`Free ${config.mark} readiness check`}>
           <div className={styles.qRail}>
             <div
               className={styles.qGrid}
@@ -384,8 +432,8 @@ export function FreeMockExamClient() {
               aria-label="Questions"
               style={{ ["--quiz-total" as string]: total }}
             >
-              {FREE_MOCK_QUESTIONS.map((q, index) => {
-                const done = answers[q.id];
+              {items.map((item, index) => {
+                const done = answers[item.id];
                 const current = index === qi;
                 const cellClass = [
                   styles.qCell,
@@ -396,7 +444,7 @@ export function FreeMockExamClient() {
                   .join(" ");
                 return (
                   <button
-                    key={q.id}
+                    key={item.id}
                     type="button"
                     role="tab"
                     aria-selected={current}
@@ -412,7 +460,7 @@ export function FreeMockExamClient() {
           </div>
 
           <div className="mt-5">
-            {question.type === "dropdown" ? (
+            {question.type === "dropdown" && question.dropdowns ? (
               <InlineDropdownResponseFields
                 prompt={question.prompt}
                 options={question.dropdowns}
@@ -442,7 +490,7 @@ export function FreeMockExamClient() {
                   {question.prompt}
                 </p>
                 <McqResponseFields
-                  options={question.options}
+                  options={question.options ?? []}
                   value={mcqValue}
                   disabled={locked || Boolean(navPending)}
                   ariaLabel={`Question ${qi + 1} options`}

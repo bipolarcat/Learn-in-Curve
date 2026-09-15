@@ -26,6 +26,17 @@ export const PFQ_PRACTICE_HREF = `${PFQ_BASE_HREF}/practice`;
 export const PFQ_TRAP_SCHOOL_HREF = `${PFQ_BASE_HREF}/trap-school`;
 export const PFQ_PREVIEW_HREF = `${PFQ_BASE_HREF}/preview`;
 
+/** Course overview + learn/practice/mock study pages (header scrolls away). */
+export function isPfqStudySurface(pathname: string | null | undefined): boolean {
+  if (!pathname) return false;
+  return (
+    pathname === PFQ_BASE_HREF ||
+    pathname.startsWith(`${PFQ_LEARN_HREF}`) ||
+    pathname.startsWith(`${PFQ_PRACTICE_HREF}`) ||
+    pathname.startsWith(`${PFQ_MOCK_HREF}`)
+  );
+}
+
 /**
  * Practice runner feature flag. Commerce gating (Pro) is separate via
  * requirePfqPro. Flip false to hide practice routes while the bank is empty.

@@ -4,49 +4,28 @@ import { useId, useState } from "react";
 import styles from "@/components/pmq/PmqExamGuideSections.module.css";
 import {
   PFQ_OBJECTIVES,
-  PFQ_OUTCOME_COUNT,
   PFQ_PASS_MARK,
   PFQ_QUESTION_COUNT,
 } from "@/lib/pfq/outcomes";
 
 const STRUCTURE = [
-  `${PFQ_QUESTION_COUNT} questions, 1 mark each, 60 minutes, four options.`,
-  "Delivered online in the Surpass platform (remote-invigilated or classroom).",
-  `${PFQ_OUTCOME_COUNT} outcomes, one question each, plus LO 10.4 twice equals exactly ${PFQ_QUESTION_COUNT}.`,
-  "Every sitting covers every published learning outcome exactly once. There is no sampling.",
-  "You should attempt every question.",
-];
-
-const GUESSING = [
-  "No negative marking. An unanswered question scores zero.",
-  "APM advises guessing when you are unsure.",
-  "Partial knowledge on numbered-list multi-selects still scores zero if the option set is wrong, so eliminate with care.",
-];
-
-const PASS_MARK = [
-  `Pass mark is fixed at ${PFQ_PASS_MARK}/${PFQ_QUESTION_COUNT} (60%) for every sitting.`,
-  "It does not vary between papers.",
-  `Maximum score is ${PFQ_QUESTION_COUNT} marks.`,
-];
-
-const COVERAGE = [
-  `${PFQ_OUTCOME_COUNT} published learning outcomes. The bank and mock generator must cover every one.`,
-  "Practice drills and mock papers both feed the same coverage map.",
-  "Lesson checkpoints are self-assessment only. They do not write coverage signals.",
+  `${PFQ_QUESTION_COUNT} questions in 60 minutes. One mark each, four options, exactly one correct.`,
+  "Questions stand alone. None depends on your answer to another.",
+  `${PFQ_PASS_MARK} out of ${PFQ_QUESTION_COUNT} passes. Fixed for every sitting, never scaled.`,
+  "No negative marking. A blank scores the same as a wrong answer, so never leave one.",
+  "Questions come in four shapes: a straight question, a sentence to finish, a sentence with a word missing, and a list of numbered statements where you pick the right combination.",
+  "You can flag a question and return to it. The review screen filters by unattempted, attempted and flagged.",
 ];
 
 const WEIGHT_ROWS = [...PFQ_OBJECTIVES]
   .slice()
   .sort((a, b) => b.marks - a.marks);
 
-type TabId = "structure" | "weight" | "guessing" | "pass" | "coverage";
+type TabId = "structure" | "weight";
 
 const TABS: { id: TabId; label: string; heading: string }[] = [
   { id: "structure", label: "Structure", heading: "How the exam works" },
   { id: "weight", label: "Weight", heading: "Where the marks sit" },
-  { id: "guessing", label: "Guessing", heading: "Guessing policy" },
-  { id: "pass", label: "Pass mark", heading: "About the pass mark" },
-  { id: "coverage", label: "Coverage", heading: "Complete syllabus coverage" },
 ];
 
 function BulletList({ items }: { items: string[] }) {
@@ -65,8 +44,7 @@ function WeightTable() {
   return (
     <>
       <p className={styles.callout}>
-        Study by paper weight, not by card order. LO4 alone is 11 marks; LO3 is
-        1 mark.
+        LO4, LO5 and LO7 are 27 marks between them, three quarters of pass mark.
       </p>
       <div className={styles.tableWrap}>
         <table className={`${styles.table} ${styles.syllabusTable}`}>
@@ -81,24 +59,29 @@ function WeightTable() {
               >
                 Marks
               </th>
-              <th
-                className={`${styles.th} ${styles.thCenter} ${styles.thStack}`}
-                scope="col"
-              >
-                Day
-              </th>
             </tr>
           </thead>
           <tbody>
             {WEIGHT_ROWS.map((row) => (
               <tr key={row.objective} className={styles.tr}>
                 <td className={`${styles.td} ${styles.tdStrong}`}>
-                  LO{row.objective} · {row.title}
+                  LO{row.objective} {row.title}
                 </td>
                 <td className={`${styles.td} ${styles.tdCenter}`}>{row.marks}</td>
-                <td className={`${styles.td} ${styles.tdCenter}`}>{row.day}</td>
               </tr>
             ))}
+            <tr className={styles.tr}>
+              <td className={styles.td}>
+                A second question from any one outcome
+              </td>
+              <td className={`${styles.td} ${styles.tdCenter}`}>1</td>
+            </tr>
+            <tr className={styles.tfootRow}>
+              <td className={styles.td}>Total</td>
+              <td className={`${styles.td} ${styles.tdCenter}`}>
+                {PFQ_QUESTION_COUNT}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -112,12 +95,6 @@ function TabPanel({ tab }: { tab: TabId }) {
       return <BulletList items={STRUCTURE} />;
     case "weight":
       return <WeightTable />;
-    case "guessing":
-      return <BulletList items={GUESSING} />;
-    case "pass":
-      return <BulletList items={PASS_MARK} />;
-    case "coverage":
-      return <BulletList items={COVERAGE} />;
   }
 }
 
@@ -138,7 +115,7 @@ export function PfqExamGuideSection() {
             Exam <span className={styles.titleAccent}>essentials</span>
           </h2>
           <p className={styles.subtitle}>
-            Structure, weight, guessing, pass mark, and coverage.
+            How the paper is built, and where the marks sit.
           </p>
         </div>
 

@@ -527,27 +527,27 @@
     {
       "type": "cue",
       "acronym": "Strategy, source, contract, tender, award, manage, close",
-      "expansion": "The seven procurement stages in order. The first three are strategic decisions; the last four are tactical execution."
+      "expansion": "Seven stages. First three strategic, last four tactical."
     },
     {
       "type": "cue",
       "acronym": "Business, knowledge, delivery, service, risk",
-      "expansion": "The five make-or-buy criteria. Can we afford it, do we know how, can we build it, can we run it afterwards, does buying create unmanageable risk?"
+      "expansion": "Make or buy: afford it, know how, build it, run it, risk it."
     },
     {
       "type": "cue",
       "acronym": "BATNA is the floor, ZOPA is the room",
-      "expansion": "Your BATNA sets the worst deal worth accepting. The two parties' BATNAs together define how much room there is to agree, and if they do not overlap, there is none."
+      "expansion": "BATNA = worst deal worth taking. ZOPA = overlap between both BATNAs."
     },
     {
       "type": "cue",
       "acronym": "Fixed on them, cost plus on you, target shared",
-      "expansion": "Where the risk sits. Fixed price loads the supplier, cost plus and time and materials load the buyer, target cost deliberately splits it between both."
+      "expansion": "Where the risk sits: supplier, buyer, split."
     },
     {
       "type": "cue",
       "acronym": "Can you specify it?",
-      "expansion": "The single question deciding reimbursement method. Well-specified work suits fixed price; ill-defined or evolving work needs time and materials or cost plus."
+      "expansion": "Specified = fixed price. Evolving = time and materials or cost plus."
     }
   ],
   "progress_checkpoint": [

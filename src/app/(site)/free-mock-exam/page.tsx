@@ -1,123 +1,14 @@
 import type { Metadata } from "next";
-import { FaqAccordion } from "@/components/FaqAccordion";
-import { FreeMockExamClient } from "@/components/free-mock/FreeMockExamClient";
-import { SoftNavBackLink } from "@/components/SoftNavBackLink";
-import {
-  FREE_MOCK_SOFT_NAV_BACK,
-  parseFreeMockSoftNavFrom,
-} from "@/lib/soft-nav-back";
+import { permanentRedirect } from "next/navigation";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
-  "https://www.learnincurve.com";
-
-const PAGE_TITLE = "Free APM PMQ Mock Exam — 15-Question Readiness Check";
-const PAGE_DESCRIPTION =
-  "Take a free 15-question APM PMQ readiness check in real exam format. See which learning objectives to revise first — no account required.";
-
+/**
+ * Legacy URL. Rankings preserved via next.config 301 to /free-mock-exam/apm-pmq.
+ * This page is a belt-and-braces redirect if the config layer is skipped.
+ */
 export const metadata: Metadata = {
-  title: PAGE_TITLE,
-  description: PAGE_DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/free-mock-exam` },
-  openGraph: {
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-    url: `${SITE_URL}/free-mock-exam`,
-    type: "website",
-  },
+  robots: { index: false, follow: true },
 };
 
-const FAQS = [
-  {
-    q: "Is this the full APM PMQ mock exam?",
-    a: "No. This is a free 15-question readiness check using the same question styles as the real APM PMQ (multiple choice, scenario, and select-from-list). The full timed mock papers live inside the PMQ in 5 Days course.",
-  },
-  {
-    q: "Do I need an account?",
-    a: "No account is required to take the check. After you finish, enter your email to unlock your learning-objective breakdown. Creating an account is optional if you want to start the 5-day revision plan.",
-  },
-  {
-    q: "Is Learn in Curve affiliated with APM?",
-    a: "No. Learn in Curve is not affiliated with, endorsed by, or accredited by APM (the Association for Project Management). Our revision material is aimed at their published syllabus.",
-  },
-] as const;
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
-
-const faqItems = FAQS.map((item) => ({
-  question: item.q,
-  answer: item.a,
-}));
-
-type FreeMockExamPageProps = {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function FreeMockExamPage({
-  searchParams,
-}: FreeMockExamPageProps) {
-  const from = parseFreeMockSoftNavFrom((await searchParams)?.from);
-  const back = from ? FREE_MOCK_SOFT_NAV_BACK[from] : null;
-
-  return (
-    <div className="pb-16 pt-8 sm:pb-20 sm:pt-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-
-      <div className="wrap">
-        {back ? (
-          <SoftNavBackLink
-            href={back.href}
-            label={back.label}
-            busyLabel={back.busyLabel}
-            className="mb-5"
-          />
-        ) : null}
-
-        <header className="mx-auto max-w-[42rem] text-center">
-          <h1 className="text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
-            Free APM <span className="text-orange">PMQ</span> mock exam
-          </h1>
-          <p className="mx-auto mt-4 w-full text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:max-w-[36rem] sm:text-[17px]">
-            Test yourself with real APM PMQ-style questions covering{" "}
-            <br className="hidden sm:block" />
-            multiple choice, scenario-based, and select-from-list formats.{" "}
-            <br className="hidden sm:block" />
-            Complete it within 10 minutes.
-          </p>
-        </header>
-
-        <div className="mx-auto mt-10 w-full max-w-[46rem]">
-          <FreeMockExamClient />
-        </div>
-
-        <div className="mx-auto mt-14 w-full max-w-[46rem]">
-          <FaqAccordion
-            items={faqItems}
-            headingId="free-mock-faq-heading"
-            title={
-              <>
-                Frequently <span className="text-orange">asked</span> questions
-              </>
-            }
-            defaultOpenIndex={0}
-            idPrefix="free-mock-faq"
-          />
-        </div>
-      </div>
-    </div>
-  );
+export default function FreeMockExamLegacyPage() {
+  permanentRedirect("/free-mock-exam/apm-pmq");
 }

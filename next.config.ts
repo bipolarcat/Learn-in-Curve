@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
         destination: "/courses/pfq-in-2-days/:path*",
         statusCode: 301 as const,
       },
+      {
+        // Preserve rankings for the original free PMQ mock URL.
+        source: "/free-mock-exam",
+        destination: "/free-mock-exam/apm-pmq",
+        statusCode: 301 as const,
+      },
     ];
   },
 };

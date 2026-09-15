@@ -32,11 +32,11 @@ const PRICE = formatPfqPriceGbp();
 
 export const metadata: Metadata = {
   title: `PFQ in 2 Days — Course overview | Learn in Curve`,
-  description: `59 lessons, 306 practice questions, and a full mock mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
+  description: `59 lessons, 565 practice questions, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
   alternates: { canonical: `${SITE_URL}${PFQ_BASE_HREF}` },
   openGraph: {
     title: `PFQ in 2 Days — Course overview | Learn in Curve`,
-    description: `59 lessons, 306 practice questions, and a full mock mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
+    description: `59 lessons, practice sets, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
     url: `${SITE_URL}${PFQ_BASE_HREF}`,
     type: "website",
   },
@@ -65,7 +65,7 @@ export default async function PfqMarketingPage() {
             PFQ in <span className="text-orange">2 Days</span>
           </h1>
           <p className={styles.lead}>
-            A lesson, practice questions, and a mock for every published
+            A lesson, practice sets, and three mocks mapped to every published
             learning outcome — so you can see exactly which ones you cannot
             answer yet.
           </p>
@@ -99,10 +99,10 @@ export default async function PfqMarketingPage() {
           </div>
           <p className={styles.note}>
             {hasPro
-              ? "You have the Pro Bundle. Lessons, practice, the mock and Trap School are all unlocked."
+              ? "You have the Pro Bundle. Lessons, practice sets, both mocks and Trap School are all unlocked."
               : user
                 ? "You are signed in. PFQ unlocks on this same account, one payment, no subscription and no second sign-up."
-                : "Create an account free. The course itself unlocks with Pro — one payment, no subscription."}
+                : "Create an account free: every lesson, Trap School, and five practice questions from each of the ten objectives. Extra quiz sets and both timed mocks unlock with Pro, one payment, no subscription."}
           </p>
         </header>
 
@@ -129,18 +129,18 @@ export default async function PfqMarketingPage() {
         </li>
         <li className={styles.feature}>
           <IconPractice className={styles.featureIcon} />
-          <h2 className={styles.featureTitle}>306 practice questions</h2>
+          <h2 className={styles.featureTitle}>Practice in sets of five</h2>
           <p className={styles.featureBody}>
-            Each tagged to the outcome it tests, with why the right answer is
-            right.
+            Five free questions on every objective. Generate more sets with
+            Pro. Each question is tagged to the outcome it tests.
           </p>
         </li>
         <li className={styles.feature}>
           <IconMock className={styles.featureIcon} />
-          <h2 className={styles.featureTitle}>Full mock + coverage map</h2>
+          <h2 className={styles.featureTitle}>Two mocks + coverage map</h2>
           <p className={styles.featureBody}>
-            A 60-question paper, then a map of which outcomes you can answer
-            and which you cannot.
+            Two 60-question papers, both in the Pro Bundle, then a map of
+            which outcomes you can answer and which you cannot.
           </p>
         </li>
       </ul>

@@ -2,7 +2,12 @@
 
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
 import { AlertTriangle, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -65,32 +70,25 @@ interface ExpandableTabsProps {
 }
 
 /*
- * Why nothing here animates size any more (LIC-106).
+ * Tab buttons still do not spring their own width/gap/padding (LIC-106).
+ * Those layout properties on every tab forced a full flex relayout per frame
+ * inside a backdrop-blur header.
  *
- * The tab row used to spring-animate `gap`, `paddingLeft`, `paddingRight` and
- * `width: 0 → "auto"`. Every one of those is layout-affecting, and `width:
- * auto` is the worst of them: Framer has to measure the label and drive a
- * numeric width, so each of the ~27 frames forced a full layout of the flex row
- * — with seven tabs, one growing while another shrinks, that relayout
- * propagates across the whole LO header. The header sits inside
- * `backdrop-blur-xl`, so every one of those layouts also re-rasterised a 24px
- * blurred backdrop.
- *
- * Measured in-browser against a transform/opacity-only equivalent of the same
- * seven-tab row inside the same blur ancestor: ~11.7x the cost for identical
- * frame counts, on a fast desktop with a trivial DOM. On a mid-range phone with
- * the real page behind it, that is the choppiness.
- *
- * The size change is now plain CSS, so switching tabs costs ONE layout pass
- * instead of one per frame. The only thing still animated is the label's
- * opacity and a small translate — both compositor properties, which is why it
- * reads smooth. The label leaves instantly so the row never has two expanded
- * tabs fighting for width mid-transition (that would overflow the nowrap
- * compact row).
+ * What does spring: one shared layoutId pill behind the selected tab
+ * (21st.dev expandable-tabs / Morphing Popover). That is a single rectangle
+ * interpolating position + size, not seven tabs animating layout. Label
+ * expand stays CSS; the label itself only fades/slides on the compositor.
  */
+const pillSpring = {
+  type: "spring" as const,
+  bounce: 0.12,
+  duration: 0.4,
+};
+
 const LABEL_ENTER = {
-  duration: 0.22,
-  ease: [0.22, 1, 0.36, 1] as const,
+  type: "spring" as const,
+  bounce: 0.1,
+  duration: 0.35,
 };
 
 const labelEnter = {
@@ -188,6 +186,7 @@ export function ExpandableTabs({
   onDisabledActivate,
   disabledHint,
 }: ExpandableTabsProps) {
+  const pillLayoutId = `${React.useId()}-tab-pill`;
   const isControlled = value !== undefined;
   const [uncontrolled, setUncontrolled] = React.useState<number | null>(
     defaultValue,
@@ -213,6 +212,8 @@ export function ExpandableTabs({
   // SSR + first client paint both treat as “motion on” so Framer style attrs match.
   const reduceMotion = motionReady && Boolean(reduceMotionPref);
   const enterTransition = reduceMotion ? { duration: 0 } : LABEL_ENTER;
+  const pillTransition =
+    reduceMotion || !motionReady ? { duration: 0 } : pillSpring;
   const compact = size === "compact";
   const touch = size === "touch";
   const dense = compact || touch;
@@ -296,6 +297,7 @@ export function ExpandableTabs({
   );
 
   return (
+    <LayoutGroup id={pillLayoutId}>
     <div
       ref={outsideClickRef}
       className={cn(
@@ -329,14 +331,13 @@ export function ExpandableTabs({
             }
             title={isDisabled ? undefined : tab.title}
             className={cn(
-              "relative inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
+              "relative isolate inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50 focus-visible:ring-offset-1 focus-visible:ring-offset-cream",
               compact
-                ? "h-7 min-w-0 rounded-md text-[11px]"
+                ? "h-7 min-w-0 rounded-sm text-[11px]"
                 : touch
                   ? "min-h-11 min-w-0 rounded-lg text-[12px]"
                   : "rounded-lg py-1.5 text-[12px]",
-              // Sizing is static, not animated — see the note at the top of this
-              // file. One layout pass per switch instead of one per frame.
+              // Sizing is static CSS — LIC-106. The spring lives on the pill.
               dense
                 ? showLabel
                   ? touch
@@ -351,18 +352,28 @@ export function ExpandableTabs({
               dense && !showLabel && "flex-1 px-0",
               dense && showLabel && "shrink-0",
               isSelected
-                ? cn(
-                    "bg-ink/[0.05]",
-                    dense && showLabel && "shrink-0",
-                    activeColor,
-                  )
+                ? cn(dense && showLabel && "shrink-0", activeColor)
                 : isDisabled
                   ? "cursor-help text-ink/30 hover:bg-ink/[0.03] hover:text-ink/40"
                   : "text-ink hover:text-ink/80",
               !isSelected && !isDisabled && "hover:bg-ink/[0.04]",
             )}
           >
-            <span className="relative inline-flex shrink-0 items-center justify-center">
+            {isSelected ? (
+              <motion.span
+                layoutId={pillLayoutId}
+                className={cn(
+                  "absolute inset-0 -z-10 bg-ink/[0.05]",
+                  compact ? "rounded-sm" : "rounded-lg",
+                )}
+                style={{
+                  borderRadius: compact ? 2 : 8,
+                }}
+                transition={pillTransition}
+                initial={false}
+              />
+            ) : null}
+            <span className="relative z-10 inline-flex shrink-0 items-center justify-center">
               {tab.mark ? (
                 tab.mark
               ) : Icon ? (
@@ -394,10 +405,8 @@ export function ExpandableTabs({
                   animate={labelEnter.animate}
                   exit={labelEnter.exit}
                   transition={enterTransition}
-                  // Opacity and translate only — both compositor properties, so
-                  // this never triggers layout while it runs.
                   className={cn(
-                    "whitespace-nowrap",
+                    "relative z-10 whitespace-nowrap",
                     compact ? "text-[11px]" : "text-[12px]",
                   )}
                 >
@@ -420,5 +429,6 @@ export function ExpandableTabs({
         />
       ) : null}
     </div>
+    </LayoutGroup>
   );
 }

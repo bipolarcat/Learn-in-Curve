@@ -43,3 +43,10 @@ export const LIBRARY_HUB_APM_DISCLAIMER =
 export const PFQ_ATP_DISCLAIMER =
   "Learn in Curve is not an APM Accredited Training Provider. We do not sell, administer or invigilate the APM PFQ exam. APM, Association for Project Management and Project Fundamentals Qualification are trademarks of the Association for Project Management.";
 
+/**
+ * PMP readiness-check disclaimer. Nominative use of PMI / PMP only.
+ * Never frame this as a multi-day PMP course product or imply PMI endorsement.
+ */
+export const PMI_DISCLAIMER =
+  "Learn in Curve is not affiliated with, endorsed by, or accredited by the Project Management Institute (PMI). PMP and PMI are registered marks of the Project Management Institute, Inc. This readiness check is independently written against PMI's published Examination Content Outline.";
+

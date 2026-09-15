@@ -26,8 +26,11 @@ const PMQ_PATHS = [
   "/dashboard",
 ] as const;
 
-function revalidatePmqPaths(loNumber?: number) {
-  if (loNumber != null) {
+function revalidatePmqPaths(
+  loNumber?: number,
+  options?: { includeLoPage?: boolean },
+) {
+  if (loNumber != null && options?.includeLoPage !== false) {
     revalidatePath(pmqLoHref(loNumber));
   }
   for (const path of PMQ_PATHS) {
@@ -582,7 +585,10 @@ export async function markLoStageReached(input: {
     }
   }
 
-  revalidatePmqPaths(input.loNumber);
+  // Skip the open LO page: revalidating it suspends the current view and
+  // flashes the courses footer plus Next's pending spinner. Chrome already
+  // ticks the stage from client state.
+  revalidatePmqPaths(input.loNumber, { includeLoPage: false });
   return { ok: true as const };
 }
 

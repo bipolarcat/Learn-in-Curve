@@ -1,17 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Flag } from "lucide-react";
 import {
-  listPfqMockSetSummaries,
   loadPfqAttempt,
-  mintPfqGuestToken,
   savePfqAnswer,
   startPfqAttempt,
   submitPfqAttempt,
   togglePfqFlag,
-  type PfqMockSetSummary,
 } from "@/lib/pfq/actions";
 import {
   PFQ_DURATION_SECONDS,
@@ -19,126 +16,60 @@ import {
   PFQ_QUESTION_COUNT,
 } from "@/lib/pfq/outcomes";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
-import { PFQ_MOCK_SETS, type PfqMockSet } from "@/lib/pfq/generator";
-import {
-  emptyPfqMockSummary,
-  formatExamClock,
-  pfqMockConsoleSecondsRemaining,
-  pfqMockSelectorState,
-} from "@/lib/pfq/mock-console";
+import type { PfqMockSet } from "@/lib/pfq/generator";
 import type { PfqPublicQuestion } from "@/lib/pfq/types";
 import { PfqResults } from "@/components/pfq/PfqResults";
+import { McqResponseFields } from "@/components/pmq/QuestionResponseFields";
 import { Spinner } from "@/components/ui/spinner";
-import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
-import styles from "@/components/pfq/PfqMockRunner.module.css";
-import consoleStyles from "@/components/pmq/PmqMockExamsSection.module.css";
+import styles from "@/components/pmq/MockExamRunner.module.css";
 
-const GUEST_KEY = "pfq_guest_token";
+const DISPLAY_KEYS = ["a", "b", "c", "d"] as const;
 
-type ReviewFilter = "all" | "unattempted" | "attempted" | "flagged";
+type Phase = "boot" | "start" | "exam" | "results";
 
 type Props = {
-  /** Resume an existing attempt. */
   attemptId?: string;
-  /** Mock paper 1–3. Falls back to `?set=` search param. */
   mockSet?: PfqMockSet;
+  onTimerMeta?: (meta: {
+    phase: Phase;
+    remaining: number;
+    mockSet: PfqMockSet | null;
+  }) => void;
 };
 
-function parseMockSetParam(raw: string | null | undefined): PfqMockSet | null {
-  if (raw === "1" || raw === "2" || raw === "3") return Number(raw) as PfqMockSet;
-  return null;
-}
-
-function formatClock(totalSeconds: number): string {
-  const s = Math.max(0, totalSeconds);
-  const m = Math.floor(s / 60);
-  const r = s % 60;
-  return `${String(m).padStart(2, "0")}:${String(r).padStart(2, "0")}`;
-}
-
-function RunnerPaperTimer({ summary }: { summary: PfqMockSetSummary }) {
-  const [now, setNow] = useState<number | null>(null);
-  useEffect(() => {
-    setNow(Date.now());
-  }, []);
-  useEffect(() => {
-    if (now == null) return;
-    if (pfqMockConsoleSecondsRemaining(summary, Date.now()) == null) return;
-    const id = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(id);
-  }, [now == null, summary.activeAttemptId, summary.endsAt]);
-  if (now == null) return null;
-  const seconds = pfqMockConsoleSecondsRemaining(summary, now);
-  if (seconds == null) return null;
-  const label = formatExamClock(seconds);
-  return (
-    <>
-      {" · "}
-      <span aria-label={`Time remaining ${label}`}>{label}</span>
-    </>
-  );
-}
-
-async function ensureGuestToken(): Promise<string> {
-  if (typeof window === "undefined") return "";
-  const existing = window.localStorage.getItem(GUEST_KEY);
-  if (existing && existing.length >= 16) return existing;
-  const minted = await mintPfqGuestToken();
-  window.localStorage.setItem(GUEST_KEY, minted);
-  return minted;
+function optionTexts(question: PfqPublicQuestion): string[] {
+  return DISPLAY_KEYS.map((key) => question.options[key] ?? "");
 }
 
 export function PfqMockRunner({
   attemptId: initialAttemptId,
   mockSet: mockSetProp,
+  onTimerMeta,
 }: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const resolvedMockSet =
-    mockSetProp ?? parseMockSetParam(searchParams.get("set"));
-  const [phase, setPhase] = useState<"boot" | "ready" | "exam" | "results">(
-    initialAttemptId ? "boot" : "ready",
+  const [phase, setPhase] = useState<Phase>(
+    initialAttemptId ? "boot" : "start",
   );
   const [error, setError] = useState("");
   const [attemptId, setAttemptId] = useState(initialAttemptId ?? "");
+  const [mockSet, setMockSet] = useState<PfqMockSet | null>(
+    mockSetProp ?? null,
+  );
   const [endsAt, setEndsAt] = useState<string | null>(null);
   const [remaining, setRemaining] = useState(PFQ_DURATION_SECONDS);
   const [questions, setQuestions] = useState<PfqPublicQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, string | null>>({});
   const [flags, setFlags] = useState<Set<string>>(new Set());
   const [index, setIndex] = useState(0);
-  const [reviewOpen, setReviewOpen] = useState(false);
-  const [reviewPinned, setReviewPinned] = useState(false);
-  const [reviewFilter, setReviewFilter] = useState<ReviewFilter>("all");
-  const [submitWarn, setSubmitWarn] = useState<string | null>(null);
+  const [confirmSubmit, setConfirmSubmit] = useState(false);
   const [results, setResults] = useState<Awaited<
     ReturnType<typeof submitPfqAttempt>
   > | null>(null);
-  const [summaries, setSummaries] = useState<PfqMockSetSummary[]>(() =>
-    PFQ_MOCK_SETS.map(emptyPfqMockSummary),
-  );
   const [pending, startTransition] = useTransition();
   const autoSubmitted = useRef(false);
+  const errorRef = useRef<HTMLDivElement>(null);
 
   const current = questions[index] ?? null;
-
-  const activeOtherSet = useMemo(() => {
-    const active = summaries.find((s) => s.activeAttemptId);
-    return active?.mockSet ?? null;
-  }, [summaries]);
-
-  const resolvedSummary = useMemo(
-    () =>
-      resolvedMockSet
-        ? summaries.find((s) => s.mockSet === resolvedMockSet) ??
-          emptyPfqMockSummary(resolvedMockSet)
-        : null,
-    [summaries, resolvedMockSet],
-  );
-
-  const resolvedState = resolvedSummary
-    ? pfqMockSelectorState(resolvedSummary, activeOtherSet)
-    : null;
 
   const counts = useMemo(() => {
     let attempted = 0;
@@ -154,26 +85,15 @@ export function PfqMockRunner({
     };
   }, [questions, answers, flags]);
 
-  const filteredIds = useMemo(() => {
-    return questions
-      .filter((q) => {
-        if (reviewFilter === "unattempted") return !answers[q.id];
-        if (reviewFilter === "attempted") return Boolean(answers[q.id]);
-        if (reviewFilter === "flagged") return flags.has(q.id);
-        return true;
-      })
-      .map((q) => q.id);
-  }, [questions, answers, flags, reviewFilter]);
-
   const hydrate = useCallback(async (id: string) => {
-    const guestToken = await ensureGuestToken();
-    const loaded = await loadPfqAttempt({ attemptId: id, guestToken });
+    const loaded = await loadPfqAttempt({ attemptId: id });
     if (!loaded.ok) {
       setError(loaded.error);
-      setPhase("ready");
+      setPhase("start");
       return;
     }
     setAttemptId(loaded.attemptId);
+    setMockSet(loaded.mockSet);
     setEndsAt(loaded.endsAt);
     setQuestions(loaded.questions);
     setAnswers(loaded.answers);
@@ -183,27 +103,14 @@ export function PfqMockRunner({
       setPhase("results");
       return;
     }
+    const firstBlank = loaded.questions.findIndex((q) => !loaded.answers[q.id]);
+    setIndex(firstBlank >= 0 ? firstBlank : 0);
     setPhase("exam");
   }, []);
 
   useEffect(() => {
-    if (initialAttemptId) {
-      void hydrate(initialAttemptId);
-    }
+    if (initialAttemptId) void hydrate(initialAttemptId);
   }, [initialAttemptId, hydrate]);
-
-  useEffect(() => {
-    if (initialAttemptId) return;
-    let cancelled = false;
-    void (async () => {
-      const result = await listPfqMockSetSummaries();
-      if (cancelled || !result.ok) return;
-      setSummaries(result.summaries);
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [initialAttemptId]);
 
   useEffect(() => {
     if (phase !== "exam" || !endsAt) return;
@@ -224,16 +131,29 @@ export function PfqMockRunner({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, endsAt]);
 
-  async function begin(mockSet: PfqMockSet) {
+  useEffect(() => {
+    onTimerMeta?.({
+      phase,
+      remaining,
+      mockSet,
+    });
+  }, [onTimerMeta, phase, remaining, mockSet]);
+
+  useEffect(() => {
+    if (error) errorRef.current?.focus();
+  }, [error]);
+
+  async function begin() {
+    if (!mockSetProp) return;
     setError("");
     startTransition(async () => {
-      const guestToken = await ensureGuestToken();
-      const started = await startPfqAttempt({ guestToken, mockSet });
+      const started = await startPfqAttempt({ mockSet: mockSetProp });
       if (!started.ok) {
         setError(started.error);
         return;
       }
       setAttemptId(started.attemptId);
+      setMockSet(started.mockSet);
       setEndsAt(started.endsAt);
       setQuestions(started.questions);
       setAnswers(started.answers);
@@ -245,36 +165,16 @@ export function PfqMockRunner({
     });
   }
 
-  function choosePaper(mockSet: PfqMockSet) {
-    const summary =
-      summaries.find((s) => s.mockSet === mockSet) ??
-      emptyPfqMockSummary(mockSet);
-    const state = pfqMockSelectorState(summary, activeOtherSet);
-    if (!state.enabled) return;
-    if (summary.activeAttemptId) {
-      router.replace(`${PFQ_MOCK_HREF}/${summary.activeAttemptId}`);
-      return;
-    }
-    if (summary.latestAttemptId && !summary.activeAttemptId) {
-      // Prefer starting fresh only via Start; View result goes to attempt
-      if (state.action === "View result") {
-        router.replace(`${PFQ_MOCK_HREF}/${summary.latestAttemptId}`);
-        return;
-      }
-    }
-    router.replace(`${PFQ_MOCK_HREF}?set=${mockSet}`);
-  }
-
   async function selectOption(letter: string) {
     if (!current || !attemptId) return;
-    const next = { ...answers, [current.id]: letter };
+    const key = letter.toLowerCase();
+    if (!DISPLAY_KEYS.includes(key as (typeof DISPLAY_KEYS)[number])) return;
+    const next = { ...answers, [current.id]: key };
     setAnswers(next);
-    const guestToken = await ensureGuestToken();
     void savePfqAnswer({
       attemptId,
       questionId: current.id,
-      selected: letter,
-      guestToken,
+      selected: key,
     });
   }
 
@@ -287,40 +187,26 @@ export function PfqMockRunner({
       else copy.delete(current.id);
       return copy;
     });
-    const guestToken = await ensureGuestToken();
     void togglePfqFlag({
       attemptId,
       questionId: current.id,
       flagged: nextFlag,
-      guestToken,
     });
   }
 
-  function requestSubmit() {
-    const parts: string[] = [];
-    if (counts.unattempted > 0) {
-      parts.push(
-        `${counts.unattempted} unanswered. APM advises guessing (no negative marking)`,
-      );
+  function goToQuestion(nextIndex: number, opts?: { scrollToTop?: boolean }) {
+    setIndex(nextIndex);
+    if (opts?.scrollToTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    if (counts.flagged > 0) {
-      parts.push(`${counts.flagged} still flagged`);
-    }
-    if (parts.length) {
-      setSubmitWarn(parts.join(". ") + ". Submit anyway?");
-      return;
-    }
-    void doSubmit("manual");
   }
 
   async function doSubmit(reason: "manual" | "timeout") {
     if (!attemptId) return;
-    setSubmitWarn(null);
+    setConfirmSubmit(false);
     startTransition(async () => {
-      const guestToken = await ensureGuestToken();
       const submitted = await submitPfqAttempt({
         attemptId,
-        guestToken,
         reason,
       });
       if (!submitted.ok) {
@@ -335,418 +221,311 @@ export function PfqMockRunner({
 
   if (phase === "boot") {
     return (
-      <div className={styles.center}>
+      <div className="flex flex-col items-center gap-3 py-16 text-ink/60">
         <Spinner variant="ring" size={28} />
-        <p>Loading your attempt…</p>
+        <p className="m-0 font-body text-sm">Loading your attempt…</p>
       </div>
     );
   }
 
   if (phase === "results" && results?.ok) {
-    return <PfqResults results={results.results} />;
-  }
-
-  if (phase === "ready" && !resolvedMockSet) {
     return (
-      <div className={styles.startCard}>
-        <h1 className={styles.title}>Choose a mock exam</h1>
-        <p className={styles.lead}>
-          Three timed exams. {PFQ_QUESTION_COUNT} questions · 60 minutes · pass
-          mark {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. Pick one exam to sit; you
-          stay on that exam until you submit.
-        </p>
-        {error ? (
-          <p className={styles.error} role="alert">
-            {error}
-          </p>
-        ) : null}
-        <div className={consoleStyles.list}>
-          {summaries.map((summary) => {
-            const state = pfqMockSelectorState(summary, activeOtherSet);
-            return (
-              <div key={summary.mockSet} className={consoleStyles.row}>
-                <div className={consoleStyles.rowMain}>
-                  <div className="min-w-0 flex-1">
-                    <p className={consoleStyles.rowTitle}>
-                      Mock exam {summary.mockSet}
-                    </p>
-                    {state.status ? (
-                      <span
-                        className={`${consoleStyles.rowStatus} ${
-                          state.tone === "done"
-                            ? consoleStyles.rowStatusDone
-                            : state.tone === "open"
-                              ? consoleStyles.rowStatusOpen
-                              : ""
-                        }`}
-                      >
-                        {state.status}
-                        <RunnerPaperTimer summary={summary} />
-                      </span>
-                    ) : null}
-                  </div>
-                </div>
-                {state.enabled ? (
-                  <button
-                    type="button"
-                    disabled={pending}
-                    className={stampCtaSecondary}
-                    onClick={() => choosePaper(summary.mockSet)}
-                  >
-                    {state.action}
-                  </button>
-                ) : (
-                  <span className={consoleStyles.rowLock}>{state.action}</span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <PfqResults results={results.results} mockSet={mockSet} />
     );
   }
 
-  if (phase === "ready" && resolvedMockSet && resolvedState) {
-    const canResume =
-      resolvedState.action === "Resume" && resolvedSummary?.activeAttemptId;
-    const canView =
-      resolvedState.action === "View result" &&
-      resolvedSummary?.latestAttemptId;
-    const canStart =
-      resolvedState.action === "Start" && resolvedState.enabled;
-
+  if (phase === "start") {
+    const title = mockSetProp ? `Mock Exam ${mockSetProp}` : "Mock exam";
     return (
-      <div className={styles.startCard}>
-        <h1 className={styles.title}>Mock exam {resolvedMockSet}</h1>
-        <p className={styles.lead}>
-          {PFQ_QUESTION_COUNT} questions · 60 minutes · pass mark{" "}
-          {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}. One question per learning
-          outcome, plus one doubled. Same shape as the real paper.
-        </p>
-        {resolvedState.status ? (
-          <p className={styles.lead}>
-            {resolvedState.status}
-            {resolvedSummary ? (
-              <RunnerPaperTimer summary={resolvedSummary} />
-            ) : null}
-          </p>
-        ) : null}
-        <ul className={styles.bullets}>
-          <li>Flag questions and filter Unattempted / Attempted / Flagged.</li>
-          <li>Pacing guide: about 1 minute per question.</li>
-          <li>No negative marking. Answer everything.</li>
-          <li>Results show a 59-outcome coverage map, not just a percentage.</li>
-        </ul>
+      <div className="relative">
         {error ? (
-          <p className={styles.error} role="alert">
+          <div
+            ref={errorRef}
+            tabIndex={-1}
+            role="alert"
+            className="mb-5 rounded-xl border border-rust/30 bg-rust/10 p-4 text-sm text-rust outline-none focus:ring-2 focus:ring-rust"
+          >
             {error}
-          </p>
+          </div>
         ) : null}
-        <div className={styles.navRow}>
+        <section
+          className={styles.startCard}
+          aria-labelledby="pfq-mock-start-title"
+        >
+          <h1 id="pfq-mock-start-title" className={styles.startTitle}>
+            {title}
+          </h1>
+          <p className={styles.startMeta}>
+            {PFQ_QUESTION_COUNT} questions ·{" "}
+            {Math.round(PFQ_DURATION_SECONDS / 60)} minutes · pass{" "}
+            {PFQ_PASS_MARK}/{PFQ_QUESTION_COUNT}
+          </p>
+          <p className={styles.startNotice}>
+            You can leave and resume, but the timer keeps running. Starting uses
+            your only attempt at this paper.
+          </p>
           <button
             type="button"
-            className={stampCtaSecondary}
-            disabled={pending}
-            onClick={() => router.replace(PFQ_MOCK_HREF)}
+            onClick={() => void begin()}
+            disabled={pending || !mockSetProp}
+            aria-busy={pending}
+            aria-label={pending ? "Starting exam" : "Start Exam"}
+            className={styles.startBtn}
           >
-            Change exam
+            {pending ? (
+              <>
+                <Spinner
+                  variant="bars"
+                  size={16}
+                  className="text-current"
+                  aria-hidden
+                />
+                Starting…
+              </>
+            ) : (
+              "Start Exam"
+            )}
           </button>
-          {canResume ? (
-            <button
-              type="button"
-              className={stampCtaPrimary}
-              disabled={pending}
-              onClick={() =>
-                router.replace(
-                  `${PFQ_MOCK_HREF}/${resolvedSummary!.activeAttemptId}`,
-                )
-              }
-            >
-              Resume
-            </button>
-          ) : canView ? (
-            <button
-              type="button"
-              className={stampCtaPrimary}
-              disabled={pending}
-              onClick={() =>
-                router.replace(
-                  `${PFQ_MOCK_HREF}/${resolvedSummary!.latestAttemptId}`,
-                )
-              }
-            >
-              View result
-            </button>
-          ) : canStart ? (
-            <button
-              type="button"
-              className={stampCtaPrimary}
-              disabled={pending}
-              aria-busy={pending}
-              onClick={() => void begin(resolvedMockSet)}
-            >
-              {pending ? (
-                <Spinner variant="bars" size={16} className="text-current" />
-              ) : (
-                "Start 60-minute mock"
-              )}
-            </button>
-          ) : (
-            <p className={styles.lead}>{resolvedState.action}</p>
-          )}
-        </div>
+        </section>
       </div>
     );
   }
 
   if (!current) {
     return (
-      <div className={styles.center}>
-        <p role="alert">No questions loaded.</p>
+      <div className="py-12 text-center text-sm text-ink/60" role="alert">
+        No questions loaded.
       </div>
     );
   }
 
-  const showReview = reviewOpen || reviewPinned;
-
   return (
-    <div className={styles.shell}>
-      <header className={styles.topBar}>
-        <div className={styles.progress}>
-          <span>
-            Q{index + 1}/{questions.length}
-          </span>
-          <span className={styles.muted}>
-            {counts.attempted} answered · {counts.flagged} flagged
-          </span>
-        </div>
+    <div className="relative">
+      {error ? (
         <div
-          className={`${styles.timer} ${
-            remaining <= 300 ? styles.timerWarn : ""
-          }`}
-          aria-live="polite"
+          ref={errorRef}
+          tabIndex={-1}
+          role="alert"
+          className="mb-5 rounded-xl border border-rust/30 bg-rust/10 p-4 text-sm text-rust outline-none focus:ring-2 focus:ring-rust"
         >
-          {formatClock(remaining)}
+          {error}
         </div>
-        <p className={styles.pace}>~1 min / question</p>
-      </header>
+      ) : null}
 
-      <div className={styles.layout}>
-        <nav className={styles.rail} aria-label="Question navigator">
-          {questions.map((q, i) => {
-            const state = answers[q.id]
-              ? "answered"
-              : flags.has(q.id)
-                ? "flagged"
-                : "empty";
-            return (
-              <button
-                key={q.id}
-                type="button"
-                className={`${styles.railCell} ${styles[`rail_${state}`]} ${
-                  i === index ? styles.railCurrent : ""
-                }`}
-                onClick={() => setIndex(i)}
-                aria-current={i === index ? "true" : undefined}
-                aria-label={`Question ${i + 1}${
-                  answers[q.id] ? ", answered" : ""
-                }${flags.has(q.id) ? ", flagged" : ""}`}
-              >
-                {i + 1}
-              </button>
-            );
-          })}
-        </nav>
-
-        <main className={styles.main}>
-          <div className={styles.qMeta}>
-            <span>
-              Outcome {current.learning_outcome} · Day {current.day}
-            </span>
+      <div className={styles.examStack}>
+        <nav
+          aria-label="Mock exam questions"
+          className={`${styles.rail} ${styles.railCompact}`}
+        >
+          <div className={styles.railTop}>
             <button
               type="button"
-              className={`${styles.flagBtn} ${
-                flags.has(current.id) ? styles.flagOn : ""
-              }`}
-              onClick={() => void toggleFlag()}
-              aria-pressed={flags.has(current.id)}
+              className={styles.submitBtn}
+              disabled={pending}
+              aria-busy={pending}
+              aria-label={pending ? "Submitting exam" : "Submit exam"}
+              onClick={() => setConfirmSubmit(true)}
             >
-              <Flag size={14} aria-hidden />
-              {flags.has(current.id) ? "Flagged" : "Flag"}
+              {pending ? (
+                <>
+                  <Spinner
+                    variant="bars"
+                    size={12}
+                    className="text-current"
+                    aria-hidden
+                  />
+                  Submitting…
+                </>
+              ) : (
+                "Submit exam"
+              )}
             </button>
           </div>
+          <div className={`${styles.railGrid} ${styles.railGridCompact}`}>
+            {questions.map((q, i) => {
+              const answered = Boolean(answers[q.id]);
+              const flagged = flags.has(q.id);
+              const currentCell = i === index;
+              return (
+                <button
+                  key={q.id}
+                  type="button"
+                  disabled={pending}
+                  aria-current={currentCell ? "step" : undefined}
+                  aria-label={`Question ${i + 1}, ${
+                    answered ? "answered" : "unanswered"
+                  }${flagged ? ", flagged" : ""}`}
+                  onClick={() => goToQuestion(i)}
+                  className={`${styles.railCell} ${
+                    currentCell ? styles.railCellCurrent : ""
+                  } ${
+                    flagged
+                      ? styles.railCellFlagged
+                      : answered
+                        ? styles.railCellAnswered
+                        : ""
+                  }`}
+                >
+                  {i + 1}
+                  {flagged ? (
+                    <Flag
+                      className={styles.railFlagIcon}
+                      strokeWidth={2}
+                      fill="currentColor"
+                      aria-hidden
+                    />
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        </nav>
 
-          <h2 className={styles.stem}>{current.stem}</h2>
+        <article className={styles.questionPanel}>
+          <div className={styles.questionHeader}>
+            <p className={styles.questionMeta}>
+              Question {index + 1} of {questions.length}
+            </p>
+            <div className={styles.questionActions}>
+              <button
+                type="button"
+                onClick={() => void toggleFlag()}
+                disabled={pending}
+                aria-pressed={flags.has(current.id)}
+                aria-label={
+                  flags.has(current.id) ? "Remove flag" : "Flag question"
+                }
+                className={`${styles.flagBtn} ${
+                  flags.has(current.id) ? styles.flagBtnOn : ""
+                }`}
+              >
+                <Flag
+                  className="size-3.5"
+                  strokeWidth={2}
+                  fill={flags.has(current.id) ? "var(--orange)" : "none"}
+                  color={
+                    flags.has(current.id) ? "var(--orange)" : "currentColor"
+                  }
+                  aria-hidden
+                />
+              </button>
+            </div>
+          </div>
+
+          <h1 className="mb-4 whitespace-pre-line font-body text-[15px] font-medium leading-relaxed text-ink sm:text-[16px]">
+            {current.stem}
+          </h1>
 
           {current.items?.length ? (
-            <ol className={styles.items}>
+            <ol className="mb-4 list-decimal space-y-1.5 pl-5 font-body text-[14px] leading-snug text-ink">
               {current.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ol>
           ) : null}
 
-          <div className={styles.options} role="radiogroup" aria-label="Options">
-            {Object.entries(current.options).map(([key, text]) => {
-              const selected = answers[current.id] === key;
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected}
-                  className={`${styles.option} ${
-                    selected ? styles.optionSelected : ""
-                  }`}
-                  onClick={() => void selectOption(key)}
-                >
-                  <span className={styles.optionKey}>{key.toUpperCase()}</span>
-                  <span>{text}</span>
-                </button>
-              );
-            })}
-          </div>
+          <McqResponseFields
+            options={optionTexts(current)}
+            value={(answers[current.id] ?? "").toUpperCase()}
+            disabled={pending}
+            ariaLabel={`Question ${index + 1}`}
+            onChange={(letter) => void selectOption(letter)}
+          />
+        </article>
 
-          <div className={styles.navRow}>
-            <button
-              type="button"
-              className={stampCtaSecondary}
-              disabled={index === 0}
-              onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            >
-              Back
-            </button>
-            <button
-              type="button"
-              className={stampCtaSecondary}
-              onClick={() => setReviewOpen((v) => !v)}
-            >
-              Review panel
-            </button>
-            {index < questions.length - 1 ? (
-              <button
-                type="button"
-                className={stampCtaPrimary}
-                onClick={() =>
-                  setIndex((i) => Math.min(questions.length - 1, i + 1))
-                }
-              >
-                Next
-              </button>
-            ) : (
-              <button
-                type="button"
-                className={stampCtaPrimary}
-                disabled={pending}
-                onClick={requestSubmit}
-              >
-                Submit
-              </button>
-            )}
-          </div>
-
-          {error ? (
-            <p className={styles.error} role="alert">
-              {error}
-            </p>
-          ) : null}
-        </main>
-
-        {showReview ? (
-          <aside className={styles.review} aria-label="Review panel">
-            <div className={styles.reviewHead}>
-              <h3>Review</h3>
-              <label className={styles.pin}>
-                <input
-                  type="checkbox"
-                  checked={reviewPinned}
-                  onChange={(e) => setReviewPinned(e.target.checked)}
-                />
-                Pin open
-              </label>
-            </div>
-            <div className={styles.filters} role="tablist">
-              {(
-                [
-                  ["all", "All"],
-                  ["unattempted", "Unattempted"],
-                  ["attempted", "Attempted"],
-                  ["flagged", "Flagged"],
-                ] as const
-              ).map(([id, label]) => (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  aria-selected={reviewFilter === id}
-                  className={
-                    reviewFilter === id ? styles.filterOn : styles.filter
-                  }
-                  onClick={() => setReviewFilter(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-            <ul className={styles.reviewList}>
-              {filteredIds.map((id) => {
-                const i = questions.findIndex((q) => q.id === id);
-                const q = questions[i]!;
-                return (
-                  <li key={id}>
-                    <button
-                      type="button"
-                      className={styles.reviewItem}
-                      onClick={() => {
-                        setIndex(i);
-                        if (!reviewPinned) setReviewOpen(false);
-                      }}
-                    >
-                      <span>Q{i + 1}</span>
-                      <span className={styles.muted}>
-                        {q.learning_outcome}
-                        {answers[id] ? " · answered" : " · blank"}
-                        {flags.has(id) ? " · flagged" : ""}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-            <button
-              type="button"
-              className={stampCtaPrimary}
-              disabled={pending}
-              onClick={requestSubmit}
-            >
-              Submit exam
-            </button>
-          </aside>
-        ) : null}
+        <div className={styles.navRow}>
+          <button
+            type="button"
+            className={styles.navBtn}
+            disabled={pending || index === 0}
+            onClick={() => goToQuestion(index - 1)}
+          >
+            ← Previous
+          </button>
+          <button
+            type="button"
+            className={`${styles.navBtn} ${styles.navBtnNext}`}
+            disabled={pending || index === questions.length - 1}
+            onClick={() => goToQuestion(index + 1, { scrollToTop: true })}
+          >
+            Next →
+          </button>
+        </div>
       </div>
 
-      {submitWarn ? (
-        <div className={styles.dialog} role="dialog" aria-modal="true">
-          <div className={styles.dialogCard}>
-            <p>{submitWarn}</p>
-            <div className={styles.navRow}>
+      {confirmSubmit ? (
+        <div
+          className={styles.dialogScrim}
+          role="presentation"
+          onMouseDown={(event) => {
+            if (pending) return;
+            if (event.target === event.currentTarget) setConfirmSubmit(false);
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pfq-submit-title"
+            className={styles.dialogCard}
+          >
+            <h2 id="pfq-submit-title" className={styles.dialogTitle}>
+              Submit exam?
+            </h2>
+            <p className={styles.dialogBody}>
+              Once submitted, your answers can&apos;t be changed.
+            </p>
+            {counts.unattempted > 0 ? (
+              <p className={styles.dialogWarn}>
+                Unanswered questions will receive zero marks.
+              </p>
+            ) : null}
+            <dl className={styles.dialogStats}>
+              <div>
+                <dt>Answered</dt>
+                <dd>{counts.attempted}</dd>
+              </div>
+              <div>
+                <dt>Unanswered</dt>
+                <dd>{counts.unattempted}</dd>
+              </div>
+              <div>
+                <dt>Flagged</dt>
+                <dd>{counts.flagged}</dd>
+              </div>
+            </dl>
+            <div className={styles.dialogActions}>
               <button
                 type="button"
-                className={stampCtaSecondary}
-                onClick={() => setSubmitWarn(null)}
+                onClick={() => setConfirmSubmit(false)}
+                disabled={pending}
+                className={styles.dialogBtnSecondary}
               >
-                Keep reviewing
+                Go back
               </button>
               <button
                 type="button"
-                className={stampCtaPrimary}
-                disabled={pending}
                 onClick={() => void doSubmit("manual")}
+                disabled={pending}
+                aria-busy={pending}
+                aria-label={pending ? "Submitting exam" : "Submit exam"}
+                className={styles.dialogBtnPrimary}
               >
-                Submit anyway
+                {pending ? (
+                  <>
+                    <Spinner
+                      variant="bars"
+                      size={14}
+                      className="text-current"
+                      aria-hidden
+                    />
+                    Submitting…
+                  </>
+                ) : (
+                  "Submit exam"
+                )}
               </button>
             </div>
-          </div>
+          </section>
         </div>
       ) : null}
     </div>

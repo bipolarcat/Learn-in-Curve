@@ -9,11 +9,14 @@ import {
   PFQ_SLUG,
 } from "@/lib/pfq/constants";
 import { PFQ_LESSONS } from "@/lib/pfq/content";
+import { listPfqMockSetSummaries } from "@/lib/pfq/actions";
 import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { getUserCourseStats } from "@/lib/pmq/queries";
 import { CourseHeader } from "@/components/course/CourseHeader";
 import { PfqOverview } from "@/components/pfq/PfqOverview";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "PFQ in 2 Days — Course overview",
@@ -41,11 +44,15 @@ export default async function PfqLearnHubPage() {
 
   void PFQ_LESSONS.length;
 
-  const [pfqStats, pfqCard, tier] = await Promise.all([
+  const [pfqStats, pfqCard, tier, mockSummariesResult] = await Promise.all([
     getUserCourseStats(supabase, user.id, PFQ_COURSE_ID),
     getPfqDashboardCardState(user.id),
     getPfqTier(supabase, user.id),
+    listPfqMockSetSummaries(),
   ]);
+  const mockSummaries = mockSummariesResult.ok
+    ? mockSummariesResult.summaries
+    : undefined;
 
   return (
     <>
@@ -63,6 +70,8 @@ export default async function PfqLearnHubPage() {
         nextObjective={pfqCard.nextObjective}
         nextStarted={pfqCard.nextStarted}
         stageReachedBySectionId={pfqCard.stageReachedBySectionId}
+        userTier={tier}
+        mockSummaries={mockSummaries}
       />
     </>
   );

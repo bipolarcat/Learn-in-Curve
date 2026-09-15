@@ -4,13 +4,18 @@
  * continuous sitting (no break / parts).
  */
 
-import { formatExamClock } from "@/lib/pmq/mock-domain";
 import { PFQ_DURATION_SECONDS } from "@/lib/pfq/outcomes";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
 import type { PfqMockSet } from "@/lib/pfq/generator";
 import type { PfqMockSetSummary } from "@/lib/pfq/actions";
 
-export { formatExamClock };
+/** PFQ sitting is 60 minutes — MM:SS, no hours. */
+export function formatPfqExamClock(seconds: number): string {
+  const safeSeconds = Math.max(0, Math.floor(seconds));
+  const minutes = Math.floor(safeSeconds / 60);
+  const secs = safeSeconds % 60;
+  return `${minutes}:${String(secs).padStart(2, "0")}`;
+}
 
 export function emptyPfqMockSummary(mockSet: PfqMockSet): PfqMockSetSummary {
   return {

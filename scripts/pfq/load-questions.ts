@@ -133,7 +133,7 @@ function validateQuestion(
 }
 
 function toRow(q: RawQuestion) {
-  const mockSet =
+  const mockSet: 1 | 2 | 3 | null =
     q.mock_set === 1 || q.mock_set === 2 || q.mock_set === 3 ? q.mock_set : null;
   return {
     id: q.id,
@@ -151,7 +151,7 @@ function toRow(q: RawQuestion) {
     tip: typeof q.tip === "string" && q.tip.trim() ? q.tip.trim() : null,
     active: q.active !== false,
     mock_suitable: Boolean(q.mock_suitable),
-    mock_set: mockSet,
+    mock_set: mockSet === null ? null : String(mockSet),
     variant: Number(q.variant ?? 1),
   };
 }

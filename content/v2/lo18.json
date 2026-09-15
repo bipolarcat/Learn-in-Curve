@@ -520,27 +520,27 @@
     {
       "type": "cue",
       "acronym": "Assurance builds in, control catches out",
-      "expansion": "QA acts upstream on the process to prevent defects. QC acts downstream on the output to detect them before the customer does."
+      "expansion": "QA works upstream on the process. QC works downstream on the output."
     },
     {
       "type": "cue",
       "acronym": "Confidence versus compliance",
-      "expansion": "Quality assurance provides confidence that the process will deliver. Quality control verifies compliance of what the process produced."
+      "expansion": "Assurance gives confidence in the process. Control verifies compliance of the product."
     },
     {
       "type": "cue",
       "acronym": "Criteria after scope, before planning",
-      "expansion": "Acceptance criteria come after scope definition, because you cannot write criteria for undefined deliverables, and before further planning, because QA and QC must be scheduled and costed."
+      "expansion": "Undefined deliverables have no criteria, and QA and QC must be scheduled."
     },
     {
       "type": "cue",
       "acronym": "Safety-critical reworks, user acceptance snags",
-      "expansion": "The two ends of the non-conformance response. A safety-critical product cannot ship non-compliant; a system at user acceptance may go live with known issues on a snagging list."
+      "expansion": "Safety-critical cannot ship non-compliant. Others may go live with a snagging list."
     },
     {
       "type": "cue",
       "acronym": "Plan, do, check, act",
-      "expansion": "The Shewhart cycle. Define standards and resource them, implement and monitor, evaluate against the standards, then act on the lessons."
+      "expansion": "Shewhart. Set and resource standards, implement, evaluate, act on the lessons."
     }
   ],
   "progress_checkpoint": [

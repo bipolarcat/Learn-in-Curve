@@ -144,19 +144,6 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             Check your inbox — we&apos;ve sent a confirmation.
           </p>
         )}
-        {status !== "ready" && (
-          <p className="font-body text-[11px] leading-snug text-ink/60">
-            Learn in Curve will email you PM and AI study updates and course
-            news. Unsubscribe any time.{" "}
-            <Link
-              href="/privacy"
-              className="underline decoration-ink/25 underline-offset-2 hover:text-ink"
-            >
-              Privacy notice
-            </Link>
-            .
-          </p>
-        )}
       </form>
     );
   }

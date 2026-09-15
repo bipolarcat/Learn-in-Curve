@@ -2,12 +2,10 @@ import { PfqDayPlan } from "@/components/pfq/PfqDayPlan";
 import { PfqPlanContinue } from "@/components/pfq/PfqPlanContinue";
 import { PfqMockConsole } from "@/components/pfq/PfqMockConsole";
 import { PfqExamGuideSection } from "@/components/pfq/PfqExamGuideSections";
-import {
-  PfqFaqSection,
-  PfqFurtherReading,
-  PfqTrapSchoolTeaser,
-} from "@/components/pfq/PfqOverviewSections";
+import { PfqFaqSection } from "@/components/pfq/PfqOverviewSections";
+import type { PfqMockSetSummary } from "@/lib/pfq/actions";
 import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
+import type { PfqTier } from "@/lib/pfq/tiers";
 
 type PfqOverviewProps = {
   completedObjectives: number[];
@@ -15,6 +13,8 @@ type PfqOverviewProps = {
   /** @deprecated Started is derived from stageReachedBySectionId in PfqPlanContinue. */
   nextStarted?: boolean;
   stageReachedBySectionId: Record<string, number>;
+  userTier?: PfqTier;
+  mockSummaries?: PfqMockSetSummary[];
 };
 
 function defaultDay(nextObjective: number | null): 1 | 2 {
@@ -33,6 +33,8 @@ export function PfqOverview({
   nextObjective,
   nextStarted: _nextStarted,
   stageReachedBySectionId,
+  userTier = "starter",
+  mockSummaries,
 }: PfqOverviewProps) {
   return (
     <div className="relative z-[1] flex w-full min-w-0 justify-center overflow-x-clip px-3 sm:px-5">
@@ -53,10 +55,8 @@ export function PfqOverview({
           />
         </section>
 
-        <PfqMockConsole />
+        <PfqMockConsole userTier={userTier} summaries={mockSummaries} />
         <PfqExamGuideSection />
-        <PfqTrapSchoolTeaser />
-        <PfqFurtherReading />
         <PfqFaqSection />
       </div>
     </div>
