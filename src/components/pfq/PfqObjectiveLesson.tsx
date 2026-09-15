@@ -351,7 +351,7 @@ export function PfqObjectiveLessonView({
                     type="button"
                     disabled={navPending}
                     aria-busy={pendingHref === prevHref}
-                    className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90`}
+                    className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:opacity-90`}
                     onClick={() => go(prevHref)}
                   >
                     {pendingHref === prevHref ? (
@@ -385,7 +385,7 @@ export function PfqObjectiveLessonView({
                         ? `Next: LO${nextObjective}`
                         : "Back to overview"
                   }
-                  className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90 ${
+                  className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:opacity-90 ${
                     !sealed && !checkpointReady
                       ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
                       : ""

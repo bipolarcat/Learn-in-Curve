@@ -111,7 +111,7 @@ export function PfqCheckoutButton({
       ) : (
         <button
           type="button"
-          className={`${className ?? stampCtaPrimary} disabled:cursor-wait disabled:opacity-90`}
+          className={`${className ?? stampCtaPrimary} disabled:opacity-90`}
           disabled={pending}
           aria-busy={pending}
           aria-label={accessible}

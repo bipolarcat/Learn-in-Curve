@@ -91,7 +91,7 @@ export function PmqStartLink({
       aria-busy={pending}
       aria-disabled={pending || undefined}
       aria-label={pending ? "Opening course" : undefined}
-      className={`${className ?? ""} ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      className={`${className ?? ""} ${pending ? "opacity-80" : ""}`.trim()}
       onClick={onClick}
     >
       {pending ? (

@@ -253,7 +253,7 @@ export function FeedbackModal({ open, onClose, source }: FeedbackModalProps) {
                 disabled={submitting || checkingAuth}
                 aria-busy={submitting}
                 aria-label={submitting ? "Sending message" : "Send message"}
-                className={`${formActionPrimary} !min-h-9 !px-3.5 !py-1.5 !text-[13px] !font-semibold disabled:cursor-wait disabled:opacity-80`}
+                className={`${formActionPrimary} !min-h-9 !px-3.5 !py-1.5 !text-[13px] !font-semibold disabled:opacity-80`}
               >
                 {submitting ? (
                   <Spinner

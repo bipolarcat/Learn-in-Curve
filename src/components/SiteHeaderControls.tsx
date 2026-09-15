@@ -63,7 +63,7 @@ function HeaderNavButton({
       aria-busy={pending}
       aria-label={pending ? busyLabel : ariaLabel}
       title={title ?? ariaLabel}
-      className={`${className} disabled:cursor-wait disabled:opacity-90`}
+      className={`${className} disabled:opacity-90`}
       onClick={() => {
         if (analyticsLocation) {
           trackCtaClicked({

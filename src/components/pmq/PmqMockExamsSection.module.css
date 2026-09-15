@@ -98,7 +98,6 @@
 }
 
 .rowInteractive:disabled {
-  cursor: wait;
   opacity: 0.72;
 }
 

@@ -197,7 +197,6 @@
 
 .generateBtn:disabled {
   opacity: 0.5;
-  cursor: wait;
 }
 
 .generateBtn:focus-visible {

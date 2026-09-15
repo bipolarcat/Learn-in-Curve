@@ -471,7 +471,7 @@ export function DashboardPmqCourseCard({
                 router.push(continueHref);
               });
             }}
-            className={`${productActionPrimary} min-w-0 flex-1 !min-h-9 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:cursor-wait disabled:opacity-90`}
+            className={`${productActionPrimary} min-w-0 flex-1 !min-h-9 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:opacity-90`}
           >
             {navPending ? (
               <Spinner variant="bars" size={14} className="text-paper" aria-hidden />
@@ -494,7 +494,7 @@ export function DashboardPmqCourseCard({
                 router.push(overviewPath);
               });
             }}
-            className={`${productActionSecondary} min-w-0 flex-1 !min-h-9 !rounded-xl !border-ink/12 !px-3 !text-[12.5px] !font-semibold !text-ink/75 hover:!bg-ink/[0.04] disabled:cursor-wait disabled:opacity-90`}
+            className={`${productActionSecondary} min-w-0 flex-1 !min-h-9 !rounded-xl !border-ink/12 !px-3 !text-[12.5px] !font-semibold !text-ink/75 hover:!bg-ink/[0.04] disabled:opacity-90`}
           >
             {overviewPending ? (
               <Spinner variant="bars" size={14} className="text-ink/70" aria-hidden />

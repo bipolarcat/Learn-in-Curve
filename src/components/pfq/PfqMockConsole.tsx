@@ -26,7 +26,7 @@ import { canAccessPfqMock, type PfqTier } from "@/lib/pfq/tiers";
 import { MockExamRowStatus } from "@/components/pmq/PmqMockExamsSection";
 import styles from "@/components/pmq/PmqMockExamsSection.module.css";
 
-const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:cursor-wait disabled:opacity-70`;
+const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:opacity-70`;
 
 function PfqMockConsoleTimer({ summary }: { summary: PfqMockSetSummary }) {
   const [now, setNow] = useState<number | null>(null);

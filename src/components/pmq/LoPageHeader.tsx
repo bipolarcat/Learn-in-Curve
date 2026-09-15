@@ -132,7 +132,7 @@ function OverviewBackButton({
       disabled={pending}
       aria-busy={pending}
       aria-label={pending ? "Opening course overview" : "Back to course overview"}
-      className={`inline-flex shrink-0 items-center gap-1 rounded-md px-0.5 font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:cursor-wait disabled:opacity-80 ${
+      className={`inline-flex shrink-0 items-center gap-1 rounded-md px-0.5 font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:opacity-80 ${
         compact
           ? "h-6 text-[11px]"
           : "h-7 text-[12px] sm:text-[13px]"

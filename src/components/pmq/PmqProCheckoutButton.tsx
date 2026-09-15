@@ -110,7 +110,7 @@ export function PmqProCheckoutButton({
         disabled={busy}
         aria-busy={busy}
         aria-label={busy ? "Opening checkout" : label}
-        className={`${className} disabled:cursor-wait disabled:opacity-90`}
+        className={`${className} disabled:opacity-90`}
       >
         {busy ? (
           <Spinner

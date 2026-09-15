@@ -238,7 +238,7 @@ export function ContactForm({
                     aria-label={
                       submitting ? "Sending message" : "Send message"
                     }
-                    className={`${formActionPrimary} ${styles.submit} disabled:cursor-wait disabled:opacity-80`}
+                    className={`${formActionPrimary} ${styles.submit} disabled:opacity-80`}
                   >
                     {submitting ? (
                       <Spinner

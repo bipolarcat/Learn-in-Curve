@@ -47,7 +47,7 @@ export function LibrarySoftNavLink({
       aria-busy={pending}
       aria-disabled={pending || undefined}
       aria-label={pending ? busyLabel : undefined}
-      className={`${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${pending ? "cursor-wait opacity-80" : ""}`.trim()}
+      className={`${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${pending ? "opacity-80" : ""}`.trim()}
       onClick={onClick}
     >
       {pending ? (

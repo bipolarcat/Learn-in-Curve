@@ -92,7 +92,7 @@ function LoAdjacentNav({
           }
           title={`LO${prev.order_index}: ${prev.title}`}
           onClick={() => go(prevHref)}
-          className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90`}
+          className={`group ${productActionSecondary} !min-h-9 !px-3 !text-[12.5px] disabled:opacity-90`}
         >
           {pendingHref === prevHref ? (
             <Spinner
@@ -143,7 +143,7 @@ function LoAdjacentNav({
             }
             go(nextHref);
           }}
-          className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:cursor-wait disabled:opacity-90 ${
+          className={`group ${productActionSecondary} ml-auto !min-h-9 !px-3 !text-[12.5px] disabled:opacity-90 ${
             !nextEnabled
               ? "!cursor-not-allowed !border-ink/10 !bg-transparent !text-ink/30 hover:!bg-transparent hover:!text-ink/30 hover:!opacity-100 active:!bg-transparent active:!opacity-100"
               : ""

@@ -107,7 +107,7 @@ export function SiteStatusPage({ variant }: SiteStatusPageProps) {
             type="button"
             disabled={backPending}
             aria-busy={backPending}
-            className={`${formActionSecondary} !min-h-10 !px-4 !text-[13px] disabled:cursor-wait disabled:opacity-80`}
+            className={`${formActionSecondary} !min-h-10 !px-4 !text-[13px] disabled:opacity-80`}
             onClick={() => {
               startBack(() => {
                 if (window.history.length > 1) {
@@ -134,7 +134,7 @@ export function SiteStatusPage({ variant }: SiteStatusPageProps) {
             type="button"
             disabled={homePending}
             aria-busy={homePending}
-            className={`${formActionPrimary} !min-h-10 !px-4 !text-[13px] disabled:cursor-wait disabled:opacity-80`}
+            className={`${formActionPrimary} !min-h-10 !px-4 !text-[13px] disabled:opacity-80`}
             onClick={() => {
               startHome(() => {
                 router.push("/");

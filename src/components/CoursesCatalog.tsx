@@ -226,7 +226,7 @@ function CatalogNavButton({
       disabled={pending}
       aria-busy={pending}
       aria-label={pending ? busyLabel : undefined}
-      className={`${className ?? ""} disabled:cursor-wait disabled:opacity-80`}
+      className={`${className ?? ""} disabled:opacity-80`}
       onClick={() => {
         startTransition(() => {
           router.push(href);
@@ -256,7 +256,7 @@ function NotifyMeButton({ onOpen }: { onOpen: () => void }) {
       disabled={pending}
       aria-busy={pending}
       aria-label={pending ? "Opening notify form" : "Notify me"}
-      className={`${stampCtaSecondaryCompact} disabled:cursor-wait disabled:opacity-80`}
+      className={`${stampCtaSecondaryCompact} disabled:opacity-80`}
       onClick={() => {
         startTransition(() => {
           onOpen();

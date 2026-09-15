@@ -40,7 +40,7 @@ export function SoftNavBackLink({
       aria-busy={pending}
       aria-disabled={pending || undefined}
       aria-label={pending ? busyLabel : undefined}
-      className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-md px-0.5 font-body text-[12px] font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:text-[13px] ${pending ? "cursor-wait opacity-80" : ""} ${className}`.trim()}
+      className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-md px-0.5 font-body text-[12px] font-semibold text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:text-[13px] ${pending ? "opacity-80" : ""} ${className}`.trim()}
       onClick={onClick}
     >
       {pending ? (

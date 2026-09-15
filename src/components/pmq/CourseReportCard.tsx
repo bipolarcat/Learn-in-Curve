@@ -110,7 +110,7 @@ export function CourseReportCard({
           onClick={() => void download()}
           disabled={busy}
           aria-busy={busy}
-          className={`${productActionPrimary} mt-3.5 w-full !min-h-10 !rounded-lg !text-[13px] !font-semibold sm:w-fit disabled:cursor-wait disabled:opacity-90`}
+          className={`${productActionPrimary} mt-3.5 w-full !min-h-10 !rounded-lg !text-[13px] !font-semibold sm:w-fit disabled:opacity-90`}
         >
           {busy ? (
             <>

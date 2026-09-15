@@ -396,7 +396,7 @@ export function DashboardProfileMenu({
           onClick={close}
           disabled={saving || deleteBusy}
           aria-label="Close edit profile"
-          className="absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
+          className="absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-lg text-ink/40 transition-[background-color,color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:opacity-50"
         >
           <svg
             width="14"
@@ -622,7 +622,7 @@ export function DashboardProfileMenu({
             setDeleteError(null);
           }}
           disabled={saving || deleteBusy}
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-sm font-body text-[11px] font-medium tracking-tight text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-rust focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:cursor-wait disabled:opacity-50"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-sm font-body text-[11px] font-medium tracking-tight text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-rust focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange disabled:opacity-50"
         >
           <Trash2 className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
           <span>Delete account</span>

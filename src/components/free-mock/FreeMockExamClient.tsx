@@ -293,7 +293,7 @@ export function FreeMockExamClient({
             disabled={submitting}
             aria-busy={submitting}
             aria-label={submitting ? "Saving results" : "Show my results"}
-            className={`${stampCtaPrimary} self-start disabled:cursor-wait disabled:opacity-60`}
+            className={`${stampCtaPrimary} self-start disabled:opacity-60`}
           >
             {submitting ? (
               <Spinner variant="bars" size={16} className="text-current" aria-hidden />
@@ -510,7 +510,7 @@ export function FreeMockExamClient({
               <button
                 type="button"
                 className={`${stampCtaSecondaryFlat} ${stampCtaCompact}${
-                  navPending === "prev" ? " cursor-wait opacity-60" : ""
+                  navPending === "prev" ? " opacity-60" : ""
                 }`}
                 disabled={Boolean(navPending)}
                 aria-busy={navPending === "prev"}
@@ -530,7 +530,7 @@ export function FreeMockExamClient({
               type="button"
               className={`${stampCtaPrimary} ${stampCtaCompact}${
                 navPending === "next"
-                  ? " cursor-wait opacity-60"
+                  ? " opacity-60"
                   : !canContinue
                     ? " opacity-50"
                     : ""

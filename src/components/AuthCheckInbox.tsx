@@ -251,7 +251,7 @@ export function AuthCheckInbox({
 
   const saas = variant === "saas";
   const linkBtn =
-    "bg-transparent p-0 font-inherit underline decoration-ink/20 underline-offset-[0.15em] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60";
+    "bg-transparent p-0 font-inherit underline decoration-ink/20 underline-offset-[0.15em] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 disabled:opacity-60";
 
   return (
     <div
@@ -299,7 +299,7 @@ export function AuthCheckInbox({
           aria-label={
             continuing ? "Checking confirmation" : "Continue after confirming"
           }
-          className={`${formActionPrimary} mt-4 w-full disabled:cursor-wait disabled:opacity-60`}
+          className={`${formActionPrimary} mt-4 w-full disabled:opacity-60`}
         >
           {continuing ? (
             <Spinner

@@ -79,7 +79,6 @@
 }
 
 .startBtn:disabled {
-  cursor: wait;
   opacity: 0.92;
 }
 
@@ -170,7 +169,6 @@
 }
 
 .breakBtn:disabled {
-  cursor: wait;
   opacity: 0.92;
 }
 
@@ -344,7 +342,6 @@
 
 .resultBtnPrimary:disabled,
 .resultBtnSecondary:disabled {
-  cursor: wait;
   opacity: 0.7;
 }
 
@@ -493,7 +490,6 @@
 }
 
 .resultBack:disabled {
-  cursor: wait;
   opacity: 0.8;
 }
 
@@ -644,7 +640,6 @@
 
 .dialogBtnPrimary:disabled,
 .dialogBtnSecondary:disabled {
-  cursor: wait;
   opacity: 0.7;
 }
 
@@ -984,7 +979,6 @@
 
 .submitBtn:disabled {
   opacity: 0.9;
-  cursor: wait;
 }
 
 .submitBtn:focus-visible {

@@ -29,7 +29,7 @@ type PmqMockExamsSectionProps = {
 /** Product contract: four papers. Exam 1 Starter; 2–3 Pro; 4 AI Pro. */
 const EXAM_SETS = [1, 2, 3, 4] as const satisfies readonly MockExamSet[];
 
-const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:cursor-wait disabled:opacity-70`;
+const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:opacity-70`;
 
 function emptySummary(examSet: MockExamSet): MockExamSetSummary {
   return {

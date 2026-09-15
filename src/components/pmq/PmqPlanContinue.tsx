@@ -52,7 +52,7 @@ export function PmqPlanContinue({
       aria-busy={pending}
       aria-label={pending ? `Opening ${label}` : label}
       title={next?.title}
-      className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:cursor-wait disabled:opacity-70`}
+      className={`${productActionPrimary} shrink-0 !min-h-8 !rounded-xl !px-3 !text-[12.5px] !font-semibold disabled:opacity-70`}
       onClick={() => {
         startTransition(() => {
           router.push(href);
