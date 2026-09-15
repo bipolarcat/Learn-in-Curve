@@ -132,11 +132,23 @@ function GoogleMark() {
   );
 }
 
-/** Quiet reminder on the method this browser used last. */
-function LastUsedPill({ className = "" }: { className?: string }) {
+/**
+ * Quiet “Last used” cue — modern auth pattern (Clerk / Linear / Auth0):
+ * corner badge on the button, label stays centred.
+ */
+function LastUsedPill({
+  tone = "ink",
+}: {
+  tone?: "ink" | "on-action";
+}) {
   return (
     <span
-      className={`inline-flex shrink-0 items-center rounded-full bg-ink/[0.06] px-1.5 py-0.5 font-body text-[10px] font-semibold leading-none tracking-wide text-ink/50 ${className}`.trim()}
+      aria-hidden
+      className={
+        tone === "on-action"
+          ? "pointer-events-none absolute right-2 top-1.5 z-[1] inline-flex items-center rounded-full bg-paper/20 px-1.5 py-0.5 font-body text-[9px] font-semibold uppercase tracking-[0.04em] text-paper/90"
+          : "pointer-events-none absolute right-2 top-1.5 z-[1] inline-flex items-center rounded-full bg-ink/[0.06] px-1.5 py-0.5 font-body text-[9px] font-semibold uppercase tracking-[0.04em] text-ink/55"
+      }
     >
       Last used
     </span>
@@ -386,19 +398,11 @@ export function AuthForm({
           type="button"
           onClick={handleGoogle}
           disabled={loading}
-          className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary mb-3 w-full disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedGoogle ? "!justify-start" : ""}`}
+          className={`${formActionSecondary} auth-saas-btn auth-saas-btn--secondary relative mb-3 w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
         >
           <GoogleMark />
-          {lastUsedGoogle ? (
-            <>
-              <span className="min-w-0 flex-1 text-left">
-                Continue with Google
-              </span>
-              <LastUsedPill />
-            </>
-          ) : (
-            "Continue with Google"
-          )}
+          Continue with Google
+          {lastUsedGoogle ? <LastUsedPill /> : null}
         </button>
 
         {googleHint && (
@@ -487,20 +491,23 @@ export function AuthForm({
                   ? "Create account"
                   : "Sign in"
             }
-            className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary mt-0.5 w-full disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedEmail ? "!justify-start" : ""}`}
+            className={`${formActionPrimary} auth-saas-btn auth-saas-btn--primary relative mt-0.5 w-full justify-center disabled:cursor-not-allowed disabled:opacity-50`}
           >
             {loading ? (
-              <Spinner variant="bars" size={16} className="text-current" aria-hidden />
+              <Spinner
+                variant="bars"
+                size={16}
+                className="text-current"
+                aria-hidden
+              />
             ) : mode === "sign-up" ? (
               "Create account"
-            ) : lastUsedEmail ? (
-              <>
-                <span className="min-w-0 flex-1 text-left">Sign in</span>
-                <LastUsedPill className="bg-paper/20 text-paper/80" />
-              </>
             ) : (
               "Sign in"
             )}
+            {lastUsedEmail && !loading ? (
+              <LastUsedPill tone="on-action" />
+            ) : null}
           </button>
         </form>
 
@@ -607,17 +614,11 @@ export function AuthForm({
         type="button"
         onClick={handleGoogle}
         disabled={loading}
-        className={`btn btn-secondary flex w-full items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedGoogle ? "justify-start" : "justify-center"} ${googleHint ? "mb-2" : "mb-6"}`}
+        className={`btn btn-secondary relative flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${googleHint ? "mb-2" : "mb-6"}`}
       >
         <GoogleMark />
-        {lastUsedGoogle ? (
-          <>
-            <span className="min-w-0 flex-1 text-left">Continue with Google</span>
-            <LastUsedPill />
-          </>
-        ) : (
-          "Continue with Google"
-        )}
+        Continue with Google
+        {lastUsedGoogle ? <LastUsedPill /> : null}
       </button>
 
       {googleHint && (
@@ -709,20 +710,23 @@ export function AuthForm({
                 ? "Create account"
                 : "Sign in"
           }
-          className={`btn flex w-full items-center gap-2 disabled:cursor-not-allowed disabled:opacity-50 ${lastUsedEmail ? "justify-start" : "justify-center"}`}
+          className="btn relative flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? (
-            <Spinner variant="bars" size={16} className="text-current" aria-hidden />
+            <Spinner
+              variant="bars"
+              size={16}
+              className="text-current"
+              aria-hidden
+            />
           ) : mode === "sign-up" ? (
             "Create account"
-          ) : lastUsedEmail ? (
-            <>
-              <span className="min-w-0 flex-1 text-left">Sign in</span>
-              <LastUsedPill className="bg-paper/20 text-paper/80" />
-            </>
           ) : (
             "Sign in"
           )}
+          {lastUsedEmail && !loading ? (
+            <LastUsedPill tone="on-action" />
+          ) : null}
         </button>
       </form>
 
