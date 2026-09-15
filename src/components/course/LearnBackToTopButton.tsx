@@ -112,8 +112,8 @@ export function LearnBackToTopButton({ className }: { className?: string }) {
           Back
         </span>
       </span>
-      <span className="truncate font-body text-[12px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange sm:text-[13px]">
-        {" to Top"}
+      <span className="pl-1.5 font-body text-[12px] font-semibold leading-none tracking-tight text-ink/55 transition-colors duration-150 group-hover:text-orange sm:text-[13px]">
+        to Top
       </span>
     </motion.button>
   );
