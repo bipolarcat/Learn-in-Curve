@@ -135,19 +135,22 @@ function GoogleMark() {
 /**
  * Quiet “Last used” cue — modern auth pattern (Clerk / Linear / Auth0):
  * corner badge on the button, label stays centred.
+ * `text-size-adjust: 100%` stops iOS/Android from inflating sub-12px type.
  */
 function LastUsedPill({
   tone = "ink",
 }: {
   tone?: "ink" | "on-action";
 }) {
+  const base =
+    "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex origin-top-right scale-[0.92] items-center rounded-full px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] [text-size-adjust:100%] [-webkit-text-size-adjust:100%] sm:scale-100";
   return (
     <span
       aria-hidden
       className={
         tone === "on-action"
-          ? "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex items-center rounded-full bg-paper/20 px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] text-paper/90"
-          : "pointer-events-none absolute right-1.5 top-1 z-[1] inline-flex items-center rounded-full bg-ink/[0.06] px-1 py-px font-body text-[8px] font-semibold uppercase leading-none tracking-[0.03em] text-ink/55"
+          ? `${base} bg-paper/20 text-paper/90`
+          : `${base} bg-ink/[0.06] text-ink/55`
       }
     >
       Last used
