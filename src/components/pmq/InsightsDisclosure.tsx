@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import {
   AnimatePresence,
   LayoutGroup,
   motion,
   useReducedMotion,
 } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import {
   LightbulbIcon,
   type LightbulbIconHandle,
@@ -17,14 +24,31 @@ import { cn } from "@/lib/utils";
 /** Motion Primitives / 21st.dev Disclosure ease. */
 const disclosureEase = [0.22, 1, 0.36, 1] as const;
 
+/** 21st.dev Morphing Popover-adjacent spring for the chevron flip. */
+const chevronSpring = {
+  type: "spring" as const,
+  stiffness: 420,
+  damping: 28,
+  mass: 0.7,
+};
+
+type InsightsExpandProps = {
+  children: ReactNode;
+  /** Wrapper class for the chip + panel block. */
+  className?: string;
+  /** Accessible name for the open panel. */
+  panelLabel?: string;
+};
+
 /**
- * Insights — inline footnote chip (all PMQ Learn LOs).
- * Underline is a separate motion element (21st.dev underline-animation pattern),
- * not CSS text-decoration. On open it layout-morphs into the vertical tip rail
- * (Motion shared `layoutId`); on close it re-plants under the label.
- * Expand/collapse follows Motion Primitives Disclosure height variants.
+ * Shared Insights chip: lightbulb + label + chevron that flips on open
+ * (21st.dev disclosure affordance). Underline morphs into the tip rail.
  */
-export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
+export function InsightsExpand({
+  children,
+  className,
+  panelLabel = "Insights",
+}: InsightsExpandProps) {
   const panelId = useId();
   const railId = `insights-rail-${useId().replace(/:/g, "")}`;
   const [open, setOpen] = useState(false);
@@ -45,9 +69,13 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
     ? { duration: 0.01 }
     : { duration: 0.28, ease: disclosureEase };
 
+  const chevronTransition = reduceMotion
+    ? { duration: 0.01 }
+    : chevronSpring;
+
   return (
     <LayoutGroup id={railId}>
-      <div className="not-prose mt-0.5 mb-2 min-w-0 max-w-full">
+      <div className={cn("not-prose min-w-0 max-w-full", className)}>
         <button
           type="button"
           aria-expanded={open}
@@ -76,7 +104,6 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
           />
           <span className="relative inline-block leading-snug">
             {open ? "Hide insights" : "Insights"}
-            {/* Closed: underline under the label (21st separate-element underline) */}
             {!open ? (
               <motion.span
                 layoutId={reduceMotion ? undefined : railId}
@@ -86,6 +113,17 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
               />
             ) : null}
           </span>
+          <motion.span
+            className="inline-flex shrink-0"
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={chevronTransition}
+            aria-hidden
+          >
+            <ChevronDown
+              className="size-3.5 text-current opacity-70"
+              strokeWidth={2.25}
+            />
+          </motion.span>
         </button>
 
         <AnimatePresence initial={false}>
@@ -94,10 +132,8 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
               id={panelId}
               key="insight"
               role="region"
-              aria-label="Insights"
-              initial={
-                reduceMotion ? false : { height: 0, opacity: 0 }
-              }
+              aria-label={panelLabel}
+              initial={reduceMotion ? false : { height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={
                 reduceMotion
@@ -108,22 +144,36 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
               className="overflow-hidden"
             >
               <div className="mt-1.5 flex min-w-0 items-stretch gap-3">
-                {/* Open: same rail, now vertical beside the tip */}
                 <motion.span
                   layoutId={reduceMotion ? undefined : railId}
                   className="w-px shrink-0 self-stretch bg-teal/40"
                   transition={railTransition}
                   aria-hidden
                 />
-                <p className="m-0 min-w-0 flex-1 font-body text-[13px] italic leading-[1.55] text-ink/75">
-                  {tip.tip}
-                </p>
+                <div className="min-w-0 flex-1">{children}</div>
               </div>
             </motion.div>
           ) : null}
         </AnimatePresence>
       </div>
     </LayoutGroup>
+  );
+}
+
+/**
+ * Insights — inline footnote chip (all PMQ Learn LOs).
+ * Underline is a separate motion element (21st.dev underline-animation pattern),
+ * not CSS text-decoration. On open it layout-morphs into the vertical tip rail
+ * (Motion shared `layoutId`); on close it re-plants under the label.
+ * Expand/collapse follows Motion Primitives Disclosure height variants.
+ */
+export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
+  return (
+    <InsightsExpand className="mt-0.5 mb-2">
+      <p className="m-0 min-w-0 font-body text-[13px] italic leading-[1.55] text-ink/75">
+        {tip.tip}
+      </p>
+    </InsightsExpand>
   );
 }
 
