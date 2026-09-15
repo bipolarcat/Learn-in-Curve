@@ -16,4 +16,6 @@ export type CourseFeatureId =
   | "lessons"
   | "practice_bank"
   | "mock_exam"
-  | "coverage_map";
+  | "coverage_map"
+  | "insights"
+  | "completion_report";

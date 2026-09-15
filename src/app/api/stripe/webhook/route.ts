@@ -8,6 +8,7 @@ import {
   topUpCreditGbpCents,
 } from "@/lib/tutor/constants";
 import { PFQ_COURSE_ID, PFQ_PRO_PRICE_CENTS } from "@/lib/pfq/constants";
+import { isPfqPaidTier } from "@/lib/pfq/tiers";
 import { sendPfqPurchaseEmail } from "@/lib/pfq/send-purchase-email";
 import { PMQ_COURSE_ID } from "@/lib/pmq/constants";
 
@@ -120,7 +121,12 @@ export async function POST(request: Request) {
         session.metadata?.product === "pfq";
 
       if (isPfq) {
-        if (feature !== "pro") {
+        // Accepts both rungs. ai_pro has no checkout today (Sly has not
+        // shipped), but hard-rejecting it here would 400 the first real AI Pro
+        // session the day one is created, after the customer has already paid.
+        // isPfqPaidTier is the same allow-list the gates read, so the webhook
+        // can never write a feature value the tier ladder would ignore.
+        if (!isPfqPaidTier(feature)) {
           console.error("[stripe] PFQ session with unexpected feature", {
             sessionId: session.id,
             feature,
@@ -134,7 +140,7 @@ export async function POST(request: Request) {
         await grantFeatureEntitlement({
           userId,
           courseId: PFQ_COURSE_ID,
-          feature: "pro",
+          feature,
           paymentId,
         });
 
@@ -174,6 +180,15 @@ export async function POST(request: Request) {
             { error: "Purchase confirmation email failed" },
             { status: 500 },
           );
+        }
+
+        // Must run before return — the old early return skipped PostHog, which
+        // is why purchase_completed never fired for PFQ (and matched the
+        // production gap on other purchases that exited before this call).
+        try {
+          await trackPurchaseCompleted(session, event.created);
+        } catch (err) {
+          console.error("PostHog purchase_completed failed", err);
         }
 
         return NextResponse.json({ received: true });

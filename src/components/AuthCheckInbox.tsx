@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { hasConfirmedSession } from "@/lib/auth-actions";
 import { DEFAULT_AUTH_NEXT_PATH, getSafeNextPath } from "@/lib/auth-next";
 import { formActionPrimary } from "@/components/ui/semantic";
 import { Spinner } from "@/components/ui/spinner";
@@ -96,9 +96,10 @@ export function AuthCheckInbox({
   nextPath = DEFAULT_AUTH_NEXT_PATH,
   onUseDifferentEmail,
 }: AuthCheckInboxProps) {
-  const router = useRouter();
   const supabase = createClient();
   const cardRef = useRef<HTMLDivElement>(null);
+  /** Guards overlapping session checks (focus events fire in bursts). */
+  const checkingRef = useRef(false);
   const [footerMode, setFooterMode] = useState<FooterMode>("actions");
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [resending, setResending] = useState(false);
@@ -137,6 +138,31 @@ export function AuthCheckInbox({
     cardRef.current?.focus();
   }, []);
 
+  /**
+   * Auto-resolve when this tab comes back into focus.
+   *
+   * The confirmation link opens elsewhere, so the moment this tab becomes
+   * visible again is the moment the session most likely exists. Checking then
+   * means the common path needs no button press at all, and Continue stays as
+   * the explicit fallback. Silent by design: a failed check here must not
+   * flash "that link hasn't been opened yet" at someone who simply alt-tabbed.
+   */
+  useEffect(() => {
+    function onVisible() {
+      if (document.visibilityState !== "visible") return;
+      void goIfConfirmed({ silent: true });
+    }
+
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", onVisible);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", onVisible);
+    };
+    // goIfConfirmed only closes over nextPath and stable setters.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextPath]);
+
   async function handleResend() {
     if (resending) return;
 
@@ -172,37 +198,55 @@ export function AuthCheckInbox({
 
   /**
    * The user confirms in their mail client, comes back to this tab, and has
-   * nowhere to go — the card is terminal. Clicking the emailed link runs
-   * /auth/callback, which writes the session cookie for the whole browser, so
-   * this tab already holds a valid session; it just has no reason to re-read
-   * it. Continue re-reads it and moves on.
+   * nowhere to go: the card is terminal. Continue is the way out.
    *
-   * When the link genuinely hasn't been clicked yet there is no session, and
-   * saying so is the honest outcome — pushing to a protected route would only
-   * bounce them back through auth.
+   * This asks the SERVER whether a session exists, via hasConfirmedSession().
+   * It used to call `supabase.auth.getSession()` on this tab's browser client
+   * and that reported "not confirmed" for users who were provably signed in,
+   * because the emailed link opens a separate tab and /auth/confirm writes the
+   * auth cookies server-side. This tab never hears about it: the session lives
+   * in cookies, not localStorage, so no cross-tab `storage` event fires. See
+   * src/lib/auth-actions.ts.
+   *
+   * On success this is a FULL navigation, not router.push. The destination is
+   * server-rendered and gated, so it has to re-read the cookie jar on the
+   * server; a soft client-side nav would carry this tab's stale auth state.
    */
-  async function handleContinue() {
-    if (continuing) return;
-    setContinuing(true);
-    setNotConfirmedYet(false);
+  async function goIfConfirmed({ silent }: { silent: boolean }) {
+    if (checkingRef.current) return;
+    checkingRef.current = true;
+
+    if (!silent) {
+      setContinuing(true);
+      setNotConfirmedYet(false);
+    }
 
     try {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
+      const confirmed = await hasConfirmedSession();
 
-      if (!session) {
-        setNotConfirmedYet(true);
+      if (confirmed) {
+        // Leave the spinner up: the page is being replaced.
+        window.location.assign(getSafeNextPath(nextPath));
         return;
       }
 
-      router.push(getSafeNextPath(nextPath));
-      router.refresh();
+      if (!silent) {
+        setNotConfirmedYet(true);
+        setContinuing(false);
+      }
     } catch {
-      setNotConfirmedYet(true);
+      if (!silent) {
+        setNotConfirmedYet(true);
+        setContinuing(false);
+      }
     } finally {
-      setContinuing(false);
+      checkingRef.current = false;
     }
+  }
+
+  async function handleContinue() {
+    if (continuing) return;
+    await goIfConfirmed({ silent: false });
   }
 
   const saas = variant === "saas";

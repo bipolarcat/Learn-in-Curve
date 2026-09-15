@@ -3,7 +3,7 @@
 import { showToast } from "@/components/ui/toast";
 import { AiProBadge, ProBadge } from "@/components/pmq/tier-badge";
 
-const PRO_GENERATE_COPY = "Generate quiz sets with the Pro Bundle";
+const PRO_GENERATE_COPY = "More practice sets are part of Pro";
 const AI_PRO_GENERATE_COPY = "Quiz sets 6–8 come with the AI Pro Bundle.";
 
 /**

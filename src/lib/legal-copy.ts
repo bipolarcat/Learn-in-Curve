@@ -21,7 +21,7 @@
  * Terms — is what keeps this the right side of implied endorsement.
  */
 export const APM_DISCLAIMER =
-  "Not affiliated with, endorsed by, or acting on behalf of APM (the Association for Project Management). Revision material is our own, aimed at their published syllabus — not official APM content.";
+  "Not affiliated with, endorsed by, or acting on behalf of APM (the Association for Project Management). Revision material is our own, aimed at their published syllabus - not official APM content.";
 
 /** Shorter variant for tight chrome where the full sentence won't fit. */
 export const APM_DISCLAIMER_SHORT =

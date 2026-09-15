@@ -9,10 +9,10 @@
  * Project Management's trade marks and we charge money for material aimed at
  * their syllabus, so this is a legal exposure, not a copy nit.
  *
- * Placement (2026-07-30, tightened 2026-09-12): disclaimer is opt-in on
- * `SiteFooter` and enabled only for `/courses/pmq-in-5-days` via
- * `CoursesSiteFooter` — not site-wide, and not duplicated on marketing
- * page bottoms (`/pmq`, `/free-mock-exam`).
+ * Placement (2026-07-30, tightened 2026-09-12; PFQ learn 2026-09-15): disclaimer
+ * is opt-in on `SiteFooter` and enabled for `/courses/pmq-in-5-days` and
+ * `/courses/pfq-in-2-days/learn` via `CoursesSiteFooter` — not site-wide, and
+ * not duplicated on marketing page bottoms (`/pmq`, `/free-mock-exam`).
  *
  * There's no DOM renderer in this repo (tests are plain `node --test`), so these
  * are source-level assertions. That's sufficient for the failure mode we've
@@ -73,7 +73,7 @@ test("site footer can render the disclaimer constant", async () => {
   );
 });
 
-test("PMQ course overview footer enables the APM disclaimer", async () => {
+test("PMQ and PFQ course overview footers enable the APM disclaimer", async () => {
   const [footer, layout] = await Promise.all([
     read("src/components/CoursesSiteFooter.tsx"),
     read("src/app/courses/layout.tsx"),
@@ -88,6 +88,16 @@ test("PMQ course overview footer enables the APM disclaimer", async () => {
     footer,
     /pmq-in-5-days|PMQ_SLUG/,
     "CoursesSiteFooter must key the disclaimer to the PMQ overview path",
+  );
+  assert.match(
+    footer,
+    /PFQ_LEARN_HREF|pfq-in-2-days\/learn/,
+    "CoursesSiteFooter must also key the disclaimer to the PFQ learn overview",
+  );
+  assert.doesNotMatch(
+    footer,
+    /showPfqAtpDisclaimer|PFQ_ATP_DISCLAIMER/,
+    "PFQ learn overview uses APM_DISCLAIMER, not the ATP footer variant",
   );
   assert.match(
     layout,

@@ -163,14 +163,17 @@ decision below are independent of the payment question.
       recorded in LIC-48: never close a visible-copy ticket from commit
       inspection alone. Wording lives in `src/lib/legal-copy.ts` as
       `APM_DISCLAIMER` (pinned to §2 of `TERMS_OF_SERVICE.md`). Render path:
-      `SiteFooter` (`showApmDisclaimer`) → enabled only on
-      `/courses/pmq-in-5-days` via `CoursesSiteFooter` (not site-wide, not LO /
-      pricing / preview). `tests/apm-disclaimer.test.mjs` fails CI if the
+      `SiteFooter` (`showApmDisclaimer`) → enabled on
+      `/courses/pmq-in-5-days` and `/courses/pfq-in-2-days/learn` via
+      `CoursesSiteFooter` (not site-wide, not LO / pricing / preview).
+      `tests/apm-disclaimer.test.mjs` fails CI if the
       constant, the gated footer usage, or the matching Terms clause disappears.
       **Outstanding:** one live-page eyeball before LIC-48 is closed. **Note
       (informal):** homepage/pricing still market PMQ material without this line
       on-page — Terms still carry it; revisit if a solicitor wants broader
-      surface coverage.
+      surface coverage. **2026-09-15:** PFQ learn footer uses the same
+      `APM_DISCLAIMER` as PMQ (not `PFQ_ATP_DISCLAIMER`); stronger ATP copy stays
+      on PFQ marketing/pricing/practice/free-mock surfaces.
 - [x] **PFQ ATP / trademark disclaimer on PFQ overview — 2026-08-13.**
       `PFQ_ATP_DISCLAIMER` in `src/lib/legal-copy.ts` (not an Accredited Training
       Provider; do not sell/administer/invigilate the exam; APM/PFQ trademark
@@ -178,11 +181,17 @@ decision below are independent of the payment question.
       (path moved 2026-09-05; `/pfq` 301s). Guarded by
       `tests/pfq-disclaimer.test.mjs`. No pass-rate or endorsement claims.
       Informal guidance only — solicitor before any paid PFQ product.
-- [ ] **PFQ checkout CCR waiver — before live charges (2026-08-13).**
-      `createPfqCheckout` + Stripe `consent_collection` built with the required
-      unticked waiver; gated by `PFQ_CHECKOUT_ENABLED = false` until Sim confirms
-      solicitor/review of the wording. Terms + refund policy already at `/terms`.
-      Flip the flag only after that review — educational note, not legal advice.
+- [x] **PFQ checkout CCR waiver — reviewed and accepted by Sim 2026-09-15.**
+      `createPfqCheckout` + Stripe `consent_collection` carry the required
+      unticked waiver. `PFQ_CHECKOUT_ENABLED` flipped to `true` on 2026-09-15 on
+      Sim's explicit instruction, with the existing wording accepted as read.
+      Terms + refund policy at `/terms`; the Terms Schedule was updated the same
+      day for the 3-tier ladder.
+      **Residual risk, recorded deliberately:** this wording has NOT had
+      solicitor review. Sim was told that before flipping and accepted it.
+      Educational note, not legal advice. `PFQ_CHECKOUT_ENABLED = false` remains
+      the instant kill switch if the wording is later found wanting: it stops new
+      checkouts without disturbing anyone's existing entitlement.
 
 ## 4. Payments & data compliance
 
@@ -329,6 +338,10 @@ future flag flip.
       verified 2026-08-28. Checkout passes explicit amounts so charges are
       correct, but reconcile registry + migration + Stripe together before any
       price move.
+      **2026-09-15 (LIC-157):** registry + live Stripe Price are now £10
+      (`price_1UFuLmEClgppvApr09UCGO8N`, VAT-inclusive, Stripe Tax off). Update
+      `courses.exam_config.pfq_pro_price_cents` and Terms Schedule when convenient
+      so the DB mirror matches — charges already use the registry/Price id.
 
 ## 5. Final sign-off
 

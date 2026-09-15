@@ -12,6 +12,7 @@ import { pfqSectionId } from "@/lib/pfq/section-ids";
 import { pfqObjectiveDisplayTitle } from "@/lib/pfq/outcome-titles";
 import { PfqObjectiveLessonView } from "@/components/pfq/PfqObjectiveLesson";
 import { getPfqTier } from "@/lib/pfq/entitlement";
+import { redactPfqInsights } from "@/lib/pfq/redact-insights";
 import { getPfqPracticeInventory } from "@/lib/pfq/practice-actions";
 import {
   getPfqReachedCountFromProgress,
@@ -123,16 +124,25 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     getPfqPracticeInventory({ objective }),
   ]);
 
+  // Strip paid insights server-side. Passing the full lesson and hiding it in
+  // the component would ship the paid course in the RSC payload.
+  const { lesson: viewLesson, insightsLocked } = redactPfqInsights(
+    lesson,
+    tier,
+  );
+
   return (
     <div className="min-w-0">
       <PfqObjectiveLessonView
-        lesson={lesson}
+        lesson={viewLesson}
+        insightsLocked={insightsLocked}
         checklistState={checklistState}
         completed={completed}
         dbReachedStageIds={dbReachedStageIds}
         completionPercent={completionPercent}
         userTier={tier}
         practiceTotalSets={inventory.ok ? inventory.totalSets : 0}
+        isSignedIn={Boolean(user)}
       />
     </div>
   );

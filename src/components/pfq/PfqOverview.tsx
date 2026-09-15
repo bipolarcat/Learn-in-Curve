@@ -3,6 +3,7 @@ import { PfqPlanContinue } from "@/components/pfq/PfqPlanContinue";
 import { PfqMockConsole } from "@/components/pfq/PfqMockConsole";
 import { PfqExamGuideSection } from "@/components/pfq/PfqExamGuideSections";
 import { PfqFaqSection } from "@/components/pfq/PfqOverviewSections";
+import { PfqGlobalFurtherReading } from "@/components/pmq/PmqOverviewSections";
 import type { PfqMockSetSummary } from "@/lib/pfq/actions";
 import { PFQ_OBJECTIVES } from "@/lib/pfq/outcomes";
 import type { PfqTier } from "@/lib/pfq/tiers";
@@ -57,6 +58,7 @@ export function PfqOverview({
 
         <PfqMockConsole userTier={userTier} summaries={mockSummaries} />
         <PfqExamGuideSection />
+        <PfqGlobalFurtherReading />
         <PfqFaqSection />
       </div>
     </div>

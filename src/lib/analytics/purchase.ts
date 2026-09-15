@@ -1,6 +1,6 @@
 import { createHash } from "crypto";
 import { captureServer } from "@/lib/analytics/server";
-import { PMQ_COURSE_ID } from "@/lib/pmq/constants";
+import { PMQ_COURSE_ID, PFQ_COURSE_ID } from "@/lib/courses/ids";
 
 /**
  * Minimal Stripe Checkout.Session fields used for `purchase_completed`.
@@ -52,7 +52,9 @@ function productFromFeature(feature: string | undefined): string | undefined {
 
 function courseFromId(courseId: string | undefined): string | undefined {
   if (!courseId) return undefined;
-  return courseId === PMQ_COURSE_ID ? "pmq" : courseId;
+  if (courseId === PMQ_COURSE_ID) return "pmq";
+  if (courseId === PFQ_COURSE_ID) return "pfq";
+  return courseId;
 }
 
 function paymentId(session: CheckoutSessionForPurchase): string {

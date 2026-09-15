@@ -83,13 +83,99 @@ const GLOBAL_FURTHER_READING = [
     icon: "📚",
   },
   {
+    title: "APM Glossary",
+    body: "Official A–Z of project management terms used across APM qualifications.",
+    href: "https://www.apm.org.uk/resources/glossary/",
+    linkLabel: "Open glossary →",
+    icon: "📖",
+  },
+  {
     title: "Parallel Project Training: PMQ 2024 Podcast Series",
-    body: "Free podcast series covering all LOs for the 2024 syllabus.",
+    body: "Free podcast series covering all learning objectives.",
     href: "https://www.parallelprojecttraining.com/podcast/apm-project-management-qualification-pmq-2024-podcast-series/",
     linkLabel: "Listen free →",
     icon: "🎧",
   },
 ];
+
+const PFQ_FURTHER_READING = [
+  {
+    title: "APM Glossary",
+    body: "Official A–Z of project management terms used across APM qualifications.",
+    href: "https://www.apm.org.uk/resources/glossary/",
+    linkLabel: "Open glossary →",
+    icon: "📖",
+  },
+  {
+    title: "APM Body of Knowledge, 8th Edition",
+    body: "The official reference behind APM’s foundation and practitioner syllabuses.",
+    href: "https://www.apm.org.uk/book-shop/apm-body-of-knowledge-8th-edition/",
+    linkLabel: "Visit website →",
+    icon: "📚",
+  },
+];
+
+type FurtherReadingItem = (typeof GLOBAL_FURTHER_READING)[number];
+
+function MoreResourcesPanel({
+  headingId,
+  items,
+}: {
+  headingId: string;
+  items: readonly FurtherReadingItem[];
+}) {
+  return (
+    <section aria-labelledby={headingId}>
+      <div className={resourceStyles.panel} data-more-resources="">
+        <div className={resourceStyles.titleBar}>
+          <h2 id={headingId} className={resourceStyles.title}>
+            More <span className={resourceStyles.titleAccent}>resources</span>
+          </h2>
+        </div>
+        <p className={resourceStyles.lede}>
+          Optional extras if you want more depth alongside the course.
+        </p>
+
+        <ul className={resourceStyles.list}>
+          {items.map((item) => (
+            <li key={item.title} className={resourceStyles.item}>
+              <h3 className={resourceStyles.itemTitle}>{item.title}</h3>
+              <p className={resourceStyles.itemBody}>{item.body}</p>
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={resourceStyles.itemLink}
+              >
+                {item.linkLabel}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/** Optional external resources — flat console; title “More resources”. */
+export function PmqGlobalFurtherReading() {
+  return (
+    <MoreResourcesPanel
+      headingId="pmq-more-resources-heading"
+      items={GLOBAL_FURTHER_READING}
+    />
+  );
+}
+
+/** PFQ learn overview — same chrome as PMQ More resources. */
+export function PfqGlobalFurtherReading() {
+  return (
+    <MoreResourcesPanel
+      headingId="pfq-more-resources-heading"
+      items={PFQ_FURTHER_READING}
+    />
+  );
+}
 
 export function PmqHeroStats() {
   return (
@@ -181,41 +267,6 @@ export function PmqCommandWordsTable() {
                 <p className={styles.action}>{row.action}</p>
               </div>
               <span className={styles.type}>{row.type}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-/** Optional external resources — flat console; title “More resources”. */
-export function PmqGlobalFurtherReading() {
-  return (
-    <section aria-labelledby="pmq-more-resources-heading">
-      <div className={resourceStyles.panel} data-more-resources="">
-        <div className={resourceStyles.titleBar}>
-          <h2 id="pmq-more-resources-heading" className={resourceStyles.title}>
-            More <span className={resourceStyles.titleAccent}>resources</span>
-          </h2>
-        </div>
-        <p className={resourceStyles.lede}>
-          Optional extras if you want more depth alongside the course.
-        </p>
-
-        <ul className={resourceStyles.list}>
-          {GLOBAL_FURTHER_READING.map((item) => (
-            <li key={item.title} className={resourceStyles.item}>
-              <h3 className={resourceStyles.itemTitle}>{item.title}</h3>
-              <p className={resourceStyles.itemBody}>{item.body}</p>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={resourceStyles.itemLink}
-              >
-                {item.linkLabel}
-              </a>
             </li>
           ))}
         </ul>

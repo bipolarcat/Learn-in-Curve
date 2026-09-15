@@ -1,30 +1,59 @@
-import { PFQ_PRO_PRICE_CENTS } from "./constants";
+import {
+  PFQ_AI_PRO_PRICE_CENTS,
+  PFQ_AI_PRO_UPGRADE_PRICE_CENTS,
+  PFQ_PRO_PRICE_CENTS,
+} from "./constants";
+import { PFQ_FREE_INSIGHTS_OBJECTIVE } from "./tiers";
 
 /**
- * PFQ in 2 days plan ladder — display copy for the pricing cards.
+ * PFQ in 2 days plan ladder, display copy for the pricing cards.
  *
- * Two marketed tiers. Pro is the only buyable unlock. AI Pro is a waitlist
- * card (no checkout, no entitlement). Enforcement stays in `tiers.ts`:
- * starter (absence) vs pro. Do not add `ai_pro` there until it is actually
- * granted.
+ * Three tiers (set 2026-09-15, LIC-157). Starter is free, Pro is the only
+ * buyable unlock, AI Pro is a waitlist card until Sly ships.
  *
- * Pro's `priceCents` is `PFQ_PRO_PRICE_CENTS` from the course registry — the
- * same value `createPfqCheckout` charges. Do not write a display price here.
+ * ---------------------------------------------------------------------------
+ * Prices are derived, never written here
  *
- * AI Pro's price is indicative only. Nothing reads it for payment.
+ * Every `priceCents` comes from `src/lib/courses/registry-data.ts`, which is
+ * also what `createPfqCheckout` charges. That makes it structurally impossible
+ * for this page to advertise one price while Stripe takes another, which would
+ * be a misleading price indication under the Consumer Protection from Unfair
+ * Trading Regulations, not merely a bug. To move a price: change the registry,
+ * then the Stripe Price object, then the Terms Schedule. All three together.
  *
- * Feature lines are marketing copy. They must stay inside what Pro actually
- * unlocks (lessons, practice, mock, coverage map, Trap School). Do not copy
- * PMQ/Sly counts onto these cards.
+ * ---------------------------------------------------------------------------
+ * These feature lines are MARKETING COPY, not enforcement
+ *
+ * `tiers.ts` is the enforcement. Every claim here must be backed by a gate
+ * there, and no gate may be more generous than the claim. A promise this page
+ * makes that no gate honours is a misleading commercial practice.
+ *
+ * Counts verified against production 2026-09-15:
+ *   pfq_questions: 745 total = 565 practice pool + 180 mock (3 papers x 60)
+ *   free practice: 5 per objective x 10 objectives = 50
+ *   lessons: 10 objectives, 59 learning outcomes
+ *
+ * ---------------------------------------------------------------------------
+ * "Insights" is the lesson body
+ *
+ * Objective 1's insights are free so a visitor can see what is behind the
+ * paywall before paying for it. Objectives 2 to 10 are Pro. The scaffolding
+ * (outcomes, key takeaways, definitions, misconceptions, memory aids,
+ * checkpoints) is free on every objective. Say that plainly on the cards: a
+ * free tier described as having "the learning material" when the teaching text
+ * is locked would be the kind of claim the CPRs bite on.
  */
 
-export type PfqPlanId = "pro" | "ai_pro";
+export type PfqPlanId = "starter" | "pro" | "ai_pro";
 
-export type PfqPlanStatus = "buyable" | "waitlist";
+/** `waitlist` renders a "Launching soon" badge + email capture, no checkout. */
+export type PfqPlanStatus = "free" | "buyable" | "waitlist";
 
 export type PfqPlanFeature = {
-  icon: "core" | "practice" | "mock" | "misconceptions" | "report";
+  /** Matches the icon keys in `PmqPreviewFeatureIcons`. */
+  icon: "core" | "practice" | "mock" | "misconceptions" | "report" | "sly";
   label: string;
+  /** Quantity shown beside the label. Omit when the line is qualitative. */
   value?: string;
 };
 
@@ -32,66 +61,100 @@ export type PfqPlan = {
   id: PfqPlanId;
   name: string;
   status: PfqPlanStatus;
-  priceCents: number;
+  /** null on the free tier: the card shows "Free", not "£0". */
+  priceCents: number | null;
   priceNote: string;
   tagline: string;
   features: PfqPlanFeature[];
+  /** Card renders "Everything in {inheritsFrom}, plus ...". */
   inheritsFrom?: PfqPlanId;
   ctaLabel: string;
 };
 
 export const PFQ_PLANS: PfqPlan[] = [
   {
-    id: "pro",
-    name: "Pro Bundle",
-    status: "buyable",
-    priceCents: PFQ_PRO_PRICE_CENTS,
-    priceNote: "one-off · no subscription",
+    id: "starter",
+    name: "Free",
+    status: "free",
+    priceCents: null,
+    priceNote: "no card needed",
     tagline:
-      "Lessons, practice sets, three timed mocks, and a coverage map for every PFQ learning outcome.",
-    ctaLabel: "Get Pro Bundle",
+      "See how the course works, and sit a full set of practice questions on every objective.",
+    ctaLabel: "Start free",
     features: [
       {
         icon: "core",
-        label: "lessons, one per learning outcome",
-        value: "59",
+        label: `full lesson insights on objective ${PFQ_FREE_INSIGHTS_OBJECTIVE}`,
+        value: "1 of 10",
+      },
+      {
+        icon: "core",
+        label:
+          "key takeaways, definitions, misconceptions and memory aids on all 10 objectives",
       },
       {
         icon: "practice",
-        label: "practice questions, tagged to the outcome they test",
-        value: "306",
+        label: "practice questions, 5 on every objective",
+        value: "50",
       },
-      { icon: "mock", label: "timed 60-question mock exams", value: "3" },
-      { icon: "report", label: "Coverage map of the 59 outcomes" },
       {
         icon: "misconceptions",
-        label: "Trap School — the formats that cost people marks",
+        label: "Trap School, the formats that cost people marks",
       },
     ],
   },
   {
-    id: "ai_pro",
-    name: "AI Pro Bundle",
-    status: "waitlist",
-    // Indicative — not charged anywhere yet. Nothing reads this for payment.
-    priceCents: 1200,
-    priceNote: "one-off · no subscription",
+    id: "pro",
+    name: "Pro",
+    status: "buyable",
+    priceCents: PFQ_PRO_PRICE_CENTS,
+    priceNote: "one-off, no subscription",
     tagline:
-      "Personalised AI practice that targets the outcomes you cannot answer yet. Launching soon.",
+      "The whole course. Every objective taught in full, the complete question bank, and three timed mocks.",
+    inheritsFrom: "starter",
+    ctaLabel: "Get Pro",
+    features: [
+      {
+        icon: "core",
+        label: "lesson insights unlocked on the remaining objectives",
+        value: "9",
+      },
+      {
+        icon: "practice",
+        label: "practice questions in total, tagged to the outcome they test",
+        value: "565",
+      },
+      { icon: "mock", label: "timed 60-question mock papers", value: "3" },
+      { icon: "report", label: "coverage map across all 59 learning outcomes" },
+    ],
+  },
+  {
+    id: "ai_pro",
+    name: "AI Pro",
+    status: "waitlist",
+    priceCents: PFQ_AI_PRO_PRICE_CENTS,
+    priceNote: `one-off, or ${formatUpgradeNote()} if you already have Pro`,
+    tagline:
+      "Everything in Pro, plus Sly, your AI tutor, and a report on where you stand at the end. Launching soon.",
     inheritsFrom: "pro",
     ctaLabel: "Join Waitlist",
     features: [
       {
-        icon: "practice",
-        label: "AI practice aimed at your remaining gaps",
+        icon: "sly",
+        label: "Sly, the AI tutor, on every objective",
       },
       {
         icon: "report",
-        label: "A personalised path from your coverage map",
+        label: "end-of-course report on your readiness",
       },
     ],
   },
 ];
+
+function formatUpgradeNote(): string {
+  const pounds = PFQ_AI_PRO_UPGRADE_PRICE_CENTS / 100;
+  return `£${pounds.toFixed(pounds % 1 === 0 ? 0 : 2)}`;
+}
 
 export function getPfqPlan(id: PfqPlanId): PfqPlan {
   const plan = PFQ_PLANS.find((item) => item.id === id);

@@ -299,7 +299,7 @@ export function PfqPracticeQuizSection({
                 ? "No questions for this set yet."
                 : canAccessPfqQuizSet(userTier, activeSet)
                   ? `Generate set ${activeSet} to start.`
-                  : "More sets unlock with Pro."}
+                  : "Sets 2 and beyond are part of Pro."}
             </p>
           )}
         </div>

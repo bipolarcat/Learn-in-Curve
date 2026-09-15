@@ -23,6 +23,7 @@ import { trackExamDateSet } from "@/lib/analytics/events";
 import { PMQ_PLANS, type PmqPlanFeature } from "@/lib/pmq/plans";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import { tierAtLeast } from "@/lib/pmq/tiers";
+import type { PfqTier } from "@/lib/pfq/tiers";
 import type { FairUsageSummary } from "@/lib/tutor/fair-usage";
 import {
   IconAudio,
@@ -87,8 +88,9 @@ type DashboardPmqCourseCardProps = {
   /**
    * Paid-tier mark beside the course name.
    * Prefer this over inferring from `tutorUnlocked` (Sly ≠ Pro).
+   * Accepts PMQ or PFQ tiers — same ladder labels, independent entitlements.
    */
-  userTier?: PmqTier;
+  userTier?: PmqTier | PfqTier;
   tutorPriceCents?: number;
   tutorUsage?: FairUsageSummary | null;
   topUpSuccess?: boolean;
@@ -490,7 +492,7 @@ export function DashboardPmqCourseCard({
             </p>
           )}
         </div>
-      ) : showTutor && !tierAtLeast(userTier, "pro") ? (
+      ) : showTutor && !tierAtLeast(userTier as PmqTier, "pro") ? (
         <div className="relative z-0 mt-auto rounded-b-xl border-t border-black/[0.06] px-3.5 py-2 sm:px-4 dark:border-white/[0.1]">
           <div className="grid gap-2">
             <div className="flex min-w-0 items-center justify-between gap-3">

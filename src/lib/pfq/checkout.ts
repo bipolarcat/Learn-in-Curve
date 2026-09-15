@@ -9,7 +9,9 @@ import {
   PFQ_PRO_PRICE_CENTS,
   formatPfqPriceGbp,
 } from "@/lib/pfq/constants";
+import { COURSE_STATIC } from "@/lib/courses/registry-data";
 import { getPfqTier } from "@/lib/pfq/entitlement";
+import { pfqTierAtLeast } from "@/lib/pfq/tiers";
 
 /**
  * Consumer Contracts Regulations waiver for digital content.
@@ -53,8 +55,10 @@ export async function createPfqCheckout(): Promise<
     return { error: "Not signed in" };
   }
 
+  // pfqTierAtLeast, not `=== "pro"`: an ai_pro holder is above Pro and must not
+  // be sold it again. The old equality check would have taken their money.
   const tier = await getPfqTier(supabase, user.id);
-  if (tier === "pro") {
+  if (pfqTierAtLeast(tier, "pro")) {
     return { error: "You already have PFQ Pro access." };
   }
 
@@ -81,23 +85,48 @@ export async function createPfqCheckout(): Promise<
   const Stripe = (await import("stripe")).default;
   const stripe = new Stripe(stripeKey);
 
+  /*
+   * Prefer a fixed Stripe Price object over inline price_data.
+   *
+   * price_data mints an ad-hoc product on every session, which makes Stripe
+   * reporting useless (no single product to group by) and means the charged
+   * amount is whatever the deploy happened to have compiled in. A Price id is
+   * an object both sides agree on, and changing the price becomes a deliberate
+   * act in Stripe rather than a side effect of a merge.
+   *
+   * The fallback stays so a missing id degrades to a correct charge rather than
+   * taking checkout down. Amount still comes from the registry either way, so
+   * the page and the charge cannot disagree: advertising one price and taking
+   * another is a misleading price indication under the CPRs, not just a bug.
+   */
+  /*
+   * Registry holds the live Price id. Local/dev uses sk_test_, which cannot
+   * charge a live Price — prefer STRIPE_PFQ_PRO_PRICE_ID_TEST, else price_data.
+   */
+  const configuredPriceId = COURSE_STATIC["pfq-in-2-days"].stripePriceId;
+  const stripePriceId = stripeKey.startsWith("sk_test_")
+    ? process.env.STRIPE_PFQ_PRO_PRICE_ID_TEST || null
+    : configuredPriceId;
+  const priceLineItem: import("stripe").Stripe.Checkout.SessionCreateParams.LineItem =
+    stripePriceId
+      ? { price: stripePriceId, quantity: 1 }
+      : {
+          price_data: {
+            currency: "gbp",
+            unit_amount: PFQ_PRO_PRICE_CENTS,
+            product_data: {
+              name: "PFQ in 2 Days, Pro",
+              description: `APM PFQ revision, Pro unlock: insights on all 10 objectives, the full practice bank, all 3 timed mock papers and the coverage map. One-off ${formatPfqPriceGbp()}. No subscription.`,
+            },
+          },
+          quantity: 1,
+        };
+
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
     customer_email: user.email ?? undefined,
-    line_items: [
-      {
-        price_data: {
-          currency: "gbp",
-          unit_amount: PFQ_PRO_PRICE_CENTS,
-          product_data: {
-            name: "PFQ in 2 Days",
-            description: `Full APM PFQ revision course — 59 lessons, ~300 practice questions, timed mock, coverage map, Trap School. One-off ${formatPfqPriceGbp()}. No subscription.`,
-          },
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: [priceLineItem],
     metadata: {
       user_id: user.id,
       course_id: PFQ_COURSE_ID,

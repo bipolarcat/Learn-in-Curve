@@ -12,6 +12,7 @@ import {
 } from "../src/lib/analytics/purchase.ts";
 
 const PMQ_COURSE_ID = "3b6e12c0-321f-41b2-8536-db39f5678301";
+const PFQ_COURSE_ID = "f8a2c1e0-4d3b-4a9e-9c7f-2e1d0b9a8c7d";
 const USER_ID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
 const EVENT_CREATED = 1_700_000_000;
 
@@ -94,6 +95,30 @@ test("legacy ai_tutor feature maps to ai_pro", () => {
 
   assert.ok(payload);
   assert.equal(payload.properties.product, "ai_pro");
+});
+
+test("maps a paid PFQ Pro checkout to course pfq", () => {
+  const payload = purchaseCompletedFromCheckoutSession(
+    {
+      id: "cs_test_pfq",
+      payment_status: "paid",
+      amount_total: 1000,
+      currency: "gbp",
+      payment_intent: "pi_test_pfq",
+      metadata: {
+        user_id: USER_ID,
+        course_id: PFQ_COURSE_ID,
+        feature: "pro",
+        product: "pfq",
+      },
+    },
+    EVENT_CREATED,
+  );
+
+  assert.ok(payload);
+  assert.equal(payload.properties.product, "pro");
+  assert.equal(payload.properties.course, "pfq");
+  assert.equal(payload.properties.amount_cents, 1000);
 });
 
 test("unpaid session returns null", () => {

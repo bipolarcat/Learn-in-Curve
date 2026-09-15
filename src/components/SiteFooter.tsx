@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FooterFlickerBand } from "@/components/FooterFlickerBand";
 import { Logo } from "@/components/Logo";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
-import { APM_DISCLAIMER, PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
+import { APM_DISCLAIMER } from "@/lib/legal-copy";
 
 function InstagramIcon({ className = "" }: { className?: string }) {
   return (
@@ -44,24 +44,15 @@ const footerLinkClass =
 /**
  * Full-bleed ink footer — quiet link strip + “Be Curious.” flicker band.
  *
- * Course disclaimers are opt-in:
- * - `showApmDisclaimer` — PMQ overview (LIC-48), wording via `APM_DISCLAIMER`
- * - `showPfqAtpDisclaimer` — PFQ learn overview, wording via `PFQ_ATP_DISCLAIMER`
- * Do not delete these render paths — gate them, don't remove them.
+ * Course disclaimer is opt-in via `showApmDisclaimer` (LIC-48), wording via
+ * `APM_DISCLAIMER`. Enabled on PMQ overview and PFQ learn overview through
+ * `CoursesSiteFooter`. Do not delete the render path — gate it, don't remove it.
  */
 export function SiteFooter({
   showApmDisclaimer = false,
-  showPfqAtpDisclaimer = false,
 }: {
   showApmDisclaimer?: boolean;
-  showPfqAtpDisclaimer?: boolean;
 } = {}) {
-  const disclaimer = showPfqAtpDisclaimer
-    ? PFQ_ATP_DISCLAIMER
-    : showApmDisclaimer
-      ? APM_DISCLAIMER
-      : null;
-
   return (
     <footer className="relative bg-ink pb-0 pt-7 text-cream sm:pt-9">
       <div className="wrap relative z-[1] pb-5 sm:pb-6">
@@ -126,9 +117,9 @@ export function SiteFooter({
           </nav>
         </div>
 
-        {disclaimer ? (
+        {showApmDisclaimer ? (
           <p className="mt-5 max-w-[46rem] border-t border-cream/[0.08] pt-4 text-[11.5px] leading-snug tracking-tight text-cream/45 sm:mt-6">
-            {disclaimer}
+            {APM_DISCLAIMER}
           </p>
         ) : null}
       </div>

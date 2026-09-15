@@ -9,6 +9,7 @@ import {
   PFQ_PRO_INTENT_VALUE,
   formatPfqPriceGbp,
 } from "@/lib/pfq/constants";
+import { pfqTierAtLeast } from "@/lib/pfq/tiers";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { PfqPlanCards } from "@/components/pfq/PfqPlanCards";
 import { PricingBackLink } from "@/components/pmq/PricingBackLink";
@@ -21,7 +22,7 @@ const PFQ_PRICE_LABEL = formatPfqPriceGbp();
 
 export const metadata: Metadata = {
   title: "Plans & pricing — PFQ in 2 Days | Learn in Curve",
-  description: `Pro Bundle ${PFQ_PRICE_LABEL} for the APM Project Fundamentals Qualification — lessons, practice sets, three timed mocks, coverage map. AI Pro launching soon.`,
+  description: `Free to start, then Pro Bundle ${PFQ_PRICE_LABEL} for full insights, 565 practice questions, three timed mocks and a coverage map. AI Pro launching soon.`,
   alternates: { canonical: `${SITE_URL}${PFQ_PRICING_HREF}` },
 };
 
@@ -35,7 +36,7 @@ export default async function PfqPricingPage({ searchParams }: Props) {
     data: { user },
   } = await supabase.auth.getUser();
   const tier = await getPfqTier(supabase, user?.id);
-  const hasPro = tier === "pro";
+  const hasPro = pfqTierAtLeast(tier, "pro");
 
   const params = await searchParams;
   const resumeCheckout =
@@ -58,21 +59,22 @@ export default async function PfqPricingPage({ searchParams }: Props) {
             <span className="block">One payment. No subscription.</span>
           </h1>
           <p className="mt-3.5 max-w-[38rem] text-left text-[15px] leading-relaxed text-pretty text-ink/72">
-            Unlock the full PFQ course: 59 lessons, extra quiz sets beyond the
-            five free questions on each objective, three timed mock exams, and a
-            coverage map. AI Pro is on the waitlist.
+            Start free with takeaways, definitions, misconceptions, memory aids,
+            50 practice questions, and objective 1 in full. Pro unlocks insights
+            on the other nine objectives, the full 565-question bank, three timed
+            mocks, and the coverage map. AI Pro is on the waitlist.
           </p>
         </header>
 
         <PfqPlanCards
           isSignedIn={!!user}
-          hasPro={hasPro}
+          userTier={tier}
           resumeProCheckout={resumeCheckout}
         />
 
         <p className="mt-8 w-full border-t border-ink/10 pt-5 text-[12px] leading-relaxed text-pretty text-ink/55">
-          Prices in GBP and include any applicable tax. Checkout is not live
-          until the 14-day cancellation waiver wording is reviewed. Read the{" "}
+          Prices in GBP and include any applicable tax. One-off payment — no
+          subscription. Read the{" "}
           <Link
             href="/terms"
             className="underline decoration-ink/25 underline-offset-2 hover:text-ink"

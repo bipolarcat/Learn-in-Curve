@@ -22,6 +22,7 @@ import {
   PFQ_SLUG,
 } from "@/lib/pfq/constants";
 import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
+import { getPfqTier } from "@/lib/pfq/entitlement";
 import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard";
 import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
@@ -64,8 +65,10 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     getUserProfile(supabase, user),
   ]);
   const pmqCourse = courses.find((c) => c.slug === PMQ_SLUG);
-  // PFQ is a separate purchase on the same account. It appears here only when
-  // the learner holds a feature_entitlements row for it — there is no free tier.
+  // PFQ is a separate product on the same account. It always appears for a
+  // signed-in learner once the course is live: Starter is the absence of a
+  // feature_entitlements row (not a stored value), so the card must not depend
+  // on a paid grant. PMQ and PFQ tiers stay independent.
   const pfqCourse = courses.find((c) => c.slug === PFQ_SLUG);
 
   const [stats, userTier, completion, sections, completedSectionIds, hasReport, loStageReached] =
@@ -81,12 +84,13 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
         ])
       : [null, "starter" as const, null, [], [], false, {} as Record<string, number>];
 
-  const [pfqStats, pfqCard] = pfqCourse
+  const [pfqStats, pfqCard, pfqTier] = pfqCourse
     ? await Promise.all([
         getUserCourseStats(supabase, user.id, pfqCourse.id),
         getPfqDashboardCardState(user.id),
+        getPfqTier(supabase, user.id),
       ])
-    : [null, null];
+    : [null, null, "starter" as const];
 
   // Sly fair-usage meter is an AI Pro surface — never compute or show it for
   // Starter/Pro, who have no tutor at all.
@@ -246,7 +250,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                 nextLoStarted={pfqCard.nextStarted}
                 streak={pfqStats?.current_streak ?? 0}
                 completionPercent={pfqCard.completionPercent}
-                userTier="pro"
+                userTier={pfqTier}
                 examDeadline={profile.target_exam_date}
                 showTutorFooter={false}
               />

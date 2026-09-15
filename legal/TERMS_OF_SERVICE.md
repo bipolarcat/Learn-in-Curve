@@ -117,9 +117,10 @@ This Schedule sets out the Courses available, what is free in each, and what cou
 ### PFQ in 2 Days
 *Preparation for the APM Project Fundamentals Qualification.*
 
-- **Free Features:** none. No part of this Course is available without a Paid Unlock.
-- **Paid Unlock:** a Pro unlock covering the whole Course, including all lessons, the practice question bank, the mock exam, the coverage map and Trap School.
-- **A Paid Feature is treated as used if you have:** opened a lesson, answered a practice question, or started the mock exam.
+- **Free Features:** the lesson framework on every learning objective (learning outcomes, key takeaways, key definitions, common misconceptions, memory aids and progress checkpoints); the full lesson insights for Learning Objective 1; the first practice set on every objective (5 questions per objective, 50 in total); and Trap School.
+- **Paid Unlock (Pro):** the full lesson insights for Learning Objectives 2 to 10, the complete practice question bank, all three timed mock papers, and the coverage map.
+- **Paid Unlock (AI Pro):** everything in Pro, plus the Sly AI tutor and an end-of-course report. **Not currently available for purchase.** It is offered by waitlist only, and no charge is taken for it.
+- **A Paid Feature is treated as used if you have:** opened the insights for any Learning Objective from 2 to 10, answered a practice question outside the first practice set, started any mock paper, or opened the coverage map.
 
 ---
 

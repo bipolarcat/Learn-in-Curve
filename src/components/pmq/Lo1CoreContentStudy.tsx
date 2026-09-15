@@ -348,6 +348,9 @@ export function Lo1CoreContentStudy({
   focusOutcomeCode = null,
   onFocusOutcomeConsumed,
   bodyVariant = "default",
+  insightsLocked = false,
+  isSignedIn = true,
+  objectiveNumber,
 }: {
   blocks: CoreContentBlockType[];
   studyTables?: boolean;
@@ -360,6 +363,10 @@ export function Lo1CoreContentStudy({
   onFocusOutcomeConsumed?: () => void;
   /** PFQ: key takeaway + collapsed Understand it. */
   bodyVariant?: "default" | "pfq-takeaway";
+  /** PFQ Starter: Insights expand shows Pro upsell; body already redacted. */
+  insightsLocked?: boolean;
+  isSignedIn?: boolean;
+  objectiveNumber?: number;
 }) {
   const titleMap = shortTitles ?? LO1_SHORT_TITLE;
   const [activeIndex, setActiveIndex] = useState(() => {
@@ -474,7 +481,12 @@ export function Lo1CoreContentStudy({
 
   const renderBody = (block: CoreContentBlockType) =>
     bodyVariant === "pfq-takeaway" ? (
-      <PfqTakeawayBody block={block} />
+      <PfqTakeawayBody
+        block={block}
+        insightsLocked={insightsLocked}
+        isSignedIn={isSignedIn}
+        objectiveNumber={objectiveNumber}
+      />
     ) : (
       <CoreContentBlock block={block} {...contentProps} />
     );

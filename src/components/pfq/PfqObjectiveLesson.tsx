@@ -42,41 +42,33 @@ type Props = {
   completionPercent?: number;
   userTier: PfqTier;
   practiceTotalSets: number;
+  /**
+   * True when this viewer's tier does not include insights for this objective,
+   * so `lesson.core_content[].body_markdown` arrived already emptied by
+   * redactPfqInsights on the server. Learn chrome stays identical to Pro —
+   * only the Insights expandable is locked.
+   */
+  insightsLocked?: boolean;
+  /** Signed-in state for the Pro checkout CTA inside the insights upsell. */
+  isSignedIn?: boolean;
 };
-
-function firstMarkdownHeading(md: string): string | null {
-  const match = /^##\s+(.+)$/m.exec(md);
-  return match?.[1]?.trim() ?? null;
-}
 
 function toPmqCoreBlocks(
   blocks: PfqObjectiveLesson["core_content"],
 ): PmqCoreBlock[] {
-  return blocks.map((block) => {
-    let body = block.body_markdown;
-    let tipHeading = firstMarkdownHeading(body);
-    if (block.watch_for && !tipHeading) {
-      tipHeading = block.outcome_title || "Key points";
-      body = `## ${tipHeading}\n\n${body}`;
-    }
-    return {
-      outcome_code: block.outcome_code,
-      outcome_title: block.outcome_title,
-      key_takeaway: block.key_takeaway,
-      body_markdown: body,
-      exam_tips:
-        block.watch_for && tipHeading
-          ? [
-              {
-                id: `watch-${block.outcome_code}`,
-                heading: tipHeading,
-                placement: "after_section" as const,
-                tip: block.watch_for,
-              },
-            ]
-          : undefined,
-    };
-  });
+  // `watch_for` was read here to feed the shared Insights chip. No PFQ lesson
+  // has ever carried that key (0 of 59 core blocks across the 10 objective
+  // files) and PfqCoreContentBlock never declared it, so this was three
+  // type errors guarding dead branches. Removed 2026-09-15 (LIC-157).
+  //
+  // "Insights" on PFQ now means the lesson body itself, gated per objective by
+  // canAccessPfqInsights in src/lib/pfq/tiers.ts. Nothing here reads a tip.
+  return blocks.map((block) => ({
+    outcome_code: block.outcome_code,
+    outcome_title: block.outcome_title,
+    key_takeaway: block.key_takeaway,
+    body_markdown: block.body_markdown,
+  }));
 }
 
 /**
@@ -92,6 +84,8 @@ export function PfqObjectiveLessonView({
   completionPercent = 0,
   userTier,
   practiceTotalSets,
+  insightsLocked = false,
+  isSignedIn = true,
 }: Props) {
   const stages = useMemo(() => buildPfqStages(), []);
   const sealed = completed;
@@ -265,6 +259,9 @@ export function PfqObjectiveLessonView({
                   activities={false}
                   badgeVariant="stamp"
                   bodyVariant="pfq-takeaway"
+                  insightsLocked={insightsLocked}
+                  isSignedIn={isSignedIn}
+                  objectiveNumber={lesson.objective_number}
                   focusOutcomeCode={focusOutcomeCode}
                   onFocusOutcomeConsumed={() => setFocusOutcomeCode(null)}
                 />
