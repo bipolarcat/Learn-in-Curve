@@ -6,8 +6,10 @@ import { formatGbp, AI_TUTOR_LAUNCHED } from "@/lib/pmq/constants";
 import { SlyUnlockInvite } from "@/components/pmq/SlyUnlockInvite";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
+import { PurchaseCtaButton } from "@/components/ui/PurchaseCtaButton";
 import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
+import { cn } from "@/lib/utils";
 
 type AiTutorUpgradeCtaProps = {
   priceCents: number;
@@ -26,6 +28,12 @@ type AiTutorUpgradeCtaProps = {
   /** Compact-only: icon/content before the label. */
   leading?: ReactNode;
   className?: string;
+  /** Classes on the button element (purchaseMotion / compact). */
+  buttonClassName?: string;
+  /**
+   * Compact purchase chrome: spring press + teal sheen (shared with PFQ).
+   */
+  purchaseMotion?: boolean;
   /** full-only: soft tease vs free-cap urgency. */
   urgency?: "soft" | "cap";
 };
@@ -44,6 +52,8 @@ export function AiTutorUpgradeCta({
   buttonAriaLabel,
   leading,
   className = "",
+  buttonClassName,
+  purchaseMotion = false,
   urgency = "soft",
 }: AiTutorUpgradeCtaProps) {
   const [error, setError] = useState("");
@@ -97,6 +107,37 @@ export function AiTutorUpgradeCta({
     buttonAriaLabel ??
     (typeof buttonLabel === "string" ? buttonLabel : undefined) ??
     defaultLabel;
+  const content = pending ? (
+    <Spinner variant="bars" size={14} className="text-current" aria-hidden />
+  ) : (
+    <>
+      {leading}
+      <span className="inline-flex min-w-0 flex-wrap items-center justify-center gap-x-1">
+        {buttonLabel ?? defaultLabel}
+      </span>
+    </>
+  );
+
+  if (purchaseMotion) {
+    return (
+      <div className={cn("inline-grid max-w-full gap-1.5", className)}>
+        <PurchaseCtaButton
+          pending={pending}
+          aria-busy={pending}
+          aria-label={pending ? "Opening checkout" : accessibleLabel}
+          onClick={handleUnlock}
+          className={buttonClassName}
+        >
+          {content}
+        </PurchaseCtaButton>
+        {error ? (
+          <p role="alert" className={fieldErrorHint}>
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
@@ -107,21 +148,13 @@ export function AiTutorUpgradeCta({
         aria-busy={pending}
         aria-label={pending ? "Opening checkout" : accessibleLabel}
         className={
-          isSm
+          buttonClassName ??
+          (isSm
             ? "btn btn-secondary inline-flex shrink-0 items-center justify-center gap-1.5 !min-h-8 !w-auto !rounded-xl !px-2.5 !py-1 !text-[10px] !font-body !uppercase !tracking-[0.04em]"
-            : "btn btn-primary inline-flex w-full items-center justify-center gap-2"
+            : "btn btn-primary inline-flex w-full items-center justify-center gap-2")
         }
       >
-        {pending ? (
-          <Spinner variant="bars" size={14} className="text-current" aria-hidden />
-        ) : (
-          <>
-            {leading}
-            <span className="inline-flex min-w-0 flex-wrap items-center justify-center gap-x-1">
-              {buttonLabel ?? defaultLabel}
-            </span>
-          </>
-        )}
+        {content}
       </button>
       {error && (
         <p role="alert" className={`mt-1.5 ${fieldErrorHint}`}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { AiTutorUpgradeCta } from "@/components/pmq/AiTutorUpgradeCta";
+import { ProBundleChip } from "@/components/ui/PurchaseCtaButton";
 import { formatGbp } from "@/lib/pmq/constants";
 import { cn } from "@/lib/utils";
 
@@ -17,9 +18,11 @@ import { cn } from "@/lib/utils";
  * The price is always `formatGbp(priceCents)` — never a literal. Callers pass
  * the same constant Stripe charges. See the comment in plans.ts for why that
  * matters beyond tidiness.
+ *
+ * Motion matches PFQ: shared `PurchaseCtaButton` spring + teal sheen.
  */
 const getProBundleButtonClass =
-  "shrink-0 [&_button]:!min-h-8 [&_button]:!w-auto [&_button]:!rounded-lg [&_button]:!border [&_button]:!border-ink/70 [&_button]:!bg-ink [&_button]:!px-2.5 [&_button]:!py-1 [&_button]:!font-body [&_button]:!text-[11px] [&_button]:!font-semibold [&_button]:!normal-case [&_button]:!tracking-tight [&_button]:!text-paper hover:[&_button]:!bg-teal-deep";
+  "inline-flex shrink-0 !min-h-8 !w-auto items-center justify-center !rounded-lg !border !border-ink/70 !bg-ink !px-2.5 !py-1 !font-body !text-[11px] !font-semibold !normal-case !tracking-tight !text-paper disabled:!opacity-90";
 
 type GetProBundleButtonProps = {
   priceCents: number;
@@ -42,20 +45,18 @@ export function GetProBundleButton({
     <AiTutorUpgradeCta
       variant="compact"
       size="sm"
+      purchaseMotion
       priceCents={priceCents}
       loNumber={loNumber}
       returnPath={returnPath}
       buttonAriaLabel={`Get Pro Bundle · ${priceLabel}`}
       buttonLabel={
         <>
-          Get{" "}
-          <span className="inline-flex h-4 shrink-0 items-center rounded-[0.2rem] bg-teal px-1 text-[9px] font-bold leading-none tracking-tight text-paper">
-            Pro
-          </span>{" "}
-          Bundle · {priceLabel}
+          Get <ProBundleChip /> Bundle · {priceLabel}
         </>
       }
-      className={cn(getProBundleButtonClass, className)}
+      className={cn("shrink-0", className)}
+      buttonClassName={getProBundleButtonClass}
     />
   );
 }

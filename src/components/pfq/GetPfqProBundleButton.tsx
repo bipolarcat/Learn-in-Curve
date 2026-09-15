@@ -1,6 +1,7 @@
 "use client";
 
 import { PfqCheckoutButton } from "@/components/pfq/PfqCheckoutButton";
+import { ProBundleChip } from "@/components/ui/PurchaseCtaButton";
 import { formatPfqPriceGbp } from "@/lib/pfq/constants";
 import { cn } from "@/lib/utils";
 
@@ -9,10 +10,10 @@ import { cn } from "@/lib/utils";
  *
  * Same chrome as PMQ's `GetProBundleButton` so the purchase read is identical
  * across course cards. Checkout goes through `createPfqCheckout`, not the
- * PMQ Stripe path.
+ * PMQ Stripe path. Motion: shared `PurchaseCtaButton` spring + teal sheen.
  */
 const getProBundleButtonClass =
-  "inline-flex shrink-0 !w-auto !min-h-8 items-center justify-center gap-1 !rounded-lg !border !border-ink/70 !bg-ink !px-2.5 !py-1 !font-body !text-[11px] !font-semibold !normal-case !tracking-tight !text-paper hover:!bg-teal-deep disabled:!opacity-90";
+  "inline-flex shrink-0 !min-h-8 !w-auto items-center justify-center !rounded-lg !border !border-ink/70 !bg-ink !px-2.5 !py-1 !font-body !text-[11px] !font-semibold !normal-case !tracking-tight !text-paper disabled:!opacity-90";
 
 type GetPfqProBundleButtonProps = {
   /** Signed-in on the dashboard always; kept explicit for checkout auth branch. */
@@ -33,15 +34,12 @@ export function GetPfqProBundleButton({
     <PfqCheckoutButton
       isSignedIn={isSignedIn}
       inline
+      purchaseMotion
       returnPath={returnPath}
       ariaLabel={`Get Pro Bundle · ${priceLabel}`}
       label={
         <>
-          Get{" "}
-          <span className="inline-flex h-4 shrink-0 items-center rounded-[0.2rem] bg-teal px-1 text-[9px] font-bold leading-none tracking-tight text-paper">
-            Pro
-          </span>{" "}
-          Bundle · {priceLabel}
+          Get <ProBundleChip /> Bundle · {priceLabel}
         </>
       }
       className={cn(getProBundleButtonClass, className)}

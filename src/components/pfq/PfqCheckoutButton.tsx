@@ -18,6 +18,7 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
 import { stampCtaPrimary } from "@/components/stamp-chip";
+import { PurchaseCtaButton } from "@/components/ui/PurchaseCtaButton";
 
 type Props = {
   label?: ReactNode;
@@ -32,6 +33,11 @@ type Props = {
    * Dashboard passes `/dashboard`; pricing leaves default; Learn/mock pass self.
    */
   returnPath?: string;
+  /**
+   * Dashboard compact purchase chrome: spring press + teal sheen (21st-inspired).
+   * Leave off for plan-card / gate CTAs that keep stamp primary styling.
+   */
+  purchaseMotion?: boolean;
   className?: string;
 };
 
@@ -42,6 +48,7 @@ export function PfqCheckoutButton({
   autoStart = false,
   inline = false,
   returnPath,
+  purchaseMotion = false,
   className,
 }: Props) {
   const router = useRouter();
@@ -82,22 +89,37 @@ export function PfqCheckoutButton({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoStart, isSignedIn]);
 
+  const accessible = pending ? "Opening checkout" : (ariaLabel ?? defaultAria);
+  const content = pending ? (
+    <Spinner variant="bars" size={16} className="text-current" />
+  ) : (
+    label
+  );
+
   return (
     <div className={inline ? "inline-grid max-w-full gap-1.5" : "grid w-full gap-1.5"}>
-      <button
-        type="button"
-        className={`${className ?? stampCtaPrimary} disabled:cursor-wait disabled:opacity-90`}
-        disabled={pending}
-        aria-busy={pending}
-        aria-label={pending ? "Opening checkout" : (ariaLabel ?? defaultAria)}
-        onClick={startCheckout}
-      >
-        {pending ? (
-          <Spinner variant="bars" size={16} className="text-current" />
-        ) : (
-          label
-        )}
-      </button>
+      {purchaseMotion ? (
+        <PurchaseCtaButton
+          pending={pending}
+          aria-busy={pending}
+          aria-label={accessible}
+          onClick={startCheckout}
+          className={className}
+        >
+          {content}
+        </PurchaseCtaButton>
+      ) : (
+        <button
+          type="button"
+          className={`${className ?? stampCtaPrimary} disabled:cursor-wait disabled:opacity-90`}
+          disabled={pending}
+          aria-busy={pending}
+          aria-label={accessible}
+          onClick={startCheckout}
+        >
+          {content}
+        </button>
+      )}
       {error ? (
         <p className={fieldErrorHint} role="alert">
           {error}

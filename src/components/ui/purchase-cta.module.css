@@ -1,0 +1,114 @@
+/**
+ * Compact Pro Bundle purchase CTA — 21st.dev Native Button spring + sheen,
+ * restaged in LIC ink/teal (no glass glow stack). Used on dashboard course cards.
+ */
+
+.root {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-origin: center;
+  will-change: transform;
+  /* Colour shift stays on CSS so Framer only owns physics. */
+  transition:
+    background-color 220ms var(--ease-out-quint),
+    border-color 220ms var(--ease-out-quint),
+    box-shadow 220ms var(--ease-out-quint),
+    color 220ms var(--ease-out-quint);
+}
+
+.root:hover:not(:disabled),
+.root:focus-visible:not(:disabled) {
+  background-color: var(--teal-deep, #134e4a);
+  border-color: color-mix(in srgb, var(--teal, #1b6560) 55%, rgb(var(--ink-rgb)));
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.12) inset,
+    0 6px 16px -6px rgb(var(--ink-rgb) / 0.35),
+    0 0 0 1px color-mix(in srgb, var(--teal, #1b6560) 28%, transparent);
+}
+
+.root:disabled {
+  transform: none !important;
+}
+
+/* Specular sweep — ticket-window highlight, not rainbow shimmer. */
+.sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: -20% -40%;
+  z-index: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgb(255 255 255 / 0.22) 49%,
+    color-mix(in srgb, var(--teal, #1b6560) 35%, white) 52%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translateX(-55%) skewX(-14deg);
+  transition:
+    transform 700ms var(--ease-out-quint),
+    opacity 180ms ease;
+}
+
+.root:hover:not(:disabled) .sheen,
+.root:focus-visible:not(:disabled) .sheen {
+  opacity: 1;
+  transform: translateX(55%) skewX(-14deg);
+}
+
+.glow {
+  pointer-events: none;
+  position: absolute;
+  inset: auto -12% -55%;
+  z-index: 0;
+  height: 70%;
+  background: radial-gradient(
+    60% 80% at 50% 0%,
+    color-mix(in srgb, var(--teal, #1b6560) 45%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 220ms var(--ease-out-quint);
+}
+
+.root:hover:not(:disabled) .glow,
+.root:focus-visible:not(:disabled) .glow {
+  opacity: 0.9;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* Pro chip stamp-lift on hover */
+.root:hover:not(:disabled) :global([data-pro-chip]),
+.root:focus-visible:not(:disabled) :global([data-pro-chip]) {
+  transform: translateY(-0.5px) scale(1.07);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.18);
+}
+
+.root :global([data-pro-chip]) {
+  transition:
+    transform 280ms var(--ease-out-quint),
+    box-shadow 280ms var(--ease-out-quint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .sheen,
+  .glow,
+  .root :global([data-pro-chip]) {
+    transition: none !important;
+  }
+
+  .sheen,
+  .glow {
+    display: none;
+  }
+}
