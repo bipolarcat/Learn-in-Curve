@@ -408,6 +408,7 @@ export function SiteHeaderMenu({
                           role="menuitem"
                           aria-label="Sign out"
                           title="Sign out"
+                          onSignOutStart={() => closeMenu(false)}
                           className={cn(
                             menuItemClass,
                             "hover:bg-rust/[0.08] hover:text-rust",

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import { setDocumentTheme } from "@/lib/theme-routes";
@@ -14,6 +13,8 @@ type SignOutButtonProps = {
   "aria-label"?: string;
   title?: string;
   role?: string;
+  /** Fires as soon as sign-out begins (e.g. close the header menu). */
+  onSignOutStart?: () => void;
 };
 
 export function SignOutButton({
@@ -22,14 +23,15 @@ export function SignOutButton({
   "aria-label": ariaLabel = "Sign out",
   title,
   role,
+  onSignOutStart,
 }: SignOutButtonProps) {
-  const router = useRouter();
   const supabase = createClient();
   const [exiting, setExiting] = useState(false);
 
   async function handleSignOut() {
     if (exiting) return;
     setExiting(true);
+    onSignOutStart?.();
 
     await supabase.auth.signOut();
 
@@ -41,8 +43,9 @@ export function SignOutButton({
       /* the client-side clear above already removed the visible effect */
     });
 
-    router.push("/");
-    router.refresh();
+    // Full navigation — avoids refresh()-on-dashboard racing into /auth/sign-in
+    // and guarantees the header menu unmounts with the signed-out shell.
+    window.location.assign("/");
   }
 
   return (
