@@ -7,6 +7,7 @@ import {
   InsightsDisclosureList,
   InsightsExpand,
 } from "@/components/pmq/InsightsDisclosure";
+import { ProBadge } from "@/components/pmq/tier-badge";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,7 @@ import { cn } from "@/lib/utils";
  * shared Insights chip (lightbulb, chevron flip, underline→rail) as PMQ.
  *
  * When `insightsLocked`, teaching text was stripped server-side — same Insights
- * label with a filled padlock (mock-console style). No expand.
+ * label with a filled padlock + Pro Bundle mark (mock-console style). No expand.
  */
 export function PfqTakeawayBody({
   block,
@@ -48,7 +49,7 @@ export function PfqTakeawayBody({
             "not-prose m-0 inline-flex items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45",
             takeaway ? "mt-2" : "mt-0.5",
           )}
-          aria-label="Insights locked — part of Pro"
+          aria-label="Insights locked — Pro Bundle"
         >
           <LightbulbIcon
             size={14}
@@ -64,6 +65,10 @@ export function PfqTakeawayBody({
             strokeWidth={0}
             aria-hidden
           />
+          <span className="inline-flex items-center gap-0.5 text-[11px] font-medium tracking-tight text-ink/38">
+            <ProBadge />
+            Bundle
+          </span>
         </p>
       ) : showInsights ? (
         <InsightsExpand className={takeaway ? "mt-2" : "mt-0.5"}>
