@@ -1,1701 +1,1701 @@
 [
- {
-  "id": "PFQP-7-1-6",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which two elements together make something a project risk?",
-  "items": null,
-  "options": {
-   "a": "It is uncertain, and it would affect the achievement of objectives.",
-   "b": "It is uncertain, and it has a named owner in the register.",
-   "c": "It has occurred, and it would affect the achievement of objectives.",
-   "d": "It is uncertain, and it would increase the cost of the project."
-  },
-  "answer": "a",
-  "explanation": "Uncertainty plus effect on objectives is the definition. Option D is tempting because cost is an objective, but restricting the effect to cost, and to increases, narrows a definition that covers all objectives and positive effects too.",
-  "tip": "When a definition question offers a narrower version of the right answer, the broader wording is almost always the one the syllabus uses.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 6,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-1-7",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project manager notes that a specialist contractor may become unavailable next quarter, which would delay commissioning. How should this be classified?",
-  "items": null,
-  "options": {
-   "a": "An issue, because commissioning is affected.",
-   "b": "A threat, because it is uncertain and would harm objectives.",
-   "c": "An opportunity, because it allows an alternative contractor to be sourced.",
-   "d": "A constraint, because contractor availability limits the project."
-  },
-  "answer": "b",
-  "explanation": "It has not happened and would damage an objective, so it is a threat, a negative risk. Option A tempts because the consequence sounds concrete, but the triggering event is still only possible.",
-  "tip": "Read the tense of the triggering event, not the vividness of the consequence. May, could and might all mean the event has not happened.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-1-8",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "Why is a risk described as forward looking?",
-  "items": null,
-  "options": {
-   "a": "Because it is reviewed at every future decision gate.",
-   "b": "Because its response is planned before it is implemented.",
-   "c": "Because it concerns an event that has not yet occurred and may never occur.",
-   "d": "Because it is identified during the concept phase of the life cycle."
-  },
-  "answer": "c",
-  "explanation": "Forward looking refers to the event itself lying in the future and remaining uncertain. Option D is tempting because identification does begin early, but risks are identified throughout, and timing of identification is not what the phrase means.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-1-9",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A new testing tool might reduce the test phase by two weeks if it performs as the vendor claims. Within the definition of risk, what is this?",
-  "items": null,
-  "options": {
-   "a": "A benefit, because it improves the schedule.",
-   "b": "An opportunity, because it is uncertain and would help objectives.",
-   "c": "Not a risk, because risks concern only adverse events.",
-   "d": "An issue, because the tool has already been offered."
-  },
-  "answer": "b",
-  "explanation": "A risk with a positive effect on objectives is an opportunity. Option A is the near miss: benefits are the measurable improvements a project is undertaken to deliver, not an uncertain event within it.",
-  "tip": "Positive uncertainty is still risk. If an option says risk means only bad things, it contradicts the definition and can be eliminated at once.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-1-10",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which pair of terms correctly completes this sentence: a risk with a negative effect is a ___, and a risk with a positive effect is an ___?",
-  "items": null,
-  "options": {
-   "a": "issue, opportunity",
-   "b": "threat, opportunity",
-   "c": "threat, benefit",
-   "d": "constraint, assumption"
-  },
-  "answer": "b",
-  "explanation": "Threat and opportunity are the two faces of risk. Option C is the near miss: benefit is a real term in the syllabus but it describes delivered improvement, not an uncertain event with a favourable effect.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-1-11",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A team member raises an uncertain future event that would have no effect on any project objective. How should the project manager treat it?",
-  "items": null,
-  "options": {
-   "a": "Record it as a threat with low impact and monitor it.",
-   "b": "Record it as an opportunity because it is uncertain.",
-   "c": "It is not a project risk, because the link to objectives is missing.",
-   "d": "Escalate it, because only the sponsor can dismiss a risk."
-  },
-  "answer": "c",
-  "explanation": "Without an effect on objectives the event is not a project risk, however uncertain it is. Option A tempts because logging everything feels prudent, but a register of things that cannot affect objectives buries the risks that can.",
-  "tip": "Definitions usually carry two tests. If a scenario satisfies one and fails the other, the term does not apply.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-1-12",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE of the following are consistent with the definition of a risk?",
-  "items": [
-   "It is an uncertain event or set of circumstances.",
-   "It would affect the achievement of objectives should it occur.",
-   "It may have either a positive or a negative effect.",
-   "It requires resolution beyond the delegated authority of the project manager."
-  ],
-  "options": {
-   "a": "1, 3 and 4",
-   "b": "1, 2 and 4",
-   "c": "1, 2 and 3",
-   "d": "2, 3 and 4"
-  },
-  "answer": "c",
-  "explanation": "Items 1 to 3 are the definition of risk. Item 4 is the tolerance element from the definition of an issue, which is why it reads convincingly to anyone revising both terms together.",
-  "tip": "In multi select items, look for the single entry that belongs to the neighbouring concept. Examiners build the intruder from the term you are most likely to confuse.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 12,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-1-13",
-  "learning_outcome": "7.1",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is NOT part of the definition of a risk?",
-  "items": null,
-  "options": {
-   "a": "It has been recorded and assigned an owner.",
-   "b": "It would affect the achievement of objectives should it occur.",
-   "c": "It may be positive as well as negative in effect.",
-   "d": "It is an uncertain event or set of circumstances."
-  },
-  "answer": "a",
-  "explanation": "Recording and ownership are how a risk is managed once identified, not part of what makes it a risk. The other three are the definition itself, which is what makes option D look procedurally reasonable.",
-  "tip": "Separate what a thing is from what is done about it. Management activities dressed as definitions are a standard distractor.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-2-7",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which statement best captures both halves of the purpose of risk management?",
-  "items": null,
-  "options": {
-   "a": "To minimise threats to objectives and to maximise opportunities.",
-   "b": "To identify threats early and transfer them to suppliers.",
-   "c": "To reduce the probability and the impact of adverse events.",
-   "d": "To remove uncertainty from the project's objectives."
-  },
-  "answer": "a",
-  "explanation": "Threats down, opportunities up. Option C is the near miss because probability and impact are genuine risk concepts, but it manages only the downside and so describes half the purpose.",
-  "tip": "When one option covers two directions and the rest cover one, the two directional option is usually the syllabus wording.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-2-8",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A sponsor asks the project manager to guarantee that risk management will make delivery certain. What is the correct response?",
-  "items": null,
-  "options": {
-   "a": "Certainty is achievable once every risk has a named owner.",
-   "b": "Certainty is achievable if the register is reviewed weekly.",
-   "c": "Uncertainty is inherent in unique work, so it can be managed but not removed.",
-   "d": "Certainty is achievable for threats but not for opportunities."
-  },
-  "answer": "c",
-  "explanation": "Projects are unique, so uncertainty cannot be eliminated, only managed. Options A and B tempt because both describe genuinely good practice, but good practice reduces exposure rather than delivering a guarantee.",
-  "tip": "Any option promising elimination, removal or a guarantee of anything uncertain is wrong on principle, whatever else it says.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-2-9",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A design decision taken at concept could avoid a risk entirely, whereas the same risk found during deployment could only be absorbed. What does this illustrate about the purpose of risk management?",
-  "items": null,
-  "options": {
-   "a": "That making uncertainty visible early widens the range of cheap responses.",
-   "b": "That risk identification should conclude at the end of the concept phase.",
-   "c": "That deployment risks should be transferred to the operator.",
-   "d": "That risks found late are more severe than risks found early."
-  },
-  "answer": "a",
-  "explanation": "Early visibility buys options while change is still cheap. Option D is tempting but wrong: the severity of the risk is unchanged, it is the range of available responses that has narrowed.",
-  "tip": "Distinguish a change in the risk itself from a change in what you can do about it. Late discovery limits response, it does not worsen impact.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-2-10",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project team manages every threat diligently but never records or acts on favourable uncertainties. What is the consequence for the purpose of risk management?",
-  "items": null,
-  "options": {
-   "a": "None, because the purpose concerns adverse events only.",
-   "b": "Only half the purpose is being served, since opportunities go unmanaged.",
-   "c": "The risk register becomes an issue log.",
-   "d": "Threats will be understated because opportunities offset them."
-  },
-  "answer": "b",
-  "explanation": "Maximising opportunities is the other half of the purpose, so leaving it to luck does half the job. Option D sounds analytical but nothing in the purpose requires netting favourable against adverse uncertainty.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-2-11",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which of these is a purpose of risk management rather than a purpose of issue management?",
-  "items": null,
-  "options": {
-   "a": "To act on events that have not yet occurred.",
-   "b": "To route problems to the right level of authority.",
-   "c": "To resolve problems so objectives can still be achieved.",
-   "d": "To ensure problems are logged rather than discussed informally."
-  },
-  "answer": "a",
-  "explanation": "Risk management acts before the event; issue management acts after it. Options B, C and D are all accurate descriptions of issue management, which is exactly why they read as reasonable project practice.",
-  "tip": "Sort by timing. Anything that happens before the event belongs to risk, anything after it belongs to issues.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-2-12",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A contractor indicates that a scarce component may become available at a lower price if ordered in the next month. What should the project manager do, given the purpose of risk management?",
-  "items": null,
-  "options": {
-   "a": "Ignore it, because it is commercial rather than a project risk.",
-   "b": "Log it as an issue, because the offer exists now.",
-   "c": "Manage it deliberately as an opportunity to be maximised.",
-   "d": "Wait until it materialises and then record the saving."
-  },
-  "answer": "c",
-  "explanation": "It is an uncertain event with a favourable effect on objectives, so it is an opportunity to manage rather than to hope for. Option D is tempting because favourable uncertainty feels self executing, but leaving it to luck forfeits it.",
-  "tip": "The exam expects deliberate action on opportunities. Waiting to see is never the managed response.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 12,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-2-13",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is NOT a purpose of risk management?",
-  "items": null,
-  "options": {
-   "a": "To minimise threats to the project's objectives.",
-   "b": "To maximise opportunities that would benefit objectives.",
-   "c": "To make uncertainty visible early enough to act cheaply.",
-   "d": "To eliminate uncertainty so that delivery can be guaranteed."
-  },
-  "answer": "d",
-  "explanation": "Uncertainty is inherent in unique work and can never be eliminated. The other three are genuine purposes, so the false option has to be spotted by principle rather than by sounding unusual.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 13,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-2-14",
-  "learning_outcome": "7.2",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which THREE statements about the purpose of risk management are correct?",
-  "items": [
-   "It seeks to minimise threats to the project's objectives.",
-   "It seeks to maximise opportunities for the project's objectives.",
-   "It makes uncertainty visible early, while responses are still cheap.",
-   "It removes uncertainty from the project so delivery becomes certain."
-  ],
-  "options": {
-   "a": "2, 3 and 4",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "1, 2 and 3"
-  },
-  "answer": "d",
-  "explanation": "Items 1 to 3 describe the purpose. Item 4 is the intruder: it echoes the first three in tone but promises elimination of uncertainty, which no amount of risk management achieves.",
-  "tip": "In multi select, test each item against a principle you can state in a sentence. Here: uncertainty is managed, never removed.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 14,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-3-6",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "Which sequence correctly gives the four stages of a typical risk management process?",
-  "items": null,
-  "options": {
-   "a": "Identification, analysis, response, closure",
-   "b": "Identification, escalation, resolution, closure",
-   "c": "Analysis, identification, response, review",
-   "d": "Identification, evaluation, transfer, closure"
-  },
-  "answer": "a",
-  "explanation": "These are the four stages named in the syllabus. Option B is the near miss: escalation and resolution are stages of issue resolution, so the sequence looks orderly while describing the wrong process.",
-  "tip": "Learn the four risk stages as a set so a swapped word stands out. Any list containing escalation or resolution is the issue process.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-3-7",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A workshop has produced a long list of possible events, none of which has yet been prioritised. Which stage of the risk management process comes next?",
-  "items": null,
-  "options": {
-   "a": "Response, so that actions can be agreed immediately.",
-   "b": "Closure, so that duplicates can be removed.",
-   "c": "Analysis, so that probability and impact can be assessed.",
-   "d": "Identification, so that the list can be extended."
-  },
-  "answer": "c",
-  "explanation": "Analysis assesses probability and impact so attention can be prioritised. Option A tempts because acting feels productive, but responding before analysis spends effort on remote and trivial risks.",
-  "tip": "Scenario stems usually name the stage just completed. Identify what has just been done, then give the stage that follows it.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-3-8",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "At which stage of the risk management process would a team decide to avoid, reduce, transfer or accept a threat?",
-  "items": null,
-  "options": {
-   "a": "Identification",
-   "b": "Analysis",
-   "c": "Response",
-   "d": "Closure"
-  },
-  "answer": "c",
-  "explanation": "Response decides and implements what will be done about each risk. Analysis is the tempting alternative because the choice depends on the assessment, but analysis measures the risk rather than deciding the action.",
-  "tip": "Assessment and decision are different stages. Working out how big something is is not the same as choosing what to do about it.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-3-9",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A weather related risk to outdoor installation can no longer occur because the installation was completed last month. What should happen to the entry?",
-  "items": null,
-  "options": {
-   "a": "It should be formally closed, because the event can no longer occur.",
-   "b": "It should be reassessed as low probability and retained.",
-   "c": "It should be transferred to the issue log for completeness.",
-   "d": "It should be deleted without record, as it never materialised."
-  },
-  "answer": "a",
-  "explanation": "Closure formally retires risks that can no longer occur. Option B is the near miss: reducing the probability keeps a dead entry alive, and registers cluttered with dead entries hide the live ones.",
-  "tip": "Distinguish a risk that became less likely from one that can no longer happen at all. Only the second is closed.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-3-10",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which activity belongs to the identification stage rather than to the analysis stage?",
-  "items": null,
-  "options": {
-   "a": "Running a PESTLE scan of the project's environment.",
-   "b": "Rating each entry for probability and impact on objectives.",
-   "c": "Ranking entries so that management attention can be prioritised.",
-   "d": "Comparing a near certain severe risk with a remote trivial one."
-  },
-  "answer": "a",
-  "explanation": "A structured environmental scan is an identification technique, finding risks that are not yet on the list. The other three all describe assessing or ordering risks already identified, which is analysis.",
-  "tip": "Identification answers what could happen. Analysis answers how much it matters. Sort each option by which question it answers.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-3-11",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A project manager states that risk identification was completed at the initial workshop and does not need repeating. Why is this wrong?",
-  "items": null,
-  "options": {
-   "a": "Because the workshop cannot assess probability and impact.",
-   "b": "Because new risks emerge throughout the life cycle, so identification is continuous.",
-   "c": "Because only the sponsor may close the identification stage.",
-   "d": "Because identification must always be repeated at each decision gate and nowhere else."
-  },
-  "answer": "b",
-  "explanation": "The process is continuous and new risks appear as the project proceeds. Option D is close but too narrow: gates are useful review points, yet identification is not confined to them.",
-  "tip": "Beware options that are right in spirit but add an exclusive word such as only, always or nowhere else. That addition is usually what makes them wrong.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-3-12",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE of the following are stages of a typical risk management process?",
-  "items": [
-   "Identification",
-   "Analysis",
-   "Escalation",
-   "Closure"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "Identification, analysis and closure are three of the four named stages, the fourth being response. Escalation is the intruder: it is a genuine stage, but of issue resolution rather than risk management.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-3-13",
-  "learning_outcome": "7.3",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem",
-   "near_miss"
-  ],
-  "stem": "Three of the following describe what happens at a named stage of the risk management process. Which does NOT?",
-  "items": null,
-  "options": {
-   "a": "Risks are found using workshops, checklists and lessons from previous projects.",
-   "b": "The severity of the problem is assessed and the matter is escalated for decision.",
-   "c": "Each risk is assessed for probability and impact so attention can be prioritised.",
-   "d": "Risks that can no longer occur are formally retired from the register."
-  },
-  "answer": "b",
-  "explanation": "Assessing severity and escalating for decision is issue resolution, where the event is certain. The other three describe identification, analysis and closure, so the odd one out is recognised by process, not by wording.",
-  "tip": "An option that assesses severity without probability is describing an issue. Probability only appears where the event is still uncertain.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-4-7",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which best describes the content of a risk register?",
-  "items": null,
-  "options": {
-   "a": "Identified risks with their assessment, owners and planned responses.",
-   "b": "Problems that have occurred, with the authority level to which each was escalated.",
-   "c": "Requested alterations to the baseline, with their approval status.",
-   "d": "Observations captured at the end of the project for future use."
-  },
-  "answer": "a",
-  "explanation": "Assessment, ownership and response are what a register holds. Option B describes the issue log, which is the neighbouring document candidates most often reach for under time pressure.",
-  "tip": "Match each record to the moment it captures. Register: before the event. Issue log: after it. Change log: requested alterations.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-4-8",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A register contains forty well described risks, each rated for probability and impact, but no names against any of them. What is the principal weakness?",
-  "items": null,
-  "options": {
-   "a": "Nobody is accountable for managing any of the entries.",
-   "b": "The ratings cannot be trusted without a named assessor.",
-   "c": "The register cannot be reviewed at decision gates.",
-   "d": "Responses cannot be identified until owners are appointed."
-  },
-  "answer": "a",
-  "explanation": "Ownership converts an entry into someone's responsibility; without it the document is a list of worries. Option D is close, but responses can be devised without owners, they simply will not be carried out reliably.",
-  "tip": "Ask what stops actually happening. The best answer names the consequence, not merely the missing field.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-4-9",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "During a review, a risk is judged to have become far more likely. What should happen in the risk register?",
-  "items": null,
-  "options": {
-   "a": "The entry is closed and a new entry raised.",
-   "b": "The entry is moved to the issue log because it is now probable.",
-   "c": "Its assessment is updated, because the register is live.",
-   "d": "No change, since assessments are fixed at the planning stage."
-  },
-  "answer": "c",
-  "explanation": "The register is maintained throughout, and assessments change as circumstances change. Option B tempts because near certain feels like happened, but until the event occurs it remains a risk.",
-  "tip": "Very likely is not the same as occurred. Only occurrence moves an entry from the register to the issue log.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-4-10",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [],
-  "stem": "Besides the description of the risk, which set of fields would a typical register entry contain?",
-  "items": null,
-  "options": {
-   "a": "Probability, impact, response, actions, owner and status.",
-   "b": "Probability, impact, escalation route and resolution date.",
-   "c": "Cost variance, schedule variance and forecast at completion.",
-   "d": "Requestor, impact assessment, approval decision and version."
-  },
-  "answer": "a",
-  "explanation": "That set is the typical entry. Option B is the near miss: it opens with two genuine register fields before switching to escalation and resolution, which belong to the issue log.",
-  "tip": "Read every element of a list option. Examiners often make the first item or two correct so the rest are read less carefully.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-4-11",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A major new risk has been identified and assessed as severe. Which other project document is most directly re-tested as a result?",
-  "items": null,
-  "options": {
-   "a": "The business case, because its continued viability depends on major risks.",
-   "b": "The issue log, so that the severity rating can be recorded.",
-   "c": "The lessons learned report, so that the risk is available to future projects.",
-   "d": "The communication plan, so that stakeholders are informed."
-  },
-  "answer": "a",
-  "explanation": "The register feeds decision making, and the business case is re-tested when major risks change. Option D is plausible practice but informing people does not test whether the project remains worth doing.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-4-12",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project manager keeps two documents: one listing uncertain future events with owners and responses, the other listing problems already escalated for decision. What are these documents?",
-  "items": null,
-  "options": {
-   "a": "A risk register and an issue log.",
-   "b": "An issue log and a risk register.",
-   "c": "A risk register and a change log.",
-   "d": "A lessons log and an issue log."
-  },
-  "answer": "a",
-  "explanation": "Uncertain future events belong in the risk register, escalated problems in the issue log. Option B contains exactly the right two documents in the wrong order, which is what makes it the trap.",
-  "tip": "When two options name the same pair, check the order against the order in the stem before choosing.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-4-13",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE statements about the use of a risk register are correct?",
-  "items": [
-   "It records the owner of each identified risk.",
-   "It records the planned response for each identified risk.",
-   "It is reviewed and updated throughout the project.",
-   "It records the probability that each logged issue will recur."
-  ],
-  "options": {
-   "a": "1, 3 and 4",
-   "b": "1, 2 and 4",
-   "c": "1, 2 and 3",
-   "d": "2, 3 and 4"
-  },
-  "answer": "c",
-  "explanation": "Owners, responses and continuous updating are the register's defining features. Item 4 attaches probability to issues, which have already occurred, so it is wrong by definition rather than by convention.",
-  "tip": "Any item that assesses the probability of something that has already happened can be struck out before you weigh the rest.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 13,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-4-14",
-  "learning_outcome": "7.4",
-  "objective": 7,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which statement about the risk register is FALSE?",
-  "items": null,
-  "options": {
-   "a": "It is a live document maintained throughout the project.",
-   "b": "Risks that can no longer occur are formally closed within it.",
-   "c": "It records the responses agreed for identified risks.",
-   "d": "It is completed during planning and then held unchanged as a baseline."
-  },
-  "answer": "d",
-  "explanation": "The register is live, not baselined and frozen. Option D borrows the language of baselining, which is correct for the scope or schedule baseline, and that borrowed vocabulary is what makes it convincing.",
-  "tip": "Watch for a true idea from another topic pasted onto this one. Baselines are fixed and controlled; registers and logs are live.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 14,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-5-6",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Complete the definition: an issue is a problem that has occurred and that requires resolution beyond the ___ of the project manager.",
-  "items": null,
-  "options": {
-   "a": "technical expertise",
-   "b": "delegated authority",
-   "c": "available contingency",
-   "d": "agreed reporting cycle"
-  },
-  "answer": "b",
-  "explanation": "Delegated authority is the second element of the definition and the reason escalation is required. Option C tempts because money is the commonest tolerance breached, but the test is authority to decide, not funds available.",
-  "tip": "The definition turns on who may decide, not on what resource is short. Read for authority language.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 6,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-5-7",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "Why does the definition of an issue link directly to project governance?",
-  "items": null,
-  "options": {
-   "a": "Because issues must be reported in the monthly progress report.",
-   "b": "Because the governance board maintains the issue log.",
-   "c": "Because resolution requires a decision from a level of authority above the project manager.",
-   "d": "Because governance sets the probability thresholds used to grade issues."
-  },
-  "answer": "c",
-  "explanation": "The tolerance element means someone higher must decide, which is a governance function. Option D is wrong on definition: an issue has already occurred, so it carries no probability to grade.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-5-8",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A key supplier has entered administration this week, and replacing it will need funding well above the project manager's delegated limit. How is this best classified?",
-  "items": null,
-  "options": {
-   "a": "A threat, because the replacement cost is not yet confirmed.",
-   "b": "An issue, because it has occurred and exceeds the project manager's authority.",
-   "c": "A change request, because additional funding is required.",
-   "d": "An assumption, because a replacement supplier is expected to be found."
-  },
-  "answer": "b",
-  "explanation": "Both elements are present: the event has happened and the response lies beyond delegated authority. Option C tempts because funding will indeed change, but the change request is a possible consequence, not the classification of the event.",
-  "tip": "Classify the event first, then think about what follows from it. Consequences such as change requests do not rename the event.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-5-9",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A risk in the register concerning a failed integration test has now materialised, and the fix needs a decision by the sponsor. What has happened to the entry in definitional terms?",
-  "items": null,
-  "options": {
-   "a": "It remains a risk, because it was foreseen and planned for.",
-   "b": "It becomes an issue, because it has occurred and exceeds delegated authority.",
-   "c": "It becomes an opportunity to improve the test approach.",
-   "d": "It becomes a change request, because the plan will be affected."
-  },
-  "answer": "b",
-  "explanation": "Occurrence plus the need for a higher decision makes it an issue. Option A is the near miss: having been foreseen changes how well prepared the team is, not whether the event has now happened.",
-  "tip": "Prior identification never keeps something a risk. Once the event occurs, the classification changes regardless of how well it was anticipated.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-5-10",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which distinguishes a formal issue from the everyday problems a project manager handles?",
-  "items": null,
-  "options": {
-   "a": "The problem has been recorded in writing.",
-   "b": "The problem affects more than one work package.",
-   "c": "The problem exceeds the project manager's delegated tolerance.",
-   "d": "The problem was not foreseen during risk identification."
-  },
-  "answer": "c",
-  "explanation": "Everyday problems sit inside delegated authority; an issue does not. Option D is the near miss, since issues can arise either from unforeseen events or from risks that occurred, so foresight is irrelevant to the classification.",
-  "tip": "Scale, visibility and surprise all feel like they should matter. The syllabus test is authority alone.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-5-11",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which of these describes an issue rather than a risk?",
-  "items": null,
-  "options": {
-   "a": "An uncertain event that would affect objectives should it occur.",
-   "b": "A problem now affecting the project that the project manager cannot resolve alone.",
-   "c": "A favourable uncertainty that could shorten the schedule.",
-   "d": "A recorded event with a named owner and an agreed response."
-  },
-  "answer": "b",
-  "explanation": "Present problem plus authority beyond the project manager is the issue definition. Option D is the near miss because recording and ownership apply to both risks and issues, so they cannot separate the two.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-5-12",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE statements are consistent with the definition of an issue?",
-  "items": [
-   "The problem has already occurred.",
-   "Its resolution lies beyond the project manager's delegated authority.",
-   "It may originate from a risk that has materialised.",
-   "Its probability must be assessed before it can be logged."
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "a",
-  "explanation": "Occurrence, the authority test and origin in a materialised risk are all consistent. Item 4 is the intruder: a certain event has no probability left to assess, however routine that step feels in risk work.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-5-13",
-  "learning_outcome": "7.5",
-  "objective": 7,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "negative_stem",
-   "near_miss"
-  ],
-  "stem": "Which statement about issues is NOT correct?",
-  "items": null,
-  "options": {
-   "a": "An issue is any problem encountered during the delivery of the project.",
-   "b": "An issue requires resolution beyond the project manager's delegated authority.",
-   "c": "An issue may arise from a risk that has materialised.",
-   "d": "An issue is a problem that has already occurred."
-  },
-  "answer": "a",
-  "explanation": "Treating every problem as an issue drops the tolerance element and would fill the log with matters the project manager already has authority to settle. The first three statements are the definition and its immediate consequence.",
-  "tip": "Colloquial usage of a term is a favourite distractor. Ask whether the option would still be true under the syllabus definition.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-6-6",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Issue management exists to ensure that issues are identified, assessed, escalated and ___ so that objectives can still be achieved.",
-  "items": null,
-  "options": {
-   "a": "resolved",
-   "b": "avoided",
-   "c": "transferred",
-   "d": "accepted"
-  },
-  "answer": "a",
-  "explanation": "Resolution is the word the purpose turns on. Options B and D are genuine threat responses under risk management, which is exactly why they read as familiar project vocabulary here.",
-  "tip": "Avoid, reduce, transfer and accept act on events that have not happened. None of them can apply to an event that already has.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-6-7",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which assessment forms no part of issue management?",
-  "items": null,
-  "options": {
-   "a": "The severity of the problem.",
-   "b": "The level of authority needed to decide.",
-   "c": "The consequence for the project's objectives.",
-   "d": "The probability of the problem occurring."
-  },
-  "answer": "d",
-  "explanation": "The event has already happened, so there is no likelihood left to assess. Probability is convincing here only because it is central to the neighbouring risk process, where the event remains uncertain.",
-  "tip": "Probability is the single clearest marker of the risk process. Its appearance in an issue question is a reliable signal of a wrong option.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-6-8",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A team leader quietly authorises extra spend well beyond her delegated limit to clear a problem. Which purpose of issue management has been defeated?",
-  "items": null,
-  "options": {
-   "a": "Ensuring problems are resolved at the appropriate level of authority.",
-   "b": "Ensuring problems are prevented before they arise.",
-   "c": "Ensuring problems are assessed for probability before action.",
-   "d": "Ensuring problems are transferred to the supplier who caused them."
-  },
-  "answer": "a",
-  "explanation": "Escalation exists so that decisions are made by whoever holds the authority to make them. Option B is tempting as a general good, but prevention belongs to risk management and is impossible once the event has occurred.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-6-9",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A problem beyond the project manager's authority has sat undecided for three weeks while work continued around it. What does this illustrate?",
-  "items": null,
-  "options": {
-   "a": "That an unresolved issue accumulates rework and cost the longer it sits.",
-   "b": "That the issue should be reclassified as a risk until it is decided.",
-   "c": "That the issue log should record a revised probability.",
-   "d": "That the project manager should absorb it to avoid delay."
-  },
-  "answer": "a",
-  "explanation": "Delay is expensive because work carries on around the unresolved problem and rework builds up. Option D tempts because it appears decisive, but absorbing a matter beyond your authority is the failure mode escalation exists to prevent.",
-  "tip": "The exam never rewards acting outside delegated authority, even when it looks faster or more helpful.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-6-10",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which statement correctly contrasts the purpose of issue management with that of risk management?",
-  "items": null,
-  "options": {
-   "a": "Issue management resolves what has happened; risk management acts on what has not.",
-   "b": "Issue management handles cost matters; risk management handles schedule matters.",
-   "c": "Issue management is owned by the sponsor; risk management is owned by the team.",
-   "d": "Issue management records problems; risk management resolves them."
-  },
-  "answer": "a",
-  "explanation": "Timing is the real contrast. Options B and C offer differences that sound like sensible divisions of labour but are simply invented: neither process is tied to particular constraints or particular owners.",
-  "tip": "When several options propose differences, prefer the one built on the definitions. Invented differences usually split by constraint, department or seniority.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-6-11",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A sponsor asks why the project needs issue management when it already has a change control process. What is the best answer?",
-  "items": null,
-  "options": {
-   "a": "Change control cannot approve additional funding, but issue management can.",
-   "b": "Issue management gets problems that have occurred assessed, escalated and resolved; change control governs alterations to the baseline.",
-   "c": "Issue management replaces change control once delivery has started.",
-   "d": "Issue management handles supplier problems, change control handles internal ones."
-  },
-  "answer": "b",
-  "explanation": "The two processes answer different questions: what do we do about this problem, and should the baseline alter. Option A is wrong on both counts and inverts where funding decisions actually sit.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-6-12",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE belong to the purpose of issue management?",
-  "items": [
-   "Ensuring issues are identified and assessed.",
-   "Ensuring issues are escalated to the right level of authority.",
-   "Ensuring issues are resolved so objectives can still be achieved.",
-   "Ensuring issues are prevented from arising in the first place."
-  ],
-  "options": {
-   "a": "2, 3 and 4",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "1, 2 and 3"
-  },
-  "answer": "d",
-  "explanation": "Identification, escalation and resolution are the purpose. Item 4 is the intruder: prevention acts before an event, so it belongs to risk management and is impossible for something that has already happened.",
-  "tip": "Prevention language in an issue question is always the intruder. An issue cannot be prevented, only resolved.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-6-13",
-  "learning_outcome": "7.6",
-  "objective": 7,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is NOT achieved by issue management?",
-  "items": null,
-  "options": {
-   "a": "The number of problems arising on the project is reduced.",
-   "b": "Objectives can still be achieved despite problems that have arisen.",
-   "c": "Problems are resolved rather than absorbed by people exceeding their authority.",
-   "d": "Problems that have occurred are routed to someone with authority to decide."
-  },
-  "answer": "a",
-  "explanation": "Reducing how often problems arise is the work of risk management, acting before events occur. The other three describe what a working issue process actually delivers, which makes the false option the one that sounds most desirable.",
-  "tip": "Desirability is not a test of correctness. Judge each option against what the process can do by definition.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-7-6",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Complete the statement: a risk that occurs becomes ___.",
-  "items": null,
-  "options": {
-   "a": "an issue",
-   "b": "a change request",
-   "c": "a threat",
-   "d": "a lesson learned"
-  },
-  "answer": "a",
-  "explanation": "Occurrence is the transition the two processes are built around. Option C is the near miss: a threat is simply a risk with a negative effect, so it describes the risk before the event rather than after it.",
-  "tip": "Threat and opportunity classify a risk by direction of effect. Only occurrence changes it into something else.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-7-7",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which characteristic is shared by risks and issues?",
-  "items": null,
-  "options": {
-   "a": "Both are assessed for probability.",
-   "b": "Both are recorded and have a named owner.",
-   "c": "Both are certain to affect the project's objectives.",
-   "d": "Both must be escalated to the sponsor."
-  },
-  "answer": "b",
-  "explanation": "Recording and ownership apply to both, which is why neither can be used to tell them apart. Option D is close: both can be escalated, but only an issue must be by definition.",
-  "tip": "Notice the difference between can and must. An option that upgrades a possibility into a requirement is often the trap.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-7-8",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "The forecast shows the project overspending by ten per cent at completion if current trends continue, though no tolerance has yet been breached. How should this be treated?",
-  "items": null,
-  "options": {
-   "a": "As an issue, because the forecast has been produced.",
-   "b": "As a risk, because the overspend has not yet happened.",
-   "c": "As an issue, because ten per cent is material.",
-   "d": "As a change request, because the budget will need revising."
-  },
-  "answer": "b",
-  "explanation": "A forecast describes something that has not occurred, so it remains uncertain and is managed as a risk. Options A and C tempt by treating the seriousness of the number, or the act of forecasting, as if it were the event itself.",
-  "tip": "A forecast is not an occurrence. Ask what has actually happened by today, not what the projection says will happen.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-7-9",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A regulator has this morning withdrawn an approval the project depends on, and only the sponsoring board can decide the way forward. Which classification and reason are correct?",
-  "items": null,
-  "options": {
-   "a": "A risk, because the effect on the plan is not yet known.",
-   "b": "An opportunity, because the design can now be revisited.",
-   "c": "An issue, because it has occurred and is beyond the project manager's authority.",
-   "d": "A threat, because approval may not be regained."
-  },
-  "answer": "c",
-  "explanation": "Both tests are met: the withdrawal has happened and the decision sits above the project manager. Option A is the near miss, mistaking uncertainty about the consequences for uncertainty about the event.",
-  "tip": "Uncertain consequences do not make an event uncertain. Apply the has it happened test to the trigger, never to the aftermath.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-7-10",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Two entries read: A, a possible shortage of qualified installers next spring; B, the failure of yesterday's acceptance test requiring a board decision. Where does each belong?",
-  "items": null,
-  "options": {
-   "a": "A in the risk register, B in the issue log.",
-   "b": "A in the issue log, B in the risk register.",
-   "c": "Both in the risk register, since both affect objectives.",
-   "d": "Both in the issue log, since both are recorded and owned."
-  },
-  "answer": "a",
-  "explanation": "A is uncertain and in the future, B has occurred and needs a higher decision. Option D uses recording and ownership as the test, but both documents record and both assign owners, so neither feature separates them.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-7-11",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Why can probability be used to assess a risk but not an issue?",
-  "items": null,
-  "options": {
-   "a": "Because issues are assessed by the sponsor rather than the project manager.",
-   "b": "Because an issue has already occurred, so its likelihood is settled.",
-   "c": "Because issues are assessed by cost impact instead.",
-   "d": "Because probability applies only to threats, not to opportunities."
-  },
-  "answer": "b",
-  "explanation": "There is nothing left to estimate once the event has happened; assessment turns to severity and consequence. Option C is partly right about severity but replaces one narrow measure with another, and cost is only one objective among several.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-7-12",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE statements about risks and issues are true?",
-  "items": [
-   "Both may affect cost, time, quality or scope.",
-   "Both are recorded, with an owner assigned to each.",
-   "A risk that occurs becomes an issue.",
-   "Issues are owned by the sponsor, whereas risks are owned by the team."
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 2 and 3",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "The first three are genuine. Item 4 proposes a split of ownership by seniority that does not exist: both are owned by whoever is best placed to manage them, and it is an invented difference of the kind examiners favour.",
-  "tip": "Treat any claimed difference by role, department or constraint with suspicion. The only real difference is whether the event has happened.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-7-13",
-  "learning_outcome": "7.7",
-  "objective": 7,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "negative_stem",
-   "near_miss"
-  ],
-  "stem": "Which statement about the relationship between risks and issues is FALSE?",
-  "items": null,
-  "options": {
-   "a": "Good risk management reduces how many risks become issues.",
-   "b": "Some issues arise without ever having been identified as risks.",
-   "c": "An issue reverts to being a risk once a response has been agreed.",
-   "d": "A response prepared in advance helps when a risk does occur."
-  },
-  "answer": "c",
-  "explanation": "Nothing reverses the transition: once an event has occurred it stays occurred. Option C is convincing because agreeing a response genuinely does change the situation, but it changes the handling rather than the classification.",
-  "tip": "The risk to issue transition runs one way only. Any option describing a return journey is wrong by definition.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-8-6",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which sequence best describes a typical issue resolution process?",
-  "items": null,
-  "options": {
-   "a": "Identify and log, assess impact, escalate, agree and implement resolution, close",
-   "b": "Identify and log, assess probability and impact, respond, close",
-   "c": "Escalate, identify and log, assess impact, close",
-   "d": "Identify and log, agree resolution, assess impact, escalate"
-  },
-  "answer": "a",
-  "explanation": "Log it, size it, escalate it, resolve it, close it. Option B is the near miss: it reads smoothly but imports probability assessment and response from the risk process, and a certain event has no probability.",
-  "tip": "Check the order makes sense as well as the words. Escalating before logging, or resolving before assessing, inverts the logic of the process.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-8-7",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "negative_stem",
-   "near_miss"
-  ],
-  "stem": "Which of the following is NOT a stage of a typical issue resolution process?",
-  "items": null,
-  "options": {
-   "a": "Escalating the issue to the appropriate level of authority.",
-   "b": "Assessing the probability that the issue will occur.",
-   "c": "Agreeing and implementing a resolution.",
-   "d": "Closing the issue once it has been resolved."
-  },
-  "answer": "b",
-  "explanation": "The event has already occurred, so there is no probability to assess. The option is convincing only because probability assessment is a real and prominent stage of the neighbouring risk process.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-8-8",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An issue has been logged with an owner, and its severity and consequence for objectives have been established. What is the next stage?",
-  "items": null,
-  "options": {
-   "a": "Close the issue, since the assessment is complete.",
-   "b": "Escalate it to the appropriate level of authority.",
-   "c": "Add it to the risk register so it can be monitored.",
-   "d": "Plan a response using the avoid, reduce, transfer or accept options."
-  },
-  "answer": "b",
-  "explanation": "Assessment is followed by escalation to whoever can decide. Option D borrows the threat response set, which applies to events that have not happened and so cannot be used on an issue.",
-  "tip": "Scenario stems for process questions describe the stage just finished. Name the next one, not the one described.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-8-9",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A governance board has decided how an escalated issue will be dealt with. What does the issue resolution process require next?",
-  "items": null,
-  "options": {
-   "a": "The resolution is implemented and the actions tracked to completion.",
-   "b": "The issue is closed as soon as the decision is recorded.",
-   "c": "The issue is returned to the risk register pending implementation.",
-   "d": "The impact is reassessed before anything is done."
-  },
-  "answer": "a",
-  "explanation": "Deciding is not resolving: the agreed actions must be carried out and tracked. Option B is tempting because the decision feels like the hard part, but an undelivered decision leaves the project exactly where it was.",
-  "tip": "Watch for options that stop a process one step early. A decision, a plan or an approval is rarely the final stage.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-7-8-10",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An issue has been resolved and the agreed actions have altered the delivery sequence. Which stage completes the process?",
-  "items": null,
-  "options": {
-   "a": "The issue is closed and the consequences reflected in the plan, baseline or risk register.",
-   "b": "The issue is closed and archived, with no further updates required.",
-   "c": "The issue is retained as open until the next stage boundary.",
-   "d": "The issue is reassessed for severity and escalated once more."
-  },
-  "answer": "a",
-  "explanation": "Closure includes carrying the consequences into the plan, the baseline or the register. Option B is the near miss: it gets closure right and then stops, leaving documents describing a project that no longer exists.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-7-8-11",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which pairing of process and stage is correct?",
-  "items": null,
-  "options": {
-   "a": "Risk management: response. Issue resolution: escalation.",
-   "b": "Risk management: escalation. Issue resolution: analysis.",
-   "c": "Risk management: resolution. Issue resolution: closure.",
-   "d": "Risk management: escalation. Issue resolution: response."
-  },
-  "answer": "a",
-  "explanation": "Response is a named risk stage and escalation is a named issue stage. The other options swap the two vocabularies, which is easy to miss because both processes end in closure and both sound procedurally similar.",
-  "tip": "Keep two short vocabularies apart: identification, analysis, response, closure for risk; log, assess, escalate, resolve, close for issues.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-7-8-12",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which THREE are stages of a typical issue resolution process?",
-  "items": [
-   "The issue is identified and logged with an owner.",
-   "Its impact on objectives is assessed.",
-   "A response is selected from avoid, reduce, transfer or accept.",
-   "The issue is escalated to the appropriate level of authority."
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "Logging, assessing impact and escalating are all stages. Item 3 is the intruder: those four responses act on events that have not yet happened, so none of them can be applied to an issue.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-7-8-13",
-  "learning_outcome": "7.8",
-  "objective": 7,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "During the assessment stage of issue resolution, what is being judged?",
-  "items": null,
-  "options": {
-   "a": "How likely the problem is to affect the project.",
-   "b": "How severe the problem is and what it means for objectives.",
-   "c": "Whether the problem should have been foreseen as a risk.",
-   "d": "Which supplier or team should bear the cost of the problem."
-  },
-  "answer": "b",
-  "explanation": "Severity and consequence for objectives, since likelihood is settled the moment the event occurs. Option C describes a reasonable lessons discussion, but the assessment stage decides what to do now rather than what should have happened earlier.",
-  "tip": "Assessment during a live process looks forward to the decision needed. Looking back to what should have been foreseen belongs to lessons.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- }
+  {
+    "id": "PFQP-7-1-6",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which two elements together make something a project risk?",
+    "items": null,
+    "options": {
+      "a": "It is uncertain, and it would affect the achievement of objectives.",
+      "b": "It is uncertain, and it has a named owner in the register.",
+      "c": "It has occurred, and it would affect the achievement of objectives.",
+      "d": "It is uncertain, and it would increase the cost of the project."
+    },
+    "answer": "a",
+    "explanation": "Uncertainty plus effect on objectives is the definition. Option D is tempting because cost is an objective, but restricting the effect to cost, and to increases, narrows a definition that covers all objectives and positive effects too.",
+    "tip": "When a definition question offers a narrower version of the right answer, the broader wording is almost always the one the syllabus uses.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 6,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-1-7",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project manager notes that a specialist contractor may become unavailable next quarter, which would delay commissioning. How should this be classified?",
+    "items": null,
+    "options": {
+      "a": "An issue, because commissioning is affected.",
+      "b": "A threat, because it is uncertain and would harm objectives.",
+      "c": "An opportunity, because it allows an alternative contractor to be sourced.",
+      "d": "A constraint, because contractor availability limits the project."
+    },
+    "answer": "b",
+    "explanation": "It has not happened and would damage an objective, so it is a threat, a negative risk. Option A tempts because the consequence sounds concrete, but the triggering event is still only possible.",
+    "tip": "Read the tense of the triggering event, not the vividness of the consequence. May, could and might all mean the event has not happened.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-1-8",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "Why is a risk described as forward looking?",
+    "items": null,
+    "options": {
+      "a": "Because it is reviewed at every future decision gate.",
+      "b": "Because its response is planned before it is implemented.",
+      "c": "Because it concerns an event that has not yet occurred and may never occur.",
+      "d": "Because it is identified during the concept phase of the life cycle."
+    },
+    "answer": "c",
+    "explanation": "Forward looking refers to the event itself lying in the future and remaining uncertain. Option D is tempting because identification does begin early, but risks are identified throughout, and timing of identification is not what the phrase means.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-1-9",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A new testing tool might reduce the test phase by two weeks if it performs as the vendor claims. Within the definition of risk, what is this?",
+    "items": null,
+    "options": {
+      "a": "A benefit, because it improves the schedule.",
+      "b": "An opportunity, because it is uncertain and would help objectives.",
+      "c": "Not a risk, because risks concern only adverse events.",
+      "d": "An issue, because the tool has already been offered."
+    },
+    "answer": "b",
+    "explanation": "A risk with a positive effect on objectives is an opportunity. Option A is the near miss: benefits are the measurable improvements a project is undertaken to deliver, not an uncertain event within it.",
+    "tip": "Positive uncertainty is still risk. If an option says risk means only bad things, it contradicts the definition and can be eliminated at once.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-1-10",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which pair of terms correctly completes this sentence: a risk with a negative effect is a ___, and a risk with a positive effect is an ___?",
+    "items": null,
+    "options": {
+      "a": "issue, opportunity",
+      "b": "threat, opportunity",
+      "c": "threat, benefit",
+      "d": "constraint, assumption"
+    },
+    "answer": "b",
+    "explanation": "Threat and opportunity are the two faces of risk. Option C is the near miss: benefit is a real term in the syllabus but it describes delivered improvement, not an uncertain event with a favourable effect.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-1-11",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A team member raises an uncertain future event that would have no effect on any project objective. How should the project manager treat it?",
+    "items": null,
+    "options": {
+      "a": "Record it as a threat with low impact and monitor it.",
+      "b": "Record it as an opportunity because it is uncertain.",
+      "c": "It is not a project risk, because the link to objectives is missing.",
+      "d": "Escalate it, because only the sponsor can dismiss a risk."
+    },
+    "answer": "c",
+    "explanation": "Without an effect on objectives the event is not a project risk, however uncertain it is. Option A tempts because logging everything feels prudent, but a register of things that cannot affect objectives buries the risks that can.",
+    "tip": "Definitions usually carry two tests. If a scenario satisfies one and fails the other, the term does not apply.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-1-12",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE of the following are consistent with the definition of a risk?",
+    "items": [
+      "It is an uncertain event or set of circumstances.",
+      "It would affect the achievement of objectives should it occur.",
+      "It may have either a positive or a negative effect.",
+      "It requires resolution beyond the delegated authority of the project manager."
+    ],
+    "options": {
+      "a": "1, 3 and 4",
+      "b": "1, 2 and 4",
+      "c": "1, 2 and 3",
+      "d": "2, 3 and 4"
+    },
+    "answer": "c",
+    "explanation": "Items 1 to 3 are the definition of risk. Item 4 is the tolerance element from the definition of an issue, which is why it reads convincingly to anyone revising both terms together.",
+    "tip": "In multi select items, look for the single entry that belongs to the neighbouring concept. Examiners build the intruder from the term you are most likely to confuse.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 12,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-1-13",
+    "learning_outcome": "7.1",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is NOT part of the definition of a risk?",
+    "items": null,
+    "options": {
+      "a": "It has been recorded and assigned an owner.",
+      "b": "It would affect the achievement of objectives should it occur.",
+      "c": "It may be positive as well as negative in effect.",
+      "d": "It is an uncertain event or set of circumstances."
+    },
+    "answer": "a",
+    "explanation": "Recording a risk and giving it an owner is how a risk is managed once it has been identified. It is not part of what makes something a risk. The other three answers are the definition itself: a risk is an uncertain event or set of circumstances that would affect the achievement of objectives should it occur, and its effect may be positive as well as negative.",
+    "tip": "Separate what a thing is from what is done about it. Management activities dressed as definitions are a standard distractor.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-2-7",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which statement best captures both halves of the purpose of risk management?",
+    "items": null,
+    "options": {
+      "a": "To minimise threats to objectives and to maximise opportunities.",
+      "b": "To identify threats early and transfer them to suppliers.",
+      "c": "To reduce the probability and the impact of adverse events.",
+      "d": "To remove uncertainty from the project's objectives."
+    },
+    "answer": "a",
+    "explanation": "Threats down, opportunities up. Option C is the near miss because probability and impact are genuine risk concepts, but it manages only the downside and so describes half the purpose.",
+    "tip": "When one option covers two directions and the rest cover one, the two directional option is usually the syllabus wording.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-2-8",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A sponsor asks the project manager to guarantee that risk management will make delivery certain. What is the correct response?",
+    "items": null,
+    "options": {
+      "a": "Certainty is achievable once every risk has a named owner.",
+      "b": "Certainty is achievable if the register is reviewed weekly.",
+      "c": "Uncertainty is inherent in unique work, so it can be managed but not removed.",
+      "d": "Certainty is achievable for threats but not for opportunities."
+    },
+    "answer": "c",
+    "explanation": "Projects are unique, so uncertainty cannot be eliminated, only managed. Options A and B tempt because both describe genuinely good practice, but good practice reduces exposure rather than delivering a guarantee.",
+    "tip": "Any option promising elimination, removal or a guarantee of anything uncertain is wrong on principle, whatever else it says.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-2-9",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A design decision taken at concept could avoid a risk entirely, whereas the same risk found during deployment could only be absorbed. What does this illustrate about the purpose of risk management?",
+    "items": null,
+    "options": {
+      "a": "That making uncertainty visible early widens the range of cheap responses.",
+      "b": "That risk identification should conclude at the end of the concept phase.",
+      "c": "That deployment risks should be transferred to the operator.",
+      "d": "That risks found late are more severe than risks found early."
+    },
+    "answer": "a",
+    "explanation": "Early visibility buys options while change is still cheap. Option D is tempting but wrong: the severity of the risk is unchanged, it is the range of available responses that has narrowed.",
+    "tip": "Distinguish a change in the risk itself from a change in what you can do about it. Late discovery limits response, it does not worsen impact.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-2-10",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project team manages every threat diligently but never records or acts on favourable uncertainties. What is the consequence for the purpose of risk management?",
+    "items": null,
+    "options": {
+      "a": "None, because the purpose concerns adverse events only.",
+      "b": "Only half the purpose is being served, since opportunities go unmanaged.",
+      "c": "The risk register becomes an issue log.",
+      "d": "Threats will be understated because opportunities offset them."
+    },
+    "answer": "b",
+    "explanation": "Maximising opportunities is the other half of the purpose, so leaving it to luck does half the job. Option D sounds analytical but nothing in the purpose requires netting favourable against adverse uncertainty.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-2-11",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which of these is a purpose of risk management rather than a purpose of issue management?",
+    "items": null,
+    "options": {
+      "a": "To act on events that have not yet occurred.",
+      "b": "To route problems to the right level of authority.",
+      "c": "To resolve problems so objectives can still be achieved.",
+      "d": "To ensure problems are logged rather than discussed informally."
+    },
+    "answer": "a",
+    "explanation": "Risk management acts before the event; issue management acts after it. Options B, C and D are all accurate descriptions of issue management, which is exactly why they read as reasonable project practice.",
+    "tip": "Sort by timing. Anything that happens before the event belongs to risk, anything after it belongs to issues.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-2-12",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A contractor indicates that a scarce component may become available at a lower price if ordered in the next month. What should the project manager do, given the purpose of risk management?",
+    "items": null,
+    "options": {
+      "a": "Ignore it, because it is commercial rather than a project risk.",
+      "b": "Log it as an issue, because the offer exists now.",
+      "c": "Manage it deliberately as an opportunity to be maximised.",
+      "d": "Wait until it materialises and then record the saving."
+    },
+    "answer": "c",
+    "explanation": "It is an uncertain event with a favourable effect on objectives, so it is an opportunity to manage rather than to hope for. Option D is tempting because favourable uncertainty feels self executing, but leaving it to luck forfeits it.",
+    "tip": "The exam expects deliberate action on opportunities. Waiting to see is never the managed response.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 12,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-2-13",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is NOT a purpose of risk management?",
+    "items": null,
+    "options": {
+      "a": "To minimise threats to the project's objectives.",
+      "b": "To maximise opportunities that would benefit objectives.",
+      "c": "To make uncertainty visible early enough to act cheaply.",
+      "d": "To eliminate uncertainty so that delivery can be guaranteed."
+    },
+    "answer": "d",
+    "explanation": "Uncertainty is inherent in unique work and can never be eliminated. The other three are genuine purposes, so the false option has to be spotted by principle rather than by sounding unusual.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 13,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-2-14",
+    "learning_outcome": "7.2",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which THREE statements about the purpose of risk management are correct?",
+    "items": [
+      "It seeks to minimise threats to the project's objectives.",
+      "It seeks to maximise opportunities for the project's objectives.",
+      "It makes uncertainty visible early, while responses are still cheap.",
+      "It removes uncertainty from the project so delivery becomes certain."
+    ],
+    "options": {
+      "a": "2, 3 and 4",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "1, 2 and 3"
+    },
+    "answer": "d",
+    "explanation": "Items 1 to 3 describe the purpose. Item 4 is the intruder: it echoes the first three in tone but promises elimination of uncertainty, which no amount of risk management achieves.",
+    "tip": "In multi select, test each item against a principle you can state in a sentence. Here: uncertainty is managed, never removed.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 14,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-3-6",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "Which sequence correctly gives the four stages of a typical risk management process?",
+    "items": null,
+    "options": {
+      "a": "Identification, analysis, response, closure",
+      "b": "Identification, escalation, resolution, closure",
+      "c": "Analysis, identification, response, review",
+      "d": "Identification, evaluation, transfer, closure"
+    },
+    "answer": "a",
+    "explanation": "These are the four stages named in the syllabus. Option B is the near miss: escalation and resolution are stages of issue resolution, so the sequence looks orderly while describing the wrong process.",
+    "tip": "Learn the four risk stages as a set so a swapped word stands out. Any list containing escalation or resolution is the issue process.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-3-7",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A workshop has produced a long list of possible events, none of which has yet been prioritised. Which stage of the risk management process comes next?",
+    "items": null,
+    "options": {
+      "a": "Response, so that actions can be agreed immediately.",
+      "b": "Closure, so that duplicates can be removed.",
+      "c": "Analysis, so that probability and impact can be assessed.",
+      "d": "Identification, so that the list can be extended."
+    },
+    "answer": "c",
+    "explanation": "Analysis assesses probability and impact so attention can be prioritised. Option A tempts because acting feels productive, but responding before analysis spends effort on remote and trivial risks.",
+    "tip": "Scenario stems usually name the stage just completed. Identify what has just been done, then give the stage that follows it.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-3-8",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "At which stage of the risk management process would a team decide to avoid, reduce, transfer or accept a threat?",
+    "items": null,
+    "options": {
+      "a": "Identification",
+      "b": "Analysis",
+      "c": "Response",
+      "d": "Closure"
+    },
+    "answer": "c",
+    "explanation": "Response decides and implements what will be done about each risk. Analysis is the tempting alternative because the choice depends on the assessment, but analysis measures the risk rather than deciding the action.",
+    "tip": "Assessment and decision are different stages. Working out how big something is is not the same as choosing what to do about it.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-3-9",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A weather related risk to outdoor installation can no longer occur because the installation was completed last month. What should happen to the entry?",
+    "items": null,
+    "options": {
+      "a": "It should be formally closed, because the event can no longer occur.",
+      "b": "It should be reassessed as low probability and retained.",
+      "c": "It should be transferred to the issue log for completeness.",
+      "d": "It should be deleted without record, as it never materialised."
+    },
+    "answer": "a",
+    "explanation": "Closure formally retires risks that can no longer occur. Option B is the near miss: reducing the probability keeps a dead entry alive, and registers cluttered with dead entries hide the live ones.",
+    "tip": "Distinguish a risk that became less likely from one that can no longer happen at all. Only the second is closed.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-3-10",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which activity belongs to the identification stage rather than to the analysis stage?",
+    "items": null,
+    "options": {
+      "a": "Running a PESTLE scan of the project's environment.",
+      "b": "Rating each entry for probability and impact on objectives.",
+      "c": "Ranking entries so that management attention can be prioritised.",
+      "d": "Comparing a near certain severe risk with a remote trivial one."
+    },
+    "answer": "a",
+    "explanation": "A structured environmental scan is an identification technique, finding risks that are not yet on the list. The other three all describe assessing or ordering risks already identified, which is analysis.",
+    "tip": "Identification answers what could happen. Analysis answers how much it matters. Sort each option by which question it answers.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-3-11",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A project manager states that risk identification was completed at the initial workshop and does not need repeating. Why is this wrong?",
+    "items": null,
+    "options": {
+      "a": "Because the workshop cannot assess probability and impact.",
+      "b": "Because new risks emerge throughout the life cycle, so identification is continuous.",
+      "c": "Because only the sponsor may close the identification stage.",
+      "d": "Because identification must always be repeated at each decision gate and nowhere else."
+    },
+    "answer": "b",
+    "explanation": "The process is continuous and new risks appear as the project proceeds. Option D is close but too narrow: gates are useful review points, yet identification is not confined to them.",
+    "tip": "Beware options that are right in spirit but add an exclusive word such as only, always or nowhere else. That addition is usually what makes them wrong.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-3-12",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE of the following are stages of a typical risk management process?",
+    "items": [
+      "Identification",
+      "Analysis",
+      "Escalation",
+      "Closure"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Identification, analysis and closure are three of the four named stages, the fourth being response. Escalation is the intruder: it is a genuine stage, but of issue resolution rather than risk management.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-3-13",
+    "learning_outcome": "7.3",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem",
+      "near_miss"
+    ],
+    "stem": "Three of the following describe what happens at a named stage of the risk management process. Which does NOT?",
+    "items": null,
+    "options": {
+      "a": "Risks are found using workshops, checklists and lessons from previous projects.",
+      "b": "The severity of the problem is assessed and the matter is escalated for decision.",
+      "c": "Each risk is assessed for probability and impact so attention can be prioritised.",
+      "d": "Risks that can no longer occur are formally retired from the register."
+    },
+    "answer": "b",
+    "explanation": "Assessing severity and escalating for decision is issue resolution, where the event is certain. The other three describe identification, analysis and closure, so the odd one out is recognised by process, not by wording.",
+    "tip": "An option that assesses severity without probability is describing an issue. Probability only appears where the event is still uncertain.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-4-7",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which best describes the content of a risk register?",
+    "items": null,
+    "options": {
+      "a": "Identified risks with their assessment, owners and planned responses.",
+      "b": "Problems that have occurred, with the authority level to which each was escalated.",
+      "c": "Requested alterations to the baseline, with their approval status.",
+      "d": "Observations captured at the end of the project for future use."
+    },
+    "answer": "a",
+    "explanation": "Assessment, ownership and response are what a register holds. Option B describes the issue log, which is the neighbouring document candidates most often reach for under time pressure.",
+    "tip": "Match each record to the moment it captures. Register: before the event. Issue log: after it. Change log: requested alterations.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-4-8",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A register contains forty well described risks, each rated for probability and impact, but no names against any of them. What is the principal weakness?",
+    "items": null,
+    "options": {
+      "a": "Nobody is accountable for managing any of the entries.",
+      "b": "The ratings cannot be trusted without a named assessor.",
+      "c": "The register cannot be reviewed at decision gates.",
+      "d": "Responses cannot be identified until owners are appointed."
+    },
+    "answer": "a",
+    "explanation": "Ownership converts an entry into someone's responsibility; without it the document is a list of worries. Option D is close, but responses can be devised without owners, they simply will not be carried out reliably.",
+    "tip": "Ask what stops actually happening. The best answer names the consequence, not merely the missing field.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-4-9",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "During a review, a risk is judged to have become far more likely. What should happen in the risk register?",
+    "items": null,
+    "options": {
+      "a": "The entry is closed and a new entry raised.",
+      "b": "The entry is moved to the issue log because it is now probable.",
+      "c": "Its assessment is updated, because the register is live.",
+      "d": "No change, since assessments are fixed at the planning stage."
+    },
+    "answer": "c",
+    "explanation": "The register is maintained throughout, and assessments change as circumstances change. Option B tempts because near certain feels like happened, but until the event occurs it remains a risk.",
+    "tip": "Very likely is not the same as occurred. Only occurrence moves an entry from the register to the issue log.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-4-10",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [],
+    "stem": "Besides the description of the risk, which set of fields would a typical register entry contain?",
+    "items": null,
+    "options": {
+      "a": "Probability, impact, response, actions, owner and status.",
+      "b": "Probability, impact, escalation route and resolution date.",
+      "c": "Cost variance, schedule variance and forecast at completion.",
+      "d": "Requestor, impact assessment, approval decision and version."
+    },
+    "answer": "a",
+    "explanation": "That set is the typical entry. Option B is the near miss: it opens with two genuine register fields before switching to escalation and resolution, which belong to the issue log.",
+    "tip": "Read every element of a list option. Examiners often make the first item or two correct so the rest are read less carefully.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-4-11",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A major new risk has been identified and assessed as severe. Which other project document is most directly re-tested as a result?",
+    "items": null,
+    "options": {
+      "a": "The business case, because its continued viability depends on major risks.",
+      "b": "The issue log, so that the severity rating can be recorded.",
+      "c": "The lessons learned report, so that the risk is available to future projects.",
+      "d": "The communication plan, so that stakeholders are informed."
+    },
+    "answer": "a",
+    "explanation": "The register feeds decision making, and the business case is re-tested when major risks change. Option D is plausible practice but informing people does not test whether the project remains worth doing.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-4-12",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project manager keeps two documents: one listing uncertain future events with owners and responses, the other listing problems already escalated for decision. What are these documents?",
+    "items": null,
+    "options": {
+      "a": "A risk register and an issue log.",
+      "b": "An issue log and a risk register.",
+      "c": "A risk register and a change log.",
+      "d": "A lessons log and an issue log."
+    },
+    "answer": "a",
+    "explanation": "Uncertain future events belong in the risk register, escalated problems in the issue log. Option B contains exactly the right two documents in the wrong order, which is what makes it the trap.",
+    "tip": "When two options name the same pair, check the order against the order in the stem before choosing.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-4-13",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE statements about the use of a risk register are correct?",
+    "items": [
+      "It records the owner of each identified risk.",
+      "It records the planned response for each identified risk.",
+      "It is reviewed and updated throughout the project.",
+      "It records the probability that each logged issue will recur."
+    ],
+    "options": {
+      "a": "1, 3 and 4",
+      "b": "1, 2 and 4",
+      "c": "1, 2 and 3",
+      "d": "2, 3 and 4"
+    },
+    "answer": "c",
+    "explanation": "Owners, responses and continuous updating are the register's defining features. Item 4 attaches probability to issues, which have already occurred, so it is wrong by definition rather than by convention.",
+    "tip": "Any item that assesses the probability of something that has already happened can be struck out before you weigh the rest.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 13,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-4-14",
+    "learning_outcome": "7.4",
+    "objective": 7,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which statement about the risk register is FALSE?",
+    "items": null,
+    "options": {
+      "a": "It is a live document maintained throughout the project.",
+      "b": "Risks that can no longer occur are formally closed within it.",
+      "c": "It records the responses agreed for identified risks.",
+      "d": "It is completed during planning and then held unchanged as a baseline."
+    },
+    "answer": "d",
+    "explanation": "The register is live, not baselined and frozen. Option D borrows the language of baselining, which is correct for the scope or schedule baseline, and that borrowed vocabulary is what makes it convincing.",
+    "tip": "Watch for a true idea from another topic pasted onto this one. Baselines are fixed and controlled; registers and logs are live.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 14,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-5-6",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Complete the definition: an issue is a problem that has occurred and that requires resolution beyond the ___ of the project manager.",
+    "items": null,
+    "options": {
+      "a": "technical expertise",
+      "b": "delegated authority",
+      "c": "available contingency",
+      "d": "agreed reporting cycle"
+    },
+    "answer": "b",
+    "explanation": "Delegated authority is the second element of the definition and the reason escalation is required. Option C tempts because money is the commonest tolerance breached, but the test is authority to decide, not funds available.",
+    "tip": "The definition turns on who may decide, not on what resource is short. Read for authority language.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 6,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-5-7",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does the definition of an issue link directly to project governance?",
+    "items": null,
+    "options": {
+      "a": "Because issues must be reported in the monthly progress report.",
+      "b": "Because the governance board maintains the issue log.",
+      "c": "Because resolution requires a decision from a level of authority above the project manager.",
+      "d": "Because governance sets the probability thresholds used to grade issues."
+    },
+    "answer": "c",
+    "explanation": "The tolerance element means someone higher must decide, which is a governance function. Option D is wrong on definition: an issue has already occurred, so it carries no probability to grade.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-5-8",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A key supplier has entered administration this week, and replacing it will need funding well above the project manager's delegated limit. How is this best classified?",
+    "items": null,
+    "options": {
+      "a": "A threat, because the replacement cost is not yet confirmed.",
+      "b": "An issue, because it has occurred and exceeds the project manager's authority.",
+      "c": "A change request, because additional funding is required.",
+      "d": "An assumption, because a replacement supplier is expected to be found."
+    },
+    "answer": "b",
+    "explanation": "Both elements are present: the event has happened and the response lies beyond delegated authority. Option C tempts because funding will indeed change, but the change request is a possible consequence, not the classification of the event.",
+    "tip": "Classify the event first, then think about what follows from it. Consequences such as change requests do not rename the event.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-5-9",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A risk in the register concerning a failed integration test has now materialised, and the fix needs a decision by the sponsor. What has happened to the entry in definitional terms?",
+    "items": null,
+    "options": {
+      "a": "It remains a risk, because it was foreseen and planned for.",
+      "b": "It becomes an issue, because it has occurred and exceeds delegated authority.",
+      "c": "It becomes an opportunity to improve the test approach.",
+      "d": "It becomes a change request, because the plan will be affected."
+    },
+    "answer": "b",
+    "explanation": "Occurrence plus the need for a higher decision makes it an issue. Option A is the near miss: having been foreseen changes how well prepared the team is, not whether the event has now happened.",
+    "tip": "Prior identification never keeps something a risk. Once the event occurs, the classification changes regardless of how well it was anticipated.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-5-10",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which distinguishes a formal issue from the everyday problems a project manager handles?",
+    "items": null,
+    "options": {
+      "a": "The problem has been recorded in writing.",
+      "b": "The problem affects more than one work package.",
+      "c": "The problem exceeds the project manager's delegated tolerance.",
+      "d": "The problem was not foreseen during risk identification."
+    },
+    "answer": "c",
+    "explanation": "Everyday problems sit inside delegated authority; an issue does not. Option D is the near miss, since issues can arise either from unforeseen events or from risks that occurred, so foresight is irrelevant to the classification.",
+    "tip": "Scale, visibility and surprise all feel like they should matter. The syllabus test is authority alone.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-5-11",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which of these describes an issue rather than a risk?",
+    "items": null,
+    "options": {
+      "a": "An uncertain event that would affect objectives should it occur.",
+      "b": "A problem now affecting the project that the project manager cannot resolve alone.",
+      "c": "A favourable uncertainty that could shorten the schedule.",
+      "d": "A recorded event with a named owner and an agreed response."
+    },
+    "answer": "b",
+    "explanation": "Present problem plus authority beyond the project manager is the issue definition. Option D is the near miss because recording and ownership apply to both risks and issues, so they cannot separate the two.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-5-12",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE statements are consistent with the definition of an issue?",
+    "items": [
+      "The problem has already occurred.",
+      "Its resolution lies beyond the project manager's delegated authority.",
+      "It may originate from a risk that has materialised.",
+      "Its probability must be assessed before it can be logged."
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "a",
+    "explanation": "Occurrence, the authority test and origin in a materialised risk are all consistent. Item 4 is the intruder: a certain event has no probability left to assess, however routine that step feels in risk work.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-5-13",
+    "learning_outcome": "7.5",
+    "objective": 7,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "negative_stem",
+      "near_miss"
+    ],
+    "stem": "Which statement about issues is NOT correct?",
+    "items": null,
+    "options": {
+      "a": "An issue is any problem encountered during the delivery of the project.",
+      "b": "An issue requires resolution beyond the project manager's delegated authority.",
+      "c": "An issue may arise from a risk that has materialised.",
+      "d": "An issue is a problem that has already occurred."
+    },
+    "answer": "a",
+    "explanation": "Treating every problem as an issue drops the tolerance element and would fill the log with matters the project manager already has authority to settle. The first three statements are the definition and its immediate consequence.",
+    "tip": "Colloquial usage of a term is a favourite distractor. Ask whether the option would still be true under the syllabus definition.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-6-6",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Issue management exists to ensure that issues are identified, assessed, escalated and ___ so that objectives can still be achieved.",
+    "items": null,
+    "options": {
+      "a": "resolved",
+      "b": "avoided",
+      "c": "transferred",
+      "d": "accepted"
+    },
+    "answer": "a",
+    "explanation": "Resolution is the word the purpose turns on. Options B and D are genuine threat responses under risk management, which is exactly why they read as familiar project vocabulary here.",
+    "tip": "Avoid, reduce, transfer and accept act on events that have not happened. None of them can apply to an event that already has.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-6-7",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which assessment forms no part of issue management?",
+    "items": null,
+    "options": {
+      "a": "The severity of the problem.",
+      "b": "The level of authority needed to decide.",
+      "c": "The consequence for the project's objectives.",
+      "d": "The probability of the problem occurring."
+    },
+    "answer": "d",
+    "explanation": "The event has already happened, so there is no likelihood left to assess. Probability is convincing here only because it is central to the neighbouring risk process, where the event remains uncertain.",
+    "tip": "Probability is the single clearest marker of the risk process. Its appearance in an issue question is a reliable signal of a wrong option.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-6-8",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A team leader quietly authorises extra spend well beyond her delegated limit to clear a problem. Which purpose of issue management has been defeated?",
+    "items": null,
+    "options": {
+      "a": "Ensuring problems are resolved at the appropriate level of authority.",
+      "b": "Ensuring problems are prevented before they arise.",
+      "c": "Ensuring problems are assessed for probability before action.",
+      "d": "Ensuring problems are transferred to the supplier who caused them."
+    },
+    "answer": "a",
+    "explanation": "Escalation exists so that decisions are made by whoever holds the authority to make them. Option B is tempting as a general good, but prevention belongs to risk management and is impossible once the event has occurred.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-6-9",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A problem beyond the project manager's authority has sat undecided for three weeks while work continued around it. What does this illustrate?",
+    "items": null,
+    "options": {
+      "a": "That an unresolved issue accumulates rework and cost the longer it sits.",
+      "b": "That the issue should be reclassified as a risk until it is decided.",
+      "c": "That the issue log should record a revised probability.",
+      "d": "That the project manager should absorb it to avoid delay."
+    },
+    "answer": "a",
+    "explanation": "Delay is expensive because work carries on around the unresolved problem and rework builds up. Option D tempts because it appears decisive, but absorbing a matter beyond your authority is the failure mode escalation exists to prevent.",
+    "tip": "The exam never rewards acting outside delegated authority, even when it looks faster or more helpful.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-6-10",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which statement correctly contrasts the purpose of issue management with that of risk management?",
+    "items": null,
+    "options": {
+      "a": "Issue management resolves what has happened; risk management acts on what has not.",
+      "b": "Issue management handles cost matters; risk management handles schedule matters.",
+      "c": "Issue management is owned by the sponsor; risk management is owned by the team.",
+      "d": "Issue management records problems; risk management resolves them."
+    },
+    "answer": "a",
+    "explanation": "Timing is the real contrast. Options B and C offer differences that sound like sensible divisions of labour but are simply invented: neither process is tied to particular constraints or particular owners.",
+    "tip": "When several options propose differences, prefer the one built on the definitions. Invented differences usually split by constraint, department or seniority.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-6-11",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A sponsor asks why the project needs issue management when it already has a change control process. What is the best answer?",
+    "items": null,
+    "options": {
+      "a": "Change control cannot approve additional funding, but issue management can.",
+      "b": "Issue management gets problems that have occurred assessed, escalated and resolved; change control governs alterations to the baseline.",
+      "c": "Issue management replaces change control once delivery has started.",
+      "d": "Issue management handles supplier problems, change control handles internal ones."
+    },
+    "answer": "b",
+    "explanation": "The two processes answer different questions: what do we do about this problem, and should the baseline alter. Option A is wrong on both counts and inverts where funding decisions actually sit.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-6-12",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE belong to the purpose of issue management?",
+    "items": [
+      "Ensuring issues are identified and assessed.",
+      "Ensuring issues are escalated to the right level of authority.",
+      "Ensuring issues are resolved so objectives can still be achieved.",
+      "Ensuring issues are prevented from arising in the first place."
+    ],
+    "options": {
+      "a": "2, 3 and 4",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "1, 2 and 3"
+    },
+    "answer": "d",
+    "explanation": "Identification, escalation and resolution are the purpose. Item 4 is the intruder: prevention acts before an event, so it belongs to risk management and is impossible for something that has already happened.",
+    "tip": "Prevention language in an issue question is always the intruder. An issue cannot be prevented, only resolved.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-6-13",
+    "learning_outcome": "7.6",
+    "objective": 7,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is NOT achieved by issue management?",
+    "items": null,
+    "options": {
+      "a": "The number of problems arising on the project is reduced.",
+      "b": "Objectives can still be achieved despite problems that have arisen.",
+      "c": "Problems are resolved rather than absorbed by people exceeding their authority.",
+      "d": "Problems that have occurred are routed to someone with authority to decide."
+    },
+    "answer": "a",
+    "explanation": "Reducing how often problems arise is the work of risk management, acting before events occur. The other three describe what a working issue process actually delivers, which makes the false option the one that sounds most desirable.",
+    "tip": "Desirability is not a test of correctness. Judge each option against what the process can do by definition.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-7-6",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Complete the statement: a risk that occurs becomes ___.",
+    "items": null,
+    "options": {
+      "a": "an issue",
+      "b": "a change request",
+      "c": "a threat",
+      "d": "a lesson learned"
+    },
+    "answer": "a",
+    "explanation": "Occurrence is the transition the two processes are built around. Option C is the near miss: a threat is simply a risk with a negative effect, so it describes the risk before the event rather than after it.",
+    "tip": "Threat and opportunity classify a risk by direction of effect. Only occurrence changes it into something else.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-7-7",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which characteristic is shared by risks and issues?",
+    "items": null,
+    "options": {
+      "a": "Both are assessed for probability.",
+      "b": "Both are recorded and have a named owner.",
+      "c": "Both are certain to affect the project's objectives.",
+      "d": "Both must be escalated to the sponsor."
+    },
+    "answer": "b",
+    "explanation": "Recording and ownership apply to both, which is why neither can be used to tell them apart. Option D is close: both can be escalated, but only an issue must be by definition.",
+    "tip": "Notice the difference between can and must. An option that upgrades a possibility into a requirement is often the trap.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-7-8",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "The forecast shows the project overspending by ten per cent at completion if current trends continue, though no tolerance has yet been breached. How should this be treated?",
+    "items": null,
+    "options": {
+      "a": "As an issue, because the forecast has been produced.",
+      "b": "As a risk, because the overspend has not yet happened.",
+      "c": "As an issue, because ten per cent is material.",
+      "d": "As a change request, because the budget will need revising."
+    },
+    "answer": "b",
+    "explanation": "A forecast describes something that has not occurred, so it remains uncertain and is managed as a risk. Options A and C tempt by treating the seriousness of the number, or the act of forecasting, as if it were the event itself.",
+    "tip": "A forecast is not an occurrence. Ask what has actually happened by today, not what the projection says will happen.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-7-9",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A regulator has this morning withdrawn an approval the project depends on, and only the sponsoring board can decide the way forward. Which classification and reason are correct?",
+    "items": null,
+    "options": {
+      "a": "A risk, because the effect on the plan is not yet known.",
+      "b": "An opportunity, because the design can now be revisited.",
+      "c": "An issue, because it has occurred and is beyond the project manager's authority.",
+      "d": "A threat, because approval may not be regained."
+    },
+    "answer": "c",
+    "explanation": "Both tests are met: the withdrawal has happened and the decision sits above the project manager. Option A is the near miss, mistaking uncertainty about the consequences for uncertainty about the event.",
+    "tip": "Uncertain consequences do not make an event uncertain. Apply the has it happened test to the trigger, never to the aftermath.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-7-10",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Two entries read: A, a possible shortage of qualified installers next spring; B, the failure of yesterday's acceptance test requiring a board decision. Where does each belong?",
+    "items": null,
+    "options": {
+      "a": "A in the risk register, B in the issue log.",
+      "b": "A in the issue log, B in the risk register.",
+      "c": "Both in the risk register, since both affect objectives.",
+      "d": "Both in the issue log, since both are recorded and owned."
+    },
+    "answer": "a",
+    "explanation": "A is uncertain and in the future, B has occurred and needs a higher decision. Option D uses recording and ownership as the test, but both documents record and both assign owners, so neither feature separates them.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-7-11",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Why can probability be used to assess a risk but not an issue?",
+    "items": null,
+    "options": {
+      "a": "Because issues are assessed by the sponsor rather than the project manager.",
+      "b": "Because an issue has already occurred, so its likelihood is settled.",
+      "c": "Because issues are assessed by cost impact instead.",
+      "d": "Because probability applies only to threats, not to opportunities."
+    },
+    "answer": "b",
+    "explanation": "There is nothing left to estimate once the event has happened; assessment turns to severity and consequence. Option C is partly right about severity but replaces one narrow measure with another, and cost is only one objective among several.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-7-12",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE statements about risks and issues are true?",
+    "items": [
+      "Both may affect cost, time, quality or scope.",
+      "Both are recorded, with an owner assigned to each.",
+      "A risk that occurs becomes an issue.",
+      "Issues are owned by the sponsor, whereas risks are owned by the team."
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 2 and 3",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The first three are genuine. Item 4 proposes a split of ownership by seniority that does not exist: both are owned by whoever is best placed to manage them, and it is an invented difference of the kind examiners favour.",
+    "tip": "Treat any claimed difference by role, department or constraint with suspicion. The only real difference is whether the event has happened.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-7-13",
+    "learning_outcome": "7.7",
+    "objective": 7,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "negative_stem",
+      "near_miss"
+    ],
+    "stem": "Which statement about the relationship between risks and issues is FALSE?",
+    "items": null,
+    "options": {
+      "a": "Good risk management reduces how many risks become issues.",
+      "b": "Some issues arise without ever having been identified as risks.",
+      "c": "An issue reverts to being a risk once a response has been agreed.",
+      "d": "A response prepared in advance helps when a risk does occur."
+    },
+    "answer": "c",
+    "explanation": "Nothing reverses the transition: once an event has occurred it stays occurred. Option C is convincing because agreeing a response genuinely does change the situation, but it changes the handling rather than the classification.",
+    "tip": "The risk to issue transition runs one way only. Any option describing a return journey is wrong by definition.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-8-6",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which sequence best describes a typical issue resolution process?",
+    "items": null,
+    "options": {
+      "a": "Identify and log, assess impact, escalate, agree and implement resolution, close",
+      "b": "Identify and log, assess probability and impact, respond, close",
+      "c": "Escalate, identify and log, assess impact, close",
+      "d": "Identify and log, agree resolution, assess impact, escalate"
+    },
+    "answer": "a",
+    "explanation": "Log it, size it, escalate it, resolve it, close it. Option B is the near miss: it reads smoothly but imports probability assessment and response from the risk process, and a certain event has no probability.",
+    "tip": "Check the order makes sense as well as the words. Escalating before logging, or resolving before assessing, inverts the logic of the process.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-8-7",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "negative_stem",
+      "near_miss"
+    ],
+    "stem": "Which of the following is NOT a stage of a typical issue resolution process?",
+    "items": null,
+    "options": {
+      "a": "Escalating the issue to the appropriate level of authority.",
+      "b": "Assessing the probability that the issue will occur.",
+      "c": "Agreeing and implementing a resolution.",
+      "d": "Closing the issue once it has been resolved."
+    },
+    "answer": "b",
+    "explanation": "The event has already occurred, so there is no probability to assess. The option is convincing only because probability assessment is a real and prominent stage of the neighbouring risk process.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-8-8",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An issue has been logged with an owner, and its severity and consequence for objectives have been established. What is the next stage?",
+    "items": null,
+    "options": {
+      "a": "Close the issue, since the assessment is complete.",
+      "b": "Escalate it to the appropriate level of authority.",
+      "c": "Add it to the risk register so it can be monitored.",
+      "d": "Plan a response using the avoid, reduce, transfer or accept options."
+    },
+    "answer": "b",
+    "explanation": "Assessment is followed by escalation to whoever can decide. Option D borrows the threat response set, which applies to events that have not happened and so cannot be used on an issue.",
+    "tip": "Scenario stems for process questions describe the stage just finished. Name the next one, not the one described.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-8-9",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A governance board has decided how an escalated issue will be dealt with. What does the issue resolution process require next?",
+    "items": null,
+    "options": {
+      "a": "The resolution is implemented and the actions tracked to completion.",
+      "b": "The issue is closed as soon as the decision is recorded.",
+      "c": "The issue is returned to the risk register pending implementation.",
+      "d": "The impact is reassessed before anything is done."
+    },
+    "answer": "a",
+    "explanation": "Deciding is not resolving: the agreed actions must be carried out and tracked. Option B is tempting because the decision feels like the hard part, but an undelivered decision leaves the project exactly where it was.",
+    "tip": "Watch for options that stop a process one step early. A decision, a plan or an approval is rarely the final stage.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-7-8-10",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An issue has been resolved and the agreed actions have altered the delivery sequence. Which stage completes the process?",
+    "items": null,
+    "options": {
+      "a": "The issue is closed and the consequences reflected in the plan, baseline or risk register.",
+      "b": "The issue is closed and archived, with no further updates required.",
+      "c": "The issue is retained as open until the next stage boundary.",
+      "d": "The issue is reassessed for severity and escalated once more."
+    },
+    "answer": "a",
+    "explanation": "Closure includes carrying the consequences into the plan, the baseline or the register. Option B is the near miss: it gets closure right and then stops, leaving documents describing a project that no longer exists.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-7-8-11",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which pairing of process and stage is correct?",
+    "items": null,
+    "options": {
+      "a": "Risk management: response. Issue resolution: escalation.",
+      "b": "Risk management: escalation. Issue resolution: analysis.",
+      "c": "Risk management: resolution. Issue resolution: closure.",
+      "d": "Risk management: escalation. Issue resolution: response."
+    },
+    "answer": "a",
+    "explanation": "Response is a named risk stage and escalation is a named issue stage. The other options swap the two vocabularies, which is easy to miss because both processes end in closure and both sound procedurally similar.",
+    "tip": "Keep two short vocabularies apart: identification, analysis, response, closure for risk; log, assess, escalate, resolve, close for issues.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-7-8-12",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which THREE are stages of a typical issue resolution process?",
+    "items": [
+      "The issue is identified and logged with an owner.",
+      "Its impact on objectives is assessed.",
+      "A response is selected from avoid, reduce, transfer or accept.",
+      "The issue is escalated to the appropriate level of authority."
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Logging, assessing impact and escalating are all stages. Item 3 is the intruder: those four responses act on events that have not yet happened, so none of them can be applied to an issue.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-7-8-13",
+    "learning_outcome": "7.8",
+    "objective": 7,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "During the assessment stage of issue resolution, what is being judged?",
+    "items": null,
+    "options": {
+      "a": "How likely the problem is to affect the project.",
+      "b": "How severe the problem is and what it means for objectives.",
+      "c": "Whether the problem should have been foreseen as a risk.",
+      "d": "Which supplier or team should bear the cost of the problem."
+    },
+    "answer": "b",
+    "explanation": "Severity and consequence for objectives, since likelihood is settled the moment the event occurs. Option C describes a reasonable lessons discussion, but the assessment stage decides what to do now rather than what should have happened earlier.",
+    "tip": "Assessment during a live process looks forward to the decision needed. Looking back to what should have been foreseen belongs to lessons.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  }
 ]

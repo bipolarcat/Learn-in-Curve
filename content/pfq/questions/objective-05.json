@@ -1,1683 +1,1683 @@
 [
- {
-  "id": "PFQP-5-1-6",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Three weeks into delivery, a project manager notices the team has quietly added two small features that nobody priced, agreed or scheduled. Which part of the scope management definition has broken down?",
-  "items": null,
-  "options": {
-   "a": "Controlling, because the boundary was not held once work started.",
-   "b": "Defining, because the specification was not precise enough.",
-   "c": "Identifying, because the features were never listed as outputs.",
-   "d": "Delivering, because the team worked outside the approved plan."
-  },
-  "answer": "a",
-  "explanation": "Controlling keeps the scope boundary intact once work starts, and unpriced additions are exactly what it prevents. Defining tempts because a vague specification helps the drift, but the additions were never part of the agreed scope at all.",
-  "tip": "When a scenario happens after work has begun, the failing verb is almost always the controlling one rather than either of the two planning verbs.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-1-7",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A planner puts the work packages in order, sets the dependencies between them and agrees start dates. Is this scope management?",
-  "items": null,
-  "options": {
-   "a": "Yes, because ordering the work is part of defining what is in scope.",
-   "b": "Yes, because controlling the work includes controlling when it happens.",
-   "c": "No, this is scheduling; scope management identifies, defines and controls the work itself.",
-   "d": "No, this is quality control; scope management covers only the products."
-  },
-  "answer": "c",
-  "explanation": "Scope management establishes and holds the boundary of what work exists. Sequencing that work and dating it is scheduling. Option c tempts because control appears in both definitions, but scope control governs content, not timing.",
-  "tip": "A shared word such as control can sit in two definitions. Ask what is being controlled rather than whether the word is present.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-1-8",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which three of the following fall within scope management as defined in this objective?",
-  "items": [
-   "Identifying the work required to deliver the project's objectives",
-   "Defining that work precisely enough to build it and accept it",
-   "Controlling the boundary once delivery is under way",
-   "Sequencing the work packages and setting their dependencies"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 2 and 3",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "The definition names three verbs: identifying, defining and controlling. Item 4 is scheduling, which sits in a separate objective. It tempts because the schedule is written in the same planning period as the scope is agreed.",
-  "tip": "In a list question, hunt for the one item that belongs to a neighbouring topic rather than judging each item on whether it sounds sensible.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-1-9",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "At handover the client insists the staff car park was always part of the office refurbishment. The project manager can find nothing in the scope document either including or excluding it. What was the failure?",
-  "items": null,
-  "options": {
-   "a": "The scope was never baselined before delivery began.",
-   "b": "Change control was not applied when the car park was requested.",
-   "c": "The exclusions were never recorded, so the boundary was left open to argument.",
-   "d": "The client was not consulted while the scope was being defined."
-  },
-  "answer": "c",
-  "explanation": "Scope covers what is included and, explicitly, what is excluded. Unstated exclusions are the classic source of the handover argument. Change control tempts, but no change was ever requested; the boundary itself was silent.",
-  "tip": "Read what the scenario says is missing. If a document is silent on an item, the failure is in defining the boundary, not in controlling changes to it.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-1-10",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An inspector checks a completed pump housing against its specification and records that it conforms. Which activity is this?",
-  "items": null,
-  "options": {
-   "a": "Scope control, because the output is being compared with what was agreed.",
-   "b": "Scope definition, because the specification is being confirmed.",
-   "c": "Configuration management, because conformance is being recorded.",
-   "d": "Quality control, because a completed output is being checked against its specification."
-  },
-  "answer": "d",
-  "explanation": "Checking a finished output against its specification is quality control. Scope control tempts because both compare something with what was agreed, but scope control governs which work exists, not whether a product conforms.",
-  "tip": "Two processes can both involve comparison. Separate them by the object: scope control looks at the work list, quality control looks at the finished item.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-1-11",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Scope management identifies, defines and controls what, precisely?",
-  "items": null,
-  "options": {
-   "a": "The resources required to complete the project.",
-   "b": "The products the project will hand over.",
-   "c": "The work required to deliver the project's objectives.",
-   "d": "The benefits the project is expected to realise."
-  },
-  "answer": "c",
-  "explanation": "The definition names the work required to deliver the objectives. Products tempt because the product breakdown structure sits inside this objective, but the definition is written about work, which includes producing those products.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-1-12",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Before delivery starts, a project manager writes each output up in enough detail that a supplier could build it and the client could accept it against those words. Which verb in the scope management definition is being exercised?",
-  "items": null,
-  "options": {
-   "a": "Defining, because each output is pinned down precisely enough to build and accept.",
-   "b": "Identifying, because the outputs are being listed.",
-   "c": "Controlling, because acceptance criteria constrain what the supplier may do.",
-   "d": "Delivering, because the supplier is now able to start work."
-  },
-  "answer": "a",
-  "explanation": "Defining pins scope down precisely enough that someone can build it and someone else can accept it. Identifying tempts because the outputs are named, but naming happens before this level of detail is added.",
-  "tip": "Where two verbs from one definition both look plausible, the deciding factor is usually the level of detail the scenario describes.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-1-13",
-  "learning_outcome": "5.1",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following are part of scope management as defined in this objective. Which one is not?",
-  "items": null,
-  "options": {
-   "a": "Estimating the cost of the work required.",
-   "b": "Defining the work required.",
-   "c": "Controlling the work required.",
-   "d": "Identifying the work required."
-  },
-  "answer": "a",
-  "explanation": "The definition contains three verbs only: identifying, defining and controlling. Estimating cost belongs to budgeting and to the cost breakdown structure. It tempts because costing happens alongside scope work in the same planning period.",
-  "tip": "In an inverted question, count the options that share a pattern. The one standing outside that pattern is usually the answer.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-2-6",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "In an iterative project, which constraints are fixed for each iteration?",
-  "items": null,
-  "options": {
-   "a": "Scope and quality.",
-   "b": "Time and resources.",
-   "c": "Scope and cost.",
-   "d": "Time and scope."
-  },
-  "answer": "b",
-  "explanation": "Iterative work fixes time and resources for each iteration and re-prioritises the scope delivered within them. Option d tempts because time genuinely is fixed, but scope is the constraint deliberately left free to move.",
-  "tip": "When options pair one correct element with one wrong one, do not stop at the half you recognise. Check both halves before choosing.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-2-7",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Midway through a two week iteration, the product owner decides a reporting screen matters more than a search filter planned for the same iteration. What normally happens?",
-  "items": null,
-  "options": {
-   "a": "A change request is raised and assessed through formal change control.",
-   "b": "The scope of the iteration is re-prioritised within the fixed time and resources.",
-   "c": "The iteration is extended so that both can be delivered.",
-   "d": "The change waits until the whole scope baseline is reissued."
-  },
-  "answer": "b",
-  "explanation": "Iterative projects expect requirements to evolve and handle that by re-prioritisation inside the fixed iteration. Formal change control tempts because a change is clearly being made, but that is the linear mechanism.",
-  "tip": "Identify the life cycle before choosing the mechanism. The same event is met with re-prioritisation in one approach and a change request in the other.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-2-8",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [],
-  "stem": "A linear road scheme has a baselined scope. The client now wants additional street lighting along one section, and the change is assessed and approved. What moves as a result?",
-  "items": null,
-  "options": {
-   "a": "Nothing; the scope baseline absorbs the addition.",
-   "b": "Other scope is dropped so that time and cost stay unchanged.",
-   "c": "Time and cost flex to accommodate the approved change.",
-   "d": "The project is rebaselined as an iterative delivery."
-  },
-  "answer": "c",
-  "explanation": "In linear projects scope is held by formal change control, and time and cost flex to accommodate approved changes. Option c describes the iterative trade, where fixed time and cost force scope to be re-prioritised instead.",
-  "tip": "Ask which constraint the approach is willing to move. That single question resolves most linear versus iterative comparisons across the syllabus.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-2-9",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [],
-  "stem": "Which statement best captures what actually differs between linear and iterative scope management?",
-  "items": null,
-  "options": {
-   "a": "Linear projects control scope and iterative projects do not.",
-   "b": "The level at which change is handled differs: linear uses formal change control, iterative re-prioritises within the iteration.",
-   "c": "Linear projects use breakdown structures and iterative projects use backlogs.",
-   "d": "Iterative projects have no overall budget or deadline to protect."
-  },
-  "answer": "b",
-  "explanation": "Both approaches control scope; what differs is the mechanism and the level at which change is handled. Option a tempts because iterative work looks looser, but re-prioritisation inside fixed time and cost is still control.",
-  "tip": "When one option accuses an approach of having no control at all, be suspicious. Syllabus distinctions are usually about mechanism, not absence.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-2-10",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which three of the following are true of scope management in an iterative project?",
-  "items": [
-   "Time and resources are fixed for each iteration",
-   "Requirements are expected to evolve as the work proceeds",
-   "The project still has an overall budget, deadline and set of objectives",
-   "The full scope is defined and baselined before the first iteration begins"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 3 and 4",
-   "c": "1, 2 and 3",
-   "d": "2, 3 and 4"
-  },
-  "answer": "c",
-  "explanation": "Iterative work fixes time and resources, expects requirements to evolve, and still protects an overall budget and deadline. Item 4 describes the linear approach, where the whole scope is baselined before delivery starts.",
-  "tip": "In a list about one approach, the intruder is usually a true statement about the opposite approach rather than something false in itself.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-2-11",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A sponsor says requirements will certainly change as users see early versions, and asks which approach treats that as normal rather than as an exception.",
-  "items": null,
-  "options": {
-   "a": "Iterative, because requirements are expected to evolve and scope is re-prioritised as work proceeds.",
-   "b": "Linear, because change control exists precisely to handle changes.",
-   "c": "Neither; both treat a change in requirements as an exception to be controlled.",
-   "d": "Linear, because the scope baseline can be reissued at any point."
-  },
-  "answer": "a",
-  "explanation": "Iterative delivery assumes evolving requirements and re-prioritises within fixed time and resources. Option a tempts because linear projects genuinely can change scope, but change control treats each change as an exception to be justified.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-2-12",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following statements about iterative scope management are correct. Which one is not?",
-  "items": null,
-  "options": {
-   "a": "The scope delivered in an iteration is agreed and re-prioritised as work proceeds.",
-   "b": "There is no overall deadline, because each iteration sets its own.",
-   "c": "Requirements are expected to evolve.",
-   "d": "Time and resources are fixed for the iteration."
-  },
-  "answer": "b",
-  "explanation": "Iterative projects still hold a total budget, a deadline and a set of objectives. Option d looks right because the timebox is the visible deadline, but it sits inside an overall one rather than replacing it.",
-  "tip": "Beware an option built from a half truth. An accurate detail attached to an absolute claim such as none or never is usually the false option.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-2-13",
-  "learning_outcome": "5.2",
-  "objective": 5,
-  "day": 1,
-  "verb": "differentiate",
-  "type": "single",
-  "traps": [],
-  "stem": "A finance director is nervous about funding an iterative programme and asks what stops it running indefinitely. What is the correct reassurance?",
-  "items": null,
-  "options": {
-   "a": "Each iteration is put through formal change control before it begins.",
-   "b": "Iterations continue only while the sponsor keeps approving change requests.",
-   "c": "The full scope is baselined at the outset, so the endpoint is fixed.",
-   "d": "The programme has an overall budget, deadline and set of objectives; only the scope within them is re-prioritised."
-  },
-  "answer": "d",
-  "explanation": "Iterative delivery does not abandon control. The overall budget, deadline and objectives hold, and re-prioritisation happens inside them. Option c tempts because it sounds reassuring, but baselining the full scope is the linear approach.",
-  "tip": "The reassuring sounding option is often borrowed from the other life cycle. Check it against how the approach named in the stem actually works.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-3-6",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project manager is looking at a hierarchical chart whose lowest boxes read 'pull cabling', 'terminate panels' and 'commission alarm'. Which structure is it?",
-  "items": null,
-  "options": {
-   "a": "A product breakdown structure, because it decomposes the alarm system.",
-   "b": "An organisational breakdown structure, because each box will be given to a team.",
-   "c": "A cost breakdown structure, because each box can be priced.",
-   "d": "A work breakdown structure, because the boxes contain the work to be done."
-  },
-  "answer": "d",
-  "explanation": "The boxes contain activities, so this decomposes work. A product breakdown structure would name the things produced, such as the cabling, the panels and the alarm system. Pricing and assignment follow from a work breakdown structure.",
-  "tip": "Read the wording inside the boxes rather than the subject matter. Verbs signal work; nouns naming deliverables signal products.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-3-7",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A colleague suggests adding a duration and a cost to every box of the product breakdown structure. What is wrong with this?",
-  "items": null,
-  "options": {
-   "a": "Nothing; a product breakdown structure is normally costed and scheduled.",
-   "b": "A product breakdown structure contains work packages, which are estimated elsewhere.",
-   "c": "Costs may be added but durations may not, because duration belongs to the schedule.",
-   "d": "A product breakdown structure contains products; costs are decomposed in a cost breakdown structure."
-  },
-  "answer": "d",
-  "explanation": "A product breakdown structure decomposes outputs only. Costs decompose in the cost breakdown structure. Option d tempts by using the right kind of language, but work packages sit at the bottom of a work breakdown structure.",
-  "tip": "If an option loads a structure with a quantity it was not built to hold, another structure almost certainly owns that quantity.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-3-8",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A team builds a detailed activity hierarchy first and only later asks what the project is meant to produce. Several activities turn out to support nothing the client asked for. What did they get wrong?",
-  "items": null,
-  "options": {
-   "a": "They failed to combine the work breakdown structure with the organisational breakdown structure.",
-   "b": "They produced a work breakdown structure without first producing a product breakdown structure.",
-   "c": "They produced a product breakdown structure without first producing a work breakdown structure.",
-   "d": "They decomposed the work too far, creating work packages that were too small to track."
-  },
-  "answer": "b",
-  "explanation": "Products are decomposed first so that the work is derived from what must be produced. Reversing the order gives a plan full of activity that produces nothing anyone asked for, which is exactly what they found.",
-  "tip": "Where one option is the exact reversal of another, one of the pair is almost certainly right. Decide which direction the scenario describes.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-3-9",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [],
-  "stem": "What occupies the top box of a product breakdown structure?",
-  "items": null,
-  "options": {
-   "a": "The organisation accountable for delivery.",
-   "b": "The first work package to be started.",
-   "c": "The final product the project will deliver.",
-   "d": "The project's total budget."
-  },
-  "answer": "c",
-  "explanation": "A product breakdown structure starts with the final product and breaks it into components and sub-components. The work package option tempts because both structures are hierarchies, but work packages sit at the bottom of a work breakdown structure.",
-  "tip": "Hierarchies are read from the top down. The top box always states the whole of whatever that structure decomposes.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-3-10",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which three of the following are true of a work breakdown structure?",
-  "items": [
-   "It is a hierarchical decomposition of the work required",
-   "It ends in work packages that can be estimated, assigned and tracked",
-   "It is combined with the organisational breakdown structure to form a responsibility assignment matrix",
-   "It shows the sequence in which the work will be carried out"
-  ],
-  "options": {
-   "a": "2, 3 and 4",
-   "b": "1, 2 and 3",
-   "c": "1, 2 and 4",
-   "d": "1, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "A work breakdown structure decomposes work into work packages and underpins the responsibility assignment matrix. Item 4 tempts because a schedule covers the same work, but sequence is added by scheduling, not by the hierarchy.",
-  "tip": "A breakdown structure answers what, not when. Any option adding sequence or timing to a hierarchy is describing the schedule instead.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-3-11",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [],
-  "stem": "An agile team is told that breakdown structures are a linear technique and have no place in their project. Is that right?",
-  "items": null,
-  "options": {
-   "a": "Yes, iterative projects use a prioritised backlog instead of any hierarchy.",
-   "b": "Yes, but only the product breakdown structure is unsuitable for iterative work.",
-   "c": "No, both product and work breakdown structures are used in linear and in iterative projects.",
-   "d": "No, but only the work breakdown structure applies, since iterative projects do not define products in advance."
-  },
-  "answer": "c",
-  "explanation": "Both structures are used in both approaches, because both exist to make something too large to grasp manageable. Option a tempts because iterative teams do keep backlogs, but a backlog does not replace decomposing scope.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-3-12",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A sponsor asks two questions: what exactly are we producing, and what has to be done to produce it. Which structures answer them, in that order?",
-  "items": null,
-  "options": {
-   "a": "Work breakdown structure, then product breakdown structure.",
-   "b": "Product breakdown structure, then work breakdown structure.",
-   "c": "Product breakdown structure, then cost breakdown structure.",
-   "d": "Organisational breakdown structure, then work breakdown structure."
-  },
-  "answer": "b",
-  "explanation": "The product breakdown structure answers what is being produced and the work breakdown structure answers what must be done to produce it. Option a is the same pair reversed, which is the standard distractor on this outcome.",
-  "tip": "When two options hold the same items in opposite order, settle the order from the stem rather than trying to recall which version looks familiar.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-3-13",
-  "learning_outcome": "5.3",
-  "objective": 5,
-  "day": 1,
-  "verb": "describe",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following are true of a product breakdown structure. Which one is not?",
-  "items": null,
-  "options": {
-   "a": "It is a hierarchical decomposition.",
-   "b": "It records who is responsible for each element.",
-   "c": "It is used in both linear and iterative projects.",
-   "d": "It decomposes the outputs the project will deliver."
-  },
-  "answer": "b",
-  "explanation": "Responsibility is recorded in the responsibility assignment matrix, formed from the work and organisational breakdown structures. Option d looks right because every box eventually has an owner, but the structure itself does not carry that.",
-  "tip": "Check whether an option describes the structure itself or something a different technique adds to it later. Only the first belongs.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-4-6",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "Having drawn a matrix of work against teams, a project manager finds three work elements with nobody named against them and one with three names. What has the matrix done for her?",
-  "items": null,
-  "options": {
-   "a": "Exposed gaps and overlaps in responsibility that were invisible before.",
-   "b": "Decomposed the work into manageable work packages.",
-   "c": "Shown the sequence in which the work must be carried out.",
-   "d": "Confirmed the cost of each element of work."
-  },
-  "answer": "a",
-  "explanation": "The practical value of a responsibility assignment matrix is that it reveals both work with nobody against it and work with several people against it. Decomposition tempts, but that happened in the work breakdown structure beforehand.",
-  "tip": "Ask what a technique reveals that was previously invisible. That is usually the reason the syllabus considers it worth using at all.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-4-7",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A team member describes the cost breakdown structure as the tool that shows when money will be spent across the project. What is wrong with that?",
-  "items": null,
-  "options": {
-   "a": "Nothing; phasing spend over time is the purpose of a cost breakdown structure.",
-   "b": "It decomposes costs so they can be reported at any level of the work, rather than phasing them over time.",
-   "c": "It decomposes the organisation rather than the costs.",
-   "d": "It combines with the organisational breakdown structure to show who spends what."
-  },
-  "answer": "b",
-  "explanation": "A cost breakdown structure decomposes costs, normally mirroring the work breakdown structure, and supports budgeting, control and reporting. Spreading spend across time is a scheduling and budget profile question, which is why option a tempts.",
-  "tip": "A breakdown structure decomposes a thing into parts. If an option has it spreading something across time, that is the schedule talking.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-4-8",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A sponsor wants cost reported at any level of the work, from a single work package up to the whole project. Which structure makes that possible, and how?",
-  "items": null,
-  "options": {
-   "a": "The organisational breakdown structure, by grouping costs under the teams that incur them.",
-   "b": "The product breakdown structure, by attaching a price to each component.",
-   "c": "The responsibility assignment matrix, by showing who is accountable for each budget.",
-   "d": "The cost breakdown structure, by decomposing cost so that it normally mirrors the work breakdown structure."
-  },
-  "answer": "d",
-  "explanation": "Costs are decomposed in a cost breakdown structure that normally mirrors the work breakdown structure, and that mirroring is what allows reporting at any level of work. Option a tempts because organisations really do report cost by department.",
-  "tip": "When a stem stresses reporting at any level, it is pointing at a structure that mirrors another structure level for level.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-4-9",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project manager needs a single view of the teams, departments and suppliers available to the project and how they relate to one another. Which structure provides it?",
-  "items": null,
-  "options": {
-   "a": "The work breakdown structure.",
-   "b": "The organisational breakdown structure.",
-   "c": "The responsibility assignment matrix.",
-   "d": "The cost breakdown structure."
-  },
-  "answer": "b",
-  "explanation": "The organisational breakdown structure decomposes the people and organisational units involved. The responsibility assignment matrix tempts because it names people too, but it does so against work rather than showing the organisation on its own.",
-  "tip": "One structure per dimension: products, work, cost, organisation. Match the noun in the stem to the noun in the structure's name.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-4-10",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which three of the following describe a responsibility assignment matrix?",
-  "items": [
-   "It is formed by combining the work breakdown structure with the organisational breakdown structure",
-   "Each intersection records who is responsible for that element of work",
-   "It exposes work with nobody assigned and work with several people assigned",
-   "It decomposes the project's costs so that they can be reported by department"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "2, 3 and 4",
-   "c": "1, 3 and 4",
-   "d": "1, 2 and 3"
-  },
-  "answer": "d",
-  "explanation": "The matrix combines work with people, records responsibility at each intersection and exposes gaps and overlaps. Item 4 describes the cost breakdown structure, the standard distractor here because it also mirrors the work breakdown structure.",
-  "tip": "Check each list item against the name of the technique. An item introducing a different dimension, such as money, is usually the intruder.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-4-11",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A work package is running late and the project manager needs to know which supplier is responsible for it. Which document answers that directly?",
-  "items": null,
-  "options": {
-   "a": "The work breakdown structure, since the package is defined there.",
-   "b": "The organisational breakdown structure, since the suppliers are listed there.",
-   "c": "The responsibility assignment matrix, since it maps work against organisation.",
-   "d": "The cost breakdown structure, since the package has a budget holder."
-  },
-  "answer": "c",
-  "explanation": "Only the matrix links a specific element of work to a specific part of the organisation. Options a and b each hold one half of that link, which is why they tempt, but neither of them joins the two.",
-  "tip": "When two options each supply half of what the stem needs, look for the option that joins them. A matrix usually exists to make exactly that join.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-4-12",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A junior colleague builds a matrix by putting the product breakdown structure down one axis and the cost breakdown structure across the other, and calls it a responsibility assignment matrix. What has gone wrong?",
-  "items": null,
-  "options": {
-   "a": "Nothing, provided each intersection names a responsible person.",
-   "b": "The product breakdown structure is right, but the other axis should be the work breakdown structure.",
-   "c": "The axes should be the work breakdown structure and the organisational breakdown structure.",
-   "d": "The axes are the right ones but should be the other way round."
-  },
-  "answer": "c",
-  "explanation": "Responsibility needs work on one axis and people on the other, so the matrix is formed from the work and organisational breakdown structures. Substituting the product or cost breakdown structure is the standard distractor on this outcome.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-4-13",
-  "learning_outcome": "5.4",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following are uses a project manager would make of a cost breakdown structure. Which one is not?",
-  "items": null,
-  "options": {
-   "a": "Building the project budget.",
-   "b": "Controlling cost during delivery.",
-   "c": "Reporting cost against the baseline.",
-   "d": "Determining the order in which work packages are carried out."
-  },
-  "answer": "d",
-  "explanation": "A cost breakdown structure supports budgeting, cost control and reporting against the baseline. Sequencing work is scheduling. It tempts because the cost structure mirrors the work breakdown structure, which also feeds the schedule.",
-  "tip": "Three options describing money and one describing time is a deliberate pattern. The odd dimension out is usually the answer.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-5-6",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which pair of verbs best characterises configuration management?",
-  "items": null,
-  "options": {
-   "a": "Evaluates and decides.",
-   "b": "Plans and schedules.",
-   "c": "Identifies and records.",
-   "d": "Assures and improves."
-  },
-  "answer": "c",
-  "explanation": "Configuration management identifies the items that make up the outputs and records their status through the life cycle. Evaluating and deciding belongs to change control, which is why that pair is offered first as the tempting answer.",
-  "tip": "Reduce a confusable pair of processes to one verb each. Testing an option against a verb is faster and safer than recalling a full definition.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-5-7",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A test engineer asks which version of the control software is the current approved one, and expects a definitive answer with the item's history. Which process should be able to provide it?",
-  "items": null,
-  "options": {
-   "a": "Change control, because it approved every change made to the software.",
-   "b": "Configuration management, because it records and maintains the status of items through the life cycle.",
-   "c": "Quality assurance, because it confirms the process was followed.",
-   "d": "Scope definition, because the software was specified there."
-  },
-  "answer": "b",
-  "explanation": "Maintaining the status of items so that the current version is knowable is configuration management. Change control tempts because it approved the changes, but its output is a decision rather than a maintained record of what is current.",
-  "tip": "A question asking who can answer a factual query points to the recording process. A question asking who can say yes points to the deciding one.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-5-8",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A request to add a second entrance is assessed for its effect on cost, time and risk, and the project manager issues a written rejection with reasons. Which process has just produced its output?",
-  "items": null,
-  "options": {
-   "a": "Risk management, because the risk impact was assessed.",
-   "b": "Configuration management, because the request has been recorded.",
-   "c": "Change control, because a request was evaluated and a reasoned decision reached.",
-   "d": "Scope definition, because the entrance is now confirmed as out of scope."
-  },
-  "answer": "c",
-  "explanation": "Change control identifies, evaluates and then approves or rejects a request before implementation, and its output is a yes or a no with reasons. Recording tempts because the rejection is written down, but writing is not deciding.",
-  "tip": "A written output does not make something a record keeping process. Ask whether the process produced a decision or produced a status.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-5-9",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "At what point does change control approve or reject a requested change?",
-  "items": null,
-  "options": {
-   "a": "Before implementation.",
-   "b": "During implementation, once the true impact becomes visible.",
-   "c": "After implementation, when the effect can be measured.",
-   "d": "At project closure, when all changes are reviewed together."
-  },
-  "answer": "a",
-  "explanation": "The definition states that requested changes are evaluated and then approved or rejected before implementation. Option b tempts because impact does become clearer as work proceeds, but assessing after starting defeats the point of the process.",
-  "tip": "Watch for options that move a step later in time than the definition allows. Approval after the fact is a recurring wrong answer.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-5-10",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which three of the following belong to configuration management rather than to change control?",
-  "items": [
-   "Identifying the items that make up the project's outputs",
-   "Recording the status of those items through the life cycle",
-   "Controlling the items so that they stay consistent with the record",
-   "Approving or rejecting a requested change before implementation"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
-  },
-  "answer": "a",
-  "explanation": "Configuration management identifies, records and controls the items that make up the outputs. Item 4 is the defining act of change control. It tempts because both processes use the word control, but only one of them decides.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-5-11",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "'The process of identifying, recording and controlling the items that make up the project's outputs, and maintaining their status through the life cycle.' This defines which process?",
-  "items": null,
-  "options": {
-   "a": "Configuration management.",
-   "b": "Change control.",
-   "c": "Quality control.",
-   "d": "Scope control."
-  },
-  "answer": "a",
-  "explanation": "This is the configuration management definition, recognisable by its record keeping verbs. Change control is offered first because the two definitions are routinely used as each other's distractors, but nothing here evaluates or decides anything.",
-  "tip": "In a definition question, scan for the verb that carries a decision. If nothing in the wording decides, the process is a recording one.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-5-12",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "A project controls the versions of its circuit board designs, its embedded software and the physical enclosures it has had manufactured, as well as its drawings. Is that correct practice?",
-  "items": null,
-  "options": {
-   "a": "No, configuration management applies only to documentation.",
-   "b": "Yes, configuration management applies to any item the project chooses to place under control.",
-   "c": "No, physical components are covered by quality control instead.",
-   "d": "Yes, but only because the enclosures were manufactured to a controlled drawing."
-  },
-  "answer": "b",
-  "explanation": "Configuration items may include designs, software, physical components and documentation. The documents only claim tempts because version control is most visible on paperwork, but the process covers whatever the project decides to control.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-5-13",
-  "learning_outcome": "5.5",
-  "objective": 5,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "negative_stem",
-   "near_miss"
-  ],
-  "stem": "Three of the following are true of change control. Which one is not?",
-  "items": null,
-  "options": {
-   "a": "It maintains the status of each configuration item through the life cycle.",
-   "b": "Changes are approved or rejected before implementation.",
-   "c": "Requested changes are identified and evaluated.",
-   "d": "Its output is a decision, with reasons."
-  },
-  "answer": "a",
-  "explanation": "Maintaining item status through the life cycle is configuration management. It tempts because both processes act on the same change, but change control ends at the decision and the record keeping belongs to its partner process.",
-  "tip": "In a paired topic, the false option is often a perfectly true statement about the other half of the pair. Check which process it describes.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-6-6",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A change to a valve specification is properly assessed and approved, and the valve is replaced on site. Six weeks later the test team tests against the original specification and raises a false failure. Which process broke down?",
-  "items": null,
-  "options": {
-   "a": "Scope management, because the valve change fell outside the agreed scope.",
-   "b": "Change control, because the change should never have been approved.",
-   "c": "Quality control, because the test was carried out incorrectly.",
-   "d": "Configuration management, because the affected records were not updated to the new version."
-  },
-  "answer": "d",
-  "explanation": "Change control did its job; the approved change was simply never reflected in the records, which is precisely the failure configuration management exists to prevent. Quality control tempts because the symptom surfaced during testing.",
-  "tip": "Trace a scenario back to the first thing that went wrong, not to where the symptom appeared. The failure usually sits upstream of the discovery.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-6-7",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A supplier swaps a pump for a cheaper model, updates the drawings and version numbers correctly, and mentions it to nobody until commissioning, where the reduced flow rate becomes a problem. What was missing?",
-  "items": null,
-  "options": {
-   "a": "Change control, because nobody assessed the impact before the change was made.",
-   "b": "Configuration management, because the drawings were not properly controlled.",
-   "c": "Nothing; the records were updated, so the process worked as intended.",
-   "d": "Status accounting, because the change history was left incomplete."
-  },
-  "answer": "a",
-  "explanation": "The record keeping worked, so configuration management was not the gap. What was missing is the evaluation and decision that change control provides before implementation. Option d tempts because it names a real configuration management activity.",
-  "tip": "If a scenario says the paperwork was correct, stop suspecting the record keeping process and start looking for the missing decision.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-6-8",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "For a single change, which process authorises it and which makes the authorised version the current one?",
-  "items": null,
-  "options": {
-   "a": "Configuration management authorises; change control updates the records.",
-   "b": "Change control authorises; configuration management updates the records.",
-   "c": "Change control does both, and configuration management applies only at closure.",
-   "d": "Configuration management does both, because it controls the items."
-  },
-  "answer": "b",
-  "explanation": "Change control determines whether the change should happen; configuration management then updates the affected items and their status. Option a is the exact reversal, the standard distractor here because both processes touch the same change.",
-  "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Settle the direction and ignore the rest.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-6-9",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "Why is updating the affected records described as more than administrative tidying once a change has been approved?",
-  "items": null,
-  "options": {
-   "a": "Because auditors require a written trail of every decision taken.",
-   "b": "Because the update is what makes the approved version the one everyone works from.",
-   "c": "Because the update is what triggers the next change request.",
-   "d": "Because records must be complete before the project can be closed."
-  },
-  "answer": "b",
-  "explanation": "The update is what makes the approval real: without it the product carries the change but the documentation still describes the old version. Audit trails tempt because they are a genuine benefit, but not the reason given.",
-  "tip": "When several options are true statements, pick the one that answers the question asked rather than the one that is most generally true.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-6-10",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which three of the following occur when a change is raised and then approved?",
-  "items": [
-   "Change control evaluates the impact on scope, time, cost, quality and risk",
-   "A decision to approve or reject is taken by whoever holds the authority",
-   "Configuration management updates the affected items and records the new status",
-   "Configuration management decides whether the change is worth making"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "1, 3 and 4",
-   "d": "2, 3 and 4"
-  },
-  "answer": "a",
-  "explanation": "Change control evaluates and decides, then configuration management updates the records. Item 4 reverses the responsibilities, which is the most common error on this outcome because both processes act on the same change.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-6-11",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A colleague explains that configuration management approves changes and change control keeps the version records straight. How should this be corrected?",
-  "items": null,
-  "options": {
-   "a": "It is correct as stated.",
-   "b": "Only the second half is wrong; configuration management does approve changes.",
-   "c": "Only the first half is wrong; change control does keep the version records.",
-   "d": "The two responsibilities are the wrong way round."
-  },
-  "answer": "d",
-  "explanation": "Change control evaluates and decides; configuration management identifies and records. Both halves of the statement are reversed. Options c and d tempt by conceding half the error, which feels safer than rejecting the whole sentence.",
-  "tip": "Partial corrections are attractive because they feel measured. If both halves of a statement are swapped, the whole sentence is wrong, not half of it.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-6-12",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A sponsor argues that an iterative project re-prioritises scope constantly, so configuration management would only slow it down. What is the best response?",
-  "items": null,
-  "options": {
-   "a": "Agreed; configuration management applies only where the scope has been baselined.",
-   "b": "The project still needs to know which version of each item is current, so configuration management still applies.",
-   "c": "Agreed, provided change control is strengthened to compensate for it.",
-   "d": "Configuration management should replace change control altogether in iterative work."
-  },
-  "answer": "b",
-  "explanation": "Knowing which version of what is current is needed however scope is agreed. Option c tempts by treating the two as substitutes, but recording versions without controlling changes gives only an accurate history of an uncontrolled project.",
-  "tip": "Options offering one process as a substitute for the other are almost always wrong where the syllabus treats the pair as interdependent.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 12,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-6-13",
-  "learning_outcome": "5.6",
-  "objective": 5,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following describe the relationship between change control and configuration management correctly. Which one does not?",
-  "items": null,
-  "options": {
-   "a": "Change control determines whether a change should happen.",
-   "b": "Once a change has been implemented, configuration management replaces change control.",
-   "c": "Each process is of limited value without the other.",
-   "d": "Configuration management ensures the records reflect the change once it has happened."
-  },
-  "answer": "b",
-  "explanation": "The two processes run alongside each other throughout the life cycle and neither replaces the other. Option d looks right because configuration management genuinely does take over the final step of a change, which is not the same thing.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 13,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-7-7",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A change request would add cost well beyond the project manager's delegated tolerance. Who takes the decision?",
-  "items": null,
-  "options": {
-   "a": "The project manager, since the request arose inside the project.",
-   "b": "The line manager of the person who raised the request.",
-   "c": "The governance board, because the impact exceeds the project manager's authority.",
-   "d": "The configuration librarian, who holds the affected records."
-  },
-  "answer": "c",
-  "explanation": "Decisions sit with whoever holds the authority: the project manager within tolerance, the governance board beyond it. Option a tempts because the project manager runs the process, but running a process is not the same as holding its decision.",
-  "tip": "Separate who operates a process from who is authorised to decide within it. Exam options routinely conflate the two roles.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-7-8",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A request arrives that duplicates work already in the baseline. It is logged, looked at briefly and dismissed without any impact assessment. Which stage stopped it?",
-  "items": null,
-  "options": {
-   "a": "The detailed evaluation, because the impact was considered.",
-   "b": "The initial evaluation, which establishes whether a request is valid and worth assessing in detail.",
-   "c": "The recommendation, because no case could be made for the request.",
-   "d": "The decision, because authority was exercised to reject it."
-  },
-  "answer": "b",
-  "explanation": "The initial evaluation exists so that invalid requests fail early and save the cost of a full assessment. The detailed evaluation tempts because the request was judged, but no impact assessment was carried out at all.",
-  "tip": "Match the depth of analysis in the stem to the stage. A quick look is the initial evaluation; a full impact assessment is the detailed one.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-7-9",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "In a typical change control process, what immediately follows the detailed evaluation?",
-  "items": null,
-  "options": {
-   "a": "The request is logged.",
-   "b": "The change is implemented.",
-   "c": "A recommendation is made on the basis of the evaluation.",
-   "d": "The affected baselines are updated."
-  },
-  "answer": "c",
-  "explanation": "The detailed evaluation feeds a recommendation, which is then put to whoever holds the decision. Implementation tempts because it is the next visible activity, but a recommendation and a decision come between evaluation and doing the work.",
-  "tip": "For sequence questions, recall the step before and the step after first, then choose the option that fits between them.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-7-10",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An approved change has been implemented and the affected records and baselines are now being updated. What is happening at this point?",
-  "items": null,
-  "options": {
-   "a": "The final stage of change control, where configuration management takes over the records.",
-   "b": "The detailed evaluation is being repeated against the new baseline.",
-   "c": "A verification audit, which is the closing stage of change control.",
-   "d": "The recommendation is being reissued to the governance board."
-  },
-  "answer": "a",
-  "explanation": "Implementation is followed by updating the affected records and baselines, and that is where configuration management picks the change up. Option c tempts by naming a real activity, but the verification audit belongs to configuration management.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-7-11",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A candidate lists the stages of change control and includes status accounting among them. Why is that wrong?",
-  "items": null,
-  "options": {
-   "a": "Status accounting is a configuration management activity, not a change control stage.",
-   "b": "Status accounting is carried out only at project closure.",
-   "c": "It is not wrong; status accounting is the final stage of change control.",
-   "d": "Status accounting sits inside the detailed evaluation, so listing it separately duplicates a stage."
-  },
-  "answer": "a",
-  "explanation": "Status accounting records and reports the state of configuration items, so it belongs to the other list. The examiner mixes the two lists deliberately, and option c is the trap for anyone who has learned only one of them.",
-  "tip": "For any process word, decide first which of the two lists it belongs to. Words that record or check belong to configuration management.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-7-12",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which three of the following are stages of a typical change control process?",
-  "items": [
-   "A request for change is raised and logged",
-   "The impact on scope, schedule, cost, quality, risk and benefits is assessed",
-   "A decision is taken by whoever holds the authority",
-   "The records are audited to confirm they match the items actually built"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 2 and 3",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
-  },
-  "answer": "b",
-  "explanation": "Raising, assessing and deciding are change control stages. Item 4 is the verification audit, a configuration management activity, and it tempts because change control does end with records being updated.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 12,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-7-13",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "What does a change control process exist to prevent?",
-  "items": null,
-  "options": {
-   "a": "Suppliers working to superseded drawings.",
-   "b": "Estimating error in the original cost baseline.",
-   "c": "Scope creep: change by accumulation, unpriced and unagreed.",
-   "d": "Optimism bias in the business case."
-  },
-  "answer": "c",
-  "explanation": "The stated alternative to a change control process is scope creep, where changes accumulate without being priced or agreed. Option c tempts because it is a genuine project failure, but that is what configuration management prevents.",
-  "tip": "Learn the stated purpose of each process. Options often offer a real project failure that belongs to a neighbouring process instead.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 13,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-7-14",
-  "learning_outcome": "5.7",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Three of the following happen before a decision is taken on a change request. Which one does not?",
-  "items": null,
-  "options": {
-   "a": "The affected baselines are updated.",
-   "b": "An initial evaluation establishes whether it is worth assessing in detail.",
-   "c": "The request is raised and logged.",
-   "d": "The impact on cost, schedule and risk is assessed."
-  },
-  "answer": "a",
-  "explanation": "Baselines are updated after implementation, which itself follows the decision. It tempts because updating records feels like preparation, but nothing in the baseline moves until the change has been approved and made.",
-  "tip": "Order questions become easier with one anchor point. Everything that costs money to do sits after the decision, not before it.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 14,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-8-7",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which configuration management activity gives each item a unique reference, so that a specific version of a specific thing can be pointed at unambiguously?",
-  "items": null,
-  "options": {
-   "a": "Planning.",
-   "b": "Status accounting.",
-   "c": "Control.",
-   "d": "Identification."
-  },
-  "answer": "d",
-  "explanation": "Identification determines the individual configuration items and gives each a unique reference. Status accounting tempts because it also deals in item detail, but it reports the state of an item that identification has already named.",
-  "tip": "Where a stem names a distinguishing feature such as a unique reference, match it to the activity that produces that feature.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-5-8-8",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "During a site inspection the records show a pump assembly at version four, while the unit actually installed is version three. Which activity has just done its job?",
-  "items": null,
-  "options": {
-   "a": "Control, because the discrepancy will now be put right.",
-   "b": "Status accounting, because the version numbers were reported.",
-   "c": "Verification audit, because the records were checked against reality.",
-   "d": "Identification, because the assembly carries a unique reference."
-  },
-  "answer": "c",
-  "explanation": "The verification audit checks that records match reality and catches exactly this mismatch. Status accounting tempts because the version numbers came from its records, but reporting a state is not the same as checking it against the item.",
-  "tip": "Where several activities feature in a scenario, pick the one that performed the act described, not the ones that supplied the information.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-8-9",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An engineer amends a controlled drawing directly on the server because the change seemed obvious and urgent. Which configuration management activity has been bypassed?",
-  "items": null,
-  "options": {
-   "a": "Control.",
-   "b": "Identification.",
-   "c": "Planning.",
-   "d": "Verification audit."
-  },
-  "answer": "a",
-  "explanation": "Control ensures that changes to configuration items happen only through the agreed process, and that is what was bypassed. The verification audit tempts because it would eventually detect the problem, but detection is not prevention.",
-  "tip": "Ask what was bypassed, not what would eventually notice. Prevention and detection are different activities within the same process.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-8-10",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "On one project the fire alarm panel is a configuration item but the site canteen rota is not. Which activity settled that distinction?",
-  "items": null,
-  "options": {
-   "a": "Status accounting, which reports on the items being managed.",
-   "b": "Identification, which allocates a unique reference to each item.",
-   "c": "Planning, which establishes what will be placed under configuration management, how and by whom.",
-   "d": "Control, which restricts changes to the agreed process."
-  },
-  "answer": "c",
-  "explanation": "Not everything needs controlling, and deciding that boundary is the first activity. Identification tempts because it also concerns which items exist, but it references the items planning has already brought inside the boundary.",
-  "tip": "Where two activities look similar, the earlier one usually sets the rule and the later one applies it. Read the stem for which is described.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-8-11",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A programme office produces a report showing the current version and full change history of every controlled item, without inspecting any of the items themselves. Which activity is this?",
-  "items": null,
-  "options": {
-   "a": "Verification audit.",
-   "b": "Control.",
-   "c": "Identification.",
-   "d": "Status accounting."
-  },
-  "answer": "d",
-  "explanation": "Status accounting records and reports the current state of each item and its change history. Verification audit tempts because both deal in accuracy, but the audit checks records against the actual items, which was expressly not done here.",
-  "tip": "One phrase in a stem often carries the whole answer. Here the words about not inspecting the items rule out the activity that inspects.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 11,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-5-8-12",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select",
-   "near_miss"
-  ],
-  "stem": "Which three of the following are named configuration management activities?",
-  "items": [
-   "Identification",
-   "Status accounting",
-   "Verification audit",
-   "Detailed evaluation"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 3 and 4",
-   "c": "2, 3 and 4",
-   "d": "1, 2 and 3"
-  },
-  "answer": "d",
-  "explanation": "The five named activities are planning, identification, control, status accounting and verification audit. Detailed evaluation is a change control stage, and it tempts because both processes deal with changes to the same items.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 12,
-  "mock_set": null
- },
- {
-  "id": "PFQP-5-8-13",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "At which configuration management activity does the change control process connect to configuration management?",
-  "items": null,
-  "options": {
-   "a": "Verification audit, because approved changes are confirmed as built.",
-   "b": "Status accounting, because approved changes appear in the change history.",
-   "c": "Planning, because the change process is agreed there.",
-   "d": "Control, because changes to configuration items may happen only through the agreed process."
-  },
-  "answer": "d",
-  "explanation": "Control is the activity requiring changes to controlled items to go through the agreed process, which is change control. Status accounting tempts because approved changes do show up in its records, but that is a consequence, not the connection.",
-  "tip": "When a question asks where two processes join, look for the activity whose own description mentions the other process by function.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 13,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-5-8-14",
-  "learning_outcome": "5.8",
-  "objective": 5,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which of the following words belongs to the change control process rather than to configuration management?",
-  "items": null,
-  "options": {
-   "a": "Identification.",
-   "b": "Status accounting.",
-   "c": "Verification audit.",
-   "d": "Recommendation."
-  },
-  "answer": "d",
-  "explanation": "A recommendation is made after the detailed evaluation in change control. The other three are named configuration management activities. The test is the verb: words that decide or advise sit with change control.",
-  "tip": "Sort every process word by its verb before answering. If it decides or advises it is change control; if it records or checks it is configuration management.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 14,
-  "mock_set": null
- }
+  {
+    "id": "PFQP-5-1-6",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Three weeks into delivery, a project manager notices the team has quietly added two small features that nobody priced, agreed or scheduled. Which part of the scope management definition has broken down?",
+    "items": null,
+    "options": {
+      "a": "Controlling, because the boundary was not held once work started.",
+      "b": "Defining, because the specification was not precise enough.",
+      "c": "Identifying, because the features were never listed as outputs.",
+      "d": "Delivering, because the team worked outside the approved plan."
+    },
+    "answer": "a",
+    "explanation": "Controlling keeps the scope boundary intact once work starts, and unpriced additions are exactly what it prevents. Defining tempts because a vague specification helps the drift, but the additions were never part of the agreed scope at all.",
+    "tip": "When a scenario happens after work has begun, the failing verb is almost always the controlling one rather than either of the two planning verbs.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-1-7",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A planner puts the work packages in order, sets the dependencies between them and agrees start dates. Is this scope management?",
+    "items": null,
+    "options": {
+      "a": "Yes, because ordering the work is part of defining what is in scope.",
+      "b": "Yes, because controlling the work includes controlling when it happens.",
+      "c": "No, this is scheduling; scope management identifies, defines and controls the work itself.",
+      "d": "No, this is quality control; scope management covers only the products."
+    },
+    "answer": "c",
+    "explanation": "Scope management establishes and holds the boundary of what work exists. Sequencing that work and dating it is scheduling. Option c tempts because control appears in both definitions, but scope control governs content, not timing.",
+    "tip": "A shared word such as control can sit in two definitions. Ask what is being controlled rather than whether the word is present.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-1-8",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which three of the following fall within scope management as defined in this objective?",
+    "items": [
+      "Identifying the work required to deliver the project's objectives",
+      "Defining that work precisely enough to build it and accept it",
+      "Controlling the boundary once delivery is under way",
+      "Sequencing the work packages and setting their dependencies"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 2 and 3",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The definition names three verbs: identifying, defining and controlling. Item 4 is scheduling, which sits in a separate objective. It tempts because the schedule is written in the same planning period as the scope is agreed.",
+    "tip": "In a list question, hunt for the one item that belongs to a neighbouring topic rather than judging each item on whether it sounds sensible.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-1-9",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "At handover the client insists the staff car park was always part of the office refurbishment. The project manager can find nothing in the scope document either including or excluding it. What was the failure?",
+    "items": null,
+    "options": {
+      "a": "The scope was never baselined before delivery began.",
+      "b": "Change control was not applied when the car park was requested.",
+      "c": "The exclusions were never recorded, so the boundary was left open to argument.",
+      "d": "The client was not consulted while the scope was being defined."
+    },
+    "answer": "c",
+    "explanation": "Scope covers what is included and, explicitly, what is excluded. Unstated exclusions are the classic source of the handover argument. Change control tempts, but no change was ever requested; the boundary itself was silent.",
+    "tip": "Read what the scenario says is missing. If a document is silent on an item, the failure is in defining the boundary, not in controlling changes to it.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-1-10",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An inspector checks a completed pump housing against its specification and records that it conforms. Which activity is this?",
+    "items": null,
+    "options": {
+      "a": "Scope control, because the output is being compared with what was agreed.",
+      "b": "Scope definition, because the specification is being confirmed.",
+      "c": "Configuration management, because conformance is being recorded.",
+      "d": "Quality control, because a completed output is being checked against its specification."
+    },
+    "answer": "d",
+    "explanation": "Checking a finished output against its specification is quality control. Scope control tempts because both compare something with what was agreed, but scope control governs which work exists, not whether a product conforms.",
+    "tip": "Two processes can both involve comparison. Separate them by the object: scope control looks at the work list, quality control looks at the finished item.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-1-11",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Scope management identifies, defines and controls what, precisely?",
+    "items": null,
+    "options": {
+      "a": "The resources required to complete the project.",
+      "b": "The products the project will hand over.",
+      "c": "The work required to deliver the project's objectives.",
+      "d": "The benefits the project is expected to realise."
+    },
+    "answer": "c",
+    "explanation": "The definition names the work required to deliver the objectives. Products tempt because the product breakdown structure sits inside this objective, but the definition is written about work, which includes producing those products.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-1-12",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Before delivery starts, a project manager writes each output up in enough detail that a supplier could build it and the client could accept it against those words. Which verb in the scope management definition is being exercised?",
+    "items": null,
+    "options": {
+      "a": "Defining, because each output is pinned down precisely enough to build and accept.",
+      "b": "Identifying, because the outputs are being listed.",
+      "c": "Controlling, because acceptance criteria constrain what the supplier may do.",
+      "d": "Delivering, because the supplier is now able to start work."
+    },
+    "answer": "a",
+    "explanation": "Defining pins scope down precisely enough that someone can build it and someone else can accept it. Identifying tempts because the outputs are named, but naming happens before this level of detail is added.",
+    "tip": "Where two verbs from one definition both look plausible, the deciding factor is usually the level of detail the scenario describes.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-1-13",
+    "learning_outcome": "5.1",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following are part of scope management as defined in this objective. Which one is not?",
+    "items": null,
+    "options": {
+      "a": "Estimating the cost of the work required.",
+      "b": "Defining the work required.",
+      "c": "Controlling the work required.",
+      "d": "Identifying the work required."
+    },
+    "answer": "a",
+    "explanation": "The definition contains three verbs only: identifying, defining and controlling. Estimating cost belongs to budgeting and to the cost breakdown structure. It tempts because costing happens alongside scope work in the same planning period.",
+    "tip": "In an inverted question, count the options that share a pattern. The one standing outside that pattern is usually the answer.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-2-6",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "In an iterative project, which constraints are fixed for each iteration?",
+    "items": null,
+    "options": {
+      "a": "Scope and quality.",
+      "b": "Time and resources.",
+      "c": "Scope and cost.",
+      "d": "Time and scope."
+    },
+    "answer": "b",
+    "explanation": "Iterative work fixes time and resources for each iteration and re-prioritises the scope delivered within them. Option d tempts because time genuinely is fixed, but scope is the constraint deliberately left free to move.",
+    "tip": "When options pair one correct element with one wrong one, do not stop at the half you recognise. Check both halves before choosing.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-2-7",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Midway through a two week iteration, the product owner decides a reporting screen matters more than a search filter planned for the same iteration. What normally happens?",
+    "items": null,
+    "options": {
+      "a": "A change request is raised and assessed through formal change control.",
+      "b": "The scope of the iteration is re-prioritised within the fixed time and resources.",
+      "c": "The iteration is extended so that both can be delivered.",
+      "d": "The change waits until the whole scope baseline is reissued."
+    },
+    "answer": "b",
+    "explanation": "Iterative projects expect requirements to evolve and handle that by re-prioritisation inside the fixed iteration. Formal change control tempts because a change is clearly being made, but that is the linear mechanism.",
+    "tip": "Identify the life cycle before choosing the mechanism. The same event is met with re-prioritisation in one approach and a change request in the other.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-2-8",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [],
+    "stem": "A linear road scheme has a baselined scope. The client now wants additional street lighting along one section, and the change is assessed and approved. What moves as a result?",
+    "items": null,
+    "options": {
+      "a": "Nothing; the scope baseline absorbs the addition.",
+      "b": "Other scope is dropped so that time and cost stay unchanged.",
+      "c": "Time and cost flex to accommodate the approved change.",
+      "d": "The project is rebaselined as an iterative delivery."
+    },
+    "answer": "c",
+    "explanation": "In linear projects scope is held by formal change control, and time and cost flex to accommodate approved changes. Option c describes the iterative trade, where fixed time and cost force scope to be re-prioritised instead.",
+    "tip": "Ask which constraint the approach is willing to move. That single question resolves most linear versus iterative comparisons across the syllabus.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-2-9",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [],
+    "stem": "Which statement best captures what actually differs between linear and iterative scope management?",
+    "items": null,
+    "options": {
+      "a": "Linear projects control scope and iterative projects do not.",
+      "b": "The level at which change is handled differs: linear uses formal change control, iterative re-prioritises within the iteration.",
+      "c": "Linear projects use breakdown structures and iterative projects use backlogs.",
+      "d": "Iterative projects have no overall budget or deadline to protect."
+    },
+    "answer": "b",
+    "explanation": "Both approaches control scope; what differs is the mechanism and the level at which change is handled. Option a tempts because iterative work looks looser, but re-prioritisation inside fixed time and cost is still control.",
+    "tip": "When one option accuses an approach of having no control at all, be suspicious. Syllabus distinctions are usually about mechanism, not absence.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-2-10",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which three of the following are true of scope management in an iterative project?",
+    "items": [
+      "Time and resources are fixed for each iteration",
+      "Requirements are expected to evolve as the work proceeds",
+      "The project still has an overall budget, deadline and set of objectives",
+      "The full scope is defined and baselined before the first iteration begins"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 3 and 4",
+      "c": "1, 2 and 3",
+      "d": "2, 3 and 4"
+    },
+    "answer": "c",
+    "explanation": "Iterative work fixes time and resources, expects requirements to evolve, and still protects an overall budget and deadline. Item 4 describes the linear approach, where the whole scope is baselined before delivery starts.",
+    "tip": "In a list about one approach, the intruder is usually a true statement about the opposite approach rather than something false in itself.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-2-11",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A sponsor says requirements will certainly change as users see early versions, and asks which approach treats that as normal rather than as an exception.",
+    "items": null,
+    "options": {
+      "a": "Iterative, because requirements are expected to evolve and scope is re-prioritised as work proceeds.",
+      "b": "Linear, because change control exists precisely to handle changes.",
+      "c": "Neither; both treat a change in requirements as an exception to be controlled.",
+      "d": "Linear, because the scope baseline can be reissued at any point."
+    },
+    "answer": "a",
+    "explanation": "Iterative delivery assumes evolving requirements and re-prioritises within fixed time and resources. Option a tempts because linear projects genuinely can change scope, but change control treats each change as an exception to be justified.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-2-12",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following statements about iterative scope management are correct. Which one is not?",
+    "items": null,
+    "options": {
+      "a": "The scope delivered in an iteration is agreed and re-prioritised as work proceeds.",
+      "b": "There is no overall deadline, because each iteration sets its own.",
+      "c": "Requirements are expected to evolve.",
+      "d": "Time and resources are fixed for the iteration."
+    },
+    "answer": "b",
+    "explanation": "Iterative projects still hold a total budget, a deadline and a set of objectives. Option d looks right because the timebox is the visible deadline, but it sits inside an overall one rather than replacing it.",
+    "tip": "Beware an option built from a half truth. An accurate detail attached to an absolute claim such as none or never is usually the false option.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-2-13",
+    "learning_outcome": "5.2",
+    "objective": 5,
+    "day": 1,
+    "verb": "differentiate",
+    "type": "single",
+    "traps": [],
+    "stem": "A finance director is nervous about funding an iterative programme and asks what stops it running indefinitely. What is the correct reassurance?",
+    "items": null,
+    "options": {
+      "a": "Each iteration is put through formal change control before it begins.",
+      "b": "Iterations continue only while the sponsor keeps approving change requests.",
+      "c": "The full scope is baselined at the outset, so the endpoint is fixed.",
+      "d": "The programme has an overall budget, deadline and set of objectives; only the scope within them is re-prioritised."
+    },
+    "answer": "d",
+    "explanation": "Iterative delivery does not abandon control. The overall budget, deadline and objectives hold, and re-prioritisation happens inside them. Option c tempts because it sounds reassuring, but baselining the full scope is the linear approach.",
+    "tip": "The reassuring sounding option is often borrowed from the other life cycle. Check it against how the approach named in the stem actually works.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-3-6",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project manager is looking at a hierarchical chart whose lowest boxes read 'pull cabling', 'terminate panels' and 'commission alarm'. Which structure is it?",
+    "items": null,
+    "options": {
+      "a": "A product breakdown structure, because it decomposes the alarm system.",
+      "b": "An organisational breakdown structure, because each box will be given to a team.",
+      "c": "A cost breakdown structure, because each box can be priced.",
+      "d": "A work breakdown structure, because the boxes contain the work to be done."
+    },
+    "answer": "d",
+    "explanation": "The boxes contain activities, so this decomposes work. A product breakdown structure would name the things produced, such as the cabling, the panels and the alarm system. Pricing and assignment follow from a work breakdown structure.",
+    "tip": "Read the wording inside the boxes rather than the subject matter. Verbs signal work; nouns naming deliverables signal products.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-3-7",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A colleague suggests adding a duration and a cost to every box of the product breakdown structure. What is wrong with this?",
+    "items": null,
+    "options": {
+      "a": "Nothing; a product breakdown structure is normally costed and scheduled.",
+      "b": "A product breakdown structure contains work packages, which are estimated elsewhere.",
+      "c": "Costs may be added but durations may not, because duration belongs to the schedule.",
+      "d": "A product breakdown structure contains products; costs are decomposed in a cost breakdown structure."
+    },
+    "answer": "d",
+    "explanation": "A product breakdown structure decomposes outputs only. Costs decompose in the cost breakdown structure. Option d tempts by using the right kind of language, but work packages sit at the bottom of a work breakdown structure.",
+    "tip": "If an option loads a structure with a quantity it was not built to hold, another structure almost certainly owns that quantity.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-3-8",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A team builds a detailed activity hierarchy first and only later asks what the project is meant to produce. Several activities turn out to support nothing the client asked for. What did they get wrong?",
+    "items": null,
+    "options": {
+      "a": "They failed to combine the work breakdown structure with the organisational breakdown structure.",
+      "b": "They produced a work breakdown structure without first producing a product breakdown structure.",
+      "c": "They produced a product breakdown structure without first producing a work breakdown structure.",
+      "d": "They decomposed the work too far, creating work packages that were too small to track."
+    },
+    "answer": "b",
+    "explanation": "Products are decomposed first so that the work is derived from what must be produced. Reversing the order gives a plan full of activity that produces nothing anyone asked for, which is exactly what they found.",
+    "tip": "Where one option is the exact reversal of another, one of the pair is almost certainly right. Decide which direction the scenario describes.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-3-9",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [],
+    "stem": "What occupies the top box of a product breakdown structure?",
+    "items": null,
+    "options": {
+      "a": "The organisation accountable for delivery.",
+      "b": "The first work package to be started.",
+      "c": "The final product the project will deliver.",
+      "d": "The project's total budget."
+    },
+    "answer": "c",
+    "explanation": "A product breakdown structure starts with the final product and breaks it into components and sub-components. The work package option tempts because both structures are hierarchies, but work packages sit at the bottom of a work breakdown structure.",
+    "tip": "Hierarchies are read from the top down. The top box always states the whole of whatever that structure decomposes.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-3-10",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which three of the following are true of a work breakdown structure?",
+    "items": [
+      "It is a hierarchical decomposition of the work required",
+      "It ends in work packages that can be estimated, assigned and tracked",
+      "It is combined with the organisational breakdown structure to form a responsibility assignment matrix",
+      "It shows the sequence in which the work will be carried out"
+    ],
+    "options": {
+      "a": "2, 3 and 4",
+      "b": "1, 2 and 3",
+      "c": "1, 2 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "A work breakdown structure decomposes work into work packages and underpins the responsibility assignment matrix. Item 4 tempts because a schedule covers the same work, but sequence is added by scheduling, not by the hierarchy.",
+    "tip": "A breakdown structure answers what, not when. Any option adding sequence or timing to a hierarchy is describing the schedule instead.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-3-11",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [],
+    "stem": "An agile team is told that breakdown structures are a linear technique and have no place in their project. Is that right?",
+    "items": null,
+    "options": {
+      "a": "Yes, iterative projects use a prioritised backlog instead of any hierarchy.",
+      "b": "Yes, but only the product breakdown structure is unsuitable for iterative work.",
+      "c": "No, both product and work breakdown structures are used in linear and in iterative projects.",
+      "d": "No, but only the work breakdown structure applies, since iterative projects do not define products in advance."
+    },
+    "answer": "c",
+    "explanation": "Both structures are used in both approaches, because both exist to make something too large to grasp manageable. Option a tempts because iterative teams do keep backlogs, but a backlog does not replace decomposing scope.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-3-12",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A sponsor asks two questions: what exactly are we producing, and what has to be done to produce it. Which structures answer them, in that order?",
+    "items": null,
+    "options": {
+      "a": "Work breakdown structure, then product breakdown structure.",
+      "b": "Product breakdown structure, then work breakdown structure.",
+      "c": "Product breakdown structure, then cost breakdown structure.",
+      "d": "Organisational breakdown structure, then work breakdown structure."
+    },
+    "answer": "b",
+    "explanation": "The product breakdown structure answers what is being produced and the work breakdown structure answers what must be done to produce it. Option a is the same pair reversed, which is the standard distractor on this outcome.",
+    "tip": "When two options hold the same items in opposite order, settle the order from the stem rather than trying to recall which version looks familiar.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-3-13",
+    "learning_outcome": "5.3",
+    "objective": 5,
+    "day": 1,
+    "verb": "describe",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following are true of a product breakdown structure. Which one is not?",
+    "items": null,
+    "options": {
+      "a": "It is a hierarchical decomposition.",
+      "b": "It records who is responsible for each element.",
+      "c": "It is used in both linear and iterative projects.",
+      "d": "It decomposes the outputs the project will deliver."
+    },
+    "answer": "b",
+    "explanation": "Responsibility is recorded in the responsibility assignment matrix, formed from the work and organisational breakdown structures. Option d looks right because every box eventually has an owner, but the structure itself does not carry that.",
+    "tip": "Check whether an option describes the structure itself or something a different technique adds to it later. Only the first belongs.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-4-6",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "Having drawn a matrix of work against teams, a project manager finds three work elements with nobody named against them and one with three names. What has the matrix done for her?",
+    "items": null,
+    "options": {
+      "a": "Exposed gaps and overlaps in responsibility that were invisible before.",
+      "b": "Decomposed the work into manageable work packages.",
+      "c": "Shown the sequence in which the work must be carried out.",
+      "d": "Confirmed the cost of each element of work."
+    },
+    "answer": "a",
+    "explanation": "The practical value of a responsibility assignment matrix is that it reveals both work with nobody against it and work with several people against it. Decomposition tempts, but that happened in the work breakdown structure beforehand.",
+    "tip": "Ask what a technique reveals that was previously invisible. That is usually the reason the syllabus considers it worth using at all.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-4-7",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A team member describes the cost breakdown structure as the tool that shows when money will be spent across the project. What is wrong with that?",
+    "items": null,
+    "options": {
+      "a": "Nothing; phasing spend over time is the purpose of a cost breakdown structure.",
+      "b": "It decomposes costs so they can be reported at any level of the work, rather than phasing them over time.",
+      "c": "It decomposes the organisation rather than the costs.",
+      "d": "It combines with the organisational breakdown structure to show who spends what."
+    },
+    "answer": "b",
+    "explanation": "A cost breakdown structure decomposes costs, normally mirroring the work breakdown structure, so that cost can be reported at any level of the work. It supports budgeting, cost control and reporting against the baseline. Spreading spend across time is a scheduling and budget profile question, which is why the answer that accepts the team member's description tempts.",
+    "tip": "A breakdown structure decomposes a thing into parts. If an option has it spreading something across time, that is the schedule talking.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-4-8",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A sponsor wants cost reported at any level of the work, from a single work package up to the whole project. Which structure makes that possible, and how?",
+    "items": null,
+    "options": {
+      "a": "The organisational breakdown structure, by grouping costs under the teams that incur them.",
+      "b": "The product breakdown structure, by attaching a price to each component.",
+      "c": "The responsibility assignment matrix, by showing who is accountable for each budget.",
+      "d": "The cost breakdown structure, by decomposing cost so that it normally mirrors the work breakdown structure."
+    },
+    "answer": "d",
+    "explanation": "Costs are decomposed in a cost breakdown structure that normally mirrors the work breakdown structure, and that mirroring is what allows reporting at any level of work. Option a tempts because organisations really do report cost by department.",
+    "tip": "When a stem stresses reporting at any level, it is pointing at a structure that mirrors another structure level for level.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-4-9",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project manager needs a single view of the teams, departments and suppliers available to the project and how they relate to one another. Which structure provides it?",
+    "items": null,
+    "options": {
+      "a": "The work breakdown structure.",
+      "b": "The organisational breakdown structure.",
+      "c": "The responsibility assignment matrix.",
+      "d": "The cost breakdown structure."
+    },
+    "answer": "b",
+    "explanation": "The organisational breakdown structure decomposes the people and organisational units involved. The responsibility assignment matrix tempts because it names people too, but it does so against work rather than showing the organisation on its own.",
+    "tip": "One structure per dimension: products, work, cost, organisation. Match the noun in the stem to the noun in the structure's name.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-4-10",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which three of the following describe a responsibility assignment matrix?",
+    "items": [
+      "It is formed by combining the work breakdown structure with the organisational breakdown structure",
+      "Each intersection records who is responsible for that element of work",
+      "It exposes work with nobody assigned and work with several people assigned",
+      "It decomposes the project's costs so that they can be reported by department"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "2, 3 and 4",
+      "c": "1, 3 and 4",
+      "d": "1, 2 and 3"
+    },
+    "answer": "d",
+    "explanation": "The matrix combines work with people, records responsibility at each intersection and exposes gaps and overlaps. Item 4 describes the cost breakdown structure, the standard distractor here because it also mirrors the work breakdown structure.",
+    "tip": "Check each list item against the name of the technique. An item introducing a different dimension, such as money, is usually the intruder.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-4-11",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A work package is running late and the project manager needs to know which supplier is responsible for it. Which document answers that directly?",
+    "items": null,
+    "options": {
+      "a": "The work breakdown structure, since the package is defined there.",
+      "b": "The organisational breakdown structure, since the suppliers are listed there.",
+      "c": "The responsibility assignment matrix, since it maps work against organisation.",
+      "d": "The cost breakdown structure, since the package has a budget holder."
+    },
+    "answer": "c",
+    "explanation": "Only the matrix links a specific element of work to a specific part of the organisation. Options a and b each hold one half of that link, which is why they tempt, but neither of them joins the two.",
+    "tip": "When two options each supply half of what the stem needs, look for the option that joins them. A matrix usually exists to make exactly that join.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-4-12",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A junior colleague builds a matrix by putting the product breakdown structure down one axis and the cost breakdown structure across the other, and calls it a responsibility assignment matrix. What has gone wrong?",
+    "items": null,
+    "options": {
+      "a": "Nothing, provided each intersection names a responsible person.",
+      "b": "The product breakdown structure is right, but the other axis should be the work breakdown structure.",
+      "c": "The axes should be the work breakdown structure and the organisational breakdown structure.",
+      "d": "The axes are the right ones but should be the other way round."
+    },
+    "answer": "c",
+    "explanation": "Responsibility needs work on one axis and people on the other, so the matrix is formed from the work and organisational breakdown structures. Substituting the product or cost breakdown structure is the standard distractor on this outcome.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-4-13",
+    "learning_outcome": "5.4",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following are uses a project manager would make of a cost breakdown structure. Which one is not?",
+    "items": null,
+    "options": {
+      "a": "Building the project budget.",
+      "b": "Controlling cost during delivery.",
+      "c": "Reporting cost against the baseline.",
+      "d": "Determining the order in which work packages are carried out."
+    },
+    "answer": "d",
+    "explanation": "A cost breakdown structure supports budgeting, cost control and reporting against the baseline. Sequencing work is scheduling. It tempts because the cost structure mirrors the work breakdown structure, which also feeds the schedule.",
+    "tip": "Three options describing money and one describing time is a deliberate pattern. The odd dimension out is usually the answer.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-5-6",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which pair of verbs best characterises configuration management?",
+    "items": null,
+    "options": {
+      "a": "Evaluates and decides.",
+      "b": "Plans and schedules.",
+      "c": "Identifies and records.",
+      "d": "Assures and improves."
+    },
+    "answer": "c",
+    "explanation": "Configuration management identifies the items that make up the outputs and records their status through the life cycle. Evaluating and deciding belongs to change control, which is why that pair is offered first as the tempting answer.",
+    "tip": "Reduce a confusable pair of processes to one verb each. Testing an option against a verb is faster and safer than recalling a full definition.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-5-7",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A test engineer asks which version of the control software is the current approved one, and expects a definitive answer with the item's history. Which process should be able to provide it?",
+    "items": null,
+    "options": {
+      "a": "Change control, because it approved every change made to the software.",
+      "b": "Configuration management, because it records and maintains the status of items through the life cycle.",
+      "c": "Quality assurance, because it confirms the process was followed.",
+      "d": "Scope definition, because the software was specified there."
+    },
+    "answer": "b",
+    "explanation": "Maintaining the status of items so that the current version is knowable is configuration management. Change control tempts because it approved the changes, but its output is a decision rather than a maintained record of what is current.",
+    "tip": "A question asking who can answer a factual query points to the recording process. A question asking who can say yes points to the deciding one.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-5-8",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A request to add a second entrance is assessed for its effect on cost, time and risk, and the project manager issues a written rejection with reasons. Which process has just produced its output?",
+    "items": null,
+    "options": {
+      "a": "Risk management, because the risk impact was assessed.",
+      "b": "Configuration management, because the request has been recorded.",
+      "c": "Change control, because a request was evaluated and a reasoned decision reached.",
+      "d": "Scope definition, because the entrance is now confirmed as out of scope."
+    },
+    "answer": "c",
+    "explanation": "Change control identifies, evaluates and then approves or rejects a request before implementation, and its output is a yes or a no with reasons. Recording tempts because the rejection is written down, but writing is not deciding.",
+    "tip": "A written output does not make something a record keeping process. Ask whether the process produced a decision or produced a status.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-5-9",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "At what point does change control approve or reject a requested change?",
+    "items": null,
+    "options": {
+      "a": "Before implementation.",
+      "b": "During implementation, once the true impact becomes visible.",
+      "c": "After implementation, when the effect can be measured.",
+      "d": "At project closure, when all changes are reviewed together."
+    },
+    "answer": "a",
+    "explanation": "The definition states that requested changes are evaluated and then approved or rejected before implementation. Option b tempts because impact does become clearer as work proceeds, but assessing after starting defeats the point of the process.",
+    "tip": "Watch for options that move a step later in time than the definition allows. Approval after the fact is a recurring wrong answer.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-5-10",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which three of the following belong to configuration management rather than to change control?",
+    "items": [
+      "Identifying the items that make up the project's outputs",
+      "Recording the status of those items through the life cycle",
+      "Controlling the items so that they stay consistent with the record",
+      "Approving or rejecting a requested change before implementation"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "a",
+    "explanation": "Configuration management identifies, records and controls the items that make up the outputs. Item 4 is the defining act of change control. It tempts because both processes use the word control, but only one of them decides.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-5-11",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "'The process of identifying, recording and controlling the items that make up the project's outputs, and maintaining their status through the life cycle.' This defines which process?",
+    "items": null,
+    "options": {
+      "a": "Configuration management.",
+      "b": "Change control.",
+      "c": "Quality control.",
+      "d": "Scope control."
+    },
+    "answer": "a",
+    "explanation": "This is the configuration management definition, recognisable by its record keeping verbs. Change control is offered first because the two definitions are routinely used as each other's distractors, but nothing here evaluates or decides anything.",
+    "tip": "In a definition question, scan for the verb that carries a decision. If nothing in the wording decides, the process is a recording one.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-5-12",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "A project controls the versions of its circuit board designs, its embedded software and the physical enclosures it has had manufactured, as well as its drawings. Is that correct practice?",
+    "items": null,
+    "options": {
+      "a": "No, configuration management applies only to documentation.",
+      "b": "Yes, configuration management applies to any item the project chooses to place under control.",
+      "c": "No, physical components are covered by quality control instead.",
+      "d": "Yes, but only because the enclosures were manufactured to a controlled drawing."
+    },
+    "answer": "b",
+    "explanation": "Configuration items may include designs, software, physical components and documentation. The documents only claim tempts because version control is most visible on paperwork, but the process covers whatever the project decides to control.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-5-13",
+    "learning_outcome": "5.5",
+    "objective": 5,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "negative_stem",
+      "near_miss"
+    ],
+    "stem": "Three of the following are true of change control. Which one is not?",
+    "items": null,
+    "options": {
+      "a": "It maintains the status of each configuration item through the life cycle.",
+      "b": "Changes are approved or rejected before implementation.",
+      "c": "Requested changes are identified and evaluated.",
+      "d": "Its output is a decision, with reasons."
+    },
+    "answer": "a",
+    "explanation": "Maintaining item status through the life cycle is configuration management. It tempts because both processes act on the same change, but change control ends at the decision and the record keeping belongs to its partner process.",
+    "tip": "In a paired topic, the false option is often a perfectly true statement about the other half of the pair. Check which process it describes.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-6-6",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A change to a valve specification is properly assessed and approved, and the valve is replaced on site. Six weeks later the test team tests against the original specification and raises a false failure. Which process broke down?",
+    "items": null,
+    "options": {
+      "a": "Scope management, because the valve change fell outside the agreed scope.",
+      "b": "Change control, because the change should never have been approved.",
+      "c": "Quality control, because the test was carried out incorrectly.",
+      "d": "Configuration management, because the affected records were not updated to the new version."
+    },
+    "answer": "d",
+    "explanation": "Change control did its job; the approved change was simply never reflected in the records, which is precisely the failure configuration management exists to prevent. Quality control tempts because the symptom surfaced during testing.",
+    "tip": "Trace a scenario back to the first thing that went wrong, not to where the symptom appeared. The failure usually sits upstream of the discovery.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-6-7",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A supplier swaps a pump for a cheaper model, updates the drawings and version numbers correctly, and mentions it to nobody until commissioning, where the reduced flow rate becomes a problem. What was missing?",
+    "items": null,
+    "options": {
+      "a": "Change control, because nobody assessed the impact before the change was made.",
+      "b": "Configuration management, because the drawings were not properly controlled.",
+      "c": "Nothing; the records were updated, so the process worked as intended.",
+      "d": "Status accounting, because the change history was left incomplete."
+    },
+    "answer": "a",
+    "explanation": "The record keeping worked, so configuration management was not the gap. What was missing is the evaluation and decision that change control provides before implementation. Option d tempts because it names a real configuration management activity.",
+    "tip": "If a scenario says the paperwork was correct, stop suspecting the record keeping process and start looking for the missing decision.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-6-8",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "For a single change, which process authorises it and which makes the authorised version the current one?",
+    "items": null,
+    "options": {
+      "a": "Configuration management authorises; change control updates the records.",
+      "b": "Change control authorises; configuration management updates the records.",
+      "c": "Change control does both, and configuration management applies only at closure.",
+      "d": "Configuration management does both, because it controls the items."
+    },
+    "answer": "b",
+    "explanation": "Change control determines whether the change should happen; configuration management then updates the affected items and their status. Option a is the exact reversal, the standard distractor here because both processes touch the same change.",
+    "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Settle the direction and ignore the rest.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-6-9",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "Why is updating the affected records described as more than administrative tidying once a change has been approved?",
+    "items": null,
+    "options": {
+      "a": "Because auditors require a written trail of every decision taken.",
+      "b": "Because the update is what makes the approved version the one everyone works from.",
+      "c": "Because the update is what triggers the next change request.",
+      "d": "Because records must be complete before the project can be closed."
+    },
+    "answer": "b",
+    "explanation": "The update is what makes the approval real: without it the product carries the change but the documentation still describes the old version. Audit trails tempt because they are a genuine benefit, but not the reason given.",
+    "tip": "When several options are true statements, pick the one that answers the question asked rather than the one that is most generally true.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-6-10",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which three of the following occur when a change is raised and then approved?",
+    "items": [
+      "Change control evaluates the impact on scope, time, cost, quality and risk",
+      "A decision to approve or reject is taken by whoever holds the authority",
+      "Configuration management updates the affected items and records the new status",
+      "Configuration management decides whether the change is worth making"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "1, 3 and 4",
+      "d": "2, 3 and 4"
+    },
+    "answer": "a",
+    "explanation": "Change control evaluates and decides, then configuration management updates the records. Item 4 reverses the responsibilities, which is the most common error on this outcome because both processes act on the same change.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-6-11",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A colleague explains that configuration management approves changes and change control keeps the version records straight. How should this be corrected?",
+    "items": null,
+    "options": {
+      "a": "It is correct as stated.",
+      "b": "Only the second half is wrong; configuration management does approve changes.",
+      "c": "Only the first half is wrong; change control does keep the version records.",
+      "d": "The two responsibilities are the wrong way round."
+    },
+    "answer": "d",
+    "explanation": "Change control evaluates and decides; configuration management identifies and records. Both halves of the statement are reversed. Options c and d tempt by conceding half the error, which feels safer than rejecting the whole sentence.",
+    "tip": "Partial corrections are attractive because they feel measured. If both halves of a statement are swapped, the whole sentence is wrong, not half of it.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-6-12",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A sponsor argues that an iterative project re-prioritises scope constantly, so configuration management would only slow it down. What is the best response?",
+    "items": null,
+    "options": {
+      "a": "Agreed; configuration management applies only where the scope has been baselined.",
+      "b": "The project still needs to know which version of each item is current, so configuration management still applies.",
+      "c": "Agreed, provided change control is strengthened to compensate for it.",
+      "d": "Configuration management should replace change control altogether in iterative work."
+    },
+    "answer": "b",
+    "explanation": "Knowing which version of what is current is needed however scope is agreed. Option c tempts by treating the two as substitutes, but recording versions without controlling changes gives only an accurate history of an uncontrolled project.",
+    "tip": "Options offering one process as a substitute for the other are almost always wrong where the syllabus treats the pair as interdependent.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 12,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-6-13",
+    "learning_outcome": "5.6",
+    "objective": 5,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following describe the relationship between change control and configuration management correctly. Which one does not?",
+    "items": null,
+    "options": {
+      "a": "Change control determines whether a change should happen.",
+      "b": "Once a change has been implemented, configuration management replaces change control.",
+      "c": "Each process is of limited value without the other.",
+      "d": "Configuration management ensures the records reflect the change once it has happened."
+    },
+    "answer": "b",
+    "explanation": "The two processes run alongside each other throughout the life cycle and neither replaces the other. Option d looks right because configuration management genuinely does take over the final step of a change, which is not the same thing.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 13,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-7-7",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A change request would add cost well beyond the project manager's delegated tolerance. Who takes the decision?",
+    "items": null,
+    "options": {
+      "a": "The project manager, since the request arose inside the project.",
+      "b": "The line manager of the person who raised the request.",
+      "c": "The governance board, because the impact exceeds the project manager's authority.",
+      "d": "The configuration librarian, who holds the affected records."
+    },
+    "answer": "c",
+    "explanation": "Decisions sit with whoever holds the authority: the project manager within tolerance, the governance board beyond it. Option a tempts because the project manager runs the process, but running a process is not the same as holding its decision.",
+    "tip": "Separate who operates a process from who is authorised to decide within it. Exam options routinely conflate the two roles.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-7-8",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A request arrives that duplicates work already in the baseline. It is logged, looked at briefly and dismissed without any impact assessment. Which stage stopped it?",
+    "items": null,
+    "options": {
+      "a": "The detailed evaluation, because the impact was considered.",
+      "b": "The initial evaluation, which establishes whether a request is valid and worth assessing in detail.",
+      "c": "The recommendation, because no case could be made for the request.",
+      "d": "The decision, because authority was exercised to reject it."
+    },
+    "answer": "b",
+    "explanation": "The initial evaluation exists so that invalid requests fail early and save the cost of a full assessment. The detailed evaluation tempts because the request was judged, but no impact assessment was carried out at all.",
+    "tip": "Match the depth of analysis in the stem to the stage. A quick look is the initial evaluation; a full impact assessment is the detailed one.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-7-9",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "In a typical change control process, what immediately follows the detailed evaluation?",
+    "items": null,
+    "options": {
+      "a": "The request is logged.",
+      "b": "The change is implemented.",
+      "c": "A recommendation is made on the basis of the evaluation.",
+      "d": "The affected baselines are updated."
+    },
+    "answer": "c",
+    "explanation": "The detailed evaluation feeds a recommendation, which is then put to whoever holds the decision. Implementation tempts because it is the next visible activity, but a recommendation and a decision come between evaluation and doing the work.",
+    "tip": "For sequence questions, recall the step before and the step after first, then choose the option that fits between them.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-7-10",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An approved change has been implemented and the affected records and baselines are now being updated. What is happening at this point?",
+    "items": null,
+    "options": {
+      "a": "The final stage of change control, where configuration management takes over the records.",
+      "b": "The detailed evaluation is being repeated against the new baseline.",
+      "c": "A verification audit, which is the closing stage of change control.",
+      "d": "The recommendation is being reissued to the governance board."
+    },
+    "answer": "a",
+    "explanation": "Implementation is followed by updating the affected records and baselines, and that is where configuration management picks the change up. Option c tempts by naming a real activity, but the verification audit belongs to configuration management.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-7-11",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A candidate lists the stages of change control and includes status accounting among them. Why is that wrong?",
+    "items": null,
+    "options": {
+      "a": "Status accounting is a configuration management activity, not a change control stage.",
+      "b": "Status accounting is carried out only at project closure.",
+      "c": "It is not wrong; status accounting is the final stage of change control.",
+      "d": "Status accounting sits inside the detailed evaluation, so listing it separately duplicates a stage."
+    },
+    "answer": "a",
+    "explanation": "Status accounting records and reports the state of configuration items and their change history, so it belongs to the configuration management list rather than the change control one. The two lists are deliberately easy to mix up, and the answer that accepts status accounting as the final stage of change control is the trap for anyone who has learned only one of them.",
+    "tip": "For any process word, decide first which of the two lists it belongs to. Words that record or check belong to configuration management.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-7-12",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which three of the following are stages of a typical change control process?",
+    "items": [
+      "A request for change is raised and logged",
+      "The impact on scope, schedule, cost, quality, risk and benefits is assessed",
+      "A decision is taken by whoever holds the authority",
+      "The records are audited to confirm they match the items actually built"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 2 and 3",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Raising, assessing and deciding are change control stages. Item 4 is the verification audit, a configuration management activity, and it tempts because change control does end with records being updated.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 12,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-7-13",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "What does a change control process exist to prevent?",
+    "items": null,
+    "options": {
+      "a": "Suppliers working to superseded drawings.",
+      "b": "Estimating error in the original cost baseline.",
+      "c": "Scope creep: change by accumulation, unpriced and unagreed.",
+      "d": "Optimism bias in the business case."
+    },
+    "answer": "c",
+    "explanation": "The stated alternative to a change control process is scope creep, where changes accumulate without being priced or agreed. Option c tempts because it is a genuine project failure, but that is what configuration management prevents.",
+    "tip": "Learn the stated purpose of each process. Options often offer a real project failure that belongs to a neighbouring process instead.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 13,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-7-14",
+    "learning_outcome": "5.7",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Three of the following happen before a decision is taken on a change request. Which one does not?",
+    "items": null,
+    "options": {
+      "a": "The affected baselines are updated.",
+      "b": "An initial evaluation establishes whether it is worth assessing in detail.",
+      "c": "The request is raised and logged.",
+      "d": "The impact on cost, schedule and risk is assessed."
+    },
+    "answer": "a",
+    "explanation": "Baselines are updated after implementation, which itself follows the decision. It tempts because updating records feels like preparation, but nothing in the baseline moves until the change has been approved and made.",
+    "tip": "Order questions become easier with one anchor point. Everything that costs money to do sits after the decision, not before it.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 14,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-8-7",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which configuration management activity gives each item a unique reference, so that a specific version of a specific thing can be pointed at unambiguously?",
+    "items": null,
+    "options": {
+      "a": "Planning.",
+      "b": "Status accounting.",
+      "c": "Control.",
+      "d": "Identification."
+    },
+    "answer": "d",
+    "explanation": "Identification determines the individual configuration items and gives each a unique reference. Status accounting tempts because it also deals in item detail, but it reports the state of an item that identification has already named.",
+    "tip": "Where a stem names a distinguishing feature such as a unique reference, match it to the activity that produces that feature.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
+  },
+  {
+    "id": "PFQP-5-8-8",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "During a site inspection the records show a pump assembly at version four, while the unit actually installed is version three. Which activity has just done its job?",
+    "items": null,
+    "options": {
+      "a": "Control, because the discrepancy will now be put right.",
+      "b": "Status accounting, because the version numbers were reported.",
+      "c": "Verification audit, because the records were checked against reality.",
+      "d": "Identification, because the assembly carries a unique reference."
+    },
+    "answer": "c",
+    "explanation": "The verification audit checks that records match reality and catches exactly this mismatch. Status accounting tempts because the version numbers came from its records, but reporting a state is not the same as checking it against the item.",
+    "tip": "Where several activities feature in a scenario, pick the one that performed the act described, not the ones that supplied the information.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-8-9",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An engineer amends a controlled drawing directly on the server because the change seemed obvious and urgent. Which configuration management activity has been bypassed?",
+    "items": null,
+    "options": {
+      "a": "Control.",
+      "b": "Identification.",
+      "c": "Planning.",
+      "d": "Verification audit."
+    },
+    "answer": "a",
+    "explanation": "Control ensures that changes to configuration items happen only through the agreed process, and that is what was bypassed. The verification audit tempts because it would eventually detect the problem, but detection is not prevention.",
+    "tip": "Ask what was bypassed, not what would eventually notice. Prevention and detection are different activities within the same process.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-8-10",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "On one project the fire alarm panel is a configuration item but the site canteen rota is not. Which activity settled that distinction?",
+    "items": null,
+    "options": {
+      "a": "Status accounting, which reports on the items being managed.",
+      "b": "Identification, which allocates a unique reference to each item.",
+      "c": "Planning, which establishes what will be placed under configuration management, how and by whom.",
+      "d": "Control, which restricts changes to the agreed process."
+    },
+    "answer": "c",
+    "explanation": "Not everything needs controlling, and deciding that boundary is the first activity. Identification tempts because it also concerns which items exist, but it references the items planning has already brought inside the boundary.",
+    "tip": "Where two activities look similar, the earlier one usually sets the rule and the later one applies it. Read the stem for which is described.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-8-11",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A programme office produces a report showing the current version and full change history of every controlled item, without inspecting any of the items themselves. Which activity is this?",
+    "items": null,
+    "options": {
+      "a": "Verification audit.",
+      "b": "Control.",
+      "c": "Identification.",
+      "d": "Status accounting."
+    },
+    "answer": "d",
+    "explanation": "Status accounting records and reports the current state of each item and its change history. Verification audit tempts because both deal in accuracy, but the audit checks records against the actual items, which was expressly not done here.",
+    "tip": "One phrase in a stem often carries the whole answer. Here the words about not inspecting the items rule out the activity that inspects.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 11,
+    "mock_set": 1
+  },
+  {
+    "id": "PFQP-5-8-12",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select",
+      "near_miss"
+    ],
+    "stem": "Which three of the following are named configuration management activities?",
+    "items": [
+      "Identification",
+      "Status accounting",
+      "Verification audit",
+      "Detailed evaluation"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 3 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 2 and 3"
+    },
+    "answer": "d",
+    "explanation": "The five named activities are planning, identification, control, status accounting and verification audit. Detailed evaluation is a change control stage, and it tempts because both processes deal with changes to the same items.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 12,
+    "mock_set": null
+  },
+  {
+    "id": "PFQP-5-8-13",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "At which configuration management activity does the change control process connect to configuration management?",
+    "items": null,
+    "options": {
+      "a": "Verification audit, because approved changes are confirmed as built.",
+      "b": "Status accounting, because approved changes appear in the change history.",
+      "c": "Planning, because the change process is agreed there.",
+      "d": "Control, because changes to configuration items may happen only through the agreed process."
+    },
+    "answer": "d",
+    "explanation": "Control is the activity requiring changes to controlled items to go through the agreed process, which is change control. Status accounting tempts because approved changes do show up in its records, but that is a consequence, not the connection.",
+    "tip": "When a question asks where two processes join, look for the activity whose own description mentions the other process by function.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 13,
+    "mock_set": 2
+  },
+  {
+    "id": "PFQP-5-8-14",
+    "learning_outcome": "5.8",
+    "objective": 5,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which of the following words belongs to the change control process rather than to configuration management?",
+    "items": null,
+    "options": {
+      "a": "Identification.",
+      "b": "Status accounting.",
+      "c": "Verification audit.",
+      "d": "Recommendation."
+    },
+    "answer": "d",
+    "explanation": "A recommendation is made after the detailed evaluation in change control. The other three are named configuration management activities. The test is the verb: words that decide or advise sit with change control.",
+    "tip": "Sort every process word by its verb before answering. If it decides or advises it is change control; if it records or checks it is configuration management.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 14,
+    "mock_set": null
+  }
 ]

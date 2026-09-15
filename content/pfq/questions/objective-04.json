@@ -1,1403 +1,1403 @@
 [
- {
-  "id": "PFQP-4-1-6",
-  "learning_outcome": "4.1",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project manager wants to answer the question \"are we ahead or behind?\". What makes that question answerable?",
-  "items": null,
-  "options": {
-   "a": "An approved deployment baseline to compare current position against.",
-   "b": "A work breakdown structure showing every work package.",
-   "c": "A risk register kept current through the delivery phase.",
-   "d": "A configuration management system recording document versions."
+  {
+    "id": "PFQP-4-1-6",
+    "learning_outcome": "4.1",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project manager wants to answer the question \"are we ahead or behind?\". What makes that question answerable?",
+    "items": null,
+    "options": {
+      "a": "An approved deployment baseline to compare current position against.",
+      "b": "A work breakdown structure showing every work package.",
+      "c": "A risk register kept current through the delivery phase.",
+      "d": "A configuration management system recording document versions."
+    },
+    "answer": "a",
+    "explanation": "A baseline is the approved reference. Without something agreed to compare against, ahead-or-behind has no meaning. B, C and D are all real and useful project documents, but none of them provides the point of comparison.",
+    "tip": "When every option names a genuine project document, the question is asking which one does the specific job in the stem. Answer the stem in your own head first, then look for it.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
   },
-  "answer": "a",
-  "explanation": "A baseline is the approved reference. Without something agreed to compare against, ahead-or-behind has no meaning. B, C and D are all real and useful project documents, but none of them provides the point of comparison.",
-  "tip": "When every option names a genuine project document, the question is asking which one does the specific job in the stem. Answer the stem in your own head first, then look for it.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-1-7",
-  "learning_outcome": "4.1",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "Why does moving a deployment baseline require formal change control rather than a simple update?",
-  "items": null,
-  "options": {
-   "a": "Because baselines are held in a system that prevents direct editing.",
-   "b": "Because the sponsor must personally re-sign the project management plan.",
-   "c": "Because the schedule cannot be recalculated once it has been approved.",
-   "d": "Because moving it invalidates every progress report that referred to the old one."
+  {
+    "id": "PFQP-4-1-7",
+    "learning_outcome": "4.1",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does moving a deployment baseline require formal change control rather than a simple update?",
+    "items": null,
+    "options": {
+      "a": "Because baselines are held in a system that prevents direct editing.",
+      "b": "Because the sponsor must personally re-sign the project management plan.",
+      "c": "Because the schedule cannot be recalculated once it has been approved.",
+      "d": "Because moving it invalidates every progress report that referred to the old one."
+    },
+    "answer": "d",
+    "explanation": "The baseline is what performance has been reported against. Quietly moving it makes the entire reporting history meaningless, which is why the change has to be visible and authorised. The other options describe process or tooling constraints that may or may not apply on a given project.",
+    "tip": "Watch for distractors that describe how a rule is enforced rather than why it exists. A why question wants the reason, not the mechanism.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
   },
-  "answer": "d",
-  "explanation": "The baseline is what performance has been reported against. Quietly moving it makes the entire reporting history meaningless, which is why the change has to be visible and authorised. The other options describe process or tooling constraints that may or may not apply on a given project.",
-  "tip": "Watch for distractors that describe how a rule is enforced rather than why it exists. A why question wants the reason, not the mechanism.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-1-8",
-  "learning_outcome": "4.1",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which of the following does a deployment baseline normally cover?",
-  "items": [
-   "Scope",
-   "Schedule",
-   "Cost",
-   "Team morale"
-  ],
-  "options": {
-   "a": "2, 3 and 4",
-   "b": "1, 2 and 4",
-   "c": "1, 2 and 3",
-   "d": "1, 3 and 4"
+  {
+    "id": "PFQP-4-1-8",
+    "learning_outcome": "4.1",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which of the following does a deployment baseline normally cover?",
+    "items": [
+      "Scope",
+      "Schedule",
+      "Cost",
+      "Team morale"
+    ],
+    "options": {
+      "a": "2, 3 and 4",
+      "b": "1, 2 and 4",
+      "c": "1, 2 and 3",
+      "d": "1, 3 and 4"
+    },
+    "answer": "c",
+    "explanation": "A baseline normally covers scope, schedule and cost together, because changing any one of them changes what the project is measured against. Team morale matters but is not baselined.",
+    "tip": "Do not evaluate the four options. Evaluate the four items, find the single one you are confident is wrong, then strike out every option containing it. Here that leaves one answer immediately.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "c",
-  "explanation": "A baseline normally covers scope, schedule and cost together, because changing any one of them changes what the project is measured against. Team morale matters but is not baselined.",
-  "tip": "Do not evaluate the four options. Evaluate the four items, find the single one you are confident is wrong, then strike out every option containing it. Here that leaves one answer immediately.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-1-9",
-  "learning_outcome": "4.1",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project has a detailed schedule and a full cost plan, but neither has been approved. What does it lack?",
-  "items": null,
-  "options": {
-   "a": "A deployment baseline, because a baseline is the approved plan, not merely a plan.",
-   "b": "A project management plan, because approval is what creates one.",
-   "c": "A business case, because costs cannot be planned without justification.",
-   "d": "Nothing, because a baseline is simply the latest version of the plan."
+  {
+    "id": "PFQP-4-1-9",
+    "learning_outcome": "4.1",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project has a detailed schedule and a full cost plan, but neither has been approved. What does it lack?",
+    "items": null,
+    "options": {
+      "a": "A deployment baseline, because a baseline is the approved plan, not merely a plan.",
+      "b": "A project management plan, because approval is what creates one.",
+      "c": "A business case, because costs cannot be planned without justification.",
+      "d": "Nothing, because a baseline is simply the latest version of the plan."
+    },
+    "answer": "a",
+    "explanation": "The word doing the work in the definition is approved. A plan becomes a baseline at the point it is authorised, not at the point it is finished. Option D is the habit that makes progress reporting meaningless in practice.",
+    "tip": "Definitions in this syllabus often turn on a single qualifying word. Approved, agreed, measurable, formal. Find that word and the near-misses fall away.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "The word doing the work in the definition is approved. A plan becomes a baseline at the point it is authorised, not at the point it is finished. Option D is the habit that makes progress reporting meaningless in practice.",
-  "tip": "Definitions in this syllabus often turn on a single qualifying word. Approved, agreed, measurable, formal. Find that word and the near-misses fall away.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-1-10",
-  "learning_outcome": "4.1",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "Which single word best captures what a deployment baseline provides?",
-  "items": null,
-  "options": {
-   "a": "Decomposition.",
-   "b": "Authorisation.",
-   "c": "Reference.",
-   "d": "Contingency."
+  {
+    "id": "PFQP-4-1-10",
+    "learning_outcome": "4.1",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "Which single word best captures what a deployment baseline provides?",
+    "items": null,
+    "options": {
+      "a": "Decomposition.",
+      "b": "Authorisation.",
+      "c": "Reference.",
+      "d": "Contingency."
+    },
+    "answer": "c",
+    "explanation": "A baseline is the reference point against which progress is measured and controlled. Authorisation is how a baseline is created rather than what it provides. Decomposition describes breakdown structures, and contingency is a cost and risk concept.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "c",
-  "explanation": "A baseline is the reference point against which progress is measured and controlled. Authorisation is how a baseline is created rather than what it provides. Decomposition describes breakdown structures, and contingency is a cost and risk concept.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-2-6",
-  "learning_outcome": "4.2",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "An iterative project has a high-level plan for the whole project and a detailed agreed plan for the current cycle only. Is this correct practice?",
-  "items": null,
-  "options": {
-   "a": "Yes. In iterative work only the current iteration is baselined in detail.",
-   "b": "No. The whole project must be baselined in detail before delivery starts.",
-   "c": "No. Iterative projects do not use baselines at all.",
-   "d": "Yes, but only if the sponsor waives formal change control."
+  {
+    "id": "PFQP-4-2-6",
+    "learning_outcome": "4.2",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "An iterative project has a high-level plan for the whole project and a detailed agreed plan for the current cycle only. Is this correct practice?",
+    "items": null,
+    "options": {
+      "a": "Yes. In iterative work only the current iteration is baselined in detail.",
+      "b": "No. The whole project must be baselined in detail before delivery starts.",
+      "c": "No. Iterative projects do not use baselines at all.",
+      "d": "Yes, but only if the sponsor waives formal change control."
+    },
+    "answer": "a",
+    "explanation": "Iterative work baselines each iteration: time and resources are fixed for the cycle and the scope within it is agreed, while later iterations are deliberately left open. Option B describes the linear approach. Option C overstates the difference, since iterative projects do baseline, just at a different granularity.",
+    "tip": "In a yes-or-no question, read the reason attached to each option, not the yes or the no. Two options here say yes and only one gives the right reason.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
   },
-  "answer": "a",
-  "explanation": "Iterative work baselines each iteration: time and resources are fixed for the cycle and the scope within it is agreed, while later iterations are deliberately left open. Option B describes the linear approach. Option C overstates the difference, since iterative projects do baseline, just at a different granularity.",
-  "tip": "In a yes-or-no question, read the reason attached to each option, not the yes or the no. Two options here say yes and only one gives the right reason.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-2-7",
-  "learning_outcome": "4.2",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which pairing correctly describes what each life cycle fixes?",
-  "items": null,
-  "options": {
-   "a": "Linear fixes scope; iterative fixes time and cost.",
-   "b": "Linear fixes time and cost; iterative fixes scope.",
-   "c": "Both fix scope, and flex time and cost.",
-   "d": "Both fix time and cost, and flex scope."
+  {
+    "id": "PFQP-4-2-7",
+    "learning_outcome": "4.2",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which pairing correctly describes what each life cycle fixes?",
+    "items": null,
+    "options": {
+      "a": "Linear fixes scope; iterative fixes time and cost.",
+      "b": "Linear fixes time and cost; iterative fixes scope.",
+      "c": "Both fix scope, and flex time and cost.",
+      "d": "Both fix time and cost, and flex scope."
+    },
+    "answer": "a",
+    "explanation": "Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost per cycle and flexes scope through re-prioritisation. Option B is the exact inversion.",
+    "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Decide which half you are sure of, and let it settle the pair.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
   },
-  "answer": "a",
-  "explanation": "Linear fixes scope and flexes time and cost through change control. Iterative fixes time and cost per cycle and flexes scope through re-prioritisation. Option B is the exact inversion.",
-  "tip": "When one option is the precise reversal of another, one of the two is almost always correct. Decide which half you are sure of, and let it settle the pair.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-2-8",
-  "learning_outcome": "4.2",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [],
-  "stem": "Why does an iterative project not baseline the detail of its later iterations?",
-  "items": null,
-  "options": {
-   "a": "Because the detail of later work is deliberately left open to be re-prioritised.",
-   "b": "Because iterative projects have no defined end point.",
-   "c": "Because the sponsor only approves one iteration at a time.",
-   "d": "Because later iterations are estimated parametrically rather than analytically."
+  {
+    "id": "PFQP-4-2-8",
+    "learning_outcome": "4.2",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does an iterative project not baseline the detail of its later iterations?",
+    "items": null,
+    "options": {
+      "a": "Because the detail of later work is deliberately left open to be re-prioritised.",
+      "b": "Because iterative projects have no defined end point.",
+      "c": "Because the sponsor only approves one iteration at a time.",
+      "d": "Because later iterations are estimated parametrically rather than analytically."
+    },
+    "answer": "a",
+    "explanation": "Leaving later detail open is the point of the approach, not an oversight: it is what allows scope to flex through re-prioritisation. Option B is a common misconception, since iterative projects do have end points.",
+    "tip": "Distractors that describe a method as lacking discipline are usually wrong. The syllabus treats iterative work as deliberate, not loose.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Leaving later detail open is the point of the approach, not an oversight: it is what allows scope to flex through re-prioritisation. Option B is a common misconception, since iterative projects do have end points.",
-  "tip": "Distractors that describe a method as lacking discipline are usually wrong. The syllabus treats iterative work as deliberate, not loose.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-2-9",
-  "learning_outcome": "4.2",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is not true of a linear life cycle baseline?",
-  "items": null,
-  "options": {
-   "a": "It is set once, at the end of the definition phase.",
-   "b": "It covers the full scope of the project.",
-   "c": "It is re-set at the start of every delivery phase as a matter of course.",
-   "d": "Changing it after approval requires formal change control."
+  {
+    "id": "PFQP-4-2-9",
+    "learning_outcome": "4.2",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is not true of a linear life cycle baseline?",
+    "items": null,
+    "options": {
+      "a": "It is set once, at the end of the definition phase.",
+      "b": "It covers the full scope of the project.",
+      "c": "It is re-set at the start of every delivery phase as a matter of course.",
+      "d": "Changing it after approval requires formal change control."
+    },
+    "answer": "c",
+    "explanation": "A linear baseline is set once and changed only through change control. Routine re-baselining at every phase describes iterative practice, not linear.",
+    "tip": "The word not inverts the question. Mark it before you read a single option, then ask of each one: is this true? Pick the one where the answer is no.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "c",
-  "explanation": "A linear baseline is set once and changed only through change control. Routine re-baselining at every phase describes iterative practice, not linear.",
-  "tip": "The word not inverts the question. Mark it before you read a single option, then ask of each one: is this true? Pick the one where the answer is no.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-2-10",
-  "learning_outcome": "4.2",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [],
-  "stem": "A team completes an iteration and agrees the scope of the next one. What happens to the baseline?",
-  "items": null,
-  "options": {
-   "a": "A new baseline is set for the next iteration.",
-   "b": "The original project baseline is amended through change control.",
-   "c": "The baseline is suspended until the final iteration.",
-   "d": "No baseline exists until all iterations are complete."
+  {
+    "id": "PFQP-4-2-10",
+    "learning_outcome": "4.2",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [],
+    "stem": "A team completes an iteration and agrees the scope of the next one. What happens to the baseline?",
+    "items": null,
+    "options": {
+      "a": "A new baseline is set for the next iteration.",
+      "b": "The original project baseline is amended through change control.",
+      "c": "The baseline is suspended until the final iteration.",
+      "d": "No baseline exists until all iterations are complete."
+    },
+    "answer": "a",
+    "explanation": "Iterative baselining happens per cycle, so each new iteration gets its own. Option B applies the linear mechanism to an iterative project. C and D would leave the team with nothing to measure against, which defeats the purpose of baselining.",
+    "tip": "Check whether an option's mechanism belongs to the life cycle in the scenario. Change control is a linear answer, re-prioritisation is an iterative one.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Iterative baselining happens per cycle, so each new iteration gets its own. Option B applies the linear mechanism to an iterative project. C and D would leave the team with nothing to measure against, which defeats the purpose of baselining.",
-  "tip": "Check whether an option's mechanism belongs to the life cycle in the scenario. Change control is a linear answer, re-prioritisation is an iterative one.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-3-6",
-  "learning_outcome": "4.3",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A user group has not contributed to the project management plan and is not named in it, but the plan determines what they will receive and when. Are they a stakeholder of the plan?",
-  "items": null,
-  "options": {
-   "a": "Yes, because being a stakeholder is about having an interest in the plan.",
-   "b": "No, because they were not consulted during its development.",
-   "c": "No, because only roles named in the plan are its stakeholders.",
-   "d": "Yes, but only once they are formally added to the stakeholder register."
+  {
+    "id": "PFQP-4-3-6",
+    "learning_outcome": "4.3",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A user group has not contributed to the project management plan and is not named in it, but the plan determines what they will receive and when. Are they a stakeholder of the plan?",
+    "items": null,
+    "options": {
+      "a": "Yes, because being a stakeholder is about having an interest in the plan.",
+      "b": "No, because they were not consulted during its development.",
+      "c": "No, because only roles named in the plan are its stakeholders.",
+      "d": "Yes, but only once they are formally added to the stakeholder register."
+    },
+    "answer": "a",
+    "explanation": "Stakeholder status comes from having an interest, not from authorship or from being named. Options B and C are both plausible-sounding process rules and both wrong. D confuses being a stakeholder with being recorded as one.",
+    "tip": "Be suspicious of options that make a status depend on paperwork. Being something and being recorded as something are different, and the exam tests the difference.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Stakeholder status comes from having an interest, not from authorship or from being named. Options B and C are both plausible-sounding process rules and both wrong. D confuses being a stakeholder with being recorded as one.",
-  "tip": "Be suspicious of options that make a status depend on paperwork. Being something and being recorded as something are different, and the exam tests the difference.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-3-7",
-  "learning_outcome": "4.3",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which stakeholder uses the project management plan as the basis for the tolerances it sets?",
-  "items": null,
-  "options": {
-   "a": "The project manager.",
-   "b": "The project sponsor.",
-   "c": "The governance board.",
-   "d": "The supplier."
+  {
+    "id": "PFQP-4-3-7",
+    "learning_outcome": "4.3",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which stakeholder uses the project management plan as the basis for the tolerances it sets?",
+    "items": null,
+    "options": {
+      "a": "The project manager.",
+      "b": "The project sponsor.",
+      "c": "The governance board.",
+      "d": "The supplier."
+    },
+    "answer": "c",
+    "explanation": "The governance board sets tolerances and takes gate decisions using the plan. The sponsor approves it and owns the business case it serves, the project manager produces and works to it, and suppliers depend on its procurement timing.",
+    "tip": "When every option is a genuine stakeholder, the question is testing which interest belongs to which role. Match the verb in the stem to the role that performs it.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 2
   },
-  "answer": "c",
-  "explanation": "The governance board sets tolerances and takes gate decisions using the plan. The sponsor approves it and owns the business case it serves, the project manager produces and works to it, and suppliers depend on its procurement timing.",
-  "tip": "When every option is a genuine stakeholder, the question is testing which interest belongs to which role. Match the verb in the stem to the role that performs it.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-3-8",
-  "learning_outcome": "4.3",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "What does the project management plan set out?",
-  "items": null,
-  "options": {
-   "a": "Why, what, how, when, how much and by whom the project will be delivered.",
-   "b": "The justification for the project and the options considered.",
-   "c": "The current version and status of every project document.",
-   "d": "The threats and opportunities facing the project and their owners."
+  {
+    "id": "PFQP-4-3-8",
+    "learning_outcome": "4.3",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "What does the project management plan set out?",
+    "items": null,
+    "options": {
+      "a": "Why, what, how, when, how much and by whom the project will be delivered.",
+      "b": "The justification for the project and the options considered.",
+      "c": "The current version and status of every project document.",
+      "d": "The threats and opportunities facing the project and their owners."
+    },
+    "answer": "a",
+    "explanation": "That six-part formulation is the plan. Option B describes the business case, C describes configuration management records, and D describes the risk register.",
+    "tip": "Three options describing three different documents is the classic near-miss shape. Name the document in your head from the stem before reading on.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
   },
-  "answer": "a",
-  "explanation": "That six-part formulation is the plan. Option B describes the business case, C describes configuration management records, and D describes the risk register.",
-  "tip": "Three options describing three different documents is the classic near-miss shape. Name the document in your head from the stem before reading on.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-3-9",
-  "learning_outcome": "4.3",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "Why do end users have a stake in the project management plan?",
-  "items": null,
-  "options": {
-   "a": "Because they produce the work packages the plan contains.",
-   "b": "Because they approve the plan before delivery can begin.",
-   "c": "Because they are accountable for the benefits the plan supports.",
-   "d": "Because it determines what they will receive and what will be expected of them at transition."
+  {
+    "id": "PFQP-4-3-9",
+    "learning_outcome": "4.3",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "Why do end users have a stake in the project management plan?",
+    "items": null,
+    "options": {
+      "a": "Because they produce the work packages the plan contains.",
+      "b": "Because they approve the plan before delivery can begin.",
+      "c": "Because they are accountable for the benefits the plan supports.",
+      "d": "Because it determines what they will receive and what will be expected of them at transition."
+    },
+    "answer": "d",
+    "explanation": "End users are affected by what is delivered and by what transition asks of them. Approval and benefits accountability belong to the sponsor, and work packages to the project manager and team.",
+    "tip": "Each wrong option here correctly describes a different stakeholder. Ask who the stem names, then find the interest that belongs to them specifically.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "d",
-  "explanation": "End users are affected by what is delivered and by what transition asks of them. Approval and benefits accountability belong to the sponsor, and work packages to the project manager and team.",
-  "tip": "Each wrong option here correctly describes a different stakeholder. Ask who the stem names, then find the interest that belongs to them specifically.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-3-10",
-  "learning_outcome": "4.3",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A supplier asks why they should be consulted on the project management plan. What is the best answer?",
-  "items": null,
-  "options": {
-   "a": "The plan states what will be procured and when it is needed, so their commitments depend on it.",
-   "b": "The plan sets the tolerances within which they must operate.",
-   "c": "The plan is the contract between the project and the supplier.",
-   "d": "The plan records the acceptance criteria for their deliverables."
+  {
+    "id": "PFQP-4-3-10",
+    "learning_outcome": "4.3",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A supplier asks why they should be consulted on the project management plan. What is the best answer?",
+    "items": null,
+    "options": {
+      "a": "The plan states what will be procured and when it is needed, so their commitments depend on it.",
+      "b": "The plan sets the tolerances within which they must operate.",
+      "c": "The plan is the contract between the project and the supplier.",
+      "d": "The plan records the acceptance criteria for their deliverables."
+    },
+    "answer": "a",
+    "explanation": "Suppliers have a stake because the plan drives what must be supplied and when. Option C is wrong in an important way: the plan is not a contract, and treating it as one confuses a management document with a legal instrument. Tolerances are a governance board matter.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Suppliers have a stake because the plan drives what must be supplied and when. Option C is wrong in an important way: the plan is not a contract, and treating it as one confuses a management document with a legal instrument. Tolerances are a governance board matter.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-4-7",
-  "learning_outcome": "4.4",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which of the following, if it appeared in a business case, would suggest the document has strayed into delivery detail?",
-  "items": null,
-  "options": {
-   "a": "A work breakdown structure of the preferred option.",
-   "b": "The strategic reason for undertaking the project.",
-   "c": "The options considered and why one was preferred.",
-   "d": "The major risks and the expected timescales."
+  {
+    "id": "PFQP-4-4-7",
+    "learning_outcome": "4.4",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which of the following, if it appeared in a business case, would suggest the document has strayed into delivery detail?",
+    "items": null,
+    "options": {
+      "a": "A work breakdown structure of the preferred option.",
+      "b": "The strategic reason for undertaking the project.",
+      "c": "The options considered and why one was preferred.",
+      "d": "The major risks and the expected timescales."
+    },
+    "answer": "a",
+    "explanation": "A work breakdown structure is a delivery tool, not justification. B, C and D are all typical business case content.",
+    "tip": "A reliable test for business case content: if an option describes something a project manager would use to run the work, it does not belong in the business case.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "A work breakdown structure is a delivery tool, not justification. B, C and D are all typical business case content.",
-  "tip": "A reliable test for business case content: if an option describes something a project manager would use to run the work, it does not belong in the business case.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-4-8",
-  "learning_outcome": "4.4",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "What question does the business case exist to keep answering?",
-  "items": null,
-  "options": {
-   "a": "Is this deliverable fit for purpose?",
-   "b": "Are we still on schedule?",
-   "c": "Is this still worth doing?",
-   "d": "Who is accountable for this decision?"
+  {
+    "id": "PFQP-4-4-8",
+    "learning_outcome": "4.4",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "What question does the business case exist to keep answering?",
+    "items": null,
+    "options": {
+      "a": "Is this deliverable fit for purpose?",
+      "b": "Are we still on schedule?",
+      "c": "Is this still worth doing?",
+      "d": "Who is accountable for this decision?"
+    },
+    "answer": "c",
+    "explanation": "The business case is the justification, and its job is to keep answering whether the project remains worth doing. B is progress reporting, C is quality control, and D is governance.",
+    "tip": "Each document in this syllabus answers one question. Business case: is it worth doing. Plan: how will it be done. Register: what might go wrong. Learn them as questions, not as contents lists.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
   },
-  "answer": "c",
-  "explanation": "The business case is the justification, and its job is to keep answering whether the project remains worth doing. B is progress reporting, C is quality control, and D is governance.",
-  "tip": "Each document in this syllabus answers one question. Business case: is it worth doing. Plan: how will it be done. Register: what might go wrong. Learn them as questions, not as contents lists.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-4-9",
-  "learning_outcome": "4.4",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which of the following are typical business case content?",
-  "items": [
-   "The options considered",
-   "Expected benefits",
-   "The issue log",
-   "Major risks"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
+  {
+    "id": "PFQP-4-4-9",
+    "learning_outcome": "4.4",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which of the following are typical business case content?",
+    "items": [
+      "The options considered",
+      "Expected benefits",
+      "The issue log",
+      "Major risks"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "Options considered, expected benefits and major risks all belong in a business case. The issue log is a live delivery record and belongs elsewhere.",
+    "tip": "Look for the item that is a live operational record rather than a piece of justification. In a business case question, logs and registers are usually the intruder.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": 2
   },
-  "answer": "b",
-  "explanation": "Options considered, expected benefits and major risks all belong in a business case. The issue log is a live delivery record and belongs elsewhere.",
-  "tip": "Look for the item that is a live operational record rather than a piece of justification. In a business case question, logs and registers are usually the intruder.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-4-10",
-  "learning_outcome": "4.4",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "What is the purpose of including a do-nothing option in a business case?",
-  "items": null,
-  "options": {
-   "a": "It establishes the baseline against which the other options are judged.",
-   "b": "It demonstrates that the project team considered cancelling the project.",
-   "c": "It satisfies a governance requirement to present at least three options.",
-   "d": "It provides a fallback position if the preferred option is rejected."
+  {
+    "id": "PFQP-4-4-10",
+    "learning_outcome": "4.4",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "What is the purpose of including a do-nothing option in a business case?",
+    "items": null,
+    "options": {
+      "a": "It establishes the baseline against which the other options are judged.",
+      "b": "It demonstrates that the project team considered cancelling the project.",
+      "c": "It satisfies a governance requirement to present at least three options.",
+      "d": "It provides a fallback position if the preferred option is rejected."
+    },
+    "answer": "a",
+    "explanation": "Do-nothing is the comparator: without it there is no way to judge whether any option is worth its cost. It is a measuring stick, not a contingency plan. Option C invents a rule that does not exist.",
+    "tip": "Distrust options that cite a specific numerical requirement the syllabus never states. Invented thresholds are a common distractor.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Do-nothing is the comparator: without it there is no way to judge whether any option is worth its cost. It is a measuring stick, not a contingency plan. Option C invents a rule that does not exist.",
-  "tip": "Distrust options that cite a specific numerical requirement the syllabus never states. Invented thresholds are a common distractor.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-4-11",
-  "learning_outcome": "4.4",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "In what sense is the business case a live document?",
-  "items": null,
-  "options": {
-   "a": "It is created at concept, approved before the project proceeds, and reviewed at each decision gate.",
-   "b": "It is updated whenever a change request is approved.",
-   "c": "It is version-controlled under configuration management throughout delivery.",
-   "d": "It is rewritten at the start of each phase by the project manager."
+  {
+    "id": "PFQP-4-4-11",
+    "learning_outcome": "4.4",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "In what sense is the business case a live document?",
+    "items": null,
+    "options": {
+      "a": "It is created at concept, approved before the project proceeds, and reviewed at each decision gate.",
+      "b": "It is updated whenever a change request is approved.",
+      "c": "It is version-controlled under configuration management throughout delivery.",
+      "d": "It is rewritten at the start of each phase by the project manager."
+    },
+    "answer": "a",
+    "explanation": "Live means it is revisited at gates to confirm the justification still holds, not that it changes constantly. B and C describe real processes that may apply to it, but neither is what makes it live. D gets both the frequency and the owner wrong, since the sponsor owns the business case.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 11,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Live means it is revisited at gates to confirm the justification still holds, not that it changes constantly. B and C describe real processes that may apply to it, but neither is what makes it live. D gets both the frequency and the owner wrong, since the sponsor owns the business case.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 11,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-5-6",
-  "learning_outcome": "4.5",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project is being run well, on time and to budget, but the market has moved and the benefits will no longer materialise. Who is positioned to stop it, and why?",
-  "items": null,
-  "options": {
-   "a": "The end users, because they will not adopt an output they no longer need.",
-   "b": "The project manager, because they have the clearest view of delivery performance.",
-   "c": "The governance board, because only they can cancel an authorised project.",
-   "d": "The sponsor, because they own the business case and are accountable for benefits."
+  {
+    "id": "PFQP-4-5-6",
+    "learning_outcome": "4.5",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project is being run well, on time and to budget, but the market has moved and the benefits will no longer materialise. Who is positioned to stop it, and why?",
+    "items": null,
+    "options": {
+      "a": "The end users, because they will not adopt an output they no longer need.",
+      "b": "The project manager, because they have the clearest view of delivery performance.",
+      "c": "The governance board, because only they can cancel an authorised project.",
+      "d": "The sponsor, because they own the business case and are accountable for benefits."
+    },
+    "answer": "d",
+    "explanation": "This is why business case ownership sits with the sponsor rather than the project manager. A project manager measured on delivery has every incentive to keep delivering. Separating ownership of the why from responsibility for the how is what makes it possible to stop a well-run project that is no longer worth doing.",
+    "tip": "When a scenario separates delivering well from being worth delivering, the answer almost always involves the sponsor and the business case.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
   },
-  "answer": "d",
-  "explanation": "This is why business case ownership sits with the sponsor rather than the project manager. A project manager measured on delivery has every incentive to keep delivering. Separating ownership of the why from responsibility for the how is what makes it possible to stop a well-run project that is no longer worth doing.",
-  "tip": "When a scenario separates delivering well from being worth delivering, the answer almost always involves the sponsor and the business case.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-5-7",
-  "learning_outcome": "4.5",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "What does the project manager supply in relation to the business case?",
-  "items": null,
-  "options": {
-   "a": "Approval of the case before each decision gate.",
-   "b": "Current cost forecasts, schedule position and changes in risk.",
-   "c": "The strategic justification for undertaking the project.",
-   "d": "Accountability for realising the benefits after handover."
+  {
+    "id": "PFQP-4-5-7",
+    "learning_outcome": "4.5",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "What does the project manager supply in relation to the business case?",
+    "items": null,
+    "options": {
+      "a": "Approval of the case before each decision gate.",
+      "b": "Current cost forecasts, schedule position and changes in risk.",
+      "c": "The strategic justification for undertaking the project.",
+      "d": "Accountability for realising the benefits after handover."
+    },
+    "answer": "b",
+    "explanation": "The project manager feeds the sponsor the information needed to judge whether the case still holds. Approval, justification and benefits accountability all sit with the sponsor.",
+    "tip": "Supplying information and owning a document are different responsibilities. The exam tests that boundary repeatedly, so read the verb in the stem carefully.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
   },
-  "answer": "b",
-  "explanation": "The project manager feeds the sponsor the information needed to judge whether the case still holds. Approval, justification and benefits accountability all sit with the sponsor.",
-  "tip": "Supplying information and owning a document are different responsibilities. The exam tests that boundary repeatedly, so read the verb in the stem carefully.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-5-8",
-  "learning_outcome": "4.5",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is not a sponsor responsibility in relation to the business case?",
-  "items": null,
-  "options": {
-   "a": "Developing the case.",
-   "b": "Maintaining it through the life of the project.",
-   "c": "Being accountable for the benefits it promises.",
-   "d": "Producing the cost forecasts that update it."
+  {
+    "id": "PFQP-4-5-8",
+    "learning_outcome": "4.5",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is not a sponsor responsibility in relation to the business case?",
+    "items": null,
+    "options": {
+      "a": "Developing the case.",
+      "b": "Maintaining it through the life of the project.",
+      "c": "Being accountable for the benefits it promises.",
+      "d": "Producing the cost forecasts that update it."
+    },
+    "answer": "d",
+    "explanation": "Three of these are sponsor responsibilities. Cost forecasts come from the project manager, who supplies information without owning or approving the case.",
+    "tip": "On an inverted stem about roles, list the role's real responsibilities in your head first. The odd one out is usually a task belonging to the other role in the pair.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "d",
-  "explanation": "Three of these are sponsor responsibilities. Cost forecasts come from the project manager, who supplies information without owning or approving the case.",
-  "tip": "On an inverted stem about roles, list the role's real responsibilities in your head first. The odd one out is usually a task belonging to the other role in the pair.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-5-9",
-  "learning_outcome": "4.5",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A project manager updates the business case and approves it themselves before a gate. What is wrong with this?",
-  "items": null,
-  "options": {
-   "a": "It removes the independence that lets a project be stopped when it stops being worth doing.",
-   "b": "It breaches configuration management, because the document version is uncontrolled.",
-   "c": "Nothing, provided the sponsor is informed afterwards.",
-   "d": "It is acceptable only on iterative projects, where roles are combined."
+  {
+    "id": "PFQP-4-5-9",
+    "learning_outcome": "4.5",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A project manager updates the business case and approves it themselves before a gate. What is wrong with this?",
+    "items": null,
+    "options": {
+      "a": "It removes the independence that lets a project be stopped when it stops being worth doing.",
+      "b": "It breaches configuration management, because the document version is uncontrolled.",
+      "c": "Nothing, provided the sponsor is informed afterwards.",
+      "d": "It is acceptable only on iterative projects, where roles are combined."
+    },
+    "answer": "a",
+    "explanation": "The separation exists precisely because the two roles have conflicting incentives. Collapsing them into one person removes the check. Option B identifies a real but secondary problem, and options C and D would both leave the conflict of interest in place.",
+    "tip": "Where two options both identify a genuine problem, pick the one that names the more fundamental failure. Governance beats housekeeping.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "The separation exists precisely because the two roles have conflicting incentives. Collapsing them into one person removes the check. Option B identifies a real but secondary problem, and options C and D would both leave the conflict of interest in place.",
-  "tip": "Where two options both identify a genuine problem, pick the one that names the more fundamental failure. Governance beats housekeeping.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-5-10",
-  "learning_outcome": "4.5",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "The split of responsibility for the business case mirrors which broader distinction?",
-  "items": null,
-  "options": {
-   "a": "Why versus how.",
-   "b": "Risk versus issue.",
-   "c": "Output versus benefit.",
-   "d": "Scope versus quality."
+  {
+    "id": "PFQP-4-5-10",
+    "learning_outcome": "4.5",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "The split of responsibility for the business case mirrors which broader distinction?",
+    "items": null,
+    "options": {
+      "a": "Why versus how.",
+      "b": "Risk versus issue.",
+      "c": "Output versus benefit.",
+      "d": "Scope versus quality."
+    },
+    "answer": "a",
+    "explanation": "The sponsor owns why the project is being done; the project manager runs how it is delivered. Option C is the closest near-miss because it is a genuinely related split with the same role boundary, but it describes what each is accountable for delivering rather than the ownership of the justification.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "The sponsor owns why the project is being done; the project manager runs how it is delivered. Option C is the closest near-miss because it is a genuinely related split with the same role boundary, but it describes what each is accountable for delivering rather than the ownership of the justification.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-6-6",
-  "learning_outcome": "4.6",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A regulator has considerable power over the project but currently shows little interest in it. How should they be engaged?",
-  "items": null,
-  "options": {
-   "a": "Keep them satisfied, so their interest is not aroused unhelpfully.",
-   "b": "Manage them closely, with frequent detailed updates.",
-   "c": "Keep them informed with the same reporting everyone else receives.",
-   "d": "Monitor only, since low interest means low engagement need."
+  {
+    "id": "PFQP-4-6-6",
+    "learning_outcome": "4.6",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A regulator has considerable power over the project but currently shows little interest in it. How should they be engaged?",
+    "items": null,
+    "options": {
+      "a": "Keep them satisfied, so their interest is not aroused unhelpfully.",
+      "b": "Manage them closely, with frequent detailed updates.",
+      "c": "Keep them informed with the same reporting everyone else receives.",
+      "d": "Monitor only, since low interest means low engagement need."
+    },
+    "answer": "a",
+    "explanation": "High influence with low interest is the keep-satisfied quadrant. Close management is for high influence and high interest, and over-engaging a powerful but disinterested stakeholder can create the very scrutiny you wanted to avoid. Option D ignores the power axis entirely.",
+    "tip": "Place the stakeholder on both axes before reading the options. Getting one axis right and forgetting the other is how three of these four distractors catch people.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "High influence with low interest is the keep-satisfied quadrant. Close management is for high influence and high interest, and over-engaging a powerful but disinterested stakeholder can create the very scrutiny you wanted to avoid. Option D ignores the power axis entirely.",
-  "tip": "Place the stakeholder on both axes before reading the options. Getting one axis right and forgetting the other is how three of these four distractors catch people.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-6-7",
-  "learning_outcome": "4.6",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "Why is it a problem to spread engagement effort evenly across all stakeholders?",
-  "items": null,
-  "options": {
-   "a": "Because those who can sink the project receive no more attention than those who cannot.",
-   "b": "Because stakeholders resent receiving communication they did not ask for.",
-   "c": "Because the communication plan permits only one method per stakeholder.",
-   "d": "Because engagement effort must be justified in the business case."
+  {
+    "id": "PFQP-4-6-7",
+    "learning_outcome": "4.6",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "Why is it a problem to spread engagement effort evenly across all stakeholders?",
+    "items": null,
+    "options": {
+      "a": "Because those who can sink the project receive no more attention than those who cannot.",
+      "b": "Because stakeholders resent receiving communication they did not ask for.",
+      "c": "Because the communication plan permits only one method per stakeholder.",
+      "d": "Because engagement effort must be justified in the business case."
+    },
+    "answer": "a",
+    "explanation": "Engagement effort is finite. The value of analysis is targeting, so that effort lands where it changes the outcome. B is a real irritation but not the reason analysis exists, and C and D invent constraints.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 7,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Engagement effort is finite. The value of analysis is targeting, so that effort lands where it changes the outcome. B is a real irritation but not the reason analysis exists, and C and D invent constraints.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-6-8",
-  "learning_outcome": "4.6",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Stakeholder analysis produces its conclusions. Where are the resulting decisions about who gets what information, when and how, recorded?",
-  "items": null,
-  "options": {
-   "a": "The business case.",
-   "b": "The project management plan's governance section.",
-   "c": "The stakeholder register.",
-   "d": "The communication plan."
+  {
+    "id": "PFQP-4-6-8",
+    "learning_outcome": "4.6",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Stakeholder analysis produces its conclusions. Where are the resulting decisions about who gets what information, when and how, recorded?",
+    "items": null,
+    "options": {
+      "a": "The business case.",
+      "b": "The project management plan's governance section.",
+      "c": "The stakeholder register.",
+      "d": "The communication plan."
+    },
+    "answer": "d",
+    "explanation": "Analysis feeds the communication plan, which is where the who, what, when and how are set down. The stakeholder register is the closest near-miss: it records who the stakeholders are and their analysis, but not the communication decisions that follow from it.",
+    "tip": "Distinguish the document that holds the analysis from the document that holds the resulting decisions. The exam separates them deliberately.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 2
   },
-  "answer": "d",
-  "explanation": "Analysis feeds the communication plan, which is where the who, what, when and how are set down. The stakeholder register is the closest near-miss: it records who the stakeholders are and their analysis, but not the communication decisions that follow from it.",
-  "tip": "Distinguish the document that holds the analysis from the document that holds the resulting decisions. The exam separates them deliberately.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-6-9",
-  "learning_outcome": "4.6",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A stakeholder has high interest in the project but little influence over it. What is the appropriate approach?",
-  "items": null,
-  "options": {
-   "a": "Keep them informed.",
-   "b": "Manage them closely.",
-   "c": "Keep them satisfied.",
-   "d": "Monitor with minimal effort."
+  {
+    "id": "PFQP-4-6-9",
+    "learning_outcome": "4.6",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A stakeholder has high interest in the project but little influence over it. What is the appropriate approach?",
+    "items": null,
+    "options": {
+      "a": "Keep them informed.",
+      "b": "Manage them closely.",
+      "c": "Keep them satisfied.",
+      "d": "Monitor with minimal effort."
+    },
+    "answer": "a",
+    "explanation": "High interest with low influence is the keep-informed quadrant: they want to know and deserve to be told, but they do not need the effort that close management costs. Each of the other three options is the correct treatment for a different quadrant.",
+    "tip": "Memorise the four quadrant treatments as a pair of axes, not as a list. Given any two-word description of a stakeholder you should be able to place them in one move.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": 3
   },
-  "answer": "a",
-  "explanation": "High interest with low influence is the keep-informed quadrant: they want to know and deserve to be told, but they do not need the effort that close management costs. Each of the other three options is the correct treatment for a different quadrant.",
-  "tip": "Memorise the four quadrant treatments as a pair of axes, not as a list. Given any two-word description of a stakeholder you should be able to place them in one move.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-6-10",
-  "learning_outcome": "4.6",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "Which two attributes does stakeholder analysis assess in order to plan engagement?",
-  "items": null,
-  "options": {
-   "a": "Interest and expertise.",
-   "b": "Availability and seniority.",
-   "c": "Interest and influence.",
-   "d": "Influence and location."
+  {
+    "id": "PFQP-4-6-10",
+    "learning_outcome": "4.6",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "Which two attributes does stakeholder analysis assess in order to plan engagement?",
+    "items": null,
+    "options": {
+      "a": "Interest and expertise.",
+      "b": "Availability and seniority.",
+      "c": "Interest and influence.",
+      "d": "Influence and location."
+    },
+    "answer": "c",
+    "explanation": "The two axes are interest and power or influence, and the combination determines the engagement approach. Seniority often correlates with influence but is not the same thing: a junior person with regulatory authority has influence their grade does not show.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
   },
-  "answer": "c",
-  "explanation": "The two axes are interest and power or influence, and the combination determines the engagement approach. Seniority often correlates with influence but is not the same thing: a junior person with regulatory authority has influence their grade does not show.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-7-6",
-  "learning_outcome": "4.7",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A new scheduling system is delivered on time, to specification, and nobody logs into it. What has the project produced?",
-  "items": null,
-  "options": {
-   "a": "An output but no benefit.",
-   "b": "A benefit but no output.",
-   "c": "Both an output and a benefit, since it met specification.",
-   "d": "Neither, because unused deliverables are not accepted."
+  {
+    "id": "PFQP-4-7-6",
+    "learning_outcome": "4.7",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A new scheduling system is delivered on time, to specification, and nobody logs into it. What has the project produced?",
+    "items": null,
+    "options": {
+      "a": "An output but no benefit.",
+      "b": "A benefit but no output.",
+      "c": "Both an output and a benefit, since it met specification.",
+      "d": "Neither, because unused deliverables are not accepted."
+    },
+    "answer": "a",
+    "explanation": "Outputs are what the project delivers; benefits are the measurable improvement that follows when those outputs are used. A system nobody opens is a complete output and a total failure of benefit. Meeting specification proves the output and says nothing about the benefit.",
+    "tip": "Whenever a scenario mentions something delivered but unused, the answer turns on the output-versus-benefit split. Ask whether anything actually improved.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
   },
-  "answer": "a",
-  "explanation": "Outputs are what the project delivers; benefits are the measurable improvement that follows when those outputs are used. A system nobody opens is a complete output and a total failure of benefit. Meeting specification proves the output and says nothing about the benefit.",
-  "tip": "Whenever a scenario mentions something delivered but unused, the answer turns on the output-versus-benefit split. Ask whether anything actually improved.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-7-7",
-  "learning_outcome": "4.7",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Who is accountable for outputs, and who for benefits?",
-  "items": null,
-  "options": {
-   "a": "The project manager for outputs, the sponsor for benefits.",
-   "b": "The sponsor for outputs, the project manager for benefits.",
-   "c": "The project manager for both, until handover.",
-   "d": "The governance board for both, through its gate decisions."
+  {
+    "id": "PFQP-4-7-7",
+    "learning_outcome": "4.7",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Who is accountable for outputs, and who for benefits?",
+    "items": null,
+    "options": {
+      "a": "The project manager for outputs, the sponsor for benefits.",
+      "b": "The sponsor for outputs, the project manager for benefits.",
+      "c": "The project manager for both, until handover.",
+      "d": "The governance board for both, through its gate decisions."
+    },
+    "answer": "a",
+    "explanation": "The project manager delivers the outputs; the sponsor is accountable for the benefits those outputs enable. Option B is the exact inversion. This split is why benefits management continues past the end of delivery, when the project manager has already gone.",
+    "tip": "Tie accountability to timing. The project manager leaves at handover, so anything measured after handover cannot be theirs.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
   },
-  "answer": "a",
-  "explanation": "The project manager delivers the outputs; the sponsor is accountable for the benefits those outputs enable. Option B is the exact inversion. This split is why benefits management continues past the end of delivery, when the project manager has already gone.",
-  "tip": "Tie accountability to timing. The project manager leaves at handover, so anything measured after handover cannot be theirs.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-7-8",
-  "learning_outcome": "4.7",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [],
-  "stem": "Why does benefits management run beyond the end of project delivery?",
-  "items": null,
-  "options": {
-   "a": "Because benefits only appear once the outputs are in use.",
-   "b": "Because the project manager's contract typically extends past handover.",
-   "c": "Because outputs cannot be accepted until benefits are measured.",
-   "d": "Because the business case is closed only after the final payment."
+  {
+    "id": "PFQP-4-7-8",
+    "learning_outcome": "4.7",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does benefits management run beyond the end of project delivery?",
+    "items": null,
+    "options": {
+      "a": "Because benefits only appear once the outputs are in use.",
+      "b": "Because the project manager's contract typically extends past handover.",
+      "c": "Because outputs cannot be accepted until benefits are measured.",
+      "d": "Because the business case is closed only after the final payment."
+    },
+    "answer": "a",
+    "explanation": "Use is what converts an output into a benefit, and use starts after handover. That is also why the extended life cycle exists. Option C inverts the dependency: acceptance is judged against acceptance criteria, not against realised benefits, which would make handover impossible.",
+    "tip": "Test a tempting option by following it through. If accepting it would make a normal project impossible to run, it is wrong.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Use is what converts an output into a benefit, and use starts after handover. That is also why the extended life cycle exists. Option C inverts the dependency: acceptance is judged against acceptance criteria, not against realised benefits, which would make handover impossible.",
-  "tip": "Test a tempting option by following it through. If accepting it would make a normal project impossible to run, it is wrong.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-7-9",
-  "learning_outcome": "4.7",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which of the following activities does benefits management cover?",
-  "items": [
-   "Identification",
-   "Planning",
-   "Procurement",
-   "Realisation"
-  ],
-  "options": {
-   "a": "1, 2 and 4",
-   "b": "1, 2 and 3",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
+  {
+    "id": "PFQP-4-7-9",
+    "learning_outcome": "4.7",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which of the following activities does benefits management cover?",
+    "items": [
+      "Identification",
+      "Planning",
+      "Procurement",
+      "Realisation"
+    ],
+    "options": {
+      "a": "1, 2 and 4",
+      "b": "1, 2 and 3",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "a",
+    "explanation": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits. Procurement is a separate discipline at outcome 6.6.",
+    "tip": "When a definition lists activities, learn the list as a sequence. An intruder from another topic then stands out because it does not fit the flow.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Benefits management is the identification, definition, planning, tracking and realisation of business benefits. Procurement is a separate discipline at outcome 6.6.",
-  "tip": "When a definition lists activities, learn the list as a sequence. An intruder from another topic then stands out because it does not fit the flow.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-7-10",
-  "learning_outcome": "4.7",
-  "objective": 4,
-  "day": 1,
-  "verb": "define",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Where are benefits first identified, and where are they finally confirmed?",
-  "items": null,
-  "options": {
-   "a": "Identified in the business case, confirmed at a benefits review.",
-   "b": "Identified in the project management plan, confirmed at handover.",
-   "c": "Identified at the first decision gate, confirmed at the post-project review.",
-   "d": "Identified in the benefits register, confirmed by the project manager."
+  {
+    "id": "PFQP-4-7-10",
+    "learning_outcome": "4.7",
+    "objective": 4,
+    "day": 1,
+    "verb": "define",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Where are benefits first identified, and where are they finally confirmed?",
+    "items": null,
+    "options": {
+      "a": "Identified in the business case, confirmed at a benefits review.",
+      "b": "Identified in the project management plan, confirmed at handover.",
+      "c": "Identified at the first decision gate, confirmed at the post-project review.",
+      "d": "Identified in the benefits register, confirmed by the project manager."
+    },
+    "answer": "a",
+    "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover. Option C is the sharpest near-miss: a post-project review examines how the project was run, while a benefits review asks whether the benefits actually landed.",
+    "tip": "Hold the four review types apart by the question each one asks. Audit: did we follow the process. Post-project review: how did we do. Benefits review: did the benefits arrive. Decision gate: should we continue.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Benefits are identified in the business case, planned during definition, tracked through delivery, and confirmed at a benefits review after handover. Option C is the sharpest near-miss: a post-project review examines how the project was run, while a benefits review asks whether the benefits actually landed.",
-  "tip": "Hold the four review types apart by the question each one asks. Audit: did we follow the process. Post-project review: how did we do. Benefits review: did the benefits arrive. Decision gate: should we continue.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-8-6",
-  "learning_outcome": "4.8",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A contractor prices an office fit-out at a rate per square metre taken from three similar completed jobs. Which estimating method is this?",
-  "items": null,
-  "options": {
-   "a": "Analogous estimating, because it uses data from similar past work.",
-   "b": "Parametric estimating, because it applies a measured rate to a variable.",
-   "c": "Analytical estimating, because the work has been broken into components.",
-   "d": "Three-point estimating, because three jobs were used."
+  {
+    "id": "PFQP-4-8-6",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A contractor prices an office fit-out at a rate per square metre taken from three similar completed jobs. Which estimating method is this?",
+    "items": null,
+    "options": {
+      "a": "Analogous estimating, because it uses data from similar past work.",
+      "b": "Parametric estimating, because it applies a measured rate to a variable.",
+      "c": "Analytical estimating, because the work has been broken into components.",
+      "d": "Three-point estimating, because three jobs were used."
+    },
+    "answer": "b",
+    "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method.",
+    "tip": "Ignore the numbers in the scenario and look at the mechanism. A rate applied to a quantity is parametric, whatever the rate was derived from.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 3
   },
-  "answer": "b",
-  "explanation": "Parametric estimating applies a measured relationship between a variable and cost, such as cost per square metre. Analogous estimating adjusts a whole past figure for differences, it does not apply a rate. The three past jobs are where the rate came from, not the method.",
-  "tip": "Ignore the numbers in the scenario and look at the mechanism. A rate applied to a quantity is parametric, whatever the rate was derived from.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-8-7",
-  "learning_outcome": "4.8",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "Which of the following are estimating methods named in the syllabus?",
-  "items": [
-   "Analogous",
-   "Parametric",
-   "Three-point",
-   "Analytical"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
+  {
+    "id": "PFQP-4-8-7",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "Which of the following are estimating methods named in the syllabus?",
+    "items": [
+      "Analogous",
+      "Parametric",
+      "Three-point",
+      "Analytical"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names.",
+    "tip": "A real technique that the syllabus does not name is a favourite distractor. Knowing what is on the list matters as much as knowing what each item means.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": null
   },
-  "answer": "b",
-  "explanation": "The three named methods are analogous, parametric and analytical. Three-point estimating is a real technique but is not one of the three the syllabus names.",
-  "tip": "A real technique that the syllabus does not name is a favourite distractor. Knowing what is on the list matters as much as knowing what each item means.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-8-8",
-  "learning_outcome": "4.8",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "Which estimating method is the most accurate and the most expensive to produce?",
-  "items": null,
-  "options": {
-   "a": "Analogous, because it draws on real outturn data.",
-   "b": "Parametric, because the relationship is measured rather than judged.",
-   "c": "Analytical, because every component is estimated and summed.",
-   "d": "All three are equally accurate if applied correctly."
+  {
+    "id": "PFQP-4-8-8",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "Which estimating method is the most accurate and the most expensive to produce?",
+    "items": null,
+    "options": {
+      "a": "Analogous, because it draws on real outturn data.",
+      "b": "Parametric, because the relationship is measured rather than judged.",
+      "c": "Analytical, because every component is estimated and summed.",
+      "d": "All three are equally accurate if applied correctly."
+    },
+    "answer": "c",
+    "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, but neither answers the question asked.",
+    "tip": "A true statement is not the same as the right answer. Check that the option addresses the exact property the stem asks about.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "c",
-  "explanation": "Analytical, also called bottom-up, decomposes the work and estimates each component. That detail is what makes it accurate and what makes it costly, because the work has to be understood before it can be broken down. A and B are both true statements about those methods, but neither answers the question asked.",
-  "tip": "A true statement is not the same as the right answer. Check that the option addresses the exact property the stem asks about.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-8-9",
-  "learning_outcome": "4.8",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [],
-  "stem": "Very little is known about a project at concept, and the sponsor wants an indicative cost this week. Which two methods are realistically available?",
-  "items": null,
-  "options": {
-   "a": "Analytical and parametric.",
-   "b": "Analogous and parametric.",
-   "c": "Analytical and analogous.",
-   "d": "Analytical only, because anything else would be a guess."
+  {
+    "id": "PFQP-4-8-9",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [],
+    "stem": "Very little is known about a project at concept, and the sponsor wants an indicative cost this week. Which two methods are realistically available?",
+    "items": null,
+    "options": {
+      "a": "Analytical and parametric.",
+      "b": "Analogous and parametric.",
+      "c": "Analytical and analogous.",
+      "d": "Analytical only, because anything else would be a guess."
+    },
+    "answer": "b",
+    "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept.",
+    "tip": "Anchor each method to a life cycle phase. Analytical needs a defined scope, so it is never the early answer.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": 2
   },
-  "answer": "b",
-  "explanation": "Analogous and parametric estimates can both be produced early, because they draw on past data or a known rate rather than on a defined scope. Analytical estimating needs the work broken down first, which is not possible at concept.",
-  "tip": "Anchor each method to a life cycle phase. Analytical needs a defined scope, so it is never the early answer.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-8-10",
-  "learning_outcome": "4.8",
-  "objective": 4,
-  "day": 1,
-  "verb": "state",
-  "type": "single",
-  "traps": [],
-  "stem": "On what does the reliability of an analogous estimate mainly depend?",
-  "items": null,
-  "options": {
-   "a": "Having genuinely comparable history, and adjusting it honestly.",
-   "b": "The number of work packages the scope has been broken into.",
-   "c": "Whether the measured relationship between variable and cost still holds.",
-   "d": "Whether the estimate was produced before or after the baseline was set."
+  {
+    "id": "PFQP-4-8-10",
+    "learning_outcome": "4.8",
+    "objective": 4,
+    "day": 1,
+    "verb": "state",
+    "type": "single",
+    "traps": [],
+    "stem": "Which estimating method uses actual data from similar past work, adjusted for the differences?",
+    "items": null,
+    "options": {
+      "a": "Analogous estimating.",
+      "b": "Analytical estimating.",
+      "c": "Parametric estimating.",
+      "d": "Incremental estimating."
+    },
+    "answer": "a",
+    "explanation": "Analogous estimating, also called comparative estimating, takes actual data from comparable past work and adjusts it for the differences. Analytical estimating builds the figure up from the individual components of the work. Parametric estimating applies a measured rate, such as cost per square metre. Incremental estimating is not one of the three methods named in the syllabus.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Analogous estimating is only as good as the comparability of the past work and the honesty of the adjustment made for differences. Option C describes what makes a parametric estimate reliable, and option B describes analytical estimating.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-9-6",
-  "learning_outcome": "4.9",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "What does the estimating funnel illustrate?",
-  "items": null,
-  "options": {
-   "a": "That the range around an estimate narrows as the life cycle progresses.",
-   "b": "That the cost of change increases as the life cycle progresses.",
-   "c": "That scope is progressively decomposed into smaller work packages.",
-   "d": "That contingency should be released in stages as risks close."
+  {
+    "id": "PFQP-4-9-6",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "What does the estimating funnel illustrate?",
+    "items": null,
+    "options": {
+      "a": "That the range around an estimate narrows as the life cycle progresses.",
+      "b": "That the cost of change increases as the life cycle progresses.",
+      "c": "That scope is progressively decomposed into smaller work packages.",
+      "d": "That contingency should be released in stages as risks close."
+    },
+    "answer": "a",
+    "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, but none of them is what the funnel depicts.",
+    "tip": "Several concepts in this syllabus change over the life cycle. Fix in mind what each one shows on its vertical axis, and these stop being confusable.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 2
   },
-  "answer": "a",
-  "explanation": "The funnel shows estimate accuracy improving over time: wide at concept when little is known, narrowing through definition and deployment as assumptions are replaced by facts. B, C and D are all real project management ideas, but none of them is what the funnel depicts.",
-  "tip": "Several concepts in this syllabus change over the life cycle. Fix in mind what each one shows on its vertical axis, and these stop being confusable.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-9-7",
-  "learning_outcome": "4.9",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "A sponsor asks for a single cost figure at concept. Applying the estimating funnel, what should the project manager do?",
-  "items": null,
-  "options": {
-   "a": "Give the figure requested, then revise it once the scope is defined.",
-   "b": "Give a range and explain why an estimate at this stage is a range.",
-   "c": "Decline to estimate until the work breakdown structure exists.",
-   "d": "Give the figure with a contingency percentage added to protect it."
+  {
+    "id": "PFQP-4-9-7",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "A sponsor asks for a single cost figure at concept. Applying the estimating funnel, what should the project manager do?",
+    "items": null,
+    "options": {
+      "a": "Give the figure requested, then revise it once the scope is defined.",
+      "b": "Give a range and explain why an estimate at this stage is a range.",
+      "c": "Decline to estimate until the work breakdown structure exists.",
+      "d": "Give the figure with a contingency percentage added to protect it."
+    },
+    "answer": "b",
+    "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent, and declining to estimate is not something a sponsor can act on.",
+    "tip": "In scenario questions, refusing to act is almost never the answer. The exam rewards the option that helps the stakeholder while staying honest.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 3
   },
-  "answer": "b",
-  "explanation": "The funnel's practical use is expectation management. An early estimate should be presented as a range with the reason for the range explained. Option A is the failure mode the funnel exists to prevent, and declining to estimate is not something a sponsor can act on.",
-  "tip": "In scenario questions, refusing to act is almost never the answer. The exam rewards the option that helps the stakeholder while staying honest.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-9-8",
-  "learning_outcome": "4.9",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is not a purpose of the estimating funnel?",
-  "items": null,
-  "options": {
-   "a": "Determining which supplier offers the best value for money.",
-   "b": "Showing why estimates should be revisited at each phase.",
-   "c": "Illustrating how estimate accuracy improves as more becomes known.",
-   "d": "Managing the sponsor's expectations about early figures."
+  {
+    "id": "PFQP-4-9-8",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is not a purpose of the estimating funnel?",
+    "items": null,
+    "options": {
+      "a": "Determining which supplier offers the best value for money.",
+      "b": "Showing why estimates should be revisited at each phase.",
+      "c": "Illustrating how estimate accuracy improves as more becomes known.",
+      "d": "Managing the sponsor's expectations about early figures."
+    },
+    "answer": "a",
+    "explanation": "Three of these are genuine purposes. Supplier selection is a procurement activity and has nothing to do with the funnel.",
+    "tip": "On an inverted stem, the odd option is often from a completely different topic rather than a subtle variation. Scan for the one that does not belong to this outcome at all.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Three of these are genuine purposes. Supplier selection is a procurement activity and has nothing to do with the funnel.",
-  "tip": "On an inverted stem, the odd option is often from a completely different topic rather than a subtle variation. Scan for the one that does not belong to this outcome at all.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-9-9",
-  "learning_outcome": "4.9",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "Why does the estimating funnel imply that an estimate should be revisited at each phase?",
-  "items": null,
-  "options": {
-   "a": "Because an estimate is a statement about what was known when it was made.",
-   "b": "Because the baseline must be re-approved at every decision gate.",
-   "c": "Because contingency is consumed at a predictable rate over time.",
-   "d": "Because sponsors are required to re-authorise funding each phase."
+  {
+    "id": "PFQP-4-9-9",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "Why does the estimating funnel imply that an estimate should be revisited at each phase?",
+    "items": null,
+    "options": {
+      "a": "Because an estimate is a statement about what was known when it was made.",
+      "b": "Because the baseline must be re-approved at every decision gate.",
+      "c": "Because contingency is consumed at a predictable rate over time.",
+      "d": "Because sponsors are required to re-authorise funding each phase."
+    },
+    "answer": "a",
+    "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, but neither is the reason the funnel gives.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "An estimate reflects the information available at the moment it was produced. As assumptions become facts the estimate should be redone, not defended. B and D describe governance activities that happen at gates and are true in themselves, but neither is the reason the funnel gives.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-9-10",
-  "learning_outcome": "4.9",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "At which point in the life cycle is the range around an estimate at its widest?",
-  "items": null,
-  "options": {
-   "a": "Concept.",
-   "b": "Definition.",
-   "c": "Deployment.",
-   "d": "Transition."
+  {
+    "id": "PFQP-4-9-10",
+    "learning_outcome": "4.9",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "At which point in the life cycle is the range around an estimate at its widest?",
+    "items": null,
+    "options": {
+      "a": "Concept.",
+      "b": "Definition.",
+      "c": "Deployment.",
+      "d": "Transition."
+    },
+    "answer": "a",
+    "explanation": "At concept almost nothing is known, so the range is widest. It narrows through definition and deployment as assumptions become facts. Drawn out, that narrowing range is the shape the funnel is named for.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": true,
+    "variant": 10,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "At concept almost nothing is known, so the range is widest. It narrows through definition and deployment as assumptions become facts. Drawn out, that narrowing range is the shape the funnel is named for.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": true,
-  "variant": 10,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-10-6",
-  "learning_outcome": "4.10",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A deliverable is being judged as fit for purpose against agreed measures. Which criteria are being applied?",
-  "items": null,
-  "options": {
-   "a": "Acceptance criteria, because they describe a specific deliverable.",
-   "b": "Success criteria, because they are the agreed measures of achievement.",
-   "c": "Quality criteria, because fitness for purpose is a quality judgement.",
-   "d": "Tolerance criteria, because the governance board sets the thresholds."
+  {
+    "id": "PFQP-4-10-6",
+    "learning_outcome": "4.10",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A deliverable is being judged as fit for purpose against agreed measures. Which criteria are being applied?",
+    "items": null,
+    "options": {
+      "a": "Acceptance criteria, because they describe a specific deliverable.",
+      "b": "Success criteria, because they are the agreed measures of achievement.",
+      "c": "Quality criteria, because fitness for purpose is a quality judgement.",
+      "d": "Tolerance criteria, because the governance board sets the thresholds."
+    },
+    "answer": "a",
+    "explanation": "Acceptance criteria describe whether a specific deliverable is fit for purpose. Success criteria are about the project as a whole. Option B is the near-miss precisely because both are agreed measures.",
+    "tip": "Ask what is being judged. A single deliverable points to acceptance criteria; the whole project points to success criteria.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Acceptance criteria describe whether a specific deliverable is fit for purpose. Success criteria are about the project as a whole. Option B is the near-miss precisely because both are agreed measures.",
-  "tip": "Ask what is being judged. A single deliverable points to acceptance criteria; the whole project points to success criteria.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-10-7",
-  "learning_outcome": "4.10",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "Two stakeholders discover at handover that they had different definitions of success all along. What did the project fail to do?",
-  "items": null,
-  "options": {
-   "a": "Maintain a stakeholder register through delivery.",
-   "b": "Hold a benefits review before closing the project.",
-   "c": "Apply change control when the scope was amended.",
-   "d": "Agree success criteria at the start, while disagreement was still cheap to resolve."
+  {
+    "id": "PFQP-4-10-7",
+    "learning_outcome": "4.10",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "Two stakeholders discover at handover that they had different definitions of success all along. What did the project fail to do?",
+    "items": null,
+    "options": {
+      "a": "Maintain a stakeholder register through delivery.",
+      "b": "Hold a benefits review before closing the project.",
+      "c": "Apply change control when the scope was amended.",
+      "d": "Agree success criteria at the start, while disagreement was still cheap to resolve."
+    },
+    "answer": "d",
+    "explanation": "Agreeing criteria at the start forces disagreement into the open early. The alternative is the expensive version of the same argument at the end, which is exactly what happened here. The other options describe real omissions, but none explains a disagreement about what success meant.",
+    "tip": "Trace the symptom back to its cause rather than to the nearest missing process. The question is what would have prevented this, not what else was missing.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 2
   },
-  "answer": "d",
-  "explanation": "Agreeing criteria at the start forces disagreement into the open early. The alternative is the expensive version of the same argument at the end, which is exactly what happened here. The other options describe real omissions, but none explains a disagreement about what success meant.",
-  "tip": "Trace the symptom back to its cause rather than to the nearest missing process. The question is what would have prevented this, not what else was missing.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-10-8",
-  "learning_outcome": "4.10",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "A trade-off is forced mid-project. How do success criteria help?",
-  "items": null,
-  "options": {
-   "a": "They give the decision a reference, so the question becomes which option moves the project towards them.",
-   "b": "They set the tolerance within which the project manager may decide alone.",
-   "c": "They determine which stakeholder has authority over the decision.",
-   "d": "They remove the need for change control on scope trade-offs."
+  {
+    "id": "PFQP-4-10-8",
+    "learning_outcome": "4.10",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "A trade-off is forced mid-project. How do success criteria help?",
+    "items": null,
+    "options": {
+      "a": "They give the decision a reference, so the question becomes which option moves the project towards them.",
+      "b": "They set the tolerance within which the project manager may decide alone.",
+      "c": "They determine which stakeholder has authority over the decision.",
+      "d": "They remove the need for change control on scope trade-offs."
+    },
+    "answer": "a",
+    "explanation": "Without agreed criteria, trade-offs get settled by whoever is loudest. With them, there is a shared reference. Options B and C describe governance mechanisms rather than criteria, and D is wrong: criteria inform change decisions, they do not replace the process.",
+    "tip": "Any option claiming a technique removes the need for change control is wrong. Nothing in this syllabus does that.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 8,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Without agreed criteria, trade-offs get settled by whoever is loudest. With them, there is a shared reference. Options B and C describe governance mechanisms rather than criteria, and D is wrong: criteria inform change decisions, they do not replace the process.",
-  "tip": "Any option claiming a technique removes the need for change control is wrong. Nothing in this syllabus does that.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 8,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-10-9",
-  "learning_outcome": "4.10",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "multi_select",
-  "traps": [
-   "multi_select"
-  ],
-  "stem": "At which points do success criteria serve a distinct purpose?",
-  "items": [
-   "At the start",
-   "During the project",
-   "At each risk review",
-   "At handover"
-  ],
-  "options": {
-   "a": "1, 2 and 3",
-   "b": "1, 2 and 4",
-   "c": "2, 3 and 4",
-   "d": "1, 3 and 4"
+  {
+    "id": "PFQP-4-10-9",
+    "learning_outcome": "4.10",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "multi_select",
+    "traps": [
+      "multi_select"
+    ],
+    "stem": "At which points do success criteria serve a distinct purpose?",
+    "items": [
+      "At the start",
+      "During the project",
+      "At each risk review",
+      "At handover"
+    ],
+    "options": {
+      "a": "1, 2 and 3",
+      "b": "1, 2 and 4",
+      "c": "2, 3 and 4",
+      "d": "1, 3 and 4"
+    },
+    "answer": "b",
+    "explanation": "The outcome names three points: at the start to define the target, during the project to give decisions a reference, and at handover to judge whether the project succeeded. Risk reviews are a separate process.",
+    "tip": "Where an outcome names a fixed number of points in time, count them. A list question with a fourth item is usually testing whether you know the count.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 9,
+    "mock_set": 3
   },
-  "answer": "b",
-  "explanation": "The outcome names three points: at the start to define the target, during the project to give decisions a reference, and at handover to judge whether the project succeeded. Risk reviews are a separate process.",
-  "tip": "Where an outcome names a fixed number of points in time, count them. A list question with a fourth item is usually testing whether you know the count.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 9,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-10-10",
-  "learning_outcome": "4.10",
-  "objective": 4,
-  "day": 1,
-  "verb": "explain",
-  "type": "single",
-  "traps": [],
-  "stem": "What are acceptance decisions at handover measured against?",
-  "items": null,
-  "options": {
-   "a": "The criteria agreed at the outset.",
-   "b": "The expectations stakeholders formed during delivery.",
-   "c": "The original cost and schedule baseline.",
-   "d": "The benefits realised in the first months of operation."
+  {
+    "id": "PFQP-4-10-10",
+    "learning_outcome": "4.10",
+    "objective": 4,
+    "day": 1,
+    "verb": "explain",
+    "type": "single",
+    "traps": [],
+    "stem": "What are acceptance decisions at handover measured against?",
+    "items": null,
+    "options": {
+      "a": "The criteria agreed at the outset.",
+      "b": "The expectations stakeholders formed during delivery.",
+      "c": "The original cost and schedule baseline.",
+      "d": "The benefits realised in the first months of operation."
+    },
+    "answer": "a",
+    "explanation": "Judging acceptance against agreed criteria rather than against expectations formed along the way is the whole point of setting them early. Option D is the near-miss: benefits are confirmed later at a benefits review, and cannot be the basis for accepting a deliverable at handover.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
   },
-  "answer": "a",
-  "explanation": "Judging acceptance against agreed criteria rather than against expectations formed along the way is the whole point of setting them early. Option D is the near-miss: benefits are confirmed later at a benefits review, and cannot be the basis for accepting a deliverable at handover.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-11-6",
-  "learning_outcome": "4.11",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "What is the underlying purpose of progress reporting?",
-  "items": null,
-  "options": {
-   "a": "To shorten the gap between something going wrong and somebody being able to act on it.",
-   "b": "To create a record that protects the project manager at the post-project review.",
-   "c": "To demonstrate to the governance board that the team is working hard.",
-   "d": "To keep the project management plan up to date as work completes."
+  {
+    "id": "PFQP-4-11-6",
+    "learning_outcome": "4.11",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "What is the underlying purpose of progress reporting?",
+    "items": null,
+    "options": {
+      "a": "To shorten the gap between something going wrong and somebody being able to act on it.",
+      "b": "To create a record that protects the project manager at the post-project review.",
+      "c": "To demonstrate to the governance board that the team is working hard.",
+      "d": "To keep the project management plan up to date as work completes."
+    },
+    "answer": "a",
+    "explanation": "Reporting exists to enable decisions. A variance spotted early can be corrected cheaply; the same variance found at handover cannot be corrected at all. Option B is a genuine secondary benefit, having a record of what was known when, but it is not the purpose.",
+    "tip": "Separate a purpose from a side effect. Both may be true, and the exam wants the reason the activity exists.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 6,
+    "mock_set": 1
   },
-  "answer": "a",
-  "explanation": "Reporting exists to enable decisions. A variance spotted early can be corrected cheaply; the same variance found at handover cannot be corrected at all. Option B is a genuine secondary benefit, having a record of what was known when, but it is not the purpose.",
-  "tip": "Separate a purpose from a side effect. Both may be true, and the exam wants the reason the activity exists.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 6,
-  "mock_set": 1
- },
- {
-  "id": "PFQP-4-11-7",
-  "learning_outcome": "4.11",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "near_miss"
-  ],
-  "stem": "A project reports weekly on tasks completed and hours worked, but has no approved baseline. What is the weakness?",
-  "items": null,
-  "options": {
-   "a": "It cannot be shared with stakeholders until the baseline exists.",
-   "b": "It breaches the reporting frequency the governance board requires.",
-   "c": "It describes activity rather than measuring performance.",
-   "d": "It duplicates information already held in the risk register."
+  {
+    "id": "PFQP-4-11-7",
+    "learning_outcome": "4.11",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "near_miss"
+    ],
+    "stem": "A project reports weekly on tasks completed and hours worked, but has no approved baseline. What is the weakness?",
+    "items": null,
+    "options": {
+      "a": "It cannot be shared with stakeholders until the baseline exists.",
+      "b": "It breaches the reporting frequency the governance board requires.",
+      "c": "It describes activity rather than measuring performance.",
+      "d": "It duplicates information already held in the risk register."
+    },
+    "answer": "c",
+    "explanation": "Without an approved plan to report against, there is nothing to compare to, so reporting degenerates into a description of what people did. Busy and on track are not the same thing, and only a baseline separates them.",
+    "tip": "Reporting questions almost always depend on the baseline. If a scenario says no baseline, that is the answer the question is pointing at.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 7,
+    "mock_set": 2
   },
-  "answer": "c",
-  "explanation": "Without an approved plan to report against, there is nothing to compare to, so reporting degenerates into a description of what people did. Busy and on track are not the same thing, and only a baseline separates them.",
-  "tip": "Reporting questions almost always depend on the baseline. If a scenario says no baseline, that is the answer the question is pointing at.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 7,
-  "mock_set": 2
- },
- {
-  "id": "PFQP-4-11-8",
-  "learning_outcome": "4.11",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "How does progress reporting support the sponsor specifically?",
-  "items": null,
-  "options": {
-   "a": "It allocates work packages to named team members.",
-   "b": "It confirms that each deliverable has met its acceptance criteria.",
-   "c": "It records the current version of every controlled document.",
-   "d": "It gives them what they need to decide whether the business case still holds."
+  {
+    "id": "PFQP-4-11-8",
+    "learning_outcome": "4.11",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "How does progress reporting support the sponsor specifically?",
+    "items": null,
+    "options": {
+      "a": "It allocates work packages to named team members.",
+      "b": "It confirms that each deliverable has met its acceptance criteria.",
+      "c": "It records the current version of every controlled document.",
+      "d": "It gives them what they need to decide whether the business case still holds."
+    },
+    "answer": "d",
+    "explanation": "The sponsor owns the business case, so what they need from reporting is whether the justification still stands. B is quality control, C is configuration management, D is planning.",
+    "tip": "When a stem names a specific role, answer from that role's accountability. The sponsor's question is always whether it is still worth doing.",
+    "active": true,
+    "mock_suitable": true,
+    "variant": 8,
+    "mock_set": 3
   },
-  "answer": "d",
-  "explanation": "The sponsor owns the business case, so what they need from reporting is whether the justification still stands. B is quality control, C is configuration management, D is planning.",
-  "tip": "When a stem names a specific role, answer from that role's accountability. The sponsor's question is always whether it is still worth doing.",
-  "active": true,
-  "mock_suitable": true,
-  "variant": 8,
-  "mock_set": 3
- },
- {
-  "id": "PFQP-4-11-9",
-  "learning_outcome": "4.11",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [
-   "negative_stem"
-  ],
-  "stem": "Which of the following is not a benefit of project progress reporting?",
-  "items": null,
-  "options": {
-   "a": "Stakeholders receive timely, consistent information rather than rumour.",
-   "b": "Problems surface while they are still small enough to correct.",
-   "c": "The governance board has evidence for its decisions at gates.",
-   "d": "The project's baseline is automatically adjusted to match actual performance."
+  {
+    "id": "PFQP-4-11-9",
+    "learning_outcome": "4.11",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [
+      "negative_stem"
+    ],
+    "stem": "Which of the following is not a benefit of project progress reporting?",
+    "items": null,
+    "options": {
+      "a": "Stakeholders receive timely, consistent information rather than rumour.",
+      "b": "Problems surface while they are still small enough to correct.",
+      "c": "The governance board has evidence for its decisions at gates.",
+      "d": "The project's baseline is automatically adjusted to match actual performance."
+    },
+    "answer": "d",
+    "explanation": "Three of these are real benefits. Reporting measures performance against the baseline; it never moves the baseline, which would require change control and would destroy the comparison. Option D describes precisely the thing progress reporting exists to prevent.",
+    "tip": "The word automatically is worth pausing on. Controlled documents in this syllabus never update themselves.",
+    "active": true,
+    "mock_suitable": false,
+    "variant": 9,
+    "mock_set": null
   },
-  "answer": "d",
-  "explanation": "Three of these are real benefits. Reporting measures performance against the baseline; it never moves the baseline, which would require change control and would destroy the comparison. Option D describes precisely the thing progress reporting exists to prevent.",
-  "tip": "The word automatically is worth pausing on. Controlled documents in this syllabus never update themselves.",
-  "active": true,
-  "mock_suitable": false,
-  "variant": 9,
-  "mock_set": null
- },
- {
-  "id": "PFQP-4-11-10",
-  "learning_outcome": "4.11",
-  "objective": 4,
-  "day": 1,
-  "verb": "outline",
-  "type": "single",
-  "traps": [],
-  "stem": "What does a progress report communicate?",
-  "items": null,
-  "options": {
-   "a": "The project's position against its baseline: what is complete, what it has cost, what remains and what has changed.",
-   "b": "The threats and opportunities currently facing the project and their owners.",
-   "c": "The justification for continuing, and the options that were considered.",
-   "d": "The agreed measures by which the project's success will be judged."
-  },
-  "answer": "a",
-  "explanation": "That four-part position against the baseline is the content of a progress report. Option B describes the risk register, C the business case, and D success criteria.",
-  "tip": null,
-  "active": true,
-  "mock_suitable": false,
-  "variant": 10,
-  "mock_set": null
- }
+  {
+    "id": "PFQP-4-11-10",
+    "learning_outcome": "4.11",
+    "objective": 4,
+    "day": 1,
+    "verb": "outline",
+    "type": "single",
+    "traps": [],
+    "stem": "What does a progress report communicate?",
+    "items": null,
+    "options": {
+      "a": "The project's position against its baseline: what is complete, what it has cost, what remains and what has changed.",
+      "b": "The threats and opportunities currently facing the project and their owners.",
+      "c": "The justification for continuing, and the options that were considered.",
+      "d": "The agreed measures by which the project's success will be judged."
+    },
+    "answer": "a",
+    "explanation": "That four-part position against the baseline is the content of a progress report. Option B describes the risk register, C the business case, and D success criteria.",
+    "tip": null,
+    "active": true,
+    "mock_suitable": false,
+    "variant": 10,
+    "mock_set": null
+  }
 ]
