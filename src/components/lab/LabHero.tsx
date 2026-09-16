@@ -70,7 +70,7 @@ function Headline() {
       </span>
       <br />
       {/* Mobile: smaller third line so the 3-row stack reads as a V; desktop keeps full size. */}
-      <span className="text-[0.72em] sm:text-[1em]">PFQ or PMQ.</span>
+      <span className="text-[0.8em] sm:text-[1em]">PFQ or PMQ.</span>
     </h1>
   );
 }
