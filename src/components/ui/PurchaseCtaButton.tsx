@@ -1,11 +1,11 @@
 "use client";
 
+import { forwardRef, type ReactNode } from "react";
 import {
-  forwardRef,
-  type ButtonHTMLAttributes,
-  type ReactNode,
-} from "react";
-import { motion, useReducedMotion } from "framer-motion";
+  motion,
+  useReducedMotion,
+  type HTMLMotionProps,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
 import styles from "./purchase-cta.module.css";
 
@@ -25,10 +25,7 @@ const PURCHASE_SPRING = {
   mass: 0.55,
 };
 
-type PurchaseCtaButtonProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "children"
-> & {
+type PurchaseCtaButtonProps = Omit<HTMLMotionProps<"button">, "children"> & {
   children: ReactNode;
   pending?: boolean;
 };
