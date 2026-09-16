@@ -38,8 +38,7 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Soft modern category badge — hairline border + layered shadow (current LIC
- * chrome), not the old sticker stamp.
+ * Open category line — no badge. Quiet ink kicker above the Fraunces H1.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
@@ -47,24 +46,12 @@ function CategoryStamp() {
   return (
     <motion.p
       aria-label={EYEBROW}
-      className="mb-4 sm:mb-5"
-      initial={reduce ? false : { y: 10 }}
+      className="mb-3 max-w-[22rem] text-balance text-center font-body text-[12px] font-medium leading-snug tracking-[0.04em] text-ink sm:mb-4 sm:max-w-none sm:text-[13px] sm:tracking-[0.06em]"
+      initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
     >
-      <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-black/[0.08] bg-paper/90 px-3 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:gap-x-2.5 sm:px-3.5 sm:py-1.5 dark:border-white/[0.12]">
-        <span className="flex shrink-0 items-center gap-1" aria-hidden>
-          <span className="size-1 rounded-full bg-teal/80" />
-          <span className="size-1 rounded-full bg-teal/40" />
-        </span>
-        <span className="text-center font-body text-[11px] font-semibold uppercase leading-snug tracking-[0.08em] text-ink/55 sm:text-[12px] sm:tracking-[0.1em]">
-          <span className="whitespace-nowrap">Project management</span>
-          <span className="mx-1.5 text-ink/25" aria-hidden>
-            ·
-          </span>
-          <span className="whitespace-nowrap">Exam revision</span>
-        </span>
-      </span>
+      Project management exam revision
     </motion.p>
   );
 }
