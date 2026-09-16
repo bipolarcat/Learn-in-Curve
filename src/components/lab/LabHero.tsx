@@ -69,7 +69,8 @@ function Headline() {
         on the <CurveAccent />
       </span>
       <br />
-      PFQ or PMQ.
+      {/* Mobile: smaller third line so the 3-row stack reads as a V; desktop keeps full size. */}
+      <span className="text-[0.72em] sm:text-[1em]">PFQ or PMQ.</span>
     </h1>
   );
 }
