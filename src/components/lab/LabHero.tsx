@@ -63,11 +63,15 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      className="mb-4 overflow-visible font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
     >
       PFQ or PMQ.
       <br />
-      Wherever you are on the <CurveAccent />
+      <span className="sm:whitespace-nowrap">
+        Wherever you are
+        <br className="sm:hidden" />{" "}
+        on the <CurveAccent />
+      </span>
     </h1>
   );
 }
