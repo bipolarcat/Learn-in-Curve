@@ -18,13 +18,14 @@ const SUBCOPY =
 
 /**
  * Open category line — no badge chrome. Teal + open tracking.
+ * Spacing to H1 is owned by the parent stack (`gap`), not margin hacks.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      className="mb-0 mt-3 text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:mb-0 sm:mt-5 sm:translate-y-8 sm:text-[17px] sm:tracking-[0.1em]"
+      className="text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:text-[17px] sm:tracking-[0.1em]"
       initial={reduce ? false : { y: 6, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
@@ -88,13 +89,14 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <div className="relative -mt-0.5 mb-2.5 w-full sm:mb-3 [&_[data-hero-animals]]:!mb-0">
+          <div className="relative -mt-0.5 mb-6 w-full sm:mb-8 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
-          <CategoryStamp />
-
-          <Headline />
+          <div className="flex w-full flex-col items-center gap-1 sm:gap-1.5">
+            <CategoryStamp />
+            <Headline />
+          </div>
 
           <p className="mx-auto mb-8 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-9 sm:text-[18px]">
             {SUBCOPY}
