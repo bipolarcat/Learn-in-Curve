@@ -8,7 +8,8 @@ export type SoftNavFrom =
   | "pricing"
   | "library"
   | "pmq"
-  | "pfq";
+  | "pfq"
+  | "lab";
 
 export type SoftNavBackTarget = {
   href: string;
@@ -47,10 +48,15 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
     label: "Back to overview",
     busyLabel: "Opening overview",
   },
+  lab: {
+    href: "/lab",
+    label: "Back to lab",
+    busyLabel: "Opening lab",
+  },
 };
 
 /** Free mock exam page — “Go back to …” wording. */
-export type FreeMockSoftNavFrom = "home" | "library";
+export type FreeMockSoftNavFrom = "home" | "library" | "lab";
 
 export const FREE_MOCK_SOFT_NAV_BACK: Record<
   FreeMockSoftNavFrom,
@@ -66,6 +72,11 @@ export const FREE_MOCK_SOFT_NAV_BACK: Record<
     label: "Go back to library",
     busyLabel: "Opening library",
   },
+  lab: {
+    href: "/lab",
+    label: "Go back to lab",
+    busyLabel: "Opening lab",
+  },
 };
 
 export function parseSoftNavFrom(
@@ -78,7 +89,8 @@ export function parseSoftNavFrom(
     raw === "pricing" ||
     raw === "library" ||
     raw === "pmq" ||
-    raw === "pfq"
+    raw === "pfq" ||
+    raw === "lab"
   ) {
     return raw;
   }
@@ -89,7 +101,7 @@ export function parseFreeMockSoftNavFrom(
   value: string | string[] | undefined,
 ): FreeMockSoftNavFrom | null {
   const raw = Array.isArray(value) ? value[0] : value;
-  if (raw === "home" || raw === "library") return raw;
+  if (raw === "home" || raw === "library" || raw === "lab") return raw;
   return null;
 }
 
