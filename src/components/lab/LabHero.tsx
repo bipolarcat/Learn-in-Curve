@@ -8,7 +8,6 @@ import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
-import { BouncingText } from "@/components/ui/bouncing-text";
 
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -36,37 +35,20 @@ function CategoryStamp() {
 }
 
 function CurveAccent() {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return <span className="inline text-orange">curve.</span>;
-  }
-
-  return (
-    <span className="inline-block overflow-visible text-orange">
-      <BouncingText
-        className="inline-block"
-        repeat={false}
-        persist
-        // Small drop — large fromY invaded the row gap on the mobile 3-line stack.
-        fromY={-16}
-      >
-        curve
-      </BouncingText>
-      .
-    </span>
-  );
+  // Static on purpose — GSAP bounce (even small fromY) paints into the row
+  // gap on the mobile 3-line stack and makes spacing look uneven.
+  return <span className="text-orange">curve.</span>;
 }
 
 function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible font-display text-[2.35rem] font-semibold leading-none tracking-[-0.03em] text-ink sm:mb-5 flex flex-col items-center gap-2 lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08] lg:gap-0"
+      className="mb-4 font-display font-semibold tracking-[-0.03em] text-ink sm:mb-5 grid grid-cols-1 justify-items-center gap-y-2 text-[2.75rem] leading-none lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08] lg:tracking-[-0.03em]"
     >
       {/*
-        Mobile: 3 rows, ONE size (V comes from line length, not shrinking PFQ), equal gap.
-        Desktop lg+: original single-line sentence + matching PFQ.
+        Mobile: 3 equal rows, one size (2.75rem), CSS grid gap (not flex + bounce).
+        Desktop lg+: one-line sentence + matching PFQ.
       */}
       <span className="whitespace-nowrap">Wherever you are</span>
       <span className="whitespace-nowrap">
