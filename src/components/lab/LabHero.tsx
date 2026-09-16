@@ -61,12 +61,12 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      className="mb-4 overflow-visible font-display text-[clamp(2.65rem,7.5vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
     >
       {/*
         Below lg: three block rows + 0.8em PFQ → V silhouette.
         lg+: first sentence one line, PFQ full size.
-        Was gated at sm (640px); many phones/tablets never got mobile styles.
+        Mobile clamp floor bumped 2.05→2.65rem so “Wherever you are / on the curve” reads larger.
       */}
       <span className="lg:whitespace-nowrap">
         <span className="block lg:inline">Wherever you are</span>

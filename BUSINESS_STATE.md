@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-16** — Lab hero H1 mobile: raised clamp floor 2.05→2.65rem so “Wherever you are / on the curve” is larger; PFQ stays 0.8em below `lg` (`LabHero`).
 - **2026-09-16** — Lab hero H1 V-stack: force 3 block rows + 0.8em “PFQ or PMQ.” below `lg` (was `sm`/640px, so many phones never got it); desktop `lg+` unchanged (`LabHero`).
 - **2026-09-16** — Lab hero H1 mobile: “PFQ or PMQ.” at 0.8em so the three-line stack reads as a V; desktop unchanged (`LabHero`).
 - **2026-09-16** — Lab hero desktop: category flush to H1 (gap-0); more space under animals (`LabHero`).
