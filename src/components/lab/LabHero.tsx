@@ -89,11 +89,11 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <div className="relative -mt-0.5 mb-6 w-full sm:mb-8 [&_[data-hero-animals]]:!mb-0">
+          <div className="relative -mt-0.5 mb-6 w-full sm:mb-10 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
-          <div className="flex w-full flex-col items-center gap-1 sm:gap-1.5">
+          <div className="flex w-full flex-col items-center gap-1 sm:gap-0">
             <CategoryStamp />
             <Headline />
           </div>
