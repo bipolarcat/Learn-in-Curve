@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import { LabCanvas } from "@/components/lab/LabCanvas";
 
 /**
- * Design sandbox — spike homepage / marketing ideas here.
+ * Design sandbox — same site shell as the homepage (header + footer +
+ * cream dotted body). Spike homepage / marketing ideas here.
  *
  * How to use:
  * 1. Build a new component under `src/components/lab/` (e.g. `HeroExperimentA.tsx`)
@@ -12,6 +14,12 @@ import { LabCanvas } from "@/components/lab/LabCanvas";
  * Do not import or edit `HomeBrandHero` / `(site)/page.tsx` from experiments
  * unless you are intentionally promoting a winner.
  */
+export const metadata: Metadata = {
+  title: "Lab — Learn in Curve",
+  description: "Internal design sandbox. Not indexed.",
+  robots: { index: false, follow: false },
+};
+
 export default function LabPage() {
   return <LabCanvas />;
 }
