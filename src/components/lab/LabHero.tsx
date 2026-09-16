@@ -17,8 +17,8 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
-const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
+const TITLE = "Project management exam revision";
+const SUBHEAD = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop rereading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
@@ -37,38 +37,6 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
-/**
- * Option B — open kicker (no pill). Quiet Figtree label + short teal hairline
- * that draws in under the words, so it reads as part of the type stack rather
- * than a floating chip. Swap back to the soft pill if this loses.
- */
-function CategoryStamp() {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.div
-      className="mb-4 flex flex-col items-center gap-2.5 sm:mb-5 sm:gap-3"
-      initial={reduce ? false : { y: 8 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
-    >
-      <p
-        aria-label={EYEBROW}
-        className="max-w-[22rem] text-balance text-center font-body text-[12px] font-medium leading-snug tracking-[0.04em] text-teal sm:max-w-none sm:text-[13px] sm:tracking-[0.06em]"
-      >
-        Project management exam revision
-      </p>
-      <motion.span
-        aria-hidden
-        className="h-px w-10 origin-center bg-teal/45 sm:w-12"
-        initial={reduce ? false : { scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.7, delay: 0.28, ease: EASE }}
-      />
-    </motion.div>
-  );
-}
-
 function CurveAccent() {
   const reduce = useReducedMotion();
 
@@ -82,7 +50,7 @@ function CurveAccent() {
         className="inline-block"
         repeat={false}
         persist
-        fromY={-72}
+        fromY={-48}
       >
         curve
       </BouncingText>
@@ -91,12 +59,16 @@ function CurveAccent() {
   );
 }
 
-function Headline() {
+/**
+ * Option C — category line is the H1 (Fraunces, full emphasis).
+ * PFQ/PMQ demoted to a supporting subhead so the exam-revision message leads.
+ */
+function LeadTitle() {
   const reduce = useReducedMotion();
-  const line1 = ["PFQ", "or", "PMQ."];
-  const line2 = ["Wherever", "you", "are", "on", "the"];
-  const leadStagger = 0.06;
-  const leadStart = 0.45;
+  const line1 = ["Project", "management"];
+  const line2 = ["exam", "revision"];
+  const leadStagger = 0.055;
+  const leadStart = 0.12;
 
   const renderWords = (words: string[], indexOffset: number) =>
     words.map((word, i) => (
@@ -117,21 +89,52 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
-      aria-label={HEADLINE}
+      className="mb-3 overflow-visible text-balance font-display text-[clamp(2.35rem,6.2vw,4.1rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-ink sm:mb-3.5"
+      aria-label={TITLE}
     >
       <span aria-hidden className="inline overflow-visible">
         {renderWords(line1, 0)}
         <br />
         {renderWords(line2, line1.length)}
-        <CurveAccent />
       </span>
     </h1>
   );
 }
 
+function Subhead() {
+  const reduce = useReducedMotion();
+  const words = ["PFQ", "or", "PMQ.", "Wherever", "you", "are", "on", "the"];
+  const leadStart = 0.48;
+  const leadStagger = 0.04;
+
+  return (
+    <p
+      className="mb-5 max-w-[28rem] text-balance font-display text-[clamp(1.15rem,2.6vw,1.45rem)] font-medium leading-[1.25] tracking-[-0.02em] text-ink/70 sm:mb-6"
+      aria-label={SUBHEAD}
+    >
+      <span aria-hidden>
+        {words.map((word, i) => (
+          <motion.span
+            key={`${word}-${i}`}
+            className="inline-block"
+            custom={leadStart + i * leadStagger}
+            variants={wordVariants}
+            initial={reduce ? false : "hidden"}
+            animate={reduce ? staticWord : "show"}
+            style={{ whiteSpace: "pre" }}
+          >
+            {word}
+            {"\u00A0"}
+          </motion.span>
+        ))}
+        <CurveAccent />
+      </span>
+    </p>
+  );
+}
+
 /**
- * Lab hero — 21st background-paths motion + LIC type, stamps, and CTAs.
+ * Lab hero — 21st background-paths motion + LIC type and CTAs.
  * Cream dotted body shows through; live homepage untouched.
  */
 export function LabHero() {
@@ -145,9 +148,8 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <CategoryStamp />
-
-          <Headline />
+          <LeadTitle />
+          <Subhead />
 
           <p className="mx-auto mb-8 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-9 sm:text-[18px]">
             {SUBCOPY}
