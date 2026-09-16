@@ -61,22 +61,23 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible font-display text-[clamp(2.65rem,7.5vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      className="mb-4 overflow-visible font-display text-[clamp(2.65rem,7.5vw,3.65rem)] font-semibold tracking-[-0.03em] text-ink sm:mb-5 max-lg:flex max-lg:flex-col max-lg:items-center max-lg:gap-1.5 max-lg:leading-none lg:leading-[1.08]"
     >
       {/*
-        Below lg: three block rows + 0.8em PFQ → V silhouette.
+        Below lg: three flex rows, equal gap, leading-none (avoids uneven gaps from 0.8em PFQ).
         lg+: first sentence one line, PFQ full size.
-        Mobile clamp floor bumped 2.05→2.65rem so “Wherever you are / on the curve” reads larger.
       */}
-      <span className="lg:whitespace-nowrap">
-        <span className="block lg:inline">Wherever you are</span>
-        <span className="block lg:inline">
+      <span className="contents lg:inline lg:whitespace-nowrap">
+        <span className="block whitespace-nowrap leading-none lg:inline lg:leading-[inherit]">
+          Wherever you are
+        </span>
+        <span className="block whitespace-nowrap leading-none lg:inline lg:leading-[inherit]">
           {" "}
           on the <CurveAccent />
         </span>
       </span>
       <br className="hidden lg:inline" />
-      <span className="block text-[0.8em] lg:inline lg:text-[1em]">
+      <span className="block whitespace-nowrap text-[0.8em] leading-none lg:inline lg:text-[1em] lg:leading-[inherit]">
         PFQ or PMQ.
       </span>
     </h1>
