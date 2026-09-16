@@ -52,7 +52,9 @@ function CategoryStamp() {
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
     >
-      Project Management exam revision
+      Project Management
+      <br />
+      exam revision
     </motion.p>
   );
 }
