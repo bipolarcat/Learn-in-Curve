@@ -12,7 +12,7 @@ import { hasCreatedAccount } from "@/lib/auth-hints";
 import { allowsDarkMode } from "@/lib/theme-routes";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
-import { headerPillTeal } from "@/components/header-control";
+import { headerPillAuthGleam } from "@/components/header-control";
 import { SiteHeaderMenu, type HeaderAccount } from "@/components/SiteHeaderMenu";
 
 export {
@@ -181,7 +181,7 @@ export function SiteHeaderControls({
         <HeaderChip style={{ "--i": 2 } as CSSProperties}>
           <HeaderNavButton
             href={guestCta.href}
-            className={headerPillTeal}
+            className={headerPillAuthGleam}
             ariaLabel={guestCta.label}
             title={guestCta.label}
             busyLabel={
@@ -189,12 +189,14 @@ export function SiteHeaderControls({
                 ? "Opening sign in"
                 : "Opening sign up"
             }
-            spinnerClassName="text-paper"
+            spinnerClassName="text-paper relative z-[1]"
             analyticsLocation="header"
             analyticsVariant={guestCta.label}
           >
-            <AuthIcon />
-            <span>{guestCta.label}</span>
+            <span className="relative z-[1] inline-flex items-center gap-1.5">
+              <AuthIcon />
+              <span>{guestCta.label}</span>
+            </span>
           </HeaderNavButton>
         </HeaderChip>
       ) : null}

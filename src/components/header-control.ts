@@ -60,6 +60,13 @@ export const headerPillTeal =
 export const headerPillPrimary =
   `group inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-xl border border-transparent bg-action px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper hover:bg-action-hover sm:gap-1.5 sm:px-3 ${motion}`;
 
+/**
+ * Guest auth CTA — orange fill + 21st “Shiny Button” gleam-edge sweep
+ * (hyperiux). Styles live in `globals.css` under `.header-auth-gleam`.
+ */
+export const headerPillAuthGleam =
+  `header-auth-gleam group relative inline-flex h-8 shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-xl border border-transparent px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper sm:gap-1.5 sm:px-3 ${focus}`;
+
 /** Dark-mode toggle shell — same flat geometry as icon chrome. */
 export const headerThemeToggle =
   `group inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border ${motion}`;

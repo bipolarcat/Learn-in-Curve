@@ -876,6 +876,153 @@ body[data-preview-signup-pin="1"] {
 }
 
 /*
+ * Header guest auth CTA — adapted from 21st.dev Shiny Button (hyperiux):
+ * rotating conic gleam on the border + sheen, paused until hover/focus.
+ * Compact orange fill for LIC chrome (was flat teal).
+ */
+@property --header-auth-gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --header-auth-gradient-angle-offset {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --header-auth-gradient-percent {
+  syntax: "<percentage>";
+  initial-value: 5%;
+  inherits: false;
+}
+
+@property --header-auth-gradient-shine {
+  syntax: "<color>";
+  initial-value: white;
+  inherits: false;
+}
+
+.header-auth-gleam {
+  --header-auth-duration: 2.8s;
+  --header-auth-ease: 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  isolation: isolate;
+  color: rgb(var(--paper-rgb));
+  background:
+    linear-gradient(var(--orange), var(--orange)) padding-box,
+    conic-gradient(
+      from calc(
+        var(--header-auth-gradient-angle) - var(--header-auth-gradient-angle-offset)
+      ),
+      transparent,
+      var(--gold) var(--header-auth-gradient-percent),
+      var(--header-auth-gradient-shine)
+        calc(var(--header-auth-gradient-percent) * 2),
+      var(--gold) calc(var(--header-auth-gradient-percent) * 3),
+      transparent calc(var(--header-auth-gradient-percent) * 4)
+    )
+    border-box;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--orange-action) 70%, black);
+  transition: var(--header-auth-ease);
+  transition-property:
+    --header-auth-gradient-angle-offset,
+    --header-auth-gradient-percent,
+    --header-auth-gradient-shine,
+    filter;
+}
+
+.header-auth-gleam::before,
+.header-auth-gleam::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  z-index: 0;
+}
+
+.header-auth-gleam::before {
+  --size: calc(100% - 6px);
+  --position: 2px;
+  --space: calc(var(--position) * 2);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(
+      circle at var(--position) var(--position),
+      white calc(var(--position) / 4),
+      transparent 0
+    )
+    padding-box;
+  background-size: var(--space) var(--space);
+  background-repeat: space;
+  mask-image: conic-gradient(
+    from calc(var(--header-auth-gradient-angle) + 45deg),
+    black,
+    transparent 10% 90%,
+    black
+  );
+  border-radius: inherit;
+  opacity: 0.35;
+}
+
+.header-auth-gleam::after {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(-50deg, transparent, var(--gold), transparent);
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.55;
+}
+
+.header-auth-gleam,
+.header-auth-gleam::before,
+.header-auth-gleam::after {
+  animation:
+    header-auth-gradient-angle var(--header-auth-duration) linear infinite,
+    header-auth-gradient-angle calc(var(--header-auth-duration) / 0.4) linear
+      infinite reverse paused;
+  animation-composition: add;
+}
+
+.header-auth-gleam::after {
+  animation:
+    header-auth-shimmer var(--header-auth-duration) linear infinite,
+    header-auth-shimmer calc(var(--header-auth-duration) / 0.4) linear infinite
+      reverse paused;
+  animation-composition: add;
+}
+
+.header-auth-gleam:is(:hover, :focus-visible) {
+  --header-auth-gradient-percent: 18%;
+  --header-auth-gradient-angle-offset: 95deg;
+  --header-auth-gradient-shine: #f0c56a;
+  filter: brightness(1.05);
+}
+
+.header-auth-gleam:is(:hover, :focus-visible),
+.header-auth-gleam:is(:hover, :focus-visible)::before,
+.header-auth-gleam:is(:hover, :focus-visible)::after {
+  animation-play-state: running;
+}
+
+.header-auth-gleam:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+@keyframes header-auth-gradient-angle {
+  to {
+    --header-auth-gradient-angle: 360deg;
+  }
+}
+
+@keyframes header-auth-shimmer {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/*
  * LIC-113 — entrance animations must never be able to hide content.
  *
  * A document loaded while hidden (link opened in a background tab, browser
@@ -1196,6 +1343,9 @@ html.lic-deferred-entrance *::after {
   .quiz-set-panel,
   .lo-section-panel,
   .site-header-chip,
+  .header-auth-gleam,
+  .header-auth-gleam::before,
+  .header-auth-gleam::after,
   .day-lo-card,
   .lo-complete-stamp,
   .lo-complete-ring,
@@ -1233,6 +1383,18 @@ html.lic-deferred-entrance *::after {
   .day-lo-card {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .header-auth-gleam {
+    background: var(--orange) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .header-auth-gleam::before,
+  .header-auth-gleam::after {
+    display: none !important;
   }
 
   .ticket-card:hover {
