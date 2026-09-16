@@ -103,6 +103,10 @@ cream dotted body). Noindex + robots disallow. Mount spikes under
 `src/components/lab/` via `LabCanvas` on `src/app/(site)/lab/page.tsx`. Do not
 edit the live homepage until promoting a winner.
 
+**Current spike (2026-09-16):** `LabHero` — 21st background-paths animation
+(neural / flow / geometric / spiral) in teal over cream dots; LIC stamp
+eyebrow + Fraunces PFQ/PMQ lockup + orange “curve.”; free-mock / courses CTAs.
+
 ### Home sections (restaged 2026-07-31)
 
 Order: Hero → Proof → Features → TrialQuiz → Sly → Newsletter. One continuous
