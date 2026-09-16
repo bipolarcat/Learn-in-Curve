@@ -9,13 +9,15 @@ import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
+import { BouncingText } from "@/components/ui/bouncing-text";
 
-/** Apple / 21st Soft Blur In ease — no bounce. */
+/** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const SUBHEAD = "PFQ or PMQ. Wherever you are on the curve.";
+const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
+const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
-  "Stop re-reading. Start revising with practice questions and full mock exams for both APM qualifications.";
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
 const wordVariants: Variants = {
   hidden: { opacity: 1, y: 10 },
@@ -32,13 +34,15 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
-/** Lead H1 — category is the document title. */
-function LeadTitle() {
+/**
+ * Open category line — Fraunces, mid-scale between body and H1.
+ */
+function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
-    <motion.h1
-      id="lab-hero-title"
+    <motion.p
+      aria-label={EYEBROW}
       className="mb-1 max-w-[36rem] overflow-visible text-balance text-center font-display text-[clamp(1.55rem,4vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-ink sm:mb-1.5 sm:max-w-none"
       initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
@@ -47,7 +51,7 @@ function LeadTitle() {
       Project Management
       <br />
       Exam Revision
-    </motion.h1>
+    </motion.p>
   );
 }
 
@@ -59,24 +63,26 @@ function CurveAccent() {
   }
 
   return (
-    <motion.span
-      className="inline-block text-orange"
-      initial={{ y: 8, opacity: 1 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.95, ease: EASE }}
-    >
-      curve.
-    </motion.span>
+    <span className="inline-block overflow-visible text-orange">
+      <BouncingText
+        className="inline-block"
+        repeat={false}
+        persist
+        fromY={-72}
+      >
+        curve
+      </BouncingText>
+      .
+    </span>
   );
 }
 
-/** Supporting subhead — smaller than the H1 (clear hierarchy). */
-function Subhead() {
+function Headline() {
   const reduce = useReducedMotion();
   const line1 = ["PFQ", "or", "PMQ."];
   const line2 = ["Wherever", "you", "are", "on", "the"];
-  const leadStagger = 0.05;
-  const leadStart = 0.4;
+  const leadStagger = 0.06;
+  const leadStart = 0.45;
 
   const renderWords = (words: string[], indexOffset: number) =>
     words.map((word, i) => (
@@ -95,9 +101,10 @@ function Subhead() {
     ));
 
   return (
-    <p
-      className="mb-4 max-w-[34rem] overflow-visible text-balance font-display text-[clamp(1.35rem,3.2vw,1.85rem)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink/85 sm:mb-5"
-      aria-label={SUBHEAD}
+    <h1
+      id="lab-hero-title"
+      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      aria-label={HEADLINE}
     >
       <span aria-hidden className="inline overflow-visible">
         {renderWords(line1, 0)}
@@ -105,12 +112,12 @@ function Subhead() {
         {renderWords(line2, line1.length)}
         <CurveAccent />
       </span>
-    </p>
+    </h1>
   );
 }
 
 /**
- * Lab hero — geometric paths + animals between title and PFQ/PMQ subhead.
+ * Lab hero — geometric paths + animals between category line and PFQ/PMQ.
  * Cream dotted body shows through; live homepage untouched.
  */
 export function LabHero() {
@@ -124,22 +131,22 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <LeadTitle />
+          <CategoryStamp />
 
           <div className="relative -mt-0.5 mb-3 w-full sm:mb-4 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
-          <Subhead />
+          <Headline />
 
-          <p className="mx-auto mb-8 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/85 sm:mb-9 sm:text-[18px]">
+          <p className="mx-auto mb-8 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-9 sm:text-[18px]">
             {SUBCOPY}
           </p>
 
           <div className="relative z-10 flex flex-wrap items-center justify-center">
             <FreeMockExamLink
               className={stampCtaTealFlat}
-              from="lab"
+              from="home"
               location="lab-hero"
               label="Take a free mock"
               showArrow
