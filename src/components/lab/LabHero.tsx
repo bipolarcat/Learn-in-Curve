@@ -6,6 +6,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
+import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import {
@@ -118,7 +119,7 @@ function Headline() {
 }
 
 /**
- * Lab hero — 21st background-paths motion + LIC type, badge, and CTAs.
+ * Lab hero — geometric paths + animals between category line and PFQ/PMQ.
  * Cream dotted body shows through; live homepage untouched.
  */
 export function LabHero() {
@@ -133,6 +134,10 @@ export function LabHero() {
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
           <CategoryStamp />
+
+          <div className="relative mb-2 w-full sm:mb-3">
+            <HeroAnimalsScene />
+          </div>
 
           <Headline />
 
