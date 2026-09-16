@@ -48,7 +48,8 @@ function CurveAccent() {
         className="inline-block"
         repeat={false}
         persist
-        fromY={-72}
+        // Small drop — large fromY invaded the row gap on the mobile 3-line stack.
+        fromY={-16}
       >
         curve
       </BouncingText>
@@ -61,11 +62,11 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible font-display text-[2.125rem] font-semibold leading-none tracking-[-0.03em] text-ink sm:mb-5 flex flex-col items-center gap-1.5 lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08]"
+      className="mb-4 overflow-visible font-display text-[2.35rem] font-semibold leading-none tracking-[-0.03em] text-ink sm:mb-5 flex flex-col items-center gap-2 lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08] lg:gap-0"
     >
       {/*
-        Mobile (<lg): 3 equal-gap rows, explicit rem sizes (no em / display:contents — both broke on real phones).
-        Desktop (lg+): original one-line sentence + full-size PFQ.
+        Mobile: 3 rows, ONE size (V comes from line length, not shrinking PFQ), equal gap.
+        Desktop lg+: original single-line sentence + matching PFQ.
       */}
       <span className="whitespace-nowrap">Wherever you are</span>
       <span className="whitespace-nowrap">
@@ -73,9 +74,7 @@ function Headline() {
         on the <CurveAccent />
       </span>
       <br className="hidden lg:inline" />
-      <span className="whitespace-nowrap text-[1.7rem] lg:text-[1em]">
-        PFQ or PMQ.
-      </span>
+      <span className="whitespace-nowrap">PFQ or PMQ.</span>
     </h1>
   );
 }
