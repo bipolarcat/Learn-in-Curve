@@ -24,7 +24,7 @@ function CategoryStamp() {
 
   return (
     <motion.p
-      className="mb-1 text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:mb-1.5 sm:text-[17px] sm:tracking-[0.1em]"
+      className="mb-0.5 -mt-0.5 text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:mb-0 sm:translate-y-1.5 sm:text-[17px] sm:tracking-[0.1em]"
       initial={reduce ? false : { y: 6, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
@@ -88,7 +88,7 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <div className="relative -mt-0.5 mb-5 w-full sm:mb-7 [&_[data-hero-animals]]:!mb-0">
+          <div className="relative -mt-0.5 mb-2.5 w-full sm:mb-3 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
