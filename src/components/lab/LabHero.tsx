@@ -129,7 +129,7 @@ export function LabHero() {
     <section
       id="lab-hero"
       aria-labelledby="lab-hero-title"
-      className="relative flex min-h-[min(78vh,44rem)] items-center overflow-x-clip overflow-y-visible py-10 sm:py-14 lg:py-16"
+      className="relative flex min-h-[min(68vh,40rem)] items-start overflow-x-clip overflow-y-visible pb-10 pt-2 sm:pb-14 sm:pt-3 lg:pb-16 lg:pt-4"
     >
       <LabBackgroundPaths />
 
