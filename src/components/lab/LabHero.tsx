@@ -17,8 +17,8 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const TITLE = "Project management exam revision";
-const SUBHEAD = "PFQ or PMQ. Wherever you are on the curve.";
+const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
+const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop rereading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
@@ -37,6 +37,38 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
+/**
+ * Soft modern category badge — hairline border + layered shadow (current LIC
+ * chrome), not the old sticker stamp.
+ */
+function CategoryStamp() {
+  const reduce = useReducedMotion();
+
+  return (
+    <motion.p
+      aria-label={EYEBROW}
+      className="mb-4 sm:mb-5"
+      initial={reduce ? false : { y: 10 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
+    >
+      <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-black/[0.08] bg-paper/90 px-3 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:gap-x-2.5 sm:px-3.5 sm:py-1.5 dark:border-white/[0.12]">
+        <span className="flex shrink-0 items-center gap-1" aria-hidden>
+          <span className="size-1 rounded-full bg-teal/80" />
+          <span className="size-1 rounded-full bg-teal/40" />
+        </span>
+        <span className="text-center font-body text-[11px] font-semibold uppercase leading-snug tracking-[0.08em] text-ink/55 sm:text-[12px] sm:tracking-[0.1em]">
+          <span className="whitespace-nowrap">Project management</span>
+          <span className="mx-1.5 text-ink/25" aria-hidden>
+            ·
+          </span>
+          <span className="whitespace-nowrap">Exam revision</span>
+        </span>
+      </span>
+    </motion.p>
+  );
+}
+
 function CurveAccent() {
   const reduce = useReducedMotion();
 
@@ -50,7 +82,7 @@ function CurveAccent() {
         className="inline-block"
         repeat={false}
         persist
-        fromY={-48}
+        fromY={-72}
       >
         curve
       </BouncingText>
@@ -59,16 +91,12 @@ function CurveAccent() {
   );
 }
 
-/**
- * Option C — category line is the H1 (Fraunces, full emphasis).
- * PFQ/PMQ demoted to a supporting subhead so the exam-revision message leads.
- */
-function LeadTitle() {
+function Headline() {
   const reduce = useReducedMotion();
-  const line1 = ["Project", "management"];
-  const line2 = ["exam", "revision"];
-  const leadStagger = 0.055;
-  const leadStart = 0.12;
+  const line1 = ["PFQ", "or", "PMQ."];
+  const line2 = ["Wherever", "you", "are", "on", "the"];
+  const leadStagger = 0.06;
+  const leadStart = 0.45;
 
   const renderWords = (words: string[], indexOffset: number) =>
     words.map((word, i) => (
@@ -89,52 +117,21 @@ function LeadTitle() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-3 overflow-visible text-balance font-display text-[clamp(2.35rem,6.2vw,4.1rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-ink sm:mb-3.5"
-      aria-label={TITLE}
+      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      aria-label={HEADLINE}
     >
       <span aria-hidden className="inline overflow-visible">
         {renderWords(line1, 0)}
         <br />
         {renderWords(line2, line1.length)}
+        <CurveAccent />
       </span>
     </h1>
   );
 }
 
-function Subhead() {
-  const reduce = useReducedMotion();
-  const words = ["PFQ", "or", "PMQ.", "Wherever", "you", "are", "on", "the"];
-  const leadStart = 0.48;
-  const leadStagger = 0.04;
-
-  return (
-    <p
-      className="mb-5 max-w-[28rem] text-balance font-display text-[clamp(1.15rem,2.6vw,1.45rem)] font-medium leading-[1.25] tracking-[-0.02em] text-ink/70 sm:mb-6"
-      aria-label={SUBHEAD}
-    >
-      <span aria-hidden>
-        {words.map((word, i) => (
-          <motion.span
-            key={`${word}-${i}`}
-            className="inline-block"
-            custom={leadStart + i * leadStagger}
-            variants={wordVariants}
-            initial={reduce ? false : "hidden"}
-            animate={reduce ? staticWord : "show"}
-            style={{ whiteSpace: "pre" }}
-          >
-            {word}
-            {"\u00A0"}
-          </motion.span>
-        ))}
-        <CurveAccent />
-      </span>
-    </p>
-  );
-}
-
 /**
- * Lab hero — 21st background-paths motion + LIC type and CTAs.
+ * Lab hero — 21st background-paths motion + LIC type, badge, and CTAs.
  * Cream dotted body shows through; live homepage untouched.
  */
 export function LabHero() {
@@ -148,8 +145,9 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <LeadTitle />
-          <Subhead />
+          <CategoryStamp />
+
+          <Headline />
 
           <p className="mx-auto mb-8 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-9 sm:text-[18px]">
             {SUBCOPY}
