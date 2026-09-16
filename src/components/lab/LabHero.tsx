@@ -17,65 +17,20 @@ const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
 /**
- * Exam-ticket kicker — perforated stub (not another soft pill).
- * Cue: 21st Animated Badge live pulse + LIC stamp type / cream ticket.
+ * Modern category label — quiet paper chip, no ticket/stamp chrome.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      className="mb-3 sm:mb-3.5"
-      initial={reduce ? false : { y: 10, opacity: 0, filter: "blur(4px)" }}
-      animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-      transition={{ duration: 0.55, delay: 0.08, ease: EASE }}
+      className="mb-2.5 sm:mb-3"
+      initial={reduce ? false : { y: 6, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
     >
-      <span
-        className="lab-exam-ticket relative inline-flex max-w-[min(100%,22rem)] items-stretch rounded-md border border-ink/15 bg-paper text-left shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_8px_24px_rgb(var(--ink-rgb)_/_0.07)] sm:max-w-none"
-        aria-label="Project Management Exam Revision"
-      >
-        {/* Punch holes — cream circles over cream page = ticket notches */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -left-1.5 top-1/2 z-10 h-3 w-3 -translate-y-1/2 rounded-full bg-cream ring-1 ring-ink/10"
-        />
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -right-1.5 top-1/2 z-10 h-3 w-3 -translate-y-1/2 rounded-full bg-cream ring-1 ring-ink/10"
-        />
-
-        {/* Stub */}
-        <span className="relative flex shrink-0 items-center gap-2 rounded-l-[5px] bg-teal px-2.5 py-2 sm:px-3">
-          <span className="relative flex h-1.5 w-1.5 items-center justify-center">
-            {!reduce ? (
-              <span className="absolute inset-0 rounded-full bg-gold/80 motion-safe:animate-ping" />
-            ) : null}
-            <span className="relative h-1.5 w-1.5 rounded-full bg-gold" />
-          </span>
-          <span className="font-stamp text-[9px] font-bold uppercase leading-none tracking-[0.14em] text-paper sm:text-[10px] sm:tracking-[0.16em]">
-            PM
-          </span>
-        </span>
-
-        {/* Tear line */}
-        <span
-          aria-hidden
-          className="w-0 shrink-0 self-stretch border-l border-dashed border-ink/30"
-        />
-
-        {/* Body */}
-        <span className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 rounded-r-[5px] px-3 py-2 sm:px-3.5 sm:py-2.5">
-          <span className="font-stamp text-[8px] font-bold uppercase leading-none tracking-[0.18em] text-orange sm:text-[9px]">
-            Exam lane
-          </span>
-          <span className="font-body text-[12px] font-semibold leading-tight tracking-[-0.015em] text-ink sm:text-[13px]">
-            Project Management{" "}
-            <span className="text-ink/35" aria-hidden>
-              ·
-            </span>{" "}
-            Exam Revision
-          </span>
-        </span>
+      <span className="inline-flex max-w-full items-center justify-center rounded-full border border-black/[0.08] bg-paper/90 px-4 py-1.5 font-body text-[13px] font-medium leading-none tracking-[-0.01em] text-ink/80 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.03),0_4px_14px_rgb(var(--ink-rgb)_/_0.05)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-5 sm:py-2 sm:text-[14px] dark:border-white/[0.12]">
+        Project Magic Exam Division
       </span>
     </motion.p>
   );
