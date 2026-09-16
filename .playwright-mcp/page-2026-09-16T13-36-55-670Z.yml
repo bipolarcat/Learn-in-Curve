@@ -1,0 +1,83 @@
+- generic [active] [ref=f16e1]:
+  - generic [ref=f16e2]:
+    - link "Skip to content" [ref=f16e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Primary" [ref=f16e5]:
+      - link "Learn in Curve" [ref=f16e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f16e8]:
+          - generic [ref=f16e9]: Learn in
+          - generic [ref=f16e10]: Curve
+      - group "Site controls" [ref=f16e11]:
+        - button "Get Started" [ref=f16e13] [cursor=pointer]
+        - button "Open menu" [ref=f16e21] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f16e24]:
+            - generic [ref=f16e25]: M
+            - generic [ref=f16e26]: e
+            - generic [ref=f16e27]: "n"
+            - generic [ref=f16e28]: u
+    - main [ref=f16e29]:
+      - generic [ref=f16e30]:
+        - generic: Lab · not indexed
+        - region [ref=f16e31]:
+          - generic [ref=f16e33]:
+            - generic [ref=f16e35]:
+              - paragraph [ref=f16e36]: Project Management Exam Revision
+              - heading "Wherever you are on the curve . PFQ or PMQ." [level=1] [ref=f16e37]:
+                - generic [ref=f16e38]:
+                  - generic [ref=f16e39]: Wherever you are
+                  - generic [ref=f16e40]:
+                    - text: on the
+                    - generic [ref=f16e41]:
+                      - generic "curve" [ref=f16e42]:
+                        - generic [aria-hidden] [ref=f16e43]:
+                          - generic [aria-hidden] [ref=f16e44]: c
+                          - generic [aria-hidden] [ref=f16e45]: u
+                          - generic [aria-hidden] [ref=f16e46]: r
+                          - generic [aria-hidden] [ref=f16e47]: v
+                          - generic [aria-hidden] [ref=f16e48]: e
+                      - text: .
+                - generic [ref=f16e49]: PFQ or PMQ.
+            - paragraph [ref=f16e50]: Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.
+            - link "Take a free mock" [ref=f16e52] [cursor=pointer]:
+              - /url: /free-mock-exam?from=home
+    - contentinfo [ref=f16e55]:
+      - generic [ref=f16e57]:
+        - generic [ref=f16e58]:
+          - generic [ref=f16e59]:
+            - generic [ref=f16e61]:
+              - generic [ref=f16e62]: Learn in
+              - generic [ref=f16e63]: Curve
+            - paragraph [ref=f16e64]: Master project Management & AI
+          - generic [ref=f16e65]:
+            - link "Learn in Curve on Instagram" [ref=f16e66] [cursor=pointer]:
+              - /url: https://www.instagram.com/learn.in.curve/
+            - link "Learn in Curve on LinkedIn" [ref=f16e69] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/learn-in-curve/
+        - navigation "Footer" [ref=f16e72]:
+          - link "Privacy" [ref=f16e73] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=f16e74] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookies" [ref=f16e75] [cursor=pointer]:
+            - /url: /cookies
+          - button "Send feedback" [ref=f16e76] [cursor=pointer]
+      - generic [ref=f16e77]:
+        - generic:
+          - paragraph: © 2026 Learn in Curve
+          - paragraph: v2.46
+  - dialog "Cookies":
+    - generic [ref=f16e80]:
+      - generic [ref=f16e89]:
+        - paragraph [ref=f16e90]: Cookies
+        - paragraph [ref=f16e91]:
+          - text: We use a strictly necessary cookie to keep you signed in. We’d also like to use analytics cookies to see which lessons work and where people get stuck. No ads, ever.
+          - link "Cookie notice" [ref=f16e92] [cursor=pointer]:
+            - /url: /cookies
+      - generic [ref=f16e93]:
+        - button "Accept" [ref=f16e94] [cursor=pointer]
+        - button "Reject" [ref=f16e95] [cursor=pointer]
+        - link "Details" [ref=f16e96] [cursor=pointer]:
+          - /url: /cookies
+  - alert [ref=f16e97]
+  - region "Notifications alt+T"

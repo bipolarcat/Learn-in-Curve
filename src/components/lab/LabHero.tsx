@@ -63,14 +63,22 @@ function Headline() {
       id="lab-hero-title"
       className="mb-4 overflow-visible font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
     >
-      <span className="sm:whitespace-nowrap">
-        Wherever you are
-        <br className="sm:hidden" />{" "}
-        on the <CurveAccent />
+      {/*
+        Below lg: three block rows + 0.8em PFQ → V silhouette.
+        lg+: first sentence one line, PFQ full size.
+        Was gated at sm (640px); many phones/tablets never got mobile styles.
+      */}
+      <span className="lg:whitespace-nowrap">
+        <span className="block lg:inline">Wherever you are</span>
+        <span className="block lg:inline">
+          {" "}
+          on the <CurveAccent />
+        </span>
       </span>
-      <br />
-      {/* Mobile: smaller third line so the 3-row stack reads as a V; desktop keeps full size. */}
-      <span className="text-[0.8em] sm:text-[1em]">PFQ or PMQ.</span>
+      <br className="hidden lg:inline" />
+      <span className="block text-[0.8em] lg:inline lg:text-[1em]">
+        PFQ or PMQ.
+      </span>
     </h1>
   );
 }
