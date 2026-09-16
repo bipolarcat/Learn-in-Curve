@@ -38,7 +38,7 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Open category line — no badge. Quiet ink kicker above the Fraunces H1.
+ * Open category line — same Fraunces lockup as the PFQ/PMQ H1.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
@@ -46,7 +46,7 @@ function CategoryStamp() {
   return (
     <motion.p
       aria-label={EYEBROW}
-      className="mb-3.5 max-w-[32rem] text-balance text-center font-body text-[18px] font-medium leading-snug tracking-[0.02em] text-ink sm:mb-5 sm:max-w-none sm:text-[22px] sm:tracking-[0.03em]"
+      className="mb-3.5 max-w-[32rem] text-balance text-center font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5 sm:max-w-none"
       initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
