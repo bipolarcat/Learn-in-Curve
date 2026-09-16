@@ -38,35 +38,34 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Category badge — current LIC soft-pill language (hairline border + soft
- * layered shadow), not the old sticker-offset stamp. Hierarchy: quiet label
- * above Fraunces. Cues: SiteHeader / NotifyBand / Contents-pill chrome.
+ * Option B — open kicker (no pill). Quiet Figtree label + short teal hairline
+ * that draws in under the words, so it reads as part of the type stack rather
+ * than a floating chip. Swap back to the soft pill if this loses.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
-    <motion.p
-      aria-label={EYEBROW}
-      className="mb-4 sm:mb-5"
-      initial={reduce ? false : { y: 10 }}
+    <motion.div
+      className="mb-4 flex flex-col items-center gap-2.5 sm:mb-5 sm:gap-3"
+      initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
     >
-      <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-black/[0.08] bg-paper/90 px-3 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:gap-x-2.5 sm:px-3.5 sm:py-1.5 dark:border-white/[0.12]">
-        <span className="flex shrink-0 items-center gap-1" aria-hidden>
-          <span className="size-1 rounded-full bg-teal/80" />
-          <span className="size-1 rounded-full bg-teal/40" />
-        </span>
-        <span className="text-center font-body text-[11px] font-semibold uppercase leading-snug tracking-[0.08em] text-ink/55 sm:text-[12px] sm:tracking-[0.1em]">
-          <span className="whitespace-nowrap">Project management</span>
-          <span className="mx-1.5 text-ink/25" aria-hidden>
-            ·
-          </span>
-          <span className="whitespace-nowrap">Exam revision</span>
-        </span>
-      </span>
-    </motion.p>
+      <p
+        aria-label={EYEBROW}
+        className="max-w-[22rem] text-balance text-center font-body text-[12px] font-medium leading-snug tracking-[0.04em] text-teal sm:max-w-none sm:text-[13px] sm:tracking-[0.06em]"
+      >
+        Project management exam revision
+      </p>
+      <motion.span
+        aria-hidden
+        className="h-px w-10 origin-center bg-teal/45 sm:w-12"
+        initial={reduce ? false : { scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.7, delay: 0.28, ease: EASE }}
+      />
+    </motion.div>
   );
 }
 
