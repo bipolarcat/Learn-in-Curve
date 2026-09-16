@@ -47,7 +47,7 @@ function CategoryStamp() {
   return (
     <motion.p
       aria-label={EYEBROW}
-      className="mb-3 max-w-[36rem] overflow-visible text-balance text-center font-display text-[clamp(1.55rem,4vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-ink sm:mb-4 sm:max-w-none"
+      className="mb-1 max-w-[36rem] overflow-visible text-balance text-center font-display text-[clamp(1.55rem,4vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-ink sm:mb-1.5 sm:max-w-none"
       initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
@@ -150,7 +150,7 @@ export function LabHero() {
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
           <CategoryStamp />
 
-          <div className="relative mb-2 w-full sm:mb-3">
+          <div className="relative -mt-0.5 mb-1 w-full sm:mb-2">
             <HeroAnimalsScene />
           </div>
 
