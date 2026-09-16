@@ -24,7 +24,7 @@ function CategoryStamp() {
 
   return (
     <motion.p
-      className="mb-0 mt-2 text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:mb-0 sm:mt-3 sm:translate-y-5 sm:text-[17px] sm:tracking-[0.1em]"
+      className="mb-0 mt-3 text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:mb-0 sm:mt-5 sm:translate-y-8 sm:text-[17px] sm:tracking-[0.1em]"
       initial={reduce ? false : { y: 6, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
