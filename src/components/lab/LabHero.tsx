@@ -3,7 +3,6 @@
 import {
   motion,
   useReducedMotion,
-  type Variants,
 } from "framer-motion";
 import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
@@ -14,24 +13,8 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
-
-const wordVariants: Variants = {
-  hidden: { opacity: 1, y: 10 },
-  show: (custom: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.72,
-      delay: custom,
-      ease: EASE,
-    },
-  }),
-};
-
-const staticWord = { opacity: 1, y: 0 };
 
 /**
  * Product label — Apple-sleek but present. Figtree; stronger than whisper,
@@ -81,40 +64,14 @@ function CurveAccent() {
 }
 
 function Headline() {
-  const reduce = useReducedMotion();
-  const line1 = ["PFQ", "or", "PMQ."];
-  const line2 = ["Wherever", "you", "are", "on", "the"];
-  const leadStagger = 0.06;
-  const leadStart = 0.45;
-
-  const renderWords = (words: string[], indexOffset: number) =>
-    words.map((word, i) => (
-      <motion.span
-        key={`${word}-${indexOffset + i}`}
-        className="inline-block"
-        custom={leadStart + (indexOffset + i) * leadStagger}
-        variants={wordVariants}
-        initial={reduce ? false : "hidden"}
-        animate={reduce ? staticWord : "show"}
-        style={{ whiteSpace: "pre" }}
-      >
-        {word}
-        {"\u00A0"}
-      </motion.span>
-    ));
-
   return (
     <h1
       id="lab-hero-title"
       className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
-      aria-label={HEADLINE}
     >
-      <span aria-hidden className="inline overflow-visible">
-        {renderWords(line1, 0)}
-        <br />
-        {renderWords(line2, line1.length)}
-        <CurveAccent />
-      </span>
+      PFQ or PMQ.
+      <br />
+      Wherever you are on the <CurveAccent />
     </h1>
   );
 }
