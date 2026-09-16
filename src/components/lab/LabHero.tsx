@@ -20,7 +20,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
-  "Stop rereading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
 const wordVariants: Variants = {
   hidden: { opacity: 1, y: 10 },
