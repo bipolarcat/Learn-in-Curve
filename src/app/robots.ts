@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         "/dashboard",
         "/auth/",
+        "/lab",
         "/courses/pmq-in-5-days/lo",
         "/courses/pmq-in-5-days/mock",
         "/courses/pfq-in-2-days/preview",

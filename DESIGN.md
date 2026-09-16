@@ -96,6 +96,12 @@ Fraunces headline with Framer word-stagger + orange “curve.” GSAP bounce
 or gated reveals); bounce is intentional on “curve” only.
 `PmqStartLink` lives in Proof, not the hero.
 
+### Design lab (`/lab`)
+
+Internal sandbox outside the `(site)` shell (no header/footer). Noindex +
+robots disallow. Mount spikes under `src/components/lab/` via `LabCanvas` on
+`src/app/lab/page.tsx`. Do not edit the live homepage until promoting a winner.
+
 ### Home sections (restaged 2026-07-31)
 
 Order: Hero → Proof → Features → TrialQuiz → Sly → Newsletter. One continuous
