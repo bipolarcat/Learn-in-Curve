@@ -7,12 +7,8 @@ import {
 } from "framer-motion";
 import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
-import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import {
-  stampCtaSecondaryFlat,
-  stampCtaTealFlat,
-} from "@/components/stamp-chip";
+import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
 
 /** Apple / 21st Soft Blur In ease. */
@@ -120,7 +116,7 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
+      className="-mt-1 mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:-mt-2 sm:mb-5"
       aria-label={HEADLINE}
     >
       <span aria-hidden className="inline overflow-visible">
@@ -150,7 +146,7 @@ export function LabHero() {
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
           <CategoryStamp />
 
-          <div className="relative -mt-0.5 mb-1 w-full sm:mb-2">
+          <div className="relative -mt-0.5 mb-0 w-full [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
@@ -160,17 +156,13 @@ export function LabHero() {
             {SUBCOPY}
           </p>
 
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="relative z-10 flex flex-wrap items-center justify-center">
             <FreeMockExamLink
               className={stampCtaTealFlat}
               from="home"
               location="lab-hero"
               label="Take a free mock"
               showArrow
-            />
-            <ExploreCoursesLink
-              className={stampCtaSecondaryFlat}
-              showArrow={false}
             />
           </div>
         </div>
