@@ -35,7 +35,7 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Open category line — Fraunces, mid-scale; “Exam Revision” bounces like “curve.”
+ * Open category line — Fraunces, mid-scale between body and H1.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
@@ -50,20 +50,7 @@ function CategoryStamp() {
     >
       Project Management
       <br />
-      {reduce ? (
-        <span>Exam Revision</span>
-      ) : (
-        <span className="inline-block overflow-visible">
-          <BouncingText
-            className="inline-block"
-            repeat={false}
-            persist
-            fromY={-72}
-          >
-            Exam Revision
-          </BouncingText>
-        </span>
-      )}
+      Exam Revision
     </motion.p>
   );
 }
