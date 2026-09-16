@@ -17,21 +17,19 @@ const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
 /**
- * Modern category label — quiet paper chip, no ticket/stamp chrome.
+ * Open category line — no badge chrome. Teal + open tracking.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      className="mb-2.5 sm:mb-3"
+      className="mb-2.5 text-center font-body text-[13px] font-medium leading-snug tracking-[0.12em] text-teal sm:mb-3 sm:text-[14px] sm:tracking-[0.14em]"
       initial={reduce ? false : { y: 6, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
     >
-      <span className="inline-flex max-w-full items-center justify-center rounded-xl border border-black/[0.08] bg-paper/90 px-4 py-1.5 font-body text-[13px] font-medium leading-none tracking-[-0.01em] text-ink/80 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.03),0_4px_14px_rgb(var(--ink-rgb)_/_0.05)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-5 sm:py-2 sm:text-[14px] dark:border-white/[0.12]">
-        Project Management Exam Revision
-      </span>
+      Project Management Exam Revision
     </motion.p>
   );
 }
