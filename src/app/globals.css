@@ -876,25 +876,28 @@ body[data-preview-signup-pin="1"] {
 }
 
 /*
- * Header guest auth CTA — adapted from 21st.dev Shiny Button (hyperiux).
- * Solid orange fill edge-to-edge + continuous sheen. Hairline rim only —
- * no dual border-box/conic (that read as a thick outline with orange leaking).
+ * Header guest auth CTA — sheen from 21st Shiny Button; hairline via inset
+ * ring (not CSS border). Safari/iOS paints background past rounded borders,
+ * which looked like thick orange “falling out” on mobile only.
  */
 .header-auth-gleam {
   isolation: isolate;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 0.75rem;
   color: #fbf3e1;
   background-color: var(--orange);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(var(--ink-rgb) / 0.1);
-  box-shadow: none;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  /* Inset ring sits on the fill — no outer CSS border for iOS to bleed past. */
+  box-shadow: inset 0 0 0 1px rgb(var(--ink-rgb) / 0.14);
   transition: filter 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-    border-color 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.7s cubic-bezier(0.25, 1, 0.5, 1),
     transform 150ms var(--ease-out-quint);
 }
 
 .header-auth-gleam:is(:hover, :focus-visible) {
-  border-color: rgb(var(--ink-rgb) / 0.16);
+  box-shadow: inset 0 0 0 1px rgb(var(--ink-rgb) / 0.2);
   filter: brightness(1.05);
 }
 
@@ -906,10 +909,11 @@ body[data-preview-signup-pin="1"] {
   content: "";
   pointer-events: none;
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
   z-index: 0;
   width: 55%;
-  height: 100%;
   border-radius: inherit;
   background: linear-gradient(
     105deg,
