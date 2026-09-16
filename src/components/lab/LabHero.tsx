@@ -14,7 +14,6 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
@@ -35,22 +34,26 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Open category line — Fraunces, mid-scale between body and H1.
+ * Product label — Apple-quiet, LIC Figtree. One line above the animals/H1;
+ * never competes with Fraunces display.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      aria-label={EYEBROW}
-      className="mb-1 max-w-[36rem] overflow-visible text-balance text-center font-display text-[clamp(1.55rem,4vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-ink sm:mb-1.5 sm:max-w-none"
-      initial={reduce ? false : { y: 8 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
+      className="mb-2 text-center font-body text-[13px] font-medium leading-none tracking-[-0.01em] text-ink/70 sm:mb-2.5 sm:text-[14px]"
+      initial={reduce ? false : { y: 6, opacity: 1 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.55, delay: 0.06, ease: EASE }}
     >
-      Project Management
-      <br />
-      Exam Revision
+      <span className="inline-flex flex-wrap items-center justify-center gap-x-2">
+        <span>Project Management</span>
+        <span className="text-ink/25" aria-hidden>
+          ·
+        </span>
+        <span>Exam Revision</span>
+      </span>
     </motion.p>
   );
 }
