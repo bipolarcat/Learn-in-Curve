@@ -101,7 +101,7 @@ export function LabHero() {
 
           <div className="relative z-10 flex flex-wrap items-center justify-center">
             <FreeMockExamLink
-              className={`${stampCtaTealFlat} !normal-case !tracking-[-0.01em]`}
+              className={`${stampCtaTealFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`}
               from="home"
               location="lab-hero"
               label="Take a free mock"
