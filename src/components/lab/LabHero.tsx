@@ -17,7 +17,6 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const EYEBROW_LINES = ["PROJECT MANAGEMENT", "EXAM REVISION"] as const;
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
@@ -38,61 +37,38 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
-/** Hero stamp lockup — large enough to lead the composition, not a whisper. */
-const eyebrowClassName =
-  "font-stamp text-[clamp(1.05rem,3.6vw,1.65rem)] font-bold uppercase leading-[1.15] tracking-[0.14em] text-teal sm:tracking-[0.2em]";
-
-function StampEyebrowLine({
-  text,
-  delay,
-}: {
-  text: string;
-  delay: number;
-}) {
+/**
+ * Category stamp — LIC ticket language (paper + ink border + sticker shadow)
+ * + 21st Hero Pill soft rise. Quiet enough to support Fraunces, not fight it.
+ * Mobbin cue: Canny / Bloom / Supabase category badge above the H1.
+ */
+function CategoryStamp() {
   const reduce = useReducedMotion();
-  const chars = Array.from(text);
-
-  if (reduce) {
-    return <span className={`block ${eyebrowClassName}`}>{text}</span>;
-  }
 
   return (
-    <span
-      aria-hidden
-      className={`inline-flex flex-nowrap items-center justify-center ${eyebrowClassName}`}
-      style={{ perspective: 900 }}
+    <motion.p
+      aria-label={EYEBROW}
+      className="mb-4 sm:mb-5"
+      initial={reduce ? false : { y: 12 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
     >
-      {chars.map((char, i) => (
-        <motion.span
-          key={`${text}-${char}-${i}`}
-          className="inline-block"
-          style={{ whiteSpace: "pre" }}
-          initial={{ y: 10, rotateX: -22, opacity: 1 }}
-          animate={{ y: 0, rotateX: 0, opacity: 1 }}
-          transition={{
-            duration: 0.6,
-            delay: delay + i * 0.02,
-            ease: EASE,
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
-function StampEyebrow() {
-  return (
-    <span className="flex flex-col items-center gap-1 sm:gap-1.5">
-      {EYEBROW_LINES.map((line, lineIndex) => (
-        <StampEyebrowLine
-          key={line}
-          text={line}
-          delay={0.12 + lineIndex * 0.22}
-        />
-      ))}
-    </span>
+      <span
+        className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2.5 gap-y-1 rounded-full border-2 border-ink bg-paper px-3.5 py-1.5 shadow-stickerSm sm:gap-x-3 sm:px-4 sm:py-2"
+      >
+        <span className="flex shrink-0 items-center gap-1" aria-hidden>
+          <span className="size-1.5 rounded-full bg-gold" />
+          <span className="size-1.5 rounded-full bg-gold/70" />
+        </span>
+        <span className="text-center font-stamp text-[10px] font-bold uppercase leading-snug tracking-[0.12em] text-teal sm:text-[11px] sm:tracking-[0.16em]">
+          <span className="whitespace-nowrap">Project management</span>
+          <span className="mx-1.5 text-ink/35" aria-hidden>
+            ·
+          </span>
+          <span className="whitespace-nowrap">Exam revision</span>
+        </span>
+      </span>
+    </motion.p>
   );
 }
 
@@ -171,10 +147,8 @@ export function LabHero() {
       <LabBackgroundPaths />
 
       <div className="wrap relative z-[1] w-full">
-        <div className="mx-auto flex w-full max-w-[min(100%,44rem)] flex-col items-center text-center xl:max-w-[50rem]">
-          <p className="mb-5 w-full px-2 sm:mb-7" aria-label={EYEBROW}>
-            <StampEyebrow />
-          </p>
+        <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
+          <CategoryStamp />
 
           <Headline />
 
