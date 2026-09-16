@@ -30,7 +30,7 @@ function CategoryStamp() {
       transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
     >
       <span className="inline-flex max-w-full items-center justify-center rounded-full border border-black/[0.08] bg-paper/90 px-4 py-1.5 font-body text-[13px] font-medium leading-none tracking-[-0.01em] text-ink/80 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.03),0_4px_14px_rgb(var(--ink-rgb)_/_0.05)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-5 sm:py-2 sm:text-[14px] dark:border-white/[0.12]">
-        Project Magic Exam Division
+        Project Management Exam Revision
       </span>
     </motion.p>
   );
