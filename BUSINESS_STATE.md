@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-16** — Lab hero product label strengthened: solid ink, semibold, 15/16px (still Figtree, below H1) (`LabHero`).
 - **2026-09-16** — Lab hero category reimagined: Apple-quiet Figtree product label (“Project Management · Exam Revision”), ink/60 — no competing Fraunces display (`LabHero`).
 - **2026-09-16** — Lab hero: reverted audit fix-all (restored pre-fix hierarchy, GSAP curve bounce, 1,000+ copy, denser geometric paths, soft-nav without `lab`) (`LabHero`, `LabBackgroundPaths`, `soft-nav-back`).
 - **2026-09-16** — Lab hero audit fix-all (excl. animals): category is H1; PFQ/PMQ demoted supporting subhead; “curve.” Framer ease-out (no GSAP bounce); softened “1,000+” claim; subcopy `ink/85`; free-mock `from=lab` + soft-nav targets; geometric paths capped (28) + pause offscreen (`LabHero`, `LabBackgroundPaths`, `soft-nav-back`).

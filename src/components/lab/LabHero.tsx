@@ -34,22 +34,22 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Product label — Apple-quiet, LIC Figtree. One line above the animals/H1;
- * never competes with Fraunces display.
+ * Product label — Apple-sleek but present. Figtree; stronger than whisper,
+ * still below Fraunces H1.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      className="mb-2 text-center font-body text-[13px] font-medium leading-none tracking-[-0.01em] text-ink/70 sm:mb-2.5 sm:text-[14px]"
+      className="mb-2.5 text-center font-body text-[15px] font-semibold leading-none tracking-[-0.015em] text-ink sm:mb-3 sm:text-[16px]"
       initial={reduce ? false : { y: 6, opacity: 1 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.55, delay: 0.06, ease: EASE }}
     >
-      <span className="inline-flex flex-wrap items-center justify-center gap-x-2">
+      <span className="inline-flex flex-wrap items-center justify-center gap-x-2.5">
         <span>Project Management</span>
-        <span className="text-ink/25" aria-hidden>
+        <span className="text-ink/30" aria-hidden>
           ·
         </span>
         <span>Exam Revision</span>
