@@ -38,9 +38,9 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Category stamp — LIC ticket language (paper + ink border + sticker shadow)
- * + 21st Hero Pill soft rise. Quiet enough to support Fraunces, not fight it.
- * Mobbin cue: Canny / Bloom / Supabase category badge above the H1.
+ * Category badge — current LIC soft-pill language (hairline border + soft
+ * layered shadow), not the old sticker-offset stamp. Hierarchy: quiet label
+ * above Fraunces. Cues: SiteHeader / NotifyBand / Contents-pill chrome.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
@@ -49,20 +49,18 @@ function CategoryStamp() {
     <motion.p
       aria-label={EYEBROW}
       className="mb-4 sm:mb-5"
-      initial={reduce ? false : { y: 12 }}
+      initial={reduce ? false : { y: 10 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
+      transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
     >
-      <span
-        className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2.5 gap-y-1 rounded-full border-2 border-ink bg-paper px-3.5 py-1.5 shadow-stickerSm sm:gap-x-3 sm:px-4 sm:py-2"
-      >
+      <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-black/[0.08] bg-paper/90 px-3 py-1.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:gap-x-2.5 sm:px-3.5 sm:py-1.5 dark:border-white/[0.12]">
         <span className="flex shrink-0 items-center gap-1" aria-hidden>
-          <span className="size-1.5 rounded-full bg-gold" />
-          <span className="size-1.5 rounded-full bg-gold/70" />
+          <span className="size-1 rounded-full bg-teal/80" />
+          <span className="size-1 rounded-full bg-teal/40" />
         </span>
-        <span className="text-center font-stamp text-[10px] font-bold uppercase leading-snug tracking-[0.12em] text-teal sm:text-[11px] sm:tracking-[0.16em]">
+        <span className="text-center font-body text-[11px] font-semibold uppercase leading-snug tracking-[0.08em] text-ink/55 sm:text-[12px] sm:tracking-[0.1em]">
           <span className="whitespace-nowrap">Project management</span>
-          <span className="mx-1.5 text-ink/35" aria-hidden>
+          <span className="mx-1.5 text-ink/25" aria-hidden>
             ·
           </span>
           <span className="whitespace-nowrap">Exam revision</span>

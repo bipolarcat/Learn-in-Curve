@@ -104,8 +104,9 @@ cream dotted body). Noindex + robots disallow. Mount spikes under
 edit the live homepage until promoting a winner.
 
 **Current spike (2026-09-16):** `LabHero` — looping geometric box-grid paths
-in teal over cream dots; paper stamp category pill (gold dots + Space Mono);
-Fraunces PFQ/PMQ lockup + orange “curve.”; free-mock / courses CTAs.
+in teal over cream dots; soft modern category pill (hairline + soft shadow,
+not sticker stamp); Fraunces PFQ/PMQ lockup + orange “curve.”; free-mock /
+courses CTAs.
 
 ### Home sections (restaged 2026-07-31)
 
