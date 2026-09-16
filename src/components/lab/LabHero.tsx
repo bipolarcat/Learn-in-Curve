@@ -61,23 +61,19 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="mb-4 overflow-visible font-display text-[clamp(2.65rem,7.5vw,3.65rem)] font-semibold tracking-[-0.03em] text-ink sm:mb-5 max-lg:flex max-lg:flex-col max-lg:items-center max-lg:gap-1.5 max-lg:leading-none lg:leading-[1.08]"
+      className="mb-4 overflow-visible font-display text-[2.125rem] font-semibold leading-none tracking-[-0.03em] text-ink sm:mb-5 flex flex-col items-center gap-1.5 lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08]"
     >
       {/*
-        Below lg: three flex rows, equal gap, leading-none (avoids uneven gaps from 0.8em PFQ).
-        lg+: first sentence one line, PFQ full size.
+        Mobile (<lg): 3 equal-gap rows, explicit rem sizes (no em / display:contents — both broke on real phones).
+        Desktop (lg+): original one-line sentence + full-size PFQ.
       */}
-      <span className="contents lg:inline lg:whitespace-nowrap">
-        <span className="block whitespace-nowrap leading-none lg:inline lg:leading-[inherit]">
-          Wherever you are
-        </span>
-        <span className="block whitespace-nowrap leading-none lg:inline lg:leading-[inherit]">
-          {" "}
-          on the <CurveAccent />
-        </span>
+      <span className="whitespace-nowrap">Wherever you are</span>
+      <span className="whitespace-nowrap">
+        <span className="hidden lg:inline"> </span>
+        on the <CurveAccent />
       </span>
       <br className="hidden lg:inline" />
-      <span className="block whitespace-nowrap text-[0.8em] leading-none lg:inline lg:text-[1em] lg:leading-[inherit]">
+      <span className="whitespace-nowrap text-[1.7rem] lg:text-[1em]">
         PFQ or PMQ.
       </span>
     </h1>
