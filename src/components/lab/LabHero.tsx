@@ -17,20 +17,22 @@ const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 
 /**
- * Product label — Apple-sleek but present. Figtree; stronger than whisper,
- * still below Fraunces H1.
+ * Product banner badge — soft paper pill (hairline + blur + layered shadow)
+ * matching current LIC chrome / geometric hero, not the old sticker stamp.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
     <motion.p
-      className="mb-2.5 text-center font-body text-[15px] font-semibold leading-none tracking-[-0.015em] text-ink sm:mb-3 sm:text-[16px]"
+      className="mb-2.5 sm:mb-3"
       initial={reduce ? false : { y: 6, opacity: 1 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.55, delay: 0.06, ease: EASE }}
     >
-      Project Management · Exam Revision
+      <span className="inline-flex max-w-full items-center justify-center rounded-full border border-black/[0.08] bg-paper/90 px-4 py-1.5 font-body text-[13px] font-semibold leading-none tracking-[-0.01em] text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:px-5 sm:py-2 sm:text-[14px]">
+        Project Management Exam Revision
+      </span>
     </motion.p>
   );
 }
