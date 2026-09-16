@@ -876,9 +876,10 @@ body[data-preview-signup-pin="1"] {
 }
 
 /*
- * Header guest auth CTA — adapted from 21st.dev Shiny Button (hyperiux):
- * rotating conic gleam on the border + sheen, paused until hover/focus.
- * Compact orange fill for LIC chrome (was flat teal).
+ * Header guest auth CTA — adapted from 21st.dev Shiny Button (hyperiux).
+ * Solid orange base always (Safari mobile can drop @property/conic layers and
+ * leave paper-on-paper invisible). Gleam is progressive enhancement; coarse
+ * pointers get a continuous sheen sweep so the effect is visible without hover.
  */
 @property --header-auth-gradient-angle {
   syntax: "<angle>";
@@ -908,28 +909,38 @@ body[data-preview-signup-pin="1"] {
   --header-auth-duration: 2.8s;
   --header-auth-ease: 0.7s cubic-bezier(0.25, 1, 0.5, 1);
   isolation: isolate;
-  color: rgb(var(--paper-rgb));
-  background:
-    linear-gradient(var(--orange), var(--orange)) padding-box,
-    conic-gradient(
-      from calc(
-        var(--header-auth-gradient-angle) - var(--header-auth-gradient-angle-offset)
-      ),
-      transparent,
-      var(--gold) var(--header-auth-gradient-percent),
-      var(--header-auth-gradient-shine)
-        calc(var(--header-auth-gradient-percent) * 2),
-      var(--gold) calc(var(--header-auth-gradient-percent) * 3),
-      transparent calc(var(--header-auth-gradient-percent) * 4)
-    )
-    border-box;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--orange-action) 70%, black);
-  transition: var(--header-auth-ease);
-  transition-property:
-    --header-auth-gradient-angle-offset,
-    --header-auth-gradient-percent,
-    --header-auth-gradient-shine,
-    filter;
+  color: #fbf3e1;
+  background-color: var(--orange);
+  border-color: color-mix(in srgb, var(--orange-action) 55%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--orange-action) 55%, black);
+  transition: filter var(--header-auth-ease), transform 150ms var(--ease-out-quint);
+}
+
+/* Progressive gleam border — skipped if @property/conic unsupported. */
+@supports (background: conic-gradient(from 0deg, red, blue)) {
+  .header-auth-gleam {
+    background:
+      linear-gradient(var(--orange), var(--orange)) padding-box,
+      conic-gradient(
+        from calc(
+          var(--header-auth-gradient-angle) -
+            var(--header-auth-gradient-angle-offset)
+        ),
+        transparent,
+        var(--gold) var(--header-auth-gradient-percent),
+        var(--header-auth-gradient-shine)
+          calc(var(--header-auth-gradient-percent) * 2),
+        var(--gold) calc(var(--header-auth-gradient-percent) * 3),
+        transparent calc(var(--header-auth-gradient-percent) * 4)
+      )
+      border-box;
+    transition:
+      --header-auth-gradient-angle-offset var(--header-auth-ease),
+      --header-auth-gradient-percent var(--header-auth-ease),
+      --header-auth-gradient-shine var(--header-auth-ease),
+      filter var(--header-auth-ease),
+      transform 150ms var(--ease-out-quint);
+  }
 }
 
 .header-auth-gleam::before,
@@ -937,13 +948,14 @@ body[data-preview-signup-pin="1"] {
   content: "";
   pointer-events: none;
   position: absolute;
-  inset-inline-start: 50%;
-  inset-block-start: 50%;
-  translate: -50% -50%;
   z-index: 0;
 }
 
+/* Speckle mask — desktop gleam only. */
 .header-auth-gleam::before {
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
   --size: calc(100% - 6px);
   --position: 2px;
   --space: calc(var(--position) * 2);
@@ -964,46 +976,65 @@ body[data-preview-signup-pin="1"] {
     black
   );
   border-radius: inherit;
-  opacity: 0.35;
+  opacity: 0;
 }
 
+/* Sliding sheen — works on mobile without @property. */
 .header-auth-gleam::after {
-  width: 100%;
-  aspect-ratio: 1;
-  background: linear-gradient(-50deg, transparent, var(--gold), transparent);
-  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
-  opacity: 0.55;
+  inset: 0;
+  width: 55%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgb(255 255 255 / 0.38) 48%,
+    rgb(255 220 150 / 0.28) 52%,
+    transparent 75%
+  );
+  transform: translateX(-140%);
+  opacity: 0.9;
+  animation: header-auth-sheen-sweep 2.6s var(--ease-out-quint) infinite;
 }
 
-.header-auth-gleam,
-.header-auth-gleam::before,
-.header-auth-gleam::after {
-  animation:
-    header-auth-gradient-angle var(--header-auth-duration) linear infinite,
-    header-auth-gradient-angle calc(var(--header-auth-duration) / 0.4) linear
-      infinite reverse paused;
-  animation-composition: add;
-}
+@supports (animation-composition: add) {
+  .header-auth-gleam,
+  .header-auth-gleam::before {
+    animation:
+      header-auth-gradient-angle var(--header-auth-duration) linear infinite,
+      header-auth-gradient-angle calc(var(--header-auth-duration) / 0.4) linear
+        infinite reverse paused;
+    animation-composition: add;
+  }
 
-.header-auth-gleam::after {
-  animation:
-    header-auth-shimmer var(--header-auth-duration) linear infinite,
-    header-auth-shimmer calc(var(--header-auth-duration) / 0.4) linear infinite
-      reverse paused;
-  animation-composition: add;
-}
+  .header-auth-gleam::before {
+    opacity: 0.35;
+  }
 
-.header-auth-gleam:is(:hover, :focus-visible) {
-  --header-auth-gradient-percent: 18%;
-  --header-auth-gradient-angle-offset: 95deg;
-  --header-auth-gradient-shine: #f0c56a;
-  filter: brightness(1.05);
-}
+  /* Fine pointer: pause border gleam until hover; keep sheen on touch devices. */
+  @media (hover: hover) and (pointer: fine) {
+    .header-auth-gleam::after {
+      animation-play-state: paused;
+      opacity: 0;
+    }
 
-.header-auth-gleam:is(:hover, :focus-visible),
-.header-auth-gleam:is(:hover, :focus-visible)::before,
-.header-auth-gleam:is(:hover, :focus-visible)::after {
-  animation-play-state: running;
+    .header-auth-gleam:is(:hover, :focus-visible) {
+      --header-auth-gradient-percent: 18%;
+      --header-auth-gradient-angle-offset: 95deg;
+      --header-auth-gradient-shine: #f0c56a;
+      filter: brightness(1.05);
+    }
+
+    .header-auth-gleam:is(:hover, :focus-visible),
+    .header-auth-gleam:is(:hover, :focus-visible)::before {
+      animation-play-state: running;
+    }
+
+    .header-auth-gleam:is(:hover, :focus-visible)::after {
+      animation-play-state: running;
+      opacity: 0.9;
+    }
+  }
 }
 
 .header-auth-gleam:active {
@@ -1016,9 +1047,13 @@ body[data-preview-signup-pin="1"] {
   }
 }
 
-@keyframes header-auth-shimmer {
-  to {
-    rotate: 360deg;
+@keyframes header-auth-sheen-sweep {
+  0% {
+    transform: translateX(-140%);
+  }
+  55%,
+  100% {
+    transform: translateX(260%);
   }
 }
 
@@ -1387,6 +1422,7 @@ html.lic-deferred-entrance *::after {
 
   .header-auth-gleam {
     background: var(--orange) !important;
+    background-color: var(--orange) !important;
     box-shadow: none !important;
     filter: none !important;
     transform: none !important;
@@ -1395,6 +1431,7 @@ html.lic-deferred-entrance *::after {
   .header-auth-gleam::before,
   .header-auth-gleam::after {
     display: none !important;
+    animation: none !important;
   }
 
   .ticket-card:hover {

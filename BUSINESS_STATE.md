@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-16** — Header auth gleam: solid orange fallback + continuous sheen sweep on touch (Safari mobile could drop @property/conic and render paper-on-paper invisible) (`globals.css` `.header-auth-gleam`).
 - **2026-09-16** — Header guest auth CTA: teal → orange + 21st.dev Shiny Button gleam-edge sweep on hover (`headerPillAuthGleam`, `globals.css` `.header-auth-gleam`, `SiteHeaderControls`).
 - **2026-09-16** — Lab hero category line: dropped middle ·; soft paper banner badge (“Project Management Exam Revision”) in current LIC chrome (`LabHero`).
 - **2026-09-16** — Lab hero product label: single string with normal word spacing (“Project Management · Exam Revision”) (`LabHero`).
