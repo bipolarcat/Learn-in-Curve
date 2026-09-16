@@ -47,7 +47,7 @@ function CategoryStamp() {
   return (
     <motion.p
       aria-label={EYEBROW}
-      className="mb-3.5 max-w-[32rem] text-balance text-center font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5 sm:max-w-none"
+      className="mb-3 max-w-[32rem] text-balance text-center font-display text-[clamp(1.35rem,3.4vw,1.85rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-ink sm:mb-4 sm:max-w-none"
       initial={reduce ? false : { y: 8 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
