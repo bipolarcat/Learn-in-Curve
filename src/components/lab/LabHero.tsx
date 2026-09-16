@@ -13,13 +13,11 @@ import {
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
-import { SpecialText } from "@/components/ui/special-text";
 
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
-const EYEBROW_VISIBLE = "Project management exam revision";
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop rereading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
@@ -40,28 +38,21 @@ const wordVariants: Variants = {
 const staticWord = { opacity: 1, y: 0 };
 
 /**
- * Open category line — 21st SpecialText scramble → reveal into ink stamp type.
+ * Open category line — no badge. Quiet ink kicker above the Fraunces H1.
  */
 function CategoryStamp() {
   const reduce = useReducedMotion();
 
   return (
-    <p
+    <motion.p
       aria-label={EYEBROW}
-      className="mb-3.5 max-w-[32rem] text-balance text-center text-[18px] leading-snug tracking-[0.02em] text-ink sm:mb-5 sm:max-w-none sm:text-[22px] sm:tracking-[0.03em]"
+      className="mb-3.5 max-w-[32rem] text-balance text-center font-body text-[18px] font-medium leading-snug tracking-[0.02em] text-ink sm:mb-5 sm:max-w-none sm:text-[22px] sm:tracking-[0.03em]"
+      initial={reduce ? false : { y: 8 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
     >
-      {reduce ? (
-        <span className="font-stamp font-medium">{EYEBROW_VISIBLE}</span>
-      ) : (
-        <SpecialText
-          className="justify-center text-[18px] sm:text-[22px]"
-          speed={20}
-          delay={0.15}
-        >
-          {EYEBROW_VISIBLE}
-        </SpecialText>
-      )}
-    </p>
+      Project management exam revision
+    </motion.p>
   );
 }
 
