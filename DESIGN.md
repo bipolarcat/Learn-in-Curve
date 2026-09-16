@@ -103,10 +103,9 @@ cream dotted body). Noindex + robots disallow. Mount spikes under
 `src/components/lab/` via `LabCanvas` on `src/app/(site)/lab/page.tsx`. Do not
 edit the live homepage until promoting a winner.
 
-**Current spike (2026-09-16):** `LabHero` — looping geometric box-grid paths
-in teal over cream dots; soft modern category pill (hairline + soft shadow,
-not sticker stamp); Fraunces PFQ/PMQ lockup + orange “curve.”; free-mock /
-courses CTAs.
+**Current spike (2026-09-16):** `LabHero` — geometric box paths locked to the
+20px cream-dot lattice (corners on dots); soft modern category pill; Fraunces
+PFQ/PMQ lockup + orange “curve.”; free-mock / courses CTAs.
 
 ### Home sections (restaged 2026-07-31)
 
