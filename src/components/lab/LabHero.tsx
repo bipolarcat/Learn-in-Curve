@@ -30,13 +30,7 @@ function CategoryStamp() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.55, delay: 0.06, ease: EASE }}
     >
-      <span className="inline-flex flex-wrap items-center justify-center gap-x-2.5">
-        <span>Project Management</span>
-        <span className="text-ink/30" aria-hidden>
-          ·
-        </span>
-        <span>Exam Revision</span>
-      </span>
+      Project Management · Exam Revision
     </motion.p>
   );
 }
