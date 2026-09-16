@@ -108,7 +108,7 @@ export function LabBackgroundPaths() {
   return (
     <div
       ref={rootRef}
-      className="pointer-events-none absolute inset-0 overflow-hidden text-teal"
+      className="pointer-events-none absolute inset-0 overflow-hidden text-ink/35"
       aria-hidden
     >
       {scene ? (
