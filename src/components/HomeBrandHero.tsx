@@ -150,9 +150,8 @@ function Headline() {
 }
 
 /**
- * Home brand hero — animals lead; Space Mono stamp eyebrow sits *behind*
- * the scene so giraffe horns overlap the type (layered depth). Then PFQ/PMQ
- * lockup + 21st BouncingText on “curve”.
+ * Home brand hero — animals lead; Space Mono stamp eyebrow sits under the
+ * scene. Then PFQ/PMQ lockup + 21st BouncingText on “curve”.
  */
 export function HomeBrandHero() {
   return (
@@ -163,23 +162,18 @@ export function HomeBrandHero() {
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
-          {/*
-            Mobile: stamp sits in-flow above the scene (giraffe must not cover it).
-            sm+: absolute under the animals so horns read over the type.
-          */}
           <div className="relative w-full">
-            <p
-              className="pointer-events-none relative z-[2] mx-auto mb-1.5 w-max max-w-none px-2 sm:absolute sm:left-1/2 sm:top-0 sm:z-0 sm:mx-0 sm:mb-0 sm:-translate-x-1/2 sm:-translate-y-[48%]"
-              aria-label={EYEBROW}
-            >
-              <StampEyebrow text={EYEBROW} delay={0.15} />
-            </p>
-            <div className="relative z-[1]">
-              <HeroAnimalsScene />
-            </div>
+            <HeroAnimalsScene />
           </div>
 
-          <div className="mt-1 w-full sm:mt-2">
+          <p
+            className="pointer-events-none mx-auto mb-1.5 mt-1.5 w-max max-w-none px-2 sm:mb-2 sm:mt-2"
+            aria-label={EYEBROW}
+          >
+            <StampEyebrow text={EYEBROW} delay={0.15} />
+          </p>
+
+          <div className="w-full">
             <Headline />
           </div>
 
