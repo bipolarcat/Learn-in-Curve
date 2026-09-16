@@ -17,6 +17,7 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 /** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const EYEBROW_LINES = ["PROJECT MANAGEMENT", "EXAM REVISION"] as const;
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
@@ -37,38 +38,59 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
+/** Hero stamp lockup — large enough to lead the composition, not a whisper. */
 const eyebrowClassName =
-  "whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]";
+  "font-stamp text-[clamp(1.05rem,3.6vw,1.65rem)] font-bold uppercase leading-[1.15] tracking-[0.14em] text-teal sm:tracking-[0.2em]";
 
-function StampEyebrow({ text, delay = 0.2 }: { text: string; delay?: number }) {
+function StampEyebrowLine({
+  text,
+  delay,
+}: {
+  text: string;
+  delay: number;
+}) {
   const reduce = useReducedMotion();
   const chars = Array.from(text);
 
   if (reduce) {
-    return <span className={eyebrowClassName}>{text}</span>;
+    return <span className={`block ${eyebrowClassName}`}>{text}</span>;
   }
 
   return (
     <span
       aria-hidden
       className={`inline-flex flex-nowrap items-center justify-center ${eyebrowClassName}`}
-      style={{ perspective: 800 }}
+      style={{ perspective: 900 }}
     >
       {chars.map((char, i) => (
         <motion.span
-          key={`${char}-${i}`}
+          key={`${text}-${char}-${i}`}
           className="inline-block"
           style={{ whiteSpace: "pre" }}
-          initial={{ y: 5, rotateX: -18, opacity: 1 }}
+          initial={{ y: 10, rotateX: -22, opacity: 1 }}
           animate={{ y: 0, rotateX: 0, opacity: 1 }}
           transition={{
-            duration: 0.55,
-            delay: delay + i * 0.018,
+            duration: 0.6,
+            delay: delay + i * 0.02,
             ease: EASE,
           }}
         >
           {char === " " ? "\u00A0" : char}
         </motion.span>
+      ))}
+    </span>
+  );
+}
+
+function StampEyebrow() {
+  return (
+    <span className="flex flex-col items-center gap-1 sm:gap-1.5">
+      {EYEBROW_LINES.map((line, lineIndex) => (
+        <StampEyebrowLine
+          key={line}
+          text={line}
+          delay={0.12 + lineIndex * 0.22}
+        />
       ))}
     </span>
   );
@@ -149,9 +171,9 @@ export function LabHero() {
       <LabBackgroundPaths />
 
       <div className="wrap relative z-[1] w-full">
-        <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <p className="mb-3 w-max max-w-none px-2" aria-label={EYEBROW}>
-            <StampEyebrow text={EYEBROW} />
+        <div className="mx-auto flex w-full max-w-[min(100%,44rem)] flex-col items-center text-center xl:max-w-[50rem]">
+          <p className="mb-5 w-full px-2 sm:mb-7" aria-label={EYEBROW}>
+            <StampEyebrow />
           </p>
 
           <Headline />
