@@ -77,7 +77,7 @@ function Headline() {
 }
 
 /**
- * Lab hero — geometric paths + animals between category line and PFQ/PMQ.
+ * Lab hero — geometric paths + animals, then category badge above the H1.
  * Cream dotted body shows through; live homepage untouched.
  */
 export function LabHero() {
@@ -91,11 +91,11 @@ export function LabHero() {
 
       <div className="wrap relative z-[1] w-full">
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <CategoryStamp />
-
-          <div className="relative -mt-0.5 mb-3 w-full sm:mb-4 [&_[data-hero-animals]]:!mb-0">
+          <div className="relative -mt-0.5 mb-2.5 w-full sm:mb-3 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
+
+          <CategoryStamp />
 
           <Headline />
 

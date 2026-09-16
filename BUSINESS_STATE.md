@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-16** — Lab hero: moved “Project Management Exam Revision” badge between animals and H1 (`LabHero`).
 - **2026-09-16** — Lab hero H1 order swapped: “Wherever you are on the curve.” above “PFQ or PMQ.” (`LabHero`).
 - **2026-09-16** — Lab hero H1 wrap: desktop keeps “Wherever you are on the curve.” one line; mobile breaks after “Wherever you are” (`LabHero`).
 - **2026-09-16** — Lab hero free-mock CTA type size: 13/14px semibold to match product/form sentence-case buttons (`LabHero`).
