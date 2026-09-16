@@ -116,7 +116,7 @@ function Headline() {
   return (
     <h1
       id="lab-hero-title"
-      className="-mt-1 mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:-mt-2 sm:mb-5"
+      className="mb-4 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-5"
       aria-label={HEADLINE}
     >
       <span aria-hidden className="inline overflow-visible">
@@ -146,7 +146,7 @@ export function LabHero() {
         <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
           <CategoryStamp />
 
-          <div className="relative -mt-0.5 mb-0 w-full [&_[data-hero-animals]]:!mb-0">
+          <div className="relative -mt-0.5 mb-3 w-full sm:mb-4 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
