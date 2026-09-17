@@ -21,7 +21,7 @@ const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
   "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
-const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
+const EYEBROW = "Project Management Exam Revision";
 
 /** Visible by default — motion only shifts position, never gates opacity. */
 const wordVariants: Variants = {
@@ -39,51 +39,21 @@ const wordVariants: Variants = {
 
 const staticWord = { opacity: 1, y: 0 };
 
-/** Single-line stamp at all sizes — matches desktop; scales down on narrow. */
-const eyebrowClassName =
-  "whitespace-nowrap font-stamp text-[9px] font-bold uppercase tracking-[0.1em] text-teal sm:text-[12px] sm:tracking-[0.16em]";
-
 /**
- * Brand stamp eyebrow — Space Mono + per-character vertical roll.
- * Always one line (desktop parity); never wrap mid-word on mobile.
+ * Category line — lab style: body bold teal, open tracking (not stamp mono).
  */
-function StampEyebrow({
-  text,
-  delay = 0.35,
-}: {
-  text: string;
-  delay?: number;
-}) {
+function CategoryStamp({ delay = 0.15 }: { delay?: number }) {
   const reduce = useReducedMotion();
-  const chars = Array.from(text);
-
-  if (reduce) {
-    return <span className={eyebrowClassName}>{text}</span>;
-  }
 
   return (
-    <span
-      aria-hidden
-      className={`inline-flex flex-nowrap items-center justify-center ${eyebrowClassName}`}
-      style={{ perspective: 800 }}
+    <motion.p
+      className="text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:text-[17px] sm:tracking-[0.1em]"
+      initial={reduce ? false : { y: 6, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.45, delay, ease: EASE }}
     >
-      {chars.map((char, i) => (
-        <motion.span
-          key={`${char}-${i}`}
-          className="inline-block"
-          style={{ whiteSpace: "pre" }}
-          initial={{ y: 5, rotateX: -18, opacity: 1 }}
-          animate={{ y: 0, rotateX: 0, opacity: 1 }}
-          transition={{
-            duration: 0.55,
-            delay: delay + i * 0.018,
-            ease: EASE,
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
+      {EYEBROW}
+    </motion.p>
   );
 }
 
@@ -166,12 +136,7 @@ export function HomeBrandHero() {
             <HeroAnimalsScene />
           </div>
 
-          <p
-            className="pointer-events-none mx-auto mb-1.5 mt-1.5 w-max max-w-none px-2 sm:mb-2 sm:mt-2"
-            aria-label={EYEBROW}
-          >
-            <StampEyebrow text={EYEBROW} delay={0.15} />
-          </p>
+          <CategoryStamp delay={0.15} />
 
           <div className="w-full">
             <Headline />
