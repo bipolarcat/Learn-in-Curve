@@ -21,7 +21,16 @@ function redirectLegacyPfq(request: NextRequest): NextResponse | null {
 export async function middleware(request: NextRequest) {
   const legacy = redirectLegacyPfq(request);
   if (legacy) return legacy;
-  return updateSession(request);
+  const response = await updateSession(request);
+  // Dev + phone LAN: stop Safari keeping stale HTML after edits.
+  if (process.env.NODE_ENV === "development") {
+    response.headers.set(
+      "Cache-Control",
+      "no-store, no-cache, must-revalidate, max-age=0",
+    );
+    response.headers.set("Pragma", "no-cache");
+  }
+  return response;
 }
 
 export const config = {

@@ -1,0 +1,38 @@
+---
+description: Keep phone LAN previews in sync with local Next.js changes (Safari cache).
+alwaysApply: true
+---
+
+# Mobile / LAN preview — keep the phone in sync
+
+Sim often checks UI on a real phone at `http://<Mac-LAN-IP>:3000/...` (not
+`localhost` — on the phone that is the phone itself). Desktop HMR does **not**
+reliably update Safari on the LAN. Stale CSS/JS is the usual “no change” report.
+
+## After any change Sim will look at on a phone
+
+Do **all** of these before ending the turn (not optional):
+
+1. **Confirm the change is served** — `curl` the relevant URL or CSS chunk
+   (prefer the LAN IP if known) and grep for a distinctive class/string you just
+   shipped. If it isn’t there, fix or restart before telling Sim it’s done.
+2. **Restart the Next.js dev server** when the edit was global CSS
+   (`globals.css`), `next.config.*`, middleware, Tailwind config, or when Sim
+   already reported the phone didn’t update. Kill whatever is on `:3000`, then
+   `npm run dev -- -p 3000` (binds `*:3000`).
+3. **Tell Sim the exact URL + refresh** in one short line, e.g.
+   `Hard-refresh http://192.168.x.x:3000/<path> (or open a Private tab).`
+   Resolve the LAN IP with `ipconfig getifaddr en0` (or `en1`) when needed —
+   don’t invent it.
+4. **Never assume HMR reached the phone.** Desktop looking correct ≠ phone
+   updated.
+
+## Standing habits
+
+- Prefer changes that show up in **HTML class names** or obvious copy (easier
+  to verify with `curl`) over pure computed-style tweaks when debugging sync.
+- If Sim says “no change” on mobile: restart server → verify with `curl` →
+  Private-tab URL. Don’t keep editing blindly.
+- `/lab` is the lab hero; `/` is the live home hero — confirm which surface
+  they mean before declaring a fix live.
+---

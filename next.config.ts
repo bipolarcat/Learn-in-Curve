@@ -11,6 +11,26 @@ const nextConfig: NextConfig = {
    */
   allowedDevOrigins: ["192.168.*.*", "10.*.*.*", "172.16.*.*", "*.local"],
   /**
+   * Safari on LAN aggressively caches /_next/* during `next dev`, so phone
+   * previews look "stuck" after CSS/JS edits. Force no-store in development
+   * only — production keeps normal static caching.
+   */
+  async headers() {
+    if (process.env.NODE_ENV !== "development") return [];
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, must-revalidate, max-age=0",
+          },
+          { key: "Pragma", value: "no-cache" },
+        ],
+      },
+    ];
+  },
+  /**
    * Old PFQ subtree → `/courses/pfq-in-2-days/*`.
    * Explicit 301 (not Next's permanent:true → 308) so bookmarks and SEO update.
    * Middleware also redirects; this layer covers cases where middleware is skipped.
