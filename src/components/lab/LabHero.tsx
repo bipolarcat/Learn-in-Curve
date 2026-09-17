@@ -47,16 +47,18 @@ function Headline() {
       className="mb-4 font-display font-semibold tracking-[-0.03em] text-ink sm:mb-5 grid grid-cols-1 justify-items-center gap-y-2 text-[2.75rem] leading-none lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08] lg:tracking-[-0.03em]"
     >
       {/*
-        Mobile: 3 equal rows, one size (2.75rem), CSS grid gap (not flex + bounce).
-        Desktop lg+: one-line sentence + matching PFQ.
+        Mobile: 3 equal rows — PFQ first, then the curve line split.
+        Desktop lg+: PFQ on its own line, then “Wherever you are on the curve.”
       */}
-      <span className="whitespace-nowrap">Wherever you are</span>
+      <span className="whitespace-nowrap">PFQ or PMQ.</span>
+      <br className="hidden lg:inline" />
       <span className="whitespace-nowrap">
+        Wherever you are
         <span className="hidden lg:inline"> </span>
+      </span>
+      <span className="whitespace-nowrap">
         on the <CurveAccent />
       </span>
-      <br className="hidden lg:inline" />
-      <span className="whitespace-nowrap">PFQ or PMQ.</span>
     </h1>
   );
 }
