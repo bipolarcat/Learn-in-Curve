@@ -10,7 +10,7 @@ import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import {
   stampCtaSecondaryFlat,
-  stampCtaInkFlat,
+  stampCtaTealFlat,
 } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
 
@@ -148,9 +148,9 @@ export function HomeBrandHero() {
 
           <div className="hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <FreeMockExamLink
-              className={stampCtaInkFlat}
+              className={stampCtaTealFlat}
               from="home"
-              label="Take a free mock exam"
+              label="Take a free mock"
               showArrow
             />
             <ExploreCoursesLink
