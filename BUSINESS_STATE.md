@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-17** — Home hero free-mock CTA: label → “Take a free mock exam”; fill teal → ink/black (`HomeBrandHero`, `stampCtaInkFlat`).
 - **2026-09-17** — Mobile/LAN preview hygiene: always-apply Cursor rule `mobile-dev-preview.mdc`; dev-only `Cache-Control: no-store` via `next.config.ts` headers + middleware (Safari was keeping stale `/_next` assets on the phone).
 - **2026-09-17** — Header Sign in / Get Started CTA: orange → ink (black) fill; sheen kept (`globals.css` `.header-auth-gleam`).
 - **2026-09-17** — Home brand hero category line: stamp mono → lab body bold teal (“Project Management Exam Revision”) (`HomeBrandHero`).

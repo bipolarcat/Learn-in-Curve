@@ -11,6 +11,8 @@ import {
   marketingActionSecondaryFlat,
   marketingActionTeal,
   marketingActionTealFlat,
+  marketingActionInk,
+  marketingActionInkFlat,
 } from "@/components/ui/semantic";
 
 const stampMotion =
@@ -55,6 +57,8 @@ export const stampCtaPrimaryFlat = marketingActionPrimaryFlat;
 export const stampCtaSecondaryFlat = marketingActionSecondaryFlat;
 export const stampCtaTeal = marketingActionTeal;
 export const stampCtaTealFlat = marketingActionTealFlat;
+export const stampCtaInk = marketingActionInk;
+export const stampCtaInkFlat = marketingActionInkFlat;
 
 /** Right arrow for landing / page CTAs — nudges on group hover. */
 export function CtaArrow({ className = "" }: { className?: string }) {
