@@ -20,7 +20,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
-  "Learn the fundamentals for the APM PFQ, or sharpen the scenario judgement the PMQ demands.";
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications.";
 const EYEBROW = "PROJECT MANAGEMENT EXAM REVISION";
 
 /** Visible by default — motion only shifts position, never gates opacity. */
