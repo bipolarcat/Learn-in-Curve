@@ -47,7 +47,7 @@ function CategoryStamp({ delay = 0.15 }: { delay?: number }) {
 
   return (
     <motion.p
-      className="text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:text-[17px] sm:tracking-[0.1em]"
+      className="text-center font-body text-[13px] font-bold leading-none tracking-[0.12em] text-teal sm:text-[17px] sm:tracking-[0.1em]"
       initial={reduce ? false : { y: 6, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, delay, ease: EASE }}
@@ -106,7 +106,7 @@ function Headline() {
   return (
     <h1
       id="home-brand-hero-title"
-      className="mb-3 overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink sm:mb-4"
+      className="overflow-visible text-balance font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink"
       aria-label={HEADLINE}
     >
       <span aria-hidden className="inline overflow-visible">
@@ -120,8 +120,8 @@ function Headline() {
 }
 
 /**
- * Home brand hero — animals lead; Space Mono stamp eyebrow sits under the
- * scene. Then PFQ/PMQ lockup + 21st BouncingText on “curve”.
+ * Home brand hero — animals lead; category + H1 tight stack; even copy rhythm.
+ * Animals animation untouched — only vertical offset via wrapper margin.
  */
 export function HomeBrandHero() {
   return (
@@ -132,21 +132,21 @@ export function HomeBrandHero() {
     >
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
-          <div className="relative w-full">
+          {/* Move animals only via margin — do not touch HeroAnimalsScene motion. */}
+          <div className="relative mb-4 w-full sm:mb-5 [&_[data-hero-animals]]:!mb-0">
             <HeroAnimalsScene />
           </div>
 
-          <CategoryStamp delay={0.15} />
-
-          <div className="w-full">
+          <div className="flex w-full flex-col items-center gap-2 sm:gap-2.5">
+            <CategoryStamp delay={0.15} />
             <Headline />
           </div>
 
-          <p className="mx-auto mb-7 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-8 sm:text-[18px]">
+          <p className="mx-auto mt-5 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mt-6 sm:text-[18px]">
             {SUBCOPY}
           </p>
 
-          <div className="hero-ctas relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="hero-ctas relative z-10 mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
             <FreeMockExamLink
               className={stampCtaTealFlat}
               from="home"
