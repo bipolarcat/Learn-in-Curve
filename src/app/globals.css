@@ -879,26 +879,27 @@ body[data-preview-signup-pin="1"] {
  * Header guest auth CTA — sheen from 21st Shiny Button; hairline via inset
  * ring (not CSS border). Safari/iOS paints background past rounded borders,
  * which looked like thick orange “falling out” on mobile only.
+ * Fill is brand ink (reads black); flips with theme via --ink-rgb / --paper-rgb.
  */
 .header-auth-gleam {
   isolation: isolate;
   overflow: hidden;
   border: 0 !important;
   border-radius: 0.75rem;
-  color: #fbf3e1;
-  background-color: var(--orange);
+  color: rgb(var(--paper-rgb));
+  background-color: rgb(var(--ink-rgb));
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
   /* Inset ring sits on the fill — no outer CSS border for iOS to bleed past. */
-  box-shadow: inset 0 0 0 1px rgb(var(--ink-rgb) / 0.14);
+  box-shadow: inset 0 0 0 1px rgb(var(--paper-rgb) / 0.18);
   transition: filter 0.7s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.7s cubic-bezier(0.25, 1, 0.5, 1),
     transform 150ms var(--ease-out-quint);
 }
 
 .header-auth-gleam:is(:hover, :focus-visible) {
-  box-shadow: inset 0 0 0 1px rgb(var(--ink-rgb) / 0.2);
-  filter: brightness(1.05);
+  box-shadow: inset 0 0 0 1px rgb(var(--paper-rgb) / 0.28);
+  filter: brightness(1.08);
 }
 
 .header-auth-gleam::before {
@@ -918,8 +919,8 @@ body[data-preview-signup-pin="1"] {
   background: linear-gradient(
     105deg,
     transparent 25%,
-    rgb(255 255 255 / 0.38) 48%,
-    rgb(255 220 150 / 0.28) 52%,
+    rgb(255 255 255 / 0.22) 48%,
+    rgb(255 255 255 / 0.12) 52%,
     transparent 75%
   );
   transform: translateX(-140%);
@@ -1317,8 +1318,8 @@ html.lic-deferred-entrance *::after {
   }
 
   .header-auth-gleam {
-    background: var(--orange) !important;
-    background-color: var(--orange) !important;
+    background: rgb(var(--ink-rgb)) !important;
+    background-color: rgb(var(--ink-rgb)) !important;
     box-shadow: none !important;
     filter: none !important;
     transform: none !important;

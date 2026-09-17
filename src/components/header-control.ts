@@ -61,7 +61,7 @@ export const headerPillPrimary =
   `group inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-xl border border-transparent bg-action px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper hover:bg-action-hover sm:gap-1.5 sm:px-3 ${motion}`;
 
 /**
- * Guest auth CTA — orange fill + sheen sweep (21st Shiny Button cue).
+ * Guest auth CTA — ink (black) fill + sheen sweep (21st Shiny Button cue).
  * Styles live in `globals.css` under `.header-auth-gleam`.
  */
 export const headerPillAuthGleam =
