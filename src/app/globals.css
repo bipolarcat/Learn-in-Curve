@@ -955,6 +955,41 @@ body[data-preview-signup-pin="1"] {
 }
 
 /*
+ * Home hero free-mock twin CTAs — ticket specular sheen on hover/focus
+ * (same cue as PurchaseCtaButton; hover-only, not infinite header gleam).
+ */
+.hero-mock-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-mock-cta::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: -20% -40%;
+  z-index: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgb(255 255 255 / 0.22) 49%,
+    color-mix(in srgb, var(--teal, #1b6560) 35%, white) 52%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translateX(-55%) skewX(-14deg);
+  transition:
+    transform 700ms var(--ease-out-quint),
+    opacity 180ms ease;
+}
+
+.hero-mock-cta:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: translateX(55%) skewX(-14deg);
+}
+
+/*
  * LIC-113 — entrance animations must never be able to hide content.
  *
  * A document loaded while hidden (link opened in a background tab, browser
@@ -1278,6 +1313,7 @@ html.lic-deferred-entrance *::after {
   .header-auth-gleam,
   .header-auth-gleam::before,
   .header-auth-gleam::after,
+  .hero-mock-cta::after,
   .day-lo-card,
   .lo-complete-stamp,
   .lo-complete-ring,
@@ -1329,6 +1365,11 @@ html.lic-deferred-entrance *::after {
   .header-auth-gleam::after {
     display: none !important;
     animation: none !important;
+  }
+
+  .hero-mock-cta::after {
+    display: none !important;
+    content: none !important;
   }
 
   .ticket-card:hover {

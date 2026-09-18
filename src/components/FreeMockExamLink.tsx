@@ -15,6 +15,8 @@ import {
 type FreeMockExamLinkProps = {
   className?: string;
   label?: string;
+  /** Destination path — defaults to legacy `/free-mock-exam` (301 → APM PMQ). */
+  href?: string;
   /** Analytics `location` — defaults to hero. */
   location?: string;
   /** Right arrow after the label (library / page CTAs). */
@@ -23,17 +25,18 @@ type FreeMockExamLinkProps = {
   from?: SoftNavFrom;
 };
 
-/** Soft-nav to `/free-mock-exam` with ellipsis pending state. */
+/** Soft-nav to a free-mock exam with ellipsis pending state. */
 export function FreeMockExamLink({
   className,
   label = "Free PMQ mock exam",
+  href: hrefProp = "/free-mock-exam",
   location = "hero",
   showArrow = false,
   from,
 }: FreeMockExamLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const href = from ? withSoftNavFrom("/free-mock-exam", from) : "/free-mock-exam";
+  const href = from ? withSoftNavFrom(hrefProp, from) : hrefProp;
 
   const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
     trackCtaClicked({
@@ -51,7 +54,7 @@ export function FreeMockExamLink({
     <Link
       href={href}
       aria-busy={pending || undefined}
-      aria-label={pending ? "Opening free mock exam" : undefined}
+      aria-label={pending ? `Opening ${label}` : undefined}
       tabIndex={pending ? -1 : undefined}
       className={`${className ?? ""} ${pending ? "pointer-events-none opacity-80" : ""}`.trim()}
       onClick={onClick}
@@ -64,10 +67,10 @@ export function FreeMockExamLink({
           aria-hidden
         />
       ) : (
-        <>
+        <span className="relative z-[1] inline-flex items-center gap-2">
           {label}
           {showArrow ? <CtaArrow /> : null}
-        </>
+        </span>
       )}
     </Link>
   );

@@ -2,13 +2,11 @@
 
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
-import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import {
-  stampCtaSecondaryFlat,
-  stampCtaTealFlat,
-} from "@/components/stamp-chip";
+import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
+
+const HERO_MOCK_CTA = `${stampCtaTealFlat} hero-mock-cta`;
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
@@ -95,14 +93,20 @@ export function HomeBrandHero() {
 
           <div className="hero-ctas relative z-10 mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
             <FreeMockExamLink
-              className={stampCtaTealFlat}
+              className={HERO_MOCK_CTA}
               from="home"
-              label="Take a free mock"
+              href="/free-mock-exam/apm-pmq"
+              label="Free PMQ mock exam"
+              location="hero-pmq"
               showArrow
             />
-            <ExploreCoursesLink
-              className={stampCtaSecondaryFlat}
-              showArrow={false}
+            <FreeMockExamLink
+              className={HERO_MOCK_CTA}
+              from="home"
+              href="/free-mock-exam/apm-pfq"
+              label="Free PFQ mock exam"
+              location="hero-pfq"
+              showArrow
             />
           </div>
         </div>
