@@ -12,21 +12,14 @@ const HERO_MOCK_CTA =
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
 /**
- * Subcopy wraps — measured at Figtree 16/18 so each nowrap row fits its band:
- * - <360: 4 descending rows (320px-safe)
- * - 360–sm: 3 rows, R3 = “APM PFQ and PMQ.”
- * - sm–lg: 2 rows, first longer (tablet-safe)
- * - lg+: 2 rows, lead + “APM PFQ and PMQ.”
+ * Subcopy wraps (nowrap rows, measured to avoid orphans):
+ * - <sm: 3 rows, R3 = “APM PFQ and PMQ.”
+ * - sm–800: 2 rows, first longer
+ * - ≥800: 2 rows, lead + “APM PFQ and PMQ.”
  */
-const SUB_XS = [
-  "Stop re-reading. Start revising with",
-  "1,000+ practice questions and full",
-  "mock exams for the",
-  "APM PFQ and PMQ.",
-] as const;
 const SUB_MOBILE = [
-  "Stop re-reading. Start revising with 1,000+",
-  "practice questions and full mock exams for the",
+  "Stop re-reading. Start revising with 1,000+ practice",
+  "questions and full mock exams for the",
   "APM PFQ and PMQ.",
 ] as const;
 const SUB_TABLET = [
@@ -130,12 +123,8 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-none sm:text-[18px]">
-            <SubcopyRows rows={SUB_XS} className="min-[360px]:hidden" />
-            <SubcopyRows
-              rows={SUB_MOBILE}
-              className="hidden min-[360px]:block sm:hidden"
-            />
+          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-none sm:text-[18px]">
+            <SubcopyRows rows={SUB_MOBILE} className="sm:hidden" />
             <SubcopyRows
               rows={SUB_TABLET}
               className="hidden sm:block min-[800px]:hidden"
