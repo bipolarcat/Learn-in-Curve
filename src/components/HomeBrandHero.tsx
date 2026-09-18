@@ -8,7 +8,7 @@ import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
 
 const HERO_MOCK_CTA =
-  `${stampCtaTealFlat} hero-mock-cta !min-h-9 !gap-1.5 !px-3.5 !py-2 sm:!min-h-10 sm:!px-4 [&_svg]:!h-3 [&_svg]:!w-3`;
+  `${stampCtaTealFlat} hero-mock-cta !normal-case !tracking-[-0.01em] !min-h-9 !gap-1.5 !px-3.5 !py-2 sm:!min-h-10 sm:!px-4 [&_svg]:!h-3 [&_svg]:!w-3`;
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
