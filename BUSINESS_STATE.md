@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Home hero subcopy: controlled wraps — mobile 3 descending rows (R3 = “APM PFQ and PMQ.”); desktop 2 rows (long then short) (`HomeBrandHero`).
 - **2026-09-18** — Home hero subcopy wrap: dropped forced mobile `<br>`; “APM PFQ and PMQ.” is `whitespace-nowrap` + `text-balance` so mid-narrow panes don’t orphan “exams for the” (`HomeBrandHero`).
 - **2026-09-18** — Home hero subcopy mobile wrap: break before “APM PFQ and PMQ.” (`HomeBrandHero`).
 - **2026-09-18** — Home hero: tightened H1→sub→CTA gaps (`mt-3.5/4` + `mt-5`) (`HomeBrandHero`).

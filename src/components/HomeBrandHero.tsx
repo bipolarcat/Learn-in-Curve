@@ -11,9 +11,10 @@ const HERO_MOCK_CTA =
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
-const SUBCOPY_LEAD =
-  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the";
-const SUBCOPY_TAIL = "APM PFQ and PMQ.";
+/** Mobile row 1 (longest) → row 2 → row 3 (shortest). Desktop: row1+row2 then tail. */
+const SUBCOPY_R1 = "Stop re-reading. Start revising with 1,000+ practice";
+const SUBCOPY_R2 = "questions and full mock exams for the";
+const SUBCOPY_R3 = "APM PFQ and PMQ.";
 const EYEBROW = "Project Management Exam Revision";
 
 /** Category line — lab style: body bold teal, open tracking (static). */
@@ -89,9 +90,16 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p className="mx-auto mt-3.5 max-w-[36rem] text-balance font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:text-[18px]">
-            {SUBCOPY_LEAD}{" "}
-            <span className="whitespace-nowrap">{SUBCOPY_TAIL}</span>
+          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:text-[18px]">
+            {SUBCOPY_R1}
+            <span className="hidden sm:inline"> </span>
+            <br className="sm:hidden" />
+            {SUBCOPY_R2}
+            <span className="hidden sm:inline"> </span>
+            {/* Mobile: third row. Desktop: second row (shorter than the first). */}
+            <br className="sm:hidden" />
+            <br className="hidden sm:block" />
+            <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
           </p>
 
           <div className="hero-ctas relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4">
