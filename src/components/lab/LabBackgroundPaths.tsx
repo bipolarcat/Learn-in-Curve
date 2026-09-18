@@ -150,9 +150,6 @@ export function LabBackgroundPaths() {
           ))}
         </svg>
       ) : null}
-
-      {/* Soft fade only — keep centre clear so lattice alignment reads */}
-      <div className="absolute inset-0 bg-gradient-to-t from-cream/55 via-transparent to-cream/35" />
     </div>
   );
 }
