@@ -149,26 +149,10 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pmq"
-            analyticsLabel="Free [PMQ] mock exam"
+            analyticsLabel="PMQ mock exam"
             label={
               <>
-                Free
-                <span className="mx-0.5">
-                  <span
-                    aria-hidden
-                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
-                  >
-                    [
-                  </span>
-                  <span className="font-black text-ink">PMQ</span>
-                  <span
-                    aria-hidden
-                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
-                  >
-                    ]
-                  </span>
-                </span>
-                mock exam
+                <span className="font-black text-ink">PMQ</span> mock exam
               </>
             }
             location="hero-pmq"
@@ -178,26 +162,10 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pfq"
-            analyticsLabel="Free [PFQ] mock exam"
+            analyticsLabel="PFQ mock exam"
             label={
               <>
-                Free
-                <span className="mx-0.5">
-                  <span
-                    aria-hidden
-                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
-                  >
-                    [
-                  </span>
-                  <span className="font-black text-ink">PFQ</span>
-                  <span
-                    aria-hidden
-                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
-                  >
-                    ]
-                  </span>
-                </span>
-                mock exam
+                <span className="font-black text-ink">PFQ</span> mock exam
               </>
             }
             location="hero-pfq"
