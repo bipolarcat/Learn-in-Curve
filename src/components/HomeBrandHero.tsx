@@ -58,10 +58,10 @@ function Headline() {
       <span aria-hidden className="inline overflow-visible">
         PFQ or PMQ.
         <br />
-        Wherever you are{" "}
-        {/* Mobile: keep “are” on line 2; break before “on the curve.” */}
+        Wherever you are on{" "}
+        {/* Mobile: keep “on” on line 2; break before “the curve.” */}
         <br className="sm:hidden" />
-        on the <CurveAccent />
+        the <CurveAccent />
       </span>
     </h1>
   );
