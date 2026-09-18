@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Site header menu open (X) plate: hover stays solid ink — separate `headerMenuTriggerOpen` so closed-state `hover:bg-ink/[0.07]` cannot wash it grey (`header-control`, `SiteHeaderMenu`).
 - **2026-09-18** — Home hero: tightened gap above Take Free Mock Exam CTA (`mt-3` / `sm:mt-3.5`) (`HomeBrandHero`).
 - **2026-09-18** — Home hero geometric lattice: removed cream gradient wash so body dots stay full strength behind the animation (`LabBackgroundPaths`).
 - **2026-09-18** — Home hero: single CTA “Take Free Mock Exam” → `/free-mock-exam/apm-pmq` (`HomeBrandHero`).

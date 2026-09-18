@@ -19,6 +19,7 @@ import {
 import { AvatarImage } from "@/components/AvatarImage";
 import {
   headerMenuTrigger,
+  headerMenuTriggerOpen,
 } from "@/components/header-control";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -302,13 +303,7 @@ export function SiteHeaderMenu({
       <button
         ref={buttonRef}
         type="button"
-        className={cn(
-          headerMenuTrigger,
-          // Open = solid ink plate. Do not pull in `headerIcon` — its
-          // `hover:bg-ink/[0.07]` sticks on touch and washes the X plate grey.
-          open &&
-            "h-8 w-8 bg-ink text-paper hover:bg-ink hover:text-paper",
-        )}
+        className={open ? headerMenuTriggerOpen : headerMenuTrigger}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-haspopup="menu"
         aria-expanded={open}

@@ -52,6 +52,13 @@ export const headerPillSecondary =
 export const headerMenuTrigger =
   `group inline-flex h-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink touch-manipulation [-webkit-tap-highlight-color:transparent] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink/[0.07] ${motion}`;
 
+/**
+ * Menu open — solid ink plate. Own string (no grey wash) so the closed
+ * trigger’s `hover:bg-ink/[0.07]` cannot win on specificity / stylesheet order.
+ */
+export const headerMenuTriggerOpen =
+  `group inline-flex h-8 w-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-ink px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-ink hover:text-paper [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink [@media(hover:hover)_and_(pointer:fine)]:hover:text-paper ${motion}`;
+
 /** Labeled teal — Courses with brand accent. */
 export const headerPillTeal =
   `group inline-flex h-8 min-w-8 items-center justify-center gap-1.5 rounded-xl border border-transparent bg-teal px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper hover:brightness-[1.08] sm:px-3 ${motion}`;
