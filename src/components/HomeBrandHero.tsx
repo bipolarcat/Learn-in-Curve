@@ -153,14 +153,14 @@ export function HomeBrandHero() {
             label={
               <>
                 Free{" "}
-                <span className="inline-flex items-baseline">
+                <span className="inline-flex items-center">
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
                   >
                     [
                   </span>
-                  <span className="font-black text-ink">PMQ</span>
+                  <span className="font-black leading-none text-ink">PMQ</span>
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
@@ -182,14 +182,14 @@ export function HomeBrandHero() {
             label={
               <>
                 Free{" "}
-                <span className="inline-flex items-baseline">
+                <span className="inline-flex items-center">
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
                   >
                     [
                   </span>
-                  <span className="font-black text-ink">PFQ</span>
+                  <span className="font-black leading-none text-ink">PFQ</span>
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
