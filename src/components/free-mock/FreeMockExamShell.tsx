@@ -89,10 +89,6 @@ export async function FreeMockExamShell({
           />
         </div>
 
-        <p className="mx-auto mt-8 max-w-[46rem] font-body text-[12px] leading-relaxed text-ink/55">
-          {config.disclaimer}
-        </p>
-
         <div className="mx-auto mt-14 w-full max-w-[46rem]">
           <FaqAccordion
             items={faqItems}

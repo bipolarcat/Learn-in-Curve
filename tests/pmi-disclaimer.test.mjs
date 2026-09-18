@@ -38,15 +38,15 @@ test("PMI_DISCLAIMER is defined with the required claims", async () => {
   assert.match(disclaimer, /Examination Content Outline/);
 });
 
-test("PMP free-mock route renders PMI_DISCLAIMER", async () => {
-  const [page, shell, config] = await Promise.all([
+test("PMP free-mock route keeps PMI_DISCLAIMER on results", async () => {
+  const [page, client, config] = await Promise.all([
     read("src/app/(site)/free-mock-exam/pmp/page.tsx"),
-    read("src/components/free-mock/FreeMockExamShell.tsx"),
+    read("src/components/free-mock/FreeMockExamClient.tsx"),
     read("src/lib/free-mock/config.ts"),
   ]);
 
   assert.match(config, /disclaimer:\s*PMI_DISCLAIMER/);
-  assert.match(shell, /config\.disclaimer/);
+  assert.match(client, /config\.disclaimer/);
   assert.match(page, /getFreeMockExamConfig\("pmp"\)/);
 });
 

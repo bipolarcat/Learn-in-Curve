@@ -173,14 +173,17 @@ decision below are independent of the payment question.
       on-page — Terms still carry it; revisit if a solicitor wants broader
       surface coverage. **2026-09-15:** PFQ learn footer uses the same
       `APM_DISCLAIMER` as PMQ (not `PFQ_ATP_DISCLAIMER`); stronger ATP copy stays
-      on PFQ marketing/pricing/practice/free-mock surfaces.
+      on PFQ marketing/pricing/practice surfaces (free-mock page footer dropped
+      2026-09-18; results + FAQ still carry it).
 - [x] **PFQ ATP / trademark disclaimer on PFQ overview — 2026-08-13.**
       `PFQ_ATP_DISCLAIMER` in `src/lib/legal-copy.ts` (not an Accredited Training
       Provider; do not sell/administer/invigilate the exam; APM/PFQ trademark
-      acknowledgement). Rendered on `/courses/pfq-in-2-days` and mock routes
-      (path moved 2026-09-05; `/pfq` 301s). Guarded by
-      `tests/pfq-disclaimer.test.mjs`. No pass-rate or endorsement claims.
-      Informal guidance only — solicitor before any paid PFQ product.
+      acknowledgement). Rendered on `/courses/pfq-in-2-days` and practice/pricing
+      routes (path moved 2026-09-05; `/pfq` 301s). **2026-09-18:** removed from the
+      free-mock page footer (`FreeMockExamShell`); still on results
+      (`FreeMockExamClient`) + PFQ FAQ. Guarded by `tests/pfq-disclaimer.test.mjs`.
+      No pass-rate or endorsement claims. Informal guidance only — solicitor
+      before any paid PFQ product.
 - [x] **PFQ checkout CCR waiver — reviewed and accepted by Sim 2026-09-15.**
       `createPfqCheckout` + Stripe `consent_collection` carry the required
       unticked waiver. `PFQ_CHECKOUT_ENABLED` flipped to `true` on 2026-09-15 on
