@@ -11,8 +11,9 @@ const HERO_MOCK_CTA =
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
-const SUBCOPY =
-  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the APM PFQ and PMQ.";
+const SUBCOPY_LEAD =
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the";
+const SUBCOPY_TAIL = "APM PFQ and PMQ.";
 const EYEBROW = "Project Management Exam Revision";
 
 /** Category line — lab style: body bold teal, open tracking (static). */
@@ -89,7 +90,10 @@ export function HomeBrandHero() {
           </div>
 
           <p className="mx-auto mt-3.5 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:text-[18px]">
-            {SUBCOPY}
+            {SUBCOPY_LEAD}{" "}
+            {/* Mobile: keep “APM PFQ…” on its own final row */}
+            <br className="sm:hidden" />
+            {SUBCOPY_TAIL}
           </p>
 
           <div className="hero-ctas relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4">
