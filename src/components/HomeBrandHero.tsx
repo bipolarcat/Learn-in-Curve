@@ -144,7 +144,7 @@ export function HomeBrandHero() {
       </div>
 
       <div className="wrap relative z-10">
-        <div className="hero-ctas mx-auto mt-5 flex w-full max-w-[min(100%,52rem)] flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4 xl:max-w-[58rem]">
+        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[min(100%,52rem)] flex-wrap items-center justify-center gap-3 sm:mt-3.5 sm:gap-4 xl:max-w-[58rem]">
           <FreeMockExamLink
             className={HERO_MOCK_CTA}
             from="home"
