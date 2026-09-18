@@ -153,7 +153,22 @@ export function HomeBrandHero() {
             label={
               <>
                 Free{" "}
-                <span className="font-black text-ink">[PMQ]</span> mock exam
+                <span className="inline-flex items-baseline">
+                  <span
+                    aria-hidden
+                    className="text-[1.35em] font-black leading-none text-ink"
+                  >
+                    [
+                  </span>
+                  <span className="font-black text-ink">PMQ</span>
+                  <span
+                    aria-hidden
+                    className="text-[1.35em] font-black leading-none text-ink"
+                  >
+                    ]
+                  </span>
+                </span>{" "}
+                mock exam
               </>
             }
             location="hero-pmq"
@@ -167,7 +182,22 @@ export function HomeBrandHero() {
             label={
               <>
                 Free{" "}
-                <span className="font-black text-ink">[PFQ]</span> mock exam
+                <span className="inline-flex items-baseline">
+                  <span
+                    aria-hidden
+                    className="text-[1.35em] font-black leading-none text-ink"
+                  >
+                    [
+                  </span>
+                  <span className="font-black text-ink">PFQ</span>
+                  <span
+                    aria-hidden
+                    className="text-[1.35em] font-black leading-none text-ink"
+                  >
+                    ]
+                  </span>
+                </span>{" "}
+                mock exam
               </>
             }
             location="hero-pfq"
