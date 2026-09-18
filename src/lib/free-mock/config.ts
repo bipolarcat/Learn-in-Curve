@@ -27,7 +27,13 @@ export type FreeMockExamConfig = {
   displayName: string;
   /** Short mark for titles: PMQ / PFQ / PMP */
   mark: string;
+  /** Storage / analytics course key */
+  course: "pmq" | "pfq" | "pmp";
   questionCount: number;
+  /** Countdown length for the readiness check (seconds). */
+  timerSeconds: number;
+  /** Target pace per question (ms) — usually timerSeconds*1000/questionCount. */
+  targetPaceMsPerQuestion: number;
   items: FreeMockItem[];
   resultsCtaKind: FreeMockResultsCtaKind;
   /** Course href when resultsCtaKind is course; null for waitlist. */
@@ -51,6 +57,10 @@ const PMQ_ITEMS = getFreeMockBank("apm-pmq");
 const PFQ_ITEMS = getFreeMockBank("apm-pfq");
 const PMP_ITEMS = getFreeMockBank("pmp");
 
+function pace(timerSeconds: number, questionCount: number) {
+  return Math.round((timerSeconds * 1000) / questionCount);
+}
+
 export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
   "apm-pmq": {
     examId: "apm-pmq",
@@ -58,7 +68,10 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     path: "/free-mock-exam/apm-pmq",
     displayName: "APM PMQ",
     mark: "PMQ",
+    course: "pmq",
     questionCount: PMQ_ITEMS.length,
+    timerSeconds: 600,
+    targetPaceMsPerQuestion: pace(600, PMQ_ITEMS.length),
     items: PMQ_ITEMS,
     resultsCtaKind: "course",
     ctaHref: "/courses/pmq-in-5-days",
@@ -99,7 +112,10 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     path: "/free-mock-exam/apm-pfq",
     displayName: "APM PFQ",
     mark: "PFQ",
+    course: "pfq",
     questionCount: PFQ_ITEMS.length,
+    timerSeconds: 400,
+    targetPaceMsPerQuestion: pace(400, PFQ_ITEMS.length),
     items: PFQ_ITEMS,
     resultsCtaKind: "course",
     ctaHref: "/courses/pfq-in-2-days",
@@ -140,7 +156,10 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     path: "/free-mock-exam/pmp",
     displayName: "PMP",
     mark: "PMP",
+    course: "pmp",
     questionCount: PMP_ITEMS.length,
+    timerSeconds: 600,
+    targetPaceMsPerQuestion: pace(600, PMP_ITEMS.length),
     items: PMP_ITEMS,
     resultsCtaKind: "waitlist",
     ctaHref: null,

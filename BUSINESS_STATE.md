@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Free mock: Start-gated 10:00 timer (overtime counts up, no lockout), free score summary + email-gated diagnostic, soft-opt-in notice, report email via Resend, PostHog `mock_started`/`mock_completed`/`report_*`, Continue uses teal CTA (`FreeMockExamClient`, `free-mock/config|actions|report`, `send-free-mock-report-email`, migration `20260918140000_free_mock_report_fields`).
 - **2026-09-18** — Home hero geometric lattice scoped to end above the CTA row (`HomeBrandHero`).
 - **2026-09-18** — Home hero: added lab geometric lattice animation (`LabBackgroundPaths` in `HomeBrandHero`).
 - **2026-09-18** — Home hero subcopy: dropped 4-row xs band (was firing on Sim’s phone); mobile is back to 3 descending rows with APM on R3; mobile type `clamp(13.5px,4.2vw,16px)` so the nowrap R1 fits narrow phones (`HomeBrandHero`).

@@ -69,6 +69,12 @@ decision below are independent of the payment question.
       required `exam_id`; hub at `/mock-me`. PMP is waitlist/readiness only (no
       course sale). PMI disclaimer on the PMP child. Still confirm Privacy Policy
       covers this lead path before paid traffic.
+      **2026-09-18:** free-mock marketing capture switched to soft-opt-in (no
+      checkbox): notice under email + `marketing_basis='soft_opt_in'`; score is
+      free, diagnostic gated. Upserts `newsletter_subscribers` (no duplicate
+      contact) and emails the report with unsubscribe link. Informal only —
+      solicitor should confirm soft opt-in vs PECR before paid traffic / first
+      tips send.
       **2026-08-13:** newsletter form now records `marketing_consent = true` on
       the server (submitting "Join our newsletter" is the consent act). Five
       existing `false` rows were **not** backfilled — those addresses may only
