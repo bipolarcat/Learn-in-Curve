@@ -83,7 +83,8 @@ function CurveAccent() {
 function Headline() {
   const reduce = useReducedMotion();
   const line1 = ["PFQ", "or", "PMQ."];
-  const line2 = ["Wherever", "you", "are", "on", "the"];
+  const line2a = ["Wherever", "you", "are"];
+  const line2b = ["on", "the"];
   const leadStagger = 0.06;
   const leadStart = 0.55;
 
@@ -112,7 +113,10 @@ function Headline() {
       <span aria-hidden className="inline overflow-visible">
         {renderWords(line1, 0)}
         <br />
-        {renderWords(line2, line1.length)}
+        {renderWords(line2a, line1.length)}
+        {/* Mobile: keep “are” on line 2; break before “on the curve.” */}
+        <br className="sm:hidden" />
+        {renderWords(line2b, line1.length + line2a.length)}
         <CurveAccent />
       </span>
     </h1>
