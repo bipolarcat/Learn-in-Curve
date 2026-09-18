@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Home hero free-mock CTAs: tighter padding (`!min-h-9` / `px-3.5`, sm `min-h-10` / `px-4`) (`HomeBrandHero`).
 - **2026-09-18** — Free-mock page footer disclaimer removed (`FreeMockExamShell`); disclaimer still shows on results (`FreeMockExamClient`) + PFQ/PMI FAQs.
 - **2026-09-18** — Home hero CTAs: twin teal free-mock buttons (“Free PMQ mock exam” → `/apm-pmq`, “Free PFQ mock exam” → `/apm-pfq`) with ticket sheen hover; Explore courses removed (`HomeBrandHero`, `FreeMockExamLink`, `globals.css` `.hero-mock-cta`).
 - **2026-09-18** — Home hero subcopy set to “…full mock exams for the APM PFQ and PMQ.” (`HomeBrandHero`).
