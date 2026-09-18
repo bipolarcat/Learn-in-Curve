@@ -11,11 +11,51 @@ const HERO_MOCK_CTA =
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
-/** Mobile row 1 (longest) → row 2 → row 3 (shortest). Desktop: row1+row2 then tail. */
-const SUBCOPY_R1 = "Stop re-reading. Start revising with 1,000+ practice";
-const SUBCOPY_R2 = "questions and full mock exams for the";
-const SUBCOPY_R3 = "APM PFQ and PMQ.";
+/**
+ * Subcopy wraps — measured at Figtree 16/18 so each nowrap row fits its band:
+ * - <360: 4 descending rows (320px-safe)
+ * - 360–sm: 3 rows, R3 = “APM PFQ and PMQ.”
+ * - sm–lg: 2 rows, first longer (tablet-safe)
+ * - lg+: 2 rows, lead + “APM PFQ and PMQ.”
+ */
+const SUB_XS = [
+  "Stop re-reading. Start revising with",
+  "1,000+ practice questions and full",
+  "mock exams for the",
+  "APM PFQ and PMQ.",
+] as const;
+const SUB_MOBILE = [
+  "Stop re-reading. Start revising with 1,000+",
+  "practice questions and full mock exams for the",
+  "APM PFQ and PMQ.",
+] as const;
+const SUB_TABLET = [
+  "Stop re-reading. Start revising with 1,000+ practice questions",
+  "and full mock exams for the APM PFQ and PMQ.",
+] as const;
+const SUB_DESKTOP = [
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the",
+  "APM PFQ and PMQ.",
+] as const;
 const EYEBROW = "Project Management Exam Revision";
+
+function SubcopyRows({
+  rows,
+  className,
+}: {
+  rows: readonly string[];
+  className: string;
+}) {
+  return (
+    <span className={className}>
+      {rows.map((row) => (
+        <span key={row} className="block whitespace-nowrap">
+          {row}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 /** Category line — lab style: body bold teal, open tracking (static). */
 function CategoryStamp() {
@@ -90,23 +130,20 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-[52rem] sm:text-[18px]">
-            {/* Mobile: 3 descending rows */}
-            <span className="sm:hidden">
-              {SUBCOPY_R1}
-              <br />
-              {SUBCOPY_R2}
-              <br />
-              <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
-            </span>
-            {/* Desktop: exactly 2 rows — long lead, short exam names */}
-            <span className="hidden sm:inline">
-              <span className="whitespace-nowrap">
-                {SUBCOPY_R1} {SUBCOPY_R2}
-              </span>
-              <br />
-              <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
-            </span>
+          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-none sm:text-[18px]">
+            <SubcopyRows rows={SUB_XS} className="min-[360px]:hidden" />
+            <SubcopyRows
+              rows={SUB_MOBILE}
+              className="hidden min-[360px]:block sm:hidden"
+            />
+            <SubcopyRows
+              rows={SUB_TABLET}
+              className="hidden sm:block min-[800px]:hidden"
+            />
+            <SubcopyRows
+              rows={SUB_DESKTOP}
+              className="hidden min-[800px]:block"
+            />
           </p>
 
           <div className="hero-ctas relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4">

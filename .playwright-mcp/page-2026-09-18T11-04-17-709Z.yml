@@ -1,0 +1,195 @@
+- generic [active] [ref=f29e1]:
+  - generic [ref=f29e2]:
+    - link "Skip to content" [ref=f29e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Primary" [ref=f29e5]:
+      - link "Learn in Curve" [ref=f29e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f29e8]:
+          - generic [ref=f29e9]: Learn in
+          - generic [ref=f29e10]: Curve
+      - group "Site controls" [ref=f29e11]:
+        - button "Get Started" [ref=f29e13] [cursor=pointer]
+        - button "Open menu" [ref=f29e21] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f29e24]:
+            - generic [ref=f29e25]: M
+            - generic [ref=f29e26]: e
+            - generic [ref=f29e27]: "n"
+            - generic [ref=f29e28]: u
+    - main [ref=f29e29]:
+      - region [ref=f29e30]:
+        - generic [ref=f29e32]:
+          - generic [ref=f29e34]:
+            - paragraph [ref=f29e35]: Project Management Exam Revision
+            - heading "PFQ or PMQ. Wherever you are on the curve." [level=1] [ref=f29e36]:
+              - generic [aria-hidden] [ref=f29e37]:
+                - text: PFQ or PMQ. Wherever you are on the
+                - generic [ref=f29e38]:
+                  - generic [aria-hidden] [ref=f29e40]:
+                    - generic [aria-hidden] [ref=f29e41]: c
+                    - generic [aria-hidden] [ref=f29e42]: u
+                    - generic [aria-hidden] [ref=f29e43]: r
+                    - generic [aria-hidden] [ref=f29e44]: v
+                    - generic [aria-hidden] [ref=f29e45]: e
+                  - text: .
+          - paragraph [ref=f29e46]:
+            - generic [ref=f29e47]: Stop re-reading. Start revising with 1,000+ practicequestions and full mock exams for theAPM PFQ and PMQ.
+          - generic [ref=f29e48]:
+            - link "Free PMQ mock exam" [ref=f29e49] [cursor=pointer]:
+              - /url: /free-mock-exam/apm-pmq?from=home
+            - link "Free PFQ mock exam" [ref=f29e53] [cursor=pointer]:
+              - /url: /free-mock-exam/apm-pfq?from=home
+      - region [ref=f29e57]:
+        - generic [ref=f29e59]:
+          - heading [level=2] [ref=f29e60]:
+            - generic "PMQ" [ref=f29e61]:
+              - generic [aria-hidden] [ref=f29e62]: P
+              - generic [aria-hidden] [ref=f29e63]: M
+              - generic [aria-hidden] [ref=f29e64]: Q
+            - text: in 5 Days is live.
+          - paragraph [ref=f29e65]: Get free access to the complete Association for Project Management (APM) - PMQ revision course and start studying today.
+          - link "Start free with APM PMQ" [ref=f29e67] [cursor=pointer]:
+            - /url: /courses/pmq-in-5-days/preview?from=home
+      - region [ref=f29e70]:
+        - generic [ref=f29e71]:
+          - heading "What's included" [level=2] [ref=f29e72]
+          - group "What’s inside PMQ in 5 Days" [ref=f29e73]:
+            - 'button "Show slide 1 of 7: Learn the full syllabus: all 24 APM PMQ learning objectives in short, focused lessons." [pressed] [ref=f29e74] [cursor=pointer]':
+              - 'img "Learn the full syllabus: all 24 APM PMQ learning objectives in short, focused lessons." [ref=f29e75]'
+              - generic [aria-hidden]:
+                - generic: Learn the full syllabus
+              - generic [aria-hidden] [ref=f29e76]: 1/7
+            - 'button "Show slide 2 of 7: Test yourself as you learn with exam-style quizzes, instant marking and feedback." [ref=f29e77] [cursor=pointer]':
+              - img "Test yourself as you learn with exam-style quizzes, instant marking and feedback." [ref=f29e78]
+              - generic [aria-hidden]:
+                - generic: Test yourself as you learn
+            - 'button "Show slide 3 of 7: Take realistic timed mock exams that mirror the structure and pressure of the PMQ exam." [ref=f29e79] [cursor=pointer]':
+              - img "Take realistic timed mock exams that mirror the structure and pressure of the PMQ exam." [ref=f29e80]
+              - generic [aria-hidden]:
+                - generic: Take realistic mock exams
+            - 'button "Show slide 4 of 7: Avoid common exam traps by learning why frequent candidate mistakes are wrong." [ref=f29e81] [cursor=pointer]':
+              - img "Avoid common exam traps by learning why frequent candidate mistakes are wrong." [ref=f29e82]
+              - generic [aria-hidden]:
+                - generic: Avoid common exam traps
+            - 'button "Show slide 5 of 7: Remember what matters with memory aids, acronyms and quick-recall techniques." [ref=f29e83] [cursor=pointer]':
+              - img "Remember what matters with memory aids, acronyms and quick-recall techniques." [ref=f29e84]
+              - generic [aria-hidden]:
+                - generic: Remember what matters
+            - 'button "Show slide 6 of 7: Watch or listen anywhere with bite-sized video and audio overviews." [ref=f29e85] [cursor=pointer]':
+              - img "Watch or listen anywhere with bite-sized video and audio overviews." [ref=f29e86]
+              - generic [aria-hidden]:
+                - generic: Watch or listen anywhere
+            - 'button "Show slide 7 of 7: Sly, your AI tutor, with personalised study planning, adaptive learning and an exam-readiness report." [ref=f29e87] [cursor=pointer]':
+              - img "Sly, your AI tutor, with personalised study planning, adaptive learning and an exam-readiness report." [ref=f29e88]
+              - generic [aria-hidden]:
+                - generic: Meet Sly, your AI tutor
+      - region [ref=f29e92]:
+        - generic [ref=f29e93]:
+          - paragraph [ref=f29e94]: Practice questions
+          - heading "Give it a try." [level=2] [ref=f29e95]
+        - generic "Sample quiz" [ref=f29e97]:
+          - tablist "Questions in this sample" [ref=f29e99]:
+            - tab "Q1, current" [selected] [ref=f29e100] [cursor=pointer]: "1"
+            - tab "Q2, locked" [disabled] [ref=f29e101]: "2"
+            - tab "Q3, locked" [disabled] [ref=f29e102]: "3"
+          - tabpanel "Q1, current" [ref=f29e103]:
+            - paragraph [ref=f29e104]:
+              - generic [ref=f29e105]: Question 1 of 3.
+              - text: You are PM on a long, complex vehicle manufacturing project where the full set of requirements is still being developed. Which life cycle is NOT suitable?
+            - radiogroup "Question 1 of 3" [ref=f29e106]:
+              - radio "A)Extended" [ref=f29e107] [cursor=pointer]:
+                - generic [ref=f29e108]: A)
+                - text: Extended
+              - radio "B)Linear" [ref=f29e109] [cursor=pointer]:
+                - generic [ref=f29e110]: B)
+                - text: Linear
+              - radio "C)Iterative" [ref=f29e111] [cursor=pointer]:
+                - generic [ref=f29e112]: C)
+                - text: Iterative
+              - radio "D)Hybrid" [ref=f29e113] [cursor=pointer]:
+                - generic [ref=f29e114]: D)
+                - text: Hybrid
+            - button "Check answer" [ref=f29e116] [cursor=pointer]
+      - region [ref=f29e117]:
+        - generic [ref=f29e118]:
+          - region "Try Sly, the AI tutor" [ref=f29e120]:
+            - generic [ref=f29e122]:
+              - paragraph [ref=f29e129]: Sly · AI tutor
+              - paragraph [ref=f29e130]: 3 free questions
+            - generic [ref=f29e131]:
+              - generic [ref=f29e133]:
+                - paragraph [ref=f29e135]: Choose a question below or type your own. Answers are live, and the Beta is limited to a few questions per visitor.
+                - generic [ref=f29e136]:
+                  - button "What is the APM PMQ exam actually testing?" [ref=f29e137] [cursor=pointer]
+                  - button "Explain stakeholder management in plain English" [ref=f29e138] [cursor=pointer]
+                  - button "Give me one exam-technique tip for scenario questions" [ref=f29e139] [cursor=pointer]
+              - generic [ref=f29e140]:
+                - generic [ref=f29e141]:
+                  - textbox "Message to Sly" [ref=f29e142]:
+                    - /placeholder: Ask Sly…
+                  - button "Send message" [disabled] [ref=f29e143]
+                - paragraph [ref=f29e146]:
+                  - text: Sly is AI and can make mistakes.·
+                  - button "Send feedback" [ref=f29e147] [cursor=pointer]
+          - generic [ref=f29e148]:
+            - generic [ref=f29e149]:
+              - generic [ref=f29e150]: AI TUTOR
+              - heading "Try Sly now Beta" [level=2] [ref=f29e154]:
+                - text: Try
+                - generic [ref=f29e155]: Sly
+                - text: now
+                - generic [ref=f29e156]: Beta
+            - paragraph [ref=f29e157]: The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.
+      - generic [ref=f29e161]:
+        - generic [ref=f29e162]:
+          - heading "Join our newsletter." [level=2] [ref=f29e171]
+          - generic [ref=f29e174]:
+            - generic [ref=f29e175]: Email address
+            - textbox "Email address" [ref=f29e176]:
+              - /placeholder: you@email.com
+            - button "Notify me" [ref=f29e177] [cursor=pointer]
+        - paragraph [ref=f29e180]:
+          - text: "Learn in Curve is built around two subjects: Project management and AI. Unsubscribe any time."
+          - link "Privacy notice" [ref=f29e181] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+    - contentinfo [ref=f29e182]:
+      - generic [ref=f29e184]:
+        - generic [ref=f29e185]:
+          - generic [ref=f29e186]:
+            - generic [ref=f29e188]:
+              - generic [ref=f29e189]: Learn in
+              - generic [ref=f29e190]: Curve
+            - paragraph [ref=f29e191]: Master project Management & AI
+          - generic [ref=f29e192]:
+            - link "Learn in Curve on Instagram" [ref=f29e193] [cursor=pointer]:
+              - /url: https://www.instagram.com/learn.in.curve/
+            - link "Learn in Curve on LinkedIn" [ref=f29e196] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/learn-in-curve/
+        - navigation "Footer" [ref=f29e199]:
+          - link "Privacy" [ref=f29e200] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=f29e201] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookies" [ref=f29e202] [cursor=pointer]:
+            - /url: /cookies
+          - button "Send feedback" [ref=f29e203] [cursor=pointer]
+      - generic [ref=f29e204]:
+        - generic:
+          - paragraph: © 2026 Learn in Curve
+          - paragraph: v2.46
+  - dialog "Cookies":
+    - generic [ref=f29e207]:
+      - generic [ref=f29e216]:
+        - paragraph [ref=f29e217]: Cookies
+        - paragraph [ref=f29e218]:
+          - text: We use a strictly necessary cookie to keep you signed in. We’d also like to use analytics cookies to see which lessons work and where people get stuck. No ads, ever.
+          - link "Cookie notice" [ref=f29e219] [cursor=pointer]:
+            - /url: /cookies
+      - generic [ref=f29e220]:
+        - button "Accept" [ref=f29e221] [cursor=pointer]
+        - button "Reject" [ref=f29e222] [cursor=pointer]
+        - link "Details" [ref=f29e223] [cursor=pointer]:
+          - /url: /cookies
+  - alert [ref=f29e224]
+  - region "Notifications alt+T"
