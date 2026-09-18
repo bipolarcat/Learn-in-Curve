@@ -1,23 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
-import { SegmentedControl } from "@/components/ui/segmented-control";
 import { BouncingText } from "@/components/ui/bouncing-text";
-import { FREE_MOCK_EXAMS } from "@/lib/free-mock/config";
-import type { FreeMockExamId } from "@/lib/free-mock/types";
 
 const HERO_MOCK_CTA =
   `${stampCtaTealFlat} hero-mock-cta !min-h-9 !gap-1.5 !px-3.5 !py-2 sm:!min-h-10 sm:!px-4 [&_svg]:!h-3 [&_svg]:!w-3`;
-
-const HERO_EXAM_OPTIONS = [
-  { value: "apm-pmq", label: "PMQ" },
-  { value: "apm-pfq", label: "PFQ" },
-] as const;
 
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
@@ -111,39 +102,6 @@ function Headline() {
   );
 }
 
-/** Segment (PMQ|PFQ) + one CTA — 21st sliding thumb, brand tokens. */
-function HeroMockCta() {
-  const [examId, setExamId] = useState<FreeMockExamId>("apm-pmq");
-  const exam = FREE_MOCK_EXAMS[examId];
-  const ctaLabel = `Take free ${exam.mark} mock`;
-  const seoLabel = `Free ${exam.displayName} mock exam`;
-
-  return (
-    <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center gap-3 sm:gap-3.5 xl:max-w-[58rem]">
-      <SegmentedControl
-        label="Choose exam"
-        options={[...HERO_EXAM_OPTIONS]}
-        value={examId}
-        onValueChange={(next) => {
-          if (next === "apm-pmq" || next === "apm-pfq") setExamId(next);
-        }}
-      />
-      <FreeMockExamLink
-        className={HERO_MOCK_CTA}
-        from="home"
-        href={exam.path}
-        analyticsLabel={seoLabel}
-        label={ctaLabel}
-        location={examId === "apm-pmq" ? "hero-pmq" : "hero-pfq"}
-        showArrow
-      />
-      <p className="m-0 max-w-[22rem] text-pretty text-center font-body text-[12px] leading-snug text-ink/55 sm:text-[13px]">
-        {exam.displayName} · {exam.questionCount} questions · no account needed
-      </p>
-    </div>
-  );
-}
-
 /**
  * Home brand hero — geometric lattice paths + animals; only “curve” animates in copy.
  * Lattice stops above the CTA row (paths are scoped to the copy block only).
@@ -186,8 +144,23 @@ export function HomeBrandHero() {
       </div>
 
       <div className="wrap relative z-10">
-        <div className="hero-ctas mx-auto mt-5 sm:mt-5">
-          <HeroMockCta />
+        <div className="hero-ctas mx-auto mt-5 flex w-full max-w-[min(100%,52rem)] flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4 xl:max-w-[58rem]">
+          <FreeMockExamLink
+            className={HERO_MOCK_CTA}
+            from="home"
+            href="/free-mock-exam/apm-pmq"
+            label="Free [PMQ] mock exam"
+            location="hero-pmq"
+            showArrow
+          />
+          <FreeMockExamLink
+            className={HERO_MOCK_CTA}
+            from="home"
+            href="/free-mock-exam/apm-pfq"
+            label="Free [PFQ] mock exam"
+            location="hero-pfq"
+            showArrow
+          />
         </div>
       </div>
     </section>
