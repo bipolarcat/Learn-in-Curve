@@ -3,6 +3,7 @@
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
+import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { BouncingText } from "@/components/ui/bouncing-text";
 
@@ -102,7 +103,7 @@ function Headline() {
 }
 
 /**
- * Home brand hero — animals lead; static copy; only “curve” animates.
+ * Home brand hero — geometric lattice paths + animals; only “curve” animates in copy.
  */
 export function HomeBrandHero() {
   return (
@@ -111,6 +112,8 @@ export function HomeBrandHero() {
       aria-labelledby="home-brand-hero-title"
       className="hero relative overflow-x-clip overflow-y-visible pb-4 pt-4 sm:pb-5 sm:pt-6 lg:pb-6 lg:pt-8"
     >
+      <LabBackgroundPaths />
+
       <div className="wrap relative z-[1]">
         <div className="mx-auto flex w-full max-w-[min(100%,52rem)] flex-col items-center text-center xl:max-w-[58rem]">
           {/* Move animals only via margin — do not touch HeroAnimalsScene motion. */}
