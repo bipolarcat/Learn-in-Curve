@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Home hero text: removed category + H1 word animations; only “curve” BouncingText remains (`HomeBrandHero`).
 - **2026-09-18** — Home hero H1 mobile wrap: force break after “Wherever you are” so “are” stays on line 2 (`HomeBrandHero`).
 - **2026-09-17** — Home hero spacing: fixed category/H1 overlap; category+H1 `gap-1.5/2`; H1→sub `mt-5/6`; sub→CTAs `mt-7/8`; animals only nudged via wrapper margin (`HomeBrandHero` — animation untouched).
 - **2026-09-17** — Reverted home hero free-mock CTA to teal + “Take a free mock” (`HomeBrandHero`; removed unused `stampCtaInkFlat`).
