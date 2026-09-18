@@ -73,8 +73,8 @@ export function FreeMockExamLink({
           aria-hidden
         />
       ) : (
-        <span className="relative z-[1] inline-flex items-center gap-2" aria-hidden>
-          {label}
+        <span className="relative z-[1] inline-flex items-center gap-1.5" aria-hidden>
+          <span className="inline">{label}</span>
           {showArrow ? <CtaArrow /> : null}
         </span>
       )}

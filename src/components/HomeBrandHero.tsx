@@ -152,8 +152,8 @@ export function HomeBrandHero() {
             analyticsLabel="Free [PMQ] mock exam"
             label={
               <>
-                Free{" "}
-                <span className="inline-flex items-center">
+                Free
+                <span className="mx-0.5 inline-flex items-center">
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
@@ -167,7 +167,7 @@ export function HomeBrandHero() {
                   >
                     ]
                   </span>
-                </span>{" "}
+                </span>
                 mock exam
               </>
             }
@@ -181,8 +181,8 @@ export function HomeBrandHero() {
             analyticsLabel="Free [PFQ] mock exam"
             label={
               <>
-                Free{" "}
-                <span className="inline-flex items-center">
+                Free
+                <span className="mx-0.5 inline-flex items-center">
                   <span
                     aria-hidden
                     className="text-[1.35em] font-black leading-none text-ink"
@@ -196,7 +196,7 @@ export function HomeBrandHero() {
                   >
                     ]
                   </span>
-                </span>{" "}
+                </span>
                 mock exam
               </>
             }
