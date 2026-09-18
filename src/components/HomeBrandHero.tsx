@@ -153,17 +153,17 @@ export function HomeBrandHero() {
             label={
               <>
                 Free
-                <span className="mx-0.5 inline-flex items-center">
+                <span className="mx-0.5">
                   <span
                     aria-hidden
-                    className="text-[1.35em] font-black leading-none text-ink"
+                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
                   >
                     [
                   </span>
-                  <span className="font-black leading-none text-ink">PMQ</span>
+                  <span className="font-black text-ink">PMQ</span>
                   <span
                     aria-hidden
-                    className="text-[1.35em] font-black leading-none text-ink"
+                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
                   >
                     ]
                   </span>
@@ -182,17 +182,17 @@ export function HomeBrandHero() {
             label={
               <>
                 Free
-                <span className="mx-0.5 inline-flex items-center">
+                <span className="mx-0.5">
                   <span
                     aria-hidden
-                    className="text-[1.35em] font-black leading-none text-ink"
+                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
                   >
                     [
                   </span>
-                  <span className="font-black leading-none text-ink">PFQ</span>
+                  <span className="font-black text-ink">PFQ</span>
                   <span
                     aria-hidden
-                    className="text-[1.35em] font-black leading-none text-ink"
+                    className="inline-block align-middle text-[1.35em] font-black leading-none text-ink"
                   >
                     ]
                   </span>
