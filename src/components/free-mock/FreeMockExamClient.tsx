@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type FormEvent,
-} from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   InlineDropdownResponseFields,
   McqResponseFields,
@@ -17,46 +10,58 @@ import {
 import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import {
   stampCtaCompact,
+  stampCtaPrimary,
   stampCtaSecondaryFlat,
-  stampCtaTealFlat,
 } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { getAttribution } from "@/lib/analytics/attribution";
 import {
   trackFreeMockCompleted,
+  trackFreeMockLeadCaptured,
   trackFreeMockStarted,
-  trackReportEmailSubmitted,
-  trackReportUnlocked,
 } from "@/lib/analytics/events";
-import { submitFreeMockReport } from "@/lib/free-mock/actions";
+import { submitFreeMockLead } from "@/lib/free-mock/actions";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
-  buildFormatLoss,
-  buildQuestionTimings,
-  formatDuration,
-  readinessBand,
-  readinessBandLabel,
-  recommendedNextSteps,
-  scoreAttempt,
-  type FormatLossRow,
-  type QuestionTimingRow,
-  type ReadinessBand,
-} from "@/lib/free-mock/report";
-import type { FreeMockAnswer, LoBreakdownRow } from "@/lib/free-mock/scoring";
+  isQuestionCorrect,
+  type FreeMockAnswer,
+  type LoBreakdownRow,
+} from "@/lib/free-mock/scoring";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 
-type Phase = "prestart" | "quiz" | "summary" | "report";
+type Phase = "quiz" | "gate" | "results";
+
+type ResultsPayload = {
+  score: number;
+  maxScore: number;
+  loBreakdown: LoBreakdownRow[];
+  weakest: LoBreakdownRow[];
+};
+
 type NavAction = "prev" | "next";
 
 const NAV_SPINNER_MS = 280;
-const SOFT_OPT_IN_NOTICE =
-  "We'll email your report and occasional APM exam revision tips. Unsubscribe any time.";
 
 export type FreeMockExamClientProps = {
   examId: FreeMockExamId;
   items: FreeMockItem[];
-  config: FreeMockExamConfig;
+  config: Pick<
+    FreeMockExamConfig,
+    | "displayName"
+    | "mark"
+    | "gatePrompt"
+    | "marketingConsentLabel"
+    | "breakdownNoun"
+    | "breakdownNounPlural"
+    | "resultsCtaKind"
+    | "ctaHref"
+    | "ctaLabel"
+    | "waitlistNotifyKey"
+    | "waitlistSubjectLabel"
+    | "waitlistCourseCopy"
+    | "disclaimer"
+  >;
 };
 
 function emptyDropdownValues(item: FreeMockItem): Record<string, string> {
@@ -76,13 +81,6 @@ function answerComplete(
   return draft.kind === "mcq" && Boolean(draft.letter);
 }
 
-function newAttemptId(): string {
-  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
-    return crypto.randomUUID();
-  }
-  return `attempt-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
-
 export function FreeMockExamClient({
   examId,
   items,
@@ -90,97 +88,57 @@ export function FreeMockExamClient({
 }: FreeMockExamClientProps) {
   const total = items.length;
   const maxScore = total;
-  const [phase, setPhase] = useState<Phase>("prestart");
   const [qi, setQi] = useState(0);
   const [answers, setAnswers] = useState<Record<string, FreeMockAnswer>>({});
   const [draft, setDraft] = useState<FreeMockAnswer | null>(null);
-  const [questionTimings, setQuestionTimings] = useState<
-    Record<string, number>
-  >({});
-  const [attemptId, setAttemptId] = useState("");
-  const [startedAt, setStartedAt] = useState<number | null>(null);
-  const [questionStartedAt, setQuestionStartedAt] = useState<number | null>(
-    null,
-  );
-  const [overTime, setOverTime] = useState(false);
-  const [nowMs, setNowMs] = useState(() => Date.now());
-  const [finishedAt, setFinishedAt] = useState<number | null>(null);
+  const [phase, setPhase] = useState<Phase>("quiz");
   const [email, setEmail] = useState("");
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [navPending, setNavPending] = useState<NavAction | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [band, setBand] = useState<ReadinessBand>("not-ready");
-  const [loBreakdown, setLoBreakdown] = useState<LoBreakdownRow[]>([]);
-  const [formatLoss, setFormatLoss] = useState<FormatLossRow[]>([]);
-  const [timingRows, setTimingRows] = useState<QuestionTimingRow[]>([]);
-  const [nextSteps, setNextSteps] = useState<string[]>([]);
-  const [summaryScore, setSummaryScore] = useState(0);
-  const overTimeLatched = useRef(false);
-
-  const question = items[qi] ?? items[0];
-  const locked = Boolean(answers[question?.id]);
+  const [results, setResults] = useState<ResultsPayload | null>(null);
+  const startedTracked = useRef(false);
 
   useEffect(() => {
-    if (phase !== "quiz" || startedAt == null) return;
-    const id = window.setInterval(() => setNowMs(Date.now()), 250);
-    return () => window.clearInterval(id);
-  }, [phase, startedAt]);
+    if (startedTracked.current) return;
+    startedTracked.current = true;
+    trackFreeMockStarted({ exam_id: examId });
+  }, [examId]);
 
-  const elapsedMs = useMemo(() => {
-    if (startedAt == null) return 0;
-    const end = finishedAt ?? nowMs;
-    return Math.max(0, end - startedAt);
-  }, [startedAt, finishedAt, nowMs]);
+  const question = items[qi];
+  const locked = Boolean(answers[question.id]);
 
-  const timerLimitMs = config.timerSeconds * 1000;
-  const remainingMs = Math.max(0, timerLimitMs - elapsedMs);
-  const displayOverTime = overTime || remainingMs === 0;
-  const overtimeMs = displayOverTime
-    ? Math.max(0, elapsedMs - timerLimitMs)
-    : 0;
+  const localScore = useMemo(() => {
+    return items.reduce(
+      (n, item) => n + (isQuestionCorrect(item, answers[item.id]) ? 1 : 0),
+      0,
+    );
+  }, [answers, items]);
 
-  useEffect(() => {
-    if (phase !== "quiz" || startedAt == null) return;
-    if (remainingMs === 0 && !overTimeLatched.current) {
-      overTimeLatched.current = true;
-      setOverTime(true);
+  const syncDraftForIndex = (
+    index: number,
+    nextAnswers: Record<string, FreeMockAnswer>,
+  ) => {
+    const item = items[index];
+    const existing = nextAnswers[item.id];
+    if (existing) {
+      setDraft(existing);
+      return;
     }
-  }, [phase, startedAt, remainingMs]);
-
-  const syncDraftForIndex = useCallback(
-    (index: number, nextAnswers: Record<string, FreeMockAnswer>) => {
-      const item = items[index];
-      if (!item) return;
-      const existing = nextAnswers[item.id];
-      if (existing) {
-        setDraft(existing);
-        return;
-      }
-      if (item.type === "dropdown") {
-        setDraft({ kind: "dropdown", values: emptyDropdownValues(item) });
-      } else {
-        setDraft({ kind: "mcq", letter: "" });
-      }
-    },
-    [items],
-  );
+    if (item.type === "dropdown") {
+      setDraft({ kind: "dropdown", values: emptyDropdownValues(item) });
+    } else {
+      setDraft({ kind: "mcq", letter: "" });
+    }
+  };
 
   const goTo = (index: number, nextAnswers = answers) => {
     if (index < 0 || index >= total) return;
     const firstUnanswered = items.findIndex((item) => !nextAnswers[item.id]);
     const frontier = firstUnanswered === -1 ? total - 1 : firstUnanswered;
     if (index > frontier) return;
-
-    if (questionStartedAt != null && question) {
-      const spent = Date.now() - questionStartedAt;
-      setQuestionTimings((prev) => ({
-        ...prev,
-        [question.id]: (prev[question.id] ?? 0) + Math.max(0, spent),
-      }));
-    }
-
     setQi(index);
-    setQuestionStartedAt(Date.now());
     syncDraftForIndex(index, nextAnswers);
   };
 
@@ -193,89 +151,21 @@ export function FreeMockExamClient({
     }, NAV_SPINNER_MS);
   };
 
-  const handleStart = () => {
-    const id = newAttemptId();
-    const t0 = Date.now();
-    setAttemptId(id);
-    setStartedAt(t0);
-    setQuestionStartedAt(t0);
-    setOverTime(false);
-    overTimeLatched.current = false;
-    setFinishedAt(null);
-    setQi(0);
-    setAnswers({});
-    setQuestionTimings({});
-    syncDraftForIndex(0, {});
-    setPhase("quiz");
-    trackFreeMockStarted({ exam_id: examId });
-  };
-
-  const finishAttempt = (
-    nextAnswers: Record<string, FreeMockAnswer>,
-    nextTimings: Record<string, number>,
-  ) => {
-    const end = Date.now();
-    setFinishedAt(end);
-    const duration = startedAt != null ? end - startedAt : 0;
-    const scored = scoreAttempt(items, nextAnswers);
-    const bandValue = readinessBand(scored.score, scored.maxScore);
-    setSummaryScore(scored.score);
-    setBand(bandValue);
-    setLoBreakdown(scored.loBreakdown);
-    setFormatLoss(buildFormatLoss(items, nextAnswers));
-    setTimingRows(
-      buildQuestionTimings(
-        items,
-        nextAnswers,
-        nextTimings,
-        config.targetPaceMsPerQuestion,
-      ),
-    );
-    setNextSteps(
-      recommendedNextSteps(
-        scored.weakest,
-        config.breakdownNoun,
-        config.mark,
-      ),
-    );
-    trackFreeMockCompleted({
-      exam_id: examId,
-      score: scored.score,
-      max_score: scored.maxScore,
-      durationMs: duration,
-      overTime: overTime || duration >= timerLimitMs,
-    });
-    setPhase("summary");
-  };
-
   const handlePrevious = () => {
-    if (qi <= 0 || navPending || phase !== "quiz") return;
+    if (qi <= 0 || navPending) return;
     withNavPending("prev", () => goTo(qi - 1));
   };
 
   const handleContinue = () => {
-    if (navPending || phase !== "quiz") return;
+    if (navPending) return;
     if (!locked && !answerComplete(question, draft)) return;
-
-    const stampTiming = (base: Record<string, number>) => {
-      if (questionStartedAt == null) return base;
-      const spent = Date.now() - questionStartedAt;
-      return {
-        ...base,
-        [question.id]: (base[question.id] ?? 0) + Math.max(0, spent),
-      };
-    };
 
     if (locked) {
       if (qi < total - 1) {
         withNavPending("next", () => goTo(qi + 1));
         return;
       }
-      withNavPending("next", () => {
-        const nextTimings = stampTiming(questionTimings);
-        setQuestionTimings(nextTimings);
-        finishAttempt(answers, nextTimings);
-      });
+      withNavPending("next", () => setPhase("gate"));
       return;
     }
 
@@ -283,41 +173,30 @@ export function FreeMockExamClient({
 
     withNavPending("next", () => {
       const next = { ...answers, [question.id]: draft };
-      const nextTimings = stampTiming(questionTimings);
       setAnswers(next);
-      setQuestionTimings(nextTimings);
 
       if (qi < total - 1) {
         const nextIndex = qi + 1;
         setQi(nextIndex);
-        setQuestionStartedAt(Date.now());
         syncDraftForIndex(nextIndex, next);
         return;
       }
-      finishAttempt(next, nextTimings);
+      setPhase("gate");
     });
   };
 
-  const handleReportSubmit = async (event: FormEvent) => {
+  const handleGateSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (submitting) return;
     setError(null);
     setSubmitting(true);
     try {
       const attr = getAttribution();
-      const duration =
-        startedAt != null
-          ? (finishedAt ?? Date.now()) - startedAt
-          : elapsedMs;
-      const result = await submitFreeMockReport({
+      const result = await submitFreeMockLead({
         examId,
         email,
-        attemptId: attemptId || newAttemptId(),
+        marketingConsent,
         answers,
-        questionTimings,
-        durationMs: duration,
-        overTime: overTime || duration >= timerLimitMs,
-        sourcePath: config.path,
         attribution: {
           utm_source: attr.utm_source,
           utm_medium: attr.utm_medium,
@@ -331,100 +210,105 @@ export function FreeMockExamClient({
         setError(result.error);
         return;
       }
-      setLoBreakdown(result.loBreakdown);
-      setFormatLoss(result.formatLoss);
-      setTimingRows(result.questionTimings);
-      setNextSteps(result.nextSteps);
-      setSummaryScore(result.score);
-      trackReportEmailSubmitted({
+      setResults({
+        score: result.score,
+        maxScore: result.maxScore,
+        loBreakdown: result.loBreakdown,
+        weakest: result.weakest,
+      });
+      trackFreeMockCompleted({
         exam_id: examId,
         score: result.score,
         max_score: result.maxScore,
+        marketing_consent: marketingConsent,
       });
-      trackReportUnlocked({
+      trackFreeMockLeadCaptured({
         exam_id: examId,
         score: result.score,
         max_score: result.maxScore,
+        marketing_consent: marketingConsent,
       });
-      setPhase("report");
+      setPhase("results");
     } finally {
       setSubmitting(false);
     }
   };
 
-  const timerLabel = displayOverTime
-    ? `+${formatDuration(overtimeMs)}`
-    : formatDuration(remainingMs);
-
-  if (phase === "prestart") {
+  if (phase === "gate") {
     return (
       <section
-        className={styles.card}
-        aria-labelledby="free-mock-start-title"
-        data-quiz-card=""
+        className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
+        aria-labelledby="free-mock-gate-title"
       >
-        <div className="mb-1 flex items-start justify-between gap-3 text-left">
-          <div>
-            <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">
-              Free {config.mark} readiness check
+        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
+          Results ready
+        </p>
+        <h2
+          id="free-mock-gate-title"
+          className="m-0 mt-2 font-display text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink"
+        >
+          You scored {localScore}/{maxScore}.
+        </h2>
+        <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
+          {config.gatePrompt}
+        </p>
+        <form onSubmit={handleGateSubmit} className="mt-6 flex max-w-md flex-col gap-4">
+          <label className="flex flex-col gap-1.5">
+            <span className="font-body text-[13px] font-semibold text-ink">
+              Email
+            </span>
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="min-h-11 rounded-lg border border-ink/15 bg-paper px-3.5 font-body text-[15px] text-ink outline-none focus-visible:ring-2 focus-visible:ring-orange"
+              placeholder="you@example.com"
+            />
+          </label>
+          <label className="flex items-start gap-2.5 font-body text-[13px] leading-snug text-ink/80">
+            <input
+              type="checkbox"
+              checked={marketingConsent}
+              onChange={(e) => setMarketingConsent(e.target.checked)}
+              className="mt-0.5 size-4 shrink-0 rounded border-ink/25"
+            />
+            <span>
+              {config.marketingConsentLabel} See our{" "}
+              <Link href="/privacy" className="text-orange underline-offset-2 hover:underline">
+                Privacy Policy
+              </Link>
+              .
+            </span>
+          </label>
+          {error ? (
+            <p className="m-0 font-body text-[13px] text-rust" role="alert">
+              {error}
             </p>
-            <h2
-              id="free-mock-start-title"
-              className="m-0 mt-1.5 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
-            >
-              {total} questions · {formatDuration(timerLimitMs)} timer
-            </h2>
-          </div>
-          <p
-            className="m-0 shrink-0 font-mono text-[13px] font-semibold tabular-nums text-teal sm:text-[14px]"
-            aria-hidden
+          ) : null}
+          <button
+            type="submit"
+            disabled={submitting}
+            aria-busy={submitting}
+            aria-label={submitting ? "Saving results" : "Show my results"}
+            className={`${stampCtaPrimary} self-start disabled:opacity-60`}
           >
-            {formatDuration(timerLimitMs)}
-          </p>
-        </div>
-
-        <div className="relative mt-5 overflow-hidden rounded-lg border border-ink/10 bg-cream/40">
-          <div className="pointer-events-none select-none p-4 blur-[3px]" aria-hidden>
-            <p className="mb-3 font-body text-[15px] font-medium leading-relaxed text-ink">
-              {items[0]?.prompt ?? "Question preview"}
-            </p>
-            <div className="flex flex-col gap-2">
-              {(items[0]?.options ?? ["Option A", "Option B", "Option C"]).map(
-                (opt) => (
-                  <div
-                    key={opt}
-                    className="rounded-lg border border-ink/10 bg-paper px-3 py-2.5 font-body text-[14px] text-ink/70"
-                  >
-                    {opt}
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-paper/55 px-4 text-center backdrop-blur-[1px]">
-            <p className="m-0 max-w-[22rem] font-body text-[14px] leading-relaxed text-ink/80">
-              Timer starts when you click Start. You can finish after time is up —
-              nothing locks.
-            </p>
-            <button
-              type="button"
-              className={stampCtaTealFlat}
-              onClick={handleStart}
-            >
-              Start
-            </button>
-          </div>
-        </div>
+            {submitting ? (
+              <Spinner variant="bars" size={16} className="text-current" aria-hidden />
+            ) : (
+              "Show my results"
+            )}
+          </button>
+        </form>
       </section>
     );
   }
 
-  if (phase === "summary" || phase === "report") {
+  if (phase === "results" && results) {
     const categoryHeader =
       config.breakdownNoun === "domain" ? "Domain" : "LO";
-    const durationLabel = formatDuration(elapsedMs);
-    const showReport = phase === "report";
-
     return (
       <section
         className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
@@ -437,190 +321,50 @@ export function FreeMockExamClient({
           id="free-mock-results-title"
           className="m-0 mt-2 font-display text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink"
         >
-          {summaryScore}/{maxScore}
+          {results.score}/{results.maxScore}
         </h2>
-        <p className="mt-2 font-body text-[15px] text-ink/80">
-          {readinessBandLabel(band)}
-          {" · "}
-          Total time {durationLabel}
-          {overTime || elapsedMs >= timerLimitMs ? " · Over time" : null}
+        <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
+          Here&apos;s how you did across the {config.breakdownNounPlural} in
+          this check.
         </p>
 
-        {!showReport ? (
-          <form
-            onSubmit={handleReportSubmit}
-            className="mt-8 flex max-w-md flex-col gap-3 border-t border-ink/10 pt-6"
-          >
-            <h3 className="m-0 font-display text-[1.15rem] font-semibold tracking-[-0.02em] text-ink">
-              Unlock your full diagnostic
-            </h3>
-            <p className="m-0 font-body text-[14px] leading-relaxed text-ink/75">
-              {config.gatePrompt}
-            </p>
-            <label className="flex flex-col gap-1.5">
-              <span className="font-body text-[13px] font-semibold text-ink">
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="min-h-11 rounded-lg border border-ink/15 bg-paper px-3.5 font-body text-[15px] text-ink outline-none focus-visible:ring-2 focus-visible:ring-teal"
-                placeholder="you@example.com"
-              />
-            </label>
-            <p className="m-0 font-body text-[12px] leading-relaxed text-ink/60">
-              {SOFT_OPT_IN_NOTICE}
-            </p>
-            {error ? (
-              <p className="m-0 font-body text-[13px] text-rust" role="alert">
-                {error}
-              </p>
-            ) : null}
-            <button
-              type="submit"
-              disabled={submitting}
-              aria-busy={submitting}
-              className={`${stampCtaTealFlat} self-start disabled:opacity-60`}
-            >
-              {submitting ? (
-                <Spinner
-                  variant="bars"
-                  size={16}
-                  className="text-current"
-                  aria-hidden
-                />
-              ) : (
-                "Show my report"
-              )}
-            </button>
-          </form>
-        ) : (
-          <div className="mt-8 space-y-8 border-t border-ink/10 pt-6">
-            <div>
-              <h3 className="m-0 font-display text-[1.1rem] font-semibold text-ink">
-                By {config.breakdownNoun}
-              </h3>
-              <div className="mt-3 overflow-x-auto">
-                <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
-                  <thead>
-                    <tr className="border-b border-ink/10 text-left text-ink/55">
-                      <th className="py-2 pr-3 font-semibold">
-                        {categoryHeader}
-                      </th>
-                      <th className="py-2 pr-3 font-semibold">Topic</th>
-                      <th className="py-2 font-semibold">Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {loBreakdown.map((row) => (
-                      <tr key={row.lo_code} className="border-b border-ink/5">
-                        <td className="py-2 pr-3 font-semibold text-ink">
-                          {row.lo_code}
-                        </td>
-                        <td className="py-2 pr-3 text-ink/80">{row.lo_title}</td>
-                        <td className="py-2 text-ink">
-                          {row.correct}/{row.total}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="m-0 font-display text-[1.1rem] font-semibold text-ink">
-                Time vs target pace
-              </h3>
-              <p className="mt-1 font-body text-[13px] text-ink/60">
-                Target {formatDuration(config.targetPaceMsPerQuestion)} per
-                question.
-              </p>
-              <div className="mt-3 overflow-x-auto">
-                <table className="w-full min-w-[22rem] border-collapse font-body text-[13.5px]">
-                  <thead>
-                    <tr className="border-b border-ink/10 text-left text-ink/55">
-                      <th className="py-2 pr-3 font-semibold">Q</th>
-                      <th className="py-2 pr-3 font-semibold">Time</th>
-                      <th className="py-2 pr-3 font-semibold">Pace</th>
-                      <th className="py-2 font-semibold">Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {timingRows.map((row) => (
-                      <tr
-                        key={row.questionId}
-                        className="border-b border-ink/5"
-                      >
-                        <td className="py-2 pr-3 font-semibold text-ink">
-                          {row.index + 1}
-                        </td>
-                        <td
-                          className={`py-2 pr-3 font-mono tabular-nums ${
-                            row.overPace ? "text-rust" : "text-ink"
-                          }`}
-                        >
-                          {formatDuration(row.elapsedMs)}
-                        </td>
-                        <td className="py-2 pr-3 text-ink/70">
-                          {row.overPace ? "Over" : "On pace"}
-                        </td>
-                        <td className="py-2 text-ink">
-                          {row.correct ? "Correct" : "Missed"}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="m-0 font-display text-[1.1rem] font-semibold text-ink">
-                Formats that lost marks
-              </h3>
-              <ul className="mt-3 list-none space-y-2 p-0 font-body text-[14px] text-ink/80">
-                {formatLoss.map((row) => (
-                  <li key={row.format}>
-                    <span className="font-semibold text-ink">{row.format}</span>
-                    {": "}
-                    {row.correct}/{row.total} correct
-                    {row.lost > 0 ? ` · ${row.lost} lost` : ""}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="m-0 font-display text-[1.1rem] font-semibold text-ink">
-                Recommended next steps
-              </h3>
-              <ol className="mt-3 list-decimal space-y-2 pl-5 font-body text-[14px] leading-relaxed text-ink/80">
-                {nextSteps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        )}
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
+            <thead>
+              <tr className="border-b border-ink/10 text-left text-ink/55">
+                <th className="py-2 pr-3 font-semibold">{categoryHeader}</th>
+                <th className="py-2 pr-3 font-semibold">Topic</th>
+                <th className="py-2 font-semibold">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {results.loBreakdown.map((row) => (
+                <tr key={row.lo_code} className="border-b border-ink/5">
+                  <td className="py-2 pr-3 font-semibold text-ink">
+                    {row.lo_code}
+                  </td>
+                  <td className="py-2 pr-3 text-ink/80">{row.lo_title}</td>
+                  <td className="py-2 text-ink">
+                    {row.correct}/{row.total}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           {config.resultsCtaKind === "course" && config.ctaHref ? (
-            <Link href={config.ctaHref} className={stampCtaTealFlat}>
+            <Link href={config.ctaHref} className={stampCtaPrimary}>
               {config.ctaLabel}
             </Link>
           ) : config.waitlistNotifyKey ? (
             <JoinWaitlistButton
-              className={stampCtaTealFlat}
+              className={stampCtaPrimary}
               notifyKey={config.waitlistNotifyKey}
               subjectLabel={config.waitlistSubjectLabel ?? config.displayName}
               courseCopy={
-                config.waitlistCourseCopy ??
-                `a ${config.displayName} readiness course`
+                config.waitlistCourseCopy ?? `a ${config.displayName} readiness course`
               }
               label={config.ctaLabel}
             />
@@ -667,34 +411,20 @@ export function FreeMockExamClient({
       aria-labelledby="free-mock-quiz-title"
       data-quiz-card=""
     >
-      <div className="mb-1 flex items-start justify-between gap-3 text-left">
-        <div>
-          <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">
-            Free {config.mark} readiness check
-          </p>
-          <h2
-            id="free-mock-quiz-title"
-            className="m-0 mt-1.5 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
-          >
-            Question {qi + 1} of {total}
-          </h2>
-        </div>
-        <p
-          className={`m-0 shrink-0 font-mono text-[13px] font-semibold tabular-nums sm:text-[14px] ${
-            displayOverTime ? "text-ink/45" : "text-teal"
-          }`}
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {timerLabel}
+      <div className="mb-1 text-left">
+        <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">
+          Free {config.mark} readiness check
         </p>
+        <h2
+          id="free-mock-quiz-title"
+          className="m-0 mt-1.5 text-balance font-display text-[1.15rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.25rem]"
+        >
+          Question {qi + 1} of {total}
+        </h2>
       </div>
 
       <div className={styles.body}>
-        <div
-          className={styles.runner}
-          aria-label={`Free ${config.mark} readiness check`}
-        >
+        <div className={styles.runner} aria-label={`Free ${config.mark} readiness check`}>
           <div className={styles.qRail}>
             <div
               className={styles.qGrid}
@@ -764,7 +494,9 @@ export function FreeMockExamClient({
                   value={mcqValue}
                   disabled={locked || Boolean(navPending)}
                   ariaLabel={`Question ${qi + 1} options`}
-                  onChange={(letter) => setDraft({ kind: "mcq", letter })}
+                  onChange={(letter) =>
+                    setDraft({ kind: "mcq", letter })
+                  }
                   getState={(letter): ResponseVisualState => {
                     return letter === mcqValue ? "selected" : "default";
                   }}
@@ -786,12 +518,7 @@ export function FreeMockExamClient({
                 onClick={handlePrevious}
               >
                 {navPending === "prev" ? (
-                  <Spinner
-                    variant="bars"
-                    size={14}
-                    className="text-current"
-                    aria-hidden
-                  />
+                  <Spinner variant="bars" size={14} className="text-current" aria-hidden />
                 ) : (
                   "Previous"
                 )}
@@ -801,7 +528,7 @@ export function FreeMockExamClient({
             )}
             <button
               type="button"
-              className={`${stampCtaTealFlat} ${stampCtaCompact}${
+              className={`${stampCtaPrimary} ${stampCtaCompact}${
                 navPending === "next"
                   ? " opacity-60"
                   : !canContinue
@@ -820,12 +547,7 @@ export function FreeMockExamClient({
               onClick={handleContinue}
             >
               {navPending === "next" ? (
-                <Spinner
-                  variant="bars"
-                  size={14}
-                  className="text-current"
-                  aria-hidden
-                />
+                <Spinner variant="bars" size={14} className="text-current" aria-hidden />
               ) : (
                 continueLabel
               )}

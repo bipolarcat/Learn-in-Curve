@@ -40,8 +40,8 @@ export default function MockMeHubPage() {
             Mock <span className="text-orange">Me</span>
           </h1>
           <p className="mx-auto mt-4 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">
-            Free readiness checks. No account needed. Score shows as soon as you
-            finish — email unlocks the full diagnostic.
+            Free readiness checks. No account needed to start. Email unlocks your
+            breakdown when you finish.
           </p>
         </header>
 

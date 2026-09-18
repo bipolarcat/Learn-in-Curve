@@ -361,59 +361,25 @@ export function trackActivityAbandoned(props: ActivityAnalyticsBase & { moves: n
 export function trackFreeMockStarted(props: {
   exam_id: "apm-pmq" | "apm-pfq" | "pmp";
 }): void {
-  const payload = {
+  capture("free_mock_started", {
     ...attributionProps(),
     exam_id: props.exam_id,
     course: ANALYTICS_COURSE_PMQ,
-  };
-  capture("mock_started", payload);
-  capture("free_mock_started", payload);
+  });
 }
 
 export function trackFreeMockCompleted(props: {
   exam_id: "apm-pmq" | "apm-pfq" | "pmp";
   score: number;
   max_score: number;
-  durationMs: number;
-  overTime: boolean;
-  marketing_consent?: boolean;
+  marketing_consent: boolean;
 }): void {
-  const payload = {
+  capture("free_mock_completed", {
     ...attributionProps(),
     exam_id: props.exam_id,
     score: props.score,
     max_score: props.max_score,
-    durationMs: props.durationMs,
-    overTime: props.overTime,
-    marketing_consent: props.marketing_consent ?? false,
-  };
-  capture("mock_completed", payload);
-  capture("free_mock_completed", payload);
-}
-
-export function trackReportEmailSubmitted(props: {
-  exam_id: "apm-pmq" | "apm-pfq" | "pmp";
-  score: number;
-  max_score: number;
-}): void {
-  capture("report_email_submitted", {
-    ...attributionProps(),
-    exam_id: props.exam_id,
-    score: props.score,
-    max_score: props.max_score,
-  });
-}
-
-export function trackReportUnlocked(props: {
-  exam_id: "apm-pmq" | "apm-pfq" | "pmp";
-  score: number;
-  max_score: number;
-}): void {
-  capture("report_unlocked", {
-    ...attributionProps(),
-    exam_id: props.exam_id,
-    score: props.score,
-    max_score: props.max_score,
+    marketing_consent: props.marketing_consent,
   });
 }
 
