@@ -13,7 +13,7 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
-  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for both APM qualifications, the APM PFQ and PMQ.";
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the APM PFQ and PMQ.";
 const EYEBROW = "Project Management Exam Revision";
 
 /** Category line — lab style: body bold teal, open tracking (static). */
