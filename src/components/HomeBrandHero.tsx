@@ -149,7 +149,7 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pmq"
-            label="Take Free APM Mock Exam"
+            label="Take Free Mock Exam"
             location="hero"
             showArrow
           />
