@@ -10,15 +10,6 @@ import { BouncingText } from "@/components/ui/bouncing-text";
 const HERO_MOCK_CTA =
   `${stampCtaTealFlat} hero-mock-cta !min-h-9 !gap-1.5 !px-3.5 !py-2 sm:!min-h-10 sm:!px-4 [&_svg]:!h-3 [&_svg]:!w-3`;
 
-/** Mini inset plate for the exam code inside the teal stamp CTA. */
-function HeroExamCodeChip({ code }: { code: "PMQ" | "PFQ" }) {
-  return (
-    <span className="mx-0.5 inline-flex items-center rounded-md border border-paper/40 bg-paper/15 px-1.5 py-[0.15em] font-bold tracking-[0.1em] text-paper shadow-[inset_0_1px_0_0_rgb(255_255_255/0.18)]">
-      {code}
-    </span>
-  );
-}
-
 const HEADLINE =
   "PFQ or PMQ. Wherever you are on the curve.";
 /**
@@ -158,12 +149,7 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pmq"
-            analyticsLabel="Free [PMQ] mock exam"
-            label={
-              <>
-                Free <HeroExamCodeChip code="PMQ" /> mock exam
-              </>
-            }
+            label="Free [PMQ] mock exam"
             location="hero-pmq"
             showArrow
           />
@@ -171,12 +157,7 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pfq"
-            analyticsLabel="Free [PFQ] mock exam"
-            label={
-              <>
-                Free <HeroExamCodeChip code="PFQ" /> mock exam
-              </>
-            }
+            label="Free [PFQ] mock exam"
             location="hero-pfq"
             showArrow
           />
