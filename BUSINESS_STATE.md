@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-18** — Home hero CTAs: PMQ|PFQ segmented control (21st sliding-thumb pattern, LIC tokens) + one “Take free mock” button + SEO meta line (`HomeBrandHero`, `ui/segmented-control`, `FreeMockExamLink`).
 - **2026-09-18** — Reverted home hero exam-code chip; CTAs back to “Free [PMQ]/[PFQ] mock exam” (`HomeBrandHero`, `FreeMockExamLink`).
 - **2026-09-18** — Home hero mock CTAs: exam code as mini inset chip (hairline paper border + soft fill) instead of plain brackets (`HomeBrandHero`, `FreeMockExamLink`).
 - **2026-09-18** — Home hero mock CTAs: brackets around exam codes — “Free [PMQ] mock exam” / “Free [PFQ] mock exam” (`HomeBrandHero`).
