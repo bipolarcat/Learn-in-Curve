@@ -90,16 +90,23 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:text-[18px]">
-            {SUBCOPY_R1}
-            <span className="hidden sm:inline"> </span>
-            <br className="sm:hidden" />
-            {SUBCOPY_R2}
-            <span className="hidden sm:inline"> </span>
-            {/* Mobile: third row. Desktop: second row (shorter than the first). */}
-            <br className="sm:hidden" />
-            <br className="hidden sm:block" />
-            <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
+          <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-[52rem] sm:text-[18px]">
+            {/* Mobile: 3 descending rows */}
+            <span className="sm:hidden">
+              {SUBCOPY_R1}
+              <br />
+              {SUBCOPY_R2}
+              <br />
+              <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
+            </span>
+            {/* Desktop: exactly 2 rows — long lead, short exam names */}
+            <span className="hidden sm:inline">
+              <span className="whitespace-nowrap">
+                {SUBCOPY_R1} {SUBCOPY_R2}
+              </span>
+              <br />
+              <span className="whitespace-nowrap">{SUBCOPY_R3}</span>
+            </span>
           </p>
 
           <div className="hero-ctas relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4">
