@@ -88,11 +88,11 @@ export function HomeBrandHero() {
             <Headline />
           </div>
 
-          <p className="mx-auto mt-5 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mt-6 sm:text-[18px]">
+          <p className="mx-auto mt-3.5 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mt-4 sm:text-[18px]">
             {SUBCOPY}
           </p>
 
-          <div className="hero-ctas relative z-10 mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
+          <div className="hero-ctas relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-5 sm:gap-4">
             <FreeMockExamLink
               className={HERO_MOCK_CTA}
               from="home"
