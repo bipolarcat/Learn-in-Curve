@@ -149,12 +149,7 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pmq"
-            analyticsLabel="PMQ mock exam"
-            label={
-              <>
-                <span className="font-black text-ink">PMQ</span> mock exam
-              </>
-            }
+            label="PMQ mock exam"
             location="hero-pmq"
             showArrow
           />
@@ -162,12 +157,7 @@ export function HomeBrandHero() {
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pfq"
-            analyticsLabel="PFQ mock exam"
-            label={
-              <>
-                <span className="font-black text-ink">PFQ</span> mock exam
-              </>
-            }
+            label="PFQ mock exam"
             location="hero-pfq"
             showArrow
           />
