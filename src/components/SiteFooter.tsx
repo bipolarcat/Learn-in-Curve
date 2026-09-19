@@ -72,10 +72,6 @@ export function SiteFooter({
                   </span>
                 </span>
               </div>
-              <p className="max-w-[17rem] text-[12.5px] leading-snug tracking-tight text-cream/55">
-                Master project Management &{" "}
-                <span className="text-orange">AI</span>
-              </p>
             </div>
             <div className="flex shrink-0 items-center gap-0.5 lg:mt-3.5">
               <a
