@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { FooterFlickerBand } from "@/components/FooterFlickerBand";
 import { Logo } from "@/components/Logo";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { NotifyMailboxMark } from "@/components/NotifyMailboxMark";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { APM_DISCLAIMER } from "@/lib/legal-copy";
 
@@ -42,7 +44,7 @@ const footerLinkClass =
   "inline-flex min-h-9 items-center rounded-md px-0.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 /**
- * Full-bleed ink footer — quiet link strip + “Be Curious.” flicker band.
+ * Full-bleed ink footer — newsletter signup, quiet link strip, “Be Curious.” flicker.
  *
  * Course disclaimer is opt-in via `showApmDisclaimer` (LIC-48), wording via
  * `APM_DISCLAIMER`. Enabled on PMQ overview and PFQ learn overview through
@@ -56,6 +58,45 @@ export function SiteFooter({
   return (
     <footer className="relative bg-ink pb-0 pt-7 text-cream sm:pt-9">
       <div className="wrap relative z-[1] pb-5 sm:pb-6">
+        <section
+          id="newsletter"
+          aria-labelledby="footer-newsletter-heading"
+          className="mb-6 rounded-xl border border-cream/[0.1] bg-cream/[0.04] px-4 py-4 sm:mb-7 sm:px-5 sm:py-5 lg:px-6"
+        >
+          <div className="flex flex-col gap-3.5 sm:gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+            <div className="flex min-w-0 items-end gap-2 sm:gap-2.5">
+              <div
+                className="flex h-11 w-11 shrink-0 items-end justify-center sm:h-12 sm:w-12"
+                aria-hidden
+              >
+                <NotifyMailboxMark className="h-full w-full" />
+              </div>
+              <div className="min-w-0 pb-0.5">
+                <h2
+                  id="footer-newsletter-heading"
+                  className="font-display text-[clamp(1.15rem,2.6vw,1.4rem)] font-semibold leading-none tracking-[-0.025em] text-balance text-cream"
+                >
+                  Join our <span className="text-orange">newsletter</span>.
+                </h2>
+                <p className="mt-1.5 max-w-[28rem] text-[12px] leading-snug text-cream/55 sm:text-[12.5px]">
+                  Project management and AI — occasional study updates. Unsubscribe
+                  any time.{" "}
+                  <Link
+                    href="/privacy"
+                    className="underline decoration-cream/25 underline-offset-2 hover:text-cream"
+                  >
+                    Privacy notice
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+            <div className="min-w-0 w-full lg:max-w-sm lg:flex-1">
+              <NewsletterSignup variant="footer" />
+            </div>
+          </div>
+        </section>
+
         <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
           <div className="flex shrink-0 items-start justify-between gap-4 lg:block">
             <div>

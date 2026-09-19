@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
-import { NotifyBand } from "@/components/NotifyBand";
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 import { FeatureStack } from "@/components/FeatureStack";
@@ -67,14 +65,6 @@ export default async function HomePage() {
       </section>
 
       <SlyShowcase isSignedIn={isSignedIn} />
-
-      <section id="newsletter" className="newsletter relative pb-16 pt-6 sm:pb-20 sm:pt-8">
-        <div className="wrap relative z-[1]">
-          <ScrollReveal>
-            <NotifyBand />
-          </ScrollReveal>
-        </div>
-      </section>
     </>
   );
 }

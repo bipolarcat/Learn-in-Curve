@@ -9,8 +9,8 @@ import { NEWSLETTER_LIST_KEY } from "@/lib/notify/lists";
 import styles from "@/components/NewsletterSignup.module.css";
 
 type NewsletterSignupProps = {
-  /** @deprecated rust — prefer notify (paper ticket band) */
-  variant?: "default" | "rust" | "notify";
+  /** @deprecated rust — prefer notify (paper ticket band) or footer */
+  variant?: "default" | "rust" | "notify" | "footer";
 };
 
 type SubmitState = "idle" | "submitting" | "ready" | "error";
@@ -30,6 +30,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
   const [status, setStatus] = useState<SubmitState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const isNotify = variant === "notify";
+  const isFooter = variant === "footer";
   const isRust = variant === "rust";
 
   async function handleSubmit(e: React.FormEvent) {
@@ -64,6 +65,89 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
       setStatus("error");
       setErrorMessage("Couldn’t save your email. Try again.");
     }
+  }
+
+  if (isFooter) {
+    const inputId = "footer-newsletter-email";
+    return (
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-full flex-col items-stretch gap-2"
+        noValidate
+      >
+        <div className="flex w-full items-center gap-2">
+          <label className="sr-only" htmlFor={inputId}>
+            Email address
+          </label>
+          <input
+            id={inputId}
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setStatus("idle");
+            }}
+            placeholder="you@email.com"
+            autoComplete="email"
+            inputMode="email"
+            disabled={status === "submitting"}
+            className={`h-9 min-h-9 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/40 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
+              status === "error"
+                ? `border-orange/50 ${styles.inputError}`
+                : ""
+            }`}
+            aria-invalid={status === "error"}
+            aria-describedby={
+              status === "error"
+                ? `${inputId}-error`
+                : status === "ready"
+                  ? `${inputId}-ready`
+                  : undefined
+            }
+            required
+          />
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            aria-busy={status === "submitting"}
+            aria-label={status === "submitting" ? "Joining" : "Join"}
+            className={`${stampCtaPrimaryCompact} !h-9 shrink-0 justify-center !font-body !text-[12px] !font-semibold !normal-case !tracking-[-0.01em] disabled:opacity-60`}
+          >
+            {status === "submitting" ? (
+              <Spinner
+                variant="ellipsis"
+                size={14}
+                className="text-current"
+                aria-hidden
+              />
+            ) : (
+              <>
+                Join
+                <CtaArrow />
+              </>
+            )}
+          </button>
+        </div>
+        {status === "error" && (
+          <p
+            id={`${inputId}-error`}
+            role="alert"
+            className="text-[12px] leading-snug text-orange"
+          >
+            {errorMessage}
+          </p>
+        )}
+        {status === "ready" && (
+          <p
+            id={`${inputId}-ready`}
+            role="status"
+            className={`${styles.success} font-body text-[12px] font-bold text-[#9BC47A]`}
+          >
+            Check your inbox — we&apos;ve sent a confirmation.
+          </p>
+        )}
+      </form>
+    );
   }
 
   if (isNotify) {
