@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { createClient } from "@/lib/supabase/server";
 import { LabCanvas } from "@/components/lab/LabCanvas";
 import { LabHero } from "@/components/lab/LabHero";
+import { LabMethod } from "@/components/lab/LabMethod";
+import { LabSlySection } from "@/components/lab/LabSlySection";
 
 /**
- * Design sandbox — same site shell as the homepage (header + footer +
- * cream dotted body). Spike homepage / marketing ideas here.
- *
- * Current spike: 21st background-paths hero adapted to LIC (`LabHero`).
- * Live `/` is unchanged until a design is promoted.
+ * Design sandbox — landing redesign spike (Uxcel-inspired structure on LIC brand).
+ * Funnel: free mock (PMQ/PFQ chooser) → free course (exam-matched).
+ * Live `/` is unchanged until this design is promoted.
  */
 export const metadata: Metadata = {
   title: "Lab — Learn in Curve",
@@ -15,10 +16,18 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function LabPage() {
+export default async function LabPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const isSignedIn = !!user;
+
   return (
     <LabCanvas>
-      <LabHero />
+      <LabHero isSignedIn={isSignedIn} />
+      <LabMethod />
+      <LabSlySection isSignedIn={isSignedIn} />
     </LabCanvas>
   );
 }

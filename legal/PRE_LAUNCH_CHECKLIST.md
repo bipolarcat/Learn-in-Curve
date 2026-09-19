@@ -107,6 +107,8 @@ decision below are independent of the payment question.
       success". `StatBand.tsx` component (the only place the stat lived in
       code) has now been deleted from the repo entirely — nothing referencing
       the 94% figure remains in the live product. Linear LIC-47 closed.
+      **2026-09-19 note:** `/lab` spike shows “Trusted by 100+ learners” only
+      (no pass-rate). Keep substantiated before promoting that chip to live `/`.
 - [x] **Numeric quiz-bank claim verified — 2026-07-27.** The free-tier Practise
       CTA says "Unlock 1000+ questions" (`PracticeQuizSection.tsx`, 2026-07-16).
       The missing 1,169 questions were migrated on 2026-07-27; the live table now

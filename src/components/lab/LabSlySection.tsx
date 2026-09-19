@@ -1,22 +1,17 @@
 "use client";
 
 import { useId, useState } from "react";
-import {
-  motion,
-  useReducedMotion,
-} from "framer-motion";
-import { LabBackgroundPaths } from "@/components/lab/LabBackgroundPaths";
-import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
+import { motion, useReducedMotion } from "framer-motion";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { PmqStartLink } from "@/components/PmqStartLink";
 import { PfqStartLink } from "@/components/pfq/PfqStartLink";
+import { SlyShowcase } from "@/components/SlyShowcase";
 import {
   CtaArrow,
   stampCtaSecondaryFlat,
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
 
-/** Apple / 21st Soft Blur In ease. */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const CTA_PRIMARY =
@@ -28,100 +23,41 @@ const CHOOSER_CHIP =
 
 type ChooserIntent = "mock" | "course" | null;
 
-type LabHeroProps = {
+type LabSlySectionProps = {
   isSignedIn: boolean;
 };
 
-function CategoryStamp() {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.p
-      className="text-center font-body text-[13px] font-bold leading-snug tracking-[0.12em] text-teal sm:text-[17px] sm:tracking-[0.1em]"
-      initial={reduce ? false : { y: 6, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
-    >
-      Exam in eight weeks or less
-    </motion.p>
-  );
-}
-
-function CurveAccent() {
-  return <span className="text-orange">curve.</span>;
-}
-
-function Headline() {
-  return (
-    <h1
-      id="lab-hero-title"
-      className="mb-4 font-display font-semibold tracking-[-0.03em] text-ink sm:mb-5 grid grid-cols-1 justify-items-center gap-y-2 text-[2.75rem] leading-none lg:block lg:text-[clamp(2.05rem,5.2vw,3.65rem)] lg:leading-[1.08] lg:tracking-[-0.03em]"
-    >
-      <span className="whitespace-nowrap">PFQ or PMQ.</span>
-      <br className="hidden lg:inline" />
-      <span className="whitespace-nowrap">
-        Pass on the
-        <span className="hidden lg:inline"> </span>
-      </span>
-      <span className="whitespace-nowrap">
-        <CurveAccent />
-      </span>
-    </h1>
-  );
-}
-
 /**
- * Lab landing hero — urgency ICP, 100+ trust, dual CTAs with PMQ/PFQ chooser.
- * Secondary course CTA is exam-matched to the same chooser.
+ * Sly demo + exit CTAs so the lab landing doesn’t dead-end after the tutor taster.
  */
-export function LabHero({ isSignedIn }: LabHeroProps) {
+export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
   const [intent, setIntent] = useState<ChooserIntent>(null);
   const chooserId = useId();
   const reduce = useReducedMotion();
 
-  const openMock = () => setIntent((v) => (v === "mock" ? null : "mock"));
-  const openCourse = () =>
-    setIntent((v) => (v === "course" ? null : "course"));
-
   return (
-    <section
-      id="lab-hero"
-      aria-labelledby="lab-hero-title"
-      className="relative flex min-h-[min(68vh,40rem)] items-start overflow-x-clip overflow-y-visible pb-10 pt-2 sm:pb-14 sm:pt-3 lg:pb-16 lg:pt-4"
-    >
-      <LabBackgroundPaths />
+    <div className="relative">
+      <SlyShowcase isSignedIn={isSignedIn} />
 
-      <div className="wrap relative z-[1] w-full">
-        <div className="mx-auto flex w-full max-w-[min(100%,40rem)] flex-col items-center text-center xl:max-w-[46rem]">
-          <div className="relative -mt-0.5 mb-6 w-full sm:mb-10 [&_[data-hero-animals]]:!mb-0">
-            <HeroAnimalsScene />
-          </div>
-
-          <div className="flex w-full flex-col items-center gap-1 sm:gap-0">
-            <CategoryStamp />
-            <Headline />
-          </div>
-
-          <p className="mx-auto mb-4 max-w-[36rem] text-pretty font-body text-[16px] leading-relaxed text-ink/80 sm:mb-5 sm:text-[18px]">
-            Stop re-reading. Take a free mock, find your weak spots, then start
-            the free course — built for PMs sitting the APM PFQ or PMQ soon.
-          </p>
-
-          <p
-            className="mb-7 font-body text-[13px] font-semibold tracking-tight text-ink/55 sm:mb-8 sm:text-[14px]"
-            data-lab-trust
-          >
-            Trusted by 100+ learners
-          </p>
-
-          <div className="relative z-10 flex w-full flex-col items-center gap-3">
+      <section
+        aria-label="Continue after trying Sly"
+        className="relative -mt-4 overflow-x-clip pb-[clamp(2.5rem,6vw,4rem)] sm:-mt-6"
+      >
+        <div className="wrap relative z-[1]">
+          <div className="mx-auto flex max-w-[40rem] flex-col items-center gap-3 text-center">
+            <p className="font-body text-[14px] leading-snug text-ink/60 sm:text-[15px]">
+              Ready to revise for real? Take a free mock or start the free
+              course.
+            </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
               <button
                 type="button"
                 className={CTA_PRIMARY}
                 aria-expanded={intent === "mock"}
                 aria-controls={chooserId}
-                onClick={openMock}
+                onClick={() =>
+                  setIntent((v) => (v === "mock" ? null : "mock"))
+                }
               >
                 <span className="relative z-[1] inline-flex items-center gap-1.5">
                   Take free mock
@@ -133,7 +69,9 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
                 className={CTA_SECONDARY}
                 aria-expanded={intent === "course"}
                 aria-controls={chooserId}
-                onClick={openCourse}
+                onClick={() =>
+                  setIntent((v) => (v === "course" ? null : "course"))
+                }
               >
                 <span className="relative z-[1] inline-flex items-center gap-1.5">
                   Start free course
@@ -151,20 +89,17 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
                     ? "Choose exam for free mock"
                     : "Choose exam for free course"
                 }
-                className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-paper/80 px-3 py-2.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04)] backdrop-blur-[2px]"
+                className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-paper/80 px-3 py-2.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04)]"
                 initial={reduce ? false : { opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.28, ease: EASE }}
               >
-                <span className="w-full text-center font-body text-[11px] font-medium tracking-tight text-ink/50 sm:w-auto sm:mr-1 sm:text-left">
-                  {intent === "mock" ? "Which mock?" : "Which course?"}
-                </span>
                 {intent === "mock" ? (
                   <>
                     <FreeMockExamLink
                       className={CHOOSER_CHIP}
                       from="home"
-                      location="lab-hero-mock"
+                      location="lab-sly-mock"
                       href="/free-mock-exam/apm-pmq"
                       label="APM PMQ"
                       analyticsLabel="Free PMQ mock"
@@ -172,7 +107,7 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
                     <FreeMockExamLink
                       className={CHOOSER_CHIP}
                       from="home"
-                      location="lab-hero-mock"
+                      location="lab-sly-mock"
                       href="/free-mock-exam/apm-pfq"
                       label="APM PFQ"
                       analyticsLabel="Free PFQ mock"
@@ -185,7 +120,7 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
                       className={CHOOSER_CHIP}
                       from="home"
                       showArrow={false}
-                      analyticsLocation="lab-hero-course"
+                      analyticsLocation="lab-sly-course"
                       analyticsVariant="Start PMQ course"
                     >
                       APM PMQ
@@ -195,7 +130,7 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
                       className={CHOOSER_CHIP}
                       from="home"
                       showArrow={false}
-                      analyticsLocation="lab-hero-course"
+                      analyticsLocation="lab-sly-course"
                       analyticsVariant="Start PFQ course"
                     >
                       APM PFQ
@@ -206,7 +141,7 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
             ) : null}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
