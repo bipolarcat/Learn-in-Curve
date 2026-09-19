@@ -114,7 +114,7 @@ export function SiteFooter({
         <section
           id="newsletter"
           aria-labelledby="footer-newsletter-heading"
-          className="mt-3 flex flex-col gap-2 border-t border-cream/[0.08] pt-3 sm:mt-3.5 sm:flex-row sm:items-center sm:gap-3 sm:pt-3.5"
+          className="mt-3 flex flex-col gap-2 border-t border-cream/[0.08] pt-3 sm:mt-3.5 sm:max-w-sm sm:pt-3.5"
         >
           <div className="flex min-w-0 shrink-0 items-center gap-1.5">
             <div
@@ -130,7 +130,7 @@ export function SiteFooter({
               Join our <span className="text-orange">newsletter</span>.
             </h2>
           </div>
-          <div className="min-w-0 w-full sm:max-w-xs sm:flex-1 lg:max-w-sm">
+          <div className="min-w-0 w-full">
             <NewsletterSignup variant="footer" />
           </div>
         </section>
