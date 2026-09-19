@@ -81,7 +81,7 @@ export function LibrarySampleQuestions({
           Sample questions
         </h2>
         <LibrarySoftNavLink
-          href={withSoftNavFrom("/free-mock-exam", "library")}
+          href={withSoftNavFrom("/free-mock-exam/apm-pmq", "library")}
           busyLabel="Opening free mock exam"
           className="font-body text-[13px] font-semibold text-orange underline-offset-2 hover:underline"
         >

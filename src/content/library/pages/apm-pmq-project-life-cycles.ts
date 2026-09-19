@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-project-life-cycles",
   title: "APM PMQ project life cycles: what you need to know",
-  metaTitle: "APM PMQ Project Life Cycles: Linear, Iterative and Hybrid | Learn in Curve",
+  metaTitle: "APM PMQ Project Life Cycles Explained | Learn in Curve",
   metaDescription:
-    "Life cycles for the APM PMQ: linear versus iterative versus hybrid, what gate reviews are for, and the difference between a project, extended and product life cycle.",
+    "Life cycles for the APM PMQ: linear versus iterative versus hybrid, what gate reviews are for, and project versus extended versus product life cycle.",
   group: "syllabus",
   related: [
     "apm-pmq-governance",

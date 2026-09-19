@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-leadership-and-teams",
   title: "APM PMQ leadership and teams: what you need to know",
-  metaTitle: "APM PMQ Leadership and Teamwork: Models the Exam Actually Tests | Learn in Curve",
+  metaTitle: "APM PMQ Leadership and Teamwork Models | Learn in Curve",
   metaDescription:
     "Leadership and teams for the APM PMQ: situational leadership, Tuckman, Belbin, motivation theory, and how to apply a model to a scenario rather than recite it.",
   group: "syllabus",

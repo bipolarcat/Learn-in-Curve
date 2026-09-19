@@ -28,10 +28,40 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+  "https://www.learnincurve.com";
+
+const ROOT_TITLE = "Learn in Curve — APM PFQ & PMQ exam revision";
+const ROOT_DESCRIPTION =
+  "Interactive exam revision for the APM PFQ and PMQ. Free mock exams, structured courses, and AI tutoring — wherever you are on the curve.";
+
 export const metadata: Metadata = {
-  title: "Learn in Curve — APM PFQ & PMQ exam revision",
-  description:
-    "Interactive exam revision for the APM PFQ and PMQ. Free mock exams, structured courses, and AI tutoring — wherever you are on the curve.",
+  metadataBase: new URL(SITE_URL),
+  title: ROOT_TITLE,
+  description: ROOT_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "Learn in Curve",
+    locale: "en_GB",
+    url: "/",
+    title: ROOT_TITLE,
+    description: ROOT_DESCRIPTION,
+    images: [
+      {
+        url: "/brand/og/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Learn in Curve",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ROOT_TITLE,
+    description: ROOT_DESCRIPTION,
+    images: ["/brand/og/og-default.png"],
+  },
 };
 
 export default function RootLayout({

@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-scheduling-and-critical-path",
   title: "APM PMQ scheduling and the critical path: what you need to know",
-  metaTitle: "APM PMQ Scheduling: Critical Path, Float, Crashing and Levelling | Learn in Curve",
+  metaTitle: "APM PMQ Scheduling: Critical Path & Float | Learn in Curve",
   metaDescription:
-    "Scheduling for the APM PMQ: critical path and float, total versus free float, crashing versus fast tracking, and the difference between resource levelling and smoothing.",
+    "Scheduling for the APM PMQ: critical path and float, total versus free float, crashing versus fast tracking, and resource levelling versus smoothing.",
   group: "syllabus",
   related: [
     "apm-pmq-breakdown-structures",

@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-stakeholder-management",
   title: "APM PMQ stakeholder management: what you need to know",
-  metaTitle: "APM PMQ Stakeholder Management: What the Exam Tests | Learn in Curve",
+  metaTitle: "APM PMQ Stakeholder Management: Exam Focus | Learn in Curve",
   metaDescription:
-    "Stakeholder engagement and communication for the APM PMQ: why engagement is not the same as communication, how analysis drives the plan, and how the questions are framed.",
+    "Stakeholder engagement for the APM PMQ: why engagement is not the same as communication, how analysis drives the plan, and how the questions are framed.",
   group: "syllabus",
   related: [
     "apm-pmq-business-case",

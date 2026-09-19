@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-breakdown-structures",
   title: "APM PMQ breakdown structures: what you need to know",
-  metaTitle: "APM PMQ Breakdown Structures: PBS, WBS, OBS, CBS and RAM | Learn in Curve",
+  metaTitle: "APM PMQ Breakdown Structures: PBS to RAM | Learn in Curve",
   metaDescription:
     "Breakdown structures for the APM PMQ: product versus work breakdown structure, what a work package is, how a RAM combines WBS and OBS, and how RACI is examined.",
   group: "syllabus",

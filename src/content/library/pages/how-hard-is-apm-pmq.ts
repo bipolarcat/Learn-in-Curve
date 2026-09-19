@@ -5,7 +5,7 @@ export const page = scaffoldLibraryPage({
   title: "How hard is the APM PMQ really?",
   metaTitle: "How Hard Is the APM PMQ? An Honest Answer | Learn in Curve",
   metaDescription:
-    "The APM PMQ isn't hard because the content is difficult. It's hard because most people prepare for a memory test and sit an application test. Here's the difference.",
+    "The APM PMQ isn't hard because the content is difficult. It's hard because most people prepare for a memory test and sit an application one.",
   group: "exam-prep",
   related: [
     "apm-pmq-pass-mark",

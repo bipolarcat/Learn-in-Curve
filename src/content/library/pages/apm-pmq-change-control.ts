@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-change-control",
   title: "APM PMQ change control: what you need to know",
-  metaTitle: "APM PMQ Change Control: The Process, Baselines and Configuration Management | Learn in Curve",
+  metaTitle: "APM PMQ Change Control: Process & Baselines | Learn in Curve",
   metaDescription:
-    "Change control for the APM PMQ: the stages of the change control process, what a baseline is for, change freeze and change budget, and how configuration management differs.",
+    "Change control for the APM PMQ: process stages, what a baseline is for, change freeze and change budget, and how configuration management differs.",
   group: "syllabus",
   related: [
     "apm-pmq-breakdown-structures",

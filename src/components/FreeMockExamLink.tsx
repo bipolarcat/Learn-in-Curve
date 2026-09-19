@@ -18,7 +18,7 @@ type FreeMockExamLinkProps = {
   label?: ReactNode;
   /** Plain label for analytics / aria when `label` is a React node. */
   analyticsLabel?: string;
-  /** Destination path — defaults to legacy `/free-mock-exam` (301 → APM PMQ). */
+  /** Destination path — defaults to the APM PMQ free mock (no intermediate 301). */
   href?: string;
   /** Analytics `location` — defaults to hero. */
   location?: string;
@@ -33,7 +33,7 @@ export function FreeMockExamLink({
   className,
   label = "Free PMQ mock exam",
   analyticsLabel,
-  href: hrefProp = "/free-mock-exam",
+  href: hrefProp = "/free-mock-exam/apm-pmq",
   location = "hero",
   showArrow = false,
   from,

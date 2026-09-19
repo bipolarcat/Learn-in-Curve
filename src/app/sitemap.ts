@@ -6,37 +6,42 @@ const SITE_URL =
   "https://www.learnincurve.com";
 
 /**
+ * Real last-modified dates for static public URLs.
+ * Update a path's date when that page's indexable content actually changes —
+ * not on every deploy. `/courses/pmq-in-5-days` is omitted: signed-out visitors
+ * get a 3XX to sign-in; the public course overview is `/pmq`.
+ */
+const STATIC_LAST_MODIFIED: Record<string, string> = {
+  "/": "2026-09-15",
+  "/about": "2026-08-06",
+  "/contact": "2026-07-20",
+  "/courses": "2026-09-15",
+  "/pmq": "2026-09-15",
+  "/mock-me": "2026-09-10",
+  "/free-mock-exam/apm-pmq": "2026-09-10",
+  "/free-mock-exam/apm-pfq": "2026-09-10",
+  "/free-mock-exam/pmp": "2026-09-10",
+  "/courses/pfq-in-2-days": "2026-09-15",
+  "/courses/pfq-in-2-days/pricing": "2026-09-15",
+  "/courses/pmq-in-5-days/pricing": "2026-09-15",
+  "/library": "2026-08-19",
+  "/privacy": "2026-07-20",
+  "/terms": "2026-07-20",
+  "/cookies": "2026-07-20",
+  "/recruitment-privacy": "2026-07-20",
+  "/careers": "2026-07-20",
+};
+
+/**
  * Public indexable URLs only — exclude dashboard, auth, gated study routes,
  * and /library pages that are draft or still carry TODO_COPY.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = [
-    "/",
-    "/about",
-    "/contact",
-    "/courses",
-    "/courses/pmq-in-5-days",
-    "/pmq",
-    "/mock-me",
-    "/free-mock-exam/apm-pmq",
-    "/free-mock-exam/apm-pfq",
-    "/free-mock-exam/pmp",
-    "/courses/pfq-in-2-days",
-    "/courses/pfq-in-2-days/pricing",
-    "/courses/pmq-in-5-days/pricing",
-    "/library",
-    "/privacy",
-    "/terms",
-    "/cookies",
-    "/recruitment-privacy",
-    "/careers",
-  ];
-
-  const lastModified = new Date();
+  const staticPaths = Object.keys(STATIC_LAST_MODIFIED);
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${SITE_URL}${path}`,
-    lastModified,
+    lastModified: new Date(STATIC_LAST_MODIFIED[path]),
     changeFrequency:
       path === "/" ||
       path === "/mock-me" ||

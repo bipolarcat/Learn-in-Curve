@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-risk-management",
   title: "APM PMQ risk management: what you need to know",
-  metaTitle: "APM PMQ Risk Management: What the Exam Actually Tests | Learn in Curve",
+  metaTitle: "APM PMQ Risk Management: What Exam Tests | Learn in Curve",
   metaDescription:
-    "Risk and issue management for the APM PMQ: the risk versus issue distinction, why opportunities count as risks, risk owner versus action owner, and how the questions are framed.",
+    "Risk and issue management for the APM PMQ: risk versus issue, why opportunities count as risks, owner roles, and how the questions are framed.",
   group: "syllabus",
   related: [
     "apm-pmq-business-case",

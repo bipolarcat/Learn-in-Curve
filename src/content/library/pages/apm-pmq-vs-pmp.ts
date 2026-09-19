@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-vs-pmp",
   title: "APM PMQ vs PMP: which is right for you?",
-  metaTitle: "APM PMQ vs PMP: Which Certification Is Right for You? | Learn in Curve",
+  metaTitle: "APM PMQ vs PMP: Which Is Right for You? | Learn in Curve",
   metaDescription:
     "How the APM PMQ and PMI's PMP differ on eligibility, exam format, geography and ongoing renewal, and how to work out which one your career actually needs.",
   group: "choosing",

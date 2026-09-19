@@ -46,11 +46,13 @@ const stages = buildLoStages();
 
 export const metadata: Metadata = {
   title: "PMQ in 5 Days: Course overview | Learn in Curve",
-  description: `The PMQ is an application exam, not a memory test. Study content for all ${PMQ_SECTION_COUNT} learning objectives, practice that shows you why you were wrong, and mock papers marked the way the real one is.`,
+  description:
+    "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
   alternates: { canonical: `${SITE_URL}${PMQ_OVERVIEW_HREF}` },
   openGraph: {
     title: "PMQ in 5 Days: Course overview | Learn in Curve",
-    description: `The PMQ is an application exam, not a memory test. Study content for all ${PMQ_SECTION_COUNT} learning objectives, practice that shows you why you were wrong, and mock papers marked the way the real one is.`,
+    description:
+      "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
     url: `${SITE_URL}${PMQ_OVERVIEW_HREF}`,
     type: "website",
   },

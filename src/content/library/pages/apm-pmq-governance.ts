@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-governance",
   title: "APM PMQ governance: what you need to know",
-  metaTitle: "APM PMQ Governance: What the Exam Actually Tests | Learn in Curve",
+  metaTitle: "APM PMQ Governance: What the Exam Tests | Learn in Curve",
   metaDescription:
-    "Governance for the APM PMQ: sponsor versus project manager accountability, what a steering group decides, what a PMO does, and why assurance has to sit outside the delivery team.",
+    "Governance for the APM PMQ: sponsor versus PM accountability, what a steering group decides, what a PMO does, and why assurance sits outside delivery.",
   group: "syllabus",
   related: [
     "apm-pmq-business-case",

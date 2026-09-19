@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { marketingActionPrimary } from "@/components/ui/semantic";
 import styles from "./CareersPage.module.css";
 
-export const metadata = {
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+  "https://www.learnincurve.com";
+
+export const metadata: Metadata = {
   title: "Careers - Learn in Curve",
+  description:
+    "No open roles at Learn in Curve right now — but we are always curious about people who care about project management education done properly.",
+  alternates: { canonical: `${SITE_URL}/careers` },
 };
 
 export default function CareersPage() {

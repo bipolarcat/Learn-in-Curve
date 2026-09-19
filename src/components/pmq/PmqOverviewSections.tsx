@@ -189,7 +189,7 @@ export function PmqHeroStats() {
         ·
       </span>
       <Link
-        href="/free-mock-exam"
+        href="/free-mock-exam/apm-pmq"
         className="hover:text-orange transition-colors"
       >
         Free readiness check

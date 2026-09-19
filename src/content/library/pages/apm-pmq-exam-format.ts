@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-exam-format",
   title: "What's the APM PMQ exam format?",
-  metaTitle: "APM PMQ Exam Format: 40 Questions, 90 Marks, 2.5 Hours | Learn in Curve",
+  metaTitle: "APM PMQ Exam Format: 40 Questions, 90 Marks | Learn in Curve",
   metaDescription:
-    "The full APM PMQ format: two parts, four question types, where the 90 marks sit, and how the syllabus is weighted. Plus the rule about Part 1 that catches people out.",
+    "The full APM PMQ format: two parts, four question types, where the 90 marks sit, how the syllabus is weighted, and the Part 1 rule that catches people.",
   group: "exam-prep",
   related: [
     "apm-pmq-pass-mark",

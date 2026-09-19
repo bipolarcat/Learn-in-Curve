@@ -170,7 +170,7 @@ export function LibraryHub({
                 <div className={styles.sideCta}>
                   <p className={styles.sideCtaLabel}>Ready to test?</p>
                   <LibrarySoftNavLink
-                    href={withSoftNavFrom("/free-mock-exam", "library")}
+                    href={withSoftNavFrom("/free-mock-exam/apm-pmq", "library")}
                     busyLabel="Opening free mock exam"
                     spinner="ellipsis"
                     spinnerClassName="text-orange"
@@ -294,7 +294,7 @@ export function LibraryHub({
 
               <div className={styles.footerCta}>
                 <LibrarySoftNavLink
-                  href={withSoftNavFrom("/free-mock-exam", "library")}
+                  href={withSoftNavFrom("/free-mock-exam/apm-pmq", "library")}
                   busyLabel="Opening free mock exam"
                   spinner="ellipsis"
                   spinnerClassName="text-orange"

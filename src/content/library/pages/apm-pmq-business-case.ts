@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-business-case",
   title: "APM PMQ business case: what you need to know",
-  metaTitle: "APM PMQ Business Case: What the Exam Actually Tests | Learn in Curve",
+  metaTitle: "APM PMQ Business Case: What Exam Tests | Learn in Curve",
   metaDescription:
     "The business case for the APM PMQ: who owns it, why it stays alive through the life cycle, and how five-mark questions on it are actually framed.",
   group: "syllabus",

@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-quality-management",
   title: "APM PMQ quality management: what you need to know",
-  metaTitle: "APM PMQ Quality Management: Planning, Assurance and Control | Learn in Curve",
+  metaTitle: "APM PMQ Quality: Assurance and Control | Learn in Curve",
   metaDescription:
-    "Quality for the APM PMQ: the difference between quality assurance and quality control, what acceptance criteria are for, the cost of quality, and continual improvement.",
+    "Quality for the APM PMQ: assurance versus control, what acceptance criteria are for, the cost of quality, and how continual improvement shows up.",
   group: "syllabus",
   related: [
     "apm-pmq-change-control",

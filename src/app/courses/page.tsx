@@ -18,7 +18,7 @@ const SITE_URL =
 export const metadata: Metadata = {
   title: "Courses — Learn in Curve",
   description:
-    "Pick your course. APM PMQ in 5 Days and PFQ in 2 Days are live.",
+    "Pick your course. APM PMQ in 5 Days and PFQ in 2 Days are live — structured revision, practice questions, and timed mocks for each exam.",
   alternates: { canonical: `${SITE_URL}/courses` },
 };
 

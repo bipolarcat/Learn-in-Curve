@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "is-apm-pmq-worth-it",
   title: "Is the APM PMQ worth it?",
-  metaTitle: "Is the APM PMQ Worth It? An Honest Assessment | Learn in Curve",
+  metaTitle: "Is the APM PMQ Worth It? Honest Answer | Learn in Curve",
   metaDescription:
     "What the APM PMQ actually does for your career, who gets the most out of it, and the situations where it isn't the right spend. Written without the sales pitch.",
   group: "choosing",

@@ -3,7 +3,7 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "apm-pmq-pass-mark",
   title: "What's the APM PMQ pass mark?",
-  metaTitle: "APM PMQ Pass Mark: Why There Isn't a Fixed Number | Learn in Curve",
+  metaTitle: "APM PMQ Pass Mark: Why No Fixed Number | Learn in Curve",
   metaDescription:
     "The APM PMQ pass mark changes between exam papers. Here's how it's set, why 50 of the 90 marks sit in ten questions, and what a borderline fail actually means.",
   group: "exam-prep",

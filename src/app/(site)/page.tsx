@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { NotifyBand } from "@/components/NotifyBand";
@@ -5,6 +6,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 import { FeatureStack } from "@/components/FeatureStack";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+  "https://www.learnincurve.com";
+
+export const metadata: Metadata = {
+  alternates: { canonical: `${SITE_URL}/` },
+};
 
 /**
  * `PmqLiveLamp` and `QuizDemo` are intentionally left in the repo but unmounted
