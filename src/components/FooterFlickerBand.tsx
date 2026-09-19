@@ -23,8 +23,8 @@ export function FooterFlickerBand() {
           className="h-full w-full"
           squareSize={2}
           gridGap={compact ? 2 : 3}
-          color="var(--cream)"
-          textColor="var(--orange)"
+          color="#F4E9D6"
+          textColor="#d5501f"
           maxOpacity={0.28}
           flickerChance={0.1}
         />

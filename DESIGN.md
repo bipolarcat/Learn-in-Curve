@@ -172,7 +172,7 @@ and **Sign up / Sign in** at all sizes. Signed-in users: icon-only soft pills
 at all sizes.
 
 **Site footer (2026-07-16, flicker band 2026-07-23)** — full-bleed ink band; labeled footer `<nav>`;
-© + version overlaid on a cream flickering-grid spelling “Be Curious.”
+© + version overlaid on a cream flickering-grid spelling “Keep Learning”
 (`SiteFooter.tsx`, `FooterFlickerBand.tsx`, `ui/flickering-footer.tsx`). Reduced-motion freezes
 the grid; animation pauses off-screen.
 
