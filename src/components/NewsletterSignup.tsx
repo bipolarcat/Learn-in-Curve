@@ -72,10 +72,10 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
     return (
       <form
         onSubmit={handleSubmit}
-        className="flex w-full flex-col items-stretch gap-2"
+        className="flex w-full min-w-0 flex-col items-stretch gap-1"
         noValidate
       >
-        <div className="flex w-full items-center gap-2">
+        <div className="flex w-full min-w-0 items-center gap-1.5">
           <label className="sr-only" htmlFor={inputId}>
             Email address
           </label>
@@ -87,11 +87,11 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
               setEmail(e.target.value);
               setStatus("idle");
             }}
-            placeholder="you@email.com"
+            placeholder="Email"
             autoComplete="email"
             inputMode="email"
             disabled={status === "submitting"}
-            className={`h-8 min-h-8 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/40 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
+            className={`h-7 min-h-7 min-w-0 flex-1 rounded-lg border border-cream/20 bg-cream/[0.08] px-2 font-body text-[12px] leading-none text-cream placeholder:text-cream/40 transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
               status === "error"
                 ? `border-orange/50 ${styles.inputError}`
                 : ""
@@ -111,12 +111,12 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             disabled={status === "submitting"}
             aria-busy={status === "submitting"}
             aria-label={status === "submitting" ? "Joining" : "Join"}
-            className={`${stampCtaPrimaryCompact} !h-8 shrink-0 justify-center !font-body !text-[12px] !font-semibold !normal-case !tracking-[-0.01em] disabled:opacity-60`}
+            className={`${stampCtaPrimaryCompact} !h-7 !min-h-7 !gap-1 !rounded-lg !px-2.5 shrink-0 justify-center !font-body !text-[11px] !font-semibold !normal-case !tracking-[-0.01em] disabled:opacity-60`}
           >
             {status === "submitting" ? (
               <Spinner
                 variant="ellipsis"
-                size={14}
+                size={12}
                 className="text-current"
                 aria-hidden
               />
@@ -132,7 +132,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
           <p
             id={`${inputId}-error`}
             role="alert"
-            className="text-[12px] leading-snug text-orange"
+            className="text-[11px] leading-snug text-orange"
           >
             {errorMessage}
           </p>
@@ -141,9 +141,9 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
           <p
             id={`${inputId}-ready`}
             role="status"
-            className={`${styles.success} font-body text-[12px] font-bold text-[#9BC47A]`}
+            className={`${styles.success} font-body text-[11px] font-bold text-[#9BC47A]`}
           >
-            Check your inbox — we&apos;ve sent a confirmation.
+            Check your inbox.
           </p>
         )}
       </form>
