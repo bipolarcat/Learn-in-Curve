@@ -114,7 +114,7 @@ export function SiteFooter({
         <section
           id="newsletter"
           aria-labelledby="footer-newsletter-heading"
-          className="mt-3 flex flex-col gap-2 border-t border-cream/[0.08] pt-3 sm:mt-3.5 sm:max-w-sm sm:pt-3.5"
+          className="mt-3 flex flex-col gap-2 border-t border-cream/[0.08] pt-3 sm:mt-3.5 sm:ml-auto sm:max-w-sm sm:pt-3.5"
         >
           <div className="flex min-w-0 shrink-0 items-center gap-1.5">
             <div

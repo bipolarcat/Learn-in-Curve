@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-19** — Footer newsletter: right-aligned on desktop (`sm:ml-auto`, `SiteFooter`).
 - **2026-09-19** — Footer newsletter: mailbox + “Join our newsletter” always stack above the email field on desktop too (`SiteFooter`).
 - **2026-09-19** — Footer newsletter: small “Unsubscribe anytime. Privacy Policy” under the email field (`NewsletterSignup` footer variant).
 - **2026-09-19** — Reverted footer impeccable fix-all (P1–P3 a11y/touch/theming); restored compact pre-audit footer chrome (`SiteFooter`, `NewsletterSignup`, `NotifyMailboxMark`, `FooterFlickerBand`, about LinkedIn, removed `social-icons`).
