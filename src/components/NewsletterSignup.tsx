@@ -91,7 +91,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             autoComplete="email"
             inputMode="email"
             disabled={status === "submitting"}
-            className={`h-9 min-h-9 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/40 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
+            className={`h-8 min-h-8 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/40 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
               status === "error"
                 ? `border-orange/50 ${styles.inputError}`
                 : ""
@@ -111,7 +111,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             disabled={status === "submitting"}
             aria-busy={status === "submitting"}
             aria-label={status === "submitting" ? "Joining" : "Join"}
-            className={`${stampCtaPrimaryCompact} !h-9 shrink-0 justify-center !font-body !text-[12px] !font-semibold !normal-case !tracking-[-0.01em] disabled:opacity-60`}
+            className={`${stampCtaPrimaryCompact} !h-8 shrink-0 justify-center !font-body !text-[12px] !font-semibold !normal-case !tracking-[-0.01em] disabled:opacity-60`}
           >
             {status === "submitting" ? (
               <Spinner
