@@ -181,7 +181,7 @@ export function SegmentedControl({
 
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 overflow-hidden rounded-[7px] bg-teal shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.22)]"
+          className="pointer-events-none absolute inset-y-0 left-0 overflow-hidden rounded-[7px] bg-cream-2 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.16)] ring-1 ring-ink/10"
           style={{ width: `${100 / count}%`, x: thumbX }}
           initial={false}
         >
@@ -200,7 +200,7 @@ export function SegmentedControl({
               {options.map((option) => (
                 <span
                   key={`thumb-${option.value}`}
-                  className={cn(SEG, "text-paper")}
+                  className={cn(SEG, "text-ink")}
                 >
                   {option.icon}
                   {option.label}
@@ -237,7 +237,7 @@ export function SegmentedControl({
               onClick={() => !option.disabled && select(option.value)}
               onKeyDown={(e) => onKeyDown(e, i)}
               onPointerEnter={() => !option.disabled && setHovered(i)}
-              className="cursor-default rounded-[7px] outline-none focus-visible:bg-teal/[0.08] focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--teal-rgb)_/_0.55)]"
+              className="cursor-default rounded-[7px] outline-none focus-visible:bg-cream-2/40 focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
             >
               <span className="sr-only">{option.label}</span>
             </button>
