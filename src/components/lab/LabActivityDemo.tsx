@@ -187,11 +187,11 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
             </div>
 
             {activityMeta ? (
-              <p className="mt-4 min-h-[2.75rem] text-left font-body text-[13px] font-medium leading-snug sm:min-h-[2.5rem] sm:text-[14px]">
-                <span className="block font-semibold text-ink">
+              <p className="mt-4 min-h-[2.75rem] text-left font-body sm:min-h-[2.5rem]">
+                <span className="block text-[15px] font-medium leading-[1.55] text-ink sm:text-base sm:leading-[1.6]">
                   {activityMeta.heading}.
                 </span>
-                <span className="mt-0.5 block text-ink/60">
+                <span className="mt-0.5 block text-[13px] font-medium leading-snug text-ink/60 sm:text-[14px]">
                   {activityMeta.title}
                 </span>
               </p>
