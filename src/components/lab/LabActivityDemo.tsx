@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useId,
-  useRef,
-  useState,
-  type KeyboardEvent,
-  type ReactNode,
-} from "react";
+import { useCallback, useId, useState } from "react";
 import Link from "next/link";
 import {
   ActivityGroupupIcon,
@@ -20,12 +13,15 @@ import { Lineup } from "@/components/pmq/activities/Lineup";
 import { Pairup } from "@/components/pmq/activities/Pairup";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CtaArrow, stampCtaTealFlat } from "@/components/stamp-chip";
+import {
+  SegmentedControl,
+  type SegmentedOption,
+} from "@/components/ui/segmented-control";
 import type {
   GroupupActivity,
   LineupActivity,
   PairupActivity,
 } from "@/types/pmq";
-import { cn } from "@/lib/utils";
 
 const CTA_PRIMARY =
   `${stampCtaTealFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
@@ -89,42 +85,26 @@ const GROUPUP: GroupupActivity = {
 
 type Mode = "pairup" | "lineup" | "groupup";
 
-const MODES: {
-  id: Mode;
-  label: string;
-  icon: (active: boolean) => ReactNode;
-}[] = [
+const MODE_OPTIONS: SegmentedOption[] = [
   {
-    id: "pairup",
+    value: "pairup",
     label: ACTIVITY_DISPLAY_NAMES.pairup,
-    icon: (active) => (
-      <ActivityPairupIcon
-        active={active}
-        className="size-5 shrink-0"
-        aria-hidden
-      />
+    icon: (
+      <ActivityPairupIcon className="size-4 shrink-0" aria-hidden />
     ),
   },
   {
-    id: "lineup",
+    value: "lineup",
     label: ACTIVITY_DISPLAY_NAMES.lineup,
-    icon: (active) => (
-      <ActivityLineupIcon
-        active={active}
-        className="size-5 shrink-0"
-        aria-hidden
-      />
+    icon: (
+      <ActivityLineupIcon className="size-4 shrink-0" aria-hidden />
     ),
   },
   {
-    id: "groupup",
+    value: "groupup",
     label: ACTIVITY_DISPLAY_NAMES.groupup,
-    icon: (active) => (
-      <ActivityGroupupIcon
-        active={active}
-        className="size-5 shrink-0"
-        aria-hidden
-      />
+    icon: (
+      <ActivityGroupupIcon className="size-4 shrink-0" aria-hidden />
     ),
   },
 ];
@@ -144,40 +124,14 @@ export function LabActivityDemo() {
   const baseId = useId();
   const [mode, setMode] = useState<Mode>("pairup");
   const [completedOnce, setCompletedOnce] = useState(false);
-  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   const onComplete = useCallback(() => {
     setCompletedOnce(true);
   }, []);
 
-  const selectMode = useCallback((next: Mode, focus = false) => {
-    setMode(next);
-    if (!focus) return;
-    const index = MODES.findIndex((item) => item.id === next);
-    requestAnimationFrame(() => tabRefs.current[index]?.focus());
-  }, []);
-
-  const onTabKeyDown = (
-    event: KeyboardEvent<HTMLButtonElement>,
-    index: number,
-  ) => {
-    let nextIndex: number | null = null;
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      nextIndex = index >= MODES.length - 1 ? 0 : index + 1;
-    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      nextIndex = index <= 0 ? MODES.length - 1 : index - 1;
-    } else if (event.key === "Home") {
-      nextIndex = 0;
-    } else if (event.key === "End") {
-      nextIndex = MODES.length - 1;
-    }
-    if (nextIndex == null) return;
-    event.preventDefault();
-    selectMode(MODES[nextIndex]!.id, true);
-  };
-
   const activity = ACTIVITY_BY_MODE[mode];
   const panelId = `${baseId}-panel`;
+  const tabPrefix = `${baseId}-tab`;
 
   return (
     <section
@@ -201,42 +155,22 @@ export function LabActivityDemo() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.06} className="mx-auto mt-8 w-full max-w-[46rem] sm:mt-10 md:max-w-none">
+        <ScrollReveal
+          delay={0.06}
+          className="mx-auto mt-8 w-full max-w-[46rem] sm:mt-10 md:max-w-none"
+        >
           <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper/70 p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7">
-            <div
-              role="tablist"
-              aria-label="Recall activity modes"
-              className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
-            >
-              {MODES.map((item, index) => {
-                const selected = mode === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    role="tab"
-                    id={`${baseId}-tab-${item.id}`}
-                    aria-controls={panelId}
-                    aria-selected={selected}
-                    tabIndex={selected ? 0 : -1}
-                    ref={(node) => {
-                      tabRefs.current[index] = node;
-                    }}
-                    onClick={() => selectMode(item.id)}
-                    onKeyDown={(event) => onTabKeyDown(event, index)}
-                    className={cn(
-                      "inline-flex min-h-10 items-center gap-1.5 rounded-full px-3 py-2 font-body text-[12.5px] font-semibold tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] sm:min-h-11 sm:gap-2 sm:px-3.5 sm:text-[13px]",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/45 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
-                      selected
-                        ? "bg-teal text-paper shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.12)]"
-                        : "bg-ink/[0.045] text-ink/80 hover:bg-ink/[0.07] hover:text-ink",
-                    )}
-                  >
-                    {item.icon(selected)}
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
+            <div className="flex justify-center">
+              <SegmentedControl
+                label="Recall activity modes"
+                options={MODE_OPTIONS}
+                value={mode}
+                onValueChange={(next) => setMode(next as Mode)}
+                semantics="tablist"
+                idPrefix={tabPrefix}
+                panelId={panelId}
+                className="w-full max-w-lg"
+              />
             </div>
 
             <p className="mt-4 min-h-[2.75rem] text-center font-body text-[13px] font-medium leading-snug text-ink/60 sm:min-h-[1.5rem] sm:text-[14px]">
@@ -249,7 +183,7 @@ export function LabActivityDemo() {
             <div
               role="tabpanel"
               id={panelId}
-              aria-labelledby={`${baseId}-tab-${mode}`}
+              aria-labelledby={`${tabPrefix}-${mode}`}
               className="mt-4 overflow-x-clip"
             >
               {mode === "pairup" ? (
