@@ -53,7 +53,7 @@ function SubcopyRows({
 /** Category line — lab style: body bold teal, open tracking (static). */
 function CategoryStamp() {
   return (
-    <p className="text-center font-body text-[15px] font-bold leading-none tracking-[0.12em] text-teal sm:text-[19px] sm:tracking-[0.1em]">
+    <p className="text-center font-body text-[15px] font-bold uppercase leading-none tracking-[0.12em] text-teal sm:text-[19px] sm:tracking-[0.1em]">
       {EYEBROW}
     </p>
   );
