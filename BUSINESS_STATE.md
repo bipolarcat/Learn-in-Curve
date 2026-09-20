@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-20** — Testing method step 01: removed thumbs-up — dropped sticker overlay and replaced `practice.jpg`/`practice.webp` with a version where both paws rest on the keyboard (`TestingMethod`, `public/brand/features/practice.*`).
 - **2026-09-20** — Home brand hero category stamp (“Project Management Exam Revision”) bumped type size (`15px` / `sm:19px`) in `HomeBrandHero`.
 - **2026-09-20** — Home brand hero: removed geometric lattice square animation (`LabBackgroundPaths` no longer mounted in `HomeBrandHero`; still on `/lab`).
 - **2026-09-20** — Home testing method: dropped top border so it flows from the hero without a section rule (`TestingMethod`).

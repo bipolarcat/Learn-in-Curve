@@ -10,8 +10,6 @@ const STEPS = [
     body: "Instead of repeatedly reading the same material, answer questions that force you to recall what you’ve learned — helping you identify what you actually know and what you don’t.",
     src: "/brand/features/practice.webp",
     alt: "Illustrated practice scene — answering questions instead of re-reading notes.",
-    stickerSrc: "/brand/inspo/thumbs-up.png",
-    stickerAlt: "",
     objectPosition: "center 40%",
     tone: "teal" as const,
   },
