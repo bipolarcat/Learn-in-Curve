@@ -11,6 +11,7 @@ import { LabSlySection } from "@/components/lab/LabSlySection";
  * Design sandbox — illustrated landing redesign spike.
  * Order: Hero → Activity demo → Features → Exam paths → Sly.
  * Testing method lives on live `/` (between hero and PMQ proof).
+ * How-you-practise (`LabActivityDemo`) is on `/lab` and live `/` (under Testing Method).
  * LabHowItWorks was promoted off `/lab`; activity demo sits where it was.
  */
 export const metadata: Metadata = {

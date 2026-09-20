@@ -28,6 +28,21 @@ const SlyShowcase = dynamic(
   },
 );
 
+const LabActivityDemo = dynamic(
+  () =>
+    import("@/components/lab/LabActivityDemo").then((m) => ({
+      default: m.LabActivityDemo,
+    })),
+  {
+    loading: () => (
+      <div
+        className="mx-auto min-h-[22rem] w-full border-t border-ink/[0.06]"
+        aria-hidden
+      />
+    ),
+  },
+);
+
 const TrialQuiz = dynamic(
   () =>
     import("@/components/TrialQuiz").then((m) => ({ default: m.TrialQuiz })),
@@ -50,6 +65,8 @@ export default async function HomePage() {
       <HomeBrandHero />
 
       <TestingMethod />
+
+      <LabActivityDemo isSignedIn={isSignedIn} />
 
       <PmqLaunchProof isSignedIn={isSignedIn} />
 
