@@ -36,7 +36,7 @@ const STEPS = [
     alt: "Illustrated memory scene — repeating retrieval until the learning sticks.",
     // Asset cropped flush to rabbit + board at 5:4; slight scale-out shows more scene.
     objectPosition: "center 35%",
-    imageClassName: "scale-[0.92]",
+    imageClassName: "scale-[0.98]",
     tone: "cream" as const,
   },
 ] as const;
