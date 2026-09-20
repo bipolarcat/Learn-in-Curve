@@ -32,15 +32,14 @@ const STEPS = [
     body: "Revisit questions you got wrong, retest difficult topics, and strengthen your recall over time — so you’re practising retrieval, not just recognising information on a page.",
     src: "/brand/features/memory.webp",
     alt: "Illustrated memory scene — repeating retrieval until the learning sticks.",
-    stickerSrc: "/brand/auth/sign-up-fox-transparent.webp",
-    stickerAlt: "",
-    objectPosition: "center 35%",
+    // Source art sits lower-right; bias crop so rabbit + board centre in the plate.
+    objectPosition: "82% 58%",
     tone: "cream" as const,
   },
 ];
 
 /**
- * Illustrated testing method — three active-recall beats with brand art + stickers.
+ * Illustrated testing method — three active-recall beats with brand art.
  * Home: between hero and PMQ launch proof. Mobile stacked; desktop 3-up.
  */
 export function TestingMethod() {
@@ -75,8 +74,6 @@ export function TestingMethod() {
                   <LabArtPlate
                     src={step.src}
                     alt={step.alt}
-                    stickerSrc={step.stickerSrc}
-                    stickerAlt={step.stickerAlt}
                     objectPosition={step.objectPosition}
                     tone={step.tone}
                     priority={i === 0}
