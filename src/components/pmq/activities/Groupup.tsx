@@ -8,6 +8,7 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { createPortal } from "react-dom";
 import {
   AnimatePresence,
   LayoutGroup,
@@ -454,61 +455,70 @@ export function Groupup({
           </span>
         )}
 
-        {dragging && drag ? (
-          <motion.div
-            aria-hidden
-            className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_10px_40px_rgb(var(--ink-rgb)_/_0.18),0_2px_8px_rgb(var(--ink-rgb)_/_0.06)] ring-1 ring-black/[0.04] dark:ring-white/[0.08]"
-            style={{
-              left: drag.x,
-              top: drag.y,
-              width: Math.max(drag.width, 72),
-              x: "-50%",
-              y: "-50%",
-            }}
-            initial={{ scale: 1, opacity: 0.92 }}
-            animate={{ scale: 1.05, opacity: 1 }}
-            transition={{ duration: 0.14, ease: appleEase }}
-          >
-            {drag.label}
-          </motion.div>
-        ) : null}
+        {typeof document !== "undefined"
+          ? createPortal(
+              <>
+                {dragging && drag ? (
+                  <motion.div
+                    aria-hidden
+                    className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_10px_40px_rgb(var(--ink-rgb)_/_0.18),0_2px_8px_rgb(var(--ink-rgb)_/_0.06)] ring-1 ring-black/[0.04] dark:ring-white/[0.08]"
+                    style={{
+                      left: drag.x,
+                      top: drag.y,
+                      width: Math.max(drag.width, 72),
+                      x: "-50%",
+                      y: "-50%",
+                    }}
+                    initial={{ scale: 1, opacity: 0.92 }}
+                    animate={{ scale: 1.05, opacity: 1 }}
+                    transition={{ duration: 0.14, ease: appleEase }}
+                  >
+                    {drag.label}
+                  </motion.div>
+                ) : null}
 
-        <AnimatePresence>
-          {swallow && swallowTarget ? (
-            <motion.div
-              key={`swallow-${swallow.label}`}
-              aria-hidden
-              className="pointer-events-none fixed z-[130] max-w-[min(16rem,70vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_12px_36px_rgb(var(--ink-rgb)_/_0.2)] ring-1 ring-black/[0.04]"
-              initial={{
-                left: swallow.fromX,
-                top: swallow.fromY,
-                x: "-50%",
-                y: "-50%",
-                scale: 1,
-                opacity: 1,
-              }}
-              animate={{
-                left: swallowTarget.left + swallowTarget.width / 2,
-                top: swallowTarget.top + Math.min(40, swallowTarget.height * 0.35),
-                x: "-50%",
-                y: "-50%",
-                scale: 0.22,
-                opacity: 0,
-                rotate: -8,
-              }}
-              transition={{
-                duration: 0.42,
-                ease: appleEase,
-              }}
-              onAnimationComplete={() => {
-                if (!swallowFinishingRef.current) return;
-                finishCorrect(swallow.label, swallow.bucketId);
-              }}
-            >
-              {swallow.label}
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+                <AnimatePresence>
+                  {swallow && swallowTarget ? (
+                    <motion.div
+                      key={`swallow-${swallow.label}`}
+                      aria-hidden
+                      className="pointer-events-none fixed z-[130] max-w-[min(16rem,70vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_12px_36px_rgb(var(--ink-rgb)_/_0.2)] ring-1 ring-black/[0.04]"
+                      initial={{
+                        left: swallow.fromX,
+                        top: swallow.fromY,
+                        x: "-50%",
+                        y: "-50%",
+                        scale: 1,
+                        opacity: 1,
+                      }}
+                      animate={{
+                        left: swallowTarget.left + swallowTarget.width / 2,
+                        top:
+                          swallowTarget.top +
+                          Math.min(40, swallowTarget.height * 0.35),
+                        x: "-50%",
+                        y: "-50%",
+                        scale: 0.22,
+                        opacity: 0,
+                        rotate: -8,
+                      }}
+                      transition={{
+                        duration: 0.42,
+                        ease: appleEase,
+                      }}
+                      onAnimationComplete={() => {
+                        if (!swallowFinishingRef.current) return;
+                        finishCorrect(swallow.label, swallow.bucketId);
+                      }}
+                    >
+                      {swallow.label}
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </>,
+              document.body,
+            )
+          : null}
       </div>
     </LayoutGroup>
   );

@@ -8,6 +8,7 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { createPortal } from "react-dom";
 import {
   AnimatePresence,
   LayoutGroup,
@@ -396,24 +397,27 @@ export function Pairup({
           </span>
         )}
 
-        {dragging && drag ? (
-          <motion.div
-            aria-hidden
-            className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_10px_40px_rgb(var(--ink-rgb)_/_0.18),0_2px_8px_rgb(var(--ink-rgb)_/_0.06)] ring-1 ring-black/[0.04] dark:ring-white/[0.08]"
-            style={{
-              left: drag.x,
-              top: drag.y,
-              width: Math.max(drag.width, 72),
-              x: "-50%",
-              y: "-50%",
-            }}
-            initial={{ scale: 1, opacity: 0.92 }}
-            animate={{ scale: 1.05, opacity: 1 }}
-            transition={{ duration: 0.14, ease: appleEase }}
-          >
-            {drag.match}
-          </motion.div>
-        ) : null}
+        {typeof document !== "undefined" && dragging && drag
+          ? createPortal(
+              <motion.div
+                aria-hidden
+                className="pointer-events-none fixed z-[120] max-w-[min(18rem,72vw)] rounded-full bg-paper px-3.5 py-2 font-body text-[13px] font-medium leading-snug tracking-tight text-ink shadow-[0_10px_40px_rgb(var(--ink-rgb)_/_0.18),0_2px_8px_rgb(var(--ink-rgb)_/_0.06)] ring-1 ring-black/[0.04] dark:ring-white/[0.08]"
+                style={{
+                  left: drag.x,
+                  top: drag.y,
+                  width: Math.max(drag.width, 72),
+                  x: "-50%",
+                  y: "-50%",
+                }}
+                initial={{ scale: 1, opacity: 0.92 }}
+                animate={{ scale: 1.05, opacity: 1 }}
+                transition={{ duration: 0.14, ease: appleEase }}
+              >
+                {drag.match}
+              </motion.div>,
+              document.body,
+            )
+          : null}
       </div>
     </LayoutGroup>
   );
