@@ -57,8 +57,8 @@ const PAIRUP: PairupActivity = {
 const LINEUP: LineupActivity = {
   id: "demo-lineup",
   type: "lineup",
-  heading: "Change control",
-  title: "Put change control in order.",
+  heading: "A change request has just landed on your project. Five steps, one right order",
+  title: "Drag the steps into the order they happen.",
   items: [
     "Request raised",
     "Logged in the change register",
@@ -71,8 +71,9 @@ const LINEUP: LineupActivity = {
 const GROUPUP: GroupupActivity = {
   id: "demo-groupup",
   type: "groupup",
-  heading: "Change control",
-  title: "Before or after the decision?",
+  heading:
+    "Some change control work happens before the decision to approve. Some only after",
+  title: "Drag each card into the bucket it belongs in.",
   buckets: [
     { id: "before", label: "Before the decision" },
     { id: "after", label: "After the decision" },
