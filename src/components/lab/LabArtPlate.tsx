@@ -10,6 +10,8 @@ type LabArtPlateProps = {
   stickerAlt?: string;
   /** Visual crop / object position for the main art */
   objectPosition?: string;
+  /** Extra classes on the main Image (e.g. scale to tighten a crop) */
+  imageClassName?: string;
   /** Soft wash behind the plate */
   tone?: "cream" | "teal" | "orange" | "paper";
   className?: string;
@@ -33,6 +35,7 @@ export function LabArtPlate({
   stickerSrc,
   stickerAlt = "",
   objectPosition = "center",
+  imageClassName = "",
   tone = "cream",
   className = "",
   priority = false,
@@ -49,7 +52,7 @@ export function LabArtPlate({
           fill
           priority={priority}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
-          className="object-cover"
+          className={`object-cover ${imageClassName}`.trim()}
           style={{ objectPosition }}
         />
         <div

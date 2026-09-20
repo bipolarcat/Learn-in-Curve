@@ -32,11 +32,12 @@ const STEPS = [
     body: "Revisit questions you got wrong, retest difficult topics, and strengthen your recall over time — so you’re practising retrieval, not just recognising information on a page.",
     src: "/brand/features/memory.webp",
     alt: "Illustrated memory scene — repeating retrieval until the learning sticks.",
-    // Source art sits lower-right; bias crop so rabbit + board centre in the plate.
-    objectPosition: "82% 58%",
+    // Source art has empty left field; hard zoom onto rabbit + corkboard.
+    objectPosition: "88% 62%",
+    imageClassName: "scale-[2] origin-[88%_62%]",
     tone: "cream" as const,
   },
-];
+] as const;
 
 /**
  * Illustrated testing method — three active-recall beats with brand art.
@@ -75,6 +76,9 @@ export function TestingMethod() {
                     src={step.src}
                     alt={step.alt}
                     objectPosition={step.objectPosition}
+                    imageClassName={
+                      "imageClassName" in step ? step.imageClassName : undefined
+                    }
                     tone={step.tone}
                     priority={i === 0}
                   />

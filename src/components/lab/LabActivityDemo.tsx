@@ -250,13 +250,21 @@ export function LabActivityDemo() {
               role="tabpanel"
               id={panelId}
               aria-labelledby={`${baseId}-tab-${mode}`}
-              className="mt-4 min-h-[34rem] overflow-x-clip sm:min-h-[30rem]"
+              className="mt-4 overflow-x-clip"
             >
               {mode === "pairup" ? (
-                <Pairup key="demo-pairup" activity={PAIRUP} onComplete={onComplete} />
+                <Pairup
+                  key="demo-pairup"
+                  activity={PAIRUP}
+                  onComplete={onComplete}
+                />
               ) : null}
               {mode === "lineup" ? (
-                <Lineup key="demo-lineup" activity={LINEUP} onComplete={onComplete} />
+                <Lineup
+                  key="demo-lineup"
+                  activity={LINEUP}
+                  onComplete={onComplete}
+                />
               ) : null}
               {mode === "groupup" ? (
                 <Groupup
