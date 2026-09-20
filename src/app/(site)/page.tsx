@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 /**
  * `PmqLiveLamp` and `QuizDemo` are intentionally left in the repo but unmounted
  * here — replaced 2026-07-31 by `PmqLaunchProof` and `TrialQuiz`.
- * 2026-09-20: `PmqLaunchProof` swapped with lab exam paths (`LabExamPaths`).
+ * 2026-09-20: `PmqLaunchProof` ↔ `LabExamPaths`; standalone `TrialQuiz` moved to `/lab`.
  */
 const SlyShowcase = dynamic(
   () =>
@@ -43,16 +43,6 @@ const LabActivityDemo = dynamic(
   },
 );
 
-const TrialQuiz = dynamic(
-  () =>
-    import("@/components/TrialQuiz").then((m) => ({ default: m.TrialQuiz })),
-  {
-    loading: () => (
-      <div className="mx-auto min-h-[24rem] max-w-[46rem]" aria-hidden />
-    ),
-  },
-);
-
 export default async function HomePage() {
   const supabase = await createClient();
   const {
@@ -69,18 +59,6 @@ export default async function HomePage() {
       <LabActivityDemo isSignedIn={isSignedIn} />
 
       <LabExamPaths isSignedIn={isSignedIn} />
-
-      {/* No aria-label here — TrialQuiz's own <section> already carries the landmark name. */}
-      <section
-        id="home-trial-quiz"
-        className="relative overflow-x-clip pt-[clamp(2rem,5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]"
-      >
-        <div className="wrap relative z-[1]">
-          <div className="mx-auto w-full max-w-[46rem]">
-            <TrialQuiz isSignedIn={isSignedIn} />
-          </div>
-        </div>
-      </section>
 
       <SlyShowcase isSignedIn={isSignedIn} />
     </>

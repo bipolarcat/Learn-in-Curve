@@ -10,10 +10,12 @@ import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 
 /**
  * Design sandbox — illustrated landing redesign spike.
- * Order: Hero → Activity demo → Feature tiles → What's included → PMQ live → Sly.
+ * Order: Hero → Activity demo → Feature tiles → What's included → PMQ live →
+ * standalone TrialQuiz → Sly.
  * Testing method + exam paths (`LabExamPaths`) live on `/`.
- * How-you-practise (`LabActivityDemo`) is on `/lab` and live `/` (under Testing Method).
- * 2026-09-20: swapped exam paths ↔ `PmqLaunchProof` with home; moved `FeatureStack` here.
+ * How-you-practise (`LabActivityDemo`) is on `/lab` and live `/`.
+ * 2026-09-20: exam paths ↔ `PmqLaunchProof`; `FeatureStack` + standalone
+ * `TrialQuiz` moved here from `/`.
  */
 export const metadata: Metadata = {
   title: "Lab — Learn in Curve",
@@ -36,6 +38,16 @@ const LabActivityDemo = dynamic(
   },
 );
 
+const TrialQuiz = dynamic(
+  () =>
+    import("@/components/TrialQuiz").then((m) => ({ default: m.TrialQuiz })),
+  {
+    loading: () => (
+      <div className="mx-auto min-h-[24rem] max-w-[46rem]" aria-hidden />
+    ),
+  },
+);
+
 export default async function LabPage() {
   const supabase = await createClient();
   const {
@@ -50,6 +62,16 @@ export default async function LabPage() {
       <LabFeatureTiles />
       <FeatureStack />
       <PmqLaunchProof isSignedIn={isSignedIn} />
+      <section
+        id="lab-trial-quiz"
+        className="relative overflow-x-clip pt-[clamp(2rem,5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]"
+      >
+        <div className="wrap relative z-[1]">
+          <div className="mx-auto w-full max-w-[46rem]">
+            <TrialQuiz isSignedIn={isSignedIn} />
+          </div>
+        </div>
+      </section>
       <LabSlySection isSignedIn={isSignedIn} />
     </LabCanvas>
   );
