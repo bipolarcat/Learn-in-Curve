@@ -1,10 +1,10 @@
 "use client";
 
-import { useId, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import { PmqStartLink } from "@/components/PmqStartLink";
-import { PfqStartLink } from "@/components/pfq/PfqStartLink";
+import { useState } from "react";
+import {
+  LabExamPicker,
+  type LabExamPickerIntent,
+} from "@/components/lab/LabExamPicker";
 import { SlyShowcase } from "@/components/SlyShowcase";
 import {
   CtaArrow,
@@ -12,28 +12,20 @@ import {
   stampCtaTealFlat,
 } from "@/components/stamp-chip";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
 const CTA_PRIMARY =
   `${stampCtaTealFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
 const CTA_SECONDARY =
   `${stampCtaSecondaryFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
-const CHOOSER_CHIP =
-  "inline-flex min-h-10 items-center justify-center rounded-xl border border-ink/20 bg-paper px-4 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-[background-color,border-color,transform] duration-150 ease-[var(--ease-out-quint)] hover:border-ink/35 hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 active:scale-[0.97] sm:min-h-9 sm:text-[14px]";
-
-type ChooserIntent = "mock" | "course" | null;
 
 type LabSlySectionProps = {
   isSignedIn: boolean;
 };
 
 /**
- * Sly demo + exit CTAs so the lab landing doesn’t dead-end after the tutor taster.
+ * Sly demo + exit CTAs — opens the same iOS exam picker as the hero.
  */
 export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
-  const [intent, setIntent] = useState<ChooserIntent>(null);
-  const chooserId = useId();
-  const reduce = useReducedMotion();
+  const [picker, setPicker] = useState<LabExamPickerIntent | null>(null);
 
   return (
     <div className="relative">
@@ -53,11 +45,9 @@ export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
               <button
                 type="button"
                 className={CTA_PRIMARY}
-                aria-expanded={intent === "mock"}
-                aria-controls={chooserId}
-                onClick={() =>
-                  setIntent((v) => (v === "mock" ? null : "mock"))
-                }
+                aria-haspopup="dialog"
+                aria-expanded={picker === "mock"}
+                onClick={() => setPicker("mock")}
               >
                 <span className="relative z-[1] inline-flex items-center gap-1.5">
                   Take free mock
@@ -67,11 +57,9 @@ export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
               <button
                 type="button"
                 className={CTA_SECONDARY}
-                aria-expanded={intent === "course"}
-                aria-controls={chooserId}
-                onClick={() =>
-                  setIntent((v) => (v === "course" ? null : "course"))
-                }
+                aria-haspopup="dialog"
+                aria-expanded={picker === "course"}
+                onClick={() => setPicker("course")}
               >
                 <span className="relative z-[1] inline-flex items-center gap-1.5">
                   Start free course
@@ -79,69 +67,17 @@ export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
                 </span>
               </button>
             </div>
-
-            {intent ? (
-              <motion.div
-                id={chooserId}
-                role="group"
-                aria-label={
-                  intent === "mock"
-                    ? "Choose exam for free mock"
-                    : "Choose exam for free course"
-                }
-                className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-paper/80 px-3 py-2.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04)]"
-                initial={reduce ? false : { opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.28, ease: EASE }}
-              >
-                {intent === "mock" ? (
-                  <>
-                    <FreeMockExamLink
-                      className={CHOOSER_CHIP}
-                      from="home"
-                      location="lab-sly-mock"
-                      href="/free-mock-exam/apm-pmq"
-                      label="APM PMQ"
-                      analyticsLabel="Free PMQ mock"
-                    />
-                    <FreeMockExamLink
-                      className={CHOOSER_CHIP}
-                      from="home"
-                      location="lab-sly-mock"
-                      href="/free-mock-exam/apm-pfq"
-                      label="APM PFQ"
-                      analyticsLabel="Free PFQ mock"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <PmqStartLink
-                      isSignedIn={isSignedIn}
-                      className={CHOOSER_CHIP}
-                      from="home"
-                      showArrow={false}
-                      analyticsLocation="lab-sly-course"
-                      analyticsVariant="Start PMQ course"
-                    >
-                      APM PMQ
-                    </PmqStartLink>
-                    <PfqStartLink
-                      isSignedIn={isSignedIn}
-                      className={CHOOSER_CHIP}
-                      from="home"
-                      showArrow={false}
-                      analyticsLocation="lab-sly-course"
-                      analyticsVariant="Start PFQ course"
-                    >
-                      APM PFQ
-                    </PfqStartLink>
-                  </>
-                )}
-              </motion.div>
-            ) : null}
           </div>
         </div>
       </section>
+
+      <LabExamPicker
+        open={picker !== null}
+        intent={picker ?? "course"}
+        onClose={() => setPicker(null)}
+        isSignedIn={isSignedIn}
+        analyticsLocation="lab-sly"
+      />
     </div>
   );
 }
