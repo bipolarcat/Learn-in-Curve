@@ -338,7 +338,7 @@ export function TrialQuiz({
 
   if (embedded) {
     return (
-      <div className={styles.body} data-quiz-card="">
+      <div data-quiz-card="">
         <CheckAnswerHintHost />
         {runner}
       </div>
