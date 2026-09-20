@@ -65,6 +65,14 @@ export const TRIAL_QUESTIONS = [
 
 type TrialQuizProps = {
   isSignedIn: boolean;
+  /**
+   * Lab / nested use — no outer card chrome or marketing header; calls
+   * `onComplete` once all three questions are answered.
+   */
+  embedded?: boolean;
+  onComplete?: () => void;
+  /** Prefix for question-tab ids when multiple quizzes can mount. */
+  idPrefix?: string;
 };
 
 type Attempt = { letter: string; isCorrect: boolean };
@@ -79,9 +87,15 @@ type Attempt = { letter: string; isCorrect: boolean };
  * (2026-07-31), so this taster shouldn't advertise a mechanic that's on its
  * way out.
  */
-export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
+export function TrialQuiz({
+  isSignedIn,
+  embedded = false,
+  onComplete,
+  idPrefix = "trial-quiz",
+}: TrialQuizProps) {
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const completedTracked = useRef(false);
+  const completeSent = useRef(false);
   const [qi, setQi] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
@@ -98,6 +112,12 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
     const correctCount = Object.values(attempts).filter((a) => a.isCorrect).length;
     trackQuizDemoCompleted({ correct_count: correctCount, total });
   }, [allDone, attempts, total]);
+
+  useEffect(() => {
+    if (!allDone || !onComplete || completeSent.current) return;
+    completeSent.current = true;
+    onComplete();
+  }, [allDone, onComplete]);
 
   /** Never skip ahead: the frontier is the first unanswered question. */
   const maxReachable = TRIAL_QUESTIONS.findIndex((q) => !attempts[q.id]);
@@ -153,26 +173,9 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
       : `Not quite — ${question.explanation}`
     : "";
 
-  return (
-    <section
-      className={styles.card}
-      aria-labelledby="trial-quiz-title"
-      data-quiz-card=""
-    >
-      <CheckAnswerHintHost />
-      <div className="mb-1 text-left">
-        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-          Practice questions
-        </p>
-        <h2
-          id="trial-quiz-title"
-          className="m-0 mt-1.5 text-balance font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[1.75rem]"
-        >
-          Give it a try.
-        </h2>
-      </div>
+  const panelId = `${idPrefix}-panel`;
 
-      <div className={styles.body}>
+  const runner = (
         <div className={styles.runner} aria-label="Sample quiz">
           <div className={styles.qRail}>
             <div
@@ -203,8 +206,8 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
                     ref={(element) => {
                       tabRefs.current[index] = element;
                     }}
-                    id={`trial-quiz-tab-${index + 1}`}
-                    aria-controls="trial-quiz-panel"
+                    id={`${idPrefix}-tab-${index + 1}`}
+                    aria-controls={panelId}
                     aria-selected={current}
                     tabIndex={current ? 0 : -1}
                     aria-label={
@@ -227,9 +230,9 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
           </div>
 
           <div
-            id="trial-quiz-panel"
+            id={panelId}
             role="tabpanel"
-            aria-labelledby={`trial-quiz-tab-${qi + 1}`}
+            aria-labelledby={`${idPrefix}-tab-${qi + 1}`}
             className={styles.questionPanel}
           >
             <p className={styles.prompt}>
@@ -285,6 +288,7 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
             ) : null}
 
             {allDone ? (
+              embedded ? null : (
               <div className="mt-5 border-t border-dashed border-ink/15 pt-4">
                 <p className="m-0 font-body text-[14px] font-medium leading-snug text-ink text-pretty">
                   That&apos;s the taster. The full course is free.
@@ -301,6 +305,7 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
                   </PmqStartLink>
                 </div>
               </div>
+              )
             ) : (
               <div className={styles.navRow}>
                 <div className="min-w-0">
@@ -329,7 +334,37 @@ export function TrialQuiz({ isSignedIn }: TrialQuizProps) {
             )}
           </div>
         </div>
+  );
+
+  if (embedded) {
+    return (
+      <div className={styles.body} data-quiz-card="">
+        <CheckAnswerHintHost />
+        {runner}
       </div>
+    );
+  }
+
+  return (
+    <section
+      className={styles.card}
+      aria-labelledby={`${idPrefix}-title`}
+      data-quiz-card=""
+    >
+      <CheckAnswerHintHost />
+      <div className="mb-1 text-left">
+        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
+          Practice questions
+        </p>
+        <h2
+          id={`${idPrefix}-title`}
+          className="m-0 mt-1.5 text-balance font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[1.75rem]"
+        >
+          Give it a try.
+        </h2>
+      </div>
+
+      <div className={styles.body}>{runner}</div>
     </section>
   );
 }

@@ -44,7 +44,7 @@ export default async function LabPage() {
   return (
     <LabCanvas>
       <LabHero isSignedIn={isSignedIn} />
-      <LabActivityDemo />
+      <LabActivityDemo isSignedIn={isSignedIn} />
       <LabFeatureTiles />
       <LabExamPaths isSignedIn={isSignedIn} />
       <LabSlySection isSignedIn={isSignedIn} />

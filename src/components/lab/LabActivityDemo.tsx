@@ -2,6 +2,7 @@
 
 import { useCallback, useId, useState } from "react";
 import Link from "next/link";
+import { ListChecks } from "lucide-react";
 import {
   ActivityGroupupIcon,
   ActivityLineupIcon,
@@ -11,6 +12,7 @@ import { ACTIVITY_DISPLAY_NAMES } from "@/components/pmq/activities/names";
 import { Groupup } from "@/components/pmq/activities/Groupup";
 import { Lineup } from "@/components/pmq/activities/Lineup";
 import { Pairup } from "@/components/pmq/activities/Pairup";
+import { TrialQuiz } from "@/components/TrialQuiz";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CtaArrow, stampCtaTealFlat } from "@/components/stamp-chip";
 import {
@@ -83,9 +85,14 @@ const GROUPUP: GroupupActivity = {
   ],
 };
 
-type Mode = "pairup" | "lineup" | "groupup";
+type Mode = "quiz" | "pairup" | "lineup" | "groupup";
 
 const MODE_OPTIONS: SegmentedOption[] = [
+  {
+    value: "quiz",
+    label: "Quiz",
+    icon: <ListChecks className="size-4 shrink-0" aria-hidden strokeWidth={2.25} />,
+  },
   {
     value: "pairup",
     label: ACTIVITY_DISPLAY_NAMES.pairup,
@@ -115,21 +122,31 @@ const ACTIVITY_BY_MODE = {
   groupup: GROUPUP,
 } as const;
 
+const QUIZ_COPY = {
+  heading: "Practice questions",
+  title: "Three real questions from the course bank.",
+} as const;
+
+type LabActivityDemoProps = {
+  isSignedIn?: boolean;
+};
+
 /**
- * Lab-only live recall demo — one card, three modes.
+ * Lab-only live recall demo — quiz + three activity modes.
  * Pairup + Lineup support tap/keyboard place. Groupup is pointer-drag only
  * (activities/ untouched); flagged in BUSINESS_STATE until a non-drag path exists.
  */
-export function LabActivityDemo() {
+export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
   const baseId = useId();
-  const [mode, setMode] = useState<Mode>("pairup");
+  const [mode, setMode] = useState<Mode>("quiz");
   const [completedOnce, setCompletedOnce] = useState(false);
 
   const onComplete = useCallback(() => {
     setCompletedOnce(true);
   }, []);
 
-  const activity = ACTIVITY_BY_MODE[mode];
+  const activityMeta =
+    mode === "quiz" ? QUIZ_COPY : ACTIVITY_BY_MODE[mode];
   const panelId = `${baseId}-panel`;
   const tabPrefix = `${baseId}-tab`;
 
@@ -148,10 +165,11 @@ export function LabActivityDemo() {
             id="lab-activity-demo-heading"
             className="font-display text-[clamp(1.65rem,3.5vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink"
           >
-            Recall it three ways
+            Recall it four ways
           </h2>
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
-            Same idea from the course, tested three different ways. Have a go.
+            Practice questions plus three recall activities from the course.
+            Have a go.
           </p>
         </ScrollReveal>
 
@@ -162,22 +180,22 @@ export function LabActivityDemo() {
           <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper/70 p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7">
             <div className="flex justify-center">
               <SegmentedControl
-                label="Recall activity modes"
+                label="Practice modes"
                 options={MODE_OPTIONS}
                 value={mode}
                 onValueChange={(next) => setMode(next as Mode)}
                 semantics="tablist"
                 idPrefix={tabPrefix}
                 panelId={panelId}
-                className="w-full max-w-lg"
+                className="w-full max-w-xl sm:!min-w-0"
               />
             </div>
 
             <p className="mt-4 min-h-[2.75rem] text-center font-body text-[13px] font-medium leading-snug text-ink/60 sm:min-h-[1.5rem] sm:text-[14px]">
               <span className="font-semibold text-ink/75">
-                {activity.heading}.
+                {activityMeta.heading}.
               </span>{" "}
-              {activity.title}
+              {activityMeta.title}
             </p>
 
             <div
@@ -186,6 +204,15 @@ export function LabActivityDemo() {
               aria-labelledby={`${tabPrefix}-${mode}`}
               className="lab-activity-stage mt-4 min-w-0 overflow-x-clip"
             >
+              {mode === "quiz" ? (
+                <TrialQuiz
+                  key="demo-quiz"
+                  isSignedIn={isSignedIn}
+                  embedded
+                  idPrefix={`${baseId}-quiz`}
+                  onComplete={onComplete}
+                />
+              ) : null}
               {mode === "pairup" ? (
                 <Pairup
                   key="demo-pairup"
