@@ -21,6 +21,8 @@ type CoursesCatalogProps = {
   courses: Course[];
   isSignedIn: boolean;
   enrolledSlugs?: string[];
+  /** Hide page title + filter (embed under another section heading). */
+  showToolbar?: boolean;
 };
 
 const FILTERS: { id: CatalogFilter; label: string }[] = [
@@ -282,6 +284,7 @@ function NotifyMeButton({ onOpen }: { onOpen: () => void }) {
 
 export function CoursesCatalog({
   courses,
+  showToolbar = true,
 }: CoursesCatalogProps) {
   const [filter, setFilter] = useState<CatalogFilter>("all");
   const [notifyOpen, setNotifyOpen] = useState(false);
@@ -292,12 +295,14 @@ export function CoursesCatalog({
 
   return (
     <div className={styles.shell}>
-      <div className={styles.toolbar}>
-        <h1 className={styles.pageTitle}>
-          Pick your <span className="text-orange">course</span>.
-        </h1>
-        <FilterDropdown value={filter} onChange={setFilter} />
-      </div>
+      {showToolbar ? (
+        <div className={styles.toolbar}>
+          <h1 className={styles.pageTitle}>
+            Pick your <span className="text-orange">course</span>.
+          </h1>
+          <FilterDropdown value={filter} onChange={setFilter} />
+        </div>
+      ) : null}
 
       {visible.length === 0 ? (
         <p className={styles.empty} role="status">
