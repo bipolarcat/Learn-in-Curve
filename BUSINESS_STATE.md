@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-20** — Header “Sign in” control sized to header chrome (`headerPillSecondary` h-8, not stamp `h-11`) (`SiteHeaderControls`).
 - **2026-09-20** — Header guest auth CTA: always outline “Sign in” → `/auth/sign-in` (no `lic_has_account` guess / hydration flip); Google `markHasAccount()` only after successful `signInWithOAuth` (`SiteHeaderControls`, `AuthForm`).
 - **2026-09-20** — Status page (404/error): tightened logo→headline gap (`mb-7` → `mb-2.5` / `sm:mb-3`) on `SiteStatusPage`.
 - **2026-09-20** — Lab exam picker: back to inline dropdown under CTAs (not modal sheet); frosted card, titled list rows with chevron hover, click-outside + Escape (`LabExamPicker`, `LabHero`, `LabSlySection`).

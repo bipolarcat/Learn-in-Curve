@@ -9,7 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { allowsDarkMode } from "@/lib/theme-routes";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
-import { stampChipLabeledIdle } from "@/components/stamp-chip";
+import { headerPillSecondary } from "@/components/header-control";
 import { SiteHeaderMenu, type HeaderAccount } from "@/components/SiteHeaderMenu";
 
 export {
@@ -158,7 +158,7 @@ export function SiteHeaderControls({
         <HeaderChip style={{ "--i": 2 } as CSSProperties}>
           <HeaderNavButton
             href="/auth/sign-in"
-            className={stampChipLabeledIdle}
+            className={`${headerPillSecondary} !normal-case`}
             ariaLabel="Sign in"
             title="Sign in"
             busyLabel="Opening sign in"
