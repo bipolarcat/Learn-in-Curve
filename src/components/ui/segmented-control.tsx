@@ -181,7 +181,7 @@ export function SegmentedControl({
 
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 overflow-hidden rounded-[7px] bg-cream-2 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.16)] ring-1 ring-ink/10"
+          className="pointer-events-none absolute inset-y-0 left-0 overflow-hidden rounded-[7px] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.12)] ring-1 ring-ink/10"
           style={{ width: `${100 / count}%`, x: thumbX }}
           initial={false}
         >
@@ -237,7 +237,7 @@ export function SegmentedControl({
               onClick={() => !option.disabled && select(option.value)}
               onKeyDown={(e) => onKeyDown(e, i)}
               onPointerEnter={() => !option.disabled && setHovered(i)}
-              className="cursor-default rounded-[7px] outline-none focus-visible:bg-cream-2/40 focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
+              className="cursor-default rounded-[7px] outline-none focus-visible:bg-paper/50 focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
             >
               <span className="sr-only">{option.label}</span>
             </button>
