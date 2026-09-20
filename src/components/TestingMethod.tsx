@@ -11,6 +11,7 @@ const STEPS = [
     src: "/brand/features/practice.webp",
     alt: "Illustrated practice scene — answering questions instead of re-reading notes.",
     objectPosition: "center 40%",
+    imageClassName: "",
     tone: "teal" as const,
   },
   {
@@ -22,6 +23,7 @@ const STEPS = [
     src: "/brand/features/misconceptions.webp",
     alt: "Illustrated weak-spots scene — mistakes mapped into a clearer study plan.",
     objectPosition: "center 45%",
+    imageClassName: "",
     tone: "orange" as const,
   },
   {
@@ -32,8 +34,9 @@ const STEPS = [
     body: "Revisit questions you got wrong, retest difficult topics, and strengthen your recall over time — so you’re practising retrieval, not just recognising information on a page.",
     src: "/brand/features/memory.webp",
     alt: "Illustrated memory scene — repeating retrieval until the learning sticks.",
-    // Asset cropped flush to rabbit + board at 5:4; top bias keeps ears on mobile 4:3 plate.
+    // Asset cropped flush to rabbit + board at 5:4; slight scale-out shows more scene.
     objectPosition: "center 35%",
+    imageClassName: "scale-[0.92]",
     tone: "cream" as const,
   },
 ] as const;
@@ -75,6 +78,7 @@ export function TestingMethod() {
                     src={step.src}
                     alt={step.alt}
                     objectPosition={step.objectPosition}
+                    imageClassName={step.imageClassName}
                     tone={step.tone}
                     priority={i === 0}
                   />
