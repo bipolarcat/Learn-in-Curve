@@ -1,0 +1,222 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - link "Skip to content" [ref=f3e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Primary" [ref=f3e5]:
+      - link "Learn in Curve" [ref=f3e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e8]:
+          - generic [ref=f3e9]: Learn in
+          - generic [ref=f3e10]: Curve
+      - group "Site controls" [ref=f3e11]:
+        - button "Sign in" [ref=f3e13] [cursor=pointer]
+        - button "Open menu" [ref=f3e20] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e23]:
+            - generic [ref=f3e24]: M
+            - generic [ref=f3e25]: e
+            - generic [ref=f3e26]: "n"
+            - generic [ref=f3e27]: u
+    - main [ref=f3e28]:
+      - generic [ref=f3e29]:
+        - generic: Lab · not indexed
+        - region [ref=f3e30]:
+          - generic [ref=f3e32]:
+            - generic [ref=f3e34]:
+              - paragraph [ref=f3e35]: Exam in eight weeks or less
+              - heading "PFQ or PMQ. Pass on the curve." [level=1] [ref=f3e36]:
+                - text: PFQ or PMQ.
+                - generic [ref=f3e37]: Pass on the
+                - generic [ref=f3e38]: curve.
+            - paragraph [ref=f3e39]: Stop re-reading. Take a free mock, find your weak spots, then start the free course — built for PMs sitting the APM PFQ or PMQ soon.
+            - paragraph [ref=f3e40]: Trusted by 100+ learners
+            - generic [ref=f3e42]:
+              - button "Take free mock" [ref=f3e43] [cursor=pointer]
+              - button "Start free course" [ref=f3e47] [cursor=pointer]
+        - region [ref=f3e51]:
+          - generic [ref=f3e52]:
+            - generic [ref=f3e53]:
+              - paragraph [ref=f3e54]: How you practise
+              - heading "Recall it three ways" [level=2] [ref=f3e55]
+              - paragraph [ref=f3e56]: Same idea from the course, tested three different ways. Have a go.
+            - generic [ref=f3e58]:
+              - tablist "Recall activity modes" [ref=f3e59]:
+                - tab "Pair up" [selected] [ref=f3e60] [cursor=pointer]
+                - tab "Lineup" [ref=f3e72] [cursor=pointer]
+                - tab "Group up" [ref=f3e84] [cursor=pointer]
+              - paragraph [ref=f3e97]:
+                - generic [ref=f3e98]: Change control.
+                - text: Match each term to what it means.
+              - tabpanel "Pair up" [ref=f3e99]:
+                - generic [ref=f3e100]:
+                  - list [ref=f3e101]:
+                    - listitem [ref=f3e102]:
+                      - generic [ref=f3e103]: Impact assessment
+                    - listitem [ref=f3e107]:
+                      - generic [ref=f3e108]: Change request
+                    - listitem [ref=f3e112]:
+                      - generic [ref=f3e113]: Baseline
+                    - listitem [ref=f3e117]:
+                      - generic [ref=f3e118]: Change log
+                  - generic [ref=f3e122]:
+                    - generic [ref=f3e123]: Meanings
+                    - generic [ref=f3e126]:
+                      - button "The check on cost, time and risk before deciding" [ref=f3e127] [cursor=pointer]
+                      - button "The formal ask to alter an agreed baseline" [ref=f3e128] [cursor=pointer]
+                      - button "The approved reference the project is measured against" [ref=f3e129] [cursor=pointer]
+                      - button "The register of every request and its outcome" [ref=f3e130] [cursor=pointer]
+                  - status [ref=f3e131]: 0 of 4 paired
+        - region [ref=f3e132]:
+          - generic [ref=f3e133]:
+            - generic [ref=f3e134]:
+              - paragraph [ref=f3e135]: What’s inside
+              - heading "Everything you need before exam day" [level=2] [ref=f3e136]
+              - paragraph [ref=f3e137]: Mocks, quizzes, the syllabus, and Sly — illustrated the LIC way, not a feature dump.
+            - list [ref=f3e138]:
+              - listitem [ref=f3e139]:
+                - article [ref=f3e141]:
+                  - img "Illustrated mock exam desk scene." [ref=f3e144]
+                  - generic [ref=f3e145]:
+                    - heading "Full mock exams" [level=3] [ref=f3e146]
+                    - paragraph [ref=f3e147]: Timed papers that mirror exam pressure — so the real sitting feels familiar.
+              - listitem [ref=f3e148]:
+                - article [ref=f3e150]:
+                  - img "Illustrated practice quiz scene." [ref=f3e153]
+                  - generic [ref=f3e154]:
+                    - heading "Practice quizzes" [level=3] [ref=f3e155]
+                    - paragraph [ref=f3e156]: Short retrieval sets as you learn — catch gaps before they pile up.
+              - listitem [ref=f3e157]:
+                - article [ref=f3e159]:
+                  - img "Illustrated syllabus study scene." [ref=f3e162]
+                  - generic [ref=f3e163]:
+                    - heading "Full syllabus" [level=3] [ref=f3e164]
+                    - paragraph [ref=f3e165]: Structured lessons for every learning outcome — built around how the exam works.
+              - listitem [ref=f3e166]:
+                - article [ref=f3e168]:
+                  - img "Illustrated Sly AI tutor scene." [ref=f3e171]
+                  - generic [ref=f3e172]:
+                    - heading "Sly, your AI tutor" [level=3] [ref=f3e173]
+                    - paragraph [ref=f3e174]: Ask exam questions in plain English. Beta taster on the page — unlimited with AI Pro later.
+            - paragraph [ref=f3e179]: Same crew. Different scenes.
+        - region [ref=f3e180]:
+          - generic [ref=f3e181]:
+            - generic [ref=f3e182]:
+              - paragraph [ref=f3e183]: Pick your exam
+              - heading "PFQ or PMQ — same curve" [level=2] [ref=f3e184]
+              - paragraph [ref=f3e185]: Sitting either qualification in the next eight weeks? Start with the free mock for your exam, then enrol on the matching free course.
+            - list [ref=f3e186]:
+              - listitem [ref=f3e187]:
+                - article [ref=f3e189]:
+                  - img "PMQ in 5 Days course illustration." [ref=f3e191]
+                  - generic [ref=f3e192]:
+                    - generic [ref=f3e193]:
+                      - paragraph [ref=f3e194]: Project Management Qualification
+                      - heading "APM PMQ" [level=3] [ref=f3e195]
+                      - paragraph [ref=f3e196]: Deeper syllabus, tougher scenarios. Free mock first — then the free PMQ course when you’re ready.
+                    - generic [ref=f3e197]:
+                      - link "APM PMQ free mock" [ref=f3e198] [cursor=pointer]:
+                        - /url: /free-mock-exam/apm-pmq?from=home
+                        - generic [ref=f3e200]: Take free mock
+                      - link "Start free course" [ref=f3e203] [cursor=pointer]:
+                        - /url: /courses/pmq-in-5-days/preview?from=home
+              - listitem [ref=f3e206]:
+                - article [ref=f3e208]:
+                  - img "PFQ in 2 Days course illustration." [ref=f3e210]
+                  - generic [ref=f3e211]:
+                    - generic [ref=f3e212]:
+                      - paragraph [ref=f3e213]: Project Fundamentals Qualification
+                      - heading "APM PFQ" [level=3] [ref=f3e214]
+                      - paragraph [ref=f3e215]: Foundations, faster. Free mock first — then the free PFQ course when you’re ready.
+                    - generic [ref=f3e216]:
+                      - link "APM PFQ free mock" [ref=f3e217] [cursor=pointer]:
+                        - /url: /free-mock-exam/apm-pfq?from=home
+                        - generic [ref=f3e219]: Take free mock
+                      - link "Start free course" [ref=f3e222] [cursor=pointer]:
+                        - /url: /courses/pfq-in-2-days/preview?from=home
+        - generic [ref=f3e225]:
+          - region [ref=f3e226]:
+            - generic [ref=f3e227]:
+              - region "Try Sly, the AI tutor" [ref=f3e229]:
+                - generic [ref=f3e231]:
+                  - paragraph [ref=f3e238]: Sly · AI tutor
+                  - paragraph [ref=f3e239]: 3 free questions
+                - generic [ref=f3e240]:
+                  - generic [ref=f3e242]:
+                    - paragraph [ref=f3e244]: Choose a question below or type your own. Answers are live, and the Beta is limited to a few questions per visitor.
+                    - generic [ref=f3e245]:
+                      - button "What is the APM PMQ exam actually testing?" [ref=f3e246] [cursor=pointer]
+                      - button "Explain stakeholder management in plain English" [ref=f3e247] [cursor=pointer]
+                      - button "Give me one exam-technique tip for scenario questions" [ref=f3e248] [cursor=pointer]
+                  - generic [ref=f3e249]:
+                    - generic [ref=f3e250]:
+                      - textbox "Message to Sly" [ref=f3e251]:
+                        - /placeholder: Ask Sly…
+                      - button "Send message" [disabled] [ref=f3e252]
+                    - paragraph [ref=f3e255]:
+                      - text: Sly is AI and can make mistakes.·
+                      - button "Send feedback" [ref=f3e256] [cursor=pointer]
+              - generic [ref=f3e257]:
+                - generic [ref=f3e258]:
+                  - generic [ref=f3e259]: AI TUTOR
+                  - heading "Try Sly now Beta" [level=2] [ref=f3e263]:
+                    - text: Try
+                    - generic [ref=f3e264]: Sly
+                    - text: now
+                    - generic [ref=f3e265]: Beta
+                - paragraph [ref=f3e266]: The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.
+          - region "Continue after trying Sly" [ref=f3e267]:
+            - generic [ref=f3e269]:
+              - paragraph [ref=f3e270]: Ready to revise for real? Take a free mock or start the free course.
+              - generic [ref=f3e272]:
+                - button "Take free mock" [ref=f3e273] [cursor=pointer]
+                - button "Start free course" [ref=f3e277] [cursor=pointer]
+    - contentinfo [ref=f3e281]:
+      - generic [ref=f3e282]:
+        - generic [ref=f3e283]:
+          - generic [ref=f3e284]:
+            - generic [ref=f3e286]:
+              - generic [ref=f3e287]: Learn in
+              - generic [ref=f3e288]: Curve
+            - generic [ref=f3e289]:
+              - link "Learn in Curve on Instagram" [ref=f3e290] [cursor=pointer]:
+                - /url: https://www.instagram.com/learn.in.curve/
+              - link "Learn in Curve on LinkedIn" [ref=f3e293] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/learn-in-curve/
+          - navigation "Footer" [ref=f3e296]:
+            - link "Privacy" [ref=f3e297] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms" [ref=f3e298] [cursor=pointer]:
+              - /url: /terms
+            - link "Cookies" [ref=f3e299] [cursor=pointer]:
+              - /url: /cookies
+            - button "Send feedback" [ref=f3e300] [cursor=pointer]
+        - region [ref=f3e301]:
+          - heading "Join our newsletter." [level=2] [ref=f3e311]
+          - generic [ref=f3e313]:
+            - generic [ref=f3e314]:
+              - generic [ref=f3e315]: Email address
+              - textbox "Email address" [ref=f3e316]:
+                - /placeholder: you@email.com
+              - button "Join" [ref=f3e317] [cursor=pointer]
+            - paragraph [ref=f3e320]:
+              - text: Unsubscribe anytime.
+              - link "Privacy Policy" [ref=f3e321] [cursor=pointer]:
+                - /url: /privacy
+      - generic [ref=f3e322]:
+        - generic:
+          - paragraph: © 2026 Learn in Curve
+          - paragraph: v2.46
+  - dialog "Cookies":
+    - generic [ref=f3e325]:
+      - generic [ref=f3e334]:
+        - paragraph [ref=f3e335]: Cookies
+        - paragraph [ref=f3e336]:
+          - text: We use a strictly necessary cookie to keep you signed in. We’d also like to use analytics cookies to see which lessons work and where people get stuck. No ads, ever.
+          - link "Cookie notice" [ref=f3e337] [cursor=pointer]:
+            - /url: /cookies
+      - generic [ref=f3e338]:
+        - button "Accept" [ref=f3e339] [cursor=pointer]
+        - button "Reject" [ref=f3e340] [cursor=pointer]
+        - link "Details" [ref=f3e341] [cursor=pointer]:
+          - /url: /cookies
+  - alert [ref=f3e342]
+  - region "Notifications alt+T"
