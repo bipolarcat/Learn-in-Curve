@@ -1,18 +1,15 @@
 "use client";
 
 import {
-  useEffect,
-  useState,
   useTransition,
   type CSSProperties,
   type ReactNode,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { hasCreatedAccount } from "@/lib/auth-hints";
 import { allowsDarkMode } from "@/lib/theme-routes";
 import { Spinner } from "@/components/ui/spinner";
 import { trackCtaClicked } from "@/lib/analytics/events";
-import { headerPillAuthGleam } from "@/components/header-control";
+import { stampChipLabeledIdle } from "@/components/stamp-chip";
 import { SiteHeaderMenu, type HeaderAccount } from "@/components/SiteHeaderMenu";
 
 export {
@@ -90,7 +87,7 @@ function HeaderNavButton({
   );
 }
 
-/** Person for Sign up / Sign in */
+/** Person for Sign in */
 function AuthIcon() {
   return (
     <svg
@@ -107,18 +104,6 @@ function AuthIcon() {
       <path d="M5.5 19.5c1.2-3.2 3.5-4.8 6.5-4.8s5.3 1.6 6.5 4.8" />
     </svg>
   );
-}
-
-type GuestCta = {
-  href: string;
-  label: string;
-};
-
-function resolveGuestCta(): GuestCta {
-  if (hasCreatedAccount()) {
-    return { href: "/auth/sign-in", label: "Sign in" };
-  }
-  return { href: "/auth/sign-up", label: "Get Started" };
 }
 
 function HeaderChip({
@@ -147,22 +132,14 @@ type SiteHeaderControlsProps = {
  * Site chrome:
  * Overflow menu holds site links (including Home Page). Signed-in: profile
  * summary, My dashboard, Sign out, and (on dark-capable routes) the theme toggle.
- * Guests: Get Started / Sign in labeled at all sizes.
- * Auth pages (`/auth/*`) and course previews: menu only, no Sign in/up CTA.
+ * Guests: quiet outline “Sign in” → `/auth/sign-in` (sign-up is linked from that form).
+ * Auth pages (`/auth/*`) and course previews: menu only, no Sign in CTA.
  */
 export function SiteHeaderControls({
   isSignedIn = false,
   account = null,
 }: SiteHeaderControlsProps) {
   const pathname = usePathname();
-  const [guestCta, setGuestCta] = useState<GuestCta>({
-    href: "/auth/sign-up",
-    label: "Get Started",
-  });
-
-  useEffect(() => {
-    setGuestCta(resolveGuestCta());
-  }, []);
 
   const onPmqPreview = pathname === "/courses/pmq-in-5-days/preview";
   const onPfqPreview = pathname === "/courses/pfq-in-2-days/preview";
@@ -180,23 +157,17 @@ export function SiteHeaderControls({
       {!isSignedIn && !hideGuestAuthCta ? (
         <HeaderChip style={{ "--i": 2 } as CSSProperties}>
           <HeaderNavButton
-            href={guestCta.href}
-            className={headerPillAuthGleam}
-            ariaLabel={guestCta.label}
-            title={guestCta.label}
-            busyLabel={
-              guestCta.label === "Sign in"
-                ? "Opening sign in"
-                : "Opening sign up"
-            }
-            spinnerClassName="text-paper relative z-[1]"
+            href="/auth/sign-in"
+            className={stampChipLabeledIdle}
+            ariaLabel="Sign in"
+            title="Sign in"
+            busyLabel="Opening sign in"
+            spinnerClassName="text-current"
             analyticsLocation="header"
-            analyticsVariant={guestCta.label}
+            analyticsVariant="Sign in"
           >
-            <span className="relative z-[1] inline-flex items-center gap-1.5">
-              <AuthIcon />
-              <span>{guestCta.label}</span>
-            </span>
+            <AuthIcon />
+            <span>Sign in</span>
           </HeaderNavButton>
         </HeaderChip>
       ) : null}

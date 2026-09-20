@@ -368,7 +368,6 @@ export function AuthForm({
     setLoading(true);
     setMessage(null);
     setIsError(false);
-    markHasAccount();
     writeLastAuthMethod("google");
     setLastMethod("google");
     const { error } = await supabase.auth.signInWithOAuth({
@@ -393,7 +392,11 @@ export function AuthForm({
       } else {
         trackSignInFailed({ method: "google", reason });
       }
+      return;
     }
+    // Only claim an account once OAuth started successfully (redirect imminent).
+    // Marking before signInWithOAuth permanently mis-labels abandoned flows.
+    markHasAccount();
   }
 
   const linkClass = saas
