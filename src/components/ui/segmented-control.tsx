@@ -176,9 +176,7 @@ export function SegmentedControl({
             )}
           >
             {option.icon ? (
-              <span className="hidden shrink-0 sm:inline-flex">
-                {option.icon}
-              </span>
+              <span className="inline-flex shrink-0">{option.icon}</span>
             ) : null}
             <span className="min-w-0 truncate">{option.label}</span>
           </span>
@@ -208,9 +206,7 @@ export function SegmentedControl({
                   className={cn(SEG, "min-w-0 whitespace-nowrap text-ink")}
                 >
                   {option.icon ? (
-                    <span className="hidden shrink-0 sm:inline-flex">
-                      {option.icon}
-                    </span>
+                    <span className="inline-flex shrink-0">{option.icon}</span>
                   ) : null}
                   <span className="min-w-0 truncate">{option.label}</span>
                 </span>

@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-20** — Lab recall segmented control: icons restored on mobile (`segmented-control.tsx`).
 - **2026-09-20** — Lab recall demo mobile fix: segmented control hides icons + tighter type below `sm`; `.lab-activity-stage` stacks Pairup + unwraps Lineup text (`globals.css`, `LabActivityDemo`, `segmented-control.tsx`).
 - **2026-09-20** — Segmented control active thumb: teal → brand `paper` cream (matches card/header chrome) + ink label (`segmented-control.tsx`).
 - **2026-09-20** — Lab recall demo mode switcher → LIC-adapted 21st segmented control (teal sliding thumb, `framer-motion`; no separate `motion` package) in `segmented-control.tsx`, wired in `LabActivityDemo`.
