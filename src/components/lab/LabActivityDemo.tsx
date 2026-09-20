@@ -32,8 +32,8 @@ const CTA_PRIMARY =
 const PAIRUP: PairupActivity = {
   id: "demo-pairup",
   type: "pairup",
-  heading: "Change control",
-  title: "Match each term to what it means.",
+  heading: "Change control has four terms the exam keeps coming back to",
+  title: "Drag each meaning up to the term it belongs to.",
   pairs: [
     {
       term: "Change request",
@@ -191,11 +191,11 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
               />
             </div>
 
-            <p className="mt-4 min-h-[2.75rem] text-center font-body text-[13px] font-medium leading-snug text-ink/60 sm:min-h-[1.5rem] sm:text-[14px]">
-              <span className="font-semibold text-ink/75">
+            <p className="mt-4 min-h-[2.75rem] text-center font-body text-[13px] font-medium leading-snug sm:min-h-[1.5rem] sm:text-[14px]">
+              <span className="font-semibold text-ink">
                 {activityMeta.heading}.
               </span>{" "}
-              {activityMeta.title}
+              <span className="text-ink/60">{activityMeta.title}</span>
             </p>
 
             <div
