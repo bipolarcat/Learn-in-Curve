@@ -81,7 +81,7 @@ export function SiteStatusPage({ variant }: SiteStatusPageProps) {
       >
         <Link
           href="/"
-          className="brand mb-7 inline-flex items-center gap-2.5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2"
+          className="brand mb-2.5 inline-flex items-center gap-2.5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 sm:mb-3"
         >
           <Logo size={36} className="h-9 w-9" alt="" />
           <span className="brand-name flex w-max flex-col font-display text-[clamp(0.68rem,1.3vw,0.8rem)] font-bold leading-none tracking-[-0.02em] text-ink">
