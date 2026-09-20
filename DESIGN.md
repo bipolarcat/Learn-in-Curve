@@ -103,15 +103,13 @@ cream dotted body). Noindex + robots disallow. Mount spikes under
 `src/components/lab/` via `LabCanvas` on `src/app/(site)/lab/page.tsx`. Do not
 edit the live homepage until promoting a winner.
 
-**Current spike (2026-09-20):** illustrated landing — `LabHero` → `LabHowItWorks`
-(3 active-recall plates + animal stickers) → `LabFeatureTiles` (mocks / practice /
-syllabus / Sly + animals strip) → `LabExamPaths` (PFQ vs PMQ cards) →
-`LabSlySection`. Uses existing `brand/features`, hero animals poster, fox/Sly
-mascots. Live `/` unchanged until promote.
+**Current spike (2026-09-20):** illustrated landing — `LabHero` →
+`LabFeatureTiles` → `LabExamPaths` → `LabSlySection`. Testing method promoted
+to live `/` as `TestingMethod` (between hero and PMQ proof).
 
 ### Home sections (restaged 2026-07-31)
 
-Order: Hero → Proof → Features → TrialQuiz → Sly → Newsletter. One continuous
+Order: Hero → Testing method → Proof → Features → TrialQuiz → Sly → Newsletter. One continuous
 cream dotted-paper surface throughout — no full-bleed colour bands, no seams.
 Section gaps are `clamp(5rem, 10vw, 8rem)`. Proof section CTA uses
 `PmqStartLink`; hero uses free-mock + courses browse (see above).

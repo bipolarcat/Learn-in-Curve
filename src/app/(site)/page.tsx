@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 import { FeatureStack } from "@/components/FeatureStack";
+import { TestingMethod } from "@/components/TestingMethod";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -47,6 +48,8 @@ export default async function HomePage() {
   return (
     <>
       <HomeBrandHero />
+
+      <TestingMethod />
 
       <PmqLaunchProof isSignedIn={isSignedIn} />
 

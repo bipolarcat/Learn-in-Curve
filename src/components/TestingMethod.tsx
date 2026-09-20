@@ -44,14 +44,14 @@ const STEPS = [
 ];
 
 /**
- * Illustrated “how it works” — three active-recall beats with brand art + animal stickers.
- * Mobile: stacked cards. Desktop: 3-up grid.
+ * Illustrated testing method — three active-recall beats with brand art + stickers.
+ * Home: between hero and PMQ launch proof. Mobile stacked; desktop 3-up.
  */
-export function LabHowItWorks() {
+export function TestingMethod() {
   return (
     <section
-      id="lab-how"
-      aria-labelledby="lab-how-heading"
+      id="home-testing-method"
+      aria-labelledby="home-testing-method-heading"
       className="relative overflow-x-clip border-t border-ink/[0.06] pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">
@@ -60,7 +60,7 @@ export function LabHowItWorks() {
             The testing method
           </p>
           <h2
-            id="lab-how-heading"
+            id="home-testing-method-heading"
             className="font-display text-[clamp(1.65rem,3.5vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink"
           >
             Active recall, not re-reading
