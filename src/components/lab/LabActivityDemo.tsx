@@ -184,7 +184,7 @@ export function LabActivityDemo() {
               role="tabpanel"
               id={panelId}
               aria-labelledby={`${tabPrefix}-${mode}`}
-              className="mt-4 overflow-x-clip"
+              className="lab-activity-stage mt-4 min-w-0 overflow-x-clip"
             >
               {mode === "pairup" ? (
                 <Pairup

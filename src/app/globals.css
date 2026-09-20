@@ -1516,3 +1516,26 @@ html.lic-deferred-entrance *::after {
     }
   }
 }
+
+/* Lab recall demo — mobile activity layout (activities/ untouched) */
+@media (max-width: 639px) {
+  .lab-activity-stage li > div.grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .lab-activity-stage span.truncate {
+    overflow: visible !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+    padding-block: 0.35rem;
+  }
+
+  .lab-activity-stage li.h-11 {
+    height: auto !important;
+    min-height: 2.75rem;
+    align-items: flex-start !important;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+}

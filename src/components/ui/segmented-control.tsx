@@ -26,7 +26,7 @@ const CELL = {
 } as const;
 
 const SEG =
-  "inline-flex items-center justify-center gap-1.5 px-3 py-[7px] text-center font-body text-[13px] font-semibold leading-[18px] tracking-[-0.01em] whitespace-nowrap sm:px-3.5";
+  "inline-flex min-h-10 items-center justify-center gap-1 px-2 py-2 text-center font-body text-[12px] font-semibold leading-snug tracking-[-0.01em] sm:min-h-0 sm:gap-1.5 sm:px-3.5 sm:py-[7px] sm:text-[13px] sm:leading-[18px]";
 
 export type SegmentedOption = {
   value: string;
@@ -54,7 +54,7 @@ export type SegmentedControlProps = {
 };
 
 /**
- * Sliding segmented control — 21st.dev pattern, LIC tokens (teal thumb, ink track).
+ * Sliding segmented control — 21st.dev pattern, LIC tokens (paper thumb, ink track).
  * Uses `framer-motion` (already in the app); do not add the separate `motion` package.
  */
 export function SegmentedControl({
@@ -158,7 +158,7 @@ export function SegmentedControl({
       )}
     >
       <div
-        className="relative grid"
+        className="relative grid min-w-0"
         style={{ gridTemplateColumns: template, touchAction: "manipulation" }}
       >
         {options.map((option, i) => (
@@ -167,6 +167,7 @@ export function SegmentedControl({
             aria-hidden
             className={cn(
               SEG,
+              "min-w-0 whitespace-nowrap",
               option.disabled
                 ? "text-ink/25"
                 : hovered === i && i !== index
@@ -174,8 +175,12 @@ export function SegmentedControl({
                   : "text-ink/50",
             )}
           >
-            {option.icon}
-            {option.label}
+            {option.icon ? (
+              <span className="hidden shrink-0 sm:inline-flex">
+                {option.icon}
+              </span>
+            ) : null}
+            <span className="min-w-0 truncate">{option.label}</span>
           </span>
         ))}
 
@@ -191,7 +196,7 @@ export function SegmentedControl({
             initial={false}
           >
             <div
-              className="absolute inset-y-0 left-0 grid"
+              className="absolute inset-y-0 left-0 grid min-w-0"
               style={{
                 width: `${count * 100}%`,
                 gridTemplateColumns: template,
@@ -200,10 +205,14 @@ export function SegmentedControl({
               {options.map((option) => (
                 <span
                   key={`thumb-${option.value}`}
-                  className={cn(SEG, "text-ink")}
+                  className={cn(SEG, "min-w-0 whitespace-nowrap text-ink")}
                 >
-                  {option.icon}
-                  {option.label}
+                  {option.icon ? (
+                    <span className="hidden shrink-0 sm:inline-flex">
+                      {option.icon}
+                    </span>
+                  ) : null}
+                  <span className="min-w-0 truncate">{option.label}</span>
                 </span>
               ))}
             </div>
