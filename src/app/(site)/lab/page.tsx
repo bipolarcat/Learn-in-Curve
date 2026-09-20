@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { LabCanvas } from "@/components/lab/LabCanvas";
-import { LabExamPaths } from "@/components/lab/LabExamPaths";
 import { LabFeatureTiles } from "@/components/lab/LabFeatureTiles";
 import { LabHero } from "@/components/lab/LabHero";
 import { LabSlySection } from "@/components/lab/LabSlySection";
+import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 
 /**
  * Design sandbox — illustrated landing redesign spike.
- * Order: Hero → Activity demo → Features → Exam paths → Sly.
- * Testing method lives on live `/` (between hero and PMQ proof).
+ * Order: Hero → Activity demo → Features → PMQ live → Sly.
+ * Testing method + exam paths (`LabExamPaths`) live on `/`.
  * How-you-practise (`LabActivityDemo`) is on `/lab` and live `/` (under Testing Method).
- * LabHowItWorks was promoted off `/lab`; activity demo sits where it was.
+ * 2026-09-20: swapped exam paths ↔ `PmqLaunchProof` with home.
  */
 export const metadata: Metadata = {
   title: "Lab — Learn in Curve",
@@ -47,7 +47,7 @@ export default async function LabPage() {
       <LabHero isSignedIn={isSignedIn} />
       <LabActivityDemo isSignedIn={isSignedIn} />
       <LabFeatureTiles />
-      <LabExamPaths isSignedIn={isSignedIn} />
+      <PmqLaunchProof isSignedIn={isSignedIn} />
       <LabSlySection isSignedIn={isSignedIn} />
     </LabCanvas>
   );
