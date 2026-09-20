@@ -10,6 +10,8 @@ type LabArtPlateProps = {
   stickerAlt?: string;
   /** Visual crop / object position for the main art */
   objectPosition?: string;
+  /** cover fills (may crop); contain shows the full illustration */
+  objectFit?: "cover" | "contain";
   /** Extra classes on the main Image (e.g. scale to tighten a crop) */
   imageClassName?: string;
   /** Soft wash behind the plate */
@@ -35,6 +37,7 @@ export function LabArtPlate({
   stickerSrc,
   stickerAlt = "",
   objectPosition = "center",
+  objectFit = "cover",
   imageClassName = "",
   tone = "cream",
   className = "",
@@ -52,7 +55,7 @@ export function LabArtPlate({
           fill
           priority={priority}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
-          className={`object-cover ${imageClassName}`.trim()}
+          className={`${objectFit === "contain" ? "object-contain" : "object-cover"} ${imageClassName}`.trim()}
           style={{ objectPosition }}
         />
         <div

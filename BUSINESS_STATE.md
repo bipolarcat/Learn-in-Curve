@@ -19,7 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-20** — Testing Method memory plate: slight zoom-out (`scale-[0.72]`, `TestingMethod.tsx`).
+- **2026-09-20** — Testing Method memory plate: `object-contain` so ears/board aren’t cropped (`LabArtPlate` + `TestingMethod.tsx`).
 - **2026-09-20** — Home: mount `LabActivityDemo` (How you practise) under Testing Method (`page.tsx`). Still on `/lab` too.
 - **2026-09-20** — Embedded TrialQuiz: no body top-border separator (`TrialQuiz.tsx`).
 - **2026-09-20** — Lab Quiz tab: drop topic/instruction prompt (`LabActivityDemo.tsx`).
