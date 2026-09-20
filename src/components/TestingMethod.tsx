@@ -39,7 +39,7 @@ const STEPS = [
     // Full 5:4 art — contain so ears + board aren’t cropped on the 4:3 mobile plate.
     objectPosition: "center",
     objectFit: "contain" as const,
-    imageClassName: "",
+    imageClassName: "scale-[0.75]",
     tone: "cream" as const,
   },
 ] as const;

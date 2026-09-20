@@ -21,7 +21,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 
 - **2026-09-20** — Groupup/Pairup drag ghosts: portal to `document.body` so fixed coords aren’t offset by ScrollReveal transform (`Groupup.tsx`, `Pairup.tsx`).
 - **2026-09-20** — Lab activity topic line sized to match quiz prompt (15px/16px, `LabActivityDemo.tsx`).
-- **2026-09-20** — Testing Method memory plate: `object-contain` so ears/board aren’t cropped (`LabArtPlate` + `TestingMethod.tsx`).
+- **2026-09-20** — Testing Method memory plate: `object-contain` + `scale-[0.75]` (`LabArtPlate` + `TestingMethod.tsx`).
 - **2026-09-20** — Home: mount `LabActivityDemo` (How you practise) under Testing Method (`page.tsx`). Still on `/lab` too.
 - **2026-09-20** — Embedded TrialQuiz: no body top-border separator (`TrialQuiz.tsx`).
 - **2026-09-20** — Lab Quiz tab: drop topic/instruction prompt (`LabActivityDemo.tsx`).
