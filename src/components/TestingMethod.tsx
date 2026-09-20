@@ -21,8 +21,6 @@ const STEPS = [
     body: "Every answer helps build a picture of where you’re strongest and where you need more work. Focus your revision on the topics that need it most.",
     src: "/brand/features/misconceptions.webp",
     alt: "Illustrated weak-spots scene — mistakes mapped into a clearer study plan.",
-    stickerSrc: "/brand/inspo/thumbs-down.png",
-    stickerAlt: "",
     objectPosition: "center 45%",
     tone: "orange" as const,
   },
