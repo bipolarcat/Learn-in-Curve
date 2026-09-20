@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-20** — Practice Q-rail correct/incorrect: drop inset outline; match mock console fills (olive pass / orange miss) (`PracticeQuiz.module.css`).
 - **2026-09-20** — Practice Q-rail cells: stronger default contrast (border + ink/0.62 type) so demphasised 1–2–3 stay readable on paper (`PracticeQuiz.module.css`; shared TrialQuiz + course practise).
 - **2026-09-20** — Lab recall demo card: opaque `bg-paper` so cream-dot lattice does not show through (`LabActivityDemo`).
 - **2026-09-20** — Lab recall demo tab 1: embedded home TrialQuiz (3 bank questions) as first segmented mode; Pair/Line/Group follow (`LabActivityDemo`, `TrialQuiz` embedded prop).
