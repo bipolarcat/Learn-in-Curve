@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
 import { LabExamPaths } from "@/components/lab/LabExamPaths";
-import { FeatureStack } from "@/components/FeatureStack";
 import { TestingMethod } from "@/components/TestingMethod";
 
 const SITE_URL =
@@ -70,8 +69,6 @@ export default async function HomePage() {
       <LabActivityDemo isSignedIn={isSignedIn} />
 
       <LabExamPaths isSignedIn={isSignedIn} />
-
-      <FeatureStack />
 
       {/* No aria-label here — TrialQuiz's own <section> already carries the landmark name. */}
       <section

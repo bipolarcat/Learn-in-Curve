@@ -5,14 +5,15 @@ import { LabCanvas } from "@/components/lab/LabCanvas";
 import { LabFeatureTiles } from "@/components/lab/LabFeatureTiles";
 import { LabHero } from "@/components/lab/LabHero";
 import { LabSlySection } from "@/components/lab/LabSlySection";
+import { FeatureStack } from "@/components/FeatureStack";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
 
 /**
  * Design sandbox — illustrated landing redesign spike.
- * Order: Hero → Activity demo → Features → PMQ live → Sly.
+ * Order: Hero → Activity demo → Feature tiles → What's included → PMQ live → Sly.
  * Testing method + exam paths (`LabExamPaths`) live on `/`.
  * How-you-practise (`LabActivityDemo`) is on `/lab` and live `/` (under Testing Method).
- * 2026-09-20: swapped exam paths ↔ `PmqLaunchProof` with home.
+ * 2026-09-20: swapped exam paths ↔ `PmqLaunchProof` with home; moved `FeatureStack` here.
  */
 export const metadata: Metadata = {
   title: "Lab — Learn in Curve",
@@ -47,6 +48,7 @@ export default async function LabPage() {
       <LabHero isSignedIn={isSignedIn} />
       <LabActivityDemo isSignedIn={isSignedIn} />
       <LabFeatureTiles />
+      <FeatureStack />
       <PmqLaunchProof isSignedIn={isSignedIn} />
       <LabSlySection isSignedIn={isSignedIn} />
     </LabCanvas>
