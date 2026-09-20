@@ -22,10 +22,14 @@ type LabSlySectionProps = {
 };
 
 /**
- * Sly demo + exit CTAs — opens the same iOS exam picker as the hero.
+ * Sly demo + exit CTAs with the same inline exam dropdown as the hero.
  */
 export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
   const [picker, setPicker] = useState<LabExamPickerIntent | null>(null);
+
+  const toggle = (next: LabExamPickerIntent) => {
+    setPicker((cur) => (cur === next ? null : next));
+  };
 
   return (
     <div className="relative">
@@ -41,43 +45,46 @@ export function LabSlySection({ isSignedIn }: LabSlySectionProps) {
               Ready to revise for real? Take a free mock or start the free
               course.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-              <button
-                type="button"
-                className={CTA_PRIMARY}
-                aria-haspopup="dialog"
-                aria-expanded={picker === "mock"}
-                onClick={() => setPicker("mock")}
-              >
-                <span className="relative z-[1] inline-flex items-center gap-1.5">
-                  Take free mock
-                  <CtaArrow />
-                </span>
-              </button>
-              <button
-                type="button"
-                className={CTA_SECONDARY}
-                aria-haspopup="dialog"
-                aria-expanded={picker === "course"}
-                onClick={() => setPicker("course")}
-              >
-                <span className="relative z-[1] inline-flex items-center gap-1.5">
-                  Start free course
-                  <CtaArrow />
-                </span>
-              </button>
+            <div className="flex w-full flex-col items-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+                <button
+                  type="button"
+                  data-lab-exam-cta
+                  className={CTA_PRIMARY}
+                  aria-expanded={picker === "mock"}
+                  aria-haspopup="listbox"
+                  onClick={() => toggle("mock")}
+                >
+                  <span className="relative z-[1] inline-flex items-center gap-1.5">
+                    Take free mock
+                    <CtaArrow />
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  data-lab-exam-cta
+                  className={CTA_SECONDARY}
+                  aria-expanded={picker === "course"}
+                  aria-haspopup="listbox"
+                  onClick={() => toggle("course")}
+                >
+                  <span className="relative z-[1] inline-flex items-center gap-1.5">
+                    Start free course
+                    <CtaArrow />
+                  </span>
+                </button>
+              </div>
+
+              <LabExamPicker
+                intent={picker}
+                onClose={() => setPicker(null)}
+                isSignedIn={isSignedIn}
+                analyticsLocation="lab-sly"
+              />
             </div>
           </div>
         </div>
       </section>
-
-      <LabExamPicker
-        open={picker !== null}
-        intent={picker ?? "course"}
-        onClose={() => setPicker(null)}
-        isSignedIn={isSignedIn}
-        analyticsLocation="lab-sly"
-      />
     </div>
   );
 }

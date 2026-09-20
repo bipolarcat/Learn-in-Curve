@@ -4,18 +4,12 @@ import {
   useEffect,
   useId,
   useRef,
-  useState,
   useTransition,
   type MouseEvent,
 } from "react";
-import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { PmqStartLink } from "@/components/PmqStartLink";
 import { PfqStartLink } from "@/components/pfq/PfqStartLink";
@@ -31,8 +25,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export type LabExamPickerIntent = "mock" | "course";
 
 type LabExamPickerProps = {
-  open: boolean;
-  intent: LabExamPickerIntent;
+  intent: LabExamPickerIntent | null;
   onClose: () => void;
   isSignedIn: boolean;
   /** Analytics location prefix, e.g. lab-hero */
@@ -40,58 +33,25 @@ type LabExamPickerProps = {
 };
 
 const ROW =
-  "group flex w-full min-h-[3.5rem] items-center gap-3 px-4 py-3.5 text-left no-underline transition-[background-color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] active:bg-ink/[0.07] sm:min-h-[3.75rem] focus-visible:outline-none focus-visible:bg-ink/[0.05] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange";
+  "group flex w-full min-h-12 items-center gap-3 px-3.5 py-2.5 text-left no-underline transition-[background-color,transform] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] active:scale-[0.99] active:bg-ink/[0.08] focus-visible:outline-none focus-visible:bg-ink/[0.05] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange sm:min-h-[3.25rem] sm:px-4";
 
 /**
- * iOS-style exam picker sheet — PFQ / PMQ for mock or course.
- * Phone-width bottom sheet (centred on desktop).
+ * Inline exam dropdown under the hero/Sly CTAs — cleaner list rows, not a modal.
  */
 export function LabExamPicker({
-  open,
   intent,
   onClose,
   isSignedIn,
   analyticsLocation,
 }: LabExamPickerProps) {
-  const titleId = useId();
-  const closeRef = useRef<HTMLButtonElement>(null);
+  const open = intent !== null;
+  const panelId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-
-  const title =
-    intent === "mock" ? "Take a free mock" : "Start a free course";
-  const subtitle = "Choose your exam";
-  const location = `${analyticsLocation}-${intent}`;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const location = intent ? `${analyticsLocation}-${intent}` : analyticsLocation;
 
   useEffect(() => {
     if (!open) return;
-
-    const scrollY = window.scrollY;
-    const { body, documentElement: html } = document;
-    const prev = {
-      bodyOverflow: body.style.overflow,
-      htmlOverflow: html.style.overflow,
-      bodyPosition: body.style.position,
-      bodyTop: body.style.top,
-      bodyWidth: body.style.width,
-      bodyPaddingRight: body.style.paddingRight,
-    };
-    const scrollbarGap = window.innerWidth - html.clientWidth;
-
-    body.style.overflow = "hidden";
-    html.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.width = "100%";
-    if (scrollbarGap > 0) {
-      body.style.paddingRight = `${scrollbarGap}px`;
-    }
-
-    const t = window.setTimeout(() => closeRef.current?.focus(), 50);
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -99,165 +59,151 @@ export function LabExamPicker({
         onClose();
       }
     };
-    window.addEventListener("keydown", onKey);
+    const onPointer = (e: Event) => {
+      const el = panelRef.current;
+      if (!el) return;
+      const target = e.target;
+      if (!(target instanceof Node)) return;
+      if (el.contains(target)) return;
+      if (
+        target instanceof Element &&
+        target.closest("[data-lab-exam-cta]")
+      ) {
+        return;
+      }
+      onClose();
+    };
 
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
     return () => {
-      window.clearTimeout(t);
       window.removeEventListener("keydown", onKey);
-      body.style.overflow = prev.bodyOverflow;
-      html.style.overflow = prev.htmlOverflow;
-      body.style.position = prev.bodyPosition;
-      body.style.top = prev.bodyTop;
-      body.style.width = prev.bodyWidth;
-      body.style.paddingRight = prev.bodyPaddingRight;
-      window.scrollTo(0, scrollY);
+      document.removeEventListener("pointerdown", onPointer);
     };
   }, [open, onClose]);
 
-  if (!mounted) return null;
+  const heading =
+    intent === "mock"
+      ? "Which mock?"
+      : intent === "course"
+        ? "Which course?"
+        : "";
 
-  return createPortal(
+  return (
     <AnimatePresence>
-      {open ? (
-        <div
-          className="fixed inset-0 z-[120] flex items-end justify-center sm:items-center"
-          role="presentation"
+      {open && intent ? (
+        <motion.div
+          ref={panelRef}
+          id={panelId}
+          role="listbox"
+          aria-label={
+            intent === "mock"
+              ? "Choose exam for free mock"
+              : "Choose exam for free course"
+          }
+          className="w-full max-w-[22rem] origin-top"
+          initial={reduce ? false : { opacity: 0, y: -6, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -4, scale: 0.98 }}
+          transition={
+            reduce
+              ? { duration: 0 }
+              : { type: "spring", bounce: 0.12, duration: 0.32 }
+          }
         >
-          <motion.button
-            type="button"
-            aria-label="Dismiss"
-            className="absolute inset-0 bg-ink/40 backdrop-blur-[6px] motion-reduce:backdrop-blur-none"
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: EASE }}
-            onClick={onClose}
-          />
-
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            className="relative z-[1] flex w-full max-w-[390px] flex-col px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 sm:px-4 sm:pb-4"
-            initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.98 }}
-            transition={
-              reduce
-                ? { duration: 0 }
-                : { type: "spring", bounce: 0.08, duration: 0.42 }
-            }
-          >
-            <div className="overflow-hidden rounded-[1.35rem] border border-ink/[0.08] bg-paper/95 shadow-[0_12px_40px_-8px_rgb(var(--ink-rgb)_/_0.35)] backdrop-blur-2xl supports-[backdrop-filter]:bg-paper/88">
-              <div
-                className="flex flex-col items-center pt-2.5 pb-1"
-                aria-hidden
+          <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper/95 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_32px_-12px_rgb(var(--ink-rgb)_/_0.28)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/88">
+            <div className="flex items-center justify-between gap-2 border-b border-ink/[0.06] px-3.5 py-2.5 sm:px-4">
+              <p className="font-body text-[12px] font-semibold tracking-tight text-ink/50">
+                {heading}
+              </p>
+              <button
+                type="button"
+                onClick={onClose}
+                className="rounded-lg px-2 py-1 font-body text-[12px] font-medium text-ink/45 transition-colors hover:bg-ink/[0.05] hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
               >
-                <span className="h-1 w-9 rounded-full bg-ink/15" />
-              </div>
+                Close
+              </button>
+            </div>
 
-              <div className="px-5 pb-3 pt-1 text-center">
-                <p className="font-body text-[12px] font-medium tracking-tight text-ink/45">
-                  {subtitle}
-                </p>
-                <h2
-                  id={titleId}
-                  className="mt-0.5 font-display text-[1.25rem] font-semibold leading-tight tracking-[-0.03em] text-ink sm:text-[1.35rem]"
-                >
-                  {title}
-                </h2>
-              </div>
-
-              <div className="mx-3 mb-3 overflow-hidden rounded-[1.05rem] bg-cream/90 ring-1 ring-ink/[0.06]">
-                {intent === "mock" ? (
-                  <ul className="m-0 list-none p-0">
-                    <li>
-                      <MockExamRow
-                        href="/free-mock-exam/apm-pmq"
-                        location={location}
-                        analyticsLabel="Free PMQ mock"
+            <ul className="m-0 list-none p-1 sm:p-1.5">
+              {intent === "mock" ? (
+                <>
+                  <li role="option">
+                    <MockExamRow
+                      href="/free-mock-exam/apm-pmq"
+                      location={location}
+                      analyticsLabel="Free PMQ mock"
+                      code="APM PMQ"
+                      name="Project Management Qualification"
+                    />
+                  </li>
+                  <li className="mx-2.5 h-px bg-ink/[0.07]" aria-hidden />
+                  <li role="option">
+                    <MockExamRow
+                      href="/free-mock-exam/apm-pfq"
+                      location={location}
+                      analyticsLabel="Free PFQ mock"
+                      code="APM PFQ"
+                      name="Project Fundamentals Qualification"
+                    />
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li role="option">
+                    <PmqStartLink
+                      isSignedIn={isSignedIn}
+                      className={`${ROW} rounded-xl`}
+                      from="home"
+                      showArrow={false}
+                      analyticsLocation={location}
+                      analyticsVariant="Start PMQ course"
+                    >
+                      <ExamRowLabel
                         code="APM PMQ"
                         name="Project Management Qualification"
                       />
-                    </li>
-                    <li className="mx-4 h-px bg-ink/[0.08]" aria-hidden />
-                    <li>
-                      <MockExamRow
-                        href="/free-mock-exam/apm-pfq"
-                        location={location}
-                        analyticsLabel="Free PFQ mock"
+                    </PmqStartLink>
+                  </li>
+                  <li className="mx-2.5 h-px bg-ink/[0.07]" aria-hidden />
+                  <li role="option">
+                    <PfqStartLink
+                      isSignedIn={isSignedIn}
+                      className={`${ROW} rounded-xl`}
+                      from="home"
+                      showArrow={false}
+                      analyticsLocation={location}
+                      analyticsVariant="Start PFQ course"
+                    >
+                      <ExamRowLabel
                         code="APM PFQ"
                         name="Project Fundamentals Qualification"
                       />
-                    </li>
-                  </ul>
-                ) : (
-                  <ul className="m-0 list-none p-0">
-                    <li>
-                      <PmqStartLink
-                        isSignedIn={isSignedIn}
-                        className={ROW}
-                        from="home"
-                        showArrow={false}
-                        analyticsLocation={location}
-                        analyticsVariant="Start PMQ course"
-                      >
-                        <ExamRowLabel
-                          code="APM PMQ"
-                          name="Project Management Qualification"
-                        />
-                      </PmqStartLink>
-                    </li>
-                    <li className="mx-4 h-px bg-ink/[0.08]" aria-hidden />
-                    <li>
-                      <PfqStartLink
-                        isSignedIn={isSignedIn}
-                        className={ROW}
-                        from="home"
-                        showArrow={false}
-                        analyticsLocation={location}
-                        analyticsVariant="Start PFQ course"
-                      >
-                        <ExamRowLabel
-                          code="APM PFQ"
-                          name="Project Fundamentals Qualification"
-                        />
-                      </PfqStartLink>
-                    </li>
-                  </ul>
-                )}
-              </div>
-            </div>
-
-            <button
-              ref={closeRef}
-              type="button"
-              onClick={onClose}
-              className="mt-2 flex min-h-[3.25rem] w-full items-center justify-center rounded-[1.35rem] border border-ink/[0.08] bg-paper/95 font-body text-[16px] font-semibold tracking-[-0.01em] text-teal shadow-[0_8px_24px_-10px_rgb(var(--ink-rgb)_/_0.25)] backdrop-blur-2xl transition-[transform,background-color] duration-150 ease-[var(--ease-out-quint)] hover:bg-cream active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 supports-[backdrop-filter]:bg-paper/88 sm:min-h-[3.4rem]"
-            >
-              Cancel
-            </button>
-          </motion.div>
-        </div>
+                    </PfqStartLink>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </motion.div>
       ) : null}
-    </AnimatePresence>,
-    document.body,
+    </AnimatePresence>
   );
 }
 
 function ExamRowLabel({ code, name }: { code: string; name: string }) {
   return (
-    <span className="flex w-full min-w-0 flex-1 items-center gap-3">
+    <span className="flex w-full min-w-0 flex-1 items-center gap-2.5">
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <span className="font-body text-[16px] font-semibold leading-tight tracking-[-0.02em] text-ink sm:text-[17px]">
+        <span className="font-body text-[14px] font-semibold leading-tight tracking-[-0.015em] text-ink sm:text-[15px]">
           {code}
         </span>
-        <span className="font-body text-[12.5px] font-normal leading-snug tracking-tight text-ink/50 sm:text-[13px]">
+        <span className="font-body text-[11.5px] font-normal leading-snug tracking-tight text-ink/48 sm:text-[12px]">
           {name}
         </span>
       </span>
       <ChevronRight
-        className="h-[1.15rem] w-[1.15rem] shrink-0 text-ink/25 transition-transform duration-150 ease-[var(--ease-out-quint)] group-hover:text-ink/40 group-active:translate-x-0.5"
+        className="h-4 w-4 shrink-0 text-ink/25 transition-transform duration-150 ease-[var(--ease-out-quint)] group-hover:translate-x-0.5 group-hover:text-teal"
         strokeWidth={2.25}
         aria-hidden
       />
@@ -294,10 +240,11 @@ function MockExamRow({
   return (
     <Link
       href={href}
+      role="option"
       aria-busy={pending || undefined}
       aria-label={pending ? `Opening ${analyticsLabel}` : `${code} — ${name}`}
       tabIndex={pending ? -1 : undefined}
-      className={`${ROW} ${pending ? "pointer-events-none opacity-80" : ""}`}
+      className={`${ROW} rounded-xl ${pending ? "pointer-events-none opacity-80" : ""}`}
       onClick={onClick}
     >
       {pending ? (

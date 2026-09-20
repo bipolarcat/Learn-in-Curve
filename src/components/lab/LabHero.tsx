@@ -68,10 +68,14 @@ function Headline() {
 }
 
 /**
- * Lab landing hero — urgency ICP, 100+ trust, dual CTAs opening iOS exam sheet.
+ * Lab landing hero — dual CTAs with inline exam dropdown (not a modal sheet).
  */
 export function LabHero({ isSignedIn }: LabHeroProps) {
   const [picker, setPicker] = useState<LabExamPickerIntent | null>(null);
+
+  const toggle = (next: LabExamPickerIntent) => {
+    setPicker((cur) => (cur === next ? null : next));
+  };
 
   return (
     <section
@@ -104,42 +108,45 @@ export function LabHero({ isSignedIn }: LabHeroProps) {
             Trusted by 100+ learners
           </p>
 
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-            <button
-              type="button"
-              className={CTA_PRIMARY}
-              aria-haspopup="dialog"
-              aria-expanded={picker === "mock"}
-              onClick={() => setPicker("mock")}
-            >
-              <span className="relative z-[1] inline-flex items-center gap-1.5">
-                Take free mock
-                <CtaArrow />
-              </span>
-            </button>
-            <button
-              type="button"
-              className={CTA_SECONDARY}
-              aria-haspopup="dialog"
-              aria-expanded={picker === "course"}
-              onClick={() => setPicker("course")}
-            >
-              <span className="relative z-[1] inline-flex items-center gap-1.5">
-                Start free course
-                <CtaArrow />
-              </span>
-            </button>
+          <div className="relative z-10 flex w-full flex-col items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+              <button
+                type="button"
+                data-lab-exam-cta
+                className={CTA_PRIMARY}
+                aria-expanded={picker === "mock"}
+                aria-haspopup="listbox"
+                onClick={() => toggle("mock")}
+              >
+                <span className="relative z-[1] inline-flex items-center gap-1.5">
+                  Take free mock
+                  <CtaArrow />
+                </span>
+              </button>
+              <button
+                type="button"
+                data-lab-exam-cta
+                className={CTA_SECONDARY}
+                aria-expanded={picker === "course"}
+                aria-haspopup="listbox"
+                onClick={() => toggle("course")}
+              >
+                <span className="relative z-[1] inline-flex items-center gap-1.5">
+                  Start free course
+                  <CtaArrow />
+                </span>
+              </button>
+            </div>
+
+            <LabExamPicker
+              intent={picker}
+              onClose={() => setPicker(null)}
+              isSignedIn={isSignedIn}
+              analyticsLocation="lab-hero"
+            />
           </div>
         </div>
       </div>
-
-      <LabExamPicker
-        open={picker !== null}
-        intent={picker ?? "course"}
-        onClose={() => setPicker(null)}
-        isSignedIn={isSignedIn}
-        analyticsLocation="lab-hero"
-      />
     </section>
   );
 }
