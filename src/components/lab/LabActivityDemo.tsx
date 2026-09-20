@@ -186,7 +186,7 @@ export function LabActivityDemo() {
       className="relative overflow-x-clip border-t border-ink/[0.06] pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">
-        <ScrollReveal className="mx-auto max-w-[46rem] text-center">
+        <ScrollReveal className="mx-auto max-w-[40rem] text-center">
           <p className="mb-2 font-body text-[12px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[13px]">
             How you practise
           </p>
@@ -201,8 +201,8 @@ export function LabActivityDemo() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.06} className="mx-auto mt-8 max-w-[46rem] sm:mt-10">
-          <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper/70 p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5">
+        <ScrollReveal delay={0.06} className="mx-auto mt-8 w-full max-w-[46rem] sm:mt-10 md:max-w-none">
+          <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper/70 p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7">
             <div
               role="tablist"
               aria-label="Recall activity modes"
@@ -250,7 +250,7 @@ export function LabActivityDemo() {
               role="tabpanel"
               id={panelId}
               aria-labelledby={`${baseId}-tab-${mode}`}
-              className="mt-4 min-h-[34rem] overflow-x-clip sm:min-h-[32rem]"
+              className="mt-4 min-h-[34rem] overflow-x-clip sm:min-h-[30rem]"
             >
               {mode === "pairup" ? (
                 <Pairup key="demo-pairup" activity={PAIRUP} onComplete={onComplete} />
