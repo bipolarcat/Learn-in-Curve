@@ -143,7 +143,7 @@ export function FeedbackModal({ open, onClose, source }: FeedbackModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/40 p-4 backdrop-blur-[2px] motion-reduce:backdrop-blur-none"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/40 p-4 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget && !submitting) onClose();
       }}
@@ -152,7 +152,7 @@ export function FeedbackModal({ open, onClose, source }: FeedbackModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={headingId}
-        className={`${quietFormSurface} relative w-full max-w-[22rem] p-4 sm:p-5`}
+        className={`${quietFormSurface} relative w-full max-w-[22rem] p-4 motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:p-5`}
       >
         <button
           type="button"
