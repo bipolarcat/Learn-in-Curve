@@ -38,7 +38,7 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 }
 
 const socialChipClass =
-  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-cream/65 transition-[background-color,color,transform] duration-150 ease-[var(--ease-out-quint)] hover:bg-cream/[0.08] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
+  "inline-flex min-h-11 min-w-9 items-center justify-center text-cream/65 transition-[color,transform] duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
 
 const footerLinkClass =
   "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
@@ -69,7 +69,7 @@ export function SiteFooter({
                 </span>
               </span>
             </div>
-            <div className="ml-auto flex shrink-0 items-center gap-0.5 lg:ml-0">
+            <div className="ml-auto flex shrink-0 items-center -space-x-0.5 lg:ml-0">
               <a
                 href="https://www.instagram.com/learn.in.curve/"
                 target="_blank"
