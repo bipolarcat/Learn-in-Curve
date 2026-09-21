@@ -91,6 +91,13 @@ body {
   background-size: 20px 20px;
 }
 
+/* Same top radius as HomeMethodBand teal stadium — CSS so commas aren’t
+   mangled by Tailwind arbitrary-value parsing. */
+.site-footer {
+  border-top-left-radius: clamp(1.75rem, 4.5vw, 3.25rem);
+  border-top-right-radius: clamp(1.75rem, 4.5vw, 3.25rem);
+}
+
 /*
   LIC scrollbar on every overflow pane (21st.dev overlay pill + Mobbin-quiet chrome).
   Firefox: thin + scrollbar-color. Chromium/Safari: 12px whisper trough, squircle thumb,

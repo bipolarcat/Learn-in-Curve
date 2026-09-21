@@ -38,7 +38,7 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 }
 
 const socialChipClass =
-  "inline-flex min-h-11 min-w-9 items-center justify-center text-cream/65 transition-[color,transform] duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
+  "inline-flex min-h-11 min-w-10 items-center justify-center text-cream/55 transition-[color,transform] duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
 
 const footerLinkClass =
   "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
@@ -56,7 +56,7 @@ export function SiteFooter({
   showApmDisclaimer?: boolean;
 } = {}) {
   return (
-    <footer className="relative overflow-hidden rounded-t-[clamp(1.75rem,4.5vw,3.25rem)] bg-ink pb-0 pt-5 text-cream sm:pt-6">
+    <footer className="site-footer relative overflow-hidden bg-ink pb-0 pt-5 text-cream sm:pt-6">
       <div className="wrap relative z-[1] pb-4 sm:pb-5">
         <div className="flex flex-col gap-3 sm:gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="flex min-w-0 items-center gap-3">
@@ -69,7 +69,7 @@ export function SiteFooter({
                 </span>
               </span>
             </div>
-            <div className="ml-auto flex shrink-0 items-center -space-x-0.5 lg:ml-0">
+            <div className="ml-auto flex shrink-0 items-center gap-1.5 lg:ml-0">
               <a
                 href="https://www.instagram.com/learn.in.curve/"
                 target="_blank"
