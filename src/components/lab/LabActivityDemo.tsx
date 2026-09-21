@@ -153,8 +153,8 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
     >
       <div className="wrap relative z-[1]">
         <ScrollReveal className="mx-auto max-w-[40rem] text-center">
-          <p className="mb-2 font-body text-[12px] font-bold uppercase tracking-[0.14em] text-teal sm:text-[13px]">
-            How you practise
+          <p className="mb-1 font-body text-[14px] font-bold tracking-[0.14em] text-teal sm:text-[15px]">
+            The Practice
           </p>
           <h2
             id="lab-activity-demo-heading"
