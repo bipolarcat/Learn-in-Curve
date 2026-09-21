@@ -105,9 +105,7 @@ export function LibraryHub({
             <h1 className={styles.title}>The Shelf</h1>
             <p className={styles.lead}>
               Practical insights and essential breakdowns for tackling your
-              project management exams with confidence. Explore detailed guides
-              covering core formats, grading methods, preparation timelines, and
-              return on investment.
+              project management exams with confidence.
             </p>
           </header>
 
