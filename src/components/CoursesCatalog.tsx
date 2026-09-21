@@ -65,8 +65,8 @@ function CourseSubhead({ course }: { course: Course }) {
       <p className={styles.subhead}>
         <span className={styles.subheadLine}>
           Every one of the{" "}
-          <span className="text-orange">24 learning objectives</span> and{" "}
-          <span className="text-orange">71 learning outcomes</span>, plus
+          <strong className="font-bold">24 learning objectives</strong> and{" "}
+          <strong className="font-bold">71 learning outcomes</strong>, plus
           practice questions and mock exams, so nothing in the exam is new.
         </span>
       </p>
