@@ -142,7 +142,6 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
               {locked ? (
                 <p className="m-0 max-w-[22rem] text-[13px] leading-relaxed text-ink/65 text-pretty">
-                  Your trial chat from this session isn’t stored here anymore.
                   Join the waitlist below for full access when it launches.
                 </p>
               ) : (
@@ -274,13 +273,12 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
             </div>
           ) : composerLocked ? (
             <div className={`${showcase.composerCard} p-4`}>
-              <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
-                {unavailable
-                  ? "Sly’s free trial is taking a short break. Create a free account to keep learning in the meantime."
-                  : "That’s the Beta taster. Full access coming soon."}
-              </p>
               {unavailable ? (
                 <>
+                  <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
+                    Sly’s free trial is taking a short break. Create a free account
+                    to keep learning in the meantime.
+                  </p>
                   <Link
                     href="/auth/sign-up"
                     className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
@@ -299,7 +297,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                 </>
               ) : (
                 <JoinWaitlistButton
-                  className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
+                  className={`${stampCtaPrimary} w-full !justify-center !normal-case`}
                 />
               )}
             </div>
