@@ -25,6 +25,8 @@ type SiteHeaderProps = {
   pinned?: boolean;
   /** Per-course paid tier — drives the Pro / AI Pro mark beside the course name. */
   courseTiers?: Partial<Record<CourseSlug, PaidTier>>;
+  /** Nav hrefs that currently show a New chip (from the release registry). */
+  newBadgeHrefs?: readonly string[];
 };
 
 /** Same chrome marks as CourseHeader (beside course name). */
@@ -82,6 +84,7 @@ export function SiteHeader({
   account = null,
   pinned = true,
   courseTiers,
+  newBadgeHrefs = [],
 }: SiteHeaderProps) {
   const pathname = usePathname();
   const isPinned =
@@ -124,7 +127,11 @@ export function SiteHeader({
         ) : null}
       </div>
 
-      <SiteHeaderControls isSignedIn={isSignedIn} account={account} />
+      <SiteHeaderControls
+        isSignedIn={isSignedIn}
+        account={account}
+        newBadgeHrefs={newBadgeHrefs}
+      />
     </nav>
   );
 

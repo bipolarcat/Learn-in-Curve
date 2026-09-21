@@ -13,6 +13,8 @@ export type UserProfile = {
   avatar_id: AvatarId;
   /** Dark-mode opt-in. Per account, never inferred from the OS. */
   theme_preference: ThemeChoice;
+  /** ISO timestamp: What's New notes with publishedAt after this are unseen. */
+  whats_new_seen_at: string;
   created_at: string;
   updated_at: string;
 };

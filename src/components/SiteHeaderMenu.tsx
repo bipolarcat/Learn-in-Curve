@@ -53,57 +53,13 @@ const MENU_ITEMS: ReadonlyArray<{
   href: string;
   label: string;
   icon: MenuGlyph;
-  badge?: "New";
 }> = [
   { href: "/courses", label: "Explore Courses", icon: MenuCoursesIcon },
-  {
-    href: "/mock-me",
-    label: "Mock Me",
-    icon: MenuMockMeIcon,
-    badge: "New",
-  },
-  { href: "/library", label: "The Shelf", icon: MenuShelfIcon, badge: "New" },
+  { href: "/mock-me", label: "Mock Me", icon: MenuMockMeIcon },
+  { href: "/library", label: "The Shelf", icon: MenuShelfIcon },
   { href: "/about", label: "Behind the Curve", icon: MenuLicMarkIcon },
   { href: "/contact", label: "Let's Talk", icon: MenuTalkIcon },
 ];
-
-/** Per-item "New" chips; survives reload on this browser. */
-const MENU_NEW_SEEN_KEY = "lic_menu_new_v1";
-
-function readMenuNewSeen(): string[] {
-  try {
-    const raw = localStorage.getItem(MENU_NEW_SEEN_KEY);
-    if (!raw) return [];
-    const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter((value): value is string => typeof value === "string");
-  } catch {
-    return [];
-  }
-}
-
-function writeMenuNewSeen(hrefs: string[]): void {
-  try {
-    localStorage.setItem(MENU_NEW_SEEN_KEY, JSON.stringify(hrefs));
-  } catch {
-    /* private browsing / blocked storage */
-  }
-}
-
-function badgeKeyForPath(pathname: string | null): string | null {
-  if (!pathname) return null;
-  if (
-    pathname === "/mock-me" ||
-    pathname === "/free-mock-exam" ||
-    pathname.startsWith("/free-mock-exam/")
-  ) {
-    return "/mock-me";
-  }
-  if (pathname === "/library" || pathname.startsWith("/library/")) {
-    return "/library";
-  }
-  return null;
-}
 
 const menuItemClass =
   "flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 font-body text-[13px] font-semibold tracking-[-0.01em] text-ink transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55";
@@ -191,10 +147,12 @@ export function SiteHeaderMenu({
   isSignedIn = false,
   account = null,
   showThemeToggle = false,
+  newBadgeHrefs,
 }: {
   isSignedIn?: boolean;
   account?: HeaderAccount | null;
   showThemeToggle?: boolean;
+  newBadgeHrefs: readonly string[];
 }) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
@@ -205,9 +163,6 @@ export function SiteHeaderMenu({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [panelPos, setPanelPos] = useState({ top: 0, right: 0 });
-  const [seenNew, setSeenNew] = useState<ReadonlySet<string>>(
-    () => new Set(),
-  );
 
   const duration = reduceMotion ? 0 : 500;
   const onHome = pathname === "/";
@@ -219,24 +174,9 @@ export function SiteHeaderMenu({
   const subtitle =
     signedIn && account.name && account.email ? account.email : null;
 
-  const markNewSeen = (href: string) => {
-    setSeenNew((prev) => {
-      if (prev.has(href)) return prev;
-      const next = new Set(prev);
-      next.add(href);
-      writeMenuNewSeen([...next]);
-      return next;
-    });
-  };
-
   useLayoutEffect(() => {
-    const stored = new Set(readMenuNewSeen());
-    const fromPath = badgeKeyForPath(pathname);
-    if (fromPath) stored.add(fromPath);
-    writeMenuNewSeen([...stored]);
-    setSeenNew(stored);
     setMounted(true);
-  }, [pathname]);
+  }, []);
 
   const closeMenu = (restoreFocus = false) => {
     setOpen(false);
@@ -462,15 +402,12 @@ export function SiteHeaderMenu({
                             current && "text-orange",
                           )}
                           onClick={() => {
-                            if (item.badge) {
-                              markNewSeen(item.href);
-                            }
                             closeMenu(false);
                           }}
                         >
                           <Icon className={menuIconClass} />
                           {item.label}
-                          {item.badge && !seenNew.has(item.href) ? (
+                          {newBadgeHrefs.includes(item.href) ? (
                             <NewBadge />
                           ) : null}
                         </Link>

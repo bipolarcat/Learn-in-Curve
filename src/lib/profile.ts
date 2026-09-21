@@ -20,6 +20,7 @@ function emptyProfile(userId: string): UserProfile {
     target_exam_date: null,
     avatar_id: DEFAULT_AVATAR_ID,
     theme_preference: "light",
+    whats_new_seen_at: now,
     created_at: now,
     updated_at: now,
   };
@@ -53,6 +54,9 @@ function normalizeProfile(row: Record<string, unknown>): UserProfile {
     target_exam_date,
     avatar_id: resolveAvatarId(row.avatar_id),
     theme_preference: parseThemeChoice(row.theme_preference),
+    whats_new_seen_at: String(
+      row.whats_new_seen_at ?? new Date().toISOString(),
+    ),
     created_at: String(row.created_at ?? new Date().toISOString()),
     updated_at: String(row.updated_at ?? new Date().toISOString()),
   };

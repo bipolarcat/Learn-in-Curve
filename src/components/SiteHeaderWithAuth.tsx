@@ -8,6 +8,8 @@ import { getPmqTier } from "@/lib/pmq/queries";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import type { PfqTier } from "@/lib/pfq/tiers";
+import { RELEASE_NOTES } from "@/content/whats-new";
+import { newBadgeHrefs } from "@/lib/whats-new";
 
 type SiteHeaderWithAuthProps = {
   /** Pass through to SiteHeader — false on courses so the bar scrolls away. */
@@ -24,6 +26,7 @@ export async function SiteHeaderWithAuth({
 
   let account: HeaderAccount | null = null;
   let courseTiers: Partial<Record<CourseSlug, PmqTier | PfqTier>> | undefined;
+  let badgeHrefs: readonly string[] = [];
 
   if (user) {
     const [profile, pmqTier, pfqTier] = await Promise.all([
@@ -43,6 +46,11 @@ export async function SiteHeaderWithAuth({
       "pmq-in-5-days": pmqTier,
       "pfq-in-2-days": pfqTier,
     };
+    badgeHrefs = newBadgeHrefs(
+      RELEASE_NOTES,
+      profile.whats_new_seen_at,
+      new Date().toISOString(),
+    );
   }
 
   return (
@@ -51,6 +59,7 @@ export async function SiteHeaderWithAuth({
       account={account}
       pinned={pinned}
       courseTiers={courseTiers}
+      newBadgeHrefs={badgeHrefs}
     />
   );
 }

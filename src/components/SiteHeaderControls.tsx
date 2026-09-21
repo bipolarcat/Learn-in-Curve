@@ -128,6 +128,7 @@ function HeaderChip({
 type SiteHeaderControlsProps = {
   isSignedIn?: boolean;
   account?: HeaderAccount | null;
+  newBadgeHrefs: readonly string[];
 };
 
 /**
@@ -140,6 +141,7 @@ type SiteHeaderControlsProps = {
 export function SiteHeaderControls({
   isSignedIn = false,
   account = null,
+  newBadgeHrefs,
 }: SiteHeaderControlsProps) {
   const pathname = usePathname();
 
@@ -179,6 +181,7 @@ export function SiteHeaderControls({
           isSignedIn={isSignedIn}
           account={account}
           showThemeToggle={darkModeAllowed}
+          newBadgeHrefs={newBadgeHrefs}
         />
       </HeaderChip>
     </div>

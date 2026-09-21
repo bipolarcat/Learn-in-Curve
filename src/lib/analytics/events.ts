@@ -438,3 +438,24 @@ export function setAnalyticsPersonProperties(props: {
   if (Object.keys(cleaned).length === 0) return;
   setPersonProperties(cleaned);
 }
+
+// —— Group H: What's New ————————————————————————————————————————————
+
+export function trackWhatsNewBannerShown(props: { note_id: string }): void {
+  capture("whats_new_banner_shown", props);
+}
+
+export function trackWhatsNewBannerClicked(props: {
+  note_id: string;
+  href: string;
+}): void {
+  capture("whats_new_banner_clicked", props);
+}
+
+export function trackWhatsNewDismissed(props: { note_id: string }): void {
+  capture("whats_new_dismissed", props);
+}
+
+export function trackWhatsNewPageViewed(): void {
+  capture("whats_new_page_viewed");
+}

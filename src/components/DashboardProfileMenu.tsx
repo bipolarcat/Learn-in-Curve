@@ -627,6 +627,12 @@ export function DashboardProfileMenu({
           <Trash2 className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
           <span>Delete account</span>
         </button>
+        <Link
+          href="/whats-new"
+          className="inline-flex shrink-0 items-center rounded-sm font-body text-[11px] font-medium tracking-tight text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+        >
+          What&apos;s new
+        </Link>
         <div className="min-h-[1rem] min-w-0 flex-1" aria-live="polite">
           {error ? (
             <p className="truncate font-body text-[11px] font-medium text-ink/55">
