@@ -25,7 +25,7 @@ export default function PfqPreviewPage() {
             PFQ in <span className="text-orange">2 Days</span>
           </>
         }
-        title="Create free account"
+        title="Create your free account and start preparing for the PFQ exam today."
         hideLead
       />
     </section>
