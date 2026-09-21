@@ -7,6 +7,15 @@ import {
 import { parseThemeChoice } from "@/lib/theme-routes";
 import type { UserProfile, UserProfileInput } from "@/types/profile";
 
+/**
+ * Read when no profiles row exists. Every user should have one (see the
+ * on_auth_user_created_ensure_profile trigger), so this is a fallback for a
+ * race or a failed trigger. whats_new_seen_at deliberately uses a far-past
+ * date: an absent row means we know nothing about this user, and the honest
+ * reading of nothing is "has not seen it" rather than "already caught up".
+ */
+const WHATS_NEW_UNKNOWN = "1970-01-01T00:00:00.000Z";
+
 function emptyProfile(userId: string): UserProfile {
   const now = new Date().toISOString();
   return {
@@ -20,7 +29,7 @@ function emptyProfile(userId: string): UserProfile {
     target_exam_date: null,
     avatar_id: DEFAULT_AVATAR_ID,
     theme_preference: "light",
-    whats_new_seen_at: now,
+    whats_new_seen_at: WHATS_NEW_UNKNOWN,
     created_at: now,
     updated_at: now,
   };
@@ -54,9 +63,7 @@ function normalizeProfile(row: Record<string, unknown>): UserProfile {
     target_exam_date,
     avatar_id: resolveAvatarId(row.avatar_id),
     theme_preference: parseThemeChoice(row.theme_preference),
-    whats_new_seen_at: String(
-      row.whats_new_seen_at ?? new Date().toISOString(),
-    ),
+    whats_new_seen_at: String(row.whats_new_seen_at ?? WHATS_NEW_UNKNOWN),
     created_at: String(row.created_at ?? new Date().toISOString()),
     updated_at: String(row.updated_at ?? new Date().toISOString()),
   };

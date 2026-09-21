@@ -12,10 +12,17 @@ export async function markWhatsNewSeen(): Promise<void> {
 
   if (!user) return;
 
-  const { error } = await supabase
-    .from("profiles")
-    .update({ whats_new_seen_at: new Date().toISOString() })
-    .eq("user_id", user.id);
+  // Upsert, not update. A profiles row is normally created by the
+  // on_auth_user_created_ensure_profile trigger, but an update against a
+  // missing row affects zero rows and reports no error, which would show the
+  // banner again on every load with no way to dismiss it. Upsert self-heals.
+  const { error } = await supabase.from("profiles").upsert(
+    {
+      user_id: user.id,
+      whats_new_seen_at: new Date().toISOString(),
+    },
+    { onConflict: "user_id" },
+  );
 
   if (error) {
     console.error("markWhatsNewSeen:", error.message);

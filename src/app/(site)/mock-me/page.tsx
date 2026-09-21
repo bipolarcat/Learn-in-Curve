@@ -26,25 +26,25 @@ export const metadata: Metadata = {
 };
 
 /**
- * Hub card art from the homepage feature stack illustrations.
+ * Hub card art — character-only plates (no baked marketing copy).
  */
 const CARD_ART: Record<
   FreeMockExamId,
   { src: string; alt: string; objectPosition?: string }
 > = {
   "apm-pmq": {
-    src: "/Landing page/Learn the full syllabus/3.png",
-    alt: "PMQ timed mock exam illustration",
-    objectPosition: "center 40%",
+    src: "/brand/mock-me/pmq.png",
+    alt: "Bear writing a timed mock exam",
+    objectPosition: "center 45%",
   },
   "apm-pfq": {
-    src: "/Landing page/Learn the full syllabus/1.png",
-    alt: "PFQ syllabus study illustration",
+    src: "/brand/mock-me/pfq.png",
+    alt: "Wolf and cat high-fiving after study",
     objectPosition: "center 40%",
   },
   pmp: {
-    src: "/Landing page/Learn the full syllabus/6.png",
-    alt: "PMP overviews illustration",
+    src: "/brand/mock-me/pmp.png",
+    alt: "Dog and rabbit boarding a plane with headphones",
     objectPosition: "center 40%",
   },
 };
