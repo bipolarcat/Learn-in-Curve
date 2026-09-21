@@ -121,10 +121,13 @@ export const PMQ_PLANS: PmqPlan[] = [
         label:
           "Study material covering all 71 learning outcomes as per PMQ exam handbook",
       },
+      {
+        icon: "memory",
+        label:
+          "Key takeaways, definitions glossary, common misconceptions and memory aids",
+      },
       { icon: "practice", label: "Practice questions", value: "240" },
       { icon: "mock", label: "Mock exam", value: "1" },
-      { icon: "misconceptions", label: "Common misconceptions" },
-      { icon: "memory", label: "Memory aids" },
     ],
   },
   {
