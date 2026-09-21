@@ -306,7 +306,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
               ) : null}
 
               <div className={showcase.composerCard}>
-                <div className="flex items-end gap-1.5 p-1.5 sm:p-2">
+                <div className="flex items-end gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5">
                   <textarea
                     ref={textareaRef}
                     value={input}
@@ -318,10 +318,10 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       }
                     }}
                     rows={1}
-                    placeholder="Ask Sly…"
+                    placeholder="Write a message."
                     disabled={sending}
-                    aria-label="Message to Sly"
-                    className="max-h-28 min-h-11 flex-1 resize-none bg-transparent px-3 py-2.5 font-body text-[14px] leading-snug text-ink placeholder:text-ink/40 focus:outline-none disabled:opacity-60"
+                    aria-label="Write a message"
+                    className="max-h-28 min-h-10 flex-1 resize-none bg-transparent py-2 font-body text-[14px] leading-snug tracking-[-0.01em] text-ink placeholder:text-ink/35 focus:outline-none disabled:opacity-60"
                   />
                   <button
                     type="button"
@@ -329,13 +329,13 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                     disabled={sending || !input.trim()}
                     aria-label={sending ? "Sending" : "Send message"}
                     aria-busy={sending}
-                    className={`${showcase.sendBtn} inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-[transform,background-color,opacity] duration-150 ease-[var(--ease-out-quint)] enabled:active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-35`}
+                    className={`${showcase.sendBtn} mb-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-[transform,background-color,color,opacity] duration-150 ease-[var(--ease-out-quint)] enabled:active:scale-[0.96] disabled:cursor-not-allowed`}
                   >
                     {sending ? (
                       <Spinner
                         variant="ellipsis"
-                        size={16}
-                        className="text-paper"
+                        size={14}
+                        className="text-current"
                         aria-hidden
                       />
                     ) : (
@@ -397,11 +397,11 @@ function UserFace({ size }: { size: number }) {
 
 function SendIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M12 19V5M5 12l7-7 7 7"
         stroke="currentColor"
-        strokeWidth="2.25"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
