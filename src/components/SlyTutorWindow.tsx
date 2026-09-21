@@ -318,7 +318,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       }
                     }}
                     rows={1}
-                    placeholder="Write a message."
+                    placeholder="Write a message..."
                     disabled={sending}
                     aria-label="Write a message"
                     className="max-h-28 min-h-10 flex-1 resize-none bg-transparent py-2 font-body text-[14px] leading-snug tracking-[-0.01em] text-ink placeholder:text-ink/35 focus:outline-none disabled:opacity-60"
