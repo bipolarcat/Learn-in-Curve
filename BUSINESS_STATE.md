@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-22** — Dashboard inbox: Apple-quiet polish — drop preview/chips, cream rounded letter modal, soft scrollbar (`DashboardInboxBell`, `globals.css` `.inbox-scroll`).
 - **2026-09-22** — Dashboard inbox restyled to 21st notifications-menu pattern (avatar row, preview chip, mark-all-read; no social tabs) (`DashboardInboxBell`).
 - **2026-09-22** — Dashboard inbox bell beside Edit profile: unread v3.0 announcement dropdown + modal letter (`DashboardInboxBell`, `dashboard-inbox.ts`).
 - **2026-09-22** — Courses catalogue: secondary CTA is “View Plans” (pricing); drop overview + tertiary View plans. `/pmq` and `/courses/pfq-in-2-days` 301 → pricing (`CoursesCatalog`, `next.config.ts`, sitemap).

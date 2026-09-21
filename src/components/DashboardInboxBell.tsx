@@ -9,14 +9,11 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { Bell, CheckCheck, X } from "lucide-react";
+import { Bell, X } from "lucide-react";
 import {
   DASHBOARD_INBOX,
   type InboxMessage,
 } from "@/content/dashboard-inbox";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { quietFormSurface } from "@/components/ui/semantic";
 import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "lic-dashboard-inbox-read";
@@ -53,16 +50,6 @@ function formatPublishedDate(iso: string): string {
   });
 }
 
-function formatWeekdayStamp(iso: string): string {
-  const d = new Date(`${iso}T12:00:00`);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "short",
-  });
-}
-
 function timeAgoLabel(iso: string): string {
   const then = Date.parse(`${iso}T12:00:00`);
   if (Number.isNaN(then)) return "";
@@ -86,53 +73,41 @@ function NotificationItem({
       type="button"
       role="menuitem"
       onClick={onOpen}
-      className="w-full py-4 text-left first:pt-0 last:pb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2"
+      className="flex w-full items-start gap-3 rounded-2xl px-2.5 py-2.5 text-left transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] focus-visible:bg-ink/[0.04] focus-visible:outline-none active:bg-ink/[0.06]"
     >
-      <div className="flex gap-3">
-        <span className="relative flex size-11 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-border">
-          <Image
-            src={FOX_SRC}
-            alt=""
-            width={44}
-            height={44}
-            className="aspect-square size-full object-cover"
-            aria-hidden
-          />
+      <span className="relative mt-0.5 flex size-9 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-ink/[0.06]">
+        <Image
+          src={FOX_SRC}
+          alt=""
+          width={36}
+          height={36}
+          className="aspect-square size-full object-cover"
+          aria-hidden
+        />
+      </span>
+
+      <span className="min-w-0 flex-1 pt-0.5">
+        <span
+          className={cn(
+            "block text-[13px] leading-snug tracking-[-0.01em] text-ink",
+            unread ? "font-semibold" : "font-medium",
+          )}
+        >
+          {message.title}
         </span>
+        <span className="mt-0.5 block text-[12px] leading-none text-ink/40">
+          {timeAgoLabel(message.publishedAt)}
+        </span>
+      </span>
 
-        <div className="flex min-w-0 flex-1 flex-col space-y-2">
-          <div className="w-full items-start">
-            <div className="flex items-center justify-between gap-2">
-              <p className="text-sm leading-snug tracking-[-0.006em] text-ink">
-                <span className="font-medium">{message.from}</span>
-                <span className="text-muted-foreground">
-                  {" "}
-                  {message.action}{" "}
-                </span>
-                <span className="font-medium">{message.target}</span>
-              </p>
-              {unread ? (
-                <span
-                  className="size-1.5 shrink-0 rounded-full bg-olive"
-                  aria-label="Unread"
-                />
-              ) : null}
-            </div>
-            <div className="mt-0.5 flex items-center justify-between gap-2">
-              <span className="text-xs text-muted-foreground">
-                {formatWeekdayStamp(message.publishedAt)}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                {timeAgoLabel(message.publishedAt)}
-              </span>
-            </div>
-          </div>
-
-          <div className="rounded-lg bg-muted p-2.5 text-sm leading-snug tracking-[-0.006em] text-ink/80">
-            {message.preview}
-          </div>
-        </div>
-      </div>
+      {unread ? (
+        <span
+          className="mt-2 size-2 shrink-0 rounded-full bg-orange"
+          aria-label="Unread"
+        />
+      ) : (
+        <span className="mt-2 size-2 shrink-0" aria-hidden />
+      )}
     </button>
   );
 }
@@ -163,16 +138,6 @@ export function DashboardInboxBell() {
       if (prev.has(id)) return prev;
       const next = new Set(prev);
       next.add(id);
-      saveReadIds(next);
-      return next;
-    });
-  }, []);
-
-  const markAllRead = useCallback(() => {
-    setReadIds((prev) => {
-      const next = new Set(prev);
-      for (const m of DASHBOARD_INBOX) next.add(m.id);
-      if (next.size === prev.size) return prev;
       saveReadIds(next);
       return next;
     });
@@ -247,20 +212,18 @@ export function DashboardInboxBell() {
           aria-haspopup="menu"
           onClick={() => setDropdownOpen((v) => !v)}
           className={cn(
-            "relative inline-flex size-8 items-center justify-center rounded-xl border border-black/[0.08] transition-[background-color,border-color,box-shadow] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream dark:border-white/[0.12]",
-            dropdownOpen
-              ? "bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.05)]"
-              : "bg-paper/90 hover:border-black/[0.14] hover:bg-paper dark:hover:border-white/[0.18]",
+            "relative inline-flex size-8 items-center justify-center rounded-full border border-ink/[0.08] bg-cream/80 transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream hover:bg-cream",
+            dropdownOpen && "border-ink/[0.12] bg-cream",
           )}
         >
           <Bell
-            className="size-[1.05rem] text-ink/70"
+            className="size-[1.05rem] text-ink/65"
             strokeWidth={1.75}
             aria-hidden
           />
           {hasUnread ? (
             <span
-              className="absolute right-1.5 top-1.5 size-2 rounded-full bg-orange ring-2 ring-paper"
+              className="absolute right-1 top-1 size-1.5 rounded-full bg-orange"
               aria-hidden
             />
           ) : null}
@@ -270,55 +233,16 @@ export function DashboardInboxBell() {
           <div
             id={listId}
             role="menu"
-            aria-label="Your notifications"
-            className="absolute right-0 top-[calc(100%+0.4rem)] z-[50] flex w-[min(calc(100vw-1.5rem),22rem)] origin-top-right flex-col gap-5 rounded-xl border border-border bg-paper p-4 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_12px_32px_rgb(var(--ink-rgb)_/_0.12)] motion-safe:animate-[profile-pop_160ms_var(--ease-out-quint)] sm:w-[26rem] sm:p-5 dark:border-white/[0.12]"
+            aria-label="Notifications"
+            className="absolute right-0 top-[calc(100%+0.5rem)] z-[50] w-[min(calc(100vw-1.5rem),20rem)] origin-top-right overflow-hidden rounded-[1.35rem] border border-ink/[0.06] bg-cream/95 p-2 shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.12),0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] backdrop-blur-xl motion-safe:animate-[profile-pop_160ms_var(--ease-out-quint)] supports-[backdrop-filter]:bg-cream/80 dark:border-white/[0.1]"
           >
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-base font-semibold leading-none tracking-[-0.006em] text-ink">
-                  Your notifications
-                </h3>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  className="size-8 text-muted-foreground"
-                  aria-label="Mark all as read"
-                  disabled={!hasUnread}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    markAllRead();
-                  }}
-                >
-                  <CheckCheck className="size-4" aria-hidden />
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-1.5">
-                <span className="inline-flex items-center gap-1.5 rounded-md bg-muted px-2.5 py-1 text-sm font-medium text-ink">
-                  View all
-                  <Badge
-                    variant="secondary"
-                    className="size-5 justify-center rounded-full border-0 bg-ink/15 px-0 text-[11px] text-ink"
-                  >
-                    {DASHBOARD_INBOX.length}
-                  </Badge>
-                </span>
-                {hasUnread ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-sm font-medium text-muted-foreground">
-                    Unread
-                    <Badge
-                      variant="secondary"
-                      className="size-5 justify-center rounded-full border-0 bg-olive/20 px-0 text-[11px] text-olive"
-                    >
-                      {unreadCount}
-                    </Badge>
-                  </span>
-                ) : null}
-              </div>
+            <div className="px-2.5 pb-1.5 pt-2">
+              <h3 className="text-[13px] font-semibold tracking-[-0.01em] text-ink">
+                Notifications
+              </h3>
             </div>
 
-            <div className="divide-y divide-dashed divide-border">
+            <div className="flex flex-col gap-0.5">
               {DASHBOARD_INBOX.map((message) => (
                 <NotificationItem
                   key={message.id}
@@ -335,7 +259,7 @@ export function DashboardInboxBell() {
       {activeMessage && typeof document !== "undefined"
         ? createPortal(
             <div
-              className="fixed inset-0 z-[120] flex items-end justify-center bg-ink/40 p-0 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:items-center sm:p-4"
+              className="fixed inset-0 z-[120] flex items-end justify-center bg-ink/30 p-3 backdrop-blur-[3px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:items-center sm:p-6"
               onMouseDown={(e) => {
                 if (e.target === e.currentTarget) closeModal();
               }}
@@ -344,53 +268,36 @@ export function DashboardInboxBell() {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={headingId}
-                className={cn(
-                  quietFormSurface,
-                  "relative flex max-h-[min(92dvh,40rem)] w-full max-w-[28rem] flex-col rounded-t-2xl motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:rounded-2xl",
-                )}
+                className="relative flex max-h-[min(88dvh,36rem)] w-full max-w-[26rem] flex-col overflow-hidden rounded-[1.5rem] border border-ink/[0.06] bg-cream shadow-[0_16px_48px_rgb(var(--ink-rgb)_/_0.14),0_2px_6px_rgb(var(--ink-rgb)_/_0.04)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both]"
               >
-                <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-border bg-white px-4 pb-3 pt-4 sm:px-5 sm:pt-5">
-                  <div className="flex min-w-0 items-start gap-3 pr-2">
-                    <span className="relative mt-0.5 flex size-10 shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-border">
-                      <Image
-                        src={FOX_SRC}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className="aspect-square size-full object-cover"
-                        aria-hidden
-                      />
-                    </span>
-                    <div className="min-w-0">
-                      <h2
-                        id={headingId}
-                        className="font-display text-[1.15rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty"
-                      >
-                        {activeMessage.heading}
-                      </h2>
-                      <p className="mt-1 text-[12px] font-medium text-muted-foreground">
-                        {formatPublishedDate(activeMessage.publishedAt)}
-                      </p>
-                    </div>
+                <div className="flex shrink-0 items-start justify-between gap-3 px-5 pb-3 pt-5 sm:px-6 sm:pt-6">
+                  <div className="min-w-0 pr-2">
+                    <h2
+                      id={headingId}
+                      className="font-display text-[1.2rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty"
+                    >
+                      {activeMessage.heading}
+                    </h2>
+                    <p className="mt-1.5 text-[12px] text-ink/40">
+                      {formatPublishedDate(activeMessage.publishedAt)}
+                    </p>
                   </div>
-                  <Button
+                  <button
                     type="button"
-                    variant="ghost"
-                    size="icon"
                     onClick={closeModal}
                     aria-label="Close"
-                    className="size-8 shrink-0 text-muted-foreground"
+                    className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ink/[0.05] text-ink/45 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.08] hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                   >
-                    <X className="size-4" strokeWidth={2} aria-hidden />
-                  </Button>
+                    <X className="size-3.5" strokeWidth={2.25} aria-hidden />
+                  </button>
                 </div>
 
-                <div className="overflow-y-auto overscroll-contain px-4 py-4 sm:px-5 sm:py-5">
-                  <div className="space-y-3.5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/80 text-pretty">
+                <div className="inbox-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6 sm:px-6 sm:pb-7">
+                  <div className="space-y-3.5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/75 text-pretty">
                     {activeMessage.sections.map((section, i) => {
                       if (section.kind === "lead") {
                         return (
-                          <p key={i} className="font-semibold text-ink">
+                          <p key={i} className="text-ink/75">
                             {section.text}
                           </p>
                         );
@@ -409,7 +316,7 @@ export function DashboardInboxBell() {
                         return (
                           <ul
                             key={i}
-                            className="list-disc space-y-1.5 pl-4 marker:text-ink/35"
+                            className="list-disc space-y-1.5 pl-4 marker:text-ink/30"
                           >
                             {section.items.map((item) => (
                               <li key={item}>{item}</li>
@@ -420,15 +327,13 @@ export function DashboardInboxBell() {
                       return <p key={i}>{section.text}</p>;
                     })}
 
-                    <div className="space-y-1 border-t border-border pt-4">
-                      <p className="text-ink">{activeMessage.signOff.thanks}</p>
-                      <p className="pt-2 text-ink">
-                        {activeMessage.signOff.farewell}
-                      </p>
-                      <p className="font-semibold text-ink">
+                    <div className="space-y-1 pt-2">
+                      <p>{activeMessage.signOff.thanks}</p>
+                      <p className="pt-2">{activeMessage.signOff.farewell}</p>
+                      <p className="font-medium text-ink">
                         {activeMessage.signOff.name}
                       </p>
-                      <p className="text-[12px] text-muted-foreground">
+                      <p className="text-[12px] text-ink/40">
                         {activeMessage.signOff.role}
                       </p>
                     </div>
