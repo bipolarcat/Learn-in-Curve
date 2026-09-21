@@ -130,8 +130,8 @@ export const PFQ_PLANS: PfqPlan[] = [
     features: [
       {
         icon: "practice",
-        label: "additional practice questions",
-        value: "515",
+        label: "total practice questions",
+        value: "565",
       },
       { icon: "mock", label: "timed mock exams", value: "3" },
       {
