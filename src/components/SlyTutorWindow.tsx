@@ -141,13 +141,17 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
               {locked ? (
-                <div className="max-w-[22rem]">
+                <div className="flex w-full max-w-[22rem] flex-col items-center">
                   <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
                     That&apos;s all three free questions.
                   </p>
                   <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
                     Unlimited Sly usage is coming soon with the AI Pro bundle.
                   </p>
+                  <JoinWaitlistButton
+                    label="Join Waitlist"
+                    className={`${stampCtaPrimary} mt-4 w-full !justify-center !normal-case`}
+                  />
                 </div>
               ) : (
                 <>
@@ -277,49 +281,42 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
               </Link>
             </div>
           ) : composerLocked ? (
-            <div className={`${showcase.composerCard} p-4`}>
-              {unavailable ? (
-                <>
-                  <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
-                    Sly’s free trial is taking a short break. Create a free
-                    account to keep learning in the meantime.
-                  </p>
+            unavailable ? (
+              <div className={`${showcase.composerCard} p-4`}>
+                <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
+                  Sly’s free trial is taking a short break. Create a free account
+                  to keep learning in the meantime.
+                </p>
+                <Link
+                  href="/auth/sign-up"
+                  className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
+                >
+                  Create Free Account
+                </Link>
+                <p className="m-0 mt-2.5 text-center text-[12px] text-ink/65">
+                  Already have an account?{" "}
                   <Link
-                    href="/auth/sign-up"
-                    className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
+                    href="/auth/sign-in"
+                    className="font-medium text-orange hover:text-orange-dark"
                   >
-                    Create Free Account
+                    Sign in
                   </Link>
-                  <p className="m-0 mt-2.5 text-center text-[12px] text-ink/65">
-                    Already have an account?{" "}
-                    <Link
-                      href="/auth/sign-in"
-                      className="font-medium text-orange hover:text-orange-dark"
-                    >
-                      Sign in
-                    </Link>
-                  </p>
-                </>
-              ) : (
-                <>
-                  {messages.length > 0 ? (
-                    <>
-                      <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                        That&apos;s all three free questions.
-                      </p>
-                      <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
-                        Unlimited Sly usage is coming soon with the AI Pro
-                        bundle.
-                      </p>
-                    </>
-                  ) : null}
-                  <JoinWaitlistButton
-                    label="Tell me when Sly is ready"
-                    className={`${stampCtaPrimary} ${messages.length > 0 ? "mt-3" : ""} w-full !justify-center !normal-case`}
-                  />
-                </>
-              )}
-            </div>
+                </p>
+              </div>
+            ) : messages.length > 0 ? (
+              <div className="flex flex-col items-stretch px-1 pb-1">
+                <p className="m-0 text-center font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                  That&apos;s all three free questions.
+                </p>
+                <p className="m-0 mt-1.5 text-center text-[13px] leading-relaxed text-ink/65 text-pretty">
+                  Unlimited Sly usage is coming soon with the AI Pro bundle.
+                </p>
+                <JoinWaitlistButton
+                  label="Join Waitlist"
+                  className={`${stampCtaPrimary} mt-4 w-full !justify-center !normal-case`}
+                />
+              </div>
+            ) : null
           ) : (
             <>
               {error ? (
