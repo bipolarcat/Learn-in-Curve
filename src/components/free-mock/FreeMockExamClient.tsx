@@ -314,8 +314,8 @@ export function FreeMockExamClient({
         className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
         aria-labelledby="free-mock-results-title"
       >
-        <p className="m-0 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-orange">
-          Your readiness check
+        <p className="m-0 font-body text-[11px] font-bold tracking-[-0.01em] text-orange">
+          {config.mark} Mock Exam result
         </p>
         <h2
           id="free-mock-results-title"
