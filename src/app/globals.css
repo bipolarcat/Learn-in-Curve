@@ -70,10 +70,6 @@ html {
   color-scheme: only light;
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-  /*
-    iOS rubber-band / overscroll past the footer shows this canvas colour.
-    Match footer ink so pull-past-bottom stays brown, not cream.
-  */
   background-color: rgb(var(--ink-rgb));
 }
 
@@ -81,8 +77,19 @@ html.dark {
   color-scheme: only dark;
 }
 
+/*
+  iOS Safari rubber-band uses *body* background (not html). Keep body ink so
+  pull-past-footer stays brown. Page cream + dots live on `.site-shell`.
+*/
 body {
-  @apply bg-cream text-ink font-body antialiased overflow-x-clip;
+  @apply text-ink font-body antialiased overflow-x-clip;
+  background-color: rgb(var(--ink-rgb));
+}
+
+.site-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: rgb(var(--cream-rgb));
   background-image: radial-gradient(
     circle at 1.25px 1.25px,
     var(--dot-grid) 1.25px,
@@ -91,8 +98,7 @@ body {
   background-size: 20px 20px;
 }
 
-/* Same top radius as HomeMethodBand teal stadium — CSS so commas aren’t
-   mangled by Tailwind arbitrary-value parsing. */
+/* Same top radius as HomeMethodBand teal stadium. */
 .site-footer {
   border-top-left-radius: clamp(1.75rem, 4.5vw, 3.25rem);
   border-top-right-radius: clamp(1.75rem, 4.5vw, 3.25rem);

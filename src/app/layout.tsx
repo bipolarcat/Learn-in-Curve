@@ -155,7 +155,11 @@ export default function RootLayout({
         */}
         <PostHogProvider>
           <AttributionCapture />
-          {children}
+          {/*
+            Cream + dots live here so body/html can stay ink for iOS
+            overscroll (Safari paints body, not html, on rubber-band).
+          */}
+          <div className="site-shell">{children}</div>
         </PostHogProvider>
         <CookieBanner />
         <GrainOverlay />

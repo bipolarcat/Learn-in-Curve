@@ -69,7 +69,7 @@ export function SiteFooter({
                 </span>
               </span>
             </div>
-            <div className="ml-auto flex shrink-0 items-center gap-1.5 lg:ml-0">
+            <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-2.5 lg:ml-0">
               <a
                 href="https://www.instagram.com/learn.in.curve/"
                 target="_blank"
