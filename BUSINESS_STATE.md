@@ -19,8 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
-- **2026-09-21** — PMQ Starter recall lock: locked Pro badge sits beside the icon group (not overlaid) (`ActivityRowHead`).
-- **2026-09-21** — PMQ Starter recall lock polish: de-emphasised Pair/Group/Line icons; one locked Pro badge for the icon group (`ActivityRowHead`, `ProBadge locked`).
+- **2026-09-21** — PMQ Starter recall lock: no Pro badge beside Pair/Group/Line — muted icons only; locked Pro badge stays on Insights (`ActivityRowHead`).
+- **2026-09-21** — PMQ Starter recall lock polish: de-emphasised Pair/Group/Line icons when locked (`ActivityRowHead`).
 - **2026-09-21** — PMQ Starter recall activities: Pair up / Group up / Line up icons always visible on Learn; LO1 playable for all tiers; LO2–24 locked (`canAccessRecallActivities(tier, loNumber)`, `redactPmqInsights`, `ActivityLauncher` via `StudyTable` / `CoreContentBlock` / `LoLearnStage`).
 - **2026-09-21** — PMQ Starter Insights lock for LO2–24 (same pattern as PFQ): server-side tip redact (`redactPmqInsights`), de-emphasised Insights chip + locked Pro badge (`InsightsLockedChip`, `canAccessPmqInsights`).
 - **2026-09-21** — PFQ locked Insights chip: drop “Bundle”; padlock sits inside the Pro badge (`PfqTakeawayBody`, `ProBadge`).
