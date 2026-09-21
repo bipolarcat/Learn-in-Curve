@@ -83,7 +83,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       {
         icon: "core",
         label:
-          "Study material covering all 10 learning objectives and 59 learning outcomes",
+          "study material covering all 59 learning outcomes as per PFQ exam handbook",
       },
       {
         icon: "misconceptions",
@@ -98,7 +98,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       {
         icon: "mock",
         label:
-          "Exam structure and mark weighting, so you revise what actually scores",
+          "exam structure and mark weighting, so you revise what actually matters",
       },
     ],
   },
