@@ -32,11 +32,11 @@ const STEPS = [
   {
     id: "recall",
     step: "03",
-    title: "Recall. Repeat. Remember.",
-    lead: "Keep testing until it sticks.",
-    body: "Revisit questions you got wrong, retest difficult topics, and strengthen your recall over time — so you’re practising retrieval, not just recognising information on a page.",
+    title: "Recall Activities",
+    lead: "Pair Up. Line Up. Group Up.",
+    body: "Recall activities are built throughout the course, so you retrieve what you’ve just learned instead of simply reading it. Get one wrong? Try again. Keep practising until you get it right and the answer comes back without hesitation.",
     src: "/brand/features/memory.webp",
-    alt: "Illustrated memory scene — repeating retrieval until the learning sticks.",
+    alt: "Illustrated recall activities — Pair Up, Line Up, Group Up practice.",
     // Full 5:4 art — contain so ears + board aren’t cropped on the 4:3 mobile plate.
     objectPosition: "center",
     objectFit: "contain" as const,
