@@ -141,7 +141,7 @@ export function HomeBrandHero() {
         <div className="mt-3.5 flex items-center justify-center gap-2.5 sm:mt-4 sm:gap-3">
           <AvatarCircles avatarUrls={HERO_TRUST_AVATARS} />
           <p className="font-body text-[12px] font-semibold tracking-tight text-ink/65 sm:text-[13px]">
-            Trusted by 200+ people
+            Trusted by 200+ learners
           </p>
         </div>
       </div>

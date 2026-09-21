@@ -109,7 +109,7 @@ decision below are independent of the payment question.
       the 94% figure remains in the live product. Linear LIC-47 closed.
       **2026-09-19 note:** `/lab` spike shows “Trusted by 100+ learners” only
       (no pass-rate). Keep substantiated before promoting that chip to live `/`.
-      **2026-09-21 note:** live `/` hero now shows “Trusted by 200+ people”
+      **2026-09-21 note:** live `/` hero now shows “Trusted by 200+ learners”
       with avatar circles (`HomeBrandHero`). Same rule — substantiate (unique
       learners / accounts / waitlist) before treating as launch-ready claim;
       informal guidance only, not solicitor advice.
