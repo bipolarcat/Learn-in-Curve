@@ -14,7 +14,7 @@ type MockMeExamCardProps = {
     src: string;
     alt: string;
     objectPosition?: string;
-    objectFit?: "cover" | "contain";
+    objectFit?: "cover" | "contain" | "zoom";
   };
   priority?: boolean;
 };
@@ -32,6 +32,13 @@ export function MockMeExamCard({
 }: MockMeExamCardProps) {
   const [pressed, setPressed] = useState(false);
 
+  const artClass =
+    art.objectFit === "contain"
+      ? styles.artImageContain
+      : art.objectFit === "zoom"
+        ? styles.artImageZoom
+        : styles.artImage;
+
   return (
     <article className={styles.card}>
       <div className={styles.art}>
@@ -40,9 +47,7 @@ export function MockMeExamCard({
           alt={art.alt}
           fill
           sizes="(max-width: 39.99rem) 92vw, 18rem"
-          className={
-            art.objectFit === "contain" ? styles.artImageContain : styles.artImage
-          }
+          className={artClass}
           style={
             art.objectPosition
               ? { objectPosition: art.objectPosition }

@@ -34,8 +34,8 @@ const CARD_ART: Record<
     src: string;
     alt: string;
     objectPosition?: string;
-    /** `contain` zooms out so the full plate shows (cream letterbox matches card). */
-    objectFit?: "cover" | "contain";
+    /** `contain` = full plate; `zoom` = between contain and cover. */
+    objectFit?: "cover" | "contain" | "zoom";
   }
 > = {
   "apm-pmq": {
@@ -47,7 +47,7 @@ const CARD_ART: Record<
     src: "/brand/mock-me/pfq.png",
     alt: "Wolf and cat high-fiving after study",
     objectPosition: "center center",
-    objectFit: "contain",
+    objectFit: "zoom",
   },
   pmp: {
     src: "/brand/mock-me/pmp.png",

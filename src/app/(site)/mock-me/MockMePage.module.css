@@ -93,6 +93,13 @@
   object-position: center center;
 }
 
+/* Between contain and cover — mild zoom-in, cream still frames the plate */
+.artImageZoom {
+  object-fit: contain;
+  object-position: center center;
+  transform: scale(1.14);
+}
+
 .meta {
   display: flex;
   flex: 1;
