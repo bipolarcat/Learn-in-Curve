@@ -93,7 +93,7 @@ export function SiteFooter({
 
           <nav
             aria-label="Footer"
-            className="flex flex-wrap items-center justify-end gap-x-4 gap-y-0.5 sm:gap-x-5"
+            className="flex w-full items-center justify-between sm:gap-x-5 lg:w-auto lg:justify-end lg:gap-x-5"
           >
             <Link href="/privacy" className={footerLinkClass}>
               Privacy

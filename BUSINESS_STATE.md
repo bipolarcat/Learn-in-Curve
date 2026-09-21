@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Footer nav on mobile: full-width equal spacing (`justify-between`); desktop stays end-aligned (`SiteFooter`).
 - **2026-09-21** — Site footer top corners match Method stadium radius (`clamp(1.75rem, 4.5vw, 3.25rem)`) (`SiteFooter`).
 - **2026-09-21** — Home Method cards: step index + title on one row (`TestingMethod`).
 - **2026-09-21** — Sly section: remove paper stadium panel (rounded wash + outline); flat on page paper again; drop chat-shell inset glass (`SlyShowcase` + CSS).
