@@ -57,7 +57,7 @@ export function TestingMethod() {
       className="relative overflow-x-clip pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">
-        <ScrollReveal className="mx-auto max-w-[40rem] text-center">
+        <ScrollReveal className="mx-auto max-w-[min(100%,52rem)] text-center xl:max-w-[58rem]">
           <p className="mb-2 font-body text-[14px] font-bold tracking-[0.14em] text-teal sm:text-[15px]">
             The Method
           </p>
@@ -68,7 +68,7 @@ export function TestingMethod() {
             You learn it when you{" "}
             <span className="text-orange">recall</span> it
           </h2>
-          <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/65 sm:text-[18px]">
+          <p className="mx-auto mt-3 max-w-[42rem] text-pretty text-center font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/65 sm:max-w-[48rem] sm:text-[18px]">
             Psychologists call it{" "}
             <DrawRandomUnderline
               text="“The Testing Effect”"
@@ -76,7 +76,7 @@ export function TestingMethod() {
             />
             .
           </p>
-          <p className="mx-auto mt-2.5 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:mt-3 sm:text-[16px]">
+          <p className="mx-auto mt-2.5 max-w-[42rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:mt-3 sm:max-w-[48rem] sm:text-[16px]">
             Every time you retrieve an answer from memory, you strengthen it.
             That is why answering questions beats re-reading notes or
             re-watching videos: it reveals the difference between what you
