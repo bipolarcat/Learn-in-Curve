@@ -38,6 +38,18 @@
   text-wrap: pretty;
 }
 
+.titleAsLead {
+  max-width: 34ch;
+  margin: 0.35rem auto 0;
+  color: rgb(var(--ink-rgb) / 0.75);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
 @media (min-width: 40rem) {
   .panel {
     padding-inline: 1.3rem;

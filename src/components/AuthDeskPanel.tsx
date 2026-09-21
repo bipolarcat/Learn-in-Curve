@@ -15,21 +15,25 @@ type AuthDeskPanelProps = {
   proIntent?: boolean;
   /**
    * Optional course name above the card title (e.g. “PFQ in 2 Days”).
-   * Renders as the page h1; the main title drops to h2.
    */
   courseTitle?: ReactNode;
+  /** Tag for `courseTitle`. Default h1. */
+  courseTitleLevel?: 1 | 2;
   /**
    * Override the default card title. Used with `courseTitle` on course previews.
    */
   title?: ReactNode;
+  /**
+   * How to render `title` (or the default title). `"p"` demotes long preview
+   * copy to body text under the course name.
+   */
+  titleAs?: "heading" | "p";
   /** Hide the lead line under the title (e.g. “Upgrade anytime after.”). */
   hideLead?: boolean;
   /**
-   * Heading level for the card's title when there is no `courseTitle`.
-   *
-   * Defaults to 1 because on `/auth/sign-in` and `/auth/sign-up` this card IS
-   * the page — "Welcome back" is the document title. When `courseTitle` is set,
-   * that is the h1 and this title is always an h2.
+   * Heading level for the card's title when `titleAs` is `"heading"` and there
+   * is no `courseTitle`. Defaults to 1 on `/auth/sign-in` and `/auth/sign-up`.
+   * When `courseTitle` is set, the title heading is always an h2.
    */
   headingLevel?: 1 | 2;
   /**
@@ -50,12 +54,15 @@ export function AuthDeskPanel({
   nextPath,
   proIntent = false,
   courseTitle,
+  courseTitleLevel = 1,
   title,
+  titleAs = "heading",
   hideLead = false,
   headingLevel = 1,
   initialError = null,
   className = "",
 }: AuthDeskPanelProps) {
+  const CourseTag = courseTitleLevel === 2 ? "h2" : "h1";
   const TitleTag = courseTitle || headingLevel === 2 ? "h2" : "h1";
 
   const defaultTitle = proIntent ? (
@@ -71,6 +78,8 @@ export function AuthDeskPanel({
       Start learning for <span className="text-orange">free</span>
     </>
   );
+
+  const titleContent = title ?? defaultTitle;
 
   const lead = hideLead
     ? null
@@ -94,9 +103,13 @@ export function AuthDeskPanel({
       >
         <div className={styles.intro}>
           {courseTitle ? (
-            <h1 className={styles.courseTitle}>{courseTitle}</h1>
+            <CourseTag className={styles.courseTitle}>{courseTitle}</CourseTag>
           ) : null}
-          <TitleTag>{title ?? defaultTitle}</TitleTag>
+          {titleAs === "p" ? (
+            <p className={styles.titleAsLead}>{titleContent}</p>
+          ) : (
+            <TitleTag>{titleContent}</TitleTag>
+          )}
           {lead}
         </div>
         <AuthForm
