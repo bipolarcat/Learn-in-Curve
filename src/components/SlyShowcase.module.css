@@ -63,8 +63,8 @@
 }
 
 .suggestChip:hover:not(:disabled) {
-  border-color: rgb(var(--teal-rgb) / 0.35);
-  background: rgb(var(--paper-rgb));
+  border-color: rgb(var(--ink-rgb) / 0.18);
+  background: rgb(var(--ink-rgb) / 0.03);
   color: rgb(var(--ink-rgb));
 }
 
@@ -73,7 +73,7 @@
 }
 
 .suggestChip:focus-visible {
-  outline: 2px solid rgb(var(--teal-rgb));
+  outline: 2px solid rgb(var(--ink-rgb) / 0.35);
   outline-offset: 2px;
 }
 
