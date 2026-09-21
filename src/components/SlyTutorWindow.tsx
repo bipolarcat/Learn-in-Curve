@@ -145,6 +145,9 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                   <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
                     That&apos;s all three free questions.
                   </p>
+                  <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+                    Unlimited Sly usage is coming soon with the AI Pro bundle.
+                  </p>
                 </div>
               ) : (
                 <>
@@ -300,9 +303,15 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
               ) : (
                 <>
                   {messages.length > 0 ? (
-                    <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                      That&apos;s all three free questions.
-                    </p>
+                    <>
+                      <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                        That&apos;s all three free questions.
+                      </p>
+                      <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+                        Unlimited Sly usage is coming soon with the AI Pro
+                        bundle.
+                      </p>
+                    </>
                   ) : null}
                   <JoinWaitlistButton
                     label="Tell me when Sly is ready"
