@@ -12,11 +12,11 @@ import { isSoftNavClick } from "@/lib/soft-nav-back";
 
 /** Primary hero CTA — teal solid, uses shared min-h-11 (no downward !min-h overrides). */
 const HERO_COURSE_CTA =
-  `${stampCtaTealFlat} !normal-case !tracking-[-0.01em]`;
+  `${stampCtaTealFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
 
 /** Secondary mock CTA — outline/ghost weight so primary reads as the main action. */
 const HERO_MOCK_CTA =
-  `${marketingActionSecondary} !normal-case !tracking-[-0.01em]`;
+  `${marketingActionSecondary} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
 
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
