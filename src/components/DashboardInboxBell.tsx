@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react";
@@ -18,6 +19,7 @@ import { Bell, X } from "lucide-react";
 import {
   DASHBOARD_INBOX,
   type InboxMessage,
+  type InboxSection,
 } from "@/content/dashboard-inbox";
 import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
@@ -46,16 +48,6 @@ function saveReadIds(ids: Set<string>) {
   } catch {
     // private mode / quota — unread badge may reappear; message still works
   }
-}
-
-function formatPublishedDate(iso: string): string {
-  const d = new Date(`${iso}T12:00:00`);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 }
 
 function timeAgoLabel(iso: string): string {
@@ -120,12 +112,74 @@ function NotificationItem({
   );
 }
 
+function renderSection(section: InboxSection, i: number) {
+  if (section.kind === "lead") {
+    return (
+      <p key={i} className="text-ink/75">
+        {section.text}
+      </p>
+    );
+  }
+  if (section.kind === "date") {
+    return (
+      <p key={i} className="text-[12px] text-ink/40">
+        {section.text}
+      </p>
+    );
+  }
+  if (section.kind === "heading") {
+    return (
+      <h3
+        key={i}
+        className="pt-1 font-display text-[0.95rem] font-bold tracking-[-0.02em] text-ink"
+      >
+        {section.text}
+      </h3>
+    );
+  }
+  if (section.kind === "numbered") {
+    return (
+      <p key={i}>
+        <span className="font-medium text-ink">
+          {section.number}. {section.title}
+          {section.text ? ":" : "."}
+        </span>
+        {section.text ? (
+          <>
+            {" "}
+            {section.text}
+          </>
+        ) : null}
+      </p>
+    );
+  }
+  if (section.kind === "bullets") {
+    return (
+      <ul
+        key={i}
+        className="list-disc space-y-1.5 pl-4 marker:text-ink/30"
+      >
+        {section.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+  return <p key={i}>{section.text}</p>;
+}
+
+type PanelPos = { top: number; left: number; width: number };
+
 export function DashboardInboxBell() {
   const listId = useId();
   const headingId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [panelPos, setPanelPos] = useState<PanelPos | null>(null);
+  const [mounted, setMounted] = useState(false);
   const [activeMessage, setActiveMessage] = useState<InboxMessage | null>(
     null,
   );
@@ -133,9 +187,36 @@ export function DashboardInboxBell() {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setReadIds(loadReadIds());
     setHydrated(true);
   }, []);
+
+  const placePanel = useCallback(() => {
+    const btn = triggerRef.current;
+    if (!btn) return;
+    const r = btn.getBoundingClientRect();
+    const margin = 12;
+    const width = Math.min(20 * 16, window.innerWidth - margin * 2);
+    let left = r.right - width;
+    left = Math.max(margin, Math.min(left, window.innerWidth - margin - width));
+    setPanelPos({
+      top: r.bottom + 8,
+      left,
+      width,
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!dropdownOpen) return;
+    placePanel();
+    window.addEventListener("resize", placePanel);
+    window.addEventListener("scroll", placePanel, true);
+    return () => {
+      window.removeEventListener("resize", placePanel);
+      window.removeEventListener("scroll", placePanel, true);
+    };
+  }, [dropdownOpen, placePanel]);
 
   const unreadCount = hydrated
     ? DASHBOARD_INBOX.filter((m) => !readIds.has(m.id)).length
@@ -157,22 +238,19 @@ export function DashboardInboxBell() {
 
   useEffect(() => {
     if (!dropdownOpen) return;
-    function onPointerDown(e: MouseEvent | TouchEvent) {
-      const el = rootRef.current;
-      if (!el) return;
-      if (e.target instanceof Node && !el.contains(e.target)) {
-        closeDropdown();
-      }
+    function onPointerDown(e: PointerEvent) {
+      const t = e.target as Node;
+      if (rootRef.current?.contains(t)) return;
+      if (panelRef.current?.contains(t)) return;
+      closeDropdown();
     }
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape" && !activeMessage) closeDropdown();
     }
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("touchstart", onPointerDown);
+    document.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("touchstart", onPointerDown);
+      document.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [dropdownOpen, activeMessage, closeDropdown]);
@@ -206,10 +284,63 @@ export function DashboardInboxBell() {
     setActiveMessage(message);
   }
 
+  const panel =
+    dropdownOpen && panelPos ? (
+      <motion.div
+        key="inbox-panel"
+        ref={panelRef}
+        id={listId}
+        role="menu"
+        aria-label="Notifications"
+      initial={
+        reduceMotion
+          ? { opacity: 1 }
+          : { opacity: 0, scale: 0.94, y: -8 }
+      }
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={
+        reduceMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.96, y: -6 }
+      }
+      transition={{
+        duration: reduceMotion ? 0.08 : 0.22,
+        ease: blurEase,
+      }}
+      style={{
+        position: "fixed",
+        top: panelPos.top,
+        left: panelPos.left,
+        width: panelPos.width,
+        transformOrigin: "top right",
+        zIndex: 80,
+      }}
+      className="overflow-hidden rounded-[1.35rem] border border-ink/[0.06] bg-cream/95 p-2 shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.12),0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80 dark:border-white/[0.1]"
+    >
+      <div className="px-2.5 pb-1.5 pt-2">
+        <h3 className="text-[13px] font-semibold tracking-[-0.01em] text-ink">
+          Notifications
+        </h3>
+      </div>
+
+      <div className="flex flex-col gap-0.5">
+        {DASHBOARD_INBOX.map((message) => (
+          <NotificationItem
+            key={message.id}
+            message={message}
+            unread={hydrated && !readIds.has(message.id)}
+            onOpen={() => openMessage(message)}
+          />
+        ))}
+      </div>
+    </motion.div>
+  ) : null;
+
   return (
     <>
       <div ref={rootRef} className="relative z-30 shrink-0">
         <button
+          ref={triggerRef}
           type="button"
           aria-label={
             hasUnread
@@ -219,17 +350,19 @@ export function DashboardInboxBell() {
           aria-expanded={dropdownOpen}
           aria-controls={listId}
           aria-haspopup="menu"
-          onClick={() => setDropdownOpen((v) => !v)}
+          onClick={() => {
+            setDropdownOpen((v) => {
+              const next = !v;
+              if (next) queueMicrotask(placePanel);
+              return next;
+            });
+          }}
           className={cn(
             "relative inline-flex size-8 items-center justify-center rounded-full text-ink/65 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
             dropdownOpen && "bg-ink/[0.05] text-ink",
           )}
         >
-          <Bell
-            className="size-[1.05rem]"
-            strokeWidth={1.75}
-            aria-hidden
-          />
+          <Bell className="size-[1.05rem]" strokeWidth={1.75} aria-hidden />
           {hasUnread ? (
             <span
               className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-orange"
@@ -237,56 +370,19 @@ export function DashboardInboxBell() {
             />
           ) : null}
         </button>
-
-        <AnimatePresence>
-          {dropdownOpen ? (
-            <motion.div
-              id={listId}
-              role="menu"
-              aria-label="Notifications"
-              initial={
-                reduceMotion
-                  ? { opacity: 1 }
-                  : { opacity: 0, scale: 0.94, y: -8 }
-              }
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, scale: 0.96, y: -6 }
-              }
-              transition={{
-                duration: reduceMotion ? 0.08 : 0.22,
-                ease: blurEase,
-              }}
-              style={{ transformOrigin: "top right" }}
-              className="absolute right-0 top-[calc(100%+0.5rem)] z-[50] w-[min(calc(100vw-1.5rem),20rem)] overflow-hidden rounded-[1.35rem] border border-ink/[0.06] bg-cream/95 p-2 shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.12),0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80 dark:border-white/[0.1]"
-            >
-              <div className="px-2.5 pb-1.5 pt-2">
-                <h3 className="text-[13px] font-semibold tracking-[-0.01em] text-ink">
-                  Notifications
-                </h3>
-              </div>
-
-              <div className="flex flex-col gap-0.5">
-                {DASHBOARD_INBOX.map((message) => (
-                  <NotificationItem
-                    key={message.id}
-                    message={message}
-                    unread={hydrated && !readIds.has(message.id)}
-                    onOpen={() => openMessage(message)}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
       </div>
+
+      {mounted
+        ? createPortal(
+            <AnimatePresence>{panel}</AnimatePresence>,
+            document.body,
+          )
+        : null}
 
       {activeMessage && typeof document !== "undefined"
         ? createPortal(
             <div
-              className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/40 p-4 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none"
+              className="fixed inset-0 z-[120] flex items-end justify-center bg-ink/40 p-0 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:items-center sm:p-4"
               onMouseDown={(e) => {
                 if (e.target === e.currentTarget) closeModal();
               }}
@@ -295,7 +391,7 @@ export function DashboardInboxBell() {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={headingId}
-                className="relative flex max-h-[min(88dvh,36rem)] w-full max-w-[26rem] flex-col overflow-hidden rounded-[1.5rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both]"
+                className="relative flex h-[min(88svh,36rem)] max-h-[88svh] w-full max-w-[26rem] flex-col overflow-hidden rounded-t-[1.5rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:h-auto sm:max-h-[min(85svh,36rem)] sm:rounded-[1.5rem]"
               >
                 <div className="flex shrink-0 items-start justify-between gap-3 px-5 pb-3 pt-5 sm:px-6 sm:pt-6">
                   <div className="flex min-w-0 items-start gap-3 pr-2">
@@ -307,13 +403,10 @@ export function DashboardInboxBell() {
                     <div className="min-w-0">
                       <h2
                         id={headingId}
-                        className="font-display text-[1.2rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty"
+                        className="font-display text-[1.15rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty sm:text-[1.2rem]"
                       >
                         {activeMessage.heading}
                       </h2>
-                      <p className="mt-1.5 text-[12px] text-ink/40">
-                        {formatPublishedDate(activeMessage.publishedAt)}
-                      </p>
                     </div>
                   </div>
                   <button
@@ -326,40 +419,9 @@ export function DashboardInboxBell() {
                   </button>
                 </div>
 
-                <div className="inbox-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6 sm:px-6 sm:pb-7">
+                <div className="inbox-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6 [-webkit-overflow-scrolling:touch] sm:px-6 sm:pb-7">
                   <div className="space-y-3.5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/75 text-pretty">
-                    {activeMessage.sections.map((section, i) => {
-                      if (section.kind === "lead") {
-                        return (
-                          <p key={i} className="text-ink/75">
-                            {section.text}
-                          </p>
-                        );
-                      }
-                      if (section.kind === "heading") {
-                        return (
-                          <h3
-                            key={i}
-                            className="pt-1 font-display text-[0.95rem] font-bold tracking-[-0.02em] text-ink"
-                          >
-                            {section.text}
-                          </h3>
-                        );
-                      }
-                      if (section.kind === "bullets") {
-                        return (
-                          <ul
-                            key={i}
-                            className="list-disc space-y-1.5 pl-4 marker:text-ink/30"
-                          >
-                            {section.items.map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        );
-                      }
-                      return <p key={i}>{section.text}</p>;
-                    })}
+                    {activeMessage.sections.map(renderSection)}
 
                     <div className="space-y-1 pt-2">
                       <p>{activeMessage.signOff.thanks}</p>

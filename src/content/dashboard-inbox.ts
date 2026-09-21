@@ -4,17 +4,9 @@
  */
 export type InboxMessage = {
   id: string;
-  /** Short title for a11y / analytics. */
+  /** Short title for the dropdown row. */
   title: string;
-  /** Sender shown in the notification row. */
-  from: string;
-  /** Verb between from and target, e.g. "announced". */
-  action: string;
-  /** Emphasised subject in the row, e.g. "Version 3.0". */
-  target: string;
-  /** One-line preview in the muted chip under the row. */
-  preview: string;
-  /** ISO date shown under the modal heading. */
+  /** ISO date. */
   publishedAt: string;
   /** Modal heading. */
   heading: string;
@@ -30,7 +22,9 @@ export type InboxMessage = {
 
 export type InboxSection =
   | { kind: "lead"; text: string }
+  | { kind: "date"; text: string }
   | { kind: "heading"; text: string }
+  | { kind: "numbered"; number: number; title: string; text: string }
   | { kind: "paragraph"; text: string }
   | { kind: "bullets"; items: readonly string[] };
 
@@ -38,54 +32,66 @@ export const DASHBOARD_INBOX: readonly InboxMessage[] = [
   {
     id: "2026-09-21-v3",
     title: "Learn in Curve Version 3.0 is live",
-    from: "Learn in Curve",
-    action: "announced",
-    target: "Version 3.0",
-    preview:
-      "PFQ in 2 Days, new free mocks, recall activities, The Shelf, a refreshed PMQ experience, and pricing notes.",
     publishedAt: "2026-09-21",
     heading: "Version 3.0 of Learn in Curve is now live",
     sections: [
-      { kind: "lead", text: "Here's what's changed." },
+      { kind: "lead", text: "Here's what's changed" },
+      { kind: "date", text: "21 September 2026" },
       {
-        kind: "paragraph",
-        text: "PFQ in 2 Days is live. You can now prepare for the APM PFQ with the new PFQ in 2 Days course.",
+        kind: "numbered",
+        number: 1,
+        title: "PFQ in 2 Days is live",
+        text: "You can now start preparing for the APM PFQ with the new PFQ in 2 Days course.",
       },
       {
-        kind: "paragraph",
-        text: "Two new free mock exams. APM PFQ and PMI PMP are now available in Mock Me, with no sign-up or payment required.",
+        kind: "numbered",
+        number: 2,
+        title: "Delete your account",
+        text: "You can now permanently delete your account yourself from the profile menu on your dashboard.",
       },
       {
-        kind: "paragraph",
-        text: "Three new recall activities. Pair Up, Group Up and Line Up are now included in the PMQ in 5 Days Pro bundle at no extra cost.",
+        kind: "numbered",
+        number: 3,
+        title: "Two new free mock exams",
+        text: "APM PFQ and PMI PMP are now available in Mock Me, with no sign-up or payment required.",
       },
       {
-        kind: "paragraph",
-        text: "The Shelf has been rebuilt. It now holds 19 articles covering exam topics, certification comparisons and what to expect on exam day. You can reach it from the Menu in the header.",
+        kind: "numbered",
+        number: 4,
+        title: "Three new recall activities",
+        text: "Pair Up, Group Up and Line Up are now included in the PMQ in 5 Days Pro bundle at no extra cost.",
       },
       {
-        kind: "paragraph",
-        text: "PMQ in 5 Days has a refreshed interface. The study content itself has not changed, but the experience around it has:",
+        kind: "numbered",
+        number: 5,
+        title: "The Shelf has been rebuilt",
+        text: "It now includes 19 articles covering exam topics, certification comparisons and what to expect on exam day. Accessible from the Menu drop down in the header.",
+      },
+      {
+        kind: "numbered",
+        number: 6,
+        title: "PMQ in 5 Days has a refreshed interface",
+        text: "The study content itself hasn't changed, but the learning experience has been improved:",
       },
       {
         kind: "bullets",
         items: [
           "Key definitions now sit within the Orient section and can be expanded or collapsed.",
           "Scrolling within the Learn tab is smoother.",
-          "The Polish section has a new look.",
+          "Polish section has a new look.",
         ],
       },
       {
-        kind: "paragraph",
-        text: "A cleaner header. Your dashboard, sign out and other actions that previously sat across the header are now grouped under the new Menu button.",
+        kind: "numbered",
+        number: 7,
+        title: "The website's homepage has been redesigned",
+        text: "",
       },
       {
-        kind: "paragraph",
-        text: "The homepage has been redesigned.",
-      },
-      {
-        kind: "paragraph",
-        text: "You can delete your account yourself. Account deletion is now available from the profile menu on your dashboard, and it is permanent.",
+        kind: "numbered",
+        number: 8,
+        title: "A cleaner header",
+        text: "Your dashboard, sign out and other actions that previously sat in the footer are now grouped under the new Menu button.",
       },
       { kind: "heading", text: "On pricing" },
       {
@@ -94,19 +100,19 @@ export const DASHBOARD_INBOX: readonly InboxMessage[] = [
       },
       {
         kind: "paragraph",
-        text: "If you already own a bundle, nothing changes for you. Your existing access continues as before and you will not be charged again.",
+        text: "If you already own a bundle, nothing changes for you. Your existing access continues as before, and you won't be charged again.",
       },
       {
         kind: "paragraph",
-        text: "If you joined the PMQ in 5 Days AI Pro waitlist on or before 21 September 2026, you can still buy it at the previous price.",
+        text: "If you have joined the PMQ in 5 Days AI Pro waitlist on or before 21/09/2026, you can still purchase it at the previous price.",
       },
       {
         kind: "paragraph",
-        text: "If you already own the Pro bundle and want to upgrade to AI Pro, you will only pay the difference.",
+        text: "And if you already own the Pro bundle and want to upgrade to AI Pro, you'll only pay the difference.",
       },
       {
         kind: "paragraph",
-        text: "If you have any questions, or spot something that does not look right, the Send Feedback button in the site footer reaches me directly.",
+        text: "If you have any questions or spot something that doesn't look right, the Send Feedback button in the site footer reaches me directly.",
       },
     ],
     signOff: {
