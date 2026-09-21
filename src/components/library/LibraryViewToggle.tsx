@@ -25,8 +25,8 @@ const MODES: {
   label: string;
   Icon: typeof LayoutGrid;
 }[] = [
-  { value: "grid", label: "Grid view", Icon: LayoutGrid },
-  { value: "list", label: "List view", Icon: List },
+  { value: "grid", label: "Grid", Icon: LayoutGrid },
+  { value: "list", label: "List", Icon: List },
 ];
 
 type LibraryViewToggleProps = {
@@ -36,8 +36,7 @@ type LibraryViewToggleProps = {
 };
 
 /**
- * Compact grid/list switch — 21st.dev view-mode + segmented thumb motion
- * (same spring as `SegmentedControl`), icon-only for the Shelf toolbar.
+ * Grid / List switch with labeled segments — Claude Shelf mock + 21st spring thumb.
  */
 export function LibraryViewToggle({
   value,
@@ -75,7 +74,7 @@ export function LibraryViewToggle({
       role="radiogroup"
       aria-label="View mode"
       className={cn(
-        "relative inline-flex select-none rounded-[10px] border border-ink/10 bg-ink/[0.045] p-[3px] shadow-[inset_0_1px_2px_rgb(var(--ink-rgb)_/_0.08)]",
+        "relative inline-flex shrink-0 select-none rounded-full border border-ink/12 bg-ink/[0.04] p-[3px]",
         className,
       )}
     >
@@ -86,7 +85,7 @@ export function LibraryViewToggle({
       >
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-[7px] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.12)] ring-1 ring-ink/10"
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-full bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.1)] ring-1 ring-ink/10"
           style={{ x: thumbX }}
           initial={false}
         />
@@ -103,7 +102,7 @@ export function LibraryViewToggle({
               type="button"
               role="radio"
               aria-checked={active}
-              aria-label={mode.label}
+              aria-label={`${mode.label} view`}
               tabIndex={active ? 0 : -1}
               onClick={() => onValueChange(mode.value)}
               onPointerEnter={() => setHovered(i)}
@@ -116,20 +115,32 @@ export function LibraryViewToggle({
                   go(0);
                 }
               }}
-              className="relative z-[1] flex size-9 items-center justify-center rounded-[7px] outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
+              className="relative z-[1] flex h-9 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-full px-3 outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
             >
               <Icon
                 className={cn(
-                  "size-[1.05rem] transition-colors duration-150 ease-[var(--ease-out-quint)]",
+                  "size-3.5 shrink-0 transition-colors duration-150 ease-[var(--ease-out-quint)]",
                   active
                     ? "text-ink"
                     : hovered === i
-                      ? "text-ink/70"
-                      : "text-ink/45",
+                      ? "text-ink/65"
+                      : "text-ink/40",
                 )}
-                strokeWidth={2.1}
+                strokeWidth={2.15}
                 aria-hidden
               />
+              <span
+                className={cn(
+                  "font-body text-[12.5px] font-semibold tracking-[-0.01em] transition-colors duration-150 ease-[var(--ease-out-quint)]",
+                  active
+                    ? "text-ink"
+                    : hovered === i
+                      ? "text-ink/65"
+                      : "text-ink/40",
+                )}
+              >
+                {mode.label}
+              </span>
             </button>
           );
         })}

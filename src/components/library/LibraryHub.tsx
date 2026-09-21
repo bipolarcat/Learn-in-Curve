@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { BookOpen, ChevronDown, Layers, Scale, Search } from "lucide-react";
 import {
   LIBRARY_GROUP_LABELS,
   type LibraryGroup,
@@ -18,6 +19,16 @@ import styles from "./LibraryHub.module.css";
 
 const VIEW_STORAGE_KEY = "lic-library-view";
 
+/** Soft brand washes for card art plates (editorial mock — not purple). */
+const ART_TONES = [
+  "color-mix(in srgb, var(--teal) 26%, rgb(var(--paper-rgb)))",
+  "color-mix(in srgb, var(--orange) 22%, rgb(var(--paper-rgb)))",
+  "rgb(var(--sand-rgb))",
+  "color-mix(in srgb, var(--olive) 22%, rgb(var(--paper-rgb)))",
+  "rgb(var(--cream-2-rgb))",
+  "color-mix(in srgb, var(--gold) 28%, rgb(var(--paper-rgb)))",
+] as const;
+
 type FilterId = "all" | LibraryGroup;
 
 type LibraryHubProps = {
@@ -33,14 +44,36 @@ const FILTERS: { id: FilterId; label: string }[] = [
   { id: "syllabus", label: LIBRARY_GROUP_LABELS.syllabus },
 ];
 
-export function LibraryHub({
-  pages,
-  groups,
-  draftCount,
-}: LibraryHubProps) {
+function artToneForSlug(slug: string): string {
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) {
+    h = (h + slug.charCodeAt(i) * (i + 3)) % ART_TONES.length;
+  }
+  return ART_TONES[h]!;
+}
+
+function formatGuideDate(iso: string): string | null {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function GroupIcon({ group }: { group: LibraryGroup }) {
+  const className = styles.cardTagIcon;
+  if (group === "exam-prep") return <BookOpen className={className} aria-hidden />;
+  if (group === "choosing") return <Scale className={className} aria-hidden />;
+  return <Layers className={className} aria-hidden />;
+}
+
+export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
   const [filter, setFilter] = useState<FilterId>("all");
   const [query, setQuery] = useState("");
   const [view, setView] = useState<LibraryViewMode>("grid");
+  const [categoryOpen, setCategoryOpen] = useState(true);
 
   useEffect(() => {
     try {
@@ -60,17 +93,6 @@ export function LibraryHub({
     }
   }
 
-  const counts = useMemo(() => {
-    const map: Record<FilterId, number> = {
-      all: pages.length,
-      "exam-prep": 0,
-      choosing: 0,
-      syllabus: 0,
-    };
-    for (const p of pages) map[p.group] += 1;
-    return map;
-  }, [pages]);
-
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return pages.filter((p) => {
@@ -83,19 +105,6 @@ export function LibraryHub({
       );
     });
   }, [pages, filter, query]);
-
-  const sections = useMemo(() => {
-    if (filter !== "all") {
-      const label = LIBRARY_GROUP_LABELS[filter];
-      return [{ group: filter, label, pages: filtered }];
-    }
-    return groups
-      .map((g) => ({
-        ...g,
-        pages: filtered.filter((p) => p.group === g.group),
-      }))
-      .filter((g) => g.pages.length > 0);
-  }, [filter, filtered, groups]);
 
   return (
     <div className={styles.page}>
@@ -125,87 +134,82 @@ export function LibraryHub({
             </div>
           ) : (
             <div className={styles.layout}>
-              <aside className={styles.side} aria-label="Library filters">
-                <div className={styles.sideInner}>
-                  <label className={styles.searchLabel} htmlFor="library-search">
-                    Search
-                  </label>
-                  <input
-                    id="library-search"
-                    type="search"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search guides…"
-                    className={styles.search}
-                    autoComplete="off"
-                  />
+              <aside className={styles.side} aria-label="Filter and sort">
+                <p className={styles.sideHeading}>Filter and sort</p>
 
-                  <p className={styles.filterHeading}>Browse</p>
-                  <ul className={styles.filterList} role="list">
-                    {FILTERS.map((f) => {
-                      const active = filter === f.id;
-                      return (
-                        <li key={f.id}>
-                          <button
-                            type="button"
-                            className={
-                              active ? styles.filterBtnActive : styles.filterBtn
-                            }
-                            aria-pressed={active}
-                            onClick={() => setFilter(f.id)}
-                          >
-                            <span className={styles.filterLabel}>{f.label}</span>
-                            <span className={styles.filterCount}>
-                              {counts[f.id]}
-                            </span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                <div className={styles.accordion}>
+                  <button
+                    type="button"
+                    className={styles.accordionTrigger}
+                    aria-expanded={categoryOpen}
+                    onClick={() => setCategoryOpen((o) => !o)}
+                  >
+                    <span>Category</span>
+                    <ChevronDown
+                      className={`${styles.accordionChevron} ${
+                        categoryOpen ? styles.accordionChevronOpen : ""
+                      }`}
+                      aria-hidden
+                    />
+                  </button>
+                  {categoryOpen ? (
+                    <ul className={styles.accordionPanel} role="list">
+                      {FILTERS.map((f) => {
+                        const active = filter === f.id;
+                        return (
+                          <li key={f.id}>
+                            <button
+                              type="button"
+                              className={
+                                active
+                                  ? styles.categoryBtnActive
+                                  : styles.categoryBtn
+                              }
+                              aria-pressed={active}
+                              onClick={() => setFilter(f.id)}
+                            >
+                              {f.label}
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : null}
                 </div>
               </aside>
 
               <div className={styles.main}>
-                <div className={styles.mobileTools}>
-                  <label
-                    className={styles.srOnly}
-                    htmlFor="library-search-mobile"
-                  >
-                    Search guides
+                <div className={styles.toolbar}>
+                  <label className={styles.searchWrap} htmlFor="library-search">
+                    <Search className={styles.searchIcon} aria-hidden />
+                    <span className={styles.srOnly}>Search guides</span>
+                    <input
+                      id="library-search"
+                      type="search"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      placeholder="Search guides…"
+                      className={styles.search}
+                      autoComplete="off"
+                    />
                   </label>
-                  <input
-                    id="library-search-mobile"
-                    type="search"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search guides…"
-                    className={styles.searchMobile}
-                    autoComplete="off"
-                  />
-                  <div
-                    className={styles.mobileFilters}
-                    aria-label="Quick filters"
-                  >
-                    {FILTERS.map((f) => (
-                      <button
-                        key={f.id}
-                        type="button"
-                        className={
-                          filter === f.id ? styles.chipActive : styles.chip
-                        }
-                        aria-pressed={filter === f.id}
-                        onClick={() => setFilter(f.id)}
-                      >
-                        {f.label}
-                        <span className={styles.chipCount}>{counts[f.id]}</span>
-                      </button>
-                    ))}
-                  </div>
+                  <LibraryViewToggle value={view} onValueChange={changeView} />
                 </div>
 
-                <div className={styles.mainToolbar}>
-                  <LibraryViewToggle value={view} onValueChange={changeView} />
+                <div className={styles.mobileFilters} aria-label="Quick filters">
+                  {FILTERS.map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      className={
+                        filter === f.id ? styles.chipActive : styles.chip
+                      }
+                      aria-pressed={filter === f.id}
+                      onClick={() => setFilter(f.id)}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
                 </div>
 
                 {filtered.length === 0 ? (
@@ -226,77 +230,61 @@ export function LibraryHub({
                     </button>
                   </div>
                 ) : (
-                  sections.map((section) => (
-                    <section
-                      key={section.group}
-                      className={styles.section}
-                      aria-labelledby={`library-section-${section.group}`}
-                    >
-                      <h2
-                        id={`library-section-${section.group}`}
-                        className={styles.sectionTitle}
-                      >
-                        {section.label}
-                      </h2>
-
-                      <ul
-                        className={
-                          view === "list" ? styles.list : styles.grid
-                        }
-                        role="list"
-                        data-view={view}
-                      >
-                        {section.pages.map((page) => (
-                          <li key={page.slug} className={styles.card}>
-                            <LibrarySoftNavLink
-                              href={`/library/${page.slug}`}
-                              busyLabel={`Opening ${page.title}`}
+                  <ul
+                    className={view === "list" ? styles.list : styles.grid}
+                    role="list"
+                    data-view={view}
+                  >
+                    {filtered.map((page) => {
+                      const dateLabel = formatGuideDate(page.updatedAt);
+                      return (
+                        <li key={page.slug} className={styles.card}>
+                          <LibrarySoftNavLink
+                            href={`/library/${page.slug}`}
+                            busyLabel={`Opening ${page.title}`}
+                            className={
+                              view === "list"
+                                ? `${styles.cardLink} ${styles.cardLinkList}`
+                                : styles.cardLink
+                            }
+                          >
+                            <div
                               className={
                                 view === "list"
-                                  ? `${styles.cardLink} ${styles.cardLinkList}`
-                                  : styles.cardLink
+                                  ? `${styles.cardArt} ${styles.cardArtList}`
+                                  : styles.cardArt
                               }
+                              style={{
+                                background: artToneForSlug(page.slug),
+                              }}
                             >
-                              <div
-                                className={
-                                  view === "list"
-                                    ? `${styles.cardArt} ${styles.cardArtList}`
-                                    : styles.cardArt
-                                }
-                              >
-                                <LibraryPageIllustration
-                                  slug={page.slug}
-                                  className={styles.cardSvg}
-                                />
-                              </div>
-                              <div className={styles.cardBody}>
-                                <span className={styles.cardGroup}>
-                                  {LIBRARY_GROUP_LABELS[page.group]}
-                                </span>
-                                <span className={styles.cardTitle}>
-                                  {page.title}
-                                </span>
-                                <span
-                                  className={
-                                    view === "list"
-                                      ? `${styles.cardBlurb} ${styles.cardBlurbList}`
-                                      : styles.cardBlurb
-                                  }
+                              <LibraryPageIllustration
+                                slug={page.slug}
+                                className={styles.cardSvg}
+                              />
+                            </div>
+                            <div className={styles.cardBody}>
+                              {dateLabel ? (
+                                <time
+                                  className={styles.cardDate}
+                                  dateTime={page.updatedAt}
                                 >
-                                  {page.answerFirst}
-                                </span>
-                                {view === "grid" ? (
-                                  <span className={styles.cardCta}>
-                                    Read guide
-                                  </span>
-                                ) : null}
-                              </div>
-                            </LibrarySoftNavLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  ))
+                                  {dateLabel}
+                                </time>
+                              ) : null}
+                              <span className={styles.cardTitle}>
+                                {page.title}
+                              </span>
+                              <span className={styles.cardTag}>
+                                <GroupIcon group={page.group} />
+                                {LIBRARY_GROUP_LABELS[page.group]}
+                              </span>
+                            </div>
+                          </LibrarySoftNavLink>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 )}
               </div>
             </div>

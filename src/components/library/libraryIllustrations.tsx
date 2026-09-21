@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import type { LibraryGroup } from "@/content/library";
 
 /**
- * The Shelf illustrations — paper plates + black line art.
- * SVG fill matches `.cardArt` / card body so each guide reads as one surface.
+ * The Shelf illustrations — transparent plate; card CSS sets the coloured field.
+ * Ink line art stays brand-ink for contrast on the wash.
  */
 
 const CREAM = "#F4E9D6";
@@ -23,7 +23,7 @@ function Frame({
       aria-hidden
       focusable="false"
     >
-      <rect width="160" height="112" rx="0" fill="rgb(var(--paper-rgb))" />
+      <rect width="160" height="112" rx="0" fill="transparent" />
       {children}
     </svg>
   );
