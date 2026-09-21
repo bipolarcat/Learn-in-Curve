@@ -272,7 +272,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
               <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
                 {unavailable
                   ? "Sly’s free trial is taking a short break. Create a free account to keep learning in the meantime."
-                  : "That’s the Beta taster. Full access coming soon. Join the waitlist."}
+                  : "That’s the Beta taster. Full access coming soon."}
               </p>
               {unavailable ? (
                 <>
