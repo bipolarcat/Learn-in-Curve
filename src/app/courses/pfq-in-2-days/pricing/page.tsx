@@ -57,7 +57,7 @@ export default async function PfqPricingPage({ searchParams }: Props) {
             }
           />
 
-          <h1 className="text-left font-display text-[clamp(1.9rem,4.4vw,2.75rem)] font-bold leading-[1.08] tracking-[-0.035em] text-balance text-ink">
+          <h1 className="text-left font-display text-[clamp(1.5rem,3.4vw,2.15rem)] font-bold leading-[1.08] tracking-[-0.035em] text-balance text-ink">
             <span className="block text-orange">Start free.</span>
             <span className="block">Upgrade only if you love it.</span>
           </h1>

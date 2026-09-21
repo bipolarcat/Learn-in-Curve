@@ -76,6 +76,10 @@ export type PfqPlan = {
   /** Card renders "Everything in {inheritsFrom}, plus ...". */
   inheritsFrom?: PfqPlanId;
   ctaLabel: string;
+  /** Optional chip beside the plan name (e.g. “Recommended”). */
+  badge?: string;
+  /** `value` → teal chip; omit → olive offer chip. */
+  badgeVariant?: "offer" | "value";
 };
 
 export const PFQ_PLANS: PfqPlan[] = [
@@ -120,6 +124,8 @@ export const PFQ_PLANS: PfqPlan[] = [
     tagline:
       "The whole course. Every objective taught in full, the complete question bank, and three timed mocks.",
     inheritsFrom: "starter",
+    badge: "Recommended",
+    badgeVariant: "value",
     ctaLabel: "Get Pro Bundle",
     features: [
       {
