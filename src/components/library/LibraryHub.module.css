@@ -16,11 +16,12 @@
 
 /* —— Hero —— */
 .hero {
-  max-width: 36rem;
+  max-width: none;
   padding: 0;
   border: none;
   background: transparent;
   box-shadow: none;
+  text-align: center;
 }
 
 .title {
