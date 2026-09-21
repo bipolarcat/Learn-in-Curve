@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Sly section: remove paper stadium panel (rounded wash + outline); flat on page paper again; drop chat-shell inset glass (`SlyShowcase` + CSS).
 - **2026-09-21** — Sly paper stadium: drop inset glass edge highlight (`SlyShowcase.module.css`).
 - **2026-09-21** — Home: remove `LabExamPaths` (Pick your exam); page ends on Sly. Sly gets a quiet paper stadium (not teal) + orange bloom + stronger console lift + Method-scale H2 so it isn’t flat after the Method band (`page.tsx`, `SlyShowcase` + CSS).
 - **2026-09-21** — Lab activity demo CTA stack tightened (button ↔ micro line) (`LabActivityDemo`).
