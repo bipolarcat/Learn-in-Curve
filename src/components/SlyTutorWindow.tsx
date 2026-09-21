@@ -140,7 +140,12 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         >
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
-              {locked ? null : (
+              {locked ? (
+                <p className="m-0 max-w-[22rem] text-[13px] leading-relaxed text-ink/65 text-pretty">
+                  Your trial chat from this session isn’t stored here anymore.
+                  Join the waitlist below for full access when it launches.
+                </p>
+              ) : (
                 <>
                   <div className="max-w-[22rem]">
                     {isSignedIn || unavailable ? (
