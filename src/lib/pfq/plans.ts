@@ -114,17 +114,16 @@ export const PFQ_PLANS: PfqPlan[] = [
     ctaLabel: "Get Pro",
     features: [
       {
-        icon: "core",
-        label: "lesson insights unlocked on the remaining objectives",
-        value: "9",
-      },
-      {
         icon: "practice",
-        label: "practice questions in total, tagged to the outcome they test",
-        value: "565",
+        label: "additional practice questions",
+        value: "515",
       },
-      { icon: "mock", label: "timed 60-question mock papers", value: "3" },
-      { icon: "report", label: "coverage map across all 59 learning outcomes" },
+      { icon: "mock", label: "timed mock exams", value: "3" },
+      {
+        icon: "core",
+        label:
+          "Insights on every learning outcome, for deeper understanding of each topic",
+      },
     ],
   },
   {
