@@ -157,8 +157,8 @@ export function LabActivityDemo({
       <div
         className={
           embedded
-            ? "overflow-hidden rounded-[1.35rem] border border-white/10 bg-paper p-3.5 text-ink shadow-[0_1px_0_rgb(255_255_255_/_0.12),0_22px_48px_-18px_rgb(0_0_0_/_0.5)] sm:rounded-2xl sm:p-5 md:p-6 lg:p-7"
-            : "overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7"
+            ? "flex min-h-0 flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-paper p-3.5 text-ink shadow-[0_1px_0_rgb(255_255_255_/_0.12),0_22px_48px_-18px_rgb(0_0_0_/_0.5)] sm:rounded-2xl sm:p-5 md:min-h-[35.75rem] md:p-6 lg:p-7"
+            : "flex min-h-0 flex-col overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:min-h-[35.75rem] md:p-6 lg:p-7"
         }
       >
         <header className="mb-4 sm:mb-5">
@@ -166,7 +166,7 @@ export function LabActivityDemo({
             id="lab-activity-demo-heading"
             className="font-display text-[clamp(1.35rem,2.8vw,1.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink text-balance"
           >
-            Real PMQ Practice
+            Real <span className="text-orange">PMQ</span> Practice
           </h2>
           <p className="mt-1.5 max-w-[36rem] text-pretty font-body text-[14px] leading-relaxed text-ink/65 sm:text-[15px]">
             Try questions and activities from the actual course.
@@ -201,7 +201,7 @@ export function LabActivityDemo({
           role="tabpanel"
           id={panelId}
           aria-labelledby={`${tabPrefix}-${mode}`}
-          className="lab-activity-stage mt-4 min-h-[13.875rem] min-w-0 overflow-x-clip md:min-h-[14rem]"
+          className="lab-activity-stage mt-4 min-h-[13.875rem] min-w-0 flex-1 overflow-x-clip md:min-h-[14rem]"
         >
           {mode === "quiz" ? (
             <TrialQuiz
