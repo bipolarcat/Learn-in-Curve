@@ -15,6 +15,7 @@ import showcase from "@/components/SlyShowcase.module.css";
 import { stampCtaPrimary, stampCtaPrimaryCompact, CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
+import { PMQ_PREVIEW_HREF } from "@/lib/pmq/pro-intent";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
 import { trackTutorOpened } from "@/lib/analytics/events";
@@ -140,7 +141,17 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         >
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
-              {locked ? null : (
+              {locked ? (
+                <div className="max-w-[22rem]">
+                  <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                    That&apos;s all three free questions.
+                  </p>
+                  <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+                    More Sly is coming with AI Pro. The PMQ course itself is free
+                    in the meantime.
+                  </p>
+                </div>
+              ) : (
                 <>
                   <div className="max-w-[22rem]">
                     {isSignedIn || unavailable ? (
@@ -269,13 +280,12 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
             </div>
           ) : composerLocked ? (
             <div className={`${showcase.composerCard} p-4`}>
-              <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
-                {unavailable
-                  ? "Sly’s free trial is taking a short break. Create a free account to keep learning in the meantime."
-                  : "That’s the Beta taster. Full access coming soon."}
-              </p>
               {unavailable ? (
                 <>
+                  <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
+                    Sly’s free trial is taking a short break. Create a free
+                    account to keep learning in the meantime.
+                  </p>
                   <Link
                     href="/auth/sign-up"
                     className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
@@ -293,9 +303,30 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                   </p>
                 </>
               ) : (
-                <JoinWaitlistButton
-                  className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
-                />
+                <>
+                  {messages.length > 0 ? (
+                    <>
+                      <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                        That&apos;s all three free questions.
+                      </p>
+                      <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+                        More Sly is coming with AI Pro. The PMQ course itself is
+                        free in the meantime.
+                      </p>
+                    </>
+                  ) : null}
+                  <Link
+                    href={PMQ_PREVIEW_HREF}
+                    className={`${stampCtaPrimary} ${messages.length > 0 ? "mt-3" : ""} w-full !justify-center !normal-case`}
+                  >
+                    Start the free PMQ course
+                    <CtaArrow />
+                  </Link>
+                  <JoinWaitlistButton
+                    label="Tell me when Sly is ready"
+                    className="mt-2.5 w-full text-center font-body text-[12px] font-medium text-ink/65 underline-offset-2 transition-colors hover:text-teal-deep hover:underline"
+                  />
+                </>
               )}
             </div>
           ) : (
