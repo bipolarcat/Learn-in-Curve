@@ -35,7 +35,7 @@ export const CATALOG_COURSES: Course[] = [
     slug: PFQ_SLUG,
     name: COURSE_STATIC["pfq-in-2-days"].displayName,
     description:
-      "59 lessons, practice, a timed mock and a coverage map of every APM PFQ learning outcome.",
+      "All 10 learning objectives and 59 learning outcomes, mapped to the APM PFQ syllabus, with practice questions and mock exams at every step.",
     price_cents: PFQ_PRO_PRICE_CENTS,
     is_free: false,
     status: "live",

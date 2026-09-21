@@ -68,7 +68,7 @@ const SUBHEADS: Partial<
   },
   "pfq-in-2-days": {
     line1:
-      "59 lessons, 306 practice questions and a full mock, mapped to every APM PFQ learning outcome",
+      "All 10 learning objectives and 59 learning outcomes, mapped to the APM PFQ syllabus, with practice questions and mock exams at every step.",
     line2: "",
   },
 };
