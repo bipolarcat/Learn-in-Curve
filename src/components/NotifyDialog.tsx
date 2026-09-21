@@ -357,7 +357,7 @@ export function NotifyDialog({
             ) : (
               <p className="flex flex-col items-center gap-0.5 text-center font-body leading-snug text-ink/50 [font-size:clamp(8px,2.65vw,10px)]">
                 <span className="whitespace-nowrap">
-                  We&apos;ll email you about this course.
+                  We&apos;ll email you when this product is ready.
                 </span>
                 <span className="whitespace-nowrap">
                   You&apos;ll only receive marketing emails if you tick the
