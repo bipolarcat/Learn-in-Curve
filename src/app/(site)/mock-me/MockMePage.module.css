@@ -76,7 +76,8 @@
 
 .art {
   position: relative;
-  aspect-ratio: 5 / 4;
+  /* Shorter on mobile so Start mock stays in the first viewport */
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: color-mix(in srgb, var(--card-cream) 70%, white);
 }
