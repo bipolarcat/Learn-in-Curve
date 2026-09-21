@@ -1,6 +1,7 @@
 "use client";
 
 import type { MouseEvent, ReactNode } from "react";
+
 import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,20 +59,31 @@ const ILLUSTRATIONS: Partial<Record<string, string>> = {
   "pfq-in-2-days": "/brand/Courses/pfq-in-2-days.png",
 };
 
-const SUBHEADS: Partial<
-  Record<string, { line1: string; line2: string }>
-> = {
-  [PMQ_SLUG]: {
-    line1:
-      "Every one of the 24 learning objectives and 71 learning outcomes, plus practice questions and mock exams, so nothing in the exam is new.",
-    line2: "",
-  },
-  "pfq-in-2-days": {
-    line1:
-      "All 10 learning objectives and 59 learning outcomes, mapped to the APM PFQ syllabus, with practice questions and mock exams at every step.",
-    line2: "",
-  },
-};
+function CourseSubhead({ course }: { course: Course }) {
+  if (course.slug === PMQ_SLUG) {
+    return (
+      <p className={styles.subhead}>
+        <span className={styles.subheadLine}>
+          Every one of the{" "}
+          <span className="text-orange">24 learning objectives</span> and{" "}
+          <span className="text-orange">71 learning outcomes</span>, plus
+          practice questions and mock exams, so nothing in the exam is new.
+        </span>
+      </p>
+    );
+  }
+  if (course.slug === "pfq-in-2-days") {
+    return (
+      <p className={styles.subhead}>
+        <span className={styles.subheadLine}>
+          All 10 learning objectives and 59 learning outcomes, mapped to the APM
+          PFQ syllabus, with practice questions and mock exams at every step.
+        </span>
+      </p>
+    );
+  }
+  return <p className={styles.subheadMuted}>Coming soon</p>;
+}
 
 function CourseTitle({ course }: { course: Course }) {
   if (course.slug === PMQ_SLUG) {
@@ -349,7 +361,6 @@ export function CoursesCatalog({
             const isLive = course.status === "live";
             const isPmq = course.slug === PMQ_SLUG;
             const artSrc = ILLUSTRATIONS[course.slug];
-            const subhead = SUBHEADS[course.slug];
             return (
               <li key={course.id} className={styles.item}>
                 <article
@@ -361,23 +372,7 @@ export function CoursesCatalog({
                     <h2 className={styles.title}>
                       <CourseTitle course={course} />
                     </h2>
-                    {subhead ? (
-                      <p className={styles.subhead}>
-                        <span className={styles.subheadLine}>
-                          {subhead.line1}
-                        </span>
-                        {subhead.line2 ? (
-                          <>
-                            {" "}
-                            <span className={styles.subheadLine}>
-                              {subhead.line2}
-                            </span>
-                          </>
-                        ) : null}
-                      </p>
-                    ) : (
-                      <p className={styles.subheadMuted}>Coming soon</p>
-                    )}
+                    <CourseSubhead course={course} />
                   </header>
 
                   <div
