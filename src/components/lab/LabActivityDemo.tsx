@@ -169,8 +169,7 @@ export function LabActivityDemo({
             Real PMQ Practice
           </h2>
           <p className="mt-1.5 max-w-[36rem] text-pretty font-body text-[14px] leading-relaxed text-ink/65 sm:text-[15px]">
-            Try questions and activities from the actual course. No sign-up
-            required.
+            Try questions and activities from the actual course.
           </p>
         </header>
 
