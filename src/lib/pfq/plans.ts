@@ -154,7 +154,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       },
       {
         icon: "report",
-        label: "end-of-course report on your readiness",
+        label: "End-of-course report on your readiness",
       },
     ],
   },
