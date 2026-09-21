@@ -65,7 +65,7 @@ export function TestingMethod({ embedded = false }: TestingMethodProps) {
         <p
           className={cn(
             "mb-1 font-body text-[14px] font-bold tracking-[0.14em] sm:text-[15px]",
-            embedded ? "text-orange" : "text-teal",
+            embedded ? "text-[#fbf3e1]/72" : "text-teal",
           )}
         >
           The Method
