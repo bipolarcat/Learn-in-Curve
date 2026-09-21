@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Landing Sly locked UI: drop supporting line + Start free PMQ CTA; “Tell me when Sly is ready” as primary stamp button (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly locked supporting line → “Unlimited Sly is coming soon with the AI Pro bundle…” (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly locked CTA: “That’s all three free questions…” + Start free PMQ course + “Tell me when Sly is ready” waitlist (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly lede second line → “Sly is trained on the APM PMQ syllabus. Ask three questions free, no sign-up required.” (`SlyShowcase`).
