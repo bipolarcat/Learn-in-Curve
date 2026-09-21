@@ -143,7 +143,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       ? "Sly’s free trial is taking a short break"
                       : locked
                         ? "Free trial used on this network"
-                        : "What do you want to revise?"}
+                        : "Ask anything to Sly"}
                 </p>
                 <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
                   {isSignedIn
