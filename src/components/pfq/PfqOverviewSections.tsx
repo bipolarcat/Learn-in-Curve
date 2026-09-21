@@ -73,7 +73,6 @@ export function PfqFaqSection() {
       ]}
       headingId="pfq-faqs-heading"
       title="FAQs"
-      subtitle="Frequently asked questions"
       defaultOpenIndex={null}
       idPrefix="pfq-faq"
     />

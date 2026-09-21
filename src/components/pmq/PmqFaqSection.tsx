@@ -92,7 +92,6 @@ export function PmqFaqSection({
       items={[...leadingItems, ...FAQ_ITEMS]}
       headingId="pmq-faqs-heading"
       title="FAQs"
-      subtitle="Frequently asked questions"
       defaultOpenIndex={null}
       idPrefix="pmq-faq"
     />
