@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
 import { HomeMethodBand } from "@/components/HomeMethodBand";
-import { LabExamPaths } from "@/components/lab/LabExamPaths";
 import { TestingMethod } from "@/components/TestingMethod";
 
 const SITE_URL =
@@ -17,8 +16,9 @@ export const metadata: Metadata = {
 /**
  * `PmqLiveLamp` and `QuizDemo` are intentionally left in the repo but unmounted
  * here — replaced 2026-07-31 by `PmqLaunchProof` and `TrialQuiz`.
- * 2026-09-20: `PmqLaunchProof` ↔ `LabExamPaths`; standalone `TrialQuiz` moved to `/lab`.
+ * 2026-09-20: standalone `TrialQuiz` moved to `/lab`.
  * 2026-09-21: Method + practice console share `HomeMethodBand` (Wispr-style teal stadium).
+ * 2026-09-21: `LabExamPaths` (Pick your exam) removed from live `/` — page ends on Sly.
  */
 const SlyShowcase = dynamic(
   () =>
@@ -60,8 +60,6 @@ export default async function HomePage() {
         <TestingMethod embedded />
         <LabActivityDemo isSignedIn={isSignedIn} embedded />
       </HomeMethodBand>
-
-      <LabExamPaths isSignedIn={isSignedIn} />
 
       <SlyShowcase isSignedIn={isSignedIn} />
     </>

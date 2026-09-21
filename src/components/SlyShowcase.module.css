@@ -9,6 +9,74 @@
   }
 }
 
+/* Quiet paper stadium — Method’s “product on a stage” without the teal fill. */
+.section {
+  position: relative;
+  overflow-x: clip;
+  padding-block: clamp(1.75rem, 4.5vw, 3rem);
+  padding-inline: 0;
+}
+
+.panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  border-radius: clamp(1.75rem, 4.5vw, 3.25rem);
+  /* Deeper paper wash — still on-brand cream, just enough to lift off the page. */
+  background: color-mix(in srgb, rgb(var(--paper-rgb)) 82%, rgb(var(--ink-rgb)));
+  color: rgb(var(--ink-rgb));
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.45) inset,
+    0 22px 40px -20px rgb(var(--ink-rgb) / 0.18);
+  padding-block:
+    clamp(2rem, 5vw, 3.5rem)
+    clamp(1.75rem, 4.5vw, 3rem);
+  padding-inline: 0;
+}
+
+.panel::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  /* Soft orange bloom (Sly accent) — counterpart to Method’s teal glow. */
+  background: radial-gradient(
+    ellipse 70% 50% at 78% 18%,
+    color-mix(in srgb, var(--orange) 14%, transparent),
+    transparent 68%
+  );
+  z-index: 0;
+}
+
+.panel::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 40% at 18% 88%,
+    color-mix(in srgb, rgb(var(--ink-rgb)) 6%, transparent),
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 64rem) {
+  .panel {
+    padding-block:
+      clamp(2.5rem, 4vw, 3.75rem)
+      clamp(2.25rem, 4vw, 3.25rem);
+  }
+}
+
 .textPop:global(.reveal-animated):not(:global(.visible)) .popItem {
   opacity: 0;
   transform: translateY(22px) scale(0.9);
@@ -30,22 +98,27 @@
   }
 }
 
-.consoleReveal:global(.reveal-animated):global(.visible) .console {
+.consoleReveal:global(.reveal-animated):global(.visible) .console,
+.consoleReveal:global(.reveal-animated):global(.visible) .chatShell {
   animation: consoleIn 0.55s var(--ease-out-expo) both;
 }
 
-/* Section title — match Testing Method (`clamp(1.65rem, 3.5vw, 2.35rem)`). */
+/* Marker class kept for SlyTutorWindow className + animation target. */
+.console {
+}
+
+/* Match Method H2 presence — copy unchanged, scale carries the weight. */
 .heading {
-  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
-  font-weight: 700;
-  line-height: 1.05;
+  font-size: clamp(2.05rem, 5.2vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.08;
   letter-spacing: -0.03em;
 }
 
 .lede {
   margin-top: 0.9rem;
   max-width: none;
-  font-size: 0.9375rem; /* 15px — stays clearly below the display heading */
+  font-size: clamp(0.84375rem, 4.2vw, 1rem);
   line-height: 1.55;
   color: rgb(var(--ink-rgb) / 0.65);
 }
@@ -53,19 +126,21 @@
 @media (min-width: 640px) {
   .lede {
     margin-top: 1rem;
-    font-size: 0.875rem;
+    font-size: 1.125rem; /* 18px — match Method / hero subcopy */
   }
 }
 
 /* Landing Sly — Cursor/Claude-style chat shell (no Mac chrome). */
 .chatShell {
-  border-radius: 1rem;
+  border-radius: 1.35rem;
   border: 1px solid rgb(var(--ink-rgb) / 0.1);
   background: rgb(var(--paper-rgb));
   color: rgb(var(--ink-rgb));
+  /* Lift off the stadium the way the practice console lifts off teal. */
   box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.55) inset,
     0 1px 2px rgb(var(--ink-rgb) / 0.04),
-    0 12px 32px -12px rgb(var(--ink-rgb) / 0.16);
+    0 22px 48px -18px rgb(var(--ink-rgb) / 0.28);
 }
 
 /* Quiet in-console scroll — thin ink thumb, no loud site chrome. */
