@@ -17,7 +17,7 @@ export function LabExamPaths({ isSignedIn }: LabExamPathsProps) {
     <section
       id="lab-exams"
       aria-labelledby="lab-exams-heading"
-      className="relative overflow-x-clip border-t border-ink/[0.06] pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
+      className="relative overflow-x-clip pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">
         <ScrollReveal className="mx-auto max-w-[40rem] text-center">

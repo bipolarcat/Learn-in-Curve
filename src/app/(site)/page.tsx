@@ -36,7 +36,7 @@ const LabActivityDemo = dynamic(
   {
     loading: () => (
       <div
-        className="mx-auto min-h-[22rem] w-full border-t border-ink/[0.06]"
+        className="mx-auto min-h-[22rem] w-full"
         aria-hidden
       />
     ),

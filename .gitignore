@@ -54,3 +54,6 @@ PMP in 5 days/
 
 # PFQ trap backfill working report (review in place, then --apply; do not commit)
 scripts/pfq/trap-backfill-report.json
+
+# Playwright MCP test artifacts (console logs, page snapshots)
+.playwright-mcp/
