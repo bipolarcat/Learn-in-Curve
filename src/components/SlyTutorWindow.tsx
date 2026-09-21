@@ -378,6 +378,8 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
 }
 
 function LockedTrialPanel() {
+  const [startingCourse, setStartingCourse] = useState(false);
+
   return (
     <div className="flex w-full max-w-[22rem] flex-col items-center rounded-2xl bg-ink/[0.03] px-5 py-6 text-center">
       <SlyFace size={56} />
@@ -399,10 +401,21 @@ function LockedTrialPanel() {
       />
       <Link
         href={PMQ_PREVIEW_HREF}
-        className="mt-3 inline-flex items-center gap-1 font-body text-[12px] font-medium text-ink/55 underline-offset-2 transition-colors hover:text-teal-deep hover:underline"
+        onClick={() => setStartingCourse(true)}
+        aria-busy={startingCourse}
+        className="mt-3 inline-flex min-h-8 items-center justify-center gap-1.5 font-body text-[12px] font-medium text-ink/55 underline-offset-2 transition-colors hover:text-teal-deep hover:underline"
       >
-        Keep revising with the free PMQ course
-        <CtaArrow />
+        {startingCourse ? (
+          <>
+            <span>Starting</span>
+            <Spinner variant="ellipsis" size={16} className="text-ink/45" />
+          </>
+        ) : (
+          <>
+            Start learning with the free PMQ course
+            <CtaArrow />
+          </>
+        )}
       </Link>
     </div>
   );
