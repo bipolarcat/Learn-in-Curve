@@ -34,11 +34,11 @@
   animation: consoleIn 0.55s var(--ease-out-expo) both;
 }
 
-/* Section title — in the module so phone/Safari can’t miss a Tailwind arbitrary. */
+/* Section title — match Testing Method (`clamp(1.65rem, 3.5vw, 2.35rem)`). */
 .heading {
-  font-size: clamp(2.5rem, 8vw, 3rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.03em;
 }
 
