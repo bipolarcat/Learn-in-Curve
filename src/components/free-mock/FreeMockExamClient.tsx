@@ -355,12 +355,15 @@ export function FreeMockExamClient({
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           {config.resultsCtaKind === "course" && config.ctaHref ? (
-            <Link href={config.ctaHref} className={stampCtaPrimary}>
+            <Link
+              href={config.ctaHref}
+              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
+            >
               {config.ctaLabel}
             </Link>
           ) : config.waitlistNotifyKey ? (
             <JoinWaitlistButton
-              className={stampCtaPrimary}
+              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
               notifyKey={config.waitlistNotifyKey}
               subjectLabel={config.waitlistSubjectLabel ?? config.displayName}
               courseCopy={
@@ -370,11 +373,17 @@ export function FreeMockExamClient({
             />
           ) : null}
           {config.resultsCtaKind === "course" ? (
-            <Link href="/courses" className={stampCtaSecondaryFlat}>
+            <Link
+              href="/courses"
+              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
+            >
               Browse courses
             </Link>
           ) : (
-            <Link href="/mock-me" className={stampCtaSecondaryFlat}>
+            <Link
+              href="/mock-me"
+              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
+            >
               More readiness checks
             </Link>
           )}
