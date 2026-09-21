@@ -19,6 +19,7 @@ import {
   SegmentedControl,
   type SegmentedOption,
 } from "@/components/ui/segmented-control";
+import { PMQ_PREVIEW_HREF } from "@/lib/pmq/pro-intent";
 import type {
   GroupupActivity,
   LineupActivity,
@@ -237,24 +238,20 @@ export function LabActivityDemo({
           ) : null}
         </div>
 
-        {completedOnce ? (
-          <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
+        <div className="mt-5 flex flex-col items-center gap-2.5 border-t border-ink/[0.06] pt-5 text-center">
+          {completedOnce ? (
             <p className="m-0 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
               That&apos;s one of 60+ in the free course.
             </p>
-            <Link href="/courses" className={CTA_PRIMARY}>
-              Start the free course
-              <CtaArrow />
-            </Link>
-          </div>
-        ) : (
-          <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
-            <Link href="/courses" className={CTA_PRIMARY}>
-              Start the free course
-              <CtaArrow />
-            </Link>
-          </div>
-        )}
+          ) : null}
+          <Link href={PMQ_PREVIEW_HREF} className={CTA_PRIMARY}>
+            Start PMQ in 5 Days
+            <CtaArrow />
+          </Link>
+          <p className="m-0 font-body text-[12px] leading-snug text-ink/55 sm:text-[13px]">
+            Free to start. No card needed.
+          </p>
+        </div>
       </div>
     </ScrollReveal>
   );
