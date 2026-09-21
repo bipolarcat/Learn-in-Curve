@@ -154,7 +154,7 @@ export function DrawRandomUnderline({
       )}
     >
       <span
-        className={cn("relative z-[1] font-bold text-orange", textClassName)}
+        className={cn("relative z-[1] text-orange", textClassName)}
       >
         {text}
       </span>
