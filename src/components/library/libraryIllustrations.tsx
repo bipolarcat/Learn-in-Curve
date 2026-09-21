@@ -2,20 +2,26 @@ import type { ReactNode } from "react";
 import type { LibraryGroup } from "@/content/library";
 
 /**
- * The Shelf illustrations — Gamma-style cream plates + black line art.
- * Ink and cream only (no orange/teal fills). Themes stay per-slug so cards
- * still read as distinct guides.
+ * The Shelf illustrations — sand art plates + black line art.
+ * Card SVG fill matches `.cardArt` sand so the plate reads as one surface;
+ * paper card body stays distinct for a clean break.
  */
 
 const CREAM = "#F4E9D6";
+const SAND = "#E8CE93";
 const INK = "#241A12";
+
+/** Card art plate — sand so it breaks from the paper card body. */
+export const LIBRARY_CARD_ART_FILL = SAND;
 
 function Frame({
   children,
   className,
+  fill = LIBRARY_CARD_ART_FILL,
 }: {
   children: ReactNode;
   className?: string;
+  fill?: string;
 }) {
   return (
     <svg
@@ -24,7 +30,7 @@ function Frame({
       aria-hidden
       focusable="false"
     >
-      <rect width="160" height="112" rx="14" fill={CREAM} />
+      <rect width="160" height="112" rx="0" fill={fill} />
       {children}
     </svg>
   );

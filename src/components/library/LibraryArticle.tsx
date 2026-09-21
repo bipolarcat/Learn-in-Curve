@@ -1,4 +1,5 @@
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
+import { LibraryAuthorByline } from "@/components/library/LibraryAuthorByline";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
@@ -9,6 +10,7 @@ import {
   pageHasTodoCopy,
   type LibraryPage,
 } from "@/content/library";
+import { LIBRARY_AUTHOR } from "@/content/library/author";
 import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
 
 const SITE_URL =
@@ -39,8 +41,10 @@ export function buildLibraryJsonLd(page: LibraryPage) {
     datePublished: page.updatedAt,
     mainEntityOfPage: url,
     author: {
-      "@type": "Organization",
-      name: "Learn in Curve",
+      "@type": "Person",
+      name: LIBRARY_AUTHOR.name,
+      image: `${SITE_URL}${LIBRARY_AUTHOR.imageSrc}`,
+      jobTitle: LIBRARY_AUTHOR.role,
     },
     publisher: {
       "@type": "Organization",
@@ -151,6 +155,8 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
               className="pmq-markdown--library-core"
             />
           </div>
+
+          <LibraryAuthorByline className="mt-10" />
         </div>
 
         {/* FAQ — own accordion card, full section width */}
