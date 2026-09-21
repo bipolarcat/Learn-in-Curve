@@ -63,19 +63,13 @@ export function WhatsNewBanner({ note }: WhatsNewBannerProps) {
           <p className="mt-1.5 max-w-[48ch] font-body text-[13px] leading-relaxed text-ink/65 text-pretty">
             {note.body}
           </p>
-          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="mt-3">
             <Link
               href={note.href}
               onClick={onCtaClick}
               className="inline-flex min-h-9 items-center justify-center rounded-lg bg-action px-3.5 text-[13px] font-semibold text-paper transition-[background-color,transform] duration-150 ease-[var(--ease-out-quint)] hover:bg-action-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             >
               {note.cta}
-            </Link>
-            <Link
-              href="/whats-new"
-              className="font-body text-[13px] font-semibold text-ink/55 underline-offset-2 transition-colors hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55 focus-visible:ring-offset-2"
-            >
-              See all updates
             </Link>
           </div>
         </div>

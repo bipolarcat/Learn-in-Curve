@@ -58,7 +58,7 @@ export const headerPillSecondary =
 
 /** Quiet Sign in — h-8 so it sits inside the h-12/sm:h-14 bar with room for the rim. */
 export const headerPillAuthUtility =
-  `group inline-flex h-8 items-center justify-center gap-1.5 rounded-xl border border-ink/15 bg-transparent px-2.5 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 ${tap} ${fineHover}:hover:border-ink/25 ${fineHover}:hover:bg-ink/[0.05] ${fineHover}:hover:text-ink/80 sm:px-3 ${motion}`;
+  `group inline-flex h-8 items-center justify-center gap-1.5 rounded-xl border border-ink/35 bg-transparent px-2.5 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 ${tap} ${fineHover}:hover:border-ink/50 ${fineHover}:hover:bg-ink/[0.05] ${fineHover}:hover:text-ink/80 sm:px-3 ${motion}`;
 
 /** Overflow menu trigger: icon + Menu label (label hides when open). */
 export const headerMenuTrigger =

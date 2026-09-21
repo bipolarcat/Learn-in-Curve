@@ -455,7 +455,3 @@ export function trackWhatsNewBannerClicked(props: {
 export function trackWhatsNewDismissed(props: { note_id: string }): void {
   capture("whats_new_dismissed", props);
 }
-
-export function trackWhatsNewPageViewed(): void {
-  capture("whats_new_page_viewed");
-}
