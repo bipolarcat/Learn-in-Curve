@@ -88,13 +88,15 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
   }, [inView, isSignedIn]);
 
   const composerLocked = locked || unavailable;
+  const freeQuestionLabel = (n: number) =>
+    `${n} free question${n === 1 ? "" : "s"}`;
   const statusLabel = isSignedIn
     ? null
     : usageLoaded && !unavailable
       ? locked
         ? "Trial used"
-        : `${messagesRemaining} left`
-      : `${GUEST_TIER_MESSAGE_CAP} free`;
+        : freeQuestionLabel(messagesRemaining)
+      : freeQuestionLabel(GUEST_TIER_MESSAGE_CAP);
 
   return (
     <section
