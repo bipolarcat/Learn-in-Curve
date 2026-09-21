@@ -317,10 +317,21 @@ export function DashboardInboxBell() {
       }}
       className="overflow-hidden rounded-[1.35rem] border border-ink/[0.06] bg-cream/95 p-2 shadow-[0_8px_30px_rgb(var(--ink-rgb)_/_0.12),0_1px_2px_rgb(var(--ink-rgb)_/_0.04)] backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80 dark:border-white/[0.1]"
     >
-      <div className="px-2.5 pb-1.5 pt-2">
+      <div className="flex items-center justify-between gap-2 px-2.5 pb-1.5 pt-2">
         <h3 className="text-[13px] font-semibold tracking-[-0.01em] text-ink">
           Notifications
         </h3>
+        <button
+          type="button"
+          aria-label="Close notifications"
+          onClick={(e) => {
+            e.stopPropagation();
+            closeDropdown();
+          }}
+          className="inline-flex size-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.06] hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+        >
+          <X className="size-3.5" strokeWidth={2.25} aria-hidden />
+        </button>
       </div>
 
       <div className="flex flex-col gap-0.5">
@@ -382,7 +393,7 @@ export function DashboardInboxBell() {
       {activeMessage && typeof document !== "undefined"
         ? createPortal(
             <div
-              className="fixed inset-0 z-[120] flex items-end justify-center bg-ink/40 p-0 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:items-center sm:p-4"
+              className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/40 p-3 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:p-4"
               onMouseDown={(e) => {
                 if (e.target === e.currentTarget) closeModal();
               }}
@@ -391,39 +402,38 @@ export function DashboardInboxBell() {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={headingId}
-                className="relative flex h-[min(88svh,36rem)] max-h-[88svh] w-full max-w-[26rem] flex-col overflow-hidden rounded-t-[1.5rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:h-auto sm:max-h-[min(85svh,36rem)] sm:rounded-[1.5rem]"
+                className="inbox-scroll relative max-h-[calc(100dvh-1.5rem)] w-full max-w-[26rem] overflow-y-auto overscroll-y-contain rounded-[1.35rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:max-h-[min(85dvh,36rem)] sm:rounded-[1.5rem]"
+                style={{ WebkitOverflowScrolling: "touch" }}
               >
-                <div className="flex shrink-0 items-start justify-between gap-3 px-5 pb-3 pt-5 sm:px-6 sm:pt-6">
-                  <div className="flex min-w-0 items-start gap-3 pr-2">
+                <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-ink/[0.06] bg-cream/95 px-4 pb-3 pt-4 backdrop-blur-md sm:px-5 sm:pt-5">
+                  <div className="flex min-w-0 items-start gap-2.5 pr-1">
                     <Logo
-                      size={40}
+                      size={36}
                       alt=""
-                      className="mt-0.5 size-10 shrink-0 object-contain"
+                      className="mt-0.5 size-9 shrink-0 object-contain"
                     />
-                    <div className="min-w-0">
-                      <h2
-                        id={headingId}
-                        className="font-display text-[1.15rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty sm:text-[1.2rem]"
-                      >
-                        {activeMessage.heading}
-                      </h2>
-                    </div>
+                    <h2
+                      id={headingId}
+                      className="min-w-0 font-display text-[1.05rem] font-bold leading-snug tracking-[-0.03em] text-ink text-pretty sm:text-[1.15rem]"
+                    >
+                      {activeMessage.heading}
+                    </h2>
                   </div>
                   <button
                     type="button"
                     onClick={closeModal}
                     aria-label="Close"
-                    className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                    className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ink/[0.06] text-ink/50 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.1] hover:text-ink/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                   >
                     <X className="size-3.5" strokeWidth={2.25} aria-hidden />
                   </button>
                 </div>
 
-                <div className="inbox-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6 [-webkit-overflow-scrolling:touch] sm:px-6 sm:pb-7">
+                <div className="px-4 py-4 sm:px-5 sm:py-5">
                   <div className="space-y-3.5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/75 text-pretty">
                     {activeMessage.sections.map(renderSection)}
 
-                    <div className="space-y-1 pt-2">
+                    <div className="space-y-1 pb-1 pt-2">
                       <p>{activeMessage.signOff.thanks}</p>
                       <p className="pt-2">{activeMessage.signOff.farewell}</p>
                       <p className="font-medium text-ink">
