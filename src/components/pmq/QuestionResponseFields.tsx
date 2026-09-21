@@ -34,6 +34,7 @@ export function McqResponseFields({
   ariaLabel,
   onChange,
   getState,
+  compact = false,
 }: {
   options: string[];
   value: string;
@@ -41,9 +42,15 @@ export function McqResponseFields({
   ariaLabel: string;
   onChange: (letter: string) => void;
   getState?: (letter: string) => ResponseVisualState;
+  /** Demo console — 2×2 options on sm+ */
+  compact?: boolean;
 }) {
   return (
-    <div className="grid w-full min-w-0 gap-2" role="radiogroup" aria-label={ariaLabel}>
+    <div
+      className={`grid w-full min-w-0 gap-2 ${compact ? "sm:grid-cols-2" : ""}`}
+      role="radiogroup"
+      aria-label={ariaLabel}
+    >
       {options.map((option, index) => {
         const letter = LETTERS[index];
         const selected = value === letter;
@@ -56,9 +63,17 @@ export function McqResponseFields({
             aria-checked={selected}
             disabled={disabled}
             onClick={() => onChange(letter)}
-            className={`w-full min-w-0 min-h-11 rounded-lg border px-3.5 py-3 text-left font-body text-[14px] leading-snug transition-[background-color,border-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default ${MCQ_STYLES[state]}`}
+            className={`w-full min-w-0 rounded-lg border px-3.5 text-left font-body leading-snug transition-[background-color,border-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default ${
+              compact
+                ? "min-h-10 py-2 text-[13px]"
+                : "min-h-11 py-3 text-[14px]"
+            } ${MCQ_STYLES[state]}`}
           >
-            <span className="mr-2 font-body text-[14px] font-semibold text-current/80">
+            <span
+              className={`mr-2 font-body font-semibold text-current/80 ${
+                compact ? "text-[13px]" : "text-[14px]"
+              }`}
+            >
               {letter})
             </span>
             {option}

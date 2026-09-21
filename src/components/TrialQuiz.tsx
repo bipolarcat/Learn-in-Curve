@@ -248,6 +248,7 @@ export function TrialQuiz({
               disabled={Boolean(attempt)}
               ariaLabel={`Question ${qi + 1} of ${total}`}
               onChange={setSelected}
+              compact={embedded}
               getState={(letter) => {
                 if (!attempt) {
                   return letter === selected ? "selected" : "default";

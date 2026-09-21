@@ -22,6 +22,8 @@ type LineupProps = {
     detail?: Record<string, unknown> | null;
   }) => void;
   onComplete?: (moves: number) => void;
+  /** Lab/home demo — denser rows; LO path leaves this off. */
+  compact?: boolean;
 };
 
 function ordersMatch(a: string[], b: string[]) {
@@ -38,6 +40,7 @@ export function Lineup({
   wrongTurns = 0,
   onWrongTurn,
   onComplete,
+  compact = false,
 }: LineupProps) {
   const correct = activity.items;
   const reduceMotion = useReducedMotion();
@@ -99,17 +102,23 @@ export function Lineup({
   }
 
   return (
-    <div className="grid gap-4">
-      <div className="flex min-w-0 items-start gap-2.5">
+    <div className={cn("grid", compact ? "gap-3" : "gap-4")}>
+      <div className={cn("flex min-w-0 items-start", compact ? "gap-2" : "gap-2.5")}>
         {/* Fixed seat numbers — not part of the drag list */}
         <ol
-          className="m-0 flex list-none flex-col gap-2 p-0"
+          className={cn(
+            "m-0 flex list-none flex-col p-0",
+            compact ? "gap-1.5" : "gap-2",
+          )}
           aria-hidden
         >
           {correct.map((_, index) => (
             <li
               key={index}
-              className="flex h-11 w-7 shrink-0 items-center justify-center"
+              className={cn(
+                "flex w-7 shrink-0 items-center justify-center",
+                compact ? "h-9" : "h-11",
+              )}
             >
               <span className="inline-flex size-6 items-center justify-center rounded-md bg-ink/[0.06] font-body text-[11px] font-bold tabular-nums text-ink/65">
                 {index + 1}
@@ -119,7 +128,12 @@ export function Lineup({
         </ol>
 
         {reduceMotion ? (
-          <ol className="m-0 flex min-w-0 flex-1 list-none flex-col gap-2 p-0">
+          <ol
+            className={cn(
+              "m-0 flex min-w-0 flex-1 list-none flex-col p-0",
+              compact ? "gap-1.5" : "gap-2",
+            )}
+          >
             {order.map((item, index) => (
               <li key={item} className="min-w-0">
                 <button
@@ -127,7 +141,8 @@ export function Lineup({
                   disabled={done}
                   onClick={() => onTapSwap(index)}
                   className={cn(
-                    "flex h-11 w-full items-center rounded-xl border px-3 text-left transition-colors duration-150",
+                    "flex w-full items-center rounded-xl border px-3 text-left transition-colors duration-150",
+                    compact ? "h-9" : "h-11",
                     done
                       ? "border-teal/35 bg-teal/[0.08]"
                       : selected === index
@@ -153,7 +168,10 @@ export function Lineup({
               setOrder(next);
               setTryAgain(false);
             }}
-            className="m-0 flex min-w-0 flex-1 list-none flex-col gap-2 p-0"
+            className={cn(
+              "m-0 flex min-w-0 flex-1 list-none flex-col p-0",
+              compact ? "gap-1.5" : "gap-2",
+            )}
             as="ol"
           >
             {order.map((item) => (
@@ -163,6 +181,7 @@ export function Lineup({
                 dragEnabled={!done}
                 shaking={shaking}
                 done={done}
+                compact={compact}
               />
             ))}
           </Reorder.Group>
@@ -199,11 +218,13 @@ function LineupCard({
   dragEnabled,
   shaking,
   done,
+  compact = false,
 }: {
   item: string;
   dragEnabled: boolean;
   shaking: boolean;
   done: boolean;
+  compact?: boolean;
 }) {
   const controls = useDragControls();
 
@@ -216,7 +237,8 @@ function LineupCard({
       as="li"
       layout
       className={cn(
-        "flex h-11 min-w-0 items-center gap-1 rounded-xl border px-1.5 transition-[border-color,background-color] duration-150 ease-[var(--ease-out-quint)]",
+        "flex min-w-0 items-center gap-1 rounded-xl border px-1.5 transition-[border-color,background-color] duration-150 ease-[var(--ease-out-quint)]",
+        compact ? "h-9" : "h-11",
         done
           ? "border-teal/35 bg-teal/[0.08]"
           : "border-black/[0.08] bg-paper dark:border-white/[0.12]",

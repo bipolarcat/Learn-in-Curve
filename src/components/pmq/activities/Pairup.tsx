@@ -30,6 +30,8 @@ type PairupProps = {
     detail?: Record<string, unknown> | null;
   }) => void;
   onComplete?: (moves: number) => void;
+  /** Lab/home demo — denser 2-col desktop layout; LO path leaves this off. */
+  compact?: boolean;
 };
 
 type DragState = {
@@ -56,6 +58,7 @@ export function Pairup({
   wrongTurns = 0,
   onWrongTurn,
   onComplete,
+  compact = false,
 }: PairupProps) {
   const reduceMotion = useReducedMotion();
   const answer = useMemo(() => {
@@ -221,8 +224,22 @@ export function Pairup({
 
   return (
     <LayoutGroup>
-      <div className="grid gap-6">
-        <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
+      <div
+        className={cn(
+          "grid",
+          compact
+            ? "gap-3 md:grid-cols-[minmax(0,1.35fr)_minmax(12rem,1fr)] md:items-start md:gap-4"
+            : "gap-6",
+        )}
+      >
+        <ul
+          className={cn(
+            "m-0 list-none p-0",
+            compact
+              ? "grid grid-cols-1 gap-1.5 sm:grid-cols-2 sm:gap-2"
+              : "flex flex-col gap-1.5",
+          )}
+        >
           {terms.map((term) => {
             const match = filled[term];
             const isHot = hotTerm === term && !match;
@@ -255,7 +272,10 @@ export function Pairup({
                   }
                   transition={{ duration: 0.28, ease: appleEase }}
                   className={cn(
-                    "grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 rounded-2xl px-3.5 py-3 transition-[background-color] duration-200 ease-[var(--ease-out-quint)]",
+                    "grid items-center rounded-2xl transition-[background-color] duration-200 ease-[var(--ease-out-quint)]",
+                    compact
+                      ? "grid-cols-1 gap-1.5 px-3 py-2"
+                      : "grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-3 px-3.5 py-3",
                     match
                       ? "bg-teal/[0.08]"
                       : inviting
@@ -264,7 +284,12 @@ export function Pairup({
                     isShake && "bg-rust/[0.08]",
                   )}
                 >
-                  <span className="min-w-0 font-body text-[14px] font-semibold leading-snug tracking-[-0.015em] text-ink">
+                  <span
+                    className={cn(
+                      "min-w-0 font-body font-semibold leading-snug tracking-[-0.015em] text-ink",
+                      compact ? "text-[13px]" : "text-[14px]",
+                    )}
+                  >
                     {term}
                   </span>
 
@@ -276,7 +301,8 @@ export function Pairup({
                     }
                     transition={{ duration: 0.2, ease: appleEase }}
                     className={cn(
-                      "relative flex min-h-[2.75rem] items-center rounded-xl px-3.5 py-2 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                      "relative flex items-center rounded-xl px-3.5 py-2 transition-colors duration-200 ease-[var(--ease-out-quint)]",
+                      compact ? "min-h-[2.25rem]" : "min-h-[2.75rem]",
                       match
                         ? "bg-paper/90 dark:bg-paper/50"
                         : inviting
@@ -323,7 +349,7 @@ export function Pairup({
           })}
         </ul>
 
-        <div className="grid gap-3">
+        <div className={cn("grid", compact ? "gap-2" : "gap-3")}>
           <div className="flex items-center justify-between gap-3 px-0.5">
             <span className="font-body text-[12px] font-medium tracking-tight text-ink/40">
               {pool.length === 0 ? "All paired" : "Meanings"}
@@ -331,7 +357,12 @@ export function Pairup({
             <ProgressTrack current={filledCount} total={total} done={done} />
           </div>
 
-          <div className="flex min-h-[2.75rem] flex-wrap gap-2">
+          <div
+            className={cn(
+              "flex flex-wrap gap-2",
+              compact ? "min-h-[2.25rem]" : "min-h-[2.75rem]",
+            )}
+          >
             <AnimatePresence initial={false} mode="popLayout">
               {pool.map((match) => {
                 const isSelected = selected === match;

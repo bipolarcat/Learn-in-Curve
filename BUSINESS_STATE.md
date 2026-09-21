@@ -22,6 +22,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-21** — Home Testing Method copy block widened on desktop (52/58rem shell; 42/48rem ledes) so H2 + body don’t stack so tightly (`TestingMethod`).
 - **2026-09-21** — Home Testing Method “Psychologists call it…” type matched to hero subcopy (`clamp(13.5px,4.2vw,16px)` / `sm:text-[18px]`) (`TestingMethod`).
 - **2026-09-21** — Home Testing Method H2 type scale matched to hero headline (`clamp(2.05rem,5.2vw,3.65rem)` semibold) (`TestingMethod`).
+- **2026-09-21** — Lab activity demo desktop density: Quiz 2×2 options (`McqResponseFields` compact via TrialQuiz embedded); Pair Up terms|meanings side-by-side + 2×2 terms (`Pairup` compact); denser 4-step Line Up (`Lineup` compact). LO activities unchanged. Dropped fragile globals `.grid.gap-*` overrides (Tailwind rewrote them).
+- **2026-09-21** — Lab activity demo desktop: compact stage so Quiz (2×2 options) + Pair Up (2×2 terms) + denser Line Up closer to Group Up height (`.lab-activity-stage--compact` in `globals.css`; activities/ untouched).
 - **2026-09-21** — Hero “curve.” italic to match Method “recall” accent (`HomeBrandHero`); Method “recall” stays italic orange (`TestingMethod`).
 - **2026-09-21** — Home Method H2 “recall” matches hero “curve.” accent (orange, no italic) (`TestingMethod`).
 - **2026-09-21** — Home Method H2: optical gap after italic “recall” (`pe-[0.18em]`) so it doesn’t collide with “it” (`TestingMethod`).

@@ -57,11 +57,10 @@ const PAIRUP: PairupActivity = {
 const LINEUP: LineupActivity = {
   id: "demo-lineup",
   type: "lineup",
-  heading: "A change request has just landed on your project. Five steps, one right order",
+  heading: "A change request has just landed on your project. Four steps, one right order",
   title: "Drag the steps into the order they happen.",
   items: [
-    "Request raised",
-    "Logged in the change register",
+    "Request raised and logged",
     "Impact assessed",
     "Decision: approve or reject",
     "Baseline updated and communicated",
@@ -190,7 +189,7 @@ export function LabActivityDemo({
           role="tabpanel"
           id={panelId}
           aria-labelledby={`${tabPrefix}-${mode}`}
-          className="lab-activity-stage mt-4 min-w-0 overflow-x-clip"
+          className="lab-activity-stage mt-4 min-h-[13.875rem] min-w-0 overflow-x-clip md:min-h-[14rem]"
         >
           {mode === "quiz" ? (
             <TrialQuiz
@@ -206,6 +205,7 @@ export function LabActivityDemo({
               key="demo-pairup"
               activity={PAIRUP}
               onComplete={onComplete}
+              compact
             />
           ) : null}
           {mode === "lineup" ? (
@@ -213,6 +213,7 @@ export function LabActivityDemo({
               key="demo-lineup"
               activity={LINEUP}
               onComplete={onComplete}
+              compact
             />
           ) : null}
           {mode === "groupup" ? (
