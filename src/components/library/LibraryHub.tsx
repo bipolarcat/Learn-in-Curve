@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   LIBRARY_GROUP_LABELS,
   type LibraryGroup,
@@ -8,9 +8,15 @@ import {
 } from "@/content/library";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
+import {
+  LibraryViewToggle,
+  type LibraryViewMode,
+} from "@/components/library/LibraryViewToggle";
 import { LibraryPageIllustration } from "@/components/library/libraryIllustrations";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import styles from "./LibraryHub.module.css";
+
+const VIEW_STORAGE_KEY = "lic-library-view";
 
 type FilterId = "all" | LibraryGroup;
 
@@ -34,6 +40,25 @@ export function LibraryHub({
 }: LibraryHubProps) {
   const [filter, setFilter] = useState<FilterId>("all");
   const [query, setQuery] = useState("");
+  const [view, setView] = useState<LibraryViewMode>("grid");
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(VIEW_STORAGE_KEY);
+      if (stored === "grid" || stored === "list") setView(stored);
+    } catch {
+      /* private mode / blocked storage */
+    }
+  }, []);
+
+  function changeView(next: LibraryViewMode) {
+    setView(next);
+    try {
+      window.localStorage.setItem(VIEW_STORAGE_KEY, next);
+    } catch {
+      /* ignore */
+    }
+  }
 
   const counts = useMemo(() => {
     const map: Record<FilterId, number> = {
@@ -176,6 +201,10 @@ export function LibraryHub({
                   </div>
                 </div>
 
+                <div className={styles.mainToolbar}>
+                  <LibraryViewToggle value={view} onValueChange={changeView} />
+                </div>
+
                 {filtered.length === 0 ? (
                   <div className={styles.noMatch}>
                     <p className={styles.noMatchTitle}>Nothing on this shelf</p>
@@ -207,15 +236,31 @@ export function LibraryHub({
                         {section.label}
                       </h2>
 
-                      <ul className={styles.grid} role="list">
+                      <ul
+                        className={
+                          view === "list" ? styles.list : styles.grid
+                        }
+                        role="list"
+                        data-view={view}
+                      >
                         {section.pages.map((page) => (
                           <li key={page.slug} className={styles.card}>
                             <LibrarySoftNavLink
                               href={`/library/${page.slug}`}
                               busyLabel={`Opening ${page.title}`}
-                              className={styles.cardLink}
+                              className={
+                                view === "list"
+                                  ? `${styles.cardLink} ${styles.cardLinkList}`
+                                  : styles.cardLink
+                              }
                             >
-                              <div className={styles.cardArt}>
+                              <div
+                                className={
+                                  view === "list"
+                                    ? `${styles.cardArt} ${styles.cardArtList}`
+                                    : styles.cardArt
+                                }
+                              >
                                 <LibraryPageIllustration
                                   slug={page.slug}
                                   className={styles.cardSvg}
@@ -228,10 +273,20 @@ export function LibraryHub({
                                 <span className={styles.cardTitle}>
                                   {page.title}
                                 </span>
-                                <span className={styles.cardBlurb}>
+                                <span
+                                  className={
+                                    view === "list"
+                                      ? `${styles.cardBlurb} ${styles.cardBlurbList}`
+                                      : styles.cardBlurb
+                                  }
+                                >
                                   {page.answerFirst}
                                 </span>
-                                <span className={styles.cardCta}>Read guide</span>
+                                {view === "grid" ? (
+                                  <span className={styles.cardCta}>
+                                    Read guide
+                                  </span>
+                                ) : null}
                               </div>
                             </LibrarySoftNavLink>
                           </li>

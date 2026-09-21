@@ -254,6 +254,12 @@
   font-size: 11px;
 }
 
+.mainToolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -297,6 +303,15 @@
   }
 }
 
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
 .card {
   min-width: 0;
 }
@@ -311,6 +326,13 @@
   overflow: hidden;
   text-decoration: none;
   color: inherit;
+}
+
+.cardLinkList {
+  flex-direction: row;
+  align-items: stretch;
+  height: auto;
+  min-height: 5.5rem;
 }
 
 .cardLink:hover {
@@ -329,6 +351,35 @@
   line-height: 0;
 }
 
+.cardArtList {
+  flex: 0 0 6.75rem;
+  width: 6.75rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgb(var(--ink-rgb) / 0.06);
+}
+
+.cardArtList .cardSvg,
+.cardArtList svg {
+  width: 100%;
+  height: auto;
+  max-height: 5.25rem;
+}
+
+@media (min-width: 640px) {
+  .cardArtList {
+    flex-basis: 8.5rem;
+    width: 8.5rem;
+  }
+
+  .cardArtList .cardSvg,
+  .cardArtList svg {
+    max-height: 6rem;
+  }
+}
+
 .cardSvg {
   width: 100%;
   height: auto;
@@ -343,6 +394,11 @@
   flex: 1;
   min-width: 0;
   background: rgb(var(--paper-rgb));
+}
+
+.cardLinkList .cardBody {
+  padding: 0.85rem 1rem;
+  justify-content: center;
 }
 
 .cardGroup {
@@ -379,6 +435,10 @@
   font-size: 13.5px;
   line-height: 1.45;
   color: rgb(var(--ink-rgb) / 0.65);
+}
+
+.cardBlurbList {
+  -webkit-line-clamp: 2;
 }
 
 .cardCta {
