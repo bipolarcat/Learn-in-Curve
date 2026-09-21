@@ -137,7 +137,7 @@ export function PfqMockConsole({
                   <button
                     type="button"
                     className={`${styles.row} ${styles.rowLocked} cursor-pointer touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55`}
-                    onClick={() => showProLockHint("mock")}
+                    onClick={(e) => showProLockHint("mock", e.currentTarget)}
                     aria-label={`Mock exam ${summary.mockSet}, locked — Pro. Unlock with the Pro bundle.`}
                   >
                     <div className={styles.rowMain}>

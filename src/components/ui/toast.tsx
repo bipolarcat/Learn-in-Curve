@@ -137,9 +137,9 @@ function ToastCard({
       className={toastShell[variant]}
     >
       {leading != null ? (
-        <div className="shrink-0 self-center" aria-hidden>
+        <span className="inline-flex shrink-0 items-center self-center" aria-hidden>
           {leading}
-        </div>
+        </span>
       ) : (
         <Icon
           className={cn(
@@ -150,7 +150,7 @@ function ToastCard({
           aria-hidden
         />
       )}
-      <div className="min-w-0 space-y-0.5">
+      <div className="flex min-w-0 flex-col justify-center space-y-0.5 self-center">
         {title ? (
           <h3
             className={cn(

@@ -8,6 +8,7 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import { AppToaster } from "@/components/ui/toast";
+import { ProLockHintHost } from "@/components/pmq/ProLockHint";
 import { buildTitle } from "@/lib/seo/title";
 
 const fraunces = Fraunces({
@@ -164,6 +165,7 @@ export default function RootLayout({
         <CookieBanner />
         <GrainOverlay />
         <AppToaster />
+        <ProLockHintHost />
         <IntercomProvider />
       </body>
     </html>

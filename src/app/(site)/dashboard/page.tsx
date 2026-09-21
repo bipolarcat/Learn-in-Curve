@@ -28,13 +28,10 @@ import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeaco
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
 import { CourseReportCard } from "@/components/pmq/CourseReportCard";
 import { DashboardProfileMenu } from "@/components/DashboardProfileMenu";
-import { WhatsNewBanner } from "@/components/WhatsNewBanner";
 import { getUserProfile } from "@/lib/profile";
 import { getWelcomeEyebrow } from "@/lib/user-display";
 import { authHrefWithNext } from "@/lib/auth-next";
 import { productSurfaceQuiet } from "@/components/ui/semantic";
-import { RELEASE_NOTES } from "@/content/whats-new";
-import { newestUnseen } from "@/lib/whats-new";
 
 type DashboardPageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
@@ -155,12 +152,6 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
       ? Math.round((examDate.getTime() - Date.now()) / 86_400_000)
       : null;
 
-  const whatsNewNote = newestUnseen(
-    RELEASE_NOTES,
-    profile.whats_new_seen_at,
-    new Date().toISOString(),
-  );
-
   return (
     <section className="relative z-0 min-h-[calc(100dvh-4.25rem-7.5rem)] px-3 py-8 sm:min-h-[calc(100dvh-4.75rem-7.5rem)] sm:px-5 sm:py-10">
       <DashboardAnalyticsPerson
@@ -192,8 +183,6 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             initial={profile}
           />
         </header>
-
-        {whatsNewNote ? <WhatsNewBanner note={whatsNewNote} /> : null}
 
         {courses.length === 0 ? (
           <div

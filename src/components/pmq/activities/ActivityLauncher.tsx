@@ -333,7 +333,7 @@ export function ActivityLauncher({
     return (
       <button
         type="button"
-        onClick={() => showProLockHint("recall")}
+        onClick={(e) => showProLockHint("recall", e.currentTarget)}
         className={cn(
           "inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-md text-ink/30 opacity-45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",

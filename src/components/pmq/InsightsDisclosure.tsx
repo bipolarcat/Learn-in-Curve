@@ -171,7 +171,7 @@ export function InsightsLockedChip({ className }: { className?: string }) {
   return (
     <button
       type="button"
-      onClick={() => showProLockHint("insights")}
+      onClick={(e) => showProLockHint("insights", e.currentTarget)}
       className={cn(
         "not-prose m-0 inline-flex cursor-pointer items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
         "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
