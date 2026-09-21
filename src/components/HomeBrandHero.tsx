@@ -115,14 +115,14 @@ export function HomeBrandHero() {
             className={HERO_COURSE_CTA}
             onClick={(event) => {
               trackCtaClicked({
-                variant: "Explore Free Courses",
+                variant: "Explore Courses",
                 location: "hero",
               });
               if (!isSoftNavClick(event)) return;
             }}
           >
             <span className="relative z-[1] inline-flex items-center gap-1.5">
-              <span>Explore Free Courses</span>
+              <span>Explore Courses</span>
             </span>
           </Link>
           <FreeMockExamLink
