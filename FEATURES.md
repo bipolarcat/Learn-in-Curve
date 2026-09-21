@@ -46,7 +46,7 @@ Everything in Starter, plus:
 - One-time unlock. **The price is `SLY_UNLOCK_PRICE_CENTS` in
   `src/lib/tutor/constants.ts` — do not restate a figure here.** That constant
   is what `createAiTutorCheckout` charges and what the pricing page renders, so a
-  number typed into this doc can only ever be wrong. As of 2026-07-31 it is £15.00.
+  number typed into this doc can only ever be wrong. As of 2026-09-21 it is £20.00.
 - Part of the payment is credited as Sly usage allowance
   (`SLY_UNLOCK_CREDIT_GBP_CENTS`, £5.00 as of 2026-07-31)
 - Top-ups available once the allowance runs out; 70% of any top-up is credited as further Sly usage (30% platform fee)
@@ -87,7 +87,7 @@ misleading omission under the CPRs, and in practice it generates refunds.
    `src/lib/pmq/plans.ts` puts Sly and the report in **AI Pro**, which is a
    `waitlist` tier with no checkout; Pro's advertised increment is smaller than
    the full bank; and the charged price comes from `SLY_UNLOCK_PRICE_CENTS`
-   (£15.00), not £9.99. Since this file is where marketing copy gets derived, a
+   (£20.00), not £9.99. Since this file is where marketing copy gets derived, a
    stale over-claim here propagates into an advertised price and feature set the
    product doesn't deliver — a misleading action under the CPRs, not a typo.
    **Rule going forward: quote no price or question count in this file. Point at

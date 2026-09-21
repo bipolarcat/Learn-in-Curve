@@ -205,7 +205,7 @@ decision below are independent of the payment question.
 ## 4. Payments & data compliance
 
 **Launch decision (2026-07-30): going live 2026-07-31 with the Pro bundle
-purchasable from day one (price now £15.00 via `SLY_UNLOCK_PRICE_CENTS` — keep
+purchasable from day one (price now £20.00 via `SLY_UNLOCK_PRICE_CENTS` — keep
 Stripe Price + Supabase `exam_config` in lockstep).** Sim was offered a free-tier-only launch today (far
 smaller legal surface) and chose paid-tomorrow instead. That makes every item in
 this section hard-blocking, not deferrable. Verified same day: `.env.local` still
@@ -322,20 +322,20 @@ future flag flip.
 - [x] Publish the AI tutor refund policy — done 2026-07-10, real terms now
       live in `TERMS_OF_SERVICE.md` §5 (see section 2 above for detail).
 - [x] **Sly pricing copy (2026-07-14 / updated 2026-07-30):** Unlock / Premium
-      bundle is **£15.00** with **£5** fair-usage credit included; top-ups credit
+      bundle is **£20.00** with **£5** fair-usage credit included; top-ups credit
       70% of payment (30% platform fee, not “tax”). UI + checkout use
       `SLY_UNLOCK_PRICE_CENTS` (800). **Still required before live charges:**
       Stripe Price object + Supabase `exam_config` must match — do not advertise
-      £15 while charging £9.99. Solicitor review still recommended for payment
+      £20 while charging £9.99. Solicitor review still recommended for payment
       flows.
 - [ ] **Correction appended 2026-08-28 — do not edit the signed-off item above.**
-      The entry above states the £15 unlock includes the £5 fair-usage credit.
+      The entry above states the £20 unlock includes the £5 fair-usage credit.
       That was true when written, but stopped being true when **LIC-98** landed
       on 2026-07-30 and `tiers.ts` began enforcing a real ladder: Sly and the
-      end-of-course report moved to **AI Pro (£25)**, which is `status:
-      "waitlist"` with no checkout. The £15 Pro Bundle therefore grants quiz sets
+      end-of-course report moved to **AI Pro (£30)**, which is `status:
+      "waitlist"` with no checkout. The £20 Pro Bundle therefore grants quiz sets
       2–5, mock papers 2–3, and video/audio per LO — **no Sly, and no £5
-      credit**. Any customer-facing copy still pairing "£15" with "AI tutor" or
+      credit**. Any customer-facing copy still pairing "£20" with "AI tutor" or
       "£5 credit" is an over-claim on a paid product. `PHILOSOPHY_PAGE_COPY.md`
       and `PHILOSOPHY_PAGE_DETAILED.md` were corrected on 2026-08-28; the live
       site copy has **not** been audited for this. `TERMS_OF_SERVICE.md` is

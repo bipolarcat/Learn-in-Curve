@@ -19,8 +19,8 @@ skip the caution.
 Supabase still has a stale `ai_tutor_price_cents: 999` from the old £9.99 pricing.
 Checked the actual checkout code (`src/lib/pmq/actions.ts`) — it never reads this
 column. Every Checkout Session is built inline from `SLY_UNLOCK_PRICE_CENTS` (800,
-i.e. £15.00), for both the amount charged and the description text shown to the
-buyer. So the live charge is correct at £15 regardless. The stale DB value is a
+i.e. £20.00), for both the amount charged and the description text shown to the
+buyer. So the live charge is correct at £20 regardless. The stale DB value is a
 hygiene item, not a customer-facing risk — worth a cleanup migration later, not
 today.
 

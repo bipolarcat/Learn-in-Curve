@@ -44,7 +44,7 @@ export const COURSE_STATIC: { [K in CourseSlug]: CourseStaticProduct } = {
     id: PMQ_COURSE_ID,
     slug: "pmq-in-5-days",
     displayName: "PMQ in 5 Days",
-    priceCents: 1500,
+    priceCents: 2000,
     stripePriceId: null,
     aiProPriceCents: null,
     aiProStripePriceId: null,

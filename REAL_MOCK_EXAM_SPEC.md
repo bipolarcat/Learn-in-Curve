@@ -20,7 +20,7 @@ Paid users keep Exam 1 and additionally get **Mock Exams 2–4**, three distinct
 additive, not a replacement. The existing `ai_tutor` entitlement unlocks all
 three Pro papers; only one Pro paper can be active at a time.
 
-Part of the £15 Pro Bundle (price £9.99 → £8 on 2026-07-31 → £15 on 2026-09-21). Depends on
+Part of the £20 Pro Bundle (price £9.99 → £8 on 2026-07-31 → £15 then £20 on 2026-09-21). Depends on
 `AI_TUTOR_BACKEND_SPEC.md`'s API-call pattern for grading, and on the same
 fair-usage cap (§4 of that spec) if AI marking is counted against it — flag
 for Sim, not yet decided whether mock-exam grading calls count toward the
@@ -48,7 +48,7 @@ grading, persisted state and selector are built.
 
 ## 1. Entitlement gate
 
-Per the 2026-07-08 decision, this is bundled into the same £15 unlock as the AI
+Per the 2026-07-08 decision, this is bundled into the same £20 unlock as the AI
 tutor and unlimited quiz generation — **not** a separate purchase. Reuse the
 existing `feature_entitlements` row (`feature = 'ai_tutor'`) as the single gate
 for all three paid perks rather than adding a new feature value or table. Cheapest

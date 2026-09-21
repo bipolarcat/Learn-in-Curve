@@ -57,12 +57,12 @@ test("price constants re-export the registry (no second literal)", () => {
   assert.match(
     tutorSrc,
     /PMQ_PRO_PRICE_CENTS as SLY_UNLOCK_PRICE_CENTS/,
-    "tutor/constants must re-export registry PMQ price, not declare 1500",
+    "tutor/constants must re-export registry PMQ price, not declare 2000",
   );
   assert.doesNotMatch(
     tutorSrc,
-    /SLY_UNLOCK_PRICE_CENTS\s*=\s*1500/,
-    "SLY_UNLOCK_PRICE_CENTS must not restate 1500",
+    /SLY_UNLOCK_PRICE_CENTS\s*=\s*2000/,
+    "SLY_UNLOCK_PRICE_CENTS must not restate 2000",
   );
 
   const pfqSrc = readFileSync(pfqConstantsPath, "utf8");
@@ -76,7 +76,7 @@ test("price constants re-export the registry (no second literal)", () => {
     "pfq/constants must not restate a price literal",
   );
 
-  assert.equal(PMQ_PRO_PRICE_CENTS, 1500);
+  assert.equal(PMQ_PRO_PRICE_CENTS, 2000);
   // PFQ Pro raised 600 -> 1000 on 2026-09-15 (LIC-157). This assertion is the
   // tripwire: moving a price must be deliberate enough to update the Stripe
   // Price object and the Terms Schedule in the same change.

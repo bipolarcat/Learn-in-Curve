@@ -84,7 +84,7 @@ export type PmqPlan = {
   status: PmqPlanStatus;
   /** null = free. Pence. */
   priceCents: number | null;
-  /** Beside the price, e.g. "forever" / "one-off · no subscription". */
+  /** Beside the price, e.g. "forever" / "one-off · No subscription". */
   priceNote: string;
   tagline: string;
   /** Highlighted card — the intended pick. */
@@ -126,7 +126,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     name: "Pro Bundle",
     status: "buyable",
     priceCents: SLY_UNLOCK_PRICE_CENTS,
-    priceNote: "one-off · no subscription",
+    priceNote: "one-off · No subscription",
     tagline:
       "More questions, mock exams, and video/audio overviews for every learning objective.",
     featured: true,
@@ -154,8 +154,8 @@ export const PMQ_PLANS: PmqPlan[] = [
     name: "AI Pro Bundle",
     status: "waitlist",
     // Indicative — not charged anywhere yet. Nothing reads this for payment.
-    priceCents: 2500,
-    priceNote: "one-off · no subscription",
+    priceCents: 3000,
+    priceNote: "one-off · No subscription",
     tagline:
       "Sly tracks your progress, targets weak areas, and creates a personalised path to exam success.",
     featured: false,
