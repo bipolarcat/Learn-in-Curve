@@ -76,7 +76,7 @@ export const PFQ_PLANS: PfqPlan[] = [
     name: "Starter",
     status: "free",
     priceCents: null,
-    priceNote: "No credit card needed.",
+    priceNote: "No credit card needed",
     tagline:
       "See how the course works, and sit a full set of practice questions on every objective.",
     ctaLabel: "Start free",
