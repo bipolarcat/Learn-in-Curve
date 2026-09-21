@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { HomeBrandHero } from "@/components/HomeBrandHero";
+import { HomeMethodBand } from "@/components/HomeMethodBand";
 import { LabExamPaths } from "@/components/lab/LabExamPaths";
 import { TestingMethod } from "@/components/TestingMethod";
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
  * `PmqLiveLamp` and `QuizDemo` are intentionally left in the repo but unmounted
  * here — replaced 2026-07-31 by `PmqLaunchProof` and `TrialQuiz`.
  * 2026-09-20: `PmqLaunchProof` ↔ `LabExamPaths`; standalone `TrialQuiz` moved to `/lab`.
+ * 2026-09-21: Method + practice console share `HomeMethodBand` (Wispr-style teal stadium).
  */
 const SlyShowcase = dynamic(
   () =>
@@ -36,7 +38,7 @@ const LabActivityDemo = dynamic(
   {
     loading: () => (
       <div
-        className="mx-auto min-h-[22rem] w-full"
+        className="mx-auto mt-8 min-h-[22rem] w-full sm:mt-10"
         aria-hidden
       />
     ),
@@ -54,9 +56,10 @@ export default async function HomePage() {
     <>
       <HomeBrandHero />
 
-      <TestingMethod />
-
-      <LabActivityDemo isSignedIn={isSignedIn} />
+      <HomeMethodBand>
+        <TestingMethod embedded />
+        <LabActivityDemo isSignedIn={isSignedIn} embedded />
+      </HomeMethodBand>
 
       <LabExamPaths isSignedIn={isSignedIn} />
 

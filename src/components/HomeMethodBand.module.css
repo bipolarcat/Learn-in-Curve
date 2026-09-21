@@ -1,0 +1,55 @@
+/* Home Method + practice console — Wispr-style inset teal stadium (not full-bleed). */
+
+.section {
+  position: relative;
+  overflow-x: clip;
+  padding-block: clamp(1.75rem, 4.5vw, 3rem);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: clamp(1.75rem, 4.5vw, 3.25rem);
+  background: var(--teal-deep);
+  color: rgb(var(--paper-rgb));
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.06) inset,
+    0 22px 40px -18px rgb(18 63 60 / 0.55);
+  padding:
+    clamp(2rem, 5vw, 3.5rem)
+    clamp(1.15rem, 3vw, 2rem)
+    clamp(1.75rem, 4.5vw, 3rem);
+}
+
+.panel::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 45% at 50% 0%,
+    color-mix(in srgb, var(--teal) 42%, transparent),
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 64rem) {
+  .panel {
+    padding:
+      clamp(2.5rem, 4vw, 3.75rem)
+      clamp(1.75rem, 3vw, 2.75rem)
+      clamp(2.25rem, 4vw, 3.25rem);
+  }
+}

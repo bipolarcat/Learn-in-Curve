@@ -125,14 +125,22 @@ const ACTIVITY_BY_MODE = {
 
 type LabActivityDemoProps = {
   isSignedIn?: boolean;
+  /**
+   * Inside `HomeMethodBand`: no outer section/wrap — just the paper console card.
+   * Standalone (e.g. `/lab`) keeps its own section padding.
+   */
+  embedded?: boolean;
 };
 
 /**
- * Lab-only live recall demo — quiz + three activity modes.
+ * Live recall demo — quiz + three activity modes.
  * Pairup + Lineup support tap/keyboard place. Groupup is pointer-drag only
  * (activities/ untouched); flagged in BUSINESS_STATE until a non-drag path exists.
  */
-export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
+export function LabActivityDemo({
+  isSignedIn = false,
+  embedded = false,
+}: LabActivityDemoProps) {
   const baseId = useId();
   const [mode, setMode] = useState<Mode>("quiz");
   const [completedOnce, setCompletedOnce] = useState(false);
@@ -145,98 +153,118 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
   const panelId = `${baseId}-panel`;
   const tabPrefix = `${baseId}-tab`;
 
+  const card = (
+    <ScrollReveal className="mx-auto w-full max-w-[46rem] md:max-w-none">
+      <div
+        className={
+          embedded
+            ? "overflow-hidden rounded-[1.35rem] border border-white/10 bg-paper p-3.5 text-ink shadow-[0_1px_0_rgb(255_255_255_/_0.12),0_22px_48px_-18px_rgb(0_0_0_/_0.5)] sm:rounded-2xl sm:p-5 md:p-6 lg:p-7"
+            : "overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7"
+        }
+      >
+        <div className="w-full">
+          <SegmentedControl
+            label="Practice modes"
+            options={MODE_OPTIONS}
+            value={mode}
+            onValueChange={(next) => setMode(next as Mode)}
+            semantics="tablist"
+            idPrefix={tabPrefix}
+            panelId={panelId}
+            className="w-full max-w-none sm:w-full sm:min-w-0"
+          />
+        </div>
+
+        {activityMeta ? (
+          <p className="mt-4 min-h-[2.75rem] text-left font-body sm:min-h-[2.5rem]">
+            <span className="block text-[15px] font-medium leading-[1.55] text-ink sm:text-base sm:leading-[1.6]">
+              {activityMeta.heading}.
+            </span>
+            <span className="mt-0.5 block text-[13px] font-medium leading-snug text-ink/65 sm:text-[14px]">
+              {activityMeta.title}
+            </span>
+          </p>
+        ) : null}
+
+        <div
+          role="tabpanel"
+          id={panelId}
+          aria-labelledby={`${tabPrefix}-${mode}`}
+          className="lab-activity-stage mt-4 min-w-0 overflow-x-clip"
+        >
+          {mode === "quiz" ? (
+            <TrialQuiz
+              key="demo-quiz"
+              isSignedIn={isSignedIn}
+              embedded
+              idPrefix={`${baseId}-quiz`}
+              onComplete={onComplete}
+            />
+          ) : null}
+          {mode === "pairup" ? (
+            <Pairup
+              key="demo-pairup"
+              activity={PAIRUP}
+              onComplete={onComplete}
+            />
+          ) : null}
+          {mode === "lineup" ? (
+            <Lineup
+              key="demo-lineup"
+              activity={LINEUP}
+              onComplete={onComplete}
+            />
+          ) : null}
+          {mode === "groupup" ? (
+            <Groupup
+              key="demo-groupup"
+              activity={GROUPUP}
+              onComplete={onComplete}
+            />
+          ) : null}
+        </div>
+
+        {completedOnce ? (
+          <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
+            <p className="m-0 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
+              That&apos;s one of 60+ in the free course.
+            </p>
+            <Link href="/courses" className={CTA_PRIMARY}>
+              Start the free course
+              <CtaArrow />
+            </Link>
+          </div>
+        ) : (
+          <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
+            <Link href="/courses" className={CTA_PRIMARY}>
+              Start the free course
+              <CtaArrow />
+            </Link>
+          </div>
+        )}
+      </div>
+    </ScrollReveal>
+  );
+
+  if (embedded) {
+    return (
+      <div
+        id="lab-activity-demo"
+        aria-label="Practice activities"
+        className="mt-8 sm:mt-10 lg:mt-12"
+      >
+        {card}
+      </div>
+    );
+  }
+
   return (
     <section
       id="lab-activity-demo"
       aria-label="Practice activities"
       className="relative overflow-x-clip pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
-      <div className="wrap relative z-[1]">
-        <ScrollReveal className="mx-auto w-full max-w-[46rem] md:max-w-none">
-          <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7">
-            <div className="w-full">
-              <SegmentedControl
-                label="Practice modes"
-                options={MODE_OPTIONS}
-                value={mode}
-                onValueChange={(next) => setMode(next as Mode)}
-                semantics="tablist"
-                idPrefix={tabPrefix}
-                panelId={panelId}
-                className="w-full max-w-none sm:w-full sm:min-w-0"
-              />
-            </div>
-
-            {activityMeta ? (
-              <p className="mt-4 min-h-[2.75rem] text-left font-body sm:min-h-[2.5rem]">
-                <span className="block text-[15px] font-medium leading-[1.55] text-ink sm:text-base sm:leading-[1.6]">
-                  {activityMeta.heading}.
-                </span>
-                <span className="mt-0.5 block text-[13px] font-medium leading-snug text-ink/65 sm:text-[14px]">
-                  {activityMeta.title}
-                </span>
-              </p>
-            ) : null}
-
-            <div
-              role="tabpanel"
-              id={panelId}
-              aria-labelledby={`${tabPrefix}-${mode}`}
-              className="lab-activity-stage mt-4 min-w-0 overflow-x-clip"
-            >
-              {mode === "quiz" ? (
-                <TrialQuiz
-                  key="demo-quiz"
-                  isSignedIn={isSignedIn}
-                  embedded
-                  idPrefix={`${baseId}-quiz`}
-                  onComplete={onComplete}
-                />
-              ) : null}
-              {mode === "pairup" ? (
-                <Pairup
-                  key="demo-pairup"
-                  activity={PAIRUP}
-                  onComplete={onComplete}
-                />
-              ) : null}
-              {mode === "lineup" ? (
-                <Lineup
-                  key="demo-lineup"
-                  activity={LINEUP}
-                  onComplete={onComplete}
-                />
-              ) : null}
-              {mode === "groupup" ? (
-                <Groupup
-                  key="demo-groupup"
-                  activity={GROUPUP}
-                  onComplete={onComplete}
-                />
-              ) : null}
-            </div>
-
-            {completedOnce ? (
-              <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
-                <p className="m-0 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
-                  That&apos;s one of 60+ in the free course.
-                </p>
-                <Link href="/courses" className={CTA_PRIMARY}>
-                  Start the free course
-                  <CtaArrow />
-                </Link>
-              </div>
-            ) : (
-              <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
-                <Link href="/courses" className={CTA_PRIMARY}>
-                  Start the free course
-                  <CtaArrow />
-                </Link>
-              </div>
-            )}
-          </div>
-        </ScrollReveal>
-      </div>
+      <div className="wrap relative z-[1]">{card}</div>
     </section>
   );
 }
