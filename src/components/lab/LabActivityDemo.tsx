@@ -148,30 +148,11 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
   return (
     <section
       id="lab-activity-demo"
-      aria-labelledby="lab-activity-demo-heading"
+      aria-label="Practice activities"
       className="relative overflow-x-clip pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">
-        <ScrollReveal className="mx-auto max-w-[40rem] text-center">
-          <p className="mb-1 font-body text-[14px] font-bold tracking-[0.14em] text-teal sm:text-[15px]">
-            The Practice
-          </p>
-          <h2
-            id="lab-activity-demo-heading"
-            className="font-display text-[clamp(1.65rem,3.5vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink"
-          >
-            Recall it four ways
-          </h2>
-          <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
-            Practice questions plus three recall activities from the course.
-            Have a go.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal
-          delay={0.06}
-          className="mx-auto mt-8 w-full max-w-[46rem] sm:mt-10 md:max-w-none"
-        >
+        <ScrollReveal className="mx-auto w-full max-w-[46rem] md:max-w-none">
           <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7">
             <div className="flex justify-center">
               <SegmentedControl
