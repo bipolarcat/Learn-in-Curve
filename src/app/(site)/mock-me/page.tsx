@@ -55,11 +55,13 @@ export default function MockMeHubPage() {
     <div className={styles.page}>
       <div className="wrap">
         <header className={styles.header}>
-          <p className={styles.eyebrow}>Free · No account</p>
           <h1 className={styles.title}>
             Mock <span className="text-orange">Me</span>
           </h1>
-          <p className={styles.lead}>Pick a check. Start straight away.</p>
+          <p className={styles.lead}>
+            A short mock exam that scores you and shows which topics to revise.
+            No sign-up, no payment.
+          </p>
         </header>
 
         <ul className={styles.grid}>
