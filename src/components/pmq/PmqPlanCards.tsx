@@ -12,6 +12,7 @@ import {
 import {
   IconAudio,
   IconCore,
+  IconInsights,
   IconMemory,
   IconMisconceptions,
   IconMock,
@@ -43,6 +44,7 @@ const FEATURE_ICONS: Record<
   audio: IconAudio,
   report: IconReport,
   structure: IconStructure,
+  insights: IconInsights,
 };
 
 const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;

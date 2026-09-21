@@ -56,7 +56,8 @@ export type PmqPlanFeature = {
     | "video"
     | "audio"
     | "report"
-    | "structure";
+    | "structure"
+    | "insights";
   label: string;
   /**
    * Quantity shown next to the label.
@@ -163,6 +164,11 @@ export const PMQ_PLANS: PmqPlan[] = [
       {
         icon: "audio",
         label: "Audio overview for every learning objective",
+      },
+      {
+        icon: "insights",
+        label:
+          "Insights on every learning outcome, for deeper understanding of each topic",
       },
     ],
   },
