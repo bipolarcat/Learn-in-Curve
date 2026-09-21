@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { BookOpen, ChevronDown, Layers, Scale, Search } from "lucide-react";
+import { BookOpen, Layers, Library, Scale, Search } from "lucide-react";
 import {
   LIBRARY_GROUP_LABELS,
   type LibraryGroup,
@@ -38,7 +38,7 @@ type LibraryHubProps = {
 };
 
 const FILTERS: { id: FilterId; label: string }[] = [
-  { id: "all", label: "All guides" },
+  { id: "all", label: "All Articles" },
   { id: "exam-prep", label: LIBRARY_GROUP_LABELS["exam-prep"] },
   { id: "choosing", label: LIBRARY_GROUP_LABELS.choosing },
   { id: "syllabus", label: LIBRARY_GROUP_LABELS.syllabus },
@@ -62,18 +62,27 @@ function formatGuideDate(iso: string): string | null {
   });
 }
 
-function GroupIcon({ group }: { group: LibraryGroup }) {
-  const className = styles.cardTagIcon;
-  if (group === "exam-prep") return <BookOpen className={className} aria-hidden />;
-  if (group === "choosing") return <Scale className={className} aria-hidden />;
+function FilterIcon({
+  id,
+  className,
+}: {
+  id: FilterId;
+  className?: string;
+}) {
+  if (id === "all") return <Library className={className} aria-hidden />;
+  if (id === "exam-prep") return <BookOpen className={className} aria-hidden />;
+  if (id === "choosing") return <Scale className={className} aria-hidden />;
   return <Layers className={className} aria-hidden />;
+}
+
+function GroupIcon({ group }: { group: LibraryGroup }) {
+  return <FilterIcon id={group} className={styles.cardTagIcon} />;
 }
 
 export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
   const [filter, setFilter] = useState<FilterId>("all");
   const [query, setQuery] = useState("");
   const [view, setView] = useState<LibraryViewMode>("grid");
-  const [categoryOpen, setCategoryOpen] = useState(true);
 
   useEffect(() => {
     try {
@@ -92,6 +101,17 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
       /* ignore */
     }
   }
+
+  const counts = useMemo(() => {
+    const next: Record<FilterId, number> = {
+      all: pages.length,
+      "exam-prep": 0,
+      choosing: 0,
+      syllabus: 0,
+    };
+    for (const p of pages) next[p.group] += 1;
+    return next;
+  }, [pages]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -134,47 +154,39 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
             </div>
           ) : (
             <div className={styles.layout}>
-              <aside className={styles.side} aria-label="Filter and sort">
-                <p className={styles.sideHeading}>Filter and sort</p>
-
+              <aside className={styles.side} aria-label="Category">
                 <div className={styles.accordion}>
-                  <button
-                    type="button"
-                    className={styles.accordionTrigger}
-                    aria-expanded={categoryOpen}
-                    onClick={() => setCategoryOpen((o) => !o)}
-                  >
-                    <span>Category</span>
-                    <ChevronDown
-                      className={`${styles.accordionChevron} ${
-                        categoryOpen ? styles.accordionChevronOpen : ""
-                      }`}
-                      aria-hidden
-                    />
-                  </button>
-                  {categoryOpen ? (
-                    <ul className={styles.accordionPanel} role="list">
-                      {FILTERS.map((f) => {
-                        const active = filter === f.id;
-                        return (
-                          <li key={f.id}>
-                            <button
-                              type="button"
-                              className={
-                                active
-                                  ? styles.categoryBtnActive
-                                  : styles.categoryBtn
-                              }
-                              aria-pressed={active}
-                              onClick={() => setFilter(f.id)}
-                            >
+                  <p className={styles.accordionLabel}>Category</p>
+                  <ul className={styles.accordionPanel} role="list">
+                    {FILTERS.map((f) => {
+                      const active = filter === f.id;
+                      return (
+                        <li key={f.id}>
+                          <button
+                            type="button"
+                            className={
+                              active
+                                ? styles.categoryBtnActive
+                                : styles.categoryBtn
+                            }
+                            aria-pressed={active}
+                            onClick={() => setFilter(f.id)}
+                          >
+                            <FilterIcon
+                              id={f.id}
+                              className={styles.categoryIcon}
+                            />
+                            <span className={styles.categoryLabel}>
                               {f.label}
-                            </button>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : null}
+                            </span>
+                            <span className={styles.categoryCount}>
+                              {counts[f.id]}
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               </aside>
 
@@ -182,13 +194,13 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
                 <div className={styles.toolbar}>
                   <label className={styles.searchWrap} htmlFor="library-search">
                     <Search className={styles.searchIcon} aria-hidden />
-                    <span className={styles.srOnly}>Search guides</span>
+                    <span className={styles.srOnly}>Search Articles</span>
                     <input
                       id="library-search"
                       type="search"
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Search guides…"
+                      placeholder="Search Articles..."
                       className={styles.search}
                       autoComplete="off"
                     />
@@ -208,6 +220,7 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
                       onClick={() => setFilter(f.id)}
                     >
                       {f.label}
+                      <span className={styles.chipCount}>{counts[f.id]}</span>
                     </button>
                   ))}
                 </div>
@@ -226,7 +239,7 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
                         setFilter("all");
                       }}
                     >
-                      Show all guides
+                      Show all articles
                     </button>
                   </div>
                 ) : (
