@@ -69,7 +69,7 @@ export function TestingMethod() {
           </h2>
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
             Psychologists call it{" "}
-            <span className="font-bold text-orange">the testing effect</span>.
+            <span className="font-bold text-orange">The Testing Effect</span>.
           </p>
           <p className="mx-auto mt-2.5 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:mt-3 sm:text-[16px]">
             Every time you retrieve an answer from memory, you strengthen it.
