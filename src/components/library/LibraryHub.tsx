@@ -243,11 +243,50 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
                       Show all articles
                     </button>
                   </div>
+                ) : view === "list" ? (
+                  <div className={styles.listTable}>
+                    <div className={styles.listHead} aria-hidden>
+                      <span>Articles</span>
+                      <span>Date</span>
+                      <span>Category</span>
+                    </div>
+                    <ul className={styles.list} role="list" data-view="list">
+                      {filtered.map((page) => {
+                        const dateLabel = formatGuideDate(page.updatedAt);
+                        return (
+                          <li key={page.slug}>
+                            <LibrarySoftNavLink
+                              href={`/library/${page.slug}`}
+                              busyLabel={`Opening ${page.title}`}
+                              className={styles.listRow}
+                            >
+                              <span className={styles.listArticle}>
+                                {page.title}
+                              </span>
+                              {dateLabel ? (
+                                <time
+                                  className={styles.listDate}
+                                  dateTime={page.updatedAt}
+                                >
+                                  {dateLabel}
+                                </time>
+                              ) : (
+                                <span className={styles.listDate}>—</span>
+                              )}
+                              <span className={styles.listCategory}>
+                                {LIBRARY_GROUP_LABELS[page.group]}
+                              </span>
+                            </LibrarySoftNavLink>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 ) : (
                   <ul
-                    className={view === "list" ? styles.list : styles.grid}
+                    className={styles.grid}
                     role="list"
-                    data-view={view}
+                    data-view="grid"
                   >
                     {filtered.map((page) => {
                       const dateLabel = formatGuideDate(page.updatedAt);
@@ -256,18 +295,10 @@ export function LibraryHub({ pages, draftCount }: LibraryHubProps) {
                           <LibrarySoftNavLink
                             href={`/library/${page.slug}`}
                             busyLabel={`Opening ${page.title}`}
-                            className={
-                              view === "list"
-                                ? `${styles.cardLink} ${styles.cardLinkList}`
-                                : styles.cardLink
-                            }
+                            className={styles.cardLink}
                           >
                             <div
-                              className={
-                                view === "list"
-                                  ? `${styles.cardArt} ${styles.cardArtList}`
-                                  : styles.cardArt
-                              }
+                              className={styles.cardArt}
                               style={{
                                 background: artToneForSlug(page.slug),
                               }}
