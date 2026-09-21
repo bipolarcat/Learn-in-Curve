@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getLibraryPagesByGroup, LIBRARY_PAGES } from "@/content/library";
-import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
 import { LibraryHub } from "@/components/library/LibraryHub";
 import { buildTitle } from "@/lib/seo/title";
 
@@ -28,11 +27,6 @@ export default function LibraryIndexPage() {
   const draftCount = LIBRARY_PAGES.length - pages.length;
 
   return (
-    <LibraryHub
-      pages={pages}
-      groups={groups}
-      draftCount={draftCount}
-      disclaimer={LIBRARY_HUB_APM_DISCLAIMER}
-    />
+    <LibraryHub pages={pages} groups={groups} draftCount={draftCount} />
   );
 }

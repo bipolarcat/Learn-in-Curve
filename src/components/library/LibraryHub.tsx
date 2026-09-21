@@ -19,7 +19,6 @@ type LibraryHubProps = {
   pages: LibraryPage[];
   groups: { group: LibraryGroup; label: string; pages: LibraryPage[] }[];
   draftCount: number;
-  disclaimer: string;
 };
 
 const FILTERS: { id: FilterId; label: string }[] = [
@@ -33,7 +32,6 @@ export function LibraryHub({
   pages,
   groups,
   draftCount,
-  disclaimer,
 }: LibraryHubProps) {
   const [filter, setFilter] = useState<FilterId>("all");
   const [query, setQuery] = useState("");
@@ -277,23 +275,9 @@ export function LibraryHub({
                     </section>
                   ))
                 )}
-
-                <div className={styles.footerCta}>
-                  <LibrarySoftNavLink
-                    href={withSoftNavFrom("/free-mock-exam/apm-pmq", "library")}
-                    busyLabel="Opening free mock exam"
-                    spinner="ellipsis"
-                    spinnerClassName="text-orange"
-                    className={styles.footerCtaLink}
-                  >
-                    Test yourself: free 15-question APM PMQ mock exam
-                  </LibrarySoftNavLink>
-                </div>
               </div>
             </div>
           )}
-
-          <p className={styles.disclaimer}>{disclaimer}</p>
         </div>
       </div>
     </div>

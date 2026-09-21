@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Shelf hub: remove footer mock CTA + APM disclaimer line (`LibraryHub`). Articles still carry the disclaimer.
 - **2026-09-21** — The Shelf restage: hero → simple “Guides” (no illustration); topics “Project management exam preparation” / “APM PMQ syllabus topics”; sand art plate vs paper card body (matched SVG fill); drop card lift hover + early title wrap; author byline (Sim photo + name) on all guides (`LibraryHub`, `LibraryArticle`, `libraryIllustrations`, `author.ts`).
 - **2026-09-21** — Free mock results eyebrow: “{mark} Mock Exam Result” (`FreeMockExamClient`).
 - **2026-09-21** — Free mock results table: drop Topic column (LO/Domain + Score only) (`FreeMockExamClient`).

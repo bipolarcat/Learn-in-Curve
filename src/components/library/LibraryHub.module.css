@@ -461,24 +461,6 @@
   color: var(--orange);
 }
 
-.footerCta {
-  padding-top: 0.5rem;
-  text-align: center;
-}
-
-.footerCtaLink {
-  font-family: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 650;
-  color: var(--orange);
-  text-decoration: none;
-  text-underline-offset: 2px;
-}
-
-.footerCtaLink:hover {
-  text-decoration: underline;
-}
-
 .empty,
 .noMatch {
   padding: 2rem 1.25rem;
@@ -516,15 +498,4 @@
   font-weight: 650;
   color: var(--orange-action);
   cursor: pointer;
-}
-
-.disclaimer {
-  margin: 1.5rem 0 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgb(var(--ink-rgb) / 0.1);
-  font-family: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  font-size: 12px;
-  line-height: 1.4;
-  color: rgb(var(--ink-rgb) / 0.5);
-  max-width: 46rem;
 }
