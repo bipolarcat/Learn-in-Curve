@@ -35,6 +35,16 @@
   text-wrap: balance;
 }
 
+.lead {
+  margin: 0.65rem auto 0;
+  max-width: 36rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgb(var(--ink-rgb) / 0.62);
+  text-wrap: pretty;
+}
+
 /* —— Layout —— */
 .layout {
   display: grid;
