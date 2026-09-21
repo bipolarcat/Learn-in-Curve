@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SlyTutorWindow } from "@/components/SlyTutorWindow";
 import styles from "@/components/SlyShowcase.module.css";
@@ -48,21 +46,10 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
               className={`${styles.heading} min-w-0 max-w-full font-display text-ink text-balance`}
             >
               <span className="block">Stuck on a syllabus topic?</span>
-              <span className="flex items-center gap-2.5">
-                <span className="relative inline-flex h-[1.15em] w-[1.15em] shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)]">
-                  <Image
-                    src="/brand/sly/sly-tutor-portrait.png"
-                    alt="Sly, the AI tutor — fox portrait"
-                    width={64}
-                    height={64}
-                    className="h-full w-full scale-[1.22] object-cover object-[center_18%]"
-                  />
-                </span>
-                <span>
-                  Ask <span className="text-orange">Sly</span>.{" "}
-                  <span className="relative -top-0.5 inline-flex align-middle">
-                    <BetaBadge />
-                  </span>
+              <span className="block">
+                Ask <span className="text-orange">Sly</span>.{" "}
+                <span className="relative -top-0.5 inline-flex align-middle">
+                  <BetaBadge />
                 </span>
               </span>
             </h2>

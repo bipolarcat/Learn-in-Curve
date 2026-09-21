@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Landing Sly section: remove portrait from heading lockup (`SlyShowcase`).
 - **2026-09-21** — Landing Sly: portrait moves to second heading line with “Ask Sly.”; icon sized to `1.15em`; even line spacing (no extra row gap) (`SlyShowcase`).
 - **2026-09-21** — Landing Sly heading scale matched to Testing Method: `clamp(1.65rem, 3.5vw, 2.35rem)` / leading 1.05 (`SlyShowcase.module.css`).
 - **2026-09-21** — Landing Sly heading size moved into `SlyShowcase.module.css` (`.heading` `clamp(2.5rem,8vw,3rem)`) so Safari/LAN can’t miss a Tailwind arbitrary; explains why phone still looked ~body-sized.
