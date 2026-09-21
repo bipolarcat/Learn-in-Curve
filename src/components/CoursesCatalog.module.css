@@ -249,7 +249,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.55rem 1rem 1rem;
+  padding: 0.55rem 1rem 0.55rem;
   background: var(--course-card-cream);
 }
 
@@ -392,7 +392,7 @@
   }
 
   .footer {
-    padding: 0.65rem 1.15rem 1.15rem;
+    padding: 0.65rem 1.15rem 0.65rem;
   }
 }
 
