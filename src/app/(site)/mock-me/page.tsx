@@ -3,6 +3,11 @@ import Link from "next/link";
 import { FREE_MOCK_EXAM_IDS, FREE_MOCK_EXAMS } from "@/lib/free-mock/config";
 import type { FreeMockExamId } from "@/lib/free-mock/types";
 import { MockMeExamCard } from "@/components/MockMeExamCard";
+import { SoftNavBackLink } from "@/components/SoftNavBackLink";
+import {
+  parseSoftNavFrom,
+  SOFT_NAV_BACK,
+} from "@/lib/soft-nav-back";
 import styles from "./MockMePage.module.css";
 
 const SITE_URL =
@@ -63,10 +68,28 @@ const CARD_MARK: Record<FreeMockExamId, string> = {
   pmp: "PMI - PMP",
 };
 
-export default function MockMeHubPage() {
+type MockMeHubPageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function MockMeHubPage({
+  searchParams,
+}: MockMeHubPageProps) {
+  const from = parseSoftNavFrom((await searchParams)?.from);
+  // Same soft-nav back as Courses catalogue when arriving from home (hero CTA).
+  // Always offer Back to home on this hub so menu/direct visits get it too.
+  const back =
+    from === "home" || from == null ? SOFT_NAV_BACK.home : SOFT_NAV_BACK[from];
+
   return (
     <div className={styles.page}>
       <div className="wrap">
+        <SoftNavBackLink
+          href={back.href}
+          label={back.label}
+          busyLabel={back.busyLabel}
+          className={styles.back}
+        />
         <header className={styles.header}>
           <h1 className={styles.title}>
             Mock <span className="text-orange">Me</span>
