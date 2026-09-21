@@ -67,7 +67,8 @@ export async function FreeMockExamShell({
           <h1 className="text-balance font-display text-[clamp(1.85rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             {config.examId === "pmp" ? (
               <>
-                Free <span className="text-orange">PMP</span> readiness check
+                Free PMI{" "}
+                <span className="text-orange">PMP</span> mock exam
               </>
             ) : (
               <>
