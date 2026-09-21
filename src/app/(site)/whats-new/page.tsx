@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { RELEASE_NOTES } from "@/content/whats-new";
-import { markWhatsNewSeen } from "@/lib/whats-new/actions";
 import { WhatsNewPageBeacon } from "@/components/WhatsNewPageBeacon";
 import { buildTitle } from "@/lib/seo/title";
 import { productSurfaceQuiet } from "@/components/ui/semantic";
@@ -35,13 +34,9 @@ export default async function WhatsNewPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (user) {
-    await markWhatsNewSeen();
-  }
-
   return (
     <section className="relative z-0 min-h-[calc(100dvh-4.25rem-7.5rem)] px-3 py-10 sm:min-h-[calc(100dvh-4.75rem-7.5rem)] sm:px-5 sm:py-14">
-      <WhatsNewPageBeacon />
+      <WhatsNewPageBeacon signedIn={!!user} />
       <div className="mx-auto max-w-wrap">
         <header className="mb-8 max-w-[40rem]">
           <h1 className="font-display text-[1.75rem] font-bold tracking-[-0.02em] text-ink sm:text-[2.15rem]">

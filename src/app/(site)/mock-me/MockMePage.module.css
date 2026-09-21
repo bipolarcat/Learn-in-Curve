@@ -6,6 +6,8 @@
   margin: 0 auto;
   max-width: 28rem;
   text-align: center;
+  animation: mockMeEnter 620ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1))
+    both;
 }
 
 .title {
@@ -39,6 +41,23 @@
   list-style: none;
 }
 
+.grid > li {
+  animation: mockMeEnter 620ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1))
+    both;
+}
+
+.grid > li:nth-child(1) {
+  animation-delay: 90ms;
+}
+
+.grid > li:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.grid > li:nth-child(3) {
+  animation-delay: 230ms;
+}
+
 .card {
   --card-cream: #f6efdd;
   position: relative;
@@ -51,21 +70,20 @@
   background: var(--card-cream);
   box-shadow:
     0 1px 2px rgb(var(--ink-rgb) / 0.04),
-    0 10px 28px rgb(var(--ink-rgb) / 0.07);
+    0 8px 22px rgb(var(--ink-rgb) / 0.05);
   text-decoration: none;
   color: inherit;
   transition:
-    transform 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    box-shadow 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    border-color 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+    border-color 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
+/* Quiet hover: no lift / pop — just a tighter edge and soft shadow. */
 .card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--orange, #e07a3a) 35%, transparent);
+  border-color: rgb(var(--ink-rgb) / 0.16);
   box-shadow:
-    0 2px 4px rgb(var(--ink-rgb) / 0.05),
-    0 16px 36px rgb(var(--ink-rgb) / 0.1);
+    0 1px 2px rgb(var(--ink-rgb) / 0.05),
+    0 10px 26px rgb(var(--ink-rgb) / 0.07);
 }
 
 .card:focus-visible {
@@ -83,11 +101,6 @@
 .artImage {
   object-fit: cover;
   object-position: center 40%;
-  transition: transform 320ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.card:hover .artImage {
-  transform: scale(1.04);
 }
 
 .meta {
@@ -118,37 +131,46 @@
 }
 
 /**
- * Mock Me card Start — full-width ink plate + cream arrow disc.
- * Unique to this hub; not the site-wide stamp CTA.
+ * Mock Me Start — ink pill that fills orange on hover; disc + arrow slide.
  */
 .cta {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.65rem;
+  overflow: hidden;
   margin-top: auto;
   padding: 0.45rem 0.45rem 0.45rem 0.95rem;
   border-radius: 999px;
   background: rgb(var(--ink-rgb));
   color: var(--card-cream, #f6efdd);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.12),
-    0 1px 2px rgb(var(--ink-rgb) / 0.18);
-  transition:
-    background-color 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    box-shadow 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    transform 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--orange, #e07a3a);
+  transform: translateX(-102%);
+  transition: transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaLabel {
+  position: relative;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  transition: color 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaDisc {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -158,35 +180,89 @@
   border-radius: 999px;
   background: var(--orange, #e07a3a);
   color: rgb(var(--ink-rgb));
-  box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 0.2);
   transition:
-    transform 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    background-color 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+    transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color 280ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    color 280ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaArrow {
   display: block;
-  transition: transform 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  transition: transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
-.card:hover .cta {
-  background: color-mix(in srgb, rgb(var(--ink-rgb)) 88%, var(--orange, #e07a3a));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.14),
-    0 2px 6px rgb(var(--ink-rgb) / 0.22);
+.card:hover .cta::before {
+  transform: translateX(0);
+}
+
+.card:hover .ctaLabel {
+  color: rgb(var(--ink-rgb));
 }
 
 .card:hover .ctaDisc {
-  transform: scale(1.06);
-  background: color-mix(in srgb, var(--orange, #e07a3a) 82%, white);
-}
-
-.card:hover .ctaArrow {
+  background: var(--card-cream, #f6efdd);
   transform: translateX(2px);
 }
 
-.card:active .cta {
-  transform: scale(0.985);
+.card:hover .ctaArrow {
+  animation: mockMeArrow 720ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1))
+    both;
+}
+
+.card:active .ctaDisc {
+  transform: translateX(2px) scale(0.96);
+}
+
+.coursesLink {
+  margin: 2rem auto 0;
+  max-width: 40rem;
+  text-align: center;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: rgb(var(--ink-rgb) / 0.6);
+  animation: mockMeEnter 620ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1))
+    300ms both;
+}
+
+.coursesLink a {
+  color: var(--orange, #e07a3a);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.coursesLink a:hover {
+  text-decoration: underline;
+}
+
+.coursesLink a:focus-visible {
+  outline: 2px solid var(--orange, #e07a3a);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@keyframes mockMeEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mockMeArrow {
+  0% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
 }
 
 @media (min-width: 40rem) {
@@ -199,25 +275,32 @@
   .art {
     aspect-ratio: 4 / 3.4;
   }
+
+  .coursesLink {
+    margin-top: 2.5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .artImage,
-  .cta,
+  .header,
+  .grid > li,
+  .coursesLink {
+    animation: none;
+  }
+
+  .cta::before,
+  .ctaLabel,
   .ctaDisc,
   .ctaArrow {
     transition: none;
   }
 
-  .card:hover {
-    transform: none;
+  .card:hover .ctaArrow {
+    animation: none;
   }
 
-  .card:hover .artImage,
   .card:hover .ctaDisc,
-  .card:hover .ctaArrow,
-  .card:active .cta {
+  .card:active .ctaDisc {
     transform: none;
   }
 }

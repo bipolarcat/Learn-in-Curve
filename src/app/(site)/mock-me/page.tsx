@@ -124,6 +124,11 @@ export default function MockMeHubPage() {
             );
           })}
         </ul>
+
+        <p className={styles.coursesLink}>
+          Looking for a full course?{" "}
+          <Link href="/courses">Browse courses</Link>
+        </p>
       </div>
     </div>
   );
