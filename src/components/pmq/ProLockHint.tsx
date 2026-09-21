@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { X } from "lucide-react";
 import { ProBadge } from "@/components/pmq/tier-badge";
 
 const INSIGHTS_COPY = "Unlock insights with the Pro bundle.";
@@ -38,13 +39,26 @@ function copyFor(kind: HintKind): string {
   return MOCK_COPY;
 }
 
+function clearDismissTimer() {
+  if (dismissTimer) {
+    clearTimeout(dismissTimer);
+    dismissTimer = null;
+  }
+}
+
+/** Dismiss the anchored Pro lock tip immediately. */
+export function dismissProLockHint() {
+  clearDismissTimer();
+  emit(null);
+}
+
 /**
  * Short tip anchored to the tapped control — same placement model as the
  * learning-pathway disabled hint (under the icon, or above if no room).
  * Pass the clicked element so the tip sits next to it, not at screen top.
  */
 export function showProLockHint(kind: HintKind, anchor: HTMLElement) {
-  if (dismissTimer) clearTimeout(dismissTimer);
+  clearDismissTimer();
   const id = ++seq;
   emit({ id, message: copyFor(kind), anchor });
   dismissTimer = setTimeout(() => {
@@ -76,8 +90,10 @@ function placeTip(
   tipHeight: number,
 ): TipPlacement {
   const rect = anchor.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const left = clampLeft(centerX, tipWidth, VIEWPORT_PAD_PX);
+  // Prefer the visual start of the control (Insights chip / icon), not the
+  // centre of a stretched flex child — that looked like mid-screen.
+  const anchorX = rect.left + Math.min(rect.width / 2, 28);
+  const left = clampLeft(anchorX, tipWidth, VIEWPORT_PAD_PX);
   const vh = typeof window !== "undefined" ? window.innerHeight : 800;
   const belowTop = rect.bottom + HINT_GAP_PX;
   const aboveTop = rect.top - HINT_GAP_PX - tipHeight;
@@ -112,7 +128,9 @@ export function ProLockHintHost() {
   useLayoutEffect(() => {
     if (!hint || !tipRef.current) return;
     const el = tipRef.current;
-    setPlacement(placeTip(hint.anchor, el.offsetWidth || 200, el.offsetHeight || 28));
+    setPlacement(
+      placeTip(hint.anchor, el.offsetWidth || 200, el.offsetHeight || 28),
+    );
   }, [hint]);
 
   useEffect(() => {
@@ -164,16 +182,25 @@ export function ProLockHintHost() {
             left: placement?.left ?? -9999,
             top: placement?.top ?? 0,
             zIndex: 100,
-            // Hide until measured so we never flash at 0,0.
             visibility: placement ? "visible" : "hidden",
           }}
-          className="pointer-events-none inline-flex w-fit max-w-[min(16rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
+          className="pointer-events-auto inline-flex w-fit max-w-[min(16rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
         >
-          {/* Badge + copy share one items-center row (not stacked). */}
           <ProBadge />
           <span className="min-w-0 font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
             {hint.message}
           </span>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              dismissProLockHint();
+            }}
+            className="shrink-0 rounded-md p-0.5 text-ink/40 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.05] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange touch-manipulation [-webkit-tap-highlight-color:transparent]"
+            aria-label="Dismiss"
+          >
+            <X className="size-3" strokeWidth={2.25} aria-hidden />
+          </button>
         </motion.div>
       ) : null}
     </AnimatePresence>,

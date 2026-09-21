@@ -173,7 +173,7 @@ export function InsightsLockedChip({ className }: { className?: string }) {
       type="button"
       onClick={(e) => showProLockHint("insights", e.currentTarget)}
       className={cn(
-        "not-prose m-0 inline-flex cursor-pointer items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
+        "not-prose m-0 inline-flex w-fit max-w-full cursor-pointer items-center gap-1 self-start font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
         "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
         className,
       )}
@@ -219,7 +219,7 @@ export function InsightsDisclosureList({
   if (tips.length === 0) return null;
   if (locked) {
     return (
-      <div className="not-prose -mt-1.5 flex min-w-0 flex-col gap-0">
+      <div className="not-prose -mt-1.5 flex min-w-0 flex-col items-start gap-0">
         <InsightsLockedChip className="mt-0.5 mb-2" />
       </div>
     );
