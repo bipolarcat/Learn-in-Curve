@@ -147,7 +147,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     tagline:
       "More questions, mock exams, and video/audio overviews for every learning objective.",
     featured: true,
-    badge: "Best Value",
+    badge: "Introductory Offer",
     badgeVariant: "value",
     inheritsFrom: "starter",
     ctaLabel: "Get Pro Bundle",
