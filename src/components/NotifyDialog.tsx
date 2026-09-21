@@ -23,8 +23,6 @@ type NotifyDialogProps = {
   subjectLabel: string;
   /** How the thing is referred to mid-sentence, e.g. "the AI Pro Bundle". */
   courseCopy: string;
-  /** Optional marketing-checkbox copy; defaults to the site newsletter wording. */
-  marketingConsentLabel?: string;
 };
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -49,7 +47,6 @@ export function NotifyDialog({
   notifyKey,
   subjectLabel,
   courseCopy,
-  marketingConsentLabel = "We'll email you when this product is ready.",
 }: NotifyDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -330,7 +327,8 @@ export function NotifyDialog({
                   className="mt-0.5 h-3.5 w-3.5 shrink-0 rounded border-ink/30 text-orange accent-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/50"
                 />
                 <span className="min-w-0 font-body text-[11px] leading-snug text-ink/75 text-pretty">
-                  {marketingConsentLabel}
+                  Also send me newsletters about project management and AI,
+                  blogs, tips, and other updates from Learn in Curve.
                 </span>
               </label>
             </div>

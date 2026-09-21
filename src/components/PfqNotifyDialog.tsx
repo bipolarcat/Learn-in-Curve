@@ -25,7 +25,6 @@ export function PfqNotifyDialog({ open, onClose }: PfqNotifyDialogProps) {
       notifyKey={PFQ_LIST_KEY}
       subjectLabel="PFQ in 2 Days"
       courseCopy="PFQ in 2 Days"
-      marketingConsentLabel="Also send me newsletters about project management and AI, blogs, tips, and other updates from Learn in Curve."
     />
   );
 }
