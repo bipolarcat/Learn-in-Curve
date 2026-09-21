@@ -136,16 +136,20 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
               <div className="max-w-[22rem]">
-                <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                  {isSignedIn
-                    ? "Launching soon!"
-                    : unavailable
-                      ? "Sly’s free trial is taking a short break"
-                      : locked
-                        ? "Free trial used on this network"
-                        : "Ask. Learn. Understand."}
-                </p>
-                <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+                {isSignedIn || unavailable || locked ? (
+                  <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                    {isSignedIn
+                      ? "Launching soon!"
+                      : unavailable
+                        ? "Sly’s free trial is taking a short break"
+                        : "Free trial used on this network"}
+                  </p>
+                ) : null}
+                <p
+                  className={`m-0 text-[13px] leading-relaxed text-ink/65 text-pretty ${
+                    isSignedIn || unavailable || locked ? "mt-1.5" : ""
+                  }`}
+                >
                   {isSignedIn
                     ? "Open your course to keep studying."
                     : unavailable
