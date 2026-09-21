@@ -114,35 +114,37 @@ export function HomeBrandHero() {
       </div>
 
       <div className="wrap relative z-10">
-        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[58rem] flex-row flex-wrap items-center justify-center gap-2.5 sm:mt-3.5 sm:gap-3">
-          <Link
-            href="/courses"
-            className={HERO_COURSE_CTA}
-            onClick={(event) => {
-              trackCtaClicked({
-                variant: "Explore Courses",
-                location: "hero",
-              });
-              if (!isSoftNavClick(event)) return;
-            }}
-          >
-            <span className="relative z-[1] inline-flex items-center gap-1.5">
-              <span>Explore Courses</span>
-            </span>
-          </Link>
-          <FreeMockExamLink
-            className={HERO_MOCK_CTA}
-            from="home"
-            href="/free-mock-exam/apm-pmq"
-            label="Take free mock exams"
-            location="hero"
-          />
-        </div>
-        <div className="mt-3.5 flex flex-col items-center gap-2 sm:mt-4 sm:gap-2.5">
-          <p className="font-body text-[12px] font-semibold tracking-tight text-ink/65 sm:text-[13px]">
-            Trusted by 200+ learners
-          </p>
-          <AvatarCircles avatarUrls={HERO_TRUST_AVATARS} />
+        <div className="mx-auto mt-3 flex w-full max-w-[58rem] flex-col items-center sm:mt-3.5">
+          <div className="hero-ctas flex w-full flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+            <Link
+              href="/courses"
+              className={HERO_COURSE_CTA}
+              onClick={(event) => {
+                trackCtaClicked({
+                  variant: "Explore Courses",
+                  location: "hero",
+                });
+                if (!isSoftNavClick(event)) return;
+              }}
+            >
+              <span className="relative z-[1] inline-flex items-center gap-1.5">
+                <span>Explore Courses</span>
+              </span>
+            </Link>
+            <FreeMockExamLink
+              className={HERO_MOCK_CTA}
+              from="home"
+              href="/free-mock-exam/apm-pmq"
+              label="Take free mock exams"
+              location="hero"
+            />
+          </div>
+          <div className="mt-3.5 flex w-full flex-col items-center gap-2 sm:mt-4 sm:gap-2.5">
+            <p className="font-body text-[12px] font-semibold tracking-tight text-ink/65 sm:text-[13px]">
+              Trusted by 200+ learners
+            </p>
+            <AvatarCircles avatarUrls={HERO_TRUST_AVATARS} />
+          </div>
         </div>
       </div>
     </section>

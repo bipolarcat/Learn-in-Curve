@@ -14,12 +14,17 @@ const AvatarCircles = ({
   avatarUrls,
 }: AvatarCirclesProps) => {
   return (
-    <div className={cn("z-10 flex -space-x-3 rtl:space-x-reverse", className)}>
-      {avatarUrls.map((url, index) => (
-        // eslint-disable-next-line @next/next/no-img-element -- remote stock faces; no next/image domain config required
+    <div
+      className={cn(
+        "z-10 flex shrink-0 flex-row flex-nowrap items-center -space-x-2.5",
+        className,
+      )}
+    >
+      {avatarUrls.map((url) => (
+        // eslint-disable-next-line @next/next/no-img-element -- local /avatars assets
         <img
           key={url}
-          className="h-7 w-7 rounded-full border-2 border-paper object-cover sm:h-8 sm:w-8"
+          className="h-7 w-7 rounded-full border border-ink/20 bg-cream object-cover sm:h-8 sm:w-8"
           src={url}
           width={32}
           height={32}
@@ -30,7 +35,7 @@ const AvatarCircles = ({
       ))}
       {typeof numPeople === "number" && numPeople > 0 ? (
         <span
-          className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-paper bg-ink text-center text-[10px] font-semibold tabular-nums text-paper sm:h-8 sm:w-8 sm:text-[11px]"
+          className="flex h-7 w-7 items-center justify-center rounded-full border border-ink/20 bg-ink text-center text-[10px] font-semibold tabular-nums text-paper sm:h-8 sm:w-8 sm:text-[11px]"
           aria-hidden
         >
           +{numPeople}
