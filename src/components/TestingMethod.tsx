@@ -68,11 +68,11 @@ export function TestingMethod() {
             You learn it when you{" "}
             <span className="text-orange">recall</span> it
           </h2>
-          <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
+          <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/65 sm:text-[18px]">
             Psychologists call it{" "}
             <DrawRandomUnderline
               text="“The Testing Effect”"
-              textClassName="text-[15px] sm:text-[16px]"
+              textClassName="text-[clamp(13.5px,4.2vw,16px)] sm:text-[18px]"
             />
             .
           </p>
