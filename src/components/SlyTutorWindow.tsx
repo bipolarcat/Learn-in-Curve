@@ -111,19 +111,9 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
 
       {/* Minimal chat header */}
       <header className="relative z-10 flex shrink-0 items-center gap-2.5 px-4 py-3 sm:px-5">
-        <span className="relative inline-flex h-9 w-9 shrink-0 overflow-hidden rounded-full bg-sand ring-1 ring-ink/10">
-          <Image
-            src="/brand/sly/sly-tutor-portrait.png"
-            alt=""
-            width={36}
-            height={36}
-            className="h-full w-full scale-[1.18] object-cover object-[center_18%] sm:scale-[1.16] sm:object-[center_16%]"
-          />
-        </span>
         <div className="min-w-0 flex-1">
           <p className="truncate font-body text-[13.5px] font-semibold tracking-[-0.015em] text-ink">
-            Sly
-            <span className="ml-1.5 font-medium text-ink/45">AI tutor</span>
+            Chat
           </p>
         </div>
         {statusLabel ? (
