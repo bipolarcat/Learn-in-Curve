@@ -13,9 +13,11 @@ import { cn } from "@/lib/utils";
  * - Draws once only after the user scrolls AND the phrase is in view
  */
 const UNDERLINE_PATH = {
-  // Hand-bent stroke (Osmo variant 0) — not the flat line
+  // Hand-bent stroke (Osmo variant 0). viewBox cropped to the stroke’s
+  // vertical band — the old "0 0 310 40" left empty canvas above the path,
+  // which read as a large gap under the text even with mt-px.
   d: "M5 20.9999C26.7762 16.2245 49.5532 11.5572 71.7979 14.6666C84.9553 16.5057 97.0392 21.8432 109.987 24.3888C116.413 25.6523 123.012 25.5143 129.042 22.6388C135.981 19.3303 142.586 15.1422 150.092 13.3333C156.799 11.7168 161.702 14.6225 167.887 16.8333C181.562 21.7212 194.975 22.6234 209.252 21.3888C224.678 20.0548 239.912 17.991 255.42 18.3055C272.027 18.6422 288.409 18.867 305 17.9999",
-  viewBox: "0 0 310 40",
+  viewBox: "0 10 310 18",
   length: 305.77,
 } as const;
 
@@ -152,7 +154,7 @@ export function DrawRandomUnderline({
         {text}
       </span>
       <svg
-        className="pointer-events-none mt-px h-2.5 w-full overflow-visible"
+        className="pointer-events-none mt-px h-[7px] w-full overflow-visible sm:h-2"
         viewBox={UNDERLINE_PATH.viewBox}
         preserveAspectRatio="none"
         fill="none"
@@ -163,7 +165,7 @@ export function DrawRandomUnderline({
           ref={pathRef}
           d={UNDERLINE_PATH.d}
           stroke={stroke}
-          strokeWidth={8}
+          strokeWidth={6}
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
