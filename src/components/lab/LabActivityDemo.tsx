@@ -161,6 +161,19 @@ export function LabActivityDemo({
             : "overflow-hidden rounded-2xl border border-ink/10 bg-paper p-3.5 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.28)] sm:p-5 md:p-6 lg:p-7"
         }
       >
+        <header className="mb-4 sm:mb-5">
+          <h2
+            id="lab-activity-demo-heading"
+            className="font-display text-[clamp(1.35rem,2.8vw,1.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink text-balance"
+          >
+            Real PMQ Practice
+          </h2>
+          <p className="mt-1.5 max-w-[36rem] text-pretty font-body text-[14px] leading-relaxed text-ink/65 sm:text-[15px]">
+            Try questions and activities from the actual course. No sign-up
+            required.
+          </p>
+        </header>
+
         <div className="w-full">
           <SegmentedControl
             label="Practice modes"
@@ -251,7 +264,7 @@ export function LabActivityDemo({
     return (
       <div
         id="lab-activity-demo"
-        aria-label="Practice activities"
+        aria-labelledby="lab-activity-demo-heading"
         className="mt-8 sm:mt-10 lg:mt-12"
       >
         {card}
@@ -262,7 +275,7 @@ export function LabActivityDemo({
   return (
     <section
       id="lab-activity-demo"
-      aria-label="Practice activities"
+      aria-labelledby="lab-activity-demo-heading"
       className="relative overflow-x-clip pt-[clamp(2.25rem,5vw,3.5rem)] pb-[clamp(2.5rem,6vw,4.5rem)]"
     >
       <div className="wrap relative z-[1]">{card}</div>
