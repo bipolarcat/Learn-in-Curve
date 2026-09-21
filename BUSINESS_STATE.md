@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Feedback modal: pad `body` + fixed `.site-header-shell` by scrollbar width when locking scroll so opening Send feedback doesn’t shift the page (`FeedbackModal`).
 - **2026-09-21** — Feedback modal: soft backdrop fade + card pop-in (`feedback-backdrop-in` / `feedback-dialog-in` in `globals.css`, wired in `FeedbackModal`) — covers Sly console + footer Send feedback.
 - **2026-09-21** — Landing Sly empty state: “Ask. Learn. Understand.” + “Type your question or choose a prompt to start learning with Sly.” (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly empty-state headline → “Ask anything to Sly” (`SlyTutorWindow`).

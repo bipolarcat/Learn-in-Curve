@@ -65,8 +65,26 @@ export function FeedbackModal({ open, onClose, source }: FeedbackModalProps) {
 
   useEffect(() => {
     if (!open) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const { body, documentElement: html } = document;
+    const previousOverflow = body.style.overflow;
+    const previousPaddingRight = body.style.paddingRight;
+    const scrollbarGap = window.innerWidth - html.clientWidth;
+
+    body.style.overflow = "hidden";
+    // Keep layout width when the scrollbar disappears (avoids a background jump).
+    if (scrollbarGap > 0) {
+      body.style.paddingRight = `${scrollbarGap}px`;
+    }
+
+    const fixedShells = Array.from(
+      document.querySelectorAll<HTMLElement>(".site-header-shell"),
+    );
+    const previousShellPads = fixedShells.map((el) => el.style.paddingRight);
+    if (scrollbarGap > 0) {
+      for (const el of fixedShells) {
+        el.style.paddingRight = `${scrollbarGap}px`;
+      }
+    }
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape" && status !== "submitting") onClose();
@@ -74,7 +92,11 @@ export function FeedbackModal({ open, onClose, source }: FeedbackModalProps) {
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      body.style.overflow = previousOverflow;
+      body.style.paddingRight = previousPaddingRight;
+      fixedShells.forEach((el, i) => {
+        el.style.paddingRight = previousShellPads[i] ?? "";
+      });
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open, onClose, status]);
