@@ -21,8 +21,8 @@ export async function FreeMockExamShell({
     ? FREE_MOCK_SOFT_NAV_BACK[from]
     : {
         href: "/mock-me",
-        label: "All readiness checks",
-        busyLabel: "Loading checks",
+        label: "Back to Mock Me",
+        busyLabel: "Opening Mock Me",
       };
 
   const faqJsonLd = {

@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Free mock back link default label: “Back to Mock Me” (was “All readiness checks”) (`FreeMockExamShell`).
 - **2026-09-21** — Mock Me Start mock: wait for expand animation (500ms) before `router.push`; modified clicks still open immediately (`MockMeExamCard`).
 - **2026-09-21** — Mock Me PFQ art: mid zoom (`contain` + scale 1.14), between full plate and previous tight crop (`MockMePage.module.css`).
 - **2026-09-21** — Mock Me PFQ card: zoom out art with `object-fit: contain` (`MockMeExamCard`, `mock-me/page.tsx`).
