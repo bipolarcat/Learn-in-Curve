@@ -98,7 +98,7 @@ test("mock exam increments match the tier ladder", () => {
 test("the Stripe checkout description derives its figures, never types them", () => {
   // The checkout page and the pricing card quote the same two numbers to the
   // same buyer seconds apart. Hardcoding either into the description is how
-  // "£9.99" survived a move to £8 — so the description must read them from
+  // a stale price survived a prior repricing — so the description must read them from
   // PMQ_PLANS via planFeatureValue, and must not contain a money literal.
   const actions = readFileSync(
     new URL("../src/lib/pmq/actions.ts", import.meta.url),

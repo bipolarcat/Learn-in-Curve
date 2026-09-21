@@ -547,7 +547,7 @@ export function groupSectionsByDay(
 }
 
 export function getAiTutorPriceCents(_course: Course): number {
-  // Premium bundle is locked at £8.00 (SLY_UNLOCK_PRICE_CENTS). Keep reading
+  // Premium bundle is locked at £15.00 (SLY_UNLOCK_PRICE_CENTS). Keep reading
   // course for call-site compatibility; amount lives in one constant.
   return SLY_UNLOCK_PRICE_CENTS;
 }

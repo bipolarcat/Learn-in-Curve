@@ -154,7 +154,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     name: "AI Pro Bundle",
     status: "waitlist",
     // Indicative — not charged anywhere yet. Nothing reads this for payment.
-    priceCents: 1500,
+    priceCents: 2500,
     priceNote: "one-off · no subscription",
     tagline:
       "Sly tracks your progress, targets weak areas, and creates a personalised path to exam success.",

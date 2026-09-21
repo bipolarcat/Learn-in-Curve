@@ -33,7 +33,7 @@ test("maps a paid Pro checkout with timestamp from event.created", () => {
     {
       id: "cs_test_123",
       payment_status: "paid",
-      amount_total: 800,
+      amount_total: 1500,
       currency: "gbp",
       payment_intent: "pi_test_456",
       metadata: {
@@ -51,7 +51,7 @@ test("maps a paid Pro checkout with timestamp from event.created", () => {
   assert.equal(payload.timestamp, new Date(EVENT_CREATED * 1000).toISOString());
   assert.equal(payload.properties.product, "pro");
   assert.equal(payload.properties.course, "pmq");
-  assert.equal(payload.properties.amount_cents, 800);
+  assert.equal(payload.properties.amount_cents, 1500);
   assert.equal(payload.properties.currency, "GBP");
   assert.equal(payload.properties.stripe_session_id, "cs_test_123");
   assert.equal(payload.properties.stripe_payment_id, "pi_test_456");

@@ -56,7 +56,7 @@ test("the free cap is enforced in code, not by asking Sly nicely", () => {
 
 test("in-app Sly stays AI Pro only", () => {
   assert.equal(canAccessSly("starter"), false);
-  assert.equal(canAccessSly("pro"), false, "a £8 Pro purchase does not buy Sly");
+  assert.equal(canAccessSly("pro"), false, "a £15 Pro purchase does not buy Sly");
   assert.equal(canAccessSly("ai_pro"), true);
 });
 

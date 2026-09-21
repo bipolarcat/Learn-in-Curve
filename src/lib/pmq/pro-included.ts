@@ -24,7 +24,7 @@
  * — those are AI Pro, which is `status: "waitlist"` and not on sale.
  *
  * Corrected 2026-07-31: this file previously sold "Meet Sly", "AI-marked written
- * answers" and "End-of-course report" as part of the £8 Pro Bundle, rendered
+ * answers" and "End-of-course report" as part of the £15 Pro Bundle, rendered
  * directly under the Get Pro button. None are granted to `pro`. It also claimed
  * "800+ questions" where /pricing says 960 additional, and "~280 quizzes" on the
  * free tier where /pricing says 240. Do not reintroduce any of these.

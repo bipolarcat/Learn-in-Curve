@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  *
  * Extracted from DashboardPmqCourseCard, which is the reference implementation.
  * The free-tier locked-media upsell used to carry its own near-miss copy of
- * these styles ("Get Pro · £8" on a slightly different button), so the same
+ * these styles ("Get Pro · £15" on a slightly different button), so the same
  * purchase read as two different products depending on where a user met it.
  * Both now render this, which is why the classes live here rather than being
  * pasted per call site.

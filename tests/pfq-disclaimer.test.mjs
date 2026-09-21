@@ -29,7 +29,10 @@ test("PFQ overview imports the PFQ disclaimer", async () => {
   assert.match(page, /PFQ_ATP_DISCLAIMER/);
 });
 
-test("PFQ pricing imports the PFQ disclaimer", async () => {
+test("PFQ pricing matches PMQ footer (ATP disclaimer stays on overview)", async () => {
   const page = await read("src/app/courses/pfq-in-2-days/pricing/page.tsx");
-  assert.match(page, /PFQ_ATP_DISCLAIMER/);
+  // Pricing chrome was aligned to PMQ on 2026-09-21 — same legal footer line,
+  // no ATP block. The disclaimer remains on the public PFQ overview.
+  assert.doesNotMatch(page, /PFQ_ATP_DISCLAIMER/);
+  assert.match(page, /Prices in GBP and include any applicable tax/);
 });

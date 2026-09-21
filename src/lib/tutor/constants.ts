@@ -51,7 +51,7 @@ export const STARTER_MOCK_GRADING_BUDGET_GBP_CENTS = 50;
  * grading: grading is now a flat operating cost priced into the tier, so the
  * cap is structural rather than accounted. A tier unlocks a fixed number of
  * papers (Pro 3, AI Pro 4) and each paper gets one budget, so worst-case Pro
- * exposure is ~3 × 50p against an £8 price. Same 50p as Starter — the grading
+ * exposure is ~3 × 50p against a £15 price. Same 50p as Starter — the grading
  * pass is identical work, roughly 15-40p in practice.
  */
 export const PAID_MOCK_GRADING_BUDGET_GBP_CENTS = 50;

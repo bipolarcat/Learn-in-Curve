@@ -23,7 +23,7 @@
  * Cost model
  *
  * All mocks are AI-graded (~30p each). Starter's single graded mock is an
- * operating cost. Pro's three at ~90p sit inside the £8 price. There is NO
+ * operating cost. Pro's three at ~90p sit inside the £15 price. There is NO
  * per-user credit ledger for grading — that logic was removed deliberately;
  * the tier cap IS the cost cap, because a tier can only ever unlock a fixed
  * number of papers.

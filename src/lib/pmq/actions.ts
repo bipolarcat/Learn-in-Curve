@@ -847,8 +847,8 @@ export async function createAiTutorCheckout(input: {
             // the Stripe checkout page beside the price, so anything hardcoded
             // that drifts from its source shows the buyer one claim here and a
             // different one on the pricing card at the moment of payment — a
-            // misleading indication, not just untidy copy. It said "£9.99" for a
-            // while after the price moved to £8, which is why the price is now
+            // misleading indication, not just untidy copy. Hardcoded prices have
+            // already drifted after prior repricings, which is why the price is now
             // read from SLY_UNLOCK_PRICE_CENTS and the quantities from
             // PMQ_PLANS. If a price is ever reintroduced into this sentence it
             // must use formatGbp(SLY_UNLOCK_PRICE_CENTS), never a literal.

@@ -21,7 +21,7 @@ type AiTutorUpgradeCtaProps = {
   variant?: "full" | "compact";
   /** Compact-only: smaller secondary affordance. */
   size?: "default" | "sm";
-  /** Override unlock button label (e.g. "Unlock Sly — £8.00"). */
+  /** Override unlock button label (e.g. "Unlock Sly — £15.00"). */
   buttonLabel?: ReactNode;
   /** Accessible name when `buttonLabel` is not a plain string. */
   buttonAriaLabel?: string;

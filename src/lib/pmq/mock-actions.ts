@@ -161,7 +161,7 @@ export async function startMockExamSession(input: {
   // together, so an entitlement check here would let a Pro buyer start paper 4 —
   // which belongs to AI Pro. Every paper is AI-graded, so this gate is also the
   // spend cap: it's the only thing stopping a Pro user from running more grading
-  // passes than £8 covers.
+  // passes than £15 covers.
   const userTier = await getPmqTier(supabase, user.id, course.id);
   if (!canAccessMockExam(userTier, examSet)) {
     return {
