@@ -74,7 +74,7 @@ export function LibraryViewToggle({
       role="radiogroup"
       aria-label="View mode"
       className={cn(
-        "relative inline-flex shrink-0 select-none rounded-full border border-ink/12 bg-ink/[0.04] p-[3px]",
+        "relative inline-flex shrink-0 select-none rounded-md border border-ink/12 bg-paper p-[3px]",
         className,
       )}
     >
@@ -85,7 +85,7 @@ export function LibraryViewToggle({
       >
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-full bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.1)] ring-1 ring-ink/10"
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-[5px] bg-cream shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.1)] ring-1 ring-ink/10"
           style={{ x: thumbX }}
           initial={false}
         />
@@ -115,7 +115,7 @@ export function LibraryViewToggle({
                   go(0);
                 }
               }}
-              className="relative z-[1] flex h-9 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-full px-3 outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
+              className="relative z-[1] flex h-9 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-[5px] px-3 outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
             >
               <Icon
                 className={cn(
