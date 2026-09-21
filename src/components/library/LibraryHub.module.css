@@ -226,8 +226,8 @@
 }
 
 .search:focus-visible {
-  border-color: rgb(var(--ink-rgb) / 0.28);
-  box-shadow: 0 0 0 3px rgb(var(--ink-rgb) / 0.08);
+  border-color: rgb(var(--ink-rgb) / 0.32);
+  box-shadow: none;
 }
 
 .mobileFilters {
