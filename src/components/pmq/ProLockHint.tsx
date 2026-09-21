@@ -13,6 +13,7 @@ const MOCK_COPY = "Unlock mock exams with the Pro bundle.";
 const HINT_MS = 2800;
 const HINT_GAP_PX = 8;
 const VIEWPORT_PAD_PX = 12;
+const CARD_PAD_PX = 10;
 
 type HintKind = "insights" | "recall" | "mock";
 
@@ -67,19 +68,24 @@ export function showProLockHint(kind: HintKind, anchor: HTMLElement) {
   }, HINT_MS);
 }
 
-function clampLeft(
-  preferredCenter: number,
-  tipWidth: number,
-  viewportPad: number,
-) {
-  const vw =
-    typeof window !== "undefined" ? window.innerWidth : preferredCenter * 2;
-  let left = preferredCenter - tipWidth / 2;
-  left = Math.max(
-    viewportPad,
-    Math.min(left, vw - viewportPad - tipWidth),
-  );
-  return left;
+/** Learn core card (or nearest section) — tip must stay inside this box on desktop. */
+function findContainBounds(anchor: HTMLElement): {
+  left: number;
+  right: number;
+} {
+  const card =
+    (anchor.closest('[aria-label="Core content"]') as HTMLElement | null) ??
+    (anchor.closest("article") as HTMLElement | null) ??
+    (anchor.closest("section") as HTMLElement | null);
+  const vw = typeof window !== "undefined" ? window.innerWidth : 800;
+  if (!card) {
+    return { left: VIEWPORT_PAD_PX, right: vw - VIEWPORT_PAD_PX };
+  }
+  const r = card.getBoundingClientRect();
+  return {
+    left: Math.max(VIEWPORT_PAD_PX, r.left + CARD_PAD_PX),
+    right: Math.min(vw - VIEWPORT_PAD_PX, r.right - CARD_PAD_PX),
+  };
 }
 
 type TipPlacement = { left: number; top: number; placeAbove: boolean };
@@ -90,10 +96,13 @@ function placeTip(
   tipHeight: number,
 ): TipPlacement {
   const rect = anchor.getBoundingClientRect();
-  // Prefer the visual start of the control (Insights chip / icon), not the
-  // centre of a stretched flex child — that looked like mid-screen.
-  const anchorX = rect.left + Math.min(rect.width / 2, 28);
-  const left = clampLeft(anchorX, tipWidth, VIEWPORT_PAD_PX);
+  const bounds = findContainBounds(anchor);
+  // Left-align under the control so left-edge Insights chips don't shove the
+  // tip half outside the cream card.
+  let left = rect.left;
+  const maxLeft = Math.max(bounds.left, bounds.right - tipWidth);
+  left = Math.min(Math.max(left, bounds.left), maxLeft);
+
   const vh = typeof window !== "undefined" ? window.innerHeight : 800;
   const belowTop = rect.bottom + HINT_GAP_PX;
   const aboveTop = rect.top - HINT_GAP_PX - tipHeight;
@@ -183,11 +192,12 @@ export function ProLockHintHost() {
             top: placement?.top ?? 0,
             zIndex: 100,
             visibility: placement ? "visible" : "hidden",
+            width: "max-content",
           }}
-          className="pointer-events-auto inline-flex w-fit max-w-[min(16rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
+          className="pointer-events-auto inline-flex max-w-[min(22rem,calc(100vw-1.5rem))] items-center gap-1.5 rounded-[0.35rem] border border-ink/10 bg-paper px-1.5 py-1 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_4px_14px_rgb(var(--ink-rgb)_/_0.08)] dark:border-white/10"
         >
           <ProBadge />
-          <span className="min-w-0 font-body text-[11px] font-medium leading-snug tracking-tight text-ink/65 text-pretty">
+          <span className="shrink-0 whitespace-nowrap font-body text-[11px] font-medium leading-none tracking-tight text-ink/65">
             {hint.message}
           </span>
           <button
