@@ -40,32 +40,28 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           className={`${styles.textPop} order-1 max-w-[22rem] lg:order-2 lg:justify-self-end`}
         >
           <div
-            className={`${styles.popItem} flex flex-col items-start`}
+            className={`${styles.popItem} flex items-center gap-3`}
             style={{ ["--i" as string]: 0 }}
           >
-            <div className="flex items-center gap-3">
-              <span className="relative -mt-1 inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:-mt-2 sm:h-16 sm:w-16">
-                <Image
-                  src="/brand/sly/sly-tutor-portrait.png"
-                  alt="Sly, the AI tutor — fox portrait"
-                  width={64}
-                  height={64}
-                  className="h-full w-full scale-[1.2] object-cover object-[center_18%] sm:scale-[1.28] sm:object-[center_19%]"
-                />
+            <span className="relative inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:h-14 sm:w-14">
+              <Image
+                src="/brand/sly/sly-tutor-portrait.png"
+                alt="Sly, the AI tutor — fox portrait"
+                width={64}
+                height={64}
+                className="h-full w-full scale-[1.2] object-cover object-[center_18%] sm:scale-[1.28] sm:object-[center_19%]"
+              />
+            </span>
+            <h2
+              id="sly-showcase-heading"
+              className="min-w-0 font-display text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink text-balance"
+            >
+              Stuck on a syllabus topic? Ask{" "}
+              <span className="text-orange">Sly</span>.{" "}
+              <span className="relative -top-0.5 inline-flex align-middle">
+                <BetaBadge />
               </span>
-            </div>
-            <div className="min-w-0">
-              <h2
-                id="sly-showcase-heading"
-                className="mt-1.5 font-display text-[clamp(1.55rem,3.2vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink text-balance"
-              >
-                Stuck on a syllabus topic? Ask{" "}
-                <span className="text-orange">Sly</span>.{" "}
-                <span className="relative -top-0.5 inline-flex align-middle">
-                  <BetaBadge />
-                </span>
-              </h2>
-            </div>
+            </h2>
           </div>
 
           <p
