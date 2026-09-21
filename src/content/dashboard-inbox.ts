@@ -4,8 +4,16 @@
  */
 export type InboxMessage = {
   id: string;
-  /** Short title shown in the dropdown list. */
+  /** Short title for a11y / analytics. */
   title: string;
+  /** Sender shown in the notification row. */
+  from: string;
+  /** Verb between from and target, e.g. "announced". */
+  action: string;
+  /** Emphasised subject in the row, e.g. "Version 3.0". */
+  target: string;
+  /** One-line preview in the muted chip under the row. */
+  preview: string;
   /** ISO date shown under the modal heading. */
   publishedAt: string;
   /** Modal heading. */
@@ -30,6 +38,11 @@ export const DASHBOARD_INBOX: readonly InboxMessage[] = [
   {
     id: "2026-09-21-v3",
     title: "Learn in Curve Version 3.0 is live",
+    from: "Learn in Curve",
+    action: "announced",
+    target: "Version 3.0",
+    preview:
+      "PFQ in 2 Days, new free mocks, recall activities, The Shelf, a refreshed PMQ experience, and pricing notes.",
     publishedAt: "2026-09-21",
     heading: "Version 3.0 of Learn in Curve is now live",
     sections: [
