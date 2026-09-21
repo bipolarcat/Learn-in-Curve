@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Shelf cards: illustration plate matches paper body (no sand break) (`libraryIllustrations`, `LibraryHub.module.css`).
 - **2026-09-21** — Shelf: move “Is the APM PMQ worth it?” into Exam Guides (`is-apm-pmq-worth-it.ts` group `exam-prep`).
 - **2026-09-21** — Shelf topic label: syllabus → “PMQ Syllabus Topics” (`LIBRARY_GROUP_LABELS`).
 - **2026-09-21** — Shelf topic label: choosing → “Comparisons” (`LIBRARY_GROUP_LABELS`).

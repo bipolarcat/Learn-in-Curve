@@ -322,10 +322,10 @@
   box-shadow: 0 0 0 3px rgb(var(--orange-rgb) / 0.28);
 }
 
-/* Sand art plate — same fill as SVG frame; breaks from paper card body */
+/* Art plate matches paper card body — one continuous surface */
 .cardArt {
   padding: 0;
-  background: #e8ce93;
+  background: rgb(var(--paper-rgb));
   line-height: 0;
 }
 
