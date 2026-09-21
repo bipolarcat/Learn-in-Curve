@@ -5,10 +5,7 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SlyTutorWindow } from "@/components/SlyTutorWindow";
 import styles from "@/components/SlyShowcase.module.css";
-import {
-  AiTutorBadge,
-  BetaBadge,
-} from "@/components/pmq/tier-badge";
+import { BetaBadge } from "@/components/pmq/tier-badge";
 
 type SlyShowcaseProps = {
   isSignedIn: boolean;
@@ -56,18 +53,17 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
                   className="h-full w-full scale-[1.2] object-cover object-[center_18%] sm:scale-[1.28] sm:object-[center_19%]"
                 />
               </span>
-              <AiTutorBadge />
             </div>
             <div className="min-w-0">
               <h2
                 id="sly-showcase-heading"
-                className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-[clamp(1.55rem,3.2vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink text-balance"
+                className="mt-1.5 font-display text-[clamp(1.55rem,3.2vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink text-balance"
               >
-                <span>
-                  Learn faster with <span className="text-orange">Sly</span> — Your
-                  personal AI Tutor
+                Learn faster with <span className="text-orange">Sly</span> Your
+                personal AI Tutor{" "}
+                <span className="relative -top-0.5 inline-flex align-middle">
+                  <BetaBadge />
                 </span>
-                <BetaBadge />
               </h2>
             </div>
           </div>
