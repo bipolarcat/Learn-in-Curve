@@ -328,12 +328,12 @@
 .qCell {
   display: flex;
   width: 100%;
-  /* Visual rail stays short; hit pad reaches ≥44px on touch. */
-  height: 1.5rem;
-  min-height: 1.5rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
   min-width: 0;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   border: 1px solid rgb(var(--ink-rgb) / 0.1);
   border-radius: 0.25rem;
   background: rgb(var(--ink-rgb) / 0.06);
@@ -343,22 +343,10 @@
   font-weight: 650;
   font-variant-numeric: tabular-nums;
   cursor: pointer;
-  /* Expand hit box without changing painted height */
-  margin-block: -0.625rem;
-  padding-block: 0.625rem;
-  box-sizing: content-box;
   transition:
     background-color 150ms var(--ease-out-quint),
     color 150ms var(--ease-out-quint),
     box-shadow 150ms var(--ease-out-quint);
-}
-
-@media (min-width: 48rem) {
-  .qCell {
-    margin-block: 0;
-    padding-block: 0;
-    box-sizing: border-box;
-  }
 }
 
 .qCell:hover:not(:disabled) {

@@ -50,7 +50,7 @@ export const headerPillSecondary =
 
 /** Even quieter auth utility — returning users, not a third hero CTA. */
 export const headerPillAuthUtility =
-  `group inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 hover:bg-ink/[0.05] hover:text-ink/80 sm:px-2.5 ${motion}`;
+  `group inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl border border-ink/15 bg-transparent px-2 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 hover:border-ink/25 hover:bg-ink/[0.05] hover:text-ink/80 sm:px-2.5 ${motion}`;
 
 /** Overflow menu trigger: icon + Menu label (label hides when open). */
 export const headerMenuTrigger =
