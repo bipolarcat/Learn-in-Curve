@@ -287,7 +287,8 @@
 .subhead,
 .subheadMuted {
   margin: 0;
-  max-width: 34ch;
+  width: 100%;
+  max-width: none;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: clamp(0.7rem, 1.55vw, 0.8rem);
   font-weight: 500;
@@ -382,10 +383,6 @@
   .head {
     gap: 0.45rem;
     padding: 1.15rem 1.15rem 0.65rem;
-  }
-
-  .subhead {
-    max-width: 38ch;
   }
 
   .subheadLine {
