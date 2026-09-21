@@ -7,7 +7,6 @@ import {
   useRef,
   useState,
   useTransition,
-  type ComponentType,
 } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Flame } from "lucide-react";
@@ -20,16 +19,15 @@ import { Spinner } from "@/components/ui/spinner";
 import { CtaArrow } from "@/components/stamp-chip";
 import { saveExamDeadline } from "@/lib/profile-actions";
 import { trackExamDateSet } from "@/lib/analytics/events";
-import { PMQ_PLANS, type PmqPlanFeature } from "@/lib/pmq/plans";
+import { getPmqPlan, planInheritsLabel } from "@/lib/pmq/plans";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import { tierAtLeast } from "@/lib/pmq/tiers";
 import type { FairUsageSummary } from "@/lib/tutor/fair-usage";
 import {
-  IconAudio,
-  IconMock,
-  IconPractice,
-  IconVideo,
-} from "@/components/pmq/PmqPreviewFeatureIcons";
+  PLAN_FEATURE_ICONS,
+  PlanFeatureText,
+  PlanInheritsArrow,
+} from "@/components/pmq/plan-features";
 import {
   productActionPrimary,
   productActionSecondary,
@@ -37,39 +35,9 @@ import {
 } from "@/components/ui/semantic";
 import styles from "./DashboardPmqCourseCard.module.css";
 
-const PRO_PLAN_FEATURES =
-  PMQ_PLANS.find((plan) => plan.id === "pro")?.features ?? [];
-
-const PRO_FEATURE_ICONS: Partial<
-  Record<PmqPlanFeature["icon"], ComponentType<{ className?: string }>>
-> = {
-  practice: IconPractice,
-  mock: IconMock,
-  video: IconVideo,
-  audio: IconAudio,
-};
-
-/** Same mark as pricing Pro card “Everything in Starter, plus”. */
-function InheritsArrow({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" className={className} aria-hidden>
-      <path
-        d="M3 3v5.5a2 2 0 0 0 2 2h7"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9.5 8l3 2.5-3 2.5"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+/** Pricing Pro card — same rows, order, wording, and icons. */
+const PRO_PLAN = getPmqPlan("pro");
+const PRO_INHERITS_LABEL = planInheritsLabel(PRO_PLAN);
 
 type DashboardPmqCourseCardProps = {
   courseName: string;
@@ -515,35 +483,26 @@ export function DashboardPmqCourseCard({
                 id={panelId}
                 className="w-full border-t border-ink/10 pt-2 text-left dark:border-white/10"
               >
-                <p className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold leading-none tracking-tight text-ink/70">
-                  <InheritsArrow className="size-[0.85rem] shrink-0 text-teal" />
-                  All the starter pack features
-                </p>
+                {PRO_INHERITS_LABEL ? (
+                  <p className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold leading-none tracking-tight text-ink/70">
+                    <PlanInheritsArrow className="size-[0.85rem] shrink-0 text-teal" />
+                    {PRO_INHERITS_LABEL}
+                  </p>
+                ) : null}
                 <ul className="grid list-none gap-2">
-                  {PRO_PLAN_FEATURES.map((feature) => {
-                    const Icon = PRO_FEATURE_ICONS[feature.icon];
+                  {PRO_PLAN.features.map((feature) => {
+                    const Icon = PLAN_FEATURE_ICONS[feature.icon];
                     return (
                       <li
                         key={`${feature.icon}-${feature.label}`}
                         className="flex min-w-0 items-center gap-[0.45rem]"
                       >
-                        {Icon ? (
-                          <Icon className="inline-flex size-[1.1rem] shrink-0 items-center justify-center text-orange [&_svg]:!h-[1.1rem] [&_svg]:!w-[1.1rem]" />
-                        ) : (
-                          <span
-                            className="size-[1.1rem] shrink-0"
-                            aria-hidden
-                          />
-                        )}
+                        <Icon className="inline-flex size-[1.1rem] shrink-0 items-center justify-center text-orange [&_svg]:!h-[1.1rem] [&_svg]:!w-[1.1rem]" />
                         <p className="min-w-0 text-[12px] font-medium leading-[1.3] tracking-tight text-ink/80 text-pretty">
-                          {feature.value ? (
-                            <>
-                              <span className="font-bold tabular-nums text-ink">
-                                {feature.value}
-                              </span>{" "}
-                            </>
-                          ) : null}
-                          {feature.label}
+                          <PlanFeatureText
+                            feature={feature}
+                            valueClassName="font-bold tabular-nums text-ink"
+                          />
                         </p>
                       </li>
                     );

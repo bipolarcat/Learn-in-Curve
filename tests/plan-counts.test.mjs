@@ -127,6 +127,70 @@ test("the Stripe checkout description derives its figures, never types them", ()
   );
 });
 
+test("dashboard What's included is the pricing Pro list, not a second copy", () => {
+  const dashboard = readFileSync(
+    new URL("../src/components/pmq/DashboardPmqCourseCard.tsx", import.meta.url),
+    "utf8",
+  );
+  const pricing = readFileSync(
+    new URL("../src/components/pmq/PmqPlanCards.tsx", import.meta.url),
+    "utf8",
+  );
+  const shared = readFileSync(
+    new URL("../src/components/pmq/plan-features.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.ok(
+    dashboard.includes('getPmqPlan("pro")'),
+    "dashboard must read the Pro plan, not a handwritten feature list",
+  );
+  assert.ok(
+    dashboard.includes("planInheritsLabel"),
+    "inherits sentence must come from plans.ts",
+  );
+  assert.ok(
+    dashboard.includes("PLAN_FEATURE_ICONS"),
+    "dashboard must use the shared icon map",
+  );
+  assert.ok(
+    !dashboard.includes("All the starter pack features"),
+    "dashboard must not invent a second inherits sentence",
+  );
+  assert.ok(
+    !dashboard.includes("PRO_FEATURE_ICONS"),
+    "a partial icon map drops glyphs for any feature pricing adds",
+  );
+  assert.ok(
+    pricing.includes("planInheritsLabel") &&
+      pricing.includes("PLAN_FEATURE_ICONS"),
+    "pricing must use the same inherits helper and icon map",
+  );
+  assert.ok(
+    source.includes("export function planInheritsLabel"),
+    "inherits wording lives next to PMQ_PLANS",
+  );
+  assert.ok(source.includes("Everything in ${parent.name}, plus"));
+
+  const iconKeys = [
+    "core",
+    "practice",
+    "mock",
+    "misconceptions",
+    "memory",
+    "sly",
+    "video",
+    "audio",
+    "report",
+  ];
+  for (const key of iconKeys) {
+    assert.ok(
+      shared.includes(`${key}: Icon`),
+      `shared icon map is missing ${key}`,
+    );
+  }
+});
+
 test("Starter advertises the free tier honestly", () => {
   assert.ok(source.includes(`value: "${STARTER_QUESTIONS}"`));
   assert.ok(

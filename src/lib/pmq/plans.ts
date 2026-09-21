@@ -214,6 +214,20 @@ export function getPmqPlan(id: PmqPlanId): PmqPlan {
 }
 
 /**
+ * The sentence printed above a paid plan's own feature rows.
+ *
+ * Pricing cards and the dashboard "What's included" panel must use this —
+ * a second wording ("starter pack", totals instead of increments) is a
+ * different commercial claim next to the same buy button.
+ */
+export function planInheritsLabel(plan: PmqPlan): string | null {
+  if (!plan.inheritsFrom) return null;
+  const parent = PMQ_PLANS.find((item) => item.id === plan.inheritsFrom);
+  if (!parent) return null;
+  return `Everything in ${parent.name}, plus`;
+}
+
+/**
  * The advertised quantity for one feature of one plan, e.g. Pro's "960"
  * practice questions.
  *

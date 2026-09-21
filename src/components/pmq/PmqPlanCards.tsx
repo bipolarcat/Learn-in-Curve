@@ -1,25 +1,19 @@
 "use client";
 
-import { useState, useTransition, type ComponentType } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { formatGbp } from "@/lib/pmq/constants";
 import {
+  planInheritsLabel,
   PMQ_PLANS,
   type PmqPlan,
-  type PmqPlanFeature,
   type PmqPlanId,
 } from "@/lib/pmq/plans";
 import {
-  IconAudio,
-  IconCore,
-  IconMemory,
-  IconMisconceptions,
-  IconMock,
-  IconPractice,
-  IconReport,
-  IconSly,
-  IconVideo,
-} from "@/components/pmq/PmqPreviewFeatureIcons";
+  PLAN_FEATURE_ICONS,
+  PlanFeatureText,
+  PlanInheritsArrow,
+} from "@/components/pmq/plan-features";
 import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import { PmqProCheckoutButton } from "@/components/pmq/PmqProCheckoutButton";
 import { CtaArrow } from "@/components/stamp-chip";
@@ -28,44 +22,8 @@ import { PMQ_SLUG } from "@/lib/pmq/constants";
 import { withSoftNavFrom } from "@/lib/soft-nav-back";
 import styles from "./PmqPlanCards.module.css";
 
-const FEATURE_ICONS: Record<
-  PmqPlanFeature["icon"],
-  ComponentType<{ className?: string }>
-> = {
-  core: IconCore,
-  practice: IconPractice,
-  mock: IconMock,
-  misconceptions: IconMisconceptions,
-  memory: IconMemory,
-  sly: IconSly,
-  video: IconVideo,
-  audio: IconAudio,
-  report: IconReport,
-};
-
 const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;
 const SIGNED_IN_PATH = "/dashboard";
-
-function ArrowDownRight({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" className={className} aria-hidden>
-      <path
-        d="M3 3v5.5a2 2 0 0 0 2 2h7"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9.5 8l3 2.5-3 2.5"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 function PlanName({
   plan,
@@ -101,17 +59,15 @@ function PlanFeatures({ plan }: { plan: PmqPlan }) {
   return (
     <ul className={styles.features}>
       {plan.features.map((feature) => {
-        const Icon = FEATURE_ICONS[feature.icon];
+        const Icon = PLAN_FEATURE_ICONS[feature.icon];
         return (
           <li key={`${feature.icon}-${feature.label}`} className={styles.feature}>
             <Icon className={styles.featureIcon} />
             <span className={styles.featureLabel}>
-              {feature.value ? (
-                <>
-                  <span className={styles.featureValue}>{feature.value}</span>{" "}
-                </>
-              ) : null}
-              {feature.label}
+              <PlanFeatureText
+                feature={feature}
+                valueClassName={styles.featureValue}
+              />
             </span>
           </li>
         );
@@ -196,9 +152,7 @@ export function PmqPlanCards({
         role="list"
       >
         {plans.map((plan) => {
-          const inherited = plan.inheritsFrom
-            ? PMQ_PLANS.find((p) => p.id === plan.inheritsFrom)
-            : null;
+          const inherits = planInheritsLabel(plan);
 
           return (
             <li key={plan.id} className={styles.card}>
@@ -223,10 +177,10 @@ export function PmqPlanCards({
               <p className={styles.tagline}>{plan.tagline}</p>
 
               <div className={styles.split}>
-                {inherited ? (
+                {inherits ? (
                   <p className={styles.inherits}>
-                    <ArrowDownRight className={styles.inheritsIcon} />
-                    Everything in {inherited.name}, plus
+                    <PlanInheritsArrow className={styles.inheritsIcon} />
+                    {inherits}
                   </p>
                 ) : null}
 
