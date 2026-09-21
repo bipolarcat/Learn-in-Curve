@@ -207,13 +207,11 @@ export function ActivityRowHead({
 
   return (
     <span
-      className="relative inline-flex shrink-0 flex-nowrap items-center gap-1 pr-0.5 pt-1"
+      className="inline-flex shrink-0 flex-nowrap items-center gap-1"
       aria-label="Recall activities locked — Pro"
     >
-      {icons}
-      <span className="pointer-events-none absolute -right-0.5 -top-0.5 z-10">
-        <ProBadge locked />
-      </span>
+      <span className="inline-flex flex-nowrap items-center gap-1">{icons}</span>
+      <ProBadge locked />
     </span>
   );
 }
