@@ -14,14 +14,14 @@ import {
 import { PMQ_SLUG } from "@/lib/pmq/constants";
 import {
   PMQ_OVERVIEW_HREF,
-  PMQ_PREVIEW_HREF,
   PMQ_PRICING_HREF,
 } from "@/lib/pmq/plans";
 import {
   PFQ_BASE_HREF,
-  PFQ_PREVIEW_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
+import { PmqStartLink } from "@/components/PmqStartLink";
+import { PfqStartLink } from "@/components/pfq/PfqStartLink";
 import { PfqNotifyDialog } from "@/components/PfqNotifyDialog";
 import {
   CtaArrow,
@@ -329,6 +329,7 @@ function NotifyMeButton({ onOpen }: { onOpen: () => void }) {
 
 export function CoursesCatalog({
   courses,
+  isSignedIn,
   showToolbar = true,
 }: CoursesCatalogProps) {
   const [filter, setFilter] = useState<CatalogFilter>("all");
@@ -403,15 +404,15 @@ export function CoursesCatalog({
                   <div className={styles.footer}>
                     {isLive && isPmq ? (
                       <>
-                        <CatalogNavLink
-                          href={PMQ_PREVIEW_HREF}
+                        <PmqStartLink
+                          isSignedIn={isSignedIn}
                           className={CARD_PRIMARY}
-                          busyLabel="Opening free course"
-                          analyticsLabel="Start free course"
+                          from="courses"
+                          analyticsLocation="courses-catalog"
+                          analyticsVariant="Start free course"
                         >
                           Start free course
-                          <CtaArrow />
-                        </CatalogNavLink>
+                        </PmqStartLink>
                         <CatalogNavLink
                           href={PMQ_OVERVIEW_HREF}
                           className={CARD_SECONDARY}
@@ -431,15 +432,15 @@ export function CoursesCatalog({
                       </>
                     ) : course.slug === "pfq-in-2-days" ? (
                       <>
-                        <CatalogNavLink
-                          href={PFQ_PREVIEW_HREF}
+                        <PfqStartLink
+                          isSignedIn={isSignedIn}
                           className={CARD_PRIMARY}
-                          busyLabel="Opening free course"
-                          analyticsLabel="Start free course"
+                          from="courses"
+                          analyticsLocation="courses-catalog"
+                          analyticsVariant="Start free course"
                         >
                           Start free course
-                          <CtaArrow />
-                        </CatalogNavLink>
+                        </PfqStartLink>
                         <CatalogNavLink
                           href={PFQ_BASE_HREF}
                           className={CARD_SECONDARY}
