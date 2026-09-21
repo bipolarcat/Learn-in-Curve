@@ -123,13 +123,24 @@ export function SiteFooter({
             >
               <NotifyMailboxMark className="h-full w-full" />
             </div>
-            <h2
-              id="footer-newsletter-heading"
-              className="min-w-0 font-display text-[0.9rem] font-semibold leading-none tracking-[-0.02em] text-cream sm:text-[0.95rem]"
-            >
-              Join our{" "}
-              <span className="text-[var(--orange-on-ink)]">newsletter</span>.
-            </h2>
+            <div className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              <h2
+                id="footer-newsletter-heading"
+                className="min-w-0 font-display text-[0.9rem] font-semibold leading-none tracking-[-0.02em] text-cream sm:text-[0.95rem]"
+              >
+                Join our{" "}
+                <span className="text-[var(--orange-on-ink)]">newsletter</span>.
+              </h2>
+              <p className="shrink-0 text-[11px] leading-none tracking-tight text-cream/55">
+                Unsubscribe anytime.{" "}
+                <Link
+                  href="/privacy"
+                  className="underline underline-offset-2 decoration-cream/30 transition-colors hover:text-cream hover:decoration-cream/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                >
+                  Privacy Policy
+                </Link>
+              </p>
+            </div>
           </div>
           <div className="min-w-0 w-full">
             <NewsletterSignup variant="footer" />

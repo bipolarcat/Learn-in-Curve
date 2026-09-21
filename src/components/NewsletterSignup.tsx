@@ -128,15 +128,6 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             )}
           </button>
         </div>
-        <p className="text-[11px] leading-snug tracking-tight text-cream/55">
-          Unsubscribe anytime.{" "}
-          <Link
-            href="/privacy"
-            className="inline-flex min-h-11 items-center underline underline-offset-2 decoration-cream/30 transition-colors hover:text-cream hover:decoration-cream/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-          >
-            Privacy Policy
-          </Link>
-        </p>
         {status === "error" && (
           <p
             id={`${inputId}-error`}

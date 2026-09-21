@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Footer newsletter: moved “Unsubscribe anytime. Privacy Policy” onto the heading row with “Join our newsletter.” for a tighter stack (`SiteFooter`, `NewsletterSignup`).
 - **2026-09-21** — Site footer audit fix-all: flicker mask built once (no per-frame `getImageData`); reduced-motion freezes “Be Curious.” instead of blanking; newsletter placeholder/focus/Privacy hit-target; AA accents via `--orange-on-ink` / `--olive-on-ink`; logo decorative alt; DESIGN.md copy synced (`SiteFooter`, `FooterFlickerBand`, `flickering-footer`, `NewsletterSignup`, `globals.css`).
 - **2026-09-21** — PMQ pricing cards: remove per-card “PMQ in 5 days” kicker (`pmq-in-5-days/pricing/page.tsx`).
 - **2026-09-21** — Reverted plan-card course chip; back to per-card kicker (“PMQ in 5 days” / “PFQ in 2 days”) (`PmqPlanCards`, `PfqPlanCards`).
