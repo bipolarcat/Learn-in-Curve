@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { AuthDeskScene } from "@/components/AuthDeskScene";
 import { AuthForm } from "@/components/AuthForm";
 import { quietFormSurface } from "@/components/ui/semantic";
@@ -13,12 +14,22 @@ type AuthDeskPanelProps = {
    */
   proIntent?: boolean;
   /**
-   * Heading level for the card's title.
+   * Optional course name above the card title (e.g. “PFQ in 2 Days”).
+   * Renders as the page h1; the main title drops to h2.
+   */
+  courseTitle?: ReactNode;
+  /**
+   * Override the default card title. Used with `courseTitle` on course previews.
+   */
+  title?: ReactNode;
+  /** Hide the lead line under the title (e.g. “Upgrade anytime after.”). */
+  hideLead?: boolean;
+  /**
+   * Heading level for the card's title when there is no `courseTitle`.
    *
    * Defaults to 1 because on `/auth/sign-in` and `/auth/sign-up` this card IS
-   * the page — "Welcome back" is the document title. The PMQ preview embeds it
-   * under a page heading that names the course, so it passes 2 to keep one h1
-   * per page and the outline in order.
+   * the page — "Welcome back" is the document title. When `courseTitle` is set,
+   * that is the h1 and this title is always an h2.
    */
   headingLevel?: 1 | 2;
   /**
@@ -32,17 +43,48 @@ type AuthDeskPanelProps = {
 
 /**
  * Compact auth card with Sly fox animation above.
- * Shared by `/auth/sign-in`, `/auth/sign-up`, and PMQ preview “Start Free”.
+ * Shared by `/auth/sign-in`, `/auth/sign-up`, and course preview “Start Free”.
  */
 export function AuthDeskPanel({
   mode,
   nextPath,
   proIntent = false,
+  courseTitle,
+  title,
+  hideLead = false,
   headingLevel = 1,
   initialError = null,
   className = "",
 }: AuthDeskPanelProps) {
-  const Heading = headingLevel === 2 ? "h2" : "h1";
+  const TitleTag = courseTitle || headingLevel === 2 ? "h2" : "h1";
+
+  const defaultTitle = proIntent ? (
+    <>
+      Almost <span className="text-orange">there</span>
+    </>
+  ) : mode === "sign-in" ? (
+    <>
+      Welcome <span className="text-orange">back</span>
+    </>
+  ) : (
+    <>
+      Start learning for <span className="text-orange">free</span>
+    </>
+  );
+
+  const lead = hideLead
+    ? null
+    : proIntent ? (
+        <p>
+          {mode === "sign-in"
+            ? "Sign in and we'll take you straight to checkout."
+            : "Create your account and we'll take you straight to checkout."}
+        </p>
+      ) : mode === "sign-in" ? (
+        <p>Pick up where you left off.</p>
+      ) : (
+        <p>Upgrade anytime after.</p>
+      );
 
   return (
     <div className={`relative w-full max-w-[22rem] ${className}`.trim()}>
@@ -51,33 +93,11 @@ export function AuthDeskPanel({
         className={`${quietFormSurface} ${styles.panel} relative overflow-hidden`}
       >
         <div className={styles.intro}>
-          <Heading>
-            {proIntent ? (
-              <>
-                Almost <span className="text-orange">there</span>
-              </>
-            ) : mode === "sign-in" ? (
-              <>
-                Welcome <span className="text-orange">back</span>
-              </>
-            ) : (
-              <>
-                Start learning for{" "}
-                <span className="text-orange">free</span>
-              </>
-            )}
-          </Heading>
-          {proIntent ? (
-            <p>
-              {mode === "sign-in"
-                ? "Sign in and we'll take you straight to checkout."
-                : "Create your account and we'll take you straight to checkout."}
-            </p>
-          ) : mode === "sign-in" ? (
-            <p>Pick up where you left off.</p>
-          ) : (
-            <p>Upgrade anytime after.</p>
-          )}
+          {courseTitle ? (
+            <h1 className={styles.courseTitle}>{courseTitle}</h1>
+          ) : null}
+          <TitleTag>{title ?? defaultTitle}</TitleTag>
+          {lead}
         </div>
         <AuthForm
           mode={mode}

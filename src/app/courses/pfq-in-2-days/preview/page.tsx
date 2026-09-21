@@ -6,7 +6,7 @@ import { PFQ_BASE_HREF } from "@/lib/pfq/constants";
 
 /**
  * Guest destination for PFQ “Start free course”.
- * Same fox + signup card as PMQ preview / `/auth/sign-up`.
+ * Same fox + signup card as `/auth/sign-up`, with the course named in-card.
  * Account creation only — does not unlock Pro-gated lessons, practice, or mock.
  */
 export const metadata: Metadata = {
@@ -17,7 +17,17 @@ export const metadata: Metadata = {
 export default function PfqPreviewPage() {
   return (
     <section className={styles.page}>
-      <AuthDeskPanel mode="sign-up" nextPath={PFQ_BASE_HREF} />
+      <AuthDeskPanel
+        mode="sign-up"
+        nextPath={PFQ_BASE_HREF}
+        courseTitle={
+          <>
+            PFQ in <span className="text-orange">2 Days</span>
+          </>
+        }
+        title="Create free account"
+        hideLead
+      />
     </section>
   );
 }
