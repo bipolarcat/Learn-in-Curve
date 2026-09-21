@@ -9,12 +9,14 @@ import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import {
   JoinWaitlistButton,
 } from "@/components/pmq/JoinWaitlistButton";
+import { AiProBadge } from "@/components/pmq/tier-badge";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { slyChromeStyles } from "@/components/SlyChrome";
 import showcase from "@/components/SlyShowcase.module.css";
 import { stampCtaPrimary, stampCtaPrimaryCompact, CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
+import { PMQ_PREVIEW_HREF } from "@/lib/pmq/pro-intent";
 import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
 import { trackTutorOpened } from "@/lib/analytics/events";
@@ -141,18 +143,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
               {locked ? (
-                <div className="flex w-full max-w-[22rem] flex-col items-center">
-                  <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                    That&apos;s all three free questions.
-                  </p>
-                  <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
-                    Unlimited Sly usage is coming soon with the AI Pro bundle.
-                  </p>
-                  <JoinWaitlistButton
-                    label="Join Waitlist"
-                    className={`${stampCtaPrimary} mt-4 w-full !justify-center !normal-case`}
-                  />
-                </div>
+                <LockedTrialPanel />
               ) : (
                 <>
                   <div className="max-w-[22rem]">
@@ -304,17 +295,8 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                 </p>
               </div>
             ) : messages.length > 0 ? (
-              <div className="flex flex-col items-stretch px-1 pb-1">
-                <p className="m-0 text-center font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                  That&apos;s all three free questions.
-                </p>
-                <p className="m-0 mt-1.5 text-center text-[13px] leading-relaxed text-ink/65 text-pretty">
-                  Unlimited Sly usage is coming soon with the AI Pro bundle.
-                </p>
-                <JoinWaitlistButton
-                  label="Join Waitlist"
-                  className={`${stampCtaPrimary} mt-4 w-full !justify-center !normal-case`}
-                />
+              <div className="px-1 pb-1">
+                <LockedTrialPanel />
               </div>
             ) : null
           ) : (
@@ -392,6 +374,37 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function LockedTrialPanel() {
+  return (
+    <div className="flex w-full max-w-[22rem] flex-col items-center rounded-2xl bg-sand/40 px-5 py-6 text-center">
+      <SlyFace size={56} />
+      <div className="mt-3 flex items-center gap-1.5">
+        <AiProBadge />
+        <span className="font-body text-[10px] font-semibold uppercase tracking-[0.06em] text-ink/45">
+          Coming soon
+        </span>
+      </div>
+      <p className="m-0 mt-3 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+        That&apos;s all three free questions.
+      </p>
+      <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
+        Unlimited Sly usage is coming soon with the AI Pro bundle.
+      </p>
+      <JoinWaitlistButton
+        label="Join Waitlist"
+        className={`${stampCtaPrimary} mt-4 w-full !justify-center !normal-case`}
+      />
+      <Link
+        href={PMQ_PREVIEW_HREF}
+        className="mt-3 inline-flex items-center gap-1 font-body text-[12px] font-medium text-ink/55 underline-offset-2 transition-colors hover:text-teal-deep hover:underline"
+      >
+        Keep revising with the free PMQ course
+        <CtaArrow />
+      </Link>
+    </div>
   );
 }
 
