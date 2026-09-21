@@ -1,9 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MotionButton } from "@/components/ui/motion-button";
+import { useRouter } from "next/navigation";
+import {
+  MOTION_BUTTON_EXPAND_MS,
+  MotionButton,
+} from "@/components/ui/motion-button";
 import styles from "@/app/(site)/mock-me/MockMePage.module.css";
 
 type MockMeExamCardProps = {
@@ -21,7 +25,8 @@ type MockMeExamCardProps = {
 
 /**
  * Mock Me picker card. Only the Start mock control navigates —
- * the card surface itself is not a link.
+ * the card surface itself is not a link. Navigation waits until the
+ * press expand animation finishes so the motion reads clearly.
  */
 export function MockMeExamCard({
   href,
@@ -30,7 +35,15 @@ export function MockMeExamCard({
   art,
   priority = false,
 }: MockMeExamCardProps) {
+  const router = useRouter();
   const [pressed, setPressed] = useState(false);
+  const navTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (navTimerRef.current) clearTimeout(navTimerRef.current);
+    };
+  }, []);
 
   const artClass =
     art.objectFit === "contain"
@@ -38,6 +51,31 @@ export function MockMeExamCard({
       : art.objectFit === "zoom"
         ? styles.artImageZoom
         : styles.artImage;
+
+  function startMock(event: React.MouseEvent<HTMLAnchorElement>) {
+    // Let modified clicks (new tab) and non-primary buttons use the href.
+    if (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0
+    ) {
+      return;
+    }
+    event.preventDefault();
+    if (pressed) return;
+
+    setPressed(true);
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const delay = reduceMotion ? 0 : MOTION_BUTTON_EXPAND_MS;
+
+    navTimerRef.current = setTimeout(() => {
+      router.push(href);
+    }, delay);
+  }
 
   return (
     <article className={styles.card}>
@@ -64,8 +102,9 @@ export function MockMeExamCard({
         <Link
           href={href}
           className={styles.ctaLink}
-          onPointerDown={() => setPressed(true)}
+          onClick={startMock}
           aria-label={`Start ${mark} mock`}
+          aria-busy={pressed || undefined}
         >
           <MotionButton label="Start mock" pressed={pressed} />
         </Link>

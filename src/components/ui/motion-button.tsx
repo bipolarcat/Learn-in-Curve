@@ -4,6 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./motion-button.module.css";
 
+/** Keep in sync with `.fill` transition duration in motion-button.module.css */
+export const MOTION_BUTTON_EXPAND_MS = 500;
+
 type MotionButtonProps = {
   label: string;
   className?: string;
