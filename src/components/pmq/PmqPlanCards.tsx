@@ -230,20 +230,18 @@ export function PmqPlanCards({
                   soonBadge={plan.status === "waitlist"}
                 />
 
-                {plan.status !== "waitlist" ? (
-                  <div className={styles.priceRow}>
-                    <span
-                      className={`${styles.price} ${
-                        plan.priceCents === null ? styles.priceFree : ""
-                      }`}
-                    >
-                      {plan.priceCents === null
-                        ? "Free"
-                        : formatGbp(plan.priceCents)}
-                    </span>
-                    <span className={styles.priceNote}>{plan.priceNote}</span>
-                  </div>
-                ) : null}
+                <div className={styles.priceRow}>
+                  <span
+                    className={`${styles.price} ${
+                      plan.priceCents === null ? styles.priceFree : ""
+                    }`}
+                  >
+                    {plan.priceCents === null
+                      ? "Free"
+                      : formatGbp(plan.priceCents)}
+                  </span>
+                  <span className={styles.priceNote}>{plan.priceNote}</span>
+                </div>
               </div>
 
               <div className={styles.split}>
