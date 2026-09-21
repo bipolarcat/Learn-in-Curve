@@ -3,6 +3,7 @@
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SlyTutorWindow } from "@/components/SlyTutorWindow";
 import styles from "@/components/SlyShowcase.module.css";
+import { BetaBadge } from "@/components/pmq/tier-badge";
 
 type SlyShowcaseProps = {
   isSignedIn: boolean;
@@ -46,7 +47,10 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             >
               <span className="block">Stuck on a syllabus topic?</span>
               <span className="block">
-                Ask <span className="text-orange">Sly</span>.
+                Ask <span className="text-orange">Sly</span>.{" "}
+                <span className="relative -top-0.5 inline-flex align-middle">
+                  <BetaBadge />
+                </span>
               </span>
             </h2>
           </div>

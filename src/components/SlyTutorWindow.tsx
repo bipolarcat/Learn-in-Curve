@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { AvatarImage } from "@/components/AvatarImage";
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
-import { BetaBadge } from "@/components/pmq/tier-badge";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { slyChromeStyles } from "@/components/SlyChrome";
 import showcase from "@/components/SlyShowcase.module.css";
@@ -119,17 +118,10 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           <span className="h-[11px] w-[11px] rounded-full bg-[#FEBC2E] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
           <span className="h-[11px] w-[11px] rounded-full bg-[#28C840] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
         </div>
-        <div className="pointer-events-none absolute inset-x-0 flex items-center justify-center gap-2">
-          <SlyFace size={22} />
-          <span className="font-body text-[13px] font-semibold tracking-tight text-ink">
-            Sly
-          </span>
-          <BetaBadge />
-        </div>
         <div className="min-w-0 flex-1" aria-hidden />
         {statusLabel ? (
           <p
-            className="relative z-10 shrink-0 rounded-full bg-ink/[0.05] px-2.5 py-1 font-body text-[11px] font-semibold tabular-nums tracking-tight text-ink/55"
+            className="shrink-0 rounded-full bg-ink/[0.05] px-2.5 py-1 font-body text-[11px] font-semibold tabular-nums tracking-tight text-ink/55"
             aria-live="polite"
           >
             {statusLabel}
