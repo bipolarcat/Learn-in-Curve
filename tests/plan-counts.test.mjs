@@ -45,25 +45,22 @@ test("tier totals are internally consistent", () => {
   );
 });
 
-test("both paid tiers are advertised against Starter", () => {
-  // Commercial decision: the comparison a visitor is actually making is against
-  // the free tier, so both paid cards set `inheritsFrom: "starter"` and their
-  // figures are increments over Starter — not over each other.
-  const proAdded = PRO_QUESTIONS - STARTER_QUESTIONS; // 960
-  const aiProAdded = AI_PRO_QUESTIONS - STARTER_QUESTIONS; // 1,622
+test("paid tiers advertise totals (not increments over Starter)", () => {
+  // Commercial frame: cards still say “Everything in Starter, plus”, but the
+  // listed practice/mock figures are what the buyer ends up with on that tier.
+  assert.ok(
+    source.includes(`label: "total practice questions",\n        value: "1,200"`),
+    "Pro advertises 1,200 total practice questions",
+  );
+  assert.ok(
+    source.includes(`label: "total practice questions",\n        value: "1,860"`),
+    "AI Pro advertises 1,860 total practice questions",
+  );
 
-  assert.equal(proAdded, 960);
-  assert.equal(aiProAdded, 1622);
-
-  assert.ok(source.includes(`value: "960"`), "Pro advertises +960 questions");
-  assert.ok(source.includes(`value: "1,620"`), "AI Pro advertises +1,620 questions");
-
-  // The anchor and the figures have to move together — flipping AI Pro to
-  // inherit from Pro without rebasing 1,620 would claim a 2,820 total.
   const aiProBlock = source.slice(source.indexOf(`id: "ai_pro"`));
   assert.ok(
     aiProBlock.includes(`inheritsFrom: "starter"`),
-    "AI Pro figures are Starter-anchored, so its inheritsFrom must stay starter",
+    "AI Pro still inherits from starter for the card frame",
   );
 });
 
@@ -71,27 +68,28 @@ test("advertised counts never exceed what is actually delivered", () => {
   // Under-promising is safe — a buyer getting more than advertised has no
   // complaint. Over-promising is a misleading action under the CPRs, so this
   // is the assertion that actually protects us.
-  const advertisedAiPro = STARTER_QUESTIONS + 1620; // 1,860
+  const advertisedAiPro = 1860;
   assert.ok(
     advertisedAiPro <= AI_PRO_QUESTIONS,
     `advertising ${advertisedAiPro} questions but only ${AI_PRO_QUESTIONS} exist`,
   );
 
-  const advertisedPro = STARTER_QUESTIONS + 960; // 1,200
+  const advertisedPro = 1200;
   assert.ok(advertisedPro <= PRO_QUESTIONS);
 });
 
-test("mock exam increments match the tier ladder", () => {
-  assert.equal(PRO_MOCKS - STARTER_MOCKS, 2);
-  assert.equal(AI_PRO_MOCKS - STARTER_MOCKS, 3);
+test("mock exam totals match the tier ladder", () => {
+  assert.equal(PRO_MOCKS, 3);
+  assert.equal(AI_PRO_MOCKS, 4);
+  assert.equal(STARTER_MOCKS, 1);
 
   assert.ok(
-    source.includes(`label: "additional mock exams", value: "2"`),
-    "Pro adds papers 2 and 3",
+    source.includes(`label: "total mock exams", value: "3"`),
+    "Pro includes 3 mock papers total",
   );
   assert.ok(
-    source.includes(`label: "additional mock exams", value: "3"`),
-    "AI Pro adds papers 2, 3 and 4 over Starter",
+    source.includes(`label: "total mock exams", value: "4"`),
+    "AI Pro includes 4 mock papers total",
   );
 });
 
@@ -116,6 +114,14 @@ test("the Stripe checkout description derives its figures, never types them", ()
   assert.ok(
     description.includes(`planFeatureValue("pro", "mock")`),
     "mock-exam count must come from PMQ_PLANS",
+  );
+  assert.ok(
+    description.includes("total practice questions"),
+    "checkout wording must match pricing totals frame",
+  );
+  assert.ok(
+    description.includes("total mock exams"),
+    "checkout wording must match pricing totals frame",
   );
   assert.ok(
     !/£\d/.test(description),

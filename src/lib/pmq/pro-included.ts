@@ -26,7 +26,7 @@
  * Corrected 2026-07-31: this file previously sold "Meet Sly", "AI-marked written
  * answers" and "End-of-course report" as part of the £15 Pro Bundle, rendered
  * directly under the Get Pro button. None are granted to `pro`. It also claimed
- * "800+ questions" where /pricing says 960 additional, and "~280 quizzes" on the
+ * "800+ questions" where /pricing says 1,200 total, and "~280 quizzes" on the
  * free tier where /pricing says 240. Do not reintroduce any of these.
  *
  * NOTE: the old header here named FEATURES.md as the source of truth. It isn't —
@@ -49,12 +49,12 @@ export const PRO_INCLUDED: {
   icon: ProIncludedIcon;
 }[] = [
   {
-    title: "960 additional practice questions",
+    title: "1,200 total practice questions",
     body: "Unlock the extra quiz sets across all 24 learning objectives.",
     icon: "questions",
   },
   {
-    title: "2 additional mock exams",
+    title: "3 total mock exams",
     body: "Three full papers in total, sat under real exam conditions.",
     icon: "mock",
   },

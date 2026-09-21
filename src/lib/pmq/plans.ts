@@ -63,12 +63,9 @@ export type PmqPlanFeature = {
   /**
    * Quantity shown next to the label.
    *
-   * On a plan with `inheritsFrom`, this is the count ADDED to THAT plan — the
-   * card renders "Everything in {inheritsFrom}, plus …". Both paid tiers set
-   * `inheritsFrom: "starter"` on purpose: the comparison that matters
-   * commercially is against the free tier, since that's the jump a visitor is
-   * actually deciding on. Change `inheritsFrom` and these figures must change
-   * with it, or the card claims an increment on the wrong baseline.
+   * On paid tiers this is the TOTAL unlocked on that plan (not the increment
+   * over Starter). Cards still show “Everything in Starter, plus …”; the
+   * figures are what the buyer ends up with, not what is added on top.
    *
    * Verified against the live question bank 2026-07-30:
    *   practice_quiz 240 · sets 2-5 240 each · set 6 240 · set 7 239 · set 8 183
@@ -153,10 +150,10 @@ export const PMQ_PLANS: PmqPlan[] = [
     features: [
       {
         icon: "practice",
-        label: "additional practice questions",
-        value: "960",
+        label: "total practice questions",
+        value: "1,200",
       },
-      { icon: "mock", label: "additional mock exams", value: "2" },
+      { icon: "mock", label: "total mock exams", value: "3" },
       {
         icon: "recall",
         label:
@@ -187,22 +184,15 @@ export const PMQ_PLANS: PmqPlan[] = [
     inheritsFrom: "starter",
     ctaLabel: "Join Waitlist",
     features: [
-      // Anchored to STARTER, not Pro — deliberate. `inheritsFrom: "starter"`
-      // above makes the card read "Everything in Starter, plus", so these
-      // figures are measured from the free tier. That's the marketing frame:
-      // the jump a free user is being asked to make.
-      //
-      // Real totals are 1,862 questions and 4 papers, so "1,620 additional"
-      // UNDER-states by 2. Left alone on purpose — delivering more than
-      // advertised is safe; the reverse is a misleading action under the CPRs.
-      // If this ever needs changing, only ever move it DOWN or to the true
-      // figure, never above 1,622.
+      // Totals for the tier (not increments). Real bank is 1,862 questions and
+      // 4 papers — "1,860" under-states by 2 on purpose. Only ever move DOWN
+      // or to the true figure, never above 1,862.
       {
         icon: "practice",
-        label: "additional practice questions",
-        value: "1,620",
+        label: "total practice questions",
+        value: "1,860",
       },
-      { icon: "mock", label: "additional mock exams", value: "3" },
+      { icon: "mock", label: "total mock exams", value: "4" },
       {
         icon: "recall",
         label:
@@ -257,7 +247,7 @@ export function getPmqPlan(id: PmqPlanId): PmqPlan {
 }
 
 /**
- * The advertised quantity for one feature of one plan, e.g. Pro's "960"
+ * The advertised quantity for one feature of one plan, e.g. Pro's "1,200"
  * practice questions.
  *
  * Exists so copy that repeats these figures OUTSIDE the pricing card — the
