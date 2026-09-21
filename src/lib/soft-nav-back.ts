@@ -6,6 +6,7 @@ export type SoftNavFrom =
   | "home"
   | "courses"
   | "pricing"
+  | "pfq_pricing"
   | "library"
   | "pmq"
   | "pfq";
@@ -29,6 +30,11 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
   },
   pricing: {
     href: "/courses/pmq-in-5-days/pricing",
+    label: "Back to plans",
+    busyLabel: "Opening plans",
+  },
+  pfq_pricing: {
+    href: "/courses/pfq-in-2-days/pricing",
     label: "Back to plans",
     busyLabel: "Opening plans",
   },
@@ -76,6 +82,7 @@ export function parseSoftNavFrom(
     raw === "home" ||
     raw === "courses" ||
     raw === "pricing" ||
+    raw === "pfq_pricing" ||
     raw === "library" ||
     raw === "pmq" ||
     raw === "pfq"
@@ -111,6 +118,14 @@ export function isSoftNavClick(event: {
     !event.shiftKey &&
     !event.altKey
   );
+}
+
+/** Resolve a soft-nav back target; falls back when `from` is missing/unknown. */
+export function resolveSoftNavBack(
+  from: SoftNavFrom | null,
+  fallback: SoftNavFrom = "courses",
+): SoftNavBackTarget {
+  return SOFT_NAV_BACK[from ?? fallback];
 }
 
 /** Append or replace `from` on a path (pathname + optional existing query). */

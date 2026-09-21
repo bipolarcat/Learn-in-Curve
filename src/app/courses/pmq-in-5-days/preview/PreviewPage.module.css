@@ -9,6 +9,19 @@
   padding-inline: 1.25rem;
 }
 
+.stack {
+  display: flex;
+  width: 100%;
+  max-width: 22rem;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.back {
+  align-self: flex-start;
+  margin-bottom: 0.65rem;
+}
+
 /* Course name above the signup card — quiet, so the card stays the focus. */
 .courseTitle {
   margin: 0 0 clamp(0.85rem, 2vw, 1.15rem);
