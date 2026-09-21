@@ -143,7 +143,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       ? "Sly’s free trial is taking a short break"
                       : locked
                         ? "Free trial used on this network"
-                        : "Ask anything to Sly"}
+                        : "Ask. Learn. Understand."}
                 </p>
                 <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
                   {isSignedIn
@@ -152,7 +152,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       ? "Create a free account to keep learning in the meantime."
                       : locked
                         ? "Sign up to keep chatting with your own free messages."
-                        : "Pick a prompt or type your own. Live answers — a few free questions on the Beta."}
+                        : "Type your question or choose a prompt to start learning with Sly."}
                 </p>
               </div>
               {!isSignedIn && !composerLocked ? (
