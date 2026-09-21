@@ -35,7 +35,11 @@ test("PMI_DISCLAIMER is defined with the required claims", async () => {
   assert.match(disclaimer, /not affiliated with/i);
   assert.match(disclaimer, /\bPMI\b/);
   assert.match(disclaimer, /Project Management Institute/);
-  assert.match(disclaimer, /Examination Content Outline/);
+  assert.equal(
+    disclaimer.split(/(?<=\.)\s+/).filter(Boolean).length,
+    1,
+    "PMI_DISCLAIMER should be a single sentence",
+  );
 });
 
 test("PMP free-mock route keeps PMI_DISCLAIMER on results", async () => {

@@ -48,5 +48,5 @@ export const PFQ_ATP_DISCLAIMER =
  * Never frame this as a multi-day PMP course product or imply PMI endorsement.
  */
 export const PMI_DISCLAIMER =
-  "Learn in Curve is not affiliated with, endorsed by, or accredited by the Project Management Institute (PMI). PMP and PMI are registered marks of the Project Management Institute, Inc. This readiness check is independently written against PMI's published Examination Content Outline.";
+  "Learn in Curve is not affiliated with, endorsed by, or accredited by the Project Management Institute (PMI).";
 
