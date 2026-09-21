@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { BookOpen, Layers, Library, Scale, Search } from "lucide-react";
+import { GraduationCap, Layers, Library, Scale, Search } from "lucide-react";
 import {
   LIBRARY_GROUP_LABELS,
   type LibraryGroup,
@@ -70,7 +70,8 @@ function FilterIcon({
   className?: string;
 }) {
   if (id === "all") return <Library className={className} aria-hidden />;
-  if (id === "exam-prep") return <BookOpen className={className} aria-hidden />;
+  if (id === "exam-prep")
+    return <GraduationCap className={className} aria-hidden />;
   if (id === "choosing") return <Scale className={className} aria-hidden />;
   return <Layers className={className} aria-hidden />;
 }
