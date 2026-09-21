@@ -129,20 +129,22 @@ export function TestingMethod({ embedded = false }: TestingMethodProps) {
                   }
                 />
                 <div className="flex min-w-0 w-full flex-1 flex-col">
-                  <p
-                    className="font-body text-[11px] font-bold tabular-nums tracking-[0.1em] text-orange sm:text-[12px]"
-                    aria-hidden
-                  >
-                    {step.step}
-                  </p>
-                  <h3
-                    className={cn(
-                      "mt-1 font-display text-[1.2rem] font-semibold leading-snug tracking-[-0.02em] sm:text-[1.3rem]",
-                      embedded ? "text-[#fbf3e1]" : "text-ink",
-                    )}
-                  >
-                    {step.title}
-                  </h3>
+                  <div className="flex min-w-0 items-baseline gap-2.5">
+                    <p
+                      className="shrink-0 font-body text-[11px] font-bold tabular-nums tracking-[0.1em] text-orange sm:text-[12px]"
+                      aria-hidden
+                    >
+                      {step.step}
+                    </p>
+                    <h3
+                      className={cn(
+                        "min-w-0 font-display text-[1.2rem] font-semibold leading-snug tracking-[-0.02em] sm:text-[1.3rem]",
+                        embedded ? "text-[#fbf3e1]" : "text-ink",
+                      )}
+                    >
+                      {step.title}
+                    </h3>
+                  </div>
                   <p
                     className={cn(
                       "mt-1.5 font-body text-[14px] font-semibold leading-snug tracking-tight sm:text-[15px]",
