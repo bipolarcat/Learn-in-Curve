@@ -109,7 +109,7 @@ export function HomeBrandHero() {
       </div>
 
       <div className="wrap relative z-10">
-        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[min(100%,22rem)] flex-col items-stretch gap-2.5 sm:mt-3.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 xl:max-w-[58rem]">
+        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[58rem] flex-row flex-wrap items-center justify-center gap-2.5 sm:mt-3.5 sm:gap-3">
           <Link
             href="/courses"
             className={HERO_COURSE_CTA}
