@@ -275,7 +275,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                 href="/auth/sign-up"
                 className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
               >
-                Create free account
+                Create Free Account
               </Link>
               <p className="m-0 mt-2.5 text-center text-[12px] text-ink/65">
                 Already have an account?{" "}
