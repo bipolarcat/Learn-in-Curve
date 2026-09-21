@@ -1,16 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
+import { ExploreCoursesLink } from "@/components/ExploreCoursesLink";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
-import { trackCtaClicked } from "@/lib/analytics/events";
 import { AVATARS } from "@/lib/avatars";
-import { isSoftNavClick } from "@/lib/soft-nav-back";
 
 /** Primary hero CTA — teal solid, uses shared min-h-11 (no downward !min-h overrides). */
 const HERO_COURSE_CTA =
@@ -84,7 +82,7 @@ function Headline() {
 
 /**
  * Home brand hero — animals + copy; only “curve” animates in the headline.
- * Two ranked CTAs: free course (primary) + free mock (secondary).
+ * Two ranked CTAs: Explore Courses (primary) + Mock Me hub (secondary).
  */
 export function HomeBrandHero() {
   return (
@@ -116,25 +114,15 @@ export function HomeBrandHero() {
       <div className="wrap relative z-10">
         <div className="mx-auto mt-3 flex w-full max-w-[58rem] flex-col items-center sm:mt-3.5">
           <div className="hero-ctas flex w-full flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-            <Link
-              href="/courses"
+            <ExploreCoursesLink
               className={HERO_COURSE_CTA}
-              onClick={(event) => {
-                trackCtaClicked({
-                  variant: "Explore Courses",
-                  location: "hero",
-                });
-                if (!isSoftNavClick(event)) return;
-              }}
-            >
-              <span className="relative z-[1] inline-flex items-center gap-1.5">
-                <span>Explore Courses</span>
-              </span>
-            </Link>
+              label="Explore Courses"
+              showArrow={false}
+            />
             <FreeMockExamLink
               className={HERO_MOCK_CTA}
               from="home"
-              href="/free-mock-exam/apm-pmq"
+              href="/mock-me"
               label="Take free mock exams"
               location="hero"
             />
