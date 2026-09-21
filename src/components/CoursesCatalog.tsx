@@ -35,9 +35,9 @@ import styles from "@/components/CoursesCatalog.module.css";
 /** Homepage catalogue CTAs — shared min-h-11 tokens, no compact !min-h overrides. */
 const CARD_PRIMARY = `${stampCtaPrimary} !normal-case !tracking-[-0.01em]`;
 const CARD_SECONDARY = `${stampCtaSecondary} !normal-case !tracking-[-0.01em]`;
-/** Tertiary “View plans” — quieter than secondary (text-ish outline). */
+/** Tertiary “View plans” — quieter than secondary (text link, no hover wash). */
 const CARD_TERTIARY =
-  "group inline-flex min-h-11 w-fit items-center justify-center gap-1.5 rounded-xl border border-transparent bg-transparent px-3 font-body text-[13px] font-semibold tracking-tight text-ink/65 underline-offset-2 transition-[color,background-color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2";
+  "group inline-flex min-h-11 w-fit items-center justify-center gap-1.5 rounded-xl border border-transparent bg-transparent px-3 font-body text-[13px] font-semibold tracking-tight text-ink/65 underline-offset-2 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2";
 
 type CoursesCatalogProps = {
   courses: Course[];
