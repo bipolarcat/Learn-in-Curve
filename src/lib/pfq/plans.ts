@@ -98,7 +98,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       {
         icon: "mock",
         label:
-          "exam structure and mark weighting, so you revise what actually matters",
+          "Exam structure and mark weighting, so you revise what actually matters",
       },
     ],
   },
