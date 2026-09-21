@@ -9,6 +9,7 @@ import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
 import { trackCtaClicked } from "@/lib/analytics/events";
+import { AVATARS } from "@/lib/avatars";
 import { isSoftNavClick } from "@/lib/soft-nav-back";
 
 /** Primary hero CTA — teal solid, uses shared min-h-11 (no downward !min-h overrides). */
@@ -19,13 +20,8 @@ const HERO_COURSE_CTA =
 const HERO_MOCK_CTA =
   `${marketingActionSecondary} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
 
-/** Stock faces for the hero trust row (Unsplash). */
-const HERO_TRUST_AVATARS = [
-  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=64&h=64&q=80",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64&q=80",
-  "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=64&h=64&q=80",
-  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=64&h=64&q=80",
-];
+/** Profile-selector animals for the hero trust row. */
+const HERO_TRUST_AVATARS = AVATARS.map((a) => a.src);
 
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
