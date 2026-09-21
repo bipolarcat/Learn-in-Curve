@@ -61,9 +61,12 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             <div className="min-w-0">
               <h2
                 id="sly-showcase-heading"
-                className="mt-1.5 flex items-center gap-2 whitespace-nowrap font-display text-[clamp(2rem,3.7vw,2.9rem)] font-bold leading-[0.98] tracking-[-0.03em] text-ink"
+                className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-[clamp(1.55rem,3.2vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink text-balance"
               >
-                Try <span className="text-orange">Sly</span> now
+                <span>
+                  Learn faster with <span className="text-orange">Sly</span> — Your
+                  personal AI Tutor
+                </span>
                 <BetaBadge />
               </h2>
             </div>
@@ -73,7 +76,8 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             className={`${styles.popItem} mt-3 text-[14px] leading-relaxed text-ink/65 text-pretty`}
             style={{ ["--i" as string]: 1 }}
           >
-            The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.
+            Ask, learn and get unstuck. Unlimited Sly access is coming soon with AI
+            Pro.
           </p>
         </ScrollReveal>
       </div>
