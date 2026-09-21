@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import { CtaArrowUpRight, stampCtaTealFlat } from "@/components/stamp-chip";
+import { stampCtaTealFlat } from "@/components/stamp-chip";
 import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
 import { trackCtaClicked } from "@/lib/analytics/events";
@@ -123,7 +123,6 @@ export function HomeBrandHero() {
           >
             <span className="relative z-[1] inline-flex items-center gap-1.5">
               <span>Explore Free Courses</span>
-              <CtaArrowUpRight />
             </span>
           </Link>
           <FreeMockExamLink
