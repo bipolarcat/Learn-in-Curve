@@ -29,6 +29,7 @@ import {
 } from "@/lib/free-mock/scoring";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
+import pageStyles from "@/components/free-mock/FreeMockExam.module.css";
 
 type Phase = "quiz" | "gate" | "results";
 
@@ -407,9 +408,10 @@ export function FreeMockExamClient({
 
   return (
     <section
-      className={styles.card}
+      className={`${styles.card} ${pageStyles.quizPrimary}`}
       aria-labelledby="free-mock-quiz-title"
       data-quiz-card=""
+      data-primary-console=""
     >
       <div className="mb-1 text-left">
         <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">

@@ -1,5 +1,6 @@
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamClient } from "@/components/free-mock/FreeMockExamClient";
+import pageStyles from "@/components/free-mock/FreeMockExam.module.css";
 import { SoftNavBackLink } from "@/components/SoftNavBackLink";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
@@ -90,16 +91,14 @@ export async function FreeMockExamShell({
           />
         </div>
 
-        <div className="mx-auto mt-14 w-full max-w-[46rem]">
+        <div className={pageStyles.faqSecondary}>
           <FaqAccordion
             items={faqItems}
             headingId={`${config.examId}-faq-heading`}
-            title={
-              <>
-                Frequently <span className="text-orange">asked</span> questions
-              </>
-            }
-            defaultOpenIndex={0}
+            title="Common questions"
+            subtitle="About this free mock — timing, scoring, and what it isn’t."
+            variant="quiet"
+            defaultOpenIndex={null}
             idPrefix={`${config.examId}-faq`}
           />
         </div>
