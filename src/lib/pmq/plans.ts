@@ -118,7 +118,8 @@ export const PMQ_PLANS: PmqPlan[] = [
     features: [
       {
         icon: "core",
-        label: "Core study content for all 24 learning objectives",
+        label:
+          "Study material covering all 71 learning outcomes as per PMQ exam handbook",
       },
       { icon: "practice", label: "Practice questions", value: "240" },
       { icon: "mock", label: "Mock exam", value: "1" },
