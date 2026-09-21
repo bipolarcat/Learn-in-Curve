@@ -55,8 +55,8 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             className={`${styles.popItem} ${styles.lede} text-pretty`}
             style={{ ["--i" as string]: 1 }}
           >
-            Ask, learn and get unstuck. Unlimited Sly access is coming soon with AI
-            Pro.
+            Ask, learn and get unstuck with your personal AI tutor. Unlimited access
+            to Sly is coming soon.
           </p>
         </ScrollReveal>
       </div>
