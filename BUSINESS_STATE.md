@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Landing Sly locked CTA copy → “That’s the Beta taster. Full access coming soon. Join the waitlist.” + `JoinWaitlistButton` (not signup) (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly: remove icon/label/Beta from console header; Beta back on “Ask Sly.” row (`SlyTutorWindow`, `SlyShowcase`).
 - **2026-09-21** — Landing Sly console header label → “Sly” (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly lede: drop 36ch cap; keep “AI tutor.” on line 1, second sentence on line 2 (`SlyShowcase`).

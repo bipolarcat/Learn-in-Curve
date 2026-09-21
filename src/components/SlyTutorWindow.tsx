@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { AvatarImage } from "@/components/AvatarImage";
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
+import {
+  JoinWaitlistButton,
+} from "@/components/pmq/JoinWaitlistButton";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { slyChromeStyles } from "@/components/SlyChrome";
 import showcase from "@/components/SlyShowcase.module.css";
@@ -269,23 +272,31 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
               <p className="m-0 text-[14px] font-medium leading-snug text-ink text-pretty">
                 {unavailable
                   ? "Sly’s free trial is taking a short break. Create a free account to keep learning in the meantime."
-                  : "That’s the Beta taster. Create a free account to carry on with the course."}
+                  : "That’s the Beta taster. Full access coming soon. Join the waitlist."}
               </p>
-              <Link
-                href="/auth/sign-up"
-                className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
-              >
-                Create Free Account
-              </Link>
-              <p className="m-0 mt-2.5 text-center text-[12px] text-ink/65">
-                Already have an account?{" "}
-                <Link
-                  href="/auth/sign-in"
-                  className="font-medium text-orange hover:text-orange-dark"
-                >
-                  Sign in
-                </Link>
-              </p>
+              {unavailable ? (
+                <>
+                  <Link
+                    href="/auth/sign-up"
+                    className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
+                  >
+                    Create Free Account
+                  </Link>
+                  <p className="m-0 mt-2.5 text-center text-[12px] text-ink/65">
+                    Already have an account?{" "}
+                    <Link
+                      href="/auth/sign-in"
+                      className="font-medium text-orange hover:text-orange-dark"
+                    >
+                      Sign in
+                    </Link>
+                  </p>
+                </>
+              ) : (
+                <JoinWaitlistButton
+                  className={`${stampCtaPrimary} mt-3 w-full !justify-center !normal-case`}
+                />
+              )}
             </div>
           ) : (
             <>
