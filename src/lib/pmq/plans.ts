@@ -159,6 +159,12 @@ export const PMQ_PLANS: PmqPlan[] = [
       },
       { icon: "mock", label: "additional mock exams", value: "2" },
       {
+        icon: "recall",
+        label:
+          "recall activities across the course, including Pair Up, Line Up and Group Up",
+        value: "60+",
+      },
+      {
         icon: "video",
         label: "Video & Audio overview for every learning objective",
       },
@@ -166,12 +172,6 @@ export const PMQ_PLANS: PmqPlan[] = [
         icon: "insights",
         label:
           "Insights on every learning outcome, for deeper understanding of each topic",
-      },
-      {
-        icon: "recall",
-        label:
-          "recall activities across the course, including Pair Up, Line Up and Group Up",
-        value: "60+",
       },
     ],
   },
@@ -205,6 +205,12 @@ export const PMQ_PLANS: PmqPlan[] = [
       },
       { icon: "mock", label: "additional mock exams", value: "3" },
       {
+        icon: "recall",
+        label:
+          "recall activities across the course, including Pair Up, Line Up and Group Up",
+        value: "60+",
+      },
+      {
         icon: "video",
         label: "Video & Audio overview for every learning objective",
       },
@@ -212,12 +218,6 @@ export const PMQ_PLANS: PmqPlan[] = [
         icon: "insights",
         label:
           "Insights on every learning outcome, for deeper understanding of each topic",
-      },
-      {
-        icon: "recall",
-        label:
-          "recall activities across the course, including Pair Up, Line Up and Group Up",
-        value: "60+",
       },
       { icon: "sly", label: "Sly, the AI tutor" },
       {
