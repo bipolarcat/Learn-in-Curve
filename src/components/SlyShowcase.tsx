@@ -52,11 +52,13 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           </div>
 
           <p
-            className={`${styles.popItem} ${styles.lede} text-pretty`}
+            className={`${styles.popItem} ${styles.lede}`}
             style={{ ["--i" as string]: 1 }}
           >
-            Ask, learn and get unstuck with your personal AI tutor. Unlimited access
-            to Sly is coming soon.
+            Ask, learn and get unstuck with your personal{" "}
+            <span className="whitespace-nowrap">AI tutor.</span>
+            <br />
+            Unlimited access to Sly is coming soon.
           </p>
         </ScrollReveal>
       </div>
