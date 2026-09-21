@@ -180,6 +180,11 @@
   min-width: 0;
 }
 
+/* Waitlist: hide £ but keep height so .split border aligns across cards */
+.priceRowHidden {
+  visibility: hidden;
+}
+
 .price {
   font-family: var(--font-fraunces), serif;
   font-size: 1.95rem;

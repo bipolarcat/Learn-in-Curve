@@ -230,7 +230,12 @@ export function PmqPlanCards({
                   soonBadge={plan.status === "waitlist"}
                 />
 
-                <div className={styles.priceRow}>
+                <div
+                  className={`${styles.priceRow}${
+                    plan.status === "waitlist" ? ` ${styles.priceRowHidden}` : ""
+                  }`}
+                  aria-hidden={plan.status === "waitlist" ? true : undefined}
+                >
                   <span
                     className={`${styles.price} ${
                       plan.priceCents === null ? styles.priceFree : ""
