@@ -1,6 +1,6 @@
 import { LabArtPlate } from "@/components/lab/LabArtPlate";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { AnimatedText } from "@/components/ui/animated-underline-text-one";
+import { DrawRandomUnderline } from "@/components/ui/draw-random-underline";
 
 const STEPS = [
   {
@@ -70,11 +70,9 @@ export function TestingMethod() {
           </h2>
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
             Psychologists call it{" "}
-            <AnimatedText
+            <DrawRandomUnderline
               text="The Testing Effect"
-              textClassName="text-[15px] font-bold text-orange sm:text-[16px]"
-              underlineClassName="text-orange"
-              underlineDuration={1.5}
+              textClassName="text-[15px] sm:text-[16px]"
             />
             .
           </p>
