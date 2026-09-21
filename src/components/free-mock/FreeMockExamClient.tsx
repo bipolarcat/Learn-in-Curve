@@ -293,7 +293,7 @@ export function FreeMockExamClient({
             disabled={submitting}
             aria-busy={submitting}
             aria-label={submitting ? "Saving results" : "Show my results"}
-            className={`${stampCtaPrimary} self-start disabled:opacity-60`}
+            className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em] self-start disabled:opacity-60`}
           >
             {submitting ? (
               <Spinner variant="bars" size={16} className="text-current" aria-hidden />
