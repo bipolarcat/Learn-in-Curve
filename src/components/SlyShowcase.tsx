@@ -54,7 +54,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             </span>
             <h2
               id="sly-showcase-heading"
-              className="min-w-0 max-w-full font-display text-[clamp(2.15rem,5.2vw,2.55rem)] font-bold leading-[1.08] tracking-[-0.03em] text-ink text-balance"
+              className={`${styles.heading} min-w-0 max-w-full font-display text-ink text-balance`}
             >
               <span className="block sm:inline">Stuck on a syllabus topic?</span>
               <span className="mt-1 block sm:mt-0 sm:inline">
@@ -68,7 +68,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           </div>
 
           <p
-            className={`${styles.popItem} mt-3.5 max-w-[36ch] text-[15px] leading-relaxed text-ink/65 text-pretty sm:mt-4 sm:text-[14px]`}
+            className={`${styles.popItem} ${styles.lede} text-pretty`}
             style={{ ["--i" as string]: 1 }}
           >
             Ask, learn and get unstuck. Unlimited Sly access is coming soon with AI

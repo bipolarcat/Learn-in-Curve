@@ -34,6 +34,29 @@
   animation: consoleIn 0.55s var(--ease-out-expo) both;
 }
 
+/* Section title — in the module so phone/Safari can’t miss a Tailwind arbitrary. */
+.heading {
+  font-size: clamp(2.5rem, 8vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin-top: 0.9rem;
+  max-width: 36ch;
+  font-size: 0.9375rem; /* 15px — stays clearly below the display heading */
+  line-height: 1.55;
+  color: rgb(var(--ink-rgb) / 0.65);
+}
+
+@media (min-width: 640px) {
+  .lede {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
 /* Landing Sly — Cursor/Claude-style chat shell (no Mac chrome). */
 .chatShell {
   border-radius: 1rem;
