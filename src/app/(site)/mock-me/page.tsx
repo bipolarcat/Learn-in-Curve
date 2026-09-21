@@ -94,10 +94,12 @@ export default function MockMeHubPage() {
                     />
                   </div>
                   <div className={styles.meta}>
-                    <h2 className={styles.mark}>{CARD_MARK[examId]}</h2>
-                    <p className={styles.count}>
-                      {exam.questionCount} questions
-                    </p>
+                    <div className={styles.topRow}>
+                      <h2 className={styles.mark}>{CARD_MARK[examId]}</h2>
+                      <p className={styles.count}>
+                        {exam.questionCount} questions
+                      </p>
+                    </div>
                     <span className={styles.cta}>
                       <span className={styles.ctaLabel}>Start mock</span>
                       <span className={styles.ctaDisc} aria-hidden>
