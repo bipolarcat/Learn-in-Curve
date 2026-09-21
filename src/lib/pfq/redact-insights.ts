@@ -19,7 +19,8 @@ export type PfqRedactedLesson = {
  * What survives: everything except the teaching text. Learning outcomes, key
  * takeaways, key definitions, misconceptions, memory aids, progress
  * checkpoints, where-this-fits. Learn chrome stays identical to Pro — the
- * Insights expandable still renders, but opens to a Pro upsell.
+ * Insights chip renders locked (padlock Pro badge); tap shows the Pro unlock
+ * toast (`showProLockHint`).
  *
  * Objective 1 is never redacted for anyone (see PFQ_FREE_INSIGHTS_OBJECTIVE).
  */

@@ -24,6 +24,7 @@ import {
 } from "@/lib/pfq/outcomes";
 import { canAccessPfqMock, type PfqTier } from "@/lib/pfq/tiers";
 import { MockExamRowStatus } from "@/components/pmq/PmqMockExamsSection";
+import { showProLockHint } from "@/components/pmq/ProLockHint";
 import styles from "@/components/pmq/PmqMockExamsSection.module.css";
 
 const rowActionClass = `${productActionPrimary} ${styles.rowActionBtn} group shrink-0 !min-h-7 !rounded-none !px-1.5 !gap-1 !text-[11px] !font-[550] !tracking-[-0.012em] !bg-transparent !text-ink/50 !border-0 hover:!bg-transparent hover:!text-ink/70 disabled:opacity-70`;
@@ -132,27 +133,30 @@ export function PfqMockConsole({
             const unlocked = canAccessPfqMock(userTier);
             if (!unlocked) {
               return (
-                <li
-                  key={summary.mockSet}
-                  className={`${styles.row} ${styles.rowLocked}`}
-                  aria-label={`Mock exam ${summary.mockSet}, locked — Pro Bundle`}
-                >
-                  <div className={styles.rowMain}>
-                    <p className={styles.rowTitle}>
-                      Mock exam {summary.mockSet}
-                      <Lock
-                        className={styles.rowLockIcon}
-                        fill="currentColor"
-                        strokeWidth={0}
-                        aria-hidden
-                      />
-                    </p>
-                  </div>
-                  <div className={styles.rowAction}>
-                    <span className={styles.rowLock}>
-                      <span className={styles.lockProMark}>Pro</span> Bundle
-                    </span>
-                  </div>
+                <li key={summary.mockSet}>
+                  <button
+                    type="button"
+                    className={`${styles.row} ${styles.rowLocked} cursor-pointer touch-manipulation [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55`}
+                    onClick={() => showProLockHint("mock")}
+                    aria-label={`Mock exam ${summary.mockSet}, locked — Pro. Unlock with the Pro bundle.`}
+                  >
+                    <div className={styles.rowMain}>
+                      <p className={styles.rowTitle}>
+                        Mock exam {summary.mockSet}
+                        <Lock
+                          className={styles.rowLockIcon}
+                          fill="currentColor"
+                          strokeWidth={0}
+                          aria-hidden
+                        />
+                      </p>
+                    </div>
+                    <div className={styles.rowAction}>
+                      <span className={styles.rowLock}>
+                        <span className={styles.lockProMark}>Pro</span> Bundle
+                      </span>
+                    </div>
+                  </button>
                 </li>
               );
             }
