@@ -104,9 +104,6 @@ export function SiteFooter({
             <Link href="/cookies" className={footerLinkClass}>
               Cookies
             </Link>
-            <Link href="/whats-new" className={footerLinkClass}>
-              What&apos;s new
-            </Link>
             <SendFeedbackButton
               source="Footer"
               className={`${footerLinkClass} text-left`}
