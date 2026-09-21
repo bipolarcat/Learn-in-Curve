@@ -73,7 +73,7 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     pageDescription:
       "Take a free 15-question APM PMQ readiness check in real exam format. See which learning objectives to revise first - no account required.",
     heroSupport:
-      "Test yourself with real APM PMQ-style questions covering multiple choice, scenario-based, and select-from-list formats. Complete it within 10 minutes.",
+      "Test yourself with real APM PMQ-style questions covering multiple choice, scenario-based, and select-from-list formats.",
     gatePrompt:
       "Enter your email to get your test summary and identify your weakest learning objectives, so you know exactly what to revise first.",
     marketingConsentLabel:
