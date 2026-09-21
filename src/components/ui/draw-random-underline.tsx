@@ -159,7 +159,7 @@ export function DrawRandomUnderline({
         {text}
       </span>
       <span
-        className="pointer-events-none relative mt-0.5 block h-[0.32em] w-[104%] min-w-full self-center"
+        className="pointer-events-none relative -mt-0.5 block h-[0.28em] w-[104%] min-w-full self-center"
         aria-hidden
       >
         <svg
