@@ -140,62 +140,9 @@
   white-space: nowrap;
 }
 
-/**
- * Mock Me Start — ink pill; motion only on press (no hover wipe —
- * scrolling past cards was flashing the orange fill).
- */
-.cta {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
+/* Slot for MotionButton inside the card meta */
+.ctaMotion {
   margin-top: auto;
-  padding: 0.45rem 0.45rem 0.45rem 0.95rem;
-  border-radius: 999px;
-  background: rgb(var(--ink-rgb));
-  color: var(--card-cream, #f6efdd);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
-  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.ctaLabel {
-  font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.ctaDisc {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
-  border-radius: 999px;
-  background: var(--orange, #e07a3a);
-  color: rgb(var(--ink-rgb));
-  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.ctaArrow {
-  display: block;
-  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.card:active .cta {
-  transform: scale(0.97);
-  background: color-mix(in srgb, rgb(var(--ink-rgb)) 82%, var(--orange, #e07a3a));
-}
-
-.card:active .ctaDisc {
-  transform: translateX(3px);
-}
-
-.card:active .ctaArrow {
-  transform: translateX(2px);
 }
 
 .coursesLink {
@@ -259,17 +206,5 @@
   .grid > li,
   .coursesLink {
     animation: none;
-  }
-
-  .cta,
-  .ctaDisc,
-  .ctaArrow {
-    transition: none;
-  }
-
-  .card:active .cta,
-  .card:active .ctaDisc,
-  .card:active .ctaArrow {
-    transform: none;
   }
 }

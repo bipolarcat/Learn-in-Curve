@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { FREE_MOCK_EXAM_IDS, FREE_MOCK_EXAMS } from "@/lib/free-mock/config";
 import type { FreeMockExamId } from "@/lib/free-mock/types";
+import { MockMeExamCard } from "@/components/MockMeExamCard";
 import styles from "./MockMePage.module.css";
 
 const SITE_URL =
@@ -74,54 +74,15 @@ export default function MockMeHubPage() {
         <ul className={styles.grid}>
           {FREE_MOCK_EXAM_IDS.map((examId) => {
             const exam = FREE_MOCK_EXAMS[examId];
-            const art = CARD_ART[examId];
             return (
               <li key={examId}>
-                <Link href={exam.path} className={styles.card}>
-                  <div className={styles.art}>
-                    <Image
-                      src={art.src}
-                      alt={art.alt}
-                      fill
-                      sizes="(max-width: 39.99rem) 92vw, 18rem"
-                      className={styles.artImage}
-                      style={
-                        art.objectPosition
-                          ? { objectPosition: art.objectPosition }
-                          : undefined
-                      }
-                      priority={examId === "apm-pmq"}
-                    />
-                  </div>
-                  <div className={styles.meta}>
-                    <div className={styles.topRow}>
-                      <h2 className={styles.mark}>{CARD_MARK[examId]}</h2>
-                      <p className={styles.count}>
-                        {exam.questionCount} questions
-                      </p>
-                    </div>
-                    <span className={styles.cta}>
-                      <span className={styles.ctaLabel}>Start mock</span>
-                      <span className={styles.ctaDisc} aria-hidden>
-                        <svg
-                          className={styles.ctaArrow}
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          width="14"
-                          height="14"
-                        >
-                          <path
-                            d="M3.5 8h9M8.5 4l4 4-4 4"
-                            stroke="currentColor"
-                            strokeWidth="1.75"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </div>
-                </Link>
+                <MockMeExamCard
+                  href={exam.path}
+                  mark={CARD_MARK[examId]}
+                  questionCount={exam.questionCount}
+                  art={CARD_ART[examId]}
+                  priority={examId === "apm-pmq"}
+                />
               </li>
             );
           })}
