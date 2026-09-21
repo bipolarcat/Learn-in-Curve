@@ -207,6 +207,14 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                         </span>
                       </span>
                     ) : null}
+                    {showFace && msg.role === "user" ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="text-[12px] font-semibold tracking-tight text-ink/55">
+                          You
+                        </span>
+                        <UserFace size={20} />
+                      </span>
+                    ) : null}
                     {msg.role === "user" ? (
                       <div className={`${showcase.userMsg} max-w-[88%] break-words text-pretty`}>
                         <p className="m-0 whitespace-pre-wrap">{msg.content}</p>
@@ -365,11 +373,29 @@ function SlyFace({ size }: { size: number }) {
       aria-hidden
     >
       <Image
-        src="/mascot/fox-face.svg"
+        src="/brand/sly/sly-tutor-portrait.png"
         alt=""
         width={size}
         height={size}
-        className="h-full w-full object-cover object-top"
+        className="h-full w-full scale-[1.35] object-cover object-[center_22%]"
+      />
+    </span>
+  );
+}
+
+function UserFace({ size }: { size: number }) {
+  return (
+    <span
+      className="relative inline-flex shrink-0 overflow-hidden rounded-full bg-sand ring-1 ring-ink/10"
+      style={{ width: size, height: size }}
+      aria-hidden
+    >
+      <Image
+        src="/avatars/dog.png"
+        alt=""
+        width={size}
+        height={size}
+        className="h-full w-full object-cover object-center"
       />
     </span>
   );
