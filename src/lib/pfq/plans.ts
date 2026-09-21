@@ -1,6 +1,5 @@
 import {
   PFQ_AI_PRO_PRICE_CENTS,
-  PFQ_AI_PRO_UPGRADE_PRICE_CENTS,
   PFQ_PRO_PRICE_CENTS,
 } from "./constants";
 import { PFQ_FREE_INSIGHTS_OBJECTIVE } from "./tiers";
@@ -133,7 +132,7 @@ export const PFQ_PLANS: PfqPlan[] = [
     name: "AI Pro",
     status: "waitlist",
     priceCents: PFQ_AI_PRO_PRICE_CENTS,
-    priceNote: `one-off, or ${formatUpgradeNote()} if you already have Pro`,
+    priceNote: "one-off, no subscription",
     tagline:
       "Everything in Pro, plus Sly, your AI tutor, and a report on where you stand at the end. Launching soon.",
     inheritsFrom: "pro",
@@ -150,11 +149,6 @@ export const PFQ_PLANS: PfqPlan[] = [
     ],
   },
 ];
-
-function formatUpgradeNote(): string {
-  const pounds = PFQ_AI_PRO_UPGRADE_PRICE_CENTS / 100;
-  return `£${pounds.toFixed(pounds % 1 === 0 ? 0 : 2)}`;
-}
 
 export function getPfqPlan(id: PfqPlanId): PfqPlan {
   const plan = PFQ_PLANS.find((item) => item.id === id);
