@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { LIBRARY_AUTHOR } from "@/content/library/author";
 
 type LibraryAuthorBylineProps = {
@@ -31,8 +32,16 @@ export function LibraryAuthorByline({ className = "" }: LibraryAuthorBylineProps
             {LIBRARY_AUTHOR.name}
           </Link>
         </p>
-        <p className="m-0 mt-0.5 font-body text-[12.5px] text-ink/55">
-          {LIBRARY_AUTHOR.role}
+        <p className="m-0 mt-0.5 flex flex-wrap items-center gap-x-1 font-body text-[12.5px] text-ink/55">
+          <span>Founder,</span>
+          <span className="inline-flex items-center gap-1">
+            <Logo
+              size={14}
+              className="h-3.5 w-3.5"
+              alt=""
+            />
+            <span>Learn in Curve</span>
+          </span>
         </p>
       </div>
     </div>
