@@ -149,6 +149,37 @@ export function IconMemory({ className }: IconProps) {
   );
 }
 
+/** Exam structure / mark weighting — pie slices (distinct from report bars) */
+export function IconStructure({ className }: IconProps) {
+  return (
+    <LoIconTile className={className}>
+      <svg className="h-[1.35rem] w-[1.35rem]" viewBox="0 0 24 24" fill="none">
+        <circle
+          cx="12"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="1.75"
+        />
+        <path
+          d="M12 4v8l6.928 4"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M12 12 5.5 9"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </LoIconTile>
+  );
+}
+
 /** End-of-course report — clipboard with a rising bar chart (AI Pro tier) */
 export function IconReport({ className }: IconProps) {
   return (

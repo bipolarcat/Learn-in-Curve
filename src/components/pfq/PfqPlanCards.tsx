@@ -17,6 +17,7 @@ import {
   IconPractice,
   IconReport,
   IconSly,
+  IconStructure,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import { PfqCheckoutButton } from "@/components/pfq/PfqCheckoutButton";
@@ -36,6 +37,7 @@ const FEATURE_ICONS: Record<
   misconceptions: IconMisconceptions,
   report: IconReport,
   sly: IconSly,
+  structure: IconStructure,
 };
 
 function ArrowDownRight({ className }: { className?: string }) {

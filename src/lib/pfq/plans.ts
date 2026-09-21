@@ -49,7 +49,7 @@ export type PfqPlanStatus = "free" | "buyable" | "waitlist";
 
 export type PfqPlanFeature = {
   /** Matches the icon keys in `PmqPreviewFeatureIcons`. */
-  icon: "core" | "practice" | "mock" | "misconceptions" | "report" | "sly";
+  icon: "core" | "practice" | "mock" | "misconceptions" | "report" | "sly" | "structure";
   label: string;
   /** Quantity shown beside the label. Omit when the line is qualitative. */
   value?: string;
@@ -96,7 +96,7 @@ export const PFQ_PLANS: PfqPlan[] = [
         value: "50",
       },
       {
-        icon: "report",
+        icon: "structure",
         label:
           "Exam structure and mark weighting, so you revise what actually matters",
       },
