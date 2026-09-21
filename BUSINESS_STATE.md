@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Mock Me cards: art from homepage feature stack — PMQ `3.png`, PFQ `1.png`, PMP `6.png` (`mock-me/page.tsx`).
 - **2026-09-21** — Mock Me Start mock: restore true circular orange disc (scaleX on a full plate had squashed it square); press expand uses a separate fill (`motion-button.module.css`).
 - **2026-09-21** — Mock Me Start mock: CSS-module ink track (was invisible on mobile Safari when Tailwind arbitrary bg failed); shorter mobile art so CTA stays on-screen (`motion-button.module.css`).
 - **2026-09-21** — Mock Me cards: only Start mock navigates; card surface is static (`MockMeExamCard`).

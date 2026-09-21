@@ -26,26 +26,25 @@ export const metadata: Metadata = {
 };
 
 /**
- * Illustrations not used on the homepage catalogue / lab feature tiles.
- * PMQ + PFQ use unused course-card art; PMP uses the overview feature plate.
+ * Hub card art from the homepage feature stack illustrations.
  */
 const CARD_ART: Record<
   FreeMockExamId,
   { src: string; alt: string; objectPosition?: string }
 > = {
   "apm-pmq": {
-    src: "/brand/Courses/pmq-in-5-days-card.png",
-    alt: "PMQ study illustration",
-    objectPosition: "center 35%",
+    src: "/Landing page/Learn the full syllabus/3.png",
+    alt: "PMQ timed mock exam illustration",
+    objectPosition: "center 40%",
   },
   "apm-pfq": {
-    src: "/brand/Courses/pfq-notify-me.png",
-    alt: "PFQ study illustration",
-    objectPosition: "center 45%",
+    src: "/Landing page/Learn the full syllabus/1.png",
+    alt: "PFQ syllabus study illustration",
+    objectPosition: "center 40%",
   },
   pmp: {
-    src: "/brand/features/overviews.webp",
-    alt: "PMP study illustration",
+    src: "/Landing page/Learn the full syllabus/6.png",
+    alt: "PMP overviews illustration",
     objectPosition: "center 40%",
   },
 };
