@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Lab activity demo CTA stack tightened (button ↔ micro line) (`LabActivityDemo`).
 - **2026-09-21** — Lab activity demo CTA → “Start PMQ in 5 Days” + micro “Free to start. No card needed.”; links to PMQ preview (`LabActivityDemo`).
 - **2026-09-21** — Lab Quiz tab fill: roomier compact MCQ cells + pin Check/nav to stage bottom so equal-height card doesn’t leave a dead band (`TrialQuiz`, `QuestionResponseFields`).
 - **2026-09-21** — Lab activity demo: “PMQ” in card heading uses `text-orange`; desktop card `md:min-h-[35.75rem]` so Quiz matches Pair/Line/Group height (`LabActivityDemo`).

@@ -238,9 +238,9 @@ export function LabActivityDemo({
           ) : null}
         </div>
 
-        <div className="mt-5 flex flex-col items-center gap-2.5 border-t border-ink/[0.06] pt-5 text-center">
+        <div className="mt-5 flex flex-col items-center gap-1.5 border-t border-ink/[0.06] pt-5 text-center">
           {completedOnce ? (
-            <p className="m-0 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
+            <p className="m-0 mb-1 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
               That&apos;s one of 60+ in the free course.
             </p>
           ) : null}
