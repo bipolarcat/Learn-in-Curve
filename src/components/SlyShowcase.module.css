@@ -22,7 +22,7 @@
 @keyframes consoleIn {
   from {
     opacity: 0.92;
-    transform: translateY(18px) scale(0.985);
+    transform: translateY(14px) scale(0.99);
   }
   to {
     opacity: 1;
@@ -31,48 +31,114 @@
 }
 
 .consoleReveal:global(.reveal-animated):global(.visible) .console {
-  animation: consoleIn 0.7s var(--ease-out-expo) both;
+  animation: consoleIn 0.55s var(--ease-out-expo) both;
+}
+
+/* Landing Sly — Cursor/Claude-style chat shell (no Mac chrome). */
+.chatShell {
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+  color: rgb(var(--ink-rgb));
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 12px 32px -12px rgb(var(--ink-rgb) / 0.16);
+}
+
+.suggestChip {
+  border-radius: 0.875rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-figtree, system-ui, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb) / 0.88);
+  transition:
+    background-color 140ms var(--ease-out-quint),
+    border-color 140ms var(--ease-out-quint),
+    transform 140ms var(--ease-out-quint);
+}
+
+.suggestChip:hover:not(:disabled) {
+  border-color: rgb(var(--teal-rgb) / 0.35);
+  background: rgb(var(--paper-rgb));
+  color: rgb(var(--ink-rgb));
+}
+
+.suggestChip:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.suggestChip:focus-visible {
+  outline: 2px solid rgb(var(--teal-rgb));
+  outline-offset: 2px;
+}
+
+.suggestChip:disabled {
+  opacity: 0.5;
+}
+
+.userMsg {
+  border-radius: 1.125rem;
+  border-bottom-right-radius: 0.35rem;
+  background: rgb(var(--ink-rgb) / 0.07);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgb(var(--ink-rgb));
+}
+
+.composerCard {
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.1);
+  background: rgb(var(--paper-rgb));
+  box-shadow:
+    0 1px 2px rgb(var(--ink-rgb) / 0.04),
+    0 8px 24px -10px rgb(var(--ink-rgb) / 0.12);
+  transition:
+    border-color 150ms var(--ease-out-quint),
+    box-shadow 150ms var(--ease-out-quint);
+}
+
+.composerCard:focus-within {
+  border-color: rgb(var(--teal-rgb) / 0.4);
+  box-shadow:
+    0 0 0 3px rgb(var(--teal-rgb) / 0.12),
+    0 8px 24px -10px rgb(var(--ink-rgb) / 0.12);
+}
+
+.sendBtn {
+  background: rgb(var(--ink-rgb));
+  color: rgb(var(--paper-rgb));
+}
+
+.sendBtn:hover:enabled {
+  background: color-mix(in srgb, rgb(var(--ink-rgb)) 88%, white);
+}
+
+.sendBtn:focus-visible {
+  outline: 2px solid rgb(var(--teal-rgb));
+  outline-offset: 2px;
 }
 
 @keyframes bubbleIn {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.97);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 .bubble {
-  animation: bubbleIn 0.42s var(--ease-out-quint) both;
-}
-
-@keyframes caretBlink {
-  0%,
-  45% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.caret {
-  animation: caretBlink 1s steps(1, end) infinite;
-}
-
-@keyframes sendFlash {
-  40% {
-    transform: scale(0.92);
-    box-shadow: 0 0 0 6px rgb(213 80 31 / 0.22);
-  }
-}
-
-.sendFlash {
-  animation: sendFlash 0.2s var(--ease-out-quint) both;
+  animation: bubbleIn 0.28s var(--ease-out-quint) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,8 +151,12 @@
   }
 
   .bubble,
-  .caret,
-  .sendFlash {
+  .suggestChip {
     animation: none;
+    transition: none;
+  }
+
+  .suggestChip:active:not(:disabled) {
+    transform: none;
   }
 }
