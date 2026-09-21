@@ -56,7 +56,7 @@ export function SiteFooter({
   showApmDisclaimer?: boolean;
 } = {}) {
   return (
-    <footer className="relative bg-ink pb-0 pt-5 text-cream sm:pt-6">
+    <footer className="relative overflow-hidden rounded-t-[clamp(1.75rem,4.5vw,3.25rem)] bg-ink pb-0 pt-5 text-cream sm:pt-6">
       <div className="wrap relative z-[1] pb-4 sm:pb-5">
         <div className="flex flex-col gap-3 sm:gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="flex min-w-0 items-center gap-3">
