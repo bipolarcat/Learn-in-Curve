@@ -84,7 +84,7 @@ export function TestingMethod() {
           </p>
         </ScrollReveal>
 
-        <ol className="mt-8 grid list-none grid-cols-1 gap-5 sm:mt-10 sm:gap-6 md:grid-cols-3 md:gap-5 lg:gap-6">
+        <ol className="mt-8 grid list-none grid-cols-1 gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-3 lg:gap-6">
           {STEPS.map((step, i) => (
             <li key={step.id}>
               <ScrollReveal delay={0.06 * i} className="h-full">
@@ -98,7 +98,7 @@ export function TestingMethod() {
                     tone={step.tone}
                     priority={i === 0}
                   />
-                  <div className="flex min-w-0 flex-1 flex-col px-0.5">
+                  <div className="flex min-w-0 w-full flex-1 flex-col">
                     <p
                       className="font-body text-[11px] font-bold tabular-nums tracking-[0.1em] text-orange sm:text-[12px]"
                       aria-hidden
@@ -111,7 +111,7 @@ export function TestingMethod() {
                     <p className="mt-1.5 font-body text-[14px] font-semibold leading-snug tracking-tight text-ink sm:text-[15px]">
                       {step.lead}
                     </p>
-                    <p className="mt-2 text-pretty font-body text-[13.5px] leading-relaxed text-ink/65 sm:text-[14.5px]">
+                    <p className="mt-2 w-full text-pretty font-body text-[13.5px] leading-relaxed text-ink/65 sm:text-[14.5px]">
                       {step.body}
                     </p>
                   </div>
