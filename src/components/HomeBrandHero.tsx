@@ -45,11 +45,11 @@ function CurveAccent() {
   const reduce = useReducedMotion();
 
   if (reduce) {
-    return <span className="inline text-orange">curve.</span>;
+    return <span className="inline italic text-orange">curve.</span>;
   }
 
   return (
-    <span className="inline-block overflow-visible text-orange">
+    <span className="inline-block overflow-visible italic text-orange">
       <BouncingText
         className="inline-block"
         repeat={false}
