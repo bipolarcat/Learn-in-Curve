@@ -283,3 +283,24 @@ Found live 2026-07-30 (`simsamaarshened@gmail.com`, reported while answering pai
 Also fixed while in there: `submitQuizAttempt` now `console.error`s the actual Postgres error (user/question/context) on any DB insert failure instead of silently returning it to the client with no server-side trace, and the "not signed in" case is now returned as a distinct `"not_signed_in"` error code (was a generic `"Not signed in"` string indistinguishable from a DB error) — `QuizRunner.tsx`'s toast and retry button both branch on this now: session-expiry shows "sign in again" copy with a **Reload to sign in** action, a real DB error shows the original retry-save copy and action.
 
 **Rule going forward:** whenever a new `context` value is added to `questions` (a new quiz-set tier, a new exam mode, etc.), `attempts_context_check` must be updated in the same migration — these two constraints have no shared source of truth (no enum type, no generated check), so they will silently drift again unless both are touched together on purpose. Consider replacing both inline `CHECK` clauses with a single Postgres `domain` or enum type as a follow-up so this class of drift becomes impossible instead of just documented.
+
+### `profiles` had no row for most users (FIXED 2026-09-21)
+
+**The trap:** `public.profiles` rows were created lazily. A row only appeared when a user saved a name, avatar or theme, and `getUserProfile` (`src/lib/profile.ts`) quietly papers over the gap by returning `emptyProfile()` when the row is missing. Nothing errors, nothing logs, and the app behaves normally. So the table looks like one-row-per-user and is not.
+
+Measured on prod 2026-09-21 while shipping the What's New banner (LIC-191): **43 rows in `auth.users`, 14 in `public.profiles`, 29 users with no row at all.** The only trigger on `auth.users` was `on_new_user_notify_admin`, the admin courtesy email. Nothing ever created a profile.
+
+**Why it bit:** the What's New feature stored `whats_new_seen_at` on `profiles`. For the 29 users with no row, `emptyProfile` supplied `now()`, so they read as "already caught up" and would never have seen the announcement. 67% of the user base, silently excluded, with no error anywhere. Worse, `markWhatsNewSeen` ran `update ... where user_id = <uid>`: against a missing row that affects **zero rows and returns no error**, so those users would have seen the banner return on every page load with a dismiss button that did nothing.
+
+Neither `tsc` nor the unit tests could see any of this. It was caught by Sim noticing the migration reported 14 rows when he knew the product had 43 users.
+
+**Fixed by migration `20260921190000_profiles_row_per_user.sql`** (applied to prod as `profiles_row_per_user`): backfilled the 29 missing rows, then added trigger `on_auth_user_created_ensure_profile` (AFTER INSERT on `auth.users`, SECURITY DEFINER) so every future signup gets one. Verified after: 43 auth users, 43 profile rows, 0 missing.
+
+**Why that trigger is written the way it is:** a trigger on `auth.users` that raises will abort the INSERT, and GoTrue then returns 500 on `/signup` for both email sign-up and first-time Google sign-in. That is exactly the outage fixed in `20260804180000_fix_signup_500_and_user_delete.sql`. So `ensure_profile_for_new_user` does its insert with `on conflict (user_id) do nothing` inside an exception block that downgrades any failure to a `raise warning`. A missing profile row is recoverable later; a broken signup is not. **Any future trigger on `auth.users` must follow the same pattern.**
+
+**Rules going forward:**
+
+- **Never assume a `profiles` row exists.** The trigger fixes new signups from 2026-09-21 onward, but any code path that writes per-user state must use `upsert` on `user_id`, not `update`. `markWhatsNewSeen` (`src/lib/whats-new/actions.ts`) was changed to upsert for this reason and is the pattern to copy.
+- **A Supabase `update` that matches no rows is not an error.** `{ error }` comes back null and the write is silently lost. When "the row must exist" matters, either upsert or check the affected-row count. This is the single easiest way to ship a button that appears to work and does nothing.
+- **Fallback defaults encode an assumption, so pick them deliberately.** `emptyProfile` now uses a far-past sentinel (`WHATS_NEW_UNKNOWN`, 1970-01-01) for `whats_new_seen_at` rather than `now()`. A missing row means we know nothing about that user, and the honest reading of nothing is "has not seen it", not "already caught up". Any future per-user flag on `profiles` (streaks, email preferences, onboarding progress) faces the same choice: ask what the absent case should mean before copying `now()`.
+- **When a migration reports a row count, sanity-check it against the business.** The bug was invisible to every automated check and obvious the moment a real user count was held next to it.

@@ -59,7 +59,8 @@
 }
 
 .card {
-  --card-cream: #f6efdd;
+  /* Match the cream plate baked into /brand/mock-me/*.png */
+  --card-cream: #f3e8d6;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -79,7 +80,7 @@
   /* Shorter on mobile so Start mock stays in the first viewport */
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: color-mix(in srgb, var(--card-cream) 70%, white);
+  background: var(--card-cream);
 }
 
 .artImage {
