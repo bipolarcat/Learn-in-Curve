@@ -6,7 +6,6 @@ export type SoftNavFrom =
   | "home"
   | "courses"
   | "pricing"
-  | "pfq_pricing"
   | "library"
   | "pmq"
   | "pfq";
@@ -30,11 +29,6 @@ export const SOFT_NAV_BACK: Record<SoftNavFrom, SoftNavBackTarget> = {
   },
   pricing: {
     href: "/courses/pmq-in-5-days/pricing",
-    label: "Back to plans",
-    busyLabel: "Opening plans",
-  },
-  pfq_pricing: {
-    href: "/courses/pfq-in-2-days/pricing",
     label: "Back to plans",
     busyLabel: "Opening plans",
   },
@@ -82,7 +76,6 @@ export function parseSoftNavFrom(
     raw === "home" ||
     raw === "courses" ||
     raw === "pricing" ||
-    raw === "pfq_pricing" ||
     raw === "library" ||
     raw === "pmq" ||
     raw === "pfq"

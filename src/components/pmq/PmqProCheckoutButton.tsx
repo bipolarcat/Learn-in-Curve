@@ -87,7 +87,7 @@ export function PmqProCheckoutButton({
   const handleClick = () => {
     if (!isSignedIn) {
       router.push(
-        authHrefWithNext("/auth/sign-up", PMQ_PRICING_PRO_INTENT_HREF, "pricing"),
+        authHrefWithNext("/auth/sign-up", PMQ_PRICING_PRO_INTENT_HREF),
       );
       return;
     }

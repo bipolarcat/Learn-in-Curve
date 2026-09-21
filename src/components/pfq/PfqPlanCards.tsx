@@ -140,7 +140,7 @@ function StartFreeButton({
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const guestHref = withSoftNavFrom(PFQ_PREVIEW_HREF, "pfq_pricing");
+  const guestHref = withSoftNavFrom(PFQ_PREVIEW_HREF, "pricing");
 
   return (
     <button

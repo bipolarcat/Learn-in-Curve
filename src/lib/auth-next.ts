@@ -1,5 +1,3 @@
-import type { SoftNavFrom } from "@/lib/soft-nav-back";
-
 export const DEFAULT_AUTH_NEXT_PATH = "/dashboard";
 
 const AUTH_PATH_PREFIX = "/auth";
@@ -58,12 +56,10 @@ export function getSafeNextPath(
 export function authHrefWithNext(
   authPath: "/auth/sign-in" | "/auth/sign-up" | "/auth/callback",
   nextPath: string | string[] | null | undefined,
-  from?: SoftNavFrom,
 ): string {
   const params = new URLSearchParams({
     next: getSafeNextPath(nextPath),
   });
-  if (from) params.set("from", from);
   return `${authPath}?${params.toString()}`;
 }
 

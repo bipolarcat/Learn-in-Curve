@@ -63,7 +63,7 @@ export function PfqCheckoutButton({
   function startCheckout() {
     setError("");
     if (!isSignedIn) {
-      router.push(authHrefWithNext("/auth/sign-up", PFQ_PRICING_PRO_INTENT_HREF, "pfq_pricing"));
+      router.push(authHrefWithNext("/auth/sign-up", PFQ_PRICING_PRO_INTENT_HREF));
       return;
     }
     if (!PFQ_CHECKOUT_ENABLED) {
