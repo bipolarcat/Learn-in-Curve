@@ -62,7 +62,8 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             Ask, learn and get unstuck with your personal{" "}
             <span className="whitespace-nowrap">AI tutor.</span>
             <br />
-            Unlimited access to Sly is coming soon.
+            Sly is trained on the APM PMQ syllabus. Ask three questions free, no
+            sign-up required.
           </p>
         </ScrollReveal>
       </div>
