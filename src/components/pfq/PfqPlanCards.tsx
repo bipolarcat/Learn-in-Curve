@@ -12,6 +12,7 @@ import { PFQ_LEARN_HREF, PFQ_PREVIEW_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/co
 import { PFQ_AI_PRO_NOTIFY_KEY } from "@/lib/notify/lists";
 import {
   IconCore,
+  IconInsights,
   IconMisconceptions,
   IconMock,
   IconPractice,
@@ -38,6 +39,7 @@ const FEATURE_ICONS: Record<
   report: IconReport,
   sly: IconSly,
   structure: IconStructure,
+  insights: IconInsights,
 };
 
 function ArrowDownRight({ className }: { className?: string }) {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { Lightbulb } from "lucide-react";
 
 type IconProps = { className?: string };
 
@@ -145,6 +146,19 @@ export function IconMemory({ className }: IconProps) {
           strokeLinecap="round"
         />
       </svg>
+    </LoIconTile>
+  );
+}
+
+/** Insights — lightbulb (same metaphor as LO Insights chip / ExamTipCallout) */
+export function IconInsights({ className }: IconProps) {
+  return (
+    <LoIconTile className={className}>
+      <Lightbulb
+        className="h-[1.35rem] w-[1.35rem]"
+        strokeWidth={1.75}
+        aria-hidden
+      />
     </LoIconTile>
   );
 }

@@ -49,7 +49,15 @@ export type PfqPlanStatus = "free" | "buyable" | "waitlist";
 
 export type PfqPlanFeature = {
   /** Matches the icon keys in `PmqPreviewFeatureIcons`. */
-  icon: "core" | "practice" | "mock" | "misconceptions" | "report" | "sly" | "structure";
+  icon:
+    | "core"
+    | "practice"
+    | "mock"
+    | "misconceptions"
+    | "report"
+    | "sly"
+    | "structure"
+    | "insights";
   label: string;
   /** Quantity shown beside the label. Omit when the line is qualitative. */
   value?: string;
@@ -120,7 +128,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       },
       { icon: "mock", label: "timed mock exams", value: "3" },
       {
-        icon: "core",
+        icon: "insights",
         label:
           "Insights on every learning outcome, for deeper understanding of each topic",
       },
@@ -144,7 +152,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       },
       { icon: "mock", label: "timed mock exams", value: "3" },
       {
-        icon: "core",
+        icon: "insights",
         label:
           "Insights on every learning outcome, for deeper understanding of each topic",
       },
