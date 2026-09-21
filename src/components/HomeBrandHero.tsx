@@ -21,7 +21,7 @@ const HERO_MOCK_CTA =
   `${marketingActionSecondary} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
 
 /** Profile-selector animals for the hero trust row. */
-const HERO_TRUST_AVATARS = AVATARS.map((a) => a.src);
+const HERO_TRUST_AVATAR_IDS = AVATARS.map((a) => a.id);
 
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
@@ -143,7 +143,7 @@ export function HomeBrandHero() {
             <p className="font-body text-[12px] font-semibold tracking-tight text-ink/65 sm:text-[13px]">
               Trusted by 200+ learners
             </p>
-            <AvatarCircles avatarUrls={HERO_TRUST_AVATARS} />
+            <AvatarCircles avatarIds={HERO_TRUST_AVATAR_IDS} />
           </div>
         </div>
       </div>
