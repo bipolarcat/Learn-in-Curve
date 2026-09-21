@@ -73,7 +73,7 @@ export type PfqPlan = {
 export const PFQ_PLANS: PfqPlan[] = [
   {
     id: "starter",
-    name: "Free",
+    name: "Starter",
     status: "free",
     priceCents: null,
     priceNote: "no card needed",
