@@ -342,14 +342,63 @@ body[data-preview-signup-pin="1"] {
     overflow-x: auto;
     overscroll-behavior-inline: contain;
     -webkit-overflow-scrolling: touch;
+    /* Quieter than the site teal/orange scrollbar — tables only need a hint. */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ink-rgb) / 0.22) transparent;
   }
 
+  .markdown-wide-artifact::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+
+  .markdown-wide-artifact::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 0 4px;
+  }
+
+  .markdown-wide-artifact::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--ink-rgb) / 0.2);
+    border-radius: 999px;
+    border: none;
+    background-clip: border-box;
+    box-shadow: none;
+  }
+
+  .markdown-wide-artifact::-webkit-scrollbar-thumb:hover,
+  .markdown-wide-artifact::-webkit-scrollbar-thumb:active {
+    background-color: rgb(var(--ink-rgb) / 0.35);
+  }
+
+  .markdown-wide-artifact::-webkit-scrollbar-corner,
+  .markdown-wide-artifact::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .markdown-wide-artifact > .markdown-table-shell,
   .markdown-wide-artifact > table,
   .markdown-wide-artifact > pre {
     width: max-content;
     min-width: 100%;
     max-width: none;
     margin: 0;
+  }
+
+  .markdown-table-shell {
+    box-sizing: border-box;
+    border: 1px solid rgb(var(--ink-rgb) / 0.14);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgb(var(--paper-rgb));
+  }
+
+  .markdown-table-shell > table {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    border-collapse: collapse;
   }
 
   .pmq-markdown th,
@@ -401,10 +450,10 @@ body[data-preview-signup-pin="1"] {
     @apply my-3 max-w-full min-w-0;
   }
 
-  /* Outer frame — ensures a continuous thin outline even when cell borders collapse. */
+  /* Outer frame — thin grey outline; continuous even when cell borders collapse. */
   .pmq-markdown--learn-core .markdown-table-shell,
   .pmq-markdown--library-core .markdown-table-shell {
-    @apply overflow-x-auto rounded-lg border border-ink/15;
+    @apply overflow-hidden rounded-lg border border-ink/15 bg-paper;
   }
 
   .pmq-markdown--learn-core .markdown-table-shell > table,
@@ -417,7 +466,7 @@ body[data-preview-signup-pin="1"] {
   .pmq-markdown--learn-core td,
   .pmq-markdown--library-core th,
   .pmq-markdown--library-core td {
-    @apply border-0 border-b border-r border-ink/15 px-3 py-2 align-top break-words;
+    @apply border-0 border-b border-r border-ink/10 px-3 py-2 align-top break-words;
   }
 
   .pmq-markdown--learn-core th:last-child,

@@ -319,8 +319,10 @@ export function CoreContentBlock({
               );
             }
             return (
-              <div className="markdown-wide-artifact markdown-table-shell my-3 max-w-full min-w-0">
-                <table>{children}</table>
+              <div className="markdown-wide-artifact my-3 max-w-full min-w-0">
+                <div className="markdown-table-shell">
+                  <table>{children}</table>
+                </div>
               </div>
             );
           },

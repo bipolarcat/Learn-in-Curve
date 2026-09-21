@@ -441,8 +441,10 @@ export function StudyTable({
 
   if (!parsed) {
     return (
-      <div className="markdown-wide-artifact markdown-table-shell my-3 min-w-0 max-w-full">
-        <table>{children}</table>
+      <div className="markdown-wide-artifact my-3 min-w-0 max-w-full">
+        <div className="markdown-table-shell">
+          <table>{children}</table>
+        </div>
       </div>
     );
   }

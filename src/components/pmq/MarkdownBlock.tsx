@@ -25,7 +25,9 @@ function WideArtifact({
 const wideArtifactComponents: Components = {
   table: ({ children, node: _node, ...props }) => (
     <WideArtifact label="Scrollable table">
-      <table {...props}>{children}</table>
+      <div className="markdown-table-shell">
+        <table {...props}>{children}</table>
+      </div>
     </WideArtifact>
   ),
   pre: ({ children, node: _node, ...props }) => (
