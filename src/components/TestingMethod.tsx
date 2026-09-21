@@ -69,8 +69,11 @@ export function TestingMethod() {
             re-read or re-watch it
           </h2>
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
-            Built for busy PMs with an exam date on the calendar — practise
-            retrieval so what you study sticks on the day.
+            Psychologists call it “The Testing Effect”. Every time you
+            retrieve an answer from memory, you strengthen it. That’s why
+            answering questions can be more effective than re-reading notes or
+            re-watching videos. Because it reveals the difference between what
+            you actually know and what simply feels familiar.
           </p>
         </ScrollReveal>
 
