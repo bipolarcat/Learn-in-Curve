@@ -15,8 +15,8 @@ type MockMeExamCardProps = {
 };
 
 /**
- * Mock Me picker card. The Start mock control uses the 21st motion-button
- * expand — triggered on pointer down (click), never on hover.
+ * Mock Me picker card. Only the Start mock control navigates —
+ * the card surface itself is not a link.
  */
 export function MockMeExamCard({
   href,
@@ -28,11 +28,7 @@ export function MockMeExamCard({
   const [pressed, setPressed] = useState(false);
 
   return (
-    <Link
-      href={href}
-      className={styles.card}
-      onPointerDown={() => setPressed(true)}
-    >
+    <article className={styles.card}>
       <div className={styles.art}>
         <Image
           src={art.src}
@@ -53,12 +49,15 @@ export function MockMeExamCard({
           <h2 className={styles.mark}>{mark}</h2>
           <p className={styles.count}>{questionCount} questions</p>
         </div>
-        <MotionButton
-          label="Start mock"
-          pressed={pressed}
-          className={styles.ctaMotion}
-        />
+        <Link
+          href={href}
+          className={styles.ctaLink}
+          onPointerDown={() => setPressed(true)}
+          aria-label={`Start ${mark} mock`}
+        >
+          <MotionButton label="Start mock" pressed={pressed} />
+        </Link>
       </div>
-    </Link>
+    </article>
   );
 }
