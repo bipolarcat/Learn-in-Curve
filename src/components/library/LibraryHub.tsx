@@ -176,13 +176,6 @@ export function LibraryHub({
                   </div>
                 </div>
 
-                <p className={styles.resultCount} aria-live="polite">
-                  {filtered.length === 0
-                    ? "No guides match"
-                    : `${filtered.length} guide${filtered.length === 1 ? "" : "s"}`}
-                  {query.trim() ? ` for “${query.trim()}”` : null}
-                </p>
-
                 {filtered.length === 0 ? (
                   <div className={styles.noMatch}>
                     <p className={styles.noMatchTitle}>Nothing on this shelf</p>
