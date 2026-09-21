@@ -387,7 +387,7 @@ export function SiteHeaderMenu({
                           aria-current={onDashboard ? "page" : undefined}
                           className={cn(
                             menuItemClass,
-                            onDashboard && "bg-ink/[0.06] text-orange",
+                            onDashboard && "text-orange",
                           )}
                           onClick={() => closeMenu(false)}
                         >
@@ -459,7 +459,7 @@ export function SiteHeaderMenu({
                           aria-current={current ? "page" : undefined}
                           className={cn(
                             menuItemClass,
-                            current && "bg-ink/[0.06] text-orange",
+                            current && "text-orange",
                           )}
                           onClick={() => {
                             if (item.badge) {
