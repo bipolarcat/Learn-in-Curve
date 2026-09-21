@@ -109,6 +109,10 @@ decision below are independent of the payment question.
       the 94% figure remains in the live product. Linear LIC-47 closed.
       **2026-09-19 note:** `/lab` spike shows “Trusted by 100+ learners” only
       (no pass-rate). Keep substantiated before promoting that chip to live `/`.
+      **2026-09-21 note:** live `/` hero now shows “Trusted by 200+ people”
+      with avatar circles (`HomeBrandHero`). Same rule — substantiate (unique
+      learners / accounts / waitlist) before treating as launch-ready claim;
+      informal guidance only, not solicitor advice.
 - [x] **Numeric quiz-bank claim verified — 2026-07-27.** The free-tier Practise
       CTA says "Unlock 1000+ questions" (`PracticeQuizSection.tsx`, 2026-07-16).
       The missing 1,169 questions were migrated on 2026-07-27; the live table now

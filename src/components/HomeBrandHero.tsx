@@ -5,6 +5,7 @@ import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { stampCtaTealFlat } from "@/components/stamp-chip";
+import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
 import { trackCtaClicked } from "@/lib/analytics/events";
@@ -17,6 +18,14 @@ const HERO_COURSE_CTA =
 /** Secondary mock CTA — outline/ghost weight so primary reads as the main action. */
 const HERO_MOCK_CTA =
   `${marketingActionSecondary} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
+
+/** Stock faces for the hero trust row (Unsplash). */
+const HERO_TRUST_AVATARS = [
+  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=64&h=64&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64&q=80",
+  "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=64&h=64&q=80",
+  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=64&h=64&q=80",
+];
 
 const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
 const SUBCOPY =
@@ -132,6 +141,12 @@ export function HomeBrandHero() {
             label="Take free mock exams"
             location="hero"
           />
+        </div>
+        <div className="mt-3.5 flex items-center justify-center gap-2.5 sm:mt-4 sm:gap-3">
+          <AvatarCircles avatarUrls={HERO_TRUST_AVATARS} />
+          <p className="font-body text-[12px] font-semibold tracking-tight text-ink/65 sm:text-[13px]">
+            Trusted by 200+ people
+          </p>
         </div>
       </div>
     </section>
