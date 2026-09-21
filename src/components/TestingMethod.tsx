@@ -78,10 +78,9 @@ export function TestingMethod() {
           </p>
           <p className="mx-auto mt-2.5 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:mt-3 sm:text-[16px]">
             Every time you retrieve an answer from memory, you strengthen it.
-            That’s why answering questions can be more effective than
-            re-reading notes or re-watching videos. Because it reveals the
-            difference between what you actually know and what simply feels
-            familiar.
+            That is why answering questions beats re-reading notes or
+            re-watching videos: it reveals the difference between what you
+            actually know and what simply feels familiar.
           </p>
         </ScrollReveal>
 
