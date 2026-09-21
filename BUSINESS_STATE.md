@@ -22,6 +22,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-21** — Home Testing Method copy block widened on desktop (52/58rem shell; 42/48rem ledes) so H2 + body don’t stack so tightly (`TestingMethod`).
 - **2026-09-21** — Home Testing Method “Psychologists call it…” type matched to hero subcopy (`clamp(13.5px,4.2vw,16px)` / `sm:text-[18px]`) (`TestingMethod`).
 - **2026-09-21** — Home Testing Method H2 type scale matched to hero headline (`clamp(2.05rem,5.2vw,3.65rem)` semibold) (`TestingMethod`).
+- **2026-09-21** — Home Testing Method card 03 body → retrieve-on-learn loop copy (`TestingMethod`).
 - **2026-09-21** — Home Testing Method card 03 → “Recall Activities” / Pair Up · Line Up · Group Up (`TestingMethod`).
 - **2026-09-21** — Home Testing Method card 02 → “Mock Exams” / put knowledge to the test (`TestingMethod`).
 - **2026-09-21** — Home Testing Method step indexes: Space Mono (`font-stamp`) → Figtree (`font-body` + tabular-nums) to match marketing UI (`TestingMethod`).

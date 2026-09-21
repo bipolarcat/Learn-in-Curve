@@ -34,7 +34,7 @@ const STEPS = [
     step: "03",
     title: "Recall Activities",
     lead: "Pair Up. Line Up. Group Up.",
-    body: "Recall activities are built throughout the course, so you retrieve what you’ve just learned instead of simply reading it. Get one wrong? Try again. Keep practising until you get it right and the answer comes back without hesitation.",
+    body: "Recall activities sit throughout the course material, so the moment you learn something you turn around and retrieve it. Get one wrong and you try again, and again, until it is right. That is the loop that moves knowledge into memory.",
     src: "/brand/features/memory.webp",
     alt: "Illustrated recall activities — Pair Up, Line Up, Group Up practice.",
     // Full 5:4 art — contain so ears + board aren’t cropped on the 4:3 mobile plate.
