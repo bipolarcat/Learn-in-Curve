@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { cn } from "@/lib/utils";
 
 /**
  * Hand-drawn underline paths from 21st.dev / Osmo “Draw Random Underline”.
  * DrawSVGPlugin is Club GSAP (paid) — draw uses stroke-dashoffset instead.
+ * Draws once on load (after layout); no hover re-draw.
  */
 const pathDataVariants = [
   {
@@ -35,16 +36,14 @@ const pathDataVariants = [
   },
 ] as const;
 
-type PathData = {
-  d: string;
-  viewBox: string;
-};
+/** Stable path for the phrase — not randomised on interaction. */
+const UNDERLINE_PATH = pathDataVariants[0];
 
 type DrawRandomUnderlineProps = {
   text: string;
   className?: string;
   textClassName?: string;
-  /** Stroke colour — brand orange. */
+  /** Stroke colour — defaults to ink black. */
   stroke?: string;
 };
 
@@ -53,97 +52,98 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function prepUndrawn(path: SVGPathElement) {
-  const length = path.getTotalLength();
-  gsap.killTweensOf(path);
-  gsap.set(path, {
-    strokeDasharray: length,
-    strokeDashoffset: prefersReducedMotion() ? 0 : length,
-    opacity: 1,
-  });
-  return length;
-}
-
-function drawIn(path: SVGPathElement, duration = 0.55) {
-  prepUndrawn(path);
-  return gsap.to(path, {
-    strokeDashoffset: 0,
-    duration: prefersReducedMotion() ? 0 : duration,
-    ease: "power2.inOut",
-  });
-}
-
 /**
- * Inline phrase with a random hand-drawn underline (Osmo / 21st.dev).
- * Draws on scroll into view; hover cycles a new path variant.
+ * Inline phrase with a hand-drawn underline (Osmo / 21st.dev).
+ * Draws once after layout on first paint / first view — no hover cycling.
  */
 export function DrawRandomUnderline({
   text,
   className,
   textClassName,
-  stroke = "#d5501f",
+  stroke = "#0a0806",
 }: DrawRandomUnderlineProps) {
   const rootRef = useRef<HTMLSpanElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const variantIndexRef = useRef(
-    Math.floor(Math.random() * pathDataVariants.length),
-  );
+  const drawnRef = useRef(false);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
-  const inViewRef = useRef(false);
-  const [currentSvg, setCurrentSvg] = useState<PathData>(
-    () => pathDataVariants[variantIndexRef.current],
-  );
 
-  const nextVariant = useCallback((): PathData => {
-    variantIndexRef.current =
-      (variantIndexRef.current + 1) % pathDataVariants.length;
-    return pathDataVariants[variantIndexRef.current];
-  }, []);
-
-  // Prep path undrawn whenever the SVG variant swaps; redraw if already in view
   useEffect(() => {
     const path = pathRef.current;
-    if (!path) return;
-    prepUndrawn(path);
-    if (inViewRef.current) {
-      tweenRef.current = drawIn(path);
-    }
-    return () => {
-      tweenRef.current?.kill();
+    const root = rootRef.current;
+    if (!path || !root) return;
+
+    let cancelled = false;
+    let attempts = 0;
+
+    const runDraw = () => {
+      if (cancelled || drawnRef.current) return;
+      const length = path.getTotalLength();
+      // Mobile Safari can report 0 before the SVG has laid out — retry briefly.
+      if (!length || length < 1) {
+        if (attempts++ < 12) {
+          requestAnimationFrame(runDraw);
+        }
+        return;
+      }
+
+      drawnRef.current = true;
+      gsap.killTweensOf(path);
+
+      if (prefersReducedMotion()) {
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: 0,
+          opacity: 1,
+        });
+        return;
+      }
+
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length,
+        opacity: 1,
+      });
+      tweenRef.current = gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 0.7,
+        ease: "power2.inOut",
+        delay: 0.15,
+      });
     };
-  }, [currentSvg]);
 
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
+    // Start undrawn so we don't flash a full stroke before the tween.
+    gsap.set(path, { opacity: 0 });
 
+    const start = () => {
+      // Double rAF so width/height are real on mobile after font/layout.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(runDraw);
+      });
+    };
+
+    // Draw when visible (covers below-fold on mobile); also try immediately
+    // so above-fold / already-visible cases don't wait forever.
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          inViewRef.current = true;
-          const path = pathRef.current;
-          if (!path) return;
-          tweenRef.current?.kill();
-          tweenRef.current = drawIn(path);
-        });
+        if (entries.some((e) => e.isIntersecting)) {
+          start();
+          observer.disconnect();
+        }
       },
-      { threshold: 0.55 },
+      { threshold: 0.01, rootMargin: "40px 0px" },
     );
+    observer.observe(root);
 
-    observer.observe(el);
+    // Fallback if IO never fires (some WebViews) — still draw once after layout.
+    const fallback = window.setTimeout(start, 400);
+
     return () => {
+      cancelled = true;
       observer.disconnect();
+      window.clearTimeout(fallback);
       tweenRef.current?.kill();
     };
   }, []);
-
-  const handleMouseEnter = () => {
-    if (tweenRef.current?.isActive()) return;
-    if (prefersReducedMotion()) return;
-    if (!inViewRef.current) return;
-    setCurrentSvg(nextVariant());
-  };
 
   return (
     <span
@@ -152,33 +152,28 @@ export function DrawRandomUnderline({
         "relative inline-flex flex-col items-center align-baseline",
         className,
       )}
-      onMouseEnter={handleMouseEnter}
     >
       <span
-        className={cn(
-          "relative z-[1] font-bold text-orange",
-          textClassName,
-        )}
+        className={cn("relative z-[1] font-bold text-orange", textClassName)}
       >
         {text}
       </span>
-      {/* Gap between text and stroke */}
       <span
-        className="pointer-events-none relative mt-1.5 block h-[0.55em] w-[108%] min-w-full self-center"
+        className="pointer-events-none relative mt-0.5 block h-[0.32em] w-[104%] min-w-full self-center"
         aria-hidden
       >
         <svg
           className="absolute inset-0 h-full w-full overflow-visible"
           preserveAspectRatio="none"
-          viewBox={currentSvg.viewBox}
+          viewBox={UNDERLINE_PATH.viewBox}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             ref={pathRef}
-            d={currentSvg.d}
+            d={UNDERLINE_PATH.d}
             stroke={stroke}
-            strokeWidth={9}
+            strokeWidth={8}
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"

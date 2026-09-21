@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Draw Random Underline: once-on-load (no hover cycle), black stroke, tighter gap, mobile layout retry for getTotalLength (`draw-random-underline`).
 - **2026-09-21** — Home Testing Method underline → Osmo/21st.dev Draw Random Underline (`draw-random-underline` via GSAP stroke-dashoffset; DrawSVGPlugin is paid Club GSAP so not used); gap under text; drop `animated-underline-text-one` (`TestingMethod`).
 - **2026-09-21** — Home Testing Method: swap handwritten underline for 21st.dev AnimatedText (`animated-underline-text-one`); gap under “The Testing Effect”; remove `handwritten-underline` (`TestingMethod`).
 - **2026-09-21** — Home Testing Method: handwritten SVG underline draws on “The Testing Effect” when in view (21st.dev Draw Random Underline–inspired; framer-motion pathLength) (`handwritten-underline`, `TestingMethod`).
