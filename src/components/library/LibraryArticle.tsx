@@ -3,6 +3,7 @@ import { LibraryAuthorByline } from "@/components/library/LibraryAuthorByline";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
+import { SoftNavBackLink } from "@/components/SoftNavBackLink";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import {
@@ -102,34 +103,13 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
       ))}
 
       <div className="wrap">
-        <nav
-          aria-label="Breadcrumb"
-          className="mx-auto mb-6 max-w-[46rem] font-body text-[13px] text-ink/55"
-        >
-          <ol className="flex flex-wrap items-center gap-1.5">
-            <li>
-              <LibrarySoftNavLink
-                href="/"
-                busyLabel="Opening home"
-                className="hover:text-orange"
-              >
-                Home
-              </LibrarySoftNavLink>
-            </li>
-            <li aria-hidden>/</li>
-            <li>
-              <LibrarySoftNavLink
-                href="/library"
-                busyLabel="Opening library"
-                className="hover:text-orange"
-              >
-                Library
-              </LibrarySoftNavLink>
-            </li>
-            <li aria-hidden>/</li>
-            <li className="text-ink/80">{page.title}</li>
-          </ol>
-        </nav>
+        <div className="mx-auto mb-6 max-w-[46rem]">
+          <SoftNavBackLink
+            href="/library"
+            label="Back to the shelf"
+            busyLabel="Opening the shelf"
+          />
+        </div>
 
         {/* Reading card — title, answer-first, body */}
         <div
