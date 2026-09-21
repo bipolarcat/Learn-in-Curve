@@ -158,7 +158,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                       ? "Create a free account to keep learning in the meantime."
                       : locked
                         ? "Sign up to keep chatting with your own free messages."
-                        : "Type your question or choose a prompt to start learning with Sly."}
+                        : "Type your question or choose a prompt"}
                 </p>
               </div>
               {!isSignedIn && !composerLocked ? (
