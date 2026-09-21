@@ -22,6 +22,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-21** — Home Testing Method copy block widened on desktop (52/58rem shell; 42/48rem ledes) so H2 + body don’t stack so tightly (`TestingMethod`).
 - **2026-09-21** — Home Testing Method “Psychologists call it…” type matched to hero subcopy (`clamp(13.5px,4.2vw,16px)` / `sm:text-[18px]`) (`TestingMethod`).
 - **2026-09-21** — Home Testing Method H2 type scale matched to hero headline (`clamp(2.05rem,5.2vw,3.65rem)` semibold) (`TestingMethod`).
+- **2026-09-21** — Draw Random Underline fix: `w-fit` (SVG was expanding to paragraph width) + milder viewBox crop + thinner stroke (over-crop made a fat full-bleed brush) (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline gap: crop SVG viewBox to the stroke band (empty mid-viewBox space was the real gap); thinner stroke (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline: tighter gap via `leading-none` on phrase + `mt-px` (was mostly line-box air, not margin) (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline gap tightened further: `mt-[2px]` / `sm:mt-px` (`draw-random-underline`).

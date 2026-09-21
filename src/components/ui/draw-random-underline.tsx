@@ -8,16 +8,17 @@ import { cn } from "@/lib/utils";
  * Hand-drawn underline path from 21st.dev / Osmo “Draw Random Underline”.
  * DrawSVGPlugin is Club GSAP (paid) — draw uses stroke-dashoffset instead.
  *
- * - Full-width path under a nowrap phrase (fixes mobile cutting off “Effect”)
- * - Underline sits in padding inside the box (avoids overflow-x-clip ancestors)
- * - Draws once only after the user scrolls AND the phrase is in view
+ * Layout notes (mobile regressions we hit):
+ * - Wrapper must be `w-fit` so SVG `w-full` resolves to the phrase width,
+ *   not the paragraph (otherwise the stroke spans the whole column).
+ * - Don’t crop the viewBox too hard: a tiny viewBox + preserveAspectRatio
+ *   "none" + strokeWidth makes the line look like a fat brush.
+ * - Draws once only after the user scrolls AND the phrase is in view.
  */
 const UNDERLINE_PATH = {
-  // Hand-bent stroke (Osmo variant 0). viewBox cropped to the stroke’s
-  // vertical band — the old "0 0 310 40" left empty canvas above the path,
-  // which read as a large gap under the text even with mt-px.
   d: "M5 20.9999C26.7762 16.2245 49.5532 11.5572 71.7979 14.6666C84.9553 16.5057 97.0392 21.8432 109.987 24.3888C116.413 25.6523 123.012 25.5143 129.042 22.6388C135.981 19.3303 142.586 15.1422 150.092 13.3333C156.799 11.7168 161.702 14.6225 167.887 16.8333C181.562 21.7212 194.975 22.6234 209.252 21.3888C224.678 20.0548 239.912 17.991 255.42 18.3055C272.027 18.6422 288.409 18.867 305 17.9999",
-  viewBox: "0 10 310 18",
+  // Mild vertical crop (not 18-tall) — keeps stroke proportion sane
+  viewBox: "0 8 310 24",
   length: 305.77,
 } as const;
 
@@ -112,10 +113,8 @@ export function DrawRandomUnderline({
       tryDrawIfReady();
     };
 
-    // Gate: ignore “already in view on load” — only after a real scroll/touch move.
     window.addEventListener("scroll", onScrollOrTouch, { passive: true });
     window.addEventListener("touchmove", onScrollOrTouch, { passive: true });
-    // wheel covers trackpad without changing scroll position much on some pages
     window.addEventListener("wheel", onScrollOrTouch, { passive: true });
 
     const observer = new IntersectionObserver(
@@ -143,10 +142,8 @@ export function DrawRandomUnderline({
     <span
       ref={rootRef}
       className={cn(
-        // Flow layout (not absolute bottom): gap = margin-top under the glyphs.
-        // Absolute + path in the top of the viewBox was painting through “g”
-        // no matter how large pb was. nowrap keeps full phrase width on mobile.
-        "inline-flex flex-col items-stretch whitespace-nowrap align-baseline",
+        // w-fit: SVG percentage width must resolve to the phrase, not the <p>
+        "inline-flex w-fit max-w-full flex-col items-stretch whitespace-nowrap align-baseline",
         className,
       )}
     >
@@ -154,7 +151,7 @@ export function DrawRandomUnderline({
         {text}
       </span>
       <svg
-        className="pointer-events-none mt-px h-[7px] w-full overflow-visible sm:h-2"
+        className="pointer-events-none mt-[2px] block h-2.5 w-full overflow-visible"
         viewBox={UNDERLINE_PATH.viewBox}
         preserveAspectRatio="none"
         fill="none"
@@ -165,7 +162,7 @@ export function DrawRandomUnderline({
           ref={pathRef}
           d={UNDERLINE_PATH.d}
           stroke={stroke}
-          strokeWidth={6}
+          strokeWidth={4.5}
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
