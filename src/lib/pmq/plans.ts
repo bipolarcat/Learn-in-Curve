@@ -55,7 +55,8 @@ export type PmqPlanFeature = {
     | "sly"
     | "video"
     | "audio"
-    | "report";
+    | "report"
+    | "structure";
   label: string;
   /**
    * Quantity shown next to the label.
@@ -128,6 +129,11 @@ export const PMQ_PLANS: PmqPlan[] = [
       },
       { icon: "practice", label: "Practice questions", value: "240" },
       { icon: "mock", label: "Mock exam", value: "1" },
+      {
+        icon: "structure",
+        label:
+          "Exam structure and mark weighting, so you revise what actually matters",
+      },
     ],
   },
   {

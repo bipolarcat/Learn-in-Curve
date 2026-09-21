@@ -18,6 +18,7 @@ import {
   IconPractice,
   IconReport,
   IconSly,
+  IconStructure,
   IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
@@ -41,6 +42,7 @@ const FEATURE_ICONS: Record<
   video: IconVideo,
   audio: IconAudio,
   report: IconReport,
+  structure: IconStructure,
 };
 
 const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;
