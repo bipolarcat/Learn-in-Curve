@@ -19,6 +19,7 @@ import {
   type LightbulbIconHandle,
 } from "@animateicons/react/lucide/lightbulb-icon";
 import type { ExamTip } from "@/types/pmq";
+import { ProBadge } from "@/components/pmq/tier-badge";
 import { cn } from "@/lib/utils";
 
 /** Motion Primitives / 21st.dev Disclosure ease. */
@@ -161,6 +162,32 @@ export function InsightsExpand({
 }
 
 /**
+ * Starter LO2–24: same Insights chrome as Pro, but static + de-emphasised,
+ * with the locked Pro badge. Tip text was already stripped server-side.
+ */
+export function InsightsLockedChip({ className }: { className?: string }) {
+  return (
+    <p
+      className={cn(
+        "not-prose m-0 inline-flex items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45",
+        className,
+      )}
+      aria-label="Insights locked — Pro"
+    >
+      <LightbulbIcon
+        size={14}
+        duration={0.85}
+        isAnimated={false}
+        className="-mr-px shrink-0 text-current"
+        aria-hidden
+      />
+      <span>Insights</span>
+      <ProBadge locked />
+    </p>
+  );
+}
+
+/**
  * Insights — inline footnote chip (all PMQ Learn LOs).
  * Underline is a separate motion element (21st.dev underline-animation pattern),
  * not CSS text-decoration. On open it layout-morphs into the vertical tip rail
@@ -177,8 +204,21 @@ export function InsightsDisclosure({ tip }: { tip: ExamTip }) {
   );
 }
 
-export function InsightsDisclosureList({ tips }: { tips: ExamTip[] }) {
+export function InsightsDisclosureList({
+  tips,
+  locked = false,
+}: {
+  tips: ExamTip[];
+  locked?: boolean;
+}) {
   if (tips.length === 0) return null;
+  if (locked) {
+    return (
+      <div className="not-prose -mt-1.5 flex min-w-0 flex-col gap-0">
+        <InsightsLockedChip className="mt-0.5 mb-2" />
+      </div>
+    );
+  }
   return (
     // Pull toward the paragraph/table above (markdown still keeps its own mb).
     <div className="not-prose -mt-1.5 flex min-w-0 flex-col gap-0">

@@ -17,6 +17,7 @@ import {
   getPmqTier,
 } from "@/lib/pmq/queries";
 import { canAccessMedia, canAccessSly } from "@/lib/pmq/tiers";
+import { redactPmqInsights } from "@/lib/pmq/redact-insights";
 import { LoStudyJourney } from "@/components/pmq/LoStudyJourney";
 import { LoAnalytics } from "@/components/pmq/LoAnalytics";
 import type { LoStageId } from "@/lib/pmq/lo-stages";
@@ -147,6 +148,9 @@ export default async function PmqLoPage({ params }: LoPageProps) {
   const isFirstLoVisit = (completion?.percentExact ?? 0) === 0;
   const courseJustCompleted = (completion?.completedCount ?? 0) >= 24;
 
+  // Strip Pro Insights tip text before it reaches the client RSC payload.
+  const { body: viewBody } = redactPmqInsights(body, userTier, loNumber);
+
   return (
     <>
       <DemoBanner isSignedIn={!!user} />
@@ -165,7 +169,7 @@ export default async function PmqLoPage({ params }: LoPageProps) {
         sectionId={section.id}
         courseId={course.id}
         dayNumber={section.day}
-        body={body}
+        body={viewBody}
         set1Questions={questions}
         totalSets={practiceSetCount}
         priorAttempts={priorAttempts}

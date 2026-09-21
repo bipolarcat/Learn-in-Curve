@@ -146,6 +146,8 @@ type CoreContentBlockProps = {
    * `canAccessRecallActivities(userTier)` is true — Starter must see nothing.
    */
   activities?: boolean;
+  /** Starter LO2–24: tip text redacted; show locked Insights chip. */
+  insightsLocked?: boolean;
 };
 
 /**
@@ -194,6 +196,7 @@ export function CoreContentBlock({
   block,
   studyTables = false,
   activities: activitiesEnabled = false,
+  insightsLocked = false,
 }: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
   const examTips = block.exam_tips ?? [];
@@ -205,7 +208,12 @@ export function CoreContentBlock({
   const toolbarOnHeading = studyTables || activitiesEnabled;
   /** Insights disclosure instead of exam-tip cards. */
   const insightsDisclosure = true;
-  const TipList = insightsDisclosure ? InsightsDisclosureList : ExamTipList;
+  const TipList = ({ tips }: { tips: typeof examTips }) =>
+    insightsDisclosure ? (
+      <InsightsDisclosureList tips={tips} locked={insightsLocked} />
+    ) : (
+      <ExamTipList tips={tips} />
+    );
   const sectionH2Class = insightsDisclosure
     ? "font-body text-[15px] font-semibold tracking-tight text-ink"
     : "font-body text-base font-semibold tracking-tight text-ink";

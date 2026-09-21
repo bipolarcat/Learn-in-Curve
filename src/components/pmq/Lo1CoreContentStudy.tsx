@@ -391,7 +391,7 @@ export function Lo1CoreContentStudy({
   onFocusOutcomeConsumed?: () => void;
   /** PFQ: key takeaway + collapsed Understand it. */
   bodyVariant?: "default" | "pfq-takeaway";
-  /** PFQ Starter: Insights expand shows Pro upsell; body already redacted. */
+  /** PFQ / PMQ Starter: Insights chip is static + Pro lock; tip/body already redacted. */
   insightsLocked?: boolean;
   isSignedIn?: boolean;
   objectiveNumber?: number;
@@ -611,6 +611,7 @@ export function Lo1CoreContentStudy({
   const contentProps = {
     studyTables,
     activities,
+    insightsLocked,
   };
 
   const renderBody = (block: CoreContentBlockType) =>

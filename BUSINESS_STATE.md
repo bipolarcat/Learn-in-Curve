@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — PMQ Starter Insights lock for LO2–24 (same pattern as PFQ): server-side tip redact (`redactPmqInsights`), de-emphasised Insights chip + locked Pro badge (`InsightsLockedChip`, `canAccessPmqInsights`).
 - **2026-09-21** — PFQ locked Insights chip: drop “Bundle”; padlock sits inside the Pro badge (`PfqTakeawayBody`, `ProBadge`).
 - **2026-09-21** — Shelf article tables: thin grey shell outline + quieter grey scrollbar on horizontal scroll (`MarkdownBlock`, `globals.css`).
 - **2026-09-21** — Shelf article byline: LIC fox logo to the right of “Learn in Curve” (`LibraryAuthorByline`).

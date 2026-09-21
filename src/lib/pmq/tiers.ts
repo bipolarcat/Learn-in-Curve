@@ -8,12 +8,16 @@
  * it does not re-derive tier from a row lookup of its own.
  *
  * ─────────────────────────────────────────────────────────────────────────────
- * The ladder (decided 2026-07-30)
+ * The ladder (decided 2026-07-30; insights lock clarified 2026-09-21)
  *
- *              quiz sets      mock exams   video/audio   Sly   report
- *   starter    1              1            no            no    no
- *   pro        1-5            1-3          yes           no    no
- *   ai_pro     1-8            1-4          yes           yes   yes
+ *              quiz sets      mock exams   video/audio   insights   Sly   report
+ *   starter    1              1            no            LO1 only   no    no
+ *   pro        1-5            1-3          yes           LO1–24     no    no
+ *   ai_pro     1-8            1-4          yes           LO1–24     yes   yes
+ *
+ * "Insights" is the learner-facing name for the exam-tip chips under Learn
+ * (`exam_tips` on each core_content block). LO1 stays free so Starter can see
+ * what Pro unlocks; LO2–24 strip tip text server-side (same pattern as PFQ).
  *
  * Starter is the ABSENCE of an entitlement row, never a stored value. A failed
  * write can therefore never leave someone half-provisioned — worst case they
@@ -31,6 +35,9 @@
 
 /** Highest quiz set number any LO is expected to have. Sets are per-LO; some stop earlier. */
 export const PMQ_MAX_QUIZ_SET = 8;
+
+/** Insights (exam tips) are free on this LO only — same idea as PFQ objective 1. */
+export const PMQ_FREE_INSIGHTS_LO = 1;
 
 export type PmqTier = "starter" | "pro" | "ai_pro";
 
@@ -124,6 +131,16 @@ export function mockExamCountForTier(tier: PmqTier): number {
 }
 
 /* ─────────────────────────── Feature flags ─────────────────────────── */
+
+/**
+ * Learn Insights chips (`exam_tips`). LO1 is free for every tier; LO2–24 need
+ * Pro. Pass the LO number (1–24), not an outcome index.
+ */
+export function canAccessPmqInsights(tier: PmqTier, loNumber: number): boolean {
+  if (!Number.isInteger(loNumber) || loNumber < 1 || loNumber > 24) return false;
+  if (loNumber === PMQ_FREE_INSIGHTS_LO) return true;
+  return tierAtLeast(tier, "pro");
+}
 
 /** Video + audio overviews: Pro and above. */
 export function canAccessMedia(tier: PmqTier): boolean {

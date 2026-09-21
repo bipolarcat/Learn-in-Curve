@@ -16,6 +16,7 @@ import { OutcomeCodeBadge } from "@/components/pmq/OutcomeCodeBadge";
 import { productSurfaceOpaque } from "@/components/ui/semantic";
 import motion from "@/components/pmq/PmqMotion.module.css";
 import {
+  canAccessPmqInsights,
   canAccessRecallActivities,
   type PmqTier,
 } from "@/lib/pmq/tiers";
@@ -93,6 +94,7 @@ export function LoLearnStage({
   const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
   const activities =
     studyTables && canAccessRecallActivities(userTier);
+  const insightsLocked = !canAccessPmqInsights(userTier, loNumber);
   const useNotebook = NOTEBOOK_LEARN_LOS.has(loNumber);
   /** Ink-stamp outcome marks — all LOs (rolled out from LO2 trial). */
   const badgeVariant = "stamp" as const;
@@ -124,6 +126,7 @@ export function LoLearnStage({
             blocks={coreContent}
             studyTables={studyTables}
             activities={activities}
+            insightsLocked={insightsLocked}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}
             badgeVariant={badgeVariant}
             focusOutcomeCode={focusOutcomeCode}
@@ -193,6 +196,7 @@ export function LoLearnStage({
                       block={block}
                       studyTables={studyTables}
                       activities={activities}
+                      insightsLocked={insightsLocked}
                     />
                   </div>
                 </article>
