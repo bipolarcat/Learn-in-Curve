@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition, type ComponentType } from "react";
+import { useState, useTransition, type ComponentType, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { formatGbp } from "@/lib/pmq/constants";
 import {
@@ -169,7 +169,7 @@ type PmqPlanCardsProps = {
   /** When false, omit card CTAs (e.g. preview page with signup beside). */
   showCtas?: boolean;
   /** Optional kicker on every card. Omit to hide. */
-  courseLabel?: string;
+  courseLabel?: ReactNode;
 };
 
 /**

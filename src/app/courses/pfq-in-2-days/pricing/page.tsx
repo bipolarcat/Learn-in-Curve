@@ -63,10 +63,6 @@ export default async function PfqPricingPage({ searchParams }: Props) {
           </h1>
         </header>
 
-        <h2 className="mb-5 font-display text-[clamp(1.2rem,2.6vw,1.45rem)] font-bold leading-none tracking-[-0.03em] text-ink sm:mb-6">
-          PFQ in <span className="text-orange">2 days</span>
-        </h2>
-
         <PfqPlanCards
           isSignedIn={!!user}
           userTier={tier}
