@@ -131,46 +131,33 @@
 }
 
 /**
- * Mock Me Start — ink pill that fills orange on hover; disc + arrow slide.
+ * Mock Me Start — ink pill; motion only on press (no hover wipe —
+ * scrolling past cards was flashing the orange fill).
  */
 .cta {
   position: relative;
-  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.65rem;
-  overflow: hidden;
   margin-top: auto;
   padding: 0.45rem 0.45rem 0.45rem 0.95rem;
   border-radius: 999px;
   background: rgb(var(--ink-rgb));
   color: var(--card-cream, #f6efdd);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
-}
-
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--orange, #e07a3a);
-  transform: translateX(-102%);
-  transition: transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaLabel {
-  position: relative;
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  transition: color 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaDisc {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -180,37 +167,25 @@
   border-radius: 999px;
   background: var(--orange, #e07a3a);
   color: rgb(var(--ink-rgb));
-  transition:
-    transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    background-color 280ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-    color 280ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaArrow {
   display: block;
-  transition: transform 380ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  transition: transform 160ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
-.card:hover .cta::before {
-  transform: translateX(0);
-}
-
-.card:hover .ctaLabel {
-  color: rgb(var(--ink-rgb));
-}
-
-.card:hover .ctaDisc {
-  background: var(--card-cream, #f6efdd);
-  transform: translateX(2px);
-}
-
-.card:hover .ctaArrow {
-  animation: mockMeArrow 720ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1))
-    both;
+.card:active .cta {
+  transform: scale(0.97);
+  background: color-mix(in srgb, rgb(var(--ink-rgb)) 82%, var(--orange, #e07a3a));
 }
 
 .card:active .ctaDisc {
-  transform: translateX(2px) scale(0.96);
+  transform: translateX(3px);
+}
+
+.card:active .ctaArrow {
+  transform: translateX(2px);
 }
 
 .coursesLink {
@@ -253,18 +228,6 @@
   }
 }
 
-@keyframes mockMeArrow {
-  0% {
-    transform: translateX(0);
-  }
-  45% {
-    transform: translateX(4px);
-  }
-  100% {
-    transform: translateX(2px);
-  }
-}
-
 @media (min-width: 40rem) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -288,19 +251,15 @@
     animation: none;
   }
 
-  .cta::before,
-  .ctaLabel,
+  .cta,
   .ctaDisc,
   .ctaArrow {
     transition: none;
   }
 
-  .card:hover .ctaArrow {
-    animation: none;
-  }
-
-  .card:hover .ctaDisc,
-  .card:active .ctaDisc {
+  .card:active .cta,
+  .card:active .ctaDisc,
+  .card:active .ctaArrow {
     transform: none;
   }
 }
