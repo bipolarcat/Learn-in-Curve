@@ -91,16 +91,16 @@ export function SiteHeader({
 
   const nav = (
     <nav
-      className="site-header pointer-events-auto flex h-12 w-full max-w-wrap items-center justify-between gap-2.5 rounded-xl border border-black/[0.08] bg-paper/90 px-2.5 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:h-14 sm:gap-3.5 sm:px-3.5 dark:border-white/[0.12]"
+      className="site-header pointer-events-auto flex h-10 w-full max-w-wrap items-center justify-between gap-2 rounded-xl border border-black/[0.08] bg-paper/90 px-2 shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_6px_20px_rgb(var(--ink-rgb)_/_0.06)] backdrop-blur-xl supports-[backdrop-filter]:bg-paper/75 sm:h-11 sm:gap-3 sm:px-3 dark:border-white/[0.12]"
       aria-label="Primary"
     >
       <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
         <Link
           href="/"
-          className="brand flex min-h-11 min-w-0 shrink-0 items-center gap-2 rounded-lg motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)] motion-safe:hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:gap-2.5"
+          className="brand flex min-w-0 shrink-0 items-center gap-1.5 rounded-lg motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)] motion-safe:hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:gap-2"
         >
-          <Logo priority className="h-7 w-7 sm:h-9 sm:w-9" alt="Learn in Curve" />
-          <span className="brand-name flex w-max flex-col font-display text-[clamp(0.68rem,1.3vw,0.8rem)] font-bold leading-none tracking-[-0.02em]">
+          <Logo priority className="h-6 w-6 sm:h-7 sm:w-7" alt="Learn in Curve" />
+          <span className="brand-name flex w-max flex-col font-display text-[clamp(0.62rem,1.2vw,0.72rem)] font-bold leading-none tracking-[-0.02em]">
             <span className="whitespace-nowrap leading-none">Learn in</span>
             <span className="-mt-[0.08em] whitespace-nowrap text-[1.41em] leading-none tracking-[-0.03em] text-orange">
               Curve
@@ -111,11 +111,11 @@ export function SiteHeader({
         {course ? (
           <>
             <span
-              className="h-6 w-[1.5px] shrink-0 self-center rounded-full bg-ink/35 sm:h-7"
+              className="h-5 w-[1.5px] shrink-0 self-center rounded-full bg-ink/35 sm:h-6"
               aria-hidden
             />
             <span className="flex min-w-0 items-center gap-1.5">
-              <span className="min-w-0 truncate font-body text-[13px] font-extralight leading-none tracking-tight text-ink/75 sm:text-[14px]">
+              <span className="min-w-0 truncate font-body text-[12px] font-extralight leading-none tracking-tight text-ink/75 sm:text-[13px]">
                 {course.displayName}
               </span>
               <TierMark tier={tier} />
@@ -131,8 +131,8 @@ export function SiteHeader({
   if (isPinned) {
     return (
       <>
-        <div className="h-[4.25rem] shrink-0 sm:h-[4.75rem]" aria-hidden />
-        <div className="site-header-shell pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-5 sm:pt-4">
+        <div className="h-[3.5rem] shrink-0 sm:h-[3.75rem]" aria-hidden />
+        <div className="site-header-shell pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-2 sm:px-5 sm:pt-2.5">
           {nav}
         </div>
       </>
@@ -140,7 +140,7 @@ export function SiteHeader({
   }
 
   return (
-    <div className="site-header-shell pointer-events-none relative z-30 flex shrink-0 justify-center px-3 pt-3 sm:px-5 sm:pt-4">
+    <div className="site-header-shell pointer-events-none relative z-30 flex shrink-0 justify-center px-3 pt-2 sm:px-5 sm:pt-2.5">
       {nav}
     </div>
   );
