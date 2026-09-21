@@ -207,6 +207,17 @@ export const PMQ_PLANS: PmqPlan[] = [
         icon: "video",
         label: "Video & Audio overview for every learning objective",
       },
+      {
+        icon: "insights",
+        label:
+          "Insights on every learning outcome, for deeper understanding of each topic",
+      },
+      {
+        icon: "practice",
+        label:
+          "recall activities across the course, including Pair Up, Line Up and Group Up",
+        value: "60+",
+      },
       { icon: "sly", label: "Sly, your personal AI tutor" },
       {
         icon: "report",
