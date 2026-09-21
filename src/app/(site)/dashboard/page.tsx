@@ -27,6 +27,7 @@ import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard"
 import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
 import { CourseReportCard } from "@/components/pmq/CourseReportCard";
+import { DashboardInboxBell } from "@/components/DashboardInboxBell";
 import { DashboardProfileMenu } from "@/components/DashboardProfileMenu";
 import { getUserProfile } from "@/lib/profile";
 import { getWelcomeEyebrow } from "@/lib/user-display";
@@ -178,10 +179,13 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
           >
             {welcome}
           </h1>
-          <DashboardProfileMenu
-            email={user.email ?? ""}
-            initial={profile}
-          />
+          <div className="flex shrink-0 items-center gap-2">
+            <DashboardInboxBell />
+            <DashboardProfileMenu
+              email={user.email ?? ""}
+              initial={profile}
+            />
+          </div>
         </header>
 
         {courses.length === 0 ? (
