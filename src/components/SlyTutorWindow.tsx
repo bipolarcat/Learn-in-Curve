@@ -131,7 +131,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className={`${slyChromeStyles.scroll} relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-3 sm:px-5`}
+          className={`${slyChromeStyles.scroll} ${showcase.chatScroll} relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto px-4 py-3 sm:px-5`}
         >
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">

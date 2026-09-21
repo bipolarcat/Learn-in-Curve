@@ -45,6 +45,47 @@
     0 12px 32px -12px rgb(var(--ink-rgb) / 0.16);
 }
 
+/* Quiet in-console scroll — thin ink thumb, no loud site chrome. */
+.chatScroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--ink-rgb) / 0.22) transparent;
+}
+
+.chatScroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.chatScroll::-webkit-scrollbar-track {
+  margin-block: 0.5rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.chatScroll::-webkit-scrollbar-thumb {
+  border: 0;
+  border-radius: 999px;
+  background-color: rgb(var(--ink-rgb) / 0.18);
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+.chatScroll::-webkit-scrollbar-thumb:hover,
+.chatScroll::-webkit-scrollbar-thumb:active {
+  background-color: rgb(var(--ink-rgb) / 0.32);
+}
+
+.chatScroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.chatScroll::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .suggestChip {
   border-radius: 0.875rem;
   border: 1px solid rgb(var(--ink-rgb) / 0.1);
