@@ -71,7 +71,7 @@ export function TestingMethod() {
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
             Psychologists call it{" "}
             <DrawRandomUnderline
-              text="The Testing Effect"
+              text="“The Testing Effect”"
               textClassName="text-[15px] sm:text-[16px]"
             />
             .
