@@ -74,8 +74,6 @@ export function FaqAccordion({
   subtitle,
   defaultOpenIndex = null,
   idPrefix = "faq",
-  /** `panel` = paper card (course pages). `quiet` = open hairline list (secondary). */
-  variant = "panel",
 }: {
   items: FaqAccordionItem[];
   headingId: string;
@@ -86,7 +84,6 @@ export function FaqAccordion({
   subtitle?: ReactNode;
   defaultOpenIndex?: number | null;
   idPrefix?: string;
-  variant?: "panel" | "quiet";
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -108,12 +105,9 @@ export function FaqAccordion({
     root.style.scrollBehavior = previous;
   }, [openIndex]);
 
-  const shellClass =
-    variant === "quiet" ? `${styles.panel} ${styles.quiet}` : styles.panel;
-
   return (
     <section aria-labelledby={headingId} className="w-full min-w-0">
-      <div ref={cardRef} className={shellClass} data-faqs="" data-variant={variant}>
+      <div ref={cardRef} className={styles.panel} data-faqs="">
         <div className={styles.titleBar}>
           <h2 id={headingId} className={styles.title}>
             {title}
@@ -147,19 +141,12 @@ export function FaqAccordion({
                   }}
                 >
                   <span className={styles.question}>{item.question}</span>
-                  {variant === "quiet" ? (
-                    <span
-                      className={`${styles.plus} ${isOpen ? styles.plusOpen : ""}`}
-                      aria-hidden
-                    />
-                  ) : (
-                    <span
-                      className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
-                      aria-hidden
-                    >
-                      ▼
-                    </span>
-                  )}
+                  <span
+                    className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
+                    aria-hidden
+                  >
+                    ▼
+                  </span>
                 </button>
                 <FaqAnswer
                   isOpen={isOpen}

@@ -162,122 +162,6 @@
   color: var(--orange-dark, #b8431a);
 }
 
-/* ── Quiet variant: open hairline list (secondary to a primary console) ── */
-
-.quiet {
-  z-index: 1;
-  overflow: visible;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-}
-
-.quiet .titleBar {
-  padding: 0 0 1.15rem;
-}
-
-.quiet .title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-.quiet .subtitle {
-  margin-top: 0.35rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: rgb(var(--ink-rgb) / 0.55);
-}
-
-.quiet .list {
-  padding: 0;
-  border-top: 1px solid rgb(var(--ink-rgb) / 0.12);
-}
-
-.quiet .item {
-  border-bottom-color: rgb(var(--ink-rgb) / 0.12);
-}
-
-.quiet .trigger {
-  min-height: 3.25rem;
-  padding: 1rem 0;
-  border-radius: 0;
-}
-
-.quiet .trigger:hover {
-  background: transparent;
-}
-
-.quiet .trigger:hover .question {
-  color: rgb(var(--ink-rgb) / 0.82);
-}
-
-.quiet .question {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-.quiet .answer {
-  padding: 0 0 1.1rem;
-  padding-right: 2.25rem;
-  font-size: 0.875rem;
-  font-weight: 450;
-  line-height: 1.55;
-  color: rgb(var(--ink-rgb) / 0.72);
-}
-
-/* Plus → minus affordance (quiet only) */
-.plus {
-  position: relative;
-  display: inline-flex;
-  flex-shrink: 0;
-  width: 1.125rem;
-  height: 1.125rem;
-  color: rgb(var(--ink-rgb) / 0.4);
-  transition: color 220ms var(--ease-out-quint);
-}
-
-.plus::before,
-.plus::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: currentColor;
-  border-radius: 1px;
-  transform: translate(-50%, -50%);
-  transition: transform 320ms var(--ease-out-quint);
-}
-
-.plus::before {
-  width: 0.7rem;
-  height: 1.5px;
-}
-
-.plus::after {
-  width: 1.5px;
-  height: 0.7rem;
-  opacity: 1;
-}
-
-.plusOpen {
-  color: var(--orange);
-}
-
-.plusOpen::after {
-  transform: translate(-50%, -50%) scaleY(0);
-  opacity: 0;
-}
-
-.quiet .trigger:hover .plus {
-  color: rgb(var(--ink-rgb) / 0.65);
-}
-
-.quiet .trigger:hover .plusOpen {
-  color: var(--orange);
-}
-
 @media (min-width: 40rem) {
   .titleBar {
     padding: 0.8rem 0.85rem 0.2rem;
@@ -310,47 +194,12 @@
     line-height: 1.5;
     color: rgb(var(--ink-rgb) / 0.72);
   }
-
-  .quiet .titleBar {
-    padding: 0 0 1.35rem;
-  }
-
-  .quiet .title {
-    font-size: 1.25rem;
-  }
-
-  .quiet .list {
-    padding: 0;
-  }
-
-  .quiet .trigger {
-    min-height: 3.4rem;
-    padding: 1.1rem 0;
-  }
-
-  .quiet .question {
-    font-size: 1rem;
-  }
-
-  .quiet .answer {
-    padding: 0 0 1.2rem;
-    padding-right: 2.5rem;
-    font-size: 0.9375rem;
-    line-height: 1.55;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .trigger,
   .chevron,
-  .panelShell,
-  .plus,
-  .plus::before,
-  .plus::after {
+  .panelShell {
     transition: none;
-  }
-
-  .plusOpen::after {
-    opacity: 0;
   }
 }
