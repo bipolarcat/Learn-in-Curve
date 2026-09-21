@@ -111,6 +111,11 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
 
       {/* Minimal chat header */}
       <header className="relative z-10 flex shrink-0 items-center gap-2.5 px-4 py-3 sm:px-5">
+        <div className="flex shrink-0 items-center gap-[7px]" aria-hidden>
+          <span className="h-[11px] w-[11px] rounded-full bg-[#FF5F57] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
+          <span className="h-[11px] w-[11px] rounded-full bg-[#FEBC2E] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
+          <span className="h-[11px] w-[11px] rounded-full bg-[#28C840] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
+        </div>
         <div className="min-w-0 flex-1">
           <p className="truncate font-body text-[13.5px] font-semibold tracking-[-0.015em] text-ink">
             Chat
