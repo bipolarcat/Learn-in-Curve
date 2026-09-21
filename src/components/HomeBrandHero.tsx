@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import { CtaArrow, stampCtaTealFlat } from "@/components/stamp-chip";
+import { CtaArrowUpRight, stampCtaTealFlat } from "@/components/stamp-chip";
 import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
 import { trackCtaClicked } from "@/lib/analytics/events";
@@ -115,15 +115,15 @@ export function HomeBrandHero() {
             className={HERO_COURSE_CTA}
             onClick={(event) => {
               trackCtaClicked({
-                variant: "Start the free course",
+                variant: "Explore Free Courses",
                 location: "hero",
               });
               if (!isSoftNavClick(event)) return;
             }}
           >
             <span className="relative z-[1] inline-flex items-center gap-1.5">
-              <span>Start the free course</span>
-              <CtaArrow />
+              <span>Explore Free Courses</span>
+              <CtaArrowUpRight />
             </span>
           </Link>
           <FreeMockExamLink
