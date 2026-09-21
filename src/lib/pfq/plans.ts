@@ -133,13 +133,24 @@ export const PFQ_PLANS: PfqPlan[] = [
     priceCents: PFQ_AI_PRO_PRICE_CENTS,
     priceNote: "one-off, no subscription",
     tagline:
-      "Everything in Pro, plus Sly, your AI tutor, and a report on where you stand at the end. Launching soon.",
-    inheritsFrom: "pro",
+      "Everything in Starter, plus the full Pro unlock, Sly, and an end-of-course report. Launching soon.",
+    inheritsFrom: "starter",
     ctaLabel: "Join Waitlist",
     features: [
       {
+        icon: "practice",
+        label: "additional practice questions",
+        value: "515",
+      },
+      { icon: "mock", label: "timed mock exams", value: "3" },
+      {
+        icon: "core",
+        label:
+          "Insights on every learning outcome, for deeper understanding of each topic",
+      },
+      {
         icon: "sly",
-        label: "Sly, the AI tutor, on every objective",
+        label: "Sly, the AI tutor",
       },
       {
         icon: "report",
