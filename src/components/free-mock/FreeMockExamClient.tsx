@@ -333,7 +333,6 @@ export function FreeMockExamClient({
             <thead>
               <tr className="border-b border-ink/10 text-left text-ink/55">
                 <th className="py-2 pr-3 font-semibold">{categoryHeader}</th>
-                <th className="py-2 pr-3 font-semibold">Topic</th>
                 <th className="py-2 font-semibold">Score</th>
               </tr>
             </thead>
@@ -343,7 +342,6 @@ export function FreeMockExamClient({
                   <td className="py-2 pr-3 font-semibold text-ink">
                     {row.lo_code}
                   </td>
-                  <td className="py-2 pr-3 text-ink/80">{row.lo_title}</td>
                   <td className="py-2 text-ink">
                     {row.correct}/{row.total}
                   </td>
