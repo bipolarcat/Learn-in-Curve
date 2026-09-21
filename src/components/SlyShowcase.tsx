@@ -28,7 +28,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
       className="sly-showcase relative overflow-x-clip pt-[clamp(2rem,5vw,3rem)] pb-[clamp(3rem,6vw,5rem)] text-ink"
       aria-labelledby="sly-showcase-heading"
     >
-      <div className="wrap relative z-[1] grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:items-center lg:gap-12">
+      <div className="wrap relative z-[1] grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:items-center lg:gap-12">
         <ScrollReveal
           delay={0.12}
           className={`${styles.consoleReveal} order-2 w-full min-w-0 lg:order-1`}
@@ -37,13 +37,13 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
         </ScrollReveal>
 
         <ScrollReveal
-          className={`${styles.textPop} order-1 max-w-[26rem] lg:order-2 lg:justify-self-end`}
+          className={`${styles.textPop} order-1 w-full max-w-[28rem] lg:order-2 lg:justify-self-end`}
         >
           <div
-            className={`${styles.popItem} flex items-start gap-3 sm:items-center`}
+            className={`${styles.popItem} flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-3.5`}
             style={{ ["--i" as string]: 0 }}
           >
-            <span className="relative mt-0.5 inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:mt-0 sm:h-14 sm:w-14">
+            <span className="relative inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:h-14 sm:w-14">
               <Image
                 src="/brand/sly/sly-tutor-portrait.png"
                 alt="Sly, the AI tutor — fox portrait"
@@ -54,12 +54,10 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             </span>
             <h2
               id="sly-showcase-heading"
-              className="min-w-0 font-display text-[1.9rem] font-bold leading-[1.12] tracking-[-0.03em] text-ink text-balance sm:text-[clamp(1.55rem,2.8vw,1.95rem)] sm:leading-[1.1]"
+              className="min-w-0 max-w-full font-display text-[clamp(2.15rem,5.2vw,2.55rem)] font-bold leading-[1.08] tracking-[-0.03em] text-ink text-balance"
             >
-              <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">
-                Stuck on a syllabus topic?
-              </span>
-              <span className="mt-0.5 block sm:mt-0 sm:inline">
+              <span className="block sm:inline">Stuck on a syllabus topic?</span>
+              <span className="mt-1 block sm:mt-0 sm:inline">
                 {" "}
                 Ask <span className="text-orange">Sly</span>.{" "}
                 <span className="relative -top-0.5 inline-flex align-middle">
@@ -70,7 +68,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           </div>
 
           <p
-            className={`${styles.popItem} mt-3 text-[14px] leading-relaxed text-ink/65 text-pretty`}
+            className={`${styles.popItem} mt-3.5 max-w-[36ch] text-[15px] leading-relaxed text-ink/65 text-pretty sm:mt-4 sm:text-[14px]`}
             style={{ ["--i" as string]: 1 }}
           >
             Ask, learn and get unstuck. Unlimited Sly access is coming soon with AI
