@@ -40,28 +40,29 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           className={`${styles.textPop} order-1 w-full max-w-[28rem] lg:order-2 lg:justify-self-end`}
         >
           <div
-            className={`${styles.popItem} flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-3.5`}
+            className={`${styles.popItem}`}
             style={{ ["--i" as string]: 0 }}
           >
-            <span className="relative inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:h-14 sm:w-14">
-              <Image
-                src="/brand/sly/sly-tutor-portrait.png"
-                alt="Sly, the AI tutor — fox portrait"
-                width={64}
-                height={64}
-                className="h-full w-full scale-[1.2] object-cover object-[center_18%] sm:scale-[1.28] sm:object-[center_19%]"
-              />
-            </span>
             <h2
               id="sly-showcase-heading"
               className={`${styles.heading} min-w-0 max-w-full font-display text-ink text-balance`}
             >
-              <span className="block sm:inline">Stuck on a syllabus topic?</span>
-              <span className="mt-1 block sm:mt-0 sm:inline">
-                {" "}
-                Ask <span className="text-orange">Sly</span>.{" "}
-                <span className="relative -top-0.5 inline-flex align-middle">
-                  <BetaBadge />
+              <span className="block">Stuck on a syllabus topic?</span>
+              <span className="flex items-center gap-2.5">
+                <span className="relative inline-flex h-[1.15em] w-[1.15em] shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)]">
+                  <Image
+                    src="/brand/sly/sly-tutor-portrait.png"
+                    alt="Sly, the AI tutor — fox portrait"
+                    width={64}
+                    height={64}
+                    className="h-full w-full scale-[1.22] object-cover object-[center_18%]"
+                  />
+                </span>
+                <span>
+                  Ask <span className="text-orange">Sly</span>.{" "}
+                  <span className="relative -top-0.5 inline-flex align-middle">
+                    <BetaBadge />
+                  </span>
                 </span>
               </span>
             </h2>
