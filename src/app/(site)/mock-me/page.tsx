@@ -66,8 +66,8 @@ export default function MockMeHubPage() {
             Mock <span className="text-orange">Me</span>
           </h1>
           <p className={styles.lead}>
-            A short mock exam that scores you and shows which topics to revise.
-            No sign-up, no payment.
+            A short mock exam to see where you stand. Get your score and find
+            out which topics to revise. No sign-up. No payment.
           </p>
         </header>
 
