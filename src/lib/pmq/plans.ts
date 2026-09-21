@@ -159,11 +159,7 @@ export const PMQ_PLANS: PmqPlan[] = [
       { icon: "mock", label: "additional mock exams", value: "2" },
       {
         icon: "video",
-        label: "Video overview for every learning objective",
-      },
-      {
-        icon: "audio",
-        label: "Audio overview for every learning objective",
+        label: "Video & Audio overview for every learning objective",
       },
       {
         icon: "insights",
@@ -209,11 +205,7 @@ export const PMQ_PLANS: PmqPlan[] = [
       { icon: "mock", label: "additional mock exams", value: "3" },
       {
         icon: "video",
-        label: "Video overview for every learning objective",
-      },
-      {
-        icon: "audio",
-        label: "Audio overview for every learning objective",
+        label: "Video & Audio overview for every learning objective",
       },
       { icon: "sly", label: "Sly, your personal AI tutor" },
       {
