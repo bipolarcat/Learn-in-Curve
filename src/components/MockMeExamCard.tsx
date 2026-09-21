@@ -10,7 +10,12 @@ type MockMeExamCardProps = {
   href: string;
   mark: string;
   questionCount: number;
-  art: { src: string; alt: string; objectPosition?: string };
+  art: {
+    src: string;
+    alt: string;
+    objectPosition?: string;
+    objectFit?: "cover" | "contain";
+  };
   priority?: boolean;
 };
 
@@ -35,7 +40,9 @@ export function MockMeExamCard({
           alt={art.alt}
           fill
           sizes="(max-width: 39.99rem) 92vw, 18rem"
-          className={styles.artImage}
+          className={
+            art.objectFit === "contain" ? styles.artImageContain : styles.artImage
+          }
           style={
             art.objectPosition
               ? { objectPosition: art.objectPosition }

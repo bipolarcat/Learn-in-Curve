@@ -88,6 +88,11 @@
   object-position: center 40%;
 }
 
+.artImageContain {
+  object-fit: contain;
+  object-position: center center;
+}
+
 .meta {
   display: flex;
   flex: 1;

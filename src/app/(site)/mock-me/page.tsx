@@ -30,7 +30,13 @@ export const metadata: Metadata = {
  */
 const CARD_ART: Record<
   FreeMockExamId,
-  { src: string; alt: string; objectPosition?: string }
+  {
+    src: string;
+    alt: string;
+    objectPosition?: string;
+    /** `contain` zooms out so the full plate shows (cream letterbox matches card). */
+    objectFit?: "cover" | "contain";
+  }
 > = {
   "apm-pmq": {
     src: "/brand/mock-me/pmq.png",
@@ -40,7 +46,8 @@ const CARD_ART: Record<
   "apm-pfq": {
     src: "/brand/mock-me/pfq.png",
     alt: "Wolf and cat high-fiving after study",
-    objectPosition: "center 40%",
+    objectPosition: "center center",
+    objectFit: "contain",
   },
   pmp: {
     src: "/brand/mock-me/pmp.png",
