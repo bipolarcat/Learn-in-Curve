@@ -37,13 +37,13 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
         </ScrollReveal>
 
         <ScrollReveal
-          className={`${styles.textPop} order-1 max-w-[22rem] lg:order-2 lg:justify-self-end`}
+          className={`${styles.textPop} order-1 max-w-[26rem] lg:order-2 lg:justify-self-end`}
         >
           <div
-            className={`${styles.popItem} flex items-center gap-3`}
+            className={`${styles.popItem} flex items-start gap-3`}
             style={{ ["--i" as string]: 0 }}
           >
-            <span className="relative inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:h-14 sm:w-14">
+            <span className="relative mt-0.5 inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:mt-1 sm:h-14 sm:w-14">
               <Image
                 src="/brand/sly/sly-tutor-portrait.png"
                 alt="Sly, the AI tutor — fox portrait"
@@ -54,12 +54,16 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             </span>
             <h2
               id="sly-showcase-heading"
-              className="min-w-0 font-display text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink text-balance"
+              className="min-w-0 font-display text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold leading-[1.15] tracking-[-0.03em] text-ink"
             >
-              Stuck on a syllabus topic? Ask{" "}
-              <span className="text-orange">Sly</span>.{" "}
-              <span className="relative -top-0.5 inline-flex align-middle">
-                <BetaBadge />
+              <span className="block whitespace-nowrap">
+                Stuck on a syllabus topic?
+              </span>
+              <span className="mt-0.5 block">
+                Ask <span className="text-orange">Sly</span>.{" "}
+                <span className="relative -top-0.5 inline-flex align-middle">
+                  <BetaBadge />
+                </span>
               </span>
             </h2>
           </div>
