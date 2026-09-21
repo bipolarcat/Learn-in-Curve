@@ -58,7 +58,7 @@ export function TestingMethod() {
     >
       <div className="wrap relative z-[1]">
         <ScrollReveal className="mx-auto max-w-[min(100%,52rem)] text-center xl:max-w-[58rem]">
-          <p className="mb-2 font-body text-[14px] font-bold tracking-[0.14em] text-teal sm:text-[15px]">
+          <p className="mb-1 font-body text-[14px] font-bold tracking-[0.14em] text-teal sm:text-[15px]">
             The Method
           </p>
           <h2
