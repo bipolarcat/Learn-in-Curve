@@ -83,7 +83,7 @@ are live in `exam_config`, and neither matches the code:
 
 | Course row | Stale DB value | Code value | Delta |
 |---|---|---|---|
-| `pmq-in-5-days` | `exam_config.ai_tutor_price_cents: 999` | 1500 | £9.99 vs £15 |
+| `pmq-in-5-days` | ~~`exam_config.ai_tutor_price_cents: 999`~~ **resolved 2026-09-21: now 1500** | 1500 | none |
 | `pfq-in-2-days` | `exam_config.pfq_pro_price_cents: 500` | 600 | £5 vs £6 |
 
 The PMQ one was already known (`LAUNCH_RUNBOOK.md`). **The PFQ one was not documented
@@ -91,6 +91,12 @@ anywhere** and is almost certainly why `PFQ in 2 days/PFQ_LANDING_COPY.md` was w
 against £5.
 
 Checkout passes an explicit amount, so live charges are correct at £15 today.
+
+**Still open 2026-09-21:** the `courses` row for `pfq-in-2-days` holds `price_cents: 600`
+and `is_free: false`, while the registry says PFQ Pro is £10 (`PFQ_PRO_PRICE_CENTS: 1000`).
+No app code reads that column (`src/lib/courses-catalog.ts` derives from the registry),
+so it is vestigial like PMQ's 999 was, but it is the same drift class and should be
+aligned by migration.
 The risk is anything that reads `exam_config` directly, now or later, and quietly
 disagrees with the registry.
 

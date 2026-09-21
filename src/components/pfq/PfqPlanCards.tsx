@@ -181,11 +181,11 @@ export function PfqPlanCards({
           : null;
 
         return (
-          <li key={plan.id} className={styles.card}>
+          <li key={plan.id} className={`${styles.card} ${styles.cardWithCourse}`}>
+            <p className={styles.courseChip}>
+              PFQ · <span className="text-orange">2 days</span>
+            </p>
             <div className={styles.head}>
-              <p className={styles.courseKicker}>
-                PFQ in <span className="text-orange">2 days</span>
-              </p>
               <PlanName plan={plan} soonBadge={plan.status === "waitlist"} />
 
               <div className={styles.priceRow}>

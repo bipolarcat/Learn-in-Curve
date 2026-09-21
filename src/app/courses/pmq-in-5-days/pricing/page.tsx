@@ -73,7 +73,7 @@ export default async function PmqPricingPage({
           resumeProCheckout={resumeProCheckout}
           courseLabel={
             <>
-              PMQ in <span className="text-orange">5 days</span>
+              PMQ · <span className="text-orange">5 days</span>
             </>
           }
         />

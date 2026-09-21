@@ -204,11 +204,14 @@ export function PmqPlanCards({
             : null;
 
           return (
-            <li key={plan.id} className={styles.card}>
+            <li
+              key={plan.id}
+              className={`${styles.card} ${courseLabel ? styles.cardWithCourse : ""}`}
+            >
+              {courseLabel ? (
+                <p className={styles.courseChip}>{courseLabel}</p>
+              ) : null}
               <div className={styles.head}>
-                {courseLabel ? (
-                  <p className={styles.courseKicker}>{courseLabel}</p>
-                ) : null}
                 <PlanName
                   plan={plan}
                   soonBadge={plan.status === "waitlist"}

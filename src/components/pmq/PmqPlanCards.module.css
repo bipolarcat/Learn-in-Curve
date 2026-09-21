@@ -43,20 +43,37 @@
   isolation: isolate;
 }
 
+.cardWithCourse {
+  padding-top: 2.15rem;
+}
+
 .head {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
 }
 
-.courseKicker {
-  margin: 0 0 0.5rem;
+/**
+ * Course mark — sits in the corner so Starter / Pro stays the opening line.
+ * Full “PMQ in 5 days” as a kicker stacked too much with the plan title.
+ */
+.courseChip {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.7rem;
+  z-index: 1;
+  margin: 0;
+  padding: 0.18rem 0.45rem;
+  border-radius: 999px;
+  background: rgb(var(--ink-rgb) / 0.05);
   font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   color: rgb(var(--ink-rgb) / 0.55);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 :global(.dark) .card {
