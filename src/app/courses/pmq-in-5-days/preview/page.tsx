@@ -28,6 +28,15 @@ export default async function PmqPreviewPage() {
       <AuthDeskPanel
         mode="sign-up"
         nextPath="/courses/pmq-in-5-days"
+        courseTitle={
+          <>
+            PMQ in <span className="text-orange">5 Days</span>
+          </>
+        }
+        courseTitleLevel={2}
+        title="Create your free account and start preparing for the PMQ exam today."
+        titleAs="p"
+        hideLead
       />
     </section>
   );
