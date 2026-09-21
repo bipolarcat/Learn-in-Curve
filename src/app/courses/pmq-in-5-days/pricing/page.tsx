@@ -64,11 +64,6 @@ export default async function PmqPricingPage({
             <span className="block text-orange">Start free.</span>
             <span className="block">Upgrade only if you love it.</span>
           </h1>
-          <p className="mt-3.5 max-w-[38rem] text-left text-[15px] leading-relaxed text-pretty text-ink/72">
-            Every plan includes the complete APM PMQ syllabus, covering all 24
-            learning objectives. Upgrade to unlock more practice and reinforce
-            your learning.
-          </p>
         </header>
 
         <PmqPlanCards
