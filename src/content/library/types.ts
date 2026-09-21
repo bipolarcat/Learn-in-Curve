@@ -31,7 +31,7 @@ export type LibraryPage = {
 
 export const LIBRARY_GROUP_LABELS: Record<LibraryGroup, string> = {
   "exam-prep": "Exam Guides",
-  choosing: "APM PMQ syllabus topics",
+  choosing: "Comparisons",
   syllabus: "Syllabus topics",
 };
 
