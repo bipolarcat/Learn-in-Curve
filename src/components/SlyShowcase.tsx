@@ -59,8 +59,8 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
                 id="sly-showcase-heading"
                 className="mt-1.5 font-display text-[clamp(1.55rem,3.2vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink text-balance"
               >
-                Learn faster with <span className="text-orange">Sly</span> Your
-                personal AI Tutor{" "}
+                Stuck on a syllabus topic? Ask{" "}
+                <span className="text-orange">Sly</span>.{" "}
                 <span className="relative -top-0.5 inline-flex align-middle">
                   <BetaBadge />
                 </span>
