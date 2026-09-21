@@ -20,7 +20,7 @@ export const getRGBA = (
   if (!cssColor) return fallback;
 
   try {
-    if (typeof cssColor === "string" && cssColor.startsWith("var(")) {
+    if (typeof cssColor === "string" && cssColor.includes("var(")) {
       const element = document.createElement("div");
       element.style.color = cssColor;
       document.body.appendChild(element);
@@ -50,6 +50,15 @@ function resolveFrauncesFamily(): string {
   return `${raw}, Georgia, serif`;
 }
 
+type GridParams = {
+  cols: number;
+  rows: number;
+  squares: Float32Array;
+  /** 1 = letterform cell, 0 = ambient. Built once per resize/font. */
+  textMask: Uint8Array;
+  dpr: number;
+};
+
 interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
   squareSize?: number;
   gridGap?: number;
@@ -71,7 +80,7 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   squareSize = 3,
   gridGap = 3,
   flickerChance = 0.2,
-  color = "#F4E9D6",
+  color = "rgb(var(--cream-rgb))",
   textColor,
   width,
   height,
@@ -119,58 +128,82 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     };
   }, [text, fontSize, fontWeight]);
 
-  const drawGrid = useCallback(
+  const buildTextMask = useCallback(
     (
-      ctx: CanvasRenderingContext2D,
       canvasWidth: number,
       canvasHeight: number,
       cols: number,
       rows: number,
-      squares: Float32Array,
       dpr: number,
-    ) => {
-      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    ): Uint8Array => {
+      const mask = new Uint8Array(cols * rows);
+      if (!text) return mask;
 
       const maskCanvas = document.createElement("canvas");
       maskCanvas.width = canvasWidth;
       maskCanvas.height = canvasHeight;
       const maskCtx = maskCanvas.getContext("2d", { willReadFrequently: true });
-      if (!maskCtx) return;
+      if (!maskCtx) return mask;
 
-      if (text) {
-        maskCtx.save();
-        maskCtx.scale(dpr, dpr);
-        maskCtx.fillStyle = "white";
-        maskCtx.font = `${fontWeight} ${fontSize}px ${fontFamilyRef.current}`;
-        maskCtx.textAlign = "center";
-        maskCtx.textBaseline = "middle";
-        maskCtx.fillText(
-          text,
-          canvasWidth / (2 * dpr),
-          canvasHeight / (2 * dpr),
-        );
-        maskCtx.restore();
-      }
+      maskCtx.save();
+      maskCtx.scale(dpr, dpr);
+      maskCtx.fillStyle = "white";
+      maskCtx.font = `${fontWeight} ${fontSize}px ${fontFamilyRef.current}`;
+      maskCtx.textAlign = "center";
+      maskCtx.textBaseline = "middle";
+      maskCtx.fillText(
+        text,
+        canvasWidth / (2 * dpr),
+        canvasHeight / (2 * dpr),
+      );
+      maskCtx.restore();
+
+      // One read for the whole bitmap — not per cell, not per frame.
+      const imageData = maskCtx.getImageData(0, 0, canvasWidth, canvasHeight);
+      const { data } = imageData;
+      const cell = squareSize * dpr;
+      const stride = (squareSize + gridGap) * dpr;
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
-          const x = i * (squareSize + gridGap) * dpr;
-          const y = j * (squareSize + gridGap) * dpr;
-          const squareWidth = squareSize * dpr;
-          const squareHeight = squareSize * dpr;
+          const x0 = Math.floor(i * stride);
+          const y0 = Math.floor(j * stride);
+          const x1 = Math.min(canvasWidth, Math.ceil(x0 + cell));
+          const y1 = Math.min(canvasHeight, Math.ceil(y0 + cell));
+          let hasText = 0;
+          for (let y = y0; y < y1 && !hasText; y++) {
+            const rowStart = y * canvasWidth * 4;
+            for (let x = x0; x < x1; x++) {
+              if (data[rowStart + x * 4] > 0) {
+                hasText = 1;
+                break;
+              }
+            }
+          }
+          mask[i * rows + j] = hasText;
+        }
+      }
 
-          const maskData = maskCtx.getImageData(
-            x,
-            y,
-            squareWidth,
-            squareHeight,
-          ).data;
-          const hasText = maskData.some(
-            (value, index) => index % 4 === 0 && value > 0,
-          );
+      return mask;
+    },
+    [text, fontSize, fontWeight, squareSize, gridGap],
+  );
 
-          const opacity = squares[i * rows + j] ?? 0;
-          // Text cells stay clearly brighter than the ambient flicker field.
+  const drawGrid = useCallback(
+    (ctx: CanvasRenderingContext2D, params: GridParams) => {
+      const { cols, rows, squares, textMask, dpr } = params;
+      const canvasWidth = ctx.canvas.width;
+      const canvasHeight = ctx.canvas.height;
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+      const cell = squareSize * dpr;
+      const stride = (squareSize + gridGap) * dpr;
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const idx = i * rows + j;
+          const hasText = textMask[idx] === 1;
+          const opacity = squares[idx] ?? 0;
           const finalOpacity = hasText
             ? Math.min(1, opacity * 3 + 0.55)
             : opacity;
@@ -179,23 +212,15 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
             hasText ? memoizedTextColor : memoizedColor,
             finalOpacity,
           );
-          ctx.fillRect(x, y, squareWidth, squareHeight);
+          ctx.fillRect(i * stride, j * stride, cell, cell);
         }
       }
     },
-    [
-      memoizedColor,
-      memoizedTextColor,
-      squareSize,
-      gridGap,
-      text,
-      fontSize,
-      fontWeight,
-    ],
+    [memoizedColor, memoizedTextColor, squareSize, gridGap],
   );
 
   const setupCanvas = useCallback(
-    (canvas: HTMLCanvasElement, w: number, h: number) => {
+    (canvas: HTMLCanvasElement, w: number, h: number): GridParams => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = w * dpr;
       canvas.height = h * dpr;
@@ -209,9 +234,11 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
         squares[i] = Math.random() * maxOpacity;
       }
 
-      return { cols, rows, squares, dpr };
+      const textMask = buildTextMask(canvas.width, canvas.height, cols, rows, dpr);
+
+      return { cols, rows, squares, textMask, dpr };
     },
-    [squareSize, gridGap, maxOpacity],
+    [squareSize, gridGap, maxOpacity, buildTextMask],
   );
 
   const updateSquares = useCallback(
@@ -251,19 +278,11 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     );
 
     const paint = () => {
-      drawGrid(
-        ctx,
-        canvas.width,
-        canvas.height,
-        gridParams.cols,
-        gridParams.rows,
-        gridParams.squares,
-        gridParams.dpr,
-      );
+      drawGrid(ctx, gridParams);
     };
 
     const clear = () => {
-      // Keep the layout height but hide the grid until the component is in view.
+      // Off-screen: keep layout height, skip GPU work.
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
 
@@ -272,7 +291,7 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       const newHeight = height || container.clientHeight;
       setCanvasSize({ width: newWidth, height: newHeight });
       gridParams = setupCanvas(canvas, newWidth, newHeight);
-      if (isInView && !reduceMotion) {
+      if (isInView) {
         paint();
       } else {
         clear();
@@ -306,8 +325,12 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     );
     intersectionObserver.observe(canvas);
 
-    if (isInView && !reduceMotion) {
-      animationFrameId = requestAnimationFrame(animate);
+    if (isInView) {
+      // Always show a frame when visible — freeze under reduced motion.
+      paint();
+      if (!reduceMotion) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
     } else {
       clear();
     }

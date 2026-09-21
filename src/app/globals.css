@@ -33,12 +33,16 @@
   --dot-grid: rgba(36, 26, 18, 0.16);
   --orange: #d5501f;
   --orange-rgb: 213 80 31;
+  /* AA (≥4.5:1) orange for small text on ink — cream-tinted brand orange */
+  --orange-on-ink: #d85e2f;
   --orange-action: #a83b14;
   --orange-action-hover: #8f3010;
   --auth-muted: #5f5a55;
   --auth-placeholder: #68625c;
   --gold: #d9a441;
   --olive: #4f8f2e;
+  /* AA success green on ink (brighter than --olive) */
+  --olive-on-ink: #80aa60;
   --teal: #1b6560;
   --teal-deep: #123f3c;
   --teal-rgb: 27 101 96;
