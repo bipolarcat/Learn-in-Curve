@@ -141,18 +141,16 @@ export function DrawRandomUnderline({
     <span
       ref={rootRef}
       className={cn(
-        // nowrap = full phrase width on mobile; pb keeps stroke inside the box
-        // so section overflow-x-clip doesn’t chop the right end / “Effect”.
-        // Mobile needs a clearer gap under the type than desktop.
-        "relative inline-block whitespace-nowrap pb-[0.7em] align-baseline sm:pb-[0.45em]",
+        // Flow layout (not absolute bottom): gap = margin-top under the glyphs.
+        // Absolute + path in the top of the viewBox was painting through “g”
+        // no matter how large pb was. nowrap keeps full phrase width on mobile.
+        "inline-flex flex-col items-stretch whitespace-nowrap align-baseline",
         className,
       )}
     >
-      <span className={cn("relative z-[1] text-orange", textClassName)}>
-        {text}
-      </span>
+      <span className={cn("text-orange", textClassName)}>{text}</span>
       <svg
-        className="pointer-events-none absolute bottom-0 left-0 h-3 w-full overflow-visible sm:h-3"
+        className="pointer-events-none mt-2 h-3 w-full overflow-visible sm:mt-1.5 sm:h-3"
         viewBox={UNDERLINE_PATH.viewBox}
         preserveAspectRatio="none"
         fill="none"
