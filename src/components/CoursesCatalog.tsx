@@ -16,7 +16,11 @@ import {
   PMQ_PREVIEW_HREF,
   PMQ_PRICING_HREF,
 } from "@/lib/pmq/plans";
-import { PFQ_BASE_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
+import {
+  PFQ_BASE_HREF,
+  PFQ_PREVIEW_HREF,
+  PFQ_PRICING_HREF,
+} from "@/lib/pfq/constants";
 import { PfqNotifyDialog } from "@/components/PfqNotifyDialog";
 import {
   CtaArrow,
@@ -434,13 +438,21 @@ export function CoursesCatalog({
                     ) : course.slug === "pfq-in-2-days" ? (
                       <>
                         <CatalogNavLink
-                          href={PFQ_BASE_HREF}
+                          href={PFQ_PREVIEW_HREF}
                           className={CARD_PRIMARY}
                           busyLabel="Opening free course"
                           analyticsLabel="Start free course"
                         >
                           Start free course
                           <CtaArrow />
+                        </CatalogNavLink>
+                        <CatalogNavLink
+                          href={PFQ_BASE_HREF}
+                          className={CARD_SECONDARY}
+                          busyLabel="Opening overview"
+                          analyticsLabel="Course overview"
+                        >
+                          Course overview
                         </CatalogNavLink>
                         <CatalogNavLink
                           href={PFQ_PRICING_HREF}
