@@ -42,6 +42,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-20** — Lab recall demo mobile fix: segmented control hides icons + tighter type below `sm`; `.lab-activity-stage` stacks Pairup + unwraps Lineup text (`globals.css`, `LabActivityDemo`, `segmented-control.tsx`).
 - **2026-09-20** — Segmented control active thumb: teal → brand `paper` cream (matches card/header chrome) + ink label (`segmented-control.tsx`).
 - **2026-09-20** — Lab recall demo mode switcher → LIC-adapted 21st segmented control (teal sliding thumb, `framer-motion`; no separate `motion` package) in `segmented-control.tsx`, wired in `LabActivityDemo`.
+- **2026-09-21** — Footer mobile: social chips (`ml-auto`) and legal nav (`justify-end`) right-aligned; logo stays left (`SiteFooter`).
 - **2026-09-20** — Reverted home brand hero category stamp all-caps (`uppercase` removed from `CategoryStamp` in `HomeBrandHero`).
 - **2026-09-20** — Home brand hero category stamp set to all caps (`uppercase` on `CategoryStamp` in `HomeBrandHero`).
 - **2026-09-20** — Testing method step 03: recropped `memory.jpg`/`memory.webp` flush to rabbit + corkboard at 5:4 (matched framing from syllabus “Remember what matters” art, not that file) with `objectPosition: center 35%` (`TestingMethod`, `public/brand/features/memory.*`).

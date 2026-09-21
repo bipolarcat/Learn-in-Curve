@@ -69,7 +69,7 @@ export function SiteFooter({
                 </span>
               </span>
             </div>
-            <div className="flex shrink-0 items-center gap-0.5">
+            <div className="ml-auto flex shrink-0 items-center gap-0.5 lg:ml-0">
               <a
                 href="https://www.instagram.com/learn.in.curve/"
                 target="_blank"
@@ -93,7 +93,7 @@ export function SiteFooter({
 
           <nav
             aria-label="Footer"
-            className="flex flex-wrap items-center gap-x-4 gap-y-0.5 sm:gap-x-5 lg:justify-end"
+            className="flex flex-wrap items-center justify-end gap-x-4 gap-y-0.5 sm:gap-x-5"
           >
             <Link href="/privacy" className={footerLinkClass}>
               Privacy
