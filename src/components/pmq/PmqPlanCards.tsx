@@ -240,8 +240,6 @@ export function PmqPlanCards({
                   </span>
                   <span className={styles.priceNote}>{plan.priceNote}</span>
                 </div>
-
-                <p className={styles.tagline}>{plan.tagline}</p>
               </div>
 
               <div className={styles.split}>
