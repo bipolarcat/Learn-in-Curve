@@ -21,11 +21,27 @@ type LabArtPlateProps = {
   children?: ReactNode;
 };
 
-const TONE: Record<NonNullable<LabArtPlateProps["tone"]>, string> = {
-  cream: "bg-cream/90",
-  teal: "bg-[color-mix(in_srgb,var(--teal)_12%,var(--cream))]",
-  orange: "bg-[color-mix(in_srgb,var(--orange)_10%,var(--cream))]",
-  paper: "bg-paper",
+const TONE: Record<
+  NonNullable<LabArtPlateProps["tone"]>,
+  { plate: string; border: string }
+> = {
+  cream: {
+    plate: "bg-cream/90",
+    /* Match the cream art plate — ink/white rings read as a halo. */
+    border: "border-cream",
+  },
+  teal: {
+    plate: "bg-[color-mix(in_srgb,var(--teal)_12%,var(--cream))]",
+    border: "border-ink/10",
+  },
+  orange: {
+    plate: "bg-[color-mix(in_srgb,var(--orange)_10%,var(--cream))]",
+    border: "border-ink/10",
+  },
+  paper: {
+    plate: "bg-paper",
+    border: "border-ink/10",
+  },
 };
 
 /**
@@ -44,9 +60,10 @@ export function LabArtPlate({
   priority = false,
   children,
 }: LabArtPlateProps) {
+  const { plate, border } = TONE[tone];
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-ink/10 shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.35)] ${TONE[tone]} ${className}`}
+      className={`relative overflow-hidden rounded-2xl border shadow-[0_1px_0_rgb(var(--ink-rgb)_/_0.04),0_12px_28px_-18px_rgb(var(--ink-rgb)_/_0.35)] ${border} ${plate} ${className}`}
     >
       <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
         <Image

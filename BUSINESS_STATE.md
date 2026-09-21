@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Method recall art plate: cream tone uses cream border (not white/ink halo) so it matches the illustration like the teal/orange cards (`LabArtPlate`, `TestingMethod`).
 - **2026-09-21** — iOS footer overscroll: body is ink (Safari paints body, not html); cream+dots moved to `.site-shell` in root layout so footer radius shows cream notches and pull-past stays brown. Social icon gap bumped on mobile (`globals.css`, `layout.tsx`, `SiteFooter`).
 - **2026-09-21** — Footer mobile fix: Method-matching top radius via `.site-footer` CSS (Tailwind clamp commas were dropping it); social icons no longer overlap (`gap-1.5`, quieter cream/55) (`SiteFooter`, `globals.css`).
 - **2026-09-21** — iOS overscroll past footer: `html` canvas is ink so rubber-band stays brown, not cream (`globals.css`).

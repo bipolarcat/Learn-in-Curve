@@ -124,7 +124,13 @@ export function TestingMethod({ embedded = false }: TestingMethodProps) {
                   priority={i === 0}
                   className={
                     embedded
-                      ? "border-white/12 shadow-[0_1px_0_rgb(255_255_255_/_0.08),0_18px_36px_-16px_rgb(0_0_0_/_0.45)]"
+                      ? cn(
+                          "shadow-[0_1px_0_rgb(255_255_255_/_0.08),0_18px_36px_-16px_rgb(0_0_0_/_0.45)]",
+                          /* Cream art: keep plate-matching border. Others: soft white edge on teal. */
+                          step.tone === "cream"
+                            ? "border-cream"
+                            : "border-white/12",
+                        )
                       : undefined
                   }
                 />
