@@ -121,6 +121,24 @@
   text-transform: none;
 }
 
+/* Pro “Best Value” — teal, matches Pro mark (Popular-style chip) */
+.badgeValue {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.3rem;
+  background: color-mix(in srgb, var(--teal, #1b6560) 14%, transparent);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: var(--teal, #1b6560);
+  text-transform: none;
+}
+
 /* Matches course-overview Pro chip */
 .proMark {
   display: inline-flex;

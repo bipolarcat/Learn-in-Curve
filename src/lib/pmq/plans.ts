@@ -91,6 +91,8 @@ export type PmqPlan = {
   featured: boolean;
   /** Optional chip beside the plan name (e.g. “Introductory Offer”). */
   badge?: string;
+  /** Chip colour — defaults to offer (olive) when omitted. */
+  badgeVariant?: "offer" | "value";
   features: PmqPlanFeature[];
   /** What this tier adds over the one to its left, for the "everything in X, plus" line. */
   inheritsFrom?: PmqPlanId;
@@ -133,6 +135,8 @@ export const PMQ_PLANS: PmqPlan[] = [
     tagline:
       "More questions, mock exams, and video/audio overviews for every learning objective.",
     featured: true,
+    badge: "Best Value",
+    badgeVariant: "value",
     inheritsFrom: "starter",
     ctaLabel: "Get Pro Bundle",
     features: [

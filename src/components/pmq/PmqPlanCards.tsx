@@ -90,7 +90,13 @@ function PlanName({
   const chip = soonBadge ? (
     <span className={styles.badgeSoon}>Launching soon</span>
   ) : plan.badge ? (
-    <span className={styles.badgeOffer}>{plan.badge}</span>
+    <span
+      className={
+        plan.badgeVariant === "value" ? styles.badgeValue : styles.badgeOffer
+      }
+    >
+      {plan.badge}
+    </span>
   ) : null;
 
   return (
