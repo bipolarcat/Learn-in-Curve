@@ -78,7 +78,9 @@ export function TestingMethod({ embedded = false }: TestingMethodProps) {
           )}
         >
           You learn it when you{" "}
-          <span className="italic text-orange">recall</span> it
+          <span className="italic text-orange pe-[0.18em]">recall</span>
+          {" "}
+          it
         </h2>
         <p
           className={cn(
