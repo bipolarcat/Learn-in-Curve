@@ -97,11 +97,11 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
     `${n} free question${n === 1 ? "" : "s"}`;
   const statusLabel = isSignedIn
     ? null
-    : usageLoaded && !unavailable
-      ? locked
-        ? "Trial used"
-        : freeQuestionLabel(messagesRemaining)
-      : freeQuestionLabel(GUEST_TIER_MESSAGE_CAP);
+    : locked || unavailable
+      ? null
+      : usageLoaded
+        ? freeQuestionLabel(messagesRemaining)
+        : freeQuestionLabel(GUEST_TIER_MESSAGE_CAP);
 
   return (
     <section
