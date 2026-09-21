@@ -552,4 +552,5 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-05** — Redesigned `/library` hub only (`LibraryHub` + `libraryIllustrations` + CSS module): illustrated hero, sticky browse/filter side panel (group + search), mobile chips/search, unique flat-retro plate art per guide and per section heading. Article routes `/library/[slug]` unchanged. Inspiration: Mobbin (Claude filter rail + illustrated cards, Codecademy subject sidebar, Uxcel/Deel illustration plates) + 21st grid/blog patterns; brand cream/orange/teal register kept.
 - **2026-09-05** — Split PFQ “course overview” surfaces: `/courses/pfq-in-2-days` is marketing only (no study console). `/courses/pfq-in-2-days/learn` is the enrolled study overview matching PMQ rhythm (`CourseHeader` + `PfqOverview`: day-plan console, mock/practice/Trap School console, exam structure, syllabus weight, traps teaser). Coverage map removed from learn hub (stays on mock results). Dashboard + LO “Overview” links point at `/learn`, not the marketing page.
 
--
+-- **2026-09-21** — Saved home landing `/impeccable audit` report to `docs/landing-page-audit-2026-09-20.md` (13/20 Acceptable).
+
