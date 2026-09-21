@@ -74,8 +74,8 @@ function CourseSubhead({ course }: { course: Course }) {
     return (
       <p className={styles.subhead}>
         <span className={styles.subheadLine}>
-          All 10 learning objectives and 59 learning outcomes, mapped to the APM
-          PFQ syllabus, with practice questions and mock exams at every step.
+          Covers all 10 learning objectives and 59 learning outcomes in the APM
+          PFQ syllabus.
         </span>
       </p>
     );
