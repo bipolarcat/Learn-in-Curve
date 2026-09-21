@@ -116,11 +116,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
           <span className="h-[11px] w-[11px] rounded-full bg-[#FEBC2E] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
           <span className="h-[11px] w-[11px] rounded-full bg-[#28C840] shadow-[inset_0_-0.5px_0.5px_rgb(0_0_0_/_0.18)]" />
         </div>
-        <div className="min-w-0 flex-1">
-          <p className="truncate font-body text-[13.5px] font-semibold tracking-[-0.015em] text-ink">
-            Chat
-          </p>
-        </div>
+        <div className="min-w-0 flex-1" aria-hidden />
         {statusLabel ? (
           <p
             className="shrink-0 rounded-full bg-ink/[0.05] px-2.5 py-1 font-body text-[11px] font-semibold tabular-nums tracking-tight text-ink/55"
