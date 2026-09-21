@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Landing Sly faces: softer Sly portrait crop (ears stay in frame on desktop); dog uses dashboard `AvatarImage` crop; chat faces 26px, header 36px (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly locked CTA: label “Create Free Account” with `!normal-case` (no stamp all-caps) in `SlyTutorWindow`.
 - **2026-09-21** — Landing Sly chat avatars: assistant uses `sly-tutor-portrait.png`; user messages show dog avatar (`/avatars/dog.png`) + “You” label (`SlyTutorWindow`).
 - **2026-09-21** — Landing Sly console restyle: drop Mac traffic lights + wallpaper; Cursor/Claude-style chat shell (minimal header, plain assistant prose, soft user bubble, floating composer) in `SlyTutorWindow` + `SlyShowcase.module.css`. Logic unchanged. Refs: Mobbin AI chat screens + 21st chat/input patterns.

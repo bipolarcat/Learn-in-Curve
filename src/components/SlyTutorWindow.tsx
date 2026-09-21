@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { AvatarImage } from "@/components/AvatarImage";
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import { SendFeedbackButton } from "@/components/SendFeedbackButton";
 import { slyChromeStyles } from "@/components/SlyChrome";
@@ -15,6 +16,8 @@ import { GUEST_TIER_MESSAGE_CAP } from "@/lib/tutor/constants";
 import { useGuestSlyChat } from "@/lib/tutor/use-guest-sly-chat";
 import { trackTutorOpened } from "@/lib/analytics/events";
 
+/** Chat row face size — large enough to read ears / animal detail. */
+const FACE_PX = 26;
 const SUGGESTIONS = [
   "What is the APM PMQ exam actually testing?",
   "Explain stakeholder management in plain English",
@@ -108,13 +111,13 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
 
       {/* Minimal chat header */}
       <header className="relative z-10 flex shrink-0 items-center gap-2.5 px-4 py-3 sm:px-5">
-        <span className="relative inline-flex h-8 w-8 shrink-0 overflow-hidden rounded-full bg-sand ring-1 ring-ink/10">
+        <span className="relative inline-flex h-9 w-9 shrink-0 overflow-hidden rounded-full bg-sand ring-1 ring-ink/10">
           <Image
             src="/brand/sly/sly-tutor-portrait.png"
             alt=""
-            width={32}
-            height={32}
-            className="h-full w-full scale-[1.35] object-cover object-[center_22%]"
+            width={36}
+            height={36}
+            className="h-full w-full scale-[1.18] object-cover object-[center_18%] sm:scale-[1.16] sm:object-[center_16%]"
           />
         </span>
         <div className="min-w-0 flex-1">
@@ -201,7 +204,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                   >
                     {showFace && msg.role === "assistant" ? (
                       <span className="inline-flex items-center gap-1.5">
-                        <SlyFace size={20} />
+                        <SlyFace size={FACE_PX} />
                         <span className="text-[12px] font-semibold tracking-tight text-ink/55">
                           Sly
                         </span>
@@ -212,7 +215,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                         <span className="text-[12px] font-semibold tracking-tight text-ink/55">
                           You
                         </span>
-                        <UserFace size={20} />
+                        <UserFace size={FACE_PX} />
                       </span>
                     ) : null}
                     {msg.role === "user" ? (
@@ -377,7 +380,8 @@ function SlyFace({ size }: { size: number }) {
         alt=""
         width={size}
         height={size}
-        className="h-full w-full scale-[1.35] object-cover object-[center_22%]"
+        /* Gentler zoom than the old 1.35 — keeps ears in frame on desktop. */
+        className="h-full w-full scale-[1.18] object-cover object-[center_18%] sm:scale-[1.14] sm:object-[center_16%]"
       />
     </span>
   );
@@ -386,17 +390,12 @@ function SlyFace({ size }: { size: number }) {
 function UserFace({ size }: { size: number }) {
   return (
     <span
-      className="relative inline-flex shrink-0 overflow-hidden rounded-full bg-sand ring-1 ring-ink/10"
+      className="relative inline-flex shrink-0 overflow-hidden rounded-full bg-avatar-plate ring-1 ring-ink/10"
       style={{ width: size, height: size }}
       aria-hidden
     >
-      <Image
-        src="/avatars/dog.png"
-        alt=""
-        width={size}
-        height={size}
-        className="h-full w-full object-cover object-center"
-      />
+      {/* Same crop as dashboard profile (`AvatarImage`). */}
+      <AvatarImage avatarId="dog" size={size} />
     </span>
   );
 }
