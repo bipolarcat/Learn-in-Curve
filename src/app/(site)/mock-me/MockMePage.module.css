@@ -92,6 +92,7 @@
 
 .meta {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.95rem 1.05rem 1.1rem;
@@ -116,25 +117,76 @@
   color: rgb(var(--ink-rgb) / 0.55);
 }
 
+/**
+ * Mock Me card Start — full-width ink plate + cream arrow disc.
+ * Unique to this hub; not the site-wide stamp CTA.
+ */
 .cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.65rem;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding: 0.45rem 0.45rem 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: rgb(var(--ink-rgb));
+  color: var(--card-cream, #f6efdd);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.12),
+    0 1px 2px rgb(var(--ink-rgb) / 0.18);
+  transition:
+    background-color 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.ctaLabel {
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--orange, #e07a3a);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ctaDisc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--orange, #e07a3a);
+  color: rgb(var(--ink-rgb));
+  box-shadow: 0 1px 2px rgb(var(--ink-rgb) / 0.2);
+  transition:
+    transform 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .ctaArrow {
-  display: inline-block;
-  transition: transform 180ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+  display: block;
+  transition: transform 220ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.card:hover .cta {
+  background: color-mix(in srgb, rgb(var(--ink-rgb)) 88%, var(--orange, #e07a3a));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    0 2px 6px rgb(var(--ink-rgb) / 0.22);
+}
+
+.card:hover .ctaDisc {
+  transform: scale(1.06);
+  background: color-mix(in srgb, var(--orange, #e07a3a) 82%, white);
 }
 
 .card:hover .ctaArrow {
-  transform: translateX(3px);
+  transform: translateX(2px);
+}
+
+.card:active .cta {
+  transform: scale(0.985);
 }
 
 @media (min-width: 40rem) {
@@ -152,6 +204,8 @@
 @media (prefers-reduced-motion: reduce) {
   .card,
   .artImage,
+  .cta,
+  .ctaDisc,
   .ctaArrow {
     transition: none;
   }
@@ -161,7 +215,9 @@
   }
 
   .card:hover .artImage,
-  .card:hover .ctaArrow {
+  .card:hover .ctaDisc,
+  .card:hover .ctaArrow,
+  .card:active .cta {
     transform: none;
   }
 }

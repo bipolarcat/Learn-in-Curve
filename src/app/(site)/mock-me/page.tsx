@@ -99,9 +99,23 @@ export default function MockMeHubPage() {
                       {exam.questionCount} questions
                     </p>
                     <span className={styles.cta}>
-                      Start
-                      <span className={styles.ctaArrow} aria-hidden>
-                        →
+                      <span className={styles.ctaLabel}>Start mock</span>
+                      <span className={styles.ctaDisc} aria-hidden>
+                        <svg
+                          className={styles.ctaArrow}
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          width="14"
+                          height="14"
+                        >
+                          <path
+                            d="M3.5 8h9M8.5 4l4 4-4 4"
+                            stroke="currentColor"
+                            strokeWidth="1.75"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </span>
                     </span>
                   </div>
