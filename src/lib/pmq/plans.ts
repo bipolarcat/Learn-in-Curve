@@ -219,7 +219,7 @@ export const PMQ_PLANS: PmqPlan[] = [
           "recall activities across the course, including Pair Up, Line Up and Group Up",
         value: "60+",
       },
-      { icon: "sly", label: "Sly, your personal AI tutor" },
+      { icon: "sly", label: "Sly, the AI tutor" },
       {
         icon: "report",
         label:
