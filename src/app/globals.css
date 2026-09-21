@@ -70,6 +70,11 @@ html {
   color-scheme: only light;
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  /*
+    iOS rubber-band / overscroll past the footer shows this canvas colour.
+    Match footer ink so pull-past-bottom stays brown, not cream.
+  */
+  background-color: rgb(var(--ink-rgb));
 }
 
 html.dark {
