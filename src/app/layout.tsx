@@ -8,6 +8,7 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import { AppToaster } from "@/components/ui/toast";
+import { buildTitle } from "@/lib/seo/title";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -32,9 +33,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
-const ROOT_TITLE = "Learn in Curve — APM PFQ & PMQ exam revision";
+const ROOT_TITLE = buildTitle("APM PMQ & PFQ Exam Revision");
 const ROOT_DESCRIPTION =
-  "Interactive exam revision for the APM PFQ and PMQ. Free mock exams, structured courses, and AI tutoring — wherever you are on the curve.";
+  "Interactive exam revision for the APM PMQ and PFQ. Free mock exams, structured courses, and AI tutoring, wherever you are on the curve.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

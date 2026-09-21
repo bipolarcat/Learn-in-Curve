@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AuthDeskPanel } from "@/components/AuthDeskPanel";
 import styles from "@/app/courses/pmq-in-5-days/preview/PreviewPage.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 /**
  * Guest destination for PFQ Enrol for Free.
@@ -8,7 +9,7 @@ import styles from "@/app/courses/pmq-in-5-days/preview/PreviewPage.module.css";
  * Already in robots.txt disallow; noindex as well because links alone can index it.
  */
 export const metadata: Metadata = {
-  title: "Sign up for PFQ in 2 Days | Learn in Curve",
+  title: buildTitle("Sign up for PFQ in 2 Days"),
   robots: { index: false, follow: true },
 };
 

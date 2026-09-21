@@ -5,9 +5,10 @@ import { ResetPasswordForm } from "@/components/ResetPasswordForm";
 import { quietFormSurface } from "@/components/ui/semantic";
 import { createClient } from "@/lib/supabase/server";
 import styles from "@/components/AuthDeskPanel.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Set a new password — Learn in Curve",
+  title: buildTitle("Set a new password"),
 };
 
 export default async function ResetPasswordPage() {

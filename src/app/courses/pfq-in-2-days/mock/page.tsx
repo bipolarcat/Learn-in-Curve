@@ -17,13 +17,14 @@ import { parsePfqMockSet, type PfqMockSet } from "@/lib/pfq/generator";
 import { canAccessPfqMock } from "@/lib/pfq/tiers";
 import { stampCtaSecondary } from "@/components/stamp-chip";
 import { authHrefWithNext } from "@/lib/auth-next";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "PFQ Mock Exam — Timed 60 Questions",
+  title: buildTitle("PFQ Mock Exam: Timed 60 Questions"),
   description:
     "Timed APM PFQ practice mock: 60 questions, 60 minutes. One sitting; the timer keeps running if you leave.",
   alternates: { canonical: `${SITE_URL}${PFQ_MOCK_HREF}` },

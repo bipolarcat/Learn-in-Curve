@@ -15,11 +15,12 @@ import { getPfqTier } from "@/lib/pfq/entitlement";
 import { getUserCourseStats } from "@/lib/pmq/queries";
 import { CourseHeader } from "@/components/course/CourseHeader";
 import { PfqOverview } from "@/components/pfq/PfqOverview";
+import { buildTitle } from "@/lib/seo/title";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "PFQ in 2 Days — Course overview",
+  title: buildTitle("PFQ in 2 Days: Course overview"),
   robots: { index: false, follow: false },
 };
 

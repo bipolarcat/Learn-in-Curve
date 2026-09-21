@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { productActionPrimary, productSurface } from "@/components/ui/semantic";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata = {
-  title: "Unsubscribe - Learn in Curve",
+  title: buildTitle("Unsubscribe"),
 };
 
 type UnsubscribePageProps = {

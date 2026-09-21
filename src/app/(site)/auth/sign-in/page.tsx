@@ -3,9 +3,10 @@ import { AuthDeskPanel } from "@/components/AuthDeskPanel";
 import { getSafeNextPath } from "@/lib/auth-next";
 import { getAuthErrorMessage } from "@/lib/auth-errors";
 import { hasProIntent } from "@/lib/pmq/plans";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Sign in — Learn in Curve",
+  title: buildTitle("Sign in"),
 };
 
 type SignInPageProps = {

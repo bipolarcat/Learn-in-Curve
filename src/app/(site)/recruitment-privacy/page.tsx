@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { LegalPage } from "@/components/LegalPage";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "Recruitment Privacy Notice - Learn in Curve",
+  title: buildTitle("Recruitment Privacy Notice"),
   description:
     "How Learn in Curve handles personal data from job applicants — what we collect during recruitment, why we need it, and how long we keep it.",
   alternates: { canonical: `${SITE_URL}/recruitment-privacy` },

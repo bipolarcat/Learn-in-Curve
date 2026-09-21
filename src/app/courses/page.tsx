@@ -10,13 +10,14 @@ import {
   SOFT_NAV_BACK,
 } from "@/lib/soft-nav-back";
 import styles from "./CoursesPage.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "Courses — Learn in Curve",
+  title: buildTitle("Courses"),
   description:
     "Pick your course. APM PMQ in 5 Days and PFQ in 2 Days are live — structured revision, practice questions, and timed mocks for each exam.",
   alternates: { canonical: `${SITE_URL}/courses` },

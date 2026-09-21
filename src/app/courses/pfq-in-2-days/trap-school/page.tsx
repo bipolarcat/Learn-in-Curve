@@ -3,9 +3,10 @@ import Link from "next/link";
 import { requirePfqSignedInOrRedirect } from "@/lib/pfq/require-pro";
 import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
 import PfqTrapSchool from "@/components/pfq/PfqTrapSchool";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Trap School — PFQ in 2 Days",
+  title: buildTitle("Trap School: PFQ in 2 Days"),
   robots: { index: false, follow: false },
 };
 

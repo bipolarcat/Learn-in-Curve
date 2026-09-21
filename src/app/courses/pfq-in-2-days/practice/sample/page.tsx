@@ -7,9 +7,10 @@ import {
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
 import { requirePfqSignedInOrRedirect } from "@/lib/pfq/require-pro";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "PFQ Free Sample Practice",
+  title: buildTitle("PFQ Free Sample Practice"),
   robots: { index: false, follow: false },
 };
 

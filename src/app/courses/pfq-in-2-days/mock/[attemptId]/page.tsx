@@ -5,6 +5,7 @@ import { requirePfqProOrRedirect } from "@/lib/pfq/require-pro";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { createClient } from "@/lib/supabase/server";
 import { PFQ_MOCK_HREF } from "@/lib/pfq/constants";
+import { buildTitle } from "@/lib/seo/title";
 
 type Props = {
   params: Promise<{ attemptId: string }>;
@@ -13,7 +14,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { attemptId } = await params;
   return {
-    title: "PFQ Mock Attempt",
+    title: buildTitle("PFQ Mock Attempt"),
     robots: { index: false, follow: false },
     alternates: {
       canonical: `https://www.learnincurve.com${PFQ_MOCK_HREF}/${attemptId}`,

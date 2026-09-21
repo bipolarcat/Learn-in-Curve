@@ -13,9 +13,10 @@ import { requirePfqSignedInOrRedirect } from "@/lib/pfq/require-pro";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { canAccessPfqFullPractice } from "@/lib/pfq/tiers";
 import { stampCtaPrimary, stampCtaSecondary } from "@/components/stamp-chip";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "PFQ Practice — Pick an objective",
+  title: buildTitle("PFQ Practice: Pick an objective"),
   robots: { index: false, follow: false },
 };
 

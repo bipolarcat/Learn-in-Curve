@@ -48,9 +48,9 @@ export const headerIconTeal =
 export const headerPillSecondary =
   `group inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl border border-ink/10 bg-transparent px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink/70 hover:bg-ink/[0.05] hover:text-ink sm:px-3 ${motion}`;
 
-/** Even quieter auth utility — returning users, not a third hero CTA. */
+/** Quiet Sign in — h-8 so it sits inside the h-12/sm:h-14 bar with room for the rim. */
 export const headerPillAuthUtility =
-  `group inline-flex h-8 items-center justify-center gap-1.5 rounded-xl border-[0.5px] border-ink/20 bg-transparent px-2 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 hover:border-ink/35 hover:bg-ink/[0.05] hover:text-ink/80 sm:px-2.5 ${motion}`;
+  `group inline-flex h-8 items-center justify-center gap-1.5 rounded-xl border border-ink/15 bg-transparent px-2.5 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 hover:border-ink/25 hover:bg-ink/[0.05] hover:text-ink/80 sm:px-3 ${motion}`;
 
 /** Overflow menu trigger: icon + Menu label (label hides when open). */
 export const headerMenuTrigger =

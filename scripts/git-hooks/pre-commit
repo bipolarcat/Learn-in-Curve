@@ -5,6 +5,7 @@
 # it is bumped once per production deploy by `npm run deploy` (scripts/deploy.mjs),
 # so SITE_VERSION always equals what is actually live on Railway.
 #
+# Skip dash check: LIC_SKIP_DASH_CHECK=1 git commit ...
 # Skip legal date: LIC_SKIP_LEGAL_DATE=1 git commit ...
 # Manual version:  npm run version:set -- 3.0
 
@@ -13,6 +14,10 @@ cd "$ROOT" || exit 1
 
 if [ "$LIC_SKIP_LEGAL_DATE" != "1" ]; then
   node scripts/bump-legal-dates.mjs || exit 1
+fi
+
+if [ "$LIC_SKIP_DASH_CHECK" != "1" ]; then
+  node scripts/check-no-em-dash.mjs || exit 1
 fi
 
 exit 0

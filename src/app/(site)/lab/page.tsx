@@ -7,6 +7,7 @@ import { LabHero } from "@/components/lab/LabHero";
 import { LabSlySection } from "@/components/lab/LabSlySection";
 import { FeatureStack } from "@/components/FeatureStack";
 import { PmqLaunchProof } from "@/components/PmqLaunchProof";
+import { buildTitle } from "@/lib/seo/title";
 
 /**
  * Design sandbox — illustrated landing redesign spike.
@@ -18,7 +19,7 @@ import { PmqLaunchProof } from "@/components/PmqLaunchProof";
  * `TrialQuiz` moved here from `/`.
  */
 export const metadata: Metadata = {
-  title: "Lab — Learn in Curve",
+  title: buildTitle("Lab"),
   description: "Internal design sandbox. Not indexed.",
   robots: { index: false, follow: false },
 };

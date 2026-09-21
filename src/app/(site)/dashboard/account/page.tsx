@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Account | Learn in Curve",
+  title: buildTitle("Account"),
   robots: { index: false, follow: false },
 };
 

@@ -4,13 +4,14 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stampCtaPrimaryCompact } from "@/components/stamp-chip";
 import styles from "./AboutPage.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "About - Learn in Curve",
+  title: buildTitle("About"),
   description:
     "Learn in Curve helps project managers prepare for the APM PFQ and PMQ without the overwhelm — honest study tools built around how the exams actually work.",
   alternates: { canonical: `${SITE_URL}/about` },

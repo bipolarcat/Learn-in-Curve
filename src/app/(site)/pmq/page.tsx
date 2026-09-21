@@ -35,6 +35,7 @@ import {
 import { getPmqPlan, PMQ_OVERVIEW_HREF, PMQ_PRICING_HREF } from "@/lib/pmq/plans";
 import { canAccessMedia } from "@/lib/pmq/tiers";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -45,12 +46,12 @@ const slyWaitlisted = getPmqPlan("ai_pro").status === "waitlist";
 const stages = buildLoStages();
 
 export const metadata: Metadata = {
-  title: "PMQ in 5 Days: Course overview | Learn in Curve",
+  title: buildTitle("PMQ in 5 Days: Course overview"),
   description:
     "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
   alternates: { canonical: `${SITE_URL}${PMQ_OVERVIEW_HREF}` },
   openGraph: {
-    title: "PMQ in 5 Days: Course overview | Learn in Curve",
+    title: buildTitle("PMQ in 5 Days: Course overview"),
     description:
       "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
     url: `${SITE_URL}${PMQ_OVERVIEW_HREF}`,

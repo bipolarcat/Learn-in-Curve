@@ -10,13 +10,14 @@ import {
 } from "@/lib/pmq/plans";
 import { PmqPlanCards } from "@/components/pmq/PmqPlanCards";
 import { PricingBackLink } from "@/components/pmq/PricingBackLink";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: "Plans & pricing — PMQ in 5 days | Learn in Curve",
+  title: buildTitle("Plans & pricing: PMQ in 5 Days"),
   description:
     "Start free with the complete APM PMQ syllabus. Upgrade for more practice, mock exams, and video and audio overviews — or wait for Sly, your AI tutor.",
   alternates: { canonical: `${SITE_URL}/courses/pmq-in-5-days/pricing` },

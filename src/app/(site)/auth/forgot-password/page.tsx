@@ -3,9 +3,10 @@ import { AuthDeskScene } from "@/components/AuthDeskScene";
 import { ForgotPasswordForm } from "@/components/ForgotPasswordForm";
 import { quietFormSurface } from "@/components/ui/semantic";
 import styles from "@/components/AuthDeskPanel.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Reset your password — Learn in Curve",
+  title: buildTitle("Reset your password"),
 };
 
 export default function ForgotPasswordPage() {

@@ -13,6 +13,7 @@ import { pfqTierAtLeast } from "@/lib/pfq/tiers";
 import { PFQ_ATP_DISCLAIMER } from "@/lib/legal-copy";
 import { PfqPlanCards } from "@/components/pfq/PfqPlanCards";
 import { PricingBackLink } from "@/components/pmq/PricingBackLink";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -21,7 +22,7 @@ const SITE_URL =
 const PFQ_PRICE_LABEL = formatPfqPriceGbp();
 
 export const metadata: Metadata = {
-  title: "Plans & pricing — PFQ in 2 Days | Learn in Curve",
+  title: buildTitle("Plans & pricing: PFQ in 2 Days"),
   description: `Free to start, then Pro Bundle ${PFQ_PRICE_LABEL} for full insights, 565 practice questions, three timed mocks and a coverage map. AI Pro launching soon.`,
   alternates: { canonical: `${SITE_URL}${PFQ_PRICING_HREF}` },
 };

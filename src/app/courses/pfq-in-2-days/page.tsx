@@ -23,6 +23,7 @@ import {
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -31,11 +32,11 @@ const SITE_URL =
 const PRICE = formatPfqPriceGbp();
 
 export const metadata: Metadata = {
-  title: `PFQ in 2 Days — Course overview | Learn in Curve`,
+  title: buildTitle("PFQ in 2 Days: Course overview"),
   description: `59 lessons, 565 practice questions, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
   alternates: { canonical: `${SITE_URL}${PFQ_BASE_HREF}` },
   openGraph: {
-    title: `PFQ in 2 Days — Course overview | Learn in Curve`,
+    title: buildTitle("PFQ in 2 Days: Course overview"),
     description: `59 lessons, practice sets, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
     url: `${SITE_URL}${PFQ_BASE_HREF}`,
     type: "website",

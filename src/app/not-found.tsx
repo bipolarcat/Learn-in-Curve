@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SiteStatusPage } from "@/components/SiteStatusPage";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Page not found — Learn in Curve",
+  title: buildTitle("Page not found"),
 };
 
 /**

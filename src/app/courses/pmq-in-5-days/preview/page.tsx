@@ -4,13 +4,14 @@ import { AuthDeskPanel } from "@/components/AuthDeskPanel";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import styles from "./PreviewPage.module.css";
+import { buildTitle } from "@/lib/seo/title";
 
 /**
  * Guest destination for hero Enrol for Free and Starter Pack Start Free.
  * Same fox + signup card as /auth/sign-up. Noindex: a form, not a landing page.
  */
 export const metadata: Metadata = {
-  title: "Sign up for PMQ in 5 Days | Learn in Curve",
+  title: buildTitle("Sign up for PMQ in 5 Days"),
   robots: { index: false, follow: true },
 };
 

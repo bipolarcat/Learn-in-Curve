@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { AuthDeskPanel } from "@/components/AuthDeskPanel";
 import { getSafeNextPath } from "@/lib/auth-next";
 import { hasProIntent } from "@/lib/pmq/plans";
+import { buildTitle } from "@/lib/seo/title";
 
 export const metadata: Metadata = {
-  title: "Sign up — Learn in Curve",
+  title: buildTitle("Sign up"),
 };
 
 type SignUpPageProps = {
