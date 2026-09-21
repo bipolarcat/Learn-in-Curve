@@ -19,7 +19,6 @@ import {
   type LightbulbIconHandle,
 } from "@animateicons/react/lucide/lightbulb-icon";
 import type { ExamTip } from "@/types/pmq";
-import { ProBadge } from "@/components/pmq/tier-badge";
 import { showProLockHint } from "@/components/pmq/ProLockHint";
 import { cn } from "@/lib/utils";
 
@@ -163,9 +162,8 @@ export function InsightsExpand({
 }
 
 /**
- * Starter LO2–24: same Insights chrome as Pro, but static + de-emphasised,
- * with the locked Pro badge. Tip text was already stripped server-side.
- * Tap → short Pro unlock toast.
+ * Starter LO2–24 (PMQ) / obj 2–10 (PFQ): Insights chrome, static + de-emphasised.
+ * Tip / body already stripped server-side. Tap → anchored Pro unlock tip.
  */
 export function InsightsLockedChip({ className }: { className?: string }) {
   return (
@@ -187,7 +185,6 @@ export function InsightsLockedChip({ className }: { className?: string }) {
         aria-hidden
       />
       <span>Insights</span>
-      <ProBadge locked />
     </button>
   );
 }
