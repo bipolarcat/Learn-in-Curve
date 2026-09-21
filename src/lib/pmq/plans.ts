@@ -116,7 +116,6 @@ export const PMQ_PLANS: PmqPlan[] = [
     priceNote: "No credit card needed",
     tagline: "Everything you need to start your PMQ revision today.",
     featured: false,
-    badge: "For Limited Time",
     ctaLabel: "Start free",
     features: [
       {
@@ -147,7 +146,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     tagline:
       "More questions, mock exams, and video/audio overviews for every learning objective.",
     featured: true,
-    badge: "Launch Price",
+    badge: "Recommended",
     badgeVariant: "value",
     inheritsFrom: "starter",
     ctaLabel: "Get Pro Bundle",
