@@ -379,7 +379,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
 
 function LockedTrialPanel() {
   return (
-    <div className="flex w-full max-w-[22rem] flex-col items-center rounded-2xl bg-sand/40 px-5 py-6 text-center">
+    <div className="flex w-full max-w-[22rem] flex-col items-center rounded-2xl bg-ink/[0.03] px-5 py-6 text-center">
       <SlyFace size={56} />
       <div className="mt-3 flex items-center gap-1.5">
         <AiProBadge />
