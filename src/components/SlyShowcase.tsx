@@ -54,7 +54,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             </span>
             <h2
               id="sly-showcase-heading"
-              className="min-w-0 font-display text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold leading-[1.15] tracking-[-0.03em] text-ink text-balance sm:leading-[1.1]"
+              className="min-w-0 font-display text-[1.9rem] font-bold leading-[1.12] tracking-[-0.03em] text-ink text-balance sm:text-[clamp(1.55rem,2.8vw,1.95rem)] sm:leading-[1.1]"
             >
               <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">
                 Stuck on a syllabus topic?
