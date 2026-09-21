@@ -11,8 +11,8 @@ type BouncingTextProps = {
   /** Loop forever (`true`), play once (`false`), or N repeats. */
   repeat?: boolean | number;
   /**
-   * Drop distance in px before the bounce lands. 21st default is 200 —
-   * too tall for inline headline use; pass a smaller value there.
+   * Drop distance in px before the settle lands. Keep small for inline
+   * headline use so characters never cross the line above.
    */
   fromY?: number;
   /**
@@ -23,12 +23,12 @@ type BouncingTextProps = {
 } & ComponentPropsWithoutRef<"span">;
 
 /**
- * 21st.dev BouncingText — per-character bounce via GSAP SplitText.
- * Renders as `<span>` so it can sit inside headings.
+ * Per-character settle via GSAP SplitText — ease-out only (no bounce/elastic).
+ * Renders as `<span>`; SplitText wrappers are forced to inline.
  */
 export function BouncingText({
   repeat = true,
-  fromY = -200,
+  fromY = -18,
   persist = false,
   ...props
 }: BouncingTextProps) {
@@ -38,41 +38,39 @@ export function BouncingText({
     () => {
       if (!textRef.current) return;
 
-      const split = new SplitText(textRef.current, { type: "words,chars" });
+      const split = new SplitText(textRef.current, {
+        type: "chars",
+        // Keep heading markup valid — never wrap chars in <div>.
+        tag: "span",
+      });
       const bounceChars = split.chars;
-      let bounceCount = 0;
 
-      bounceChars.forEach((el) => {
+      bounceChars.forEach((el, i) => {
+        gsap.set(el, {
+          display: "inline-block",
+          y: fromY,
+          opacity: 0.35,
+        });
         const tl = gsap.timeline({
           repeat: repeat === true ? -1 : repeat === false ? 0 : repeat,
+          delay: i * 0.035,
         });
+        // Short ease-out settle — no overshoot past y:0.
         tl.to(el, {
-          duration: 0,
-          y: fromY,
-        });
-        tl.to(el, {
-          duration: 2,
+          duration: 0.45,
           y: 0,
-          rotate: -10,
-          ease: "bounce",
-        });
-        tl.to(el, {
-          duration: 1,
-          y: 0,
-          rotate: 0,
-          ease: "bounce",
+          opacity: 1,
+          ease: "power2.out",
         });
         if (!persist) {
           tl.to(el, {
-            duration: 2,
+            duration: 0.5,
             y: fromY,
-            rotate: 0,
-            delay: 1,
-            ease: "elastic",
+            opacity: 0.35,
+            delay: 1.2,
+            ease: "power2.in",
           });
         }
-        tl.delay(bounceCount / 8);
-        bounceCount++;
       });
 
       return () => {

@@ -38,10 +38,10 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 }
 
 const socialChipClass =
-  "inline-flex size-7 items-center justify-center rounded-lg text-cream/65 transition-[background-color,color,transform] duration-150 ease-[var(--ease-out-quint)] hover:bg-cream/[0.08] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
+  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-cream/65 transition-[background-color,color,transform] duration-150 ease-[var(--ease-out-quint)] hover:bg-cream/[0.08] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
 
 const footerLinkClass =
-  "inline-flex min-h-8 items-center rounded-md px-0.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 /**
  * Full-bleed ink footer — compact brand/social + links row, then newsletter.
@@ -61,7 +61,7 @@ export function SiteFooter({
         <div className="flex flex-col gap-3 sm:gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="flex min-w-0 items-center gap-3">
             <div className="brand flex shrink-0 items-center gap-2.5">
-              <Logo alt="" />
+              <Logo alt="Learn in Curve" />
               <span className="brand-name flex w-max flex-col font-display text-[0.78rem] font-bold leading-none tracking-[-0.02em]">
                 <span className="whitespace-nowrap leading-none">Learn in</span>
                 <span className="-mt-[0.08em] whitespace-nowrap text-[1.41em] leading-none tracking-[-0.03em] text-orange">

@@ -37,6 +37,8 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   const [inView, setInView] = useState(false);
+  /** Wait for layout/scroll-reveal to settle before chips accept taps. */
+  const [chipsReady, setChipsReady] = useState(false);
   const openedTracked = useRef(false);
 
   const chat = useGuestSlyChat({ active: inView && !isSignedIn });
@@ -77,6 +79,16 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
     if (!inView || isSignedIn || openedTracked.current) return;
     openedTracked.current = true;
     trackTutorOpened({ surface: "guest" });
+  }, [inView, isSignedIn]);
+
+  useEffect(() => {
+    if (!inView || isSignedIn) {
+      setChipsReady(false);
+      return;
+    }
+    // ScrollReveal / layout can still be settling when chips first paint.
+    const id = window.setTimeout(() => setChipsReady(true), 420);
+    return () => window.clearTimeout(id);
   }, [inView, isSignedIn]);
 
   const composerLocked = locked || unavailable;
@@ -165,14 +177,19 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                   </p>
                 </div>
                 {!isSignedIn && !composerLocked ? (
-                  <div className="flex w-full max-w-[22rem] flex-col gap-2">
+                  <div
+                    className={`flex w-full max-w-[22rem] flex-col gap-2 ${
+                      chipsReady ? "" : "pointer-events-none"
+                    }`}
+                    aria-hidden={!chipsReady}
+                  >
                     {SUGGESTIONS.map((suggestion) => (
                       <button
                         key={suggestion}
                         type="button"
                         onClick={() => void send(suggestion)}
-                        disabled={sending}
-                        className="rounded-xl border border-ink/15 bg-cream/95 px-3.5 py-2.5 text-left text-[13px] leading-snug text-ink shadow-sm transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] hover:border-teal/40 hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal disabled:opacity-50"
+                        disabled={sending || !chipsReady}
+                        className="min-h-11 rounded-xl border border-ink/15 bg-cream/95 px-3.5 py-2.5 text-left text-[13px] leading-snug text-ink shadow-sm transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] hover:border-teal/40 hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal disabled:opacity-50"
                       >
                         {suggestion}
                       </button>

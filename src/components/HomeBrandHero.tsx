@@ -1,54 +1,27 @@
 "use client";
 
+import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { HeroAnimalsScene } from "@/components/HeroAnimalsScene";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
-import { stampCtaTealFlat } from "@/components/stamp-chip";
+import { CtaArrow, stampCtaTealFlat } from "@/components/stamp-chip";
+import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
+import { trackCtaClicked } from "@/lib/analytics/events";
+import { isSoftNavClick } from "@/lib/soft-nav-back";
 
+/** Primary hero CTA — teal solid, uses shared min-h-11 (no downward !min-h overrides). */
+const HERO_COURSE_CTA =
+  `${stampCtaTealFlat} !normal-case !tracking-[-0.01em]`;
+
+/** Secondary mock CTA — outline/ghost weight so primary reads as the main action. */
 const HERO_MOCK_CTA =
-  `${stampCtaTealFlat} hero-mock-cta !normal-case !tracking-[-0.01em] !min-h-9 !gap-1.5 !px-3.5 !py-2 sm:!min-h-10 sm:!px-4 [&_svg]:!h-3 [&_svg]:!w-3`;
+  `${marketingActionSecondary} !normal-case !tracking-[-0.01em]`;
 
-const HEADLINE =
-  "PFQ or PMQ. Wherever you are on the curve.";
-/**
- * Subcopy wraps (nowrap rows, measured to avoid orphans):
- * - <sm: 3 rows, R3 = “APM PFQ and PMQ.”
- * - sm–800: 2 rows, first longer
- * - ≥800: 2 rows, lead + “APM PFQ and PMQ.”
- */
-const SUB_MOBILE = [
-  "Stop re-reading. Start revising with 1,000+ practice",
-  "questions and full mock exams for the",
-  "APM PFQ and PMQ.",
-] as const;
-const SUB_TABLET = [
-  "Stop re-reading. Start revising with 1,000+ practice questions",
-  "and full mock exams for the APM PFQ and PMQ.",
-] as const;
-const SUB_DESKTOP = [
-  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the",
-  "APM PFQ and PMQ.",
-] as const;
+const HEADLINE = "PFQ or PMQ. Wherever you are on the curve.";
+const SUBCOPY =
+  "Stop re-reading. Start revising with 1,000+ practice questions and full mock exams for the APM PFQ and PMQ.";
 const EYEBROW = "Project Management Exam Revision";
-
-function SubcopyRows({
-  rows,
-  className,
-}: {
-  rows: readonly string[];
-  className: string;
-}) {
-  return (
-    <span className={className}>
-      {rows.map((row) => (
-        <span key={row} className="block whitespace-nowrap">
-          {row}
-        </span>
-      ))}
-    </span>
-  );
-}
 
 /** Category line — lab style: body bold teal, open tracking (static). */
 function CategoryStamp() {
@@ -59,7 +32,10 @@ function CategoryStamp() {
   );
 }
 
-/** “curve.” — only animated text in the hero (21st BouncingText). */
+/**
+ * “curve.” — short ease-out settle (no bounce/elastic overshoot).
+ * Reduced-motion / persist paths unchanged.
+ */
 function CurveAccent() {
   const reduce = useReducedMotion();
 
@@ -73,7 +49,7 @@ function CurveAccent() {
         className="inline-block"
         repeat={false}
         persist
-        fromY={-72}
+        fromY={-18}
       >
         curve
       </BouncingText>
@@ -103,6 +79,7 @@ function Headline() {
 
 /**
  * Home brand hero — animals + copy; only “curve” animates in the headline.
+ * Two ranked CTAs: free course (primary) + free mock (secondary).
  */
 export function HomeBrandHero() {
   return (
@@ -124,28 +101,36 @@ export function HomeBrandHero() {
               <Headline />
             </div>
 
-            <p className="mx-auto mt-3.5 max-w-[36rem] font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-none sm:text-[18px]">
-              <SubcopyRows rows={SUB_MOBILE} className="sm:hidden" />
-              <SubcopyRows
-                rows={SUB_TABLET}
-                className="hidden sm:block min-[800px]:hidden"
-              />
-              <SubcopyRows
-                rows={SUB_DESKTOP}
-                className="hidden min-[800px]:block"
-              />
+            <p className="mx-auto mt-3.5 max-w-[36rem] text-pretty font-body text-[clamp(13.5px,4.2vw,16px)] leading-relaxed text-ink/80 sm:mt-4 sm:max-w-[42rem] sm:text-[18px]">
+              {SUBCOPY}
             </p>
           </div>
         </div>
       </div>
 
       <div className="wrap relative z-10">
-        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[min(100%,52rem)] flex-wrap items-center justify-center gap-3 sm:mt-3.5 sm:gap-4 xl:max-w-[58rem]">
+        <div className="hero-ctas mx-auto mt-3 flex w-full max-w-[min(100%,22rem)] flex-col items-stretch gap-2.5 sm:mt-3.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 xl:max-w-[58rem]">
+          <Link
+            href="/courses"
+            className={HERO_COURSE_CTA}
+            onClick={(event) => {
+              trackCtaClicked({
+                variant: "Start the free course",
+                location: "hero",
+              });
+              if (!isSoftNavClick(event)) return;
+            }}
+          >
+            <span className="relative z-[1] inline-flex items-center gap-1.5">
+              <span>Start the free course</span>
+              <CtaArrow />
+            </span>
+          </Link>
           <FreeMockExamLink
             className={HERO_MOCK_CTA}
             from="home"
             href="/free-mock-exam/apm-pmq"
-            label="Take Free Mock Exam"
+            label="Take free mock exam"
             location="hero"
             showArrow
           />

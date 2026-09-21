@@ -20,6 +20,8 @@
 
 export const PMQ_OVERVIEW_HREF = "/pmq";
 export const PMQ_PRICING_HREF = "/courses/pmq-in-5-days/pricing";
+/** Guest-reachable course start — `/courses/pmq-in-5-days` redirects signed-out users to auth. */
+export const PMQ_PREVIEW_HREF = "/courses/pmq-in-5-days/preview";
 
 export const PMQ_PRO_INTENT_PARAM = "intent";
 export const PMQ_PRO_INTENT_VALUE = "pro";

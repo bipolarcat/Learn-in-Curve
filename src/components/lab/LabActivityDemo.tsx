@@ -191,7 +191,7 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
                 <span className="block text-[15px] font-medium leading-[1.55] text-ink sm:text-base sm:leading-[1.6]">
                   {activityMeta.heading}.
                 </span>
-                <span className="mt-0.5 block text-[13px] font-medium leading-snug text-ink/60 sm:text-[14px]">
+                <span className="mt-0.5 block text-[13px] font-medium leading-snug text-ink/65 sm:text-[14px]">
                   {activityMeta.title}
                 </span>
               </p>
@@ -237,18 +237,22 @@ export function LabActivityDemo({ isSignedIn = false }: LabActivityDemoProps) {
 
             {completedOnce ? (
               <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
-                <p className="m-0 font-body text-[14px] leading-snug text-ink/70 sm:text-[15px]">
+                <p className="m-0 font-body text-[14px] leading-snug text-ink/65 sm:text-[15px]">
                   That&apos;s one of 60+ in the free course.
                 </p>
-                <Link
-                  href="/courses/pmq-in-5-days/preview"
-                  className={CTA_PRIMARY}
-                >
-                  Preview the free course
+                <Link href="/courses" className={CTA_PRIMARY}>
+                  Start the free course
                   <CtaArrow />
                 </Link>
               </div>
-            ) : null}
+            ) : (
+              <div className="mt-5 flex flex-col items-center gap-3 border-t border-ink/[0.06] pt-5 text-center">
+                <Link href="/courses" className={CTA_PRIMARY}>
+                  Start the free course
+                  <CtaArrow />
+                </Link>
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </div>

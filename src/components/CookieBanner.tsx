@@ -4,8 +4,8 @@ import { useEffect, useId, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  stampCtaPrimaryCompact,
-  stampCtaSecondaryCompact,
+  stampCtaPrimary,
+  stampCtaSecondary,
 } from "@/components/stamp-chip";
 import { readConsent, writeConsent } from "@/lib/analytics/consent";
 
@@ -46,6 +46,9 @@ function CookieMark({ className = "" }: { className?: string }) {
  *
  * The choice is read by src/lib/analytics/consent.ts, which PostHogProvider
  * watches. Until "granted", no analytics script is even downloaded.
+ *
+ * Presentation: hidden on auth + free-mock routes so it does not occlude those
+ * flows. Consent storage is unchanged — analytics still waits for Accept.
  */
 export function CookieBanner() {
   const pathname = usePathname();
@@ -56,8 +59,19 @@ export function CookieBanner() {
     setVisible(readConsent() === "unset");
   }, []);
 
-  // Don't stack the notice on the cookies legal page itself.
-  if (!visible || pathname === "/cookies") return null;
+  // Re-check when route changes (layout persists across soft nav).
+  useEffect(() => {
+    if (readConsent() !== "unset") {
+      setVisible(false);
+    }
+  }, [pathname]);
+
+  const hideOnRoute =
+    pathname === "/cookies" ||
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/free-mock-exam");
+
+  if (!visible || hideOnRoute) return null;
 
   function accept() {
     writeConsent("granted");
@@ -74,35 +88,19 @@ export function CookieBanner() {
       role="dialog"
       aria-modal="false"
       aria-labelledby={titleId}
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex justify-center p-3 sm:inset-x-auto sm:bottom-5 sm:left-5 sm:justify-start sm:p-0"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex justify-center p-2 sm:inset-x-auto sm:bottom-5 sm:left-5 sm:justify-start sm:p-0"
     >
-      <div
-        className="pointer-events-auto w-full max-w-[min(100%,22.5rem)] origin-bottom motion-safe:animate-[cookie-banner-in_0.45s_var(--ease-out-quint)_both] rounded-2xl border border-black/[0.08] bg-paper p-4 text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_18px_48px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12] sm:p-5"
-      >
-        <div className="flex gap-3">
-          <CookieMark className="mt-0.5 h-10 w-10 shrink-0 sm:h-11 sm:w-11" />
+      <div className="pointer-events-auto w-full max-w-[min(100%,22.5rem)] origin-bottom motion-safe:animate-[cookie-banner-in_0.45s_var(--ease-out-quint)_both] rounded-2xl border border-black/[0.08] bg-paper px-3 py-3 text-ink shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.04),0_18px_48px_rgb(var(--ink-rgb)_/_0.18)] dark:border-white/[0.12] sm:p-5">
+        <div className="flex gap-2.5 sm:gap-3">
+          <CookieMark className="mt-0.5 h-8 w-8 shrink-0 sm:h-11 sm:w-11" />
           <div className="min-w-0 flex-1">
-            {/*
-              Named with a <p>, not a heading, on purpose.
-
-              This is a floating role="dialog" that renders on every page. As an
-              <h2> it inserted itself into each page's document outline, so a
-              screen-reader user navigating by heading met "Cookies" as a
-              top-level section of whatever they were reading — and every page's
-              heading structure gained a section that is not part of the page.
-
-              `aria-labelledby` accepts any element, so the dialog keeps exactly
-              the same accessible name without the outline side effect. Styling
-              is utility classes rather than tag-derived, so this looks
-              identical.
-            */}
             <p
               id={titleId}
-              className="font-display text-[1.05rem] font-bold tracking-[-0.03em] text-balance text-ink"
+              className="font-display text-[0.95rem] font-bold tracking-[-0.03em] text-balance text-ink sm:text-[1.05rem]"
             >
               Cookies
             </p>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-pretty text-ink/75">
+            <p className="mt-1 text-[12px] leading-snug text-pretty text-ink/75 sm:mt-1.5 sm:text-[13px] sm:leading-relaxed">
               We use a strictly necessary cookie to keep you signed in. We’d
               also like to use analytics cookies to see which lessons work and
               where people get stuck. No ads, ever.{" "}
@@ -116,31 +114,24 @@ export function CookieBanner() {
           </div>
         </div>
 
-        <div className="mt-3.5 flex flex-wrap items-center gap-2">
-          {/*
-            Accept and Reject are deliberately the same size and weight. A
-            Reject that is smaller, greyer or hidden behind "Manage options" is
-            the pattern the ICO has repeatedly called out as invalid consent —
-            if refusing is harder than agreeing, the agreement isn't freely
-            given and the consent doesn't count.
-          */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-2 sm:mt-3.5">
           <button
             type="button"
             onClick={accept}
-            className={`${stampCtaPrimaryCompact} justify-center`}
+            className={`${stampCtaPrimary} !normal-case justify-center`}
           >
             Accept
           </button>
           <button
             type="button"
             onClick={reject}
-            className={`${stampCtaSecondaryCompact} justify-center`}
+            className={`${stampCtaSecondary} !normal-case justify-center`}
           >
             Reject
           </button>
           <Link
             href="/cookies"
-            className="self-center text-[12px] font-semibold text-ink/55 underline underline-offset-2 transition-colors hover:text-ink"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center self-center px-2 text-[12px] font-semibold text-ink/65 underline underline-offset-2 transition-colors hover:text-ink"
           >
             Details
           </Link>

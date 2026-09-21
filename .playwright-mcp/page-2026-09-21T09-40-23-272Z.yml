@@ -1,0 +1,84 @@
+- generic [ref=f6e2]:
+  - link "Skip to content" [ref=f6e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Primary" [ref=f6e5]:
+    - link "Learn in Curve Learn in Curve" [ref=f6e7] [cursor=pointer]:
+      - /url: /
+      - img "Learn in Curve" [ref=f6e8]
+      - generic [ref=f6e9]:
+        - generic [ref=f6e10]: Learn in
+        - generic [ref=f6e11]: Curve
+    - group "Site controls" [ref=f6e12]:
+      - button "Sign in" [ref=f6e14] [cursor=pointer]
+      - button "Open menu" [ref=f6e21] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f6e24]:
+          - generic [ref=f6e25]: M
+          - generic [ref=f6e26]: e
+          - generic [ref=f6e27]: "n"
+          - generic [ref=f6e28]: u
+  - main [ref=f6e29]:
+    - generic [ref=f6e31]:
+      - generic [ref=f6e32]:
+        - heading "Mock Me" [level=1] [ref=f6e33]
+        - paragraph [ref=f6e34]: Free readiness checks. No account needed to start. Email unlocks your breakdown when you finish.
+      - list [ref=f6e35]:
+        - listitem [ref=f6e36]:
+          - paragraph [ref=f6e37]: 15 questions
+          - heading "APM PMQ" [level=2] [ref=f6e38]
+          - paragraph [ref=f6e39]: "Real APM PMQ-style formats: multiple choice, scenario, and select-from-list. No account required."
+          - link "Start PMQ check" [ref=f6e40] [cursor=pointer]:
+            - /url: /free-mock-exam/apm-pmq
+        - listitem [ref=f6e41]:
+          - paragraph [ref=f6e42]: 10 questions
+          - heading "APM PFQ" [level=2] [ref=f6e43]
+          - paragraph [ref=f6e44]: APM PFQ-style multiple choice across learning objectives. Spot gaps before you book. No account required.
+          - link "Start PFQ check" [ref=f6e45] [cursor=pointer]:
+            - /url: /free-mock-exam/apm-pfq
+        - listitem [ref=f6e46]:
+          - paragraph [ref=f6e47]: 15 questions
+          - heading "PMP" [level=2] [ref=f6e48]
+          - paragraph [ref=f6e49]: Scenario questions across People, Process and Business Environment. Readiness check only. No account required.
+          - link "Start PMP check" [ref=f6e50] [cursor=pointer]:
+            - /url: /free-mock-exam/pmp
+      - paragraph [ref=f6e51]:
+        - text: Looking for a full course?
+        - link "Browse courses" [ref=f6e52] [cursor=pointer]:
+          - /url: /courses
+  - contentinfo [ref=f6e53]:
+    - generic [ref=f6e54]:
+      - generic [ref=f6e55]:
+        - generic [ref=f6e56]:
+          - generic [ref=f6e57]:
+            - img "Learn in Curve" [ref=f6e58]
+            - generic [ref=f6e59]:
+              - generic [ref=f6e60]: Learn in
+              - generic [ref=f6e61]: Curve
+          - generic [ref=f6e62]:
+            - link "Learn in Curve on Instagram" [ref=f6e63] [cursor=pointer]:
+              - /url: https://www.instagram.com/learn.in.curve/
+            - link "Learn in Curve on LinkedIn" [ref=f6e66] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/learn-in-curve/
+        - navigation "Footer" [ref=f6e69]:
+          - link "Privacy" [ref=f6e70] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=f6e71] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookies" [ref=f6e72] [cursor=pointer]:
+            - /url: /cookies
+          - button "Send feedback" [ref=f6e73] [cursor=pointer]
+      - region [ref=f6e74]:
+        - heading "Join our newsletter." [level=2] [ref=f6e84]
+        - generic [ref=f6e86]:
+          - generic [ref=f6e87]:
+            - generic [ref=f6e88]: Email address
+            - textbox "Email address" [ref=f6e89]:
+              - /placeholder: you@email.com
+            - button "Join" [ref=f6e90] [cursor=pointer]
+          - paragraph [ref=f6e93]:
+            - text: Unsubscribe anytime.
+            - link "Privacy Policy" [ref=f6e94] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=f6e95]:
+      - generic:
+        - paragraph: © 2026 Learn in Curve
+        - paragraph: v2.46

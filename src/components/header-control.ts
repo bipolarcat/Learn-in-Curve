@@ -44,20 +44,24 @@ export const headerIconCompactTeal =
 export const headerIconTeal =
   `group inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-transparent bg-teal text-paper hover:brightness-[1.08] ${motion}`;
 
-/** Labeled secondary — Courses. */
+/** Labeled secondary — Courses / quiet Sign in utility (taller for touch). */
 export const headerPillSecondary =
-  `group inline-flex h-8 min-w-8 items-center justify-center gap-1.5 rounded-xl border border-ink/10 bg-transparent px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink hover:bg-ink/[0.07] sm:px-3 ${motion}`;
+  `group inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl border border-ink/10 bg-transparent px-2.5 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink/70 hover:bg-ink/[0.05] hover:text-ink sm:px-3 ${motion}`;
+
+/** Even quieter auth utility — returning users, not a third hero CTA. */
+export const headerPillAuthUtility =
+  `group inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-medium tracking-[-0.01em] text-ink/55 hover:bg-ink/[0.05] hover:text-ink/80 sm:px-2.5 ${motion}`;
 
 /** Overflow menu trigger: icon + Menu label (label hides when open). */
 export const headerMenuTrigger =
-  `group inline-flex h-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink touch-manipulation [-webkit-tap-highlight-color:transparent] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink/[0.07] ${motion}`;
+  `group inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-transparent px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-ink touch-manipulation [-webkit-tap-highlight-color:transparent] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink/[0.07] ${motion}`;
 
 /**
  * Menu open — solid ink plate. Own string (no grey wash) so the closed
- * trigger’s `hover:bg-ink/[0.07]` cannot win on specificity / stylesheet order.
+ * trigger’s hover wash cannot win on specificity / stylesheet order.
  */
 export const headerMenuTriggerOpen =
-  `group inline-flex h-8 w-8 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-ink px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-ink hover:text-paper [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink [@media(hover:hover)_and_(pointer:fine)]:hover:text-paper ${motion}`;
+  `group inline-flex min-h-11 w-11 shrink-0 items-center justify-center gap-1 rounded-xl border-0 bg-ink px-2 font-body text-[12px] font-semibold tracking-[-0.01em] text-paper touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-ink hover:text-paper [@media(hover:hover)_and_(pointer:fine)]:hover:bg-ink [@media(hover:hover)_and_(pointer:fine)]:hover:text-paper ${motion}`;
 
 /** Labeled teal — Courses with brand accent. */
 export const headerPillTeal =

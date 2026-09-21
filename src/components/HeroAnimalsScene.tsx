@@ -459,7 +459,7 @@ export function HeroAnimalsScene() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={POSTER_SRC}
-          alt=""
+          alt="Illustrated animals studying together for project management exams"
           draggable={false}
           decoding="async"
           fetchPriority="high"

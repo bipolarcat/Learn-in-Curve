@@ -47,13 +47,10 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
             style={{ ["--i" as string]: 0 }}
           >
             <div className="flex items-center gap-3">
-              <span
-                className="relative -mt-1 inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:-mt-2 sm:h-16 sm:w-16"
-                aria-hidden
-              >
+              <span className="relative -mt-1 inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full border border-ink/12 bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.06)] sm:-mt-2 sm:h-16 sm:w-16">
                 <Image
                   src="/brand/sly/sly-tutor-portrait.png"
-                  alt=""
+                  alt="Sly, the AI tutor — fox portrait"
                   width={64}
                   height={64}
                   className="h-full w-full scale-[1.2] object-cover object-[center_18%] sm:scale-[1.28] sm:object-[center_19%]"
@@ -73,7 +70,7 @@ export function SlyShowcase({ isSignedIn }: SlyShowcaseProps) {
           </div>
 
           <p
-            className={`${styles.popItem} mt-3 text-[14px] leading-relaxed text-ink/55 text-pretty`}
+            className={`${styles.popItem} mt-3 text-[14px] leading-relaxed text-ink/65 text-pretty`}
             style={{ ["--i" as string]: 1 }}
           >
             The full course is free. Unlimited access to Sly the AI tutor arrives soon with AI Pro bundle.

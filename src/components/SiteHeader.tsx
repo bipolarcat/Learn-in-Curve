@@ -97,9 +97,9 @@ export function SiteHeader({
       <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
         <Link
           href="/"
-          className="brand flex min-w-0 shrink-0 items-center gap-2 rounded-lg motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)] motion-safe:hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:gap-2.5"
+          className="brand flex min-h-11 min-w-0 shrink-0 items-center gap-2 rounded-lg motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-[var(--ease-out-quint)] motion-safe:hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:gap-2.5"
         >
-          <Logo priority className="h-7 w-7 sm:h-9 sm:w-9" alt="" />
+          <Logo priority className="h-7 w-7 sm:h-9 sm:w-9" alt="Learn in Curve" />
           <span className="brand-name flex w-max flex-col font-display text-[clamp(0.68rem,1.3vw,0.8rem)] font-bold leading-none tracking-[-0.02em]">
             <span className="whitespace-nowrap leading-none">Learn in</span>
             <span className="-mt-[0.08em] whitespace-nowrap text-[1.41em] leading-none tracking-[-0.03em] text-orange">

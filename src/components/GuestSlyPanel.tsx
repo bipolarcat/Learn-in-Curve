@@ -312,7 +312,7 @@ export function GuestSlyPanel({ open, onClose }: GuestSlyPanelProps) {
                   thing the tier ladder withholds. Same control as the AI Pro
                   pricing card, via JoinWaitlistButton.
                 */}
-                <p className="mt-2.5 text-center text-[12px] font-medium text-ink/60">
+                <p className="mt-2.5 text-center text-[12px] font-medium text-ink/65">
                   AI Pro Bundle launching soon
                 </p>
                 <JoinWaitlistButton
@@ -324,7 +324,7 @@ export function GuestSlyPanel({ open, onClose }: GuestSlyPanelProps) {
             <div className={`${slyChromeStyles.composer} relative z-10 shrink-0 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2.5 sm:px-4`}>
               {error ? (
                 <div
-                  className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-ink/10 bg-paper/90 px-3 py-1.5 font-body text-[12px] font-medium text-ink/55"
+                  className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-ink/10 bg-paper/90 px-3 py-1.5 font-body text-[12px] font-medium text-ink/65"
                   role="alert"
                 >
                   <p className="min-w-0 flex-1 leading-snug">{error}</p>

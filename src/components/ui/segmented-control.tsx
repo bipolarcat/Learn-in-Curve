@@ -26,7 +26,7 @@ const CELL = {
 } as const;
 
 const SEG =
-  "inline-flex min-h-10 items-center justify-center gap-1 px-2 py-2 text-center font-body text-[12px] font-semibold leading-snug tracking-[-0.01em] sm:min-h-0 sm:gap-1.5 sm:px-3.5 sm:py-[7px] sm:text-[13px] sm:leading-[18px]";
+  "inline-flex min-h-11 items-center justify-center gap-1 px-2 py-2 text-center font-body text-[12px] font-semibold leading-snug tracking-[-0.01em] sm:min-h-0 sm:gap-1.5 sm:px-3.5 sm:py-[7px] sm:text-[13px] sm:leading-[18px]";
 
 export type SegmentedOption = {
   value: string;

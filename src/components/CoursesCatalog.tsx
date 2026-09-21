@@ -1,8 +1,9 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Course } from "@/types/database";
 import {
@@ -10,12 +11,29 @@ import {
   filterCatalogCourses,
 } from "@/lib/courses-catalog";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
-import { PMQ_OVERVIEW_HREF, PMQ_PRICING_HREF } from "@/lib/pmq/plans";
+import {
+  PMQ_OVERVIEW_HREF,
+  PMQ_PREVIEW_HREF,
+  PMQ_PRICING_HREF,
+} from "@/lib/pmq/plans";
 import { PFQ_BASE_HREF, PFQ_PRICING_HREF } from "@/lib/pfq/constants";
 import { PfqNotifyDialog } from "@/components/PfqNotifyDialog";
-import { CtaArrow, stampCtaPrimaryCompact, stampCtaSecondaryCompact } from "@/components/stamp-chip";
+import {
+  CtaArrow,
+  stampCtaPrimary,
+  stampCtaSecondary,
+} from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
+import { trackCtaClicked } from "@/lib/analytics/events";
+import { isSoftNavClick } from "@/lib/soft-nav-back";
 import styles from "@/components/CoursesCatalog.module.css";
+
+/** Homepage catalogue CTAs — shared min-h-11 tokens, no compact !min-h overrides. */
+const CARD_PRIMARY = `${stampCtaPrimary} !normal-case !tracking-[-0.01em]`;
+const CARD_SECONDARY = `${stampCtaSecondary} !normal-case !tracking-[-0.01em]`;
+/** Tertiary “View plans” — quieter than secondary (text-ish outline). */
+const CARD_TERTIARY =
+  "group inline-flex min-h-11 w-fit items-center justify-center gap-1.5 rounded-xl border border-transparent bg-transparent px-3 font-body text-[13px] font-semibold tracking-tight text-ink/65 underline-offset-2 transition-[color,background-color] duration-150 ease-[var(--ease-out-quint)] hover:bg-ink/[0.04] hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2";
 
 type CoursesCatalogProps = {
   courses: Course[];
@@ -208,32 +226,44 @@ function FilterDropdown({
   );
 }
 
-function CatalogNavButton({
+function CatalogNavLink({
   href,
   className,
   children,
   busyLabel,
+  analyticsLabel,
+  location = "courses-catalog",
 }: {
   href: string;
   className?: string;
   children: ReactNode;
   busyLabel: string;
+  analyticsLabel: string;
+  location?: string;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    trackCtaClicked({
+      variant: analyticsLabel,
+      location,
+    });
+    if (!isSoftNavClick(event)) return;
+    event.preventDefault();
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
-    <button
-      type="button"
-      disabled={pending}
-      aria-busy={pending}
+    <Link
+      href={href}
+      aria-busy={pending || undefined}
       aria-label={pending ? busyLabel : undefined}
-      className={`${className ?? ""} disabled:opacity-80`}
-      onClick={() => {
-        startTransition(() => {
-          router.push(href);
-        });
-      }}
+      tabIndex={pending ? -1 : undefined}
+      className={`${className ?? ""} ${pending ? "pointer-events-none opacity-80" : ""}`.trim()}
+      onClick={onClick}
     >
       {pending ? (
         <Spinner
@@ -245,7 +275,7 @@ function CatalogNavButton({
       ) : (
         children
       )}
-    </button>
+    </Link>
   );
 }
 
@@ -258,7 +288,7 @@ function NotifyMeButton({ onOpen }: { onOpen: () => void }) {
       disabled={pending}
       aria-busy={pending}
       aria-label={pending ? "Opening notify form" : "Notify me"}
-      className={`${stampCtaSecondaryCompact} disabled:opacity-80`}
+      className={`${stampCtaSecondary} !normal-case disabled:opacity-80`}
       onClick={() => {
         startTransition(() => {
           onOpen();
@@ -353,7 +383,11 @@ export function CoursesCatalog({
                     {artSrc ? (
                       <Image
                         src={artSrc}
-                        alt=""
+                        alt={
+                          isPmq
+                            ? "PMQ course illustration — animals studying at a desk"
+                            : "PFQ course illustration — animals with study materials"
+                        }
                         fill
                         sizes="(max-width: 47.99rem) 92vw, 26rem"
                         className={`${styles.artImage} ${
@@ -371,39 +405,51 @@ export function CoursesCatalog({
                   <div className={styles.footer}>
                     {isLive && isPmq ? (
                       <>
-                        <CatalogNavButton
-                          href={PMQ_OVERVIEW_HREF}
-                          className={stampCtaPrimaryCompact}
-                          busyLabel="Opening overview"
+                        <CatalogNavLink
+                          href={PMQ_PREVIEW_HREF}
+                          className={CARD_PRIMARY}
+                          busyLabel="Opening free course"
+                          analyticsLabel="Start free course"
                         >
-                          Course Overview
+                          Start free course
                           <CtaArrow />
-                        </CatalogNavButton>
-                        <CatalogNavButton
-                          href={PMQ_PRICING_HREF}
-                          className={stampCtaSecondaryCompact}
-                          busyLabel="Opening plans"
+                        </CatalogNavLink>
+                        <CatalogNavLink
+                          href={PMQ_OVERVIEW_HREF}
+                          className={CARD_SECONDARY}
+                          busyLabel="Opening overview"
+                          analyticsLabel="Course overview"
                         >
-                          View Plans
-                        </CatalogNavButton>
+                          Course overview
+                        </CatalogNavLink>
+                        <CatalogNavLink
+                          href={PMQ_PRICING_HREF}
+                          className={CARD_TERTIARY}
+                          busyLabel="Opening plans"
+                          analyticsLabel="View plans"
+                        >
+                          View plans
+                        </CatalogNavLink>
                       </>
                     ) : course.slug === "pfq-in-2-days" ? (
                       <>
-                        <CatalogNavButton
+                        <CatalogNavLink
                           href={PFQ_BASE_HREF}
-                          className={stampCtaPrimaryCompact}
-                          busyLabel="Opening overview"
+                          className={CARD_PRIMARY}
+                          busyLabel="Opening free course"
+                          analyticsLabel="Start free course"
                         >
-                          Course Overview
+                          Start free course
                           <CtaArrow />
-                        </CatalogNavButton>
-                        <CatalogNavButton
+                        </CatalogNavLink>
+                        <CatalogNavLink
                           href={PFQ_PRICING_HREF}
-                          className={stampCtaSecondaryCompact}
+                          className={CARD_TERTIARY}
                           busyLabel="Opening plans"
+                          analyticsLabel="View plans"
                         >
-                          View Plans
-                        </CatalogNavButton>
+                          View plans
+                        </CatalogNavLink>
                       </>
                     ) : (
                       <NotifyMeButton onOpen={() => setNotifyOpen(true)} />
