@@ -92,7 +92,7 @@ export type PmqPlan = {
   tagline: string;
   /** Highlighted card — the intended pick. */
   featured: boolean;
-  /** Optional chip beside the plan name (e.g. “Introductory Offer”). */
+  /** Optional chip beside the plan name (e.g. “For Limited Time”). */
   badge?: string;
   /** Chip colour — defaults to offer (olive) when omitted. */
   badgeVariant?: "offer" | "value";
@@ -116,7 +116,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     priceNote: "No credit card needed",
     tagline: "Everything you need to start your PMQ revision today.",
     featured: false,
-    badge: "Introductory Offer",
+    badge: "For Limited Time",
     ctaLabel: "Start free",
     features: [
       {
