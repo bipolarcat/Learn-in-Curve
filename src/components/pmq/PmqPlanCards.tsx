@@ -87,12 +87,16 @@ function PlanName({
       plan.name
     );
 
+  const chip = soonBadge ? (
+    <span className={styles.badgeSoon}>Launching soon</span>
+  ) : plan.badge ? (
+    <span className={styles.badgeOffer}>{plan.badge}</span>
+  ) : null;
+
   return (
     <div className={styles.nameRow}>
       <h3 className={styles.name}>{title}</h3>
-      {soonBadge ? (
-        <span className={styles.badgeSoon}>Launching soon</span>
-      ) : null}
+      {chip}
     </div>
   );
 }

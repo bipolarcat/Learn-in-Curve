@@ -103,6 +103,24 @@
   text-transform: none;
 }
 
+/* Starter promo chip — olive, same geometry as badgeSoon */
+.badgeOffer {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.3rem;
+  background: color-mix(in srgb, var(--olive, #4f8f2e) 14%, transparent);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: var(--olive, #4f8f2e);
+  text-transform: none;
+}
+
 /* Matches course-overview Pro chip */
 .proMark {
   display: inline-flex;

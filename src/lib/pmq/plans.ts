@@ -89,6 +89,8 @@ export type PmqPlan = {
   tagline: string;
   /** Highlighted card — the intended pick. */
   featured: boolean;
+  /** Optional chip beside the plan name (e.g. “Introductory Offer”). */
+  badge?: string;
   features: PmqPlanFeature[];
   /** What this tier adds over the one to its left, for the "everything in X, plus" line. */
   inheritsFrom?: PmqPlanId;
@@ -109,6 +111,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     priceNote: "No credit card needed",
     tagline: "Everything you need to start your PMQ revision today.",
     featured: false,
+    badge: "Introductory Offer",
     ctaLabel: "Start free",
     features: [
       {
