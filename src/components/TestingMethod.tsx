@@ -126,9 +126,9 @@ export function TestingMethod({ embedded = false }: TestingMethodProps) {
                     embedded
                       ? cn(
                           "shadow-[0_1px_0_rgb(255_255_255_/_0.08),0_18px_36px_-16px_rgb(0_0_0_/_0.45)]",
-                          /* Cream art: keep plate-matching border. Others: soft white edge on teal. */
+                          /* Cream art: plate matches webp bake (opaque). Others: soft white edge on teal. */
                           step.tone === "cream"
-                            ? "border-cream"
+                            ? "border-[#f2e8d5]"
                             : "border-white/12",
                         )
                       : undefined

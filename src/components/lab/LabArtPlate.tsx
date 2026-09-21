@@ -26,9 +26,9 @@ const TONE: Record<
   { plate: string; border: string }
 > = {
   cream: {
-    plate: "bg-cream/90",
-    /* Match the cream art plate — ink/white rings read as a halo. */
-    border: "border-cream",
+    /* Opaque — cream/90 lets the teal stadium show through and halo contain-fit art. */
+    plate: "bg-[#f2e8d5]",
+    border: "border-[#f2e8d5]",
   },
   teal: {
     plate: "bg-[color-mix(in_srgb,var(--teal)_12%,var(--cream))]",
