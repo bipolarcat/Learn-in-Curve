@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { Lightbulb } from "lucide-react";
+import { Brain, Lightbulb } from "lucide-react";
 
 type IconProps = { className?: string };
 
@@ -122,30 +122,15 @@ export function IconMisconceptions({ className }: IconProps) {
   );
 }
 
-/** Apply — memory aids (`LoApplyStage` MemoryIcon) */
+/** Memory aids / takeaways — same Brain as `LoApplyStage` memory section */
 export function IconMemory({ className }: IconProps) {
   return (
     <LoIconTile className={className}>
-      <svg className="h-[1.35rem] w-[1.35rem]" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M7 4.5h7.5L18.5 8v11.5H7z"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M14.5 4.5V8H18"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M10 12.5h5M10 15.5h3.5"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
+      <Brain
+        className="h-[1.35rem] w-[1.35rem]"
+        strokeWidth={1.75}
+        aria-hidden
+      />
     </LoIconTile>
   );
 }
