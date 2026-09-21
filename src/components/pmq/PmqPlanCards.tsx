@@ -17,6 +17,7 @@ import {
   IconMisconceptions,
   IconMock,
   IconPractice,
+  IconRecall,
   IconReport,
   IconSly,
   IconStructure,
@@ -45,6 +46,7 @@ const FEATURE_ICONS: Record<
   report: IconReport,
   structure: IconStructure,
   insights: IconInsights,
+  recall: IconRecall,
 };
 
 const GUEST_PATH = `/courses/${PMQ_SLUG}/preview`;

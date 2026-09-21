@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { Brain, Lightbulb } from "lucide-react";
+import { Brain, Lightbulb, Shapes } from "lucide-react";
 
 type IconProps = { className?: string };
 
@@ -140,6 +140,19 @@ export function IconInsights({ className }: IconProps) {
   return (
     <LoIconTile className={className}>
       <Lightbulb
+        className="h-[1.35rem] w-[1.35rem]"
+        strokeWidth={1.75}
+        aria-hidden
+      />
+    </LoIconTile>
+  );
+}
+
+/** Recall activities (Pair Up / Line Up / Group Up) — distinct from practice pad */
+export function IconRecall({ className }: IconProps) {
+  return (
+    <LoIconTile className={className}>
+      <Shapes
         className="h-[1.35rem] w-[1.35rem]"
         strokeWidth={1.75}
         aria-hidden

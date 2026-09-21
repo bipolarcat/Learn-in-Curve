@@ -57,7 +57,8 @@ export type PmqPlanFeature = {
     | "audio"
     | "report"
     | "structure"
-    | "insights";
+    | "insights"
+    | "recall";
   label: string;
   /**
    * Quantity shown next to the label.
@@ -167,7 +168,7 @@ export const PMQ_PLANS: PmqPlan[] = [
           "Insights on every learning outcome, for deeper understanding of each topic",
       },
       {
-        icon: "practice",
+        icon: "recall",
         label:
           "recall activities across the course, including Pair Up, Line Up and Group Up",
         value: "60+",
@@ -213,7 +214,7 @@ export const PMQ_PLANS: PmqPlan[] = [
           "Insights on every learning outcome, for deeper understanding of each topic",
       },
       {
-        icon: "practice",
+        icon: "recall",
         label:
           "recall activities across the course, including Pair Up, Line Up and Group Up",
         value: "60+",
