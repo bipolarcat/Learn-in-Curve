@@ -20,6 +20,7 @@ import {
 } from "@animateicons/react/lucide/lightbulb-icon";
 import type { ExamTip } from "@/types/pmq";
 import { ProBadge } from "@/components/pmq/tier-badge";
+import { showProLockHint } from "@/components/pmq/ProLockHint";
 import { cn } from "@/lib/utils";
 
 /** Motion Primitives / 21st.dev Disclosure ease. */
@@ -164,15 +165,19 @@ export function InsightsExpand({
 /**
  * Starter LO2–24: same Insights chrome as Pro, but static + de-emphasised,
  * with the locked Pro badge. Tip text was already stripped server-side.
+ * Tap → short Pro unlock toast.
  */
 export function InsightsLockedChip({ className }: { className?: string }) {
   return (
-    <p
+    <button
+      type="button"
+      onClick={() => showProLockHint("insights")}
       className={cn(
-        "not-prose m-0 inline-flex items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45",
+        "not-prose m-0 inline-flex cursor-pointer items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
+        "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
         className,
       )}
-      aria-label="Insights locked — Pro"
+      aria-label="Insights locked — Pro. Unlock with the Pro bundle."
     >
       <LightbulbIcon
         size={14}
@@ -183,7 +188,7 @@ export function InsightsLockedChip({ className }: { className?: string }) {
       />
       <span>Insights</span>
       <ProBadge locked />
-    </p>
+    </button>
   );
 }
 

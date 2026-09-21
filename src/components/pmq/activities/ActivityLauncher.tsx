@@ -32,6 +32,7 @@ import {
   trackActivityOpened,
   trackActivityWrongTurn,
 } from "@/lib/analytics/events";
+import { showProLockHint } from "@/components/pmq/ProLockHint";
 import { cn } from "@/lib/utils";
 
 type ActivityIconProps = {
@@ -330,17 +331,19 @@ export function ActivityLauncher({
 
   if (locked) {
     return (
-      <span
+      <button
+        type="button"
+        onClick={() => showProLockHint("recall")}
         className={cn(
-          "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-ink/30 opacity-45",
+          "inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-md text-ink/30 opacity-45 touch-manipulation [-webkit-tap-highlight-color:transparent]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55",
           className,
         )}
         title={`${label} — Pro`}
-        aria-label={`${label} locked — Pro`}
-        aria-disabled
+        aria-label={`${label} locked — Pro. Unlock recall activities with the Pro bundle.`}
       >
         <Icon active={false} className={cn("size-6", iconClassName)} />
-      </span>
+      </button>
     );
   }
 
