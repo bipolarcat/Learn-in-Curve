@@ -147,8 +147,8 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                     That&apos;s all three free questions.
                   </p>
                   <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
-                    More Sly is coming with AI Pro. The PMQ course itself is free
-                    in the meantime.
+                    Unlimited Sly is coming soon with the AI Pro bundle. The PMQ
+                    course itself is free in the meantime.
                   </p>
                 </div>
               ) : (
@@ -310,8 +310,8 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
                         That&apos;s all three free questions.
                       </p>
                       <p className="m-0 mt-1.5 text-[13px] leading-relaxed text-ink/65 text-pretty">
-                        More Sly is coming with AI Pro. The PMQ course itself is
-                        free in the meantime.
+                        Unlimited Sly is coming soon with the AI Pro bundle. The
+                        PMQ course itself is free in the meantime.
                       </p>
                     </>
                   ) : null}
