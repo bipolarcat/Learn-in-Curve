@@ -120,14 +120,6 @@ export function isSoftNavClick(event: {
   );
 }
 
-/** Resolve a soft-nav back target; falls back when `from` is missing/unknown. */
-export function resolveSoftNavBack(
-  from: SoftNavFrom | null,
-  fallback: SoftNavFrom = "courses",
-): SoftNavBackTarget {
-  return SOFT_NAV_BACK[from ?? fallback];
-}
-
 /** Append or replace `from` on a path (pathname + optional existing query). */
 export function withSoftNavFrom(path: string, from: SoftNavFrom): string {
   const q = path.indexOf("?");
