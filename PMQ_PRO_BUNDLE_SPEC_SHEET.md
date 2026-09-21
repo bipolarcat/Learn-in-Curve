@@ -33,7 +33,7 @@ without saying where it was derived from and when.
 
 | | Starter | **Pro Bundle** | AI Pro Bundle |
 |---|---|---|---|
-| Price | Free | **£8.00** one-off | £15.00 one-off |
+| Price | Free | **£15.00** one-off | £25.00 one-off |
 | Status | live | **buyable** | **waitlist — no checkout** |
 | Practice quiz sets | 1 | 1–5 | 1–8 |
 | Practice questions (total) | 240 | 1,200 | 1,862 |
@@ -57,7 +57,7 @@ action. Only ever move these figures down or to the true figure.
 ## Sly and the fair-usage credit
 
 Sly is **AI Pro only**, and AI Pro is `waitlist` — so no one currently holds Sly
-through a purchase. Do not describe Sly as part of the £8 Pro Bundle.
+through a purchase. Do not describe Sly as part of the £15 Pro Bundle.
 
 - `SLY_UNLOCK_CREDIT_GBP_CENTS` = £5 of fair-usage credit, carried by whichever tier
   actually grants Sly.
@@ -83,14 +83,14 @@ are live in `exam_config`, and neither matches the code:
 
 | Course row | Stale DB value | Code value | Delta |
 |---|---|---|---|
-| `pmq-in-5-days` | `exam_config.ai_tutor_price_cents: 999` | 800 | £9.99 vs £8 |
+| `pmq-in-5-days` | `exam_config.ai_tutor_price_cents: 999` | 1500 | £9.99 vs £15 |
 | `pfq-in-2-days` | `exam_config.pfq_pro_price_cents: 500` | 600 | £5 vs £6 |
 
 The PMQ one was already known (`LAUNCH_RUNBOOK.md`). **The PFQ one was not documented
 anywhere** and is almost certainly why `PFQ in 2 days/PFQ_LANDING_COPY.md` was written
 against £5.
 
-Checkout passes an explicit amount, so live charges are correct at £8 and £6 today.
+Checkout passes an explicit amount, so live charges are correct at £15 today.
 The risk is anything that reads `exam_config` directly, now or later, and quietly
 disagrees with the registry.
 
@@ -100,4 +100,4 @@ three in one change. Migration files in this repo do not reliably reflect what i
 applied to production — verify the live schema before deploying.
 
 Also note `courses.price_cents` for `pmq-in-5-days` is `0` with `is_free: true`. That is
-correct: PMQ the *course* is free, and £8 buys the Pro Bundle on top. Do not "fix" it.
+correct: PMQ the *course* is free, and £15 buys the Pro Bundle on top. Do not "fix" it.

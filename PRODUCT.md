@@ -52,7 +52,7 @@ playful in craft and detail, serious about the outcome.
 ## Product thesis
 
 A gamified, interactive, exam-focused revision platform — not a general PM learning
-platform. Pitch: pay a small one-time fee (£6–£8 per course) for an interactive course instead of
+platform. Pitch: pay a small one-time fee (£10–£15 per course) for an interactive course instead of
 paying more for a static PDF. First course: APM PMQ in 5 Days (free, live). Planned:
 PFQ in 2 Days, PMP in 5 Days, CAPM in 2 Days.
 

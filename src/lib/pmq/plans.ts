@@ -106,7 +106,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     name: "Starter",
     status: "free",
     priceCents: null,
-    priceNote: "forever",
+    priceNote: "No card required.",
     tagline: "Everything you need to start your PMQ revision today.",
     featured: false,
     ctaLabel: "Start free",
