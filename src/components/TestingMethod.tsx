@@ -1,6 +1,6 @@
 import { LabArtPlate } from "@/components/lab/LabArtPlate";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { HandwrittenUnderline } from "@/components/ui/handwritten-underline";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 
 const STEPS = [
   {
@@ -68,9 +68,15 @@ export function TestingMethod() {
             You learn it when you{" "}
             <span className="text-orange">recall</span> it
           </h2>
-          <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
+          <p className="mx-auto mt-3 max-w-[34rem] text-pretty text-center font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
             Psychologists call it{" "}
-            <HandwrittenUnderline>The Testing Effect</HandwrittenUnderline>.
+            <AnimatedText
+              text="The Testing Effect"
+              textClassName="text-[15px] font-bold text-orange sm:text-[16px]"
+              underlineClassName="text-orange"
+              underlineDuration={1.5}
+            />
+            .
           </p>
           <p className="mx-auto mt-2.5 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:mt-3 sm:text-[16px]">
             Every time you retrieve an answer from memory, you strengthen it.
