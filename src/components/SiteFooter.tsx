@@ -38,10 +38,10 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 }
 
 const socialChipClass =
-  "inline-flex min-h-11 min-w-10 items-center justify-center text-cream/55 transition-[color,transform] duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
+  "inline-flex min-h-11 min-w-11 items-center justify-center text-cream/55 transition-[color,transform] duration-150 ease-[var(--ease-out-quint)] hover:text-[var(--orange-on-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.96]";
 
 const footerLinkClass =
-  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-[var(--orange-on-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 /**
  * Full-bleed ink footer — compact brand/social + links row, then newsletter.
@@ -61,10 +61,10 @@ export function SiteFooter({
         <div className="flex flex-col gap-3 sm:gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="flex min-w-0 items-center gap-3">
             <div className="brand flex shrink-0 items-center gap-2.5">
-              <Logo alt="Learn in Curve" />
+              <Logo alt="" />
               <span className="brand-name flex w-max flex-col font-display text-[0.78rem] font-bold leading-none tracking-[-0.02em]">
                 <span className="whitespace-nowrap leading-none">Learn in</span>
-                <span className="-mt-[0.08em] whitespace-nowrap text-[1.41em] leading-none tracking-[-0.03em] text-orange">
+                <span className="-mt-[0.08em] whitespace-nowrap text-[1.41em] leading-none tracking-[-0.03em] text-[var(--orange-on-ink)]">
                   Curve
                 </span>
               </span>
@@ -127,7 +127,8 @@ export function SiteFooter({
               id="footer-newsletter-heading"
               className="min-w-0 font-display text-[0.9rem] font-semibold leading-none tracking-[-0.02em] text-cream sm:text-[0.95rem]"
             >
-              Join our <span className="text-orange">newsletter</span>.
+              Join our{" "}
+              <span className="text-[var(--orange-on-ink)]">newsletter</span>.
             </h2>
           </div>
           <div className="min-w-0 w-full">
@@ -136,7 +137,7 @@ export function SiteFooter({
         </section>
 
         {showApmDisclaimer ? (
-          <p className="mt-4 max-w-[46rem] border-t border-cream/[0.08] pt-3.5 text-[11.5px] leading-snug tracking-tight text-cream/45">
+          <p className="mt-4 max-w-[46rem] border-t border-cream/[0.08] pt-3.5 text-[11.5px] leading-snug tracking-tight text-cream/70">
             {APM_DISCLAIMER}
           </p>
         ) : null}

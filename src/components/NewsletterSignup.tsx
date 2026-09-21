@@ -91,9 +91,9 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             autoComplete="email"
             inputMode="email"
             disabled={status === "submitting"}
-            className={`min-h-11 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/40 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-0 disabled:opacity-60 motion-reduce:transition-none ${
+            className={`min-h-11 min-w-0 flex-1 rounded-xl border border-cream/20 bg-cream/[0.08] px-3 font-body text-sm leading-none text-cream placeholder:text-cream/70 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04)] transition-[border-color,background-color,box-shadow] duration-200 ease-[var(--ease-out-quint)] focus:outline-none focus:border-cream/35 focus:bg-cream/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:opacity-60 motion-reduce:transition-none ${
               status === "error"
-                ? `border-orange/50 ${styles.inputError}`
+                ? `border-[var(--orange-on-ink)]/50 ${styles.inputError}`
                 : ""
             }`}
             aria-invalid={status === "error"}
@@ -132,7 +132,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
           Unsubscribe anytime.{" "}
           <Link
             href="/privacy"
-            className="underline underline-offset-2 decoration-cream/30 transition-colors hover:text-cream hover:decoration-cream/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            className="inline-flex min-h-11 items-center underline underline-offset-2 decoration-cream/30 transition-colors hover:text-cream hover:decoration-cream/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           >
             Privacy Policy
           </Link>
@@ -141,7 +141,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
           <p
             id={`${inputId}-error`}
             role="alert"
-            className="text-[12px] leading-snug text-orange"
+            className="text-[12px] leading-snug text-[var(--orange-on-ink)]"
           >
             {errorMessage}
           </p>
@@ -150,7 +150,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
           <p
             id={`${inputId}-ready`}
             role="status"
-            className={`${styles.success} font-body text-[12px] font-bold text-[#9BC47A]`}
+            className={`${styles.success} font-body text-[12px] font-bold text-[var(--olive-on-ink)]`}
           >
             Check your inbox — we&apos;ve sent a confirmation.
           </p>

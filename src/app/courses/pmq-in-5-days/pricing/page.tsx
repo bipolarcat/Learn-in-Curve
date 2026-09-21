@@ -71,11 +71,6 @@ export default async function PmqPricingPage({
           hasPro={hasPro}
           proReturnPath={PMQ_PRICING_HREF}
           resumeProCheckout={resumeProCheckout}
-          courseLabel={
-            <>
-              PMQ in <span className="text-orange">5 days</span>
-            </>
-          }
         />
 
         <p className="mt-8 w-full border-t border-ink/10 pt-5 text-[12px] leading-relaxed text-pretty text-ink/55">

@@ -14,8 +14,10 @@ update this file to match.
 | `cream-2` | `#EEDFB8` | Secondary surface (cards / soft fills) — not full-bleed page bands |
 | `sand` | `#E8CE93` | NEW — arch/illustration fill in hero background |
 | `orange` | `#D5501F` | Primary action color, hero highlight text, CTAs |
+| `orange-on-ink` | `#D85E2F` | Small text / accents on ink (footer) — AA ≥4.5:1 |
 | `gold` | `#D9A441` | Accent — eyebrow dots, list bullets, badges, mascot book prop |
 | `olive` | `#5F7A3D` | Success/complete state — live course badge, complete journey nodes |
+| `olive-on-ink` | `#80AA60` | Success copy on ink (footer newsletter) — AA ≥4.5:1 |
 | `teal` | `#1B6560` | Secondary accent — tags, meta text |
 | `teal-deep` | `#123F3C` | Deep accent (illustration fill, dark panels inside tickets) |
 | `rust` | `#B3341C` | Quiz incorrect + accent fills — not full-bleed page bands |
@@ -172,9 +174,10 @@ and **Sign up / Sign in** at all sizes. Signed-in users: icon-only soft pills
 at all sizes.
 
 **Site footer (2026-07-16, flicker band 2026-07-23)** — full-bleed ink band; labeled footer `<nav>`;
-© + version overlaid on a cream flickering-grid spelling “Keep Learning”
+© + version overlaid on a cream flickering-grid spelling “Be Curious.”
 (`SiteFooter.tsx`, `FooterFlickerBand.tsx`, `ui/flickering-footer.tsx`). Reduced-motion freezes
-the grid; animation pauses off-screen.
+the grid (static paint, no RAF); animation pauses off-screen. Text mask is built once per
+resize/font — not per frame. Small accents on ink use `--orange-on-ink` / `--olive-on-ink` for AA.
 
 **Stamp CTAs** — primary enrol actions use `stampCtaPrimary` from `stamp-chip.ts`
 (hero copy, Meet Sly, about LinkedIn), not pill `.btn`. `PmqStartLink` appends
