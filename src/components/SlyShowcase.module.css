@@ -28,9 +28,7 @@
   /* Deeper paper wash — still on-brand cream, just enough to lift off the page. */
   background: color-mix(in srgb, rgb(var(--paper-rgb)) 82%, rgb(var(--ink-rgb)));
   color: rgb(var(--ink-rgb));
-  box-shadow:
-    0 1px 0 rgb(255 255 255 / 0.45) inset,
-    0 22px 40px -20px rgb(var(--ink-rgb) / 0.18);
+  box-shadow: 0 22px 40px -20px rgb(var(--ink-rgb) / 0.18);
   padding-block:
     clamp(2rem, 5vw, 3.5rem)
     clamp(1.75rem, 4.5vw, 3rem);
