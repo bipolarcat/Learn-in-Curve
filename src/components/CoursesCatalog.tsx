@@ -64,8 +64,8 @@ function CourseSubhead({ course }: { course: Course }) {
     return (
       <p className={styles.subhead}>
         <span className={styles.subheadLine}>
-          Covers all 24 learning objectives and 71 learning outcomes in the PMQ
-          syllabus.
+          Covers all 24 learning objectives and 71 learning outcomes in the APM
+          PMQ syllabus.
         </span>
       </p>
     );

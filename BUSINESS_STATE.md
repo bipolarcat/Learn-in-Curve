@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Catalogue PMQ subhead: “APM PMQ syllabus” (`CoursesCatalog`, `courses-catalog`).
 - **2026-09-21** — Catalogue PFQ subhead: “Covers all 10 learning objectives and 59 learning outcomes…” (`CoursesCatalog`, `courses-catalog`).
 - **2026-09-21** — Catalogue PMQ subhead: keep only first sentence (“Covers all 24 learning objectives…”) (`CoursesCatalog`, `courses-catalog`).
 - **2026-09-21** — Catalogue PMQ subhead: “Covers all 24 learning objectives…” sell line (`CoursesCatalog`, `courses-catalog`).

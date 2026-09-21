@@ -21,7 +21,7 @@ export const CATALOG_COURSES: Course[] = [
     slug: PMQ_SLUG,
     name: COURSE_STATIC["pmq-in-5-days"].displayName,
     description:
-      "Covers all 24 learning objectives and 71 learning outcomes in the PMQ syllabus.",
+      "Covers all 24 learning objectives and 71 learning outcomes in the APM PMQ syllabus.",
     price_cents: 0,
     is_free: true,
     status: "live",
