@@ -170,6 +170,12 @@ export const PMQ_PLANS: PmqPlan[] = [
         label:
           "Insights on every learning outcome, for deeper understanding of each topic",
       },
+      {
+        icon: "practice",
+        label:
+          "recall activities across the course, including Pair Up, Line Up and Group Up",
+        value: "60+",
+      },
     ],
   },
   {
