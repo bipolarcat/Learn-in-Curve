@@ -91,7 +91,7 @@ export const PFQ_PLANS: PfqPlan[] = [
       {
         icon: "core",
         label:
-          "study material covering all 59 learning outcomes as per PFQ exam handbook",
+          "Study material covering all 59 learning outcomes as per PFQ exam handbook",
       },
       {
         icon: "misconceptions",
