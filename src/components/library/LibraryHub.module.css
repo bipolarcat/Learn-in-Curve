@@ -359,8 +359,13 @@
 
 .listRow {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.2rem 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "article article"
+    "date category";
+  align-items: baseline;
+  column-gap: 0.75rem;
+  row-gap: 0.3rem;
   padding: 0.85rem 0.15rem;
   border-bottom: 1px solid rgb(var(--ink-rgb) / 0.08);
   text-decoration: none;
@@ -370,7 +375,7 @@
 @media (min-width: 640px) {
   .listRow {
     grid-template-columns: minmax(0, 1fr) 7.5rem 9.5rem;
-    align-items: baseline;
+    grid-template-areas: "article date category";
     gap: 1rem;
     padding: 0.9rem 0.15rem;
   }
@@ -387,6 +392,7 @@
 }
 
 .listArticle {
+  grid-area: article;
   min-width: 0;
   font-family: var(--font-fraunces), Georgia, serif;
   font-size: 1.05rem;
@@ -406,18 +412,23 @@
   color: rgb(var(--ink-rgb) / 0.5);
 }
 
+.listDate {
+  grid-area: date;
+}
+
 .listCategory {
+  grid-area: category;
   min-width: 0;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 639px) {
   .listDate,
   .listCategory {
     font-size: 0.75rem;
-  }
-
-  .listCategory {
-    display: inline-flex;
   }
 }
 
