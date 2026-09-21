@@ -12,6 +12,18 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-vs-pfq",
     "is-apm-pmq-worth-it",
   ],
+  sources: [
+    {
+      label: "APM Project Management Qualification (PMQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-qualification/",
+      publisher: "Association for Project Management",
+    },
+    {
+      label: "PRINCE2 certification",
+      url: "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2",
+      publisher: "PeopleCert",
+    },
+  ],
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:
@@ -27,6 +39,18 @@ export const page = scaffoldLibraryPage({
 So PRINCE2 answers "how do I run a project this way?" and the PMQ answers "do you understand project management broadly enough to make sensible calls?"
 
 That's why the two coexist comfortably. A method tells you the steps. Judgement tells you when the steps need adapting, and why the business case matters more than the paperwork around it.
+
+## At a glance
+
+| | APM PMQ | PRINCE2 |
+| --- | --- | --- |
+| Awarded by | Association for Project Management | PeopleCert |
+| What it is | A broad body of knowledge | A defined project management method |
+| What it tests | Judgement across the whole discipline | Knowing and applying the method's principles, themes and processes |
+| Entry requirement | None to sit the exam | None for Foundation |
+| Exam | 2.5 hours, 40 questions, 90 marks | Foundation and Practitioner sit at different levels |
+| Answer style | 50 of the 90 marks come from ten written five-mark answers | Selected-response |
+| Typical UK employer view | Evidence of capability | Evidence you can work the method they use |
 
 ## What the exams ask of you
 

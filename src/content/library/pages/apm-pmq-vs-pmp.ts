@@ -12,6 +12,18 @@ export const page = scaffoldLibraryPage({
     "is-apm-pmq-worth-it",
     "apm-pmq-vs-pfq",
   ],
+  sources: [
+    {
+      label: "APM Project Management Qualification (PMQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-qualification/",
+      publisher: "Association for Project Management",
+    },
+    {
+      label: "PMP certification requirements and exam format",
+      url: "https://www.pmi.org/certifications/project-management-pmp",
+      publisher: "Project Management Institute",
+    },
+  ],
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:
@@ -35,6 +47,18 @@ The **PMP requires documented project experience before you can sit it**, alongs
 The **PMQ does not gate entry that way**. Experience helps enormously, because the paper rewards judgement about realistic situations, but you aren't required to evidence a number of months before you're allowed to sit.
 
 So if you're two years into a project career and want a recognised qualification now, that's often decisive. And if you have a decade of documented delivery behind you, the PMP's requirement is a formality rather than an obstacle.
+
+## At a glance
+
+| | APM PMQ | PMI PMP |
+| --- | --- | --- |
+| Awarded by | Association for Project Management (UK) | Project Management Institute (US) |
+| Entry requirement | None to sit the exam | 3 to 5 years' project experience depending on your degree, plus 35 hours of training |
+| Exam | 2.5 hours, 40 questions, 90 marks | 240 minutes, 180 questions |
+| Answer style | 50 of the 90 marks come from ten written five-mark answers | Selected-response and interactive questions |
+| Pass mark | Set per paper, not published | Not published |
+| After you pass | No renewal cycle | 60 PDUs every three years, plus a renewal fee |
+| Strongest recognition | UK and Ireland | Global, especially North America |
 
 ## The exams work differently
 

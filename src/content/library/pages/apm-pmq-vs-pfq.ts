@@ -12,6 +12,18 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-exam-format",
     "is-apm-pmq-worth-it",
   ],
+  sources: [
+    {
+      label: "APM Project Management Qualification (PMQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-qualification/",
+      publisher: "Association for Project Management",
+    },
+    {
+      label: "APM Project Fundamentals Qualification (PFQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-fundamentals/",
+      publisher: "Association for Project Management",
+    },
+  ],
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:
@@ -25,6 +37,17 @@ The **PFQ** (Project Fundamentals Qualification) is about vocabulary and awarene
 The **PMQ** (Project Management Qualification) assumes you have the vocabulary and asks what you'd do with it. Its paper is 40 questions and 90 marks, and 50 of those marks come from ten long typed responses worth five marks each. Those questions describe a situation and ask you to explain, justify or recommend.
 
 That's the whole difference in one line: the PFQ asks whether you recognise the right answer. The PMQ asks you to produce it.
+
+## At a glance
+
+| | APM PFQ | APM PMQ |
+| --- | --- | --- |
+| What it tests | Whether you know the terminology | Whether you can apply it and write the answer out |
+| Entry requirement | None | None |
+| Exam | 1 hour, 60 multiple-choice questions | 2.5 hours, 40 questions, 90 marks |
+| Written answers | None | Ten five-mark written answers, 50 of the 90 marks |
+| Who it suits | New to project delivery | Already working in project delivery |
+| Prerequisite? | Not required before the PMQ | n/a |
 
 ## The format gap is bigger than the content gap
 

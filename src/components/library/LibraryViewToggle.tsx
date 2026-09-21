@@ -75,7 +75,7 @@ export function LibraryViewToggle({
       role="radiogroup"
       aria-label="View mode"
       className={cn(
-        "relative inline-flex h-[2.65rem] shrink-0 select-none items-center rounded-[8px] border border-ink/12 bg-cream p-[3px]",
+        "relative inline-flex h-[2.65rem] shrink-0 select-none items-center rounded-[8px] border border-ink/25 bg-cream p-[3px]",
         className,
       )}
     >

@@ -12,6 +12,13 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-pass-mark",
     "apm-pmq-exam-format",
   ],
+  sources: [
+    {
+      label: "APM Project Management Qualification (PMQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-qualification/",
+      publisher: "Association for Project Management",
+    },
+  ],
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:

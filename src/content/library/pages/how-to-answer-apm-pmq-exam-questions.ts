@@ -12,6 +12,13 @@ export const page = scaffoldLibraryPage({
     "how-hard-is-apm-pmq",
     "apm-pmq-pass-mark",
   ],
+  sources: [
+    {
+      label: "APM Project Management Qualification (PMQ)",
+      url: "https://www.apm.org.uk/qualifications-and-training/project-management-qualification/",
+      publisher: "Association for Project Management",
+    },
+  ],
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:
