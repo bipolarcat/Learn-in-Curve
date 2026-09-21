@@ -142,12 +142,14 @@ type CoreContentBlockProps = {
   /** Learn: study tables (meanings always visible; Pair up for retrieval). */
   studyTables?: boolean;
   /**
-   * Pro recall activities + worked examples. Only pass true when
-   * `canAccessRecallActivities(userTier)` is true — Starter must see nothing.
+   * Show Pair up / Lineup / Group up icons. Always true on study-table LOs;
+   * Starter LO2–24 get locked chrome via `activitiesLocked`.
    */
   activities?: boolean;
   /** Starter LO2–24: tip text redacted; show locked Insights chip. */
   insightsLocked?: boolean;
+  /** Starter LO2–24: activity payloads redacted; padlock beside icons. */
+  activitiesLocked?: boolean;
 };
 
 /**
@@ -197,11 +199,16 @@ export function CoreContentBlock({
   studyTables = false,
   activities: activitiesEnabled = false,
   insightsLocked = false,
+  activitiesLocked = false,
 }: CoreContentBlockProps) {
   const diagrams = block.diagrams ?? [];
   const examTips = block.exam_tips ?? [];
   const blockActivities = activitiesEnabled ? (block.activities ?? []) : [];
-  const blockWorked = activitiesEnabled ? (block.worked_examples ?? []) : [];
+  const blockWorked = activitiesEnabled
+    ? activitiesLocked
+      ? []
+      : (block.worked_examples ?? [])
+    : [];
   const loNumber = loNumberFromOutcomeCode(block.outcome_code);
   const sections = splitSections(block.body_markdown);
   /** Hoist Pair up / Lineup / Group up onto ##; drop LEVEL column label. */
@@ -319,6 +326,7 @@ export function CoreContentBlock({
               return (
                 <StudyTable
                   activities={sectionActivities}
+                  activitiesLocked={activitiesLocked}
                   workedExamples={sectionWorked}
                   toolbarOnHeading={toolbarOnHeading}
                 >
@@ -344,7 +352,10 @@ export function CoreContentBlock({
         const sectionBody = (
           <>
             {toolbarOnHeading && sectionActivities.length > 0 ? (
-              <HoistActivitiesToHeading activities={sectionActivities} />
+              <HoistActivitiesToHeading
+                activities={sectionActivities}
+                locked={activitiesLocked}
+              />
             ) : null}
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
@@ -358,7 +369,11 @@ export function CoreContentBlock({
             sectionActivities.length > 0 ? (
               <div className="not-prose mt-2 flex flex-wrap items-center gap-1.5">
                 {sectionActivities.slice(0, 2).map((activity) => (
-                  <ActivityLauncher key={activity.id} activity={activity} />
+                  <ActivityLauncher
+                    key={activity.id}
+                    activity={activity}
+                    locked={activitiesLocked}
+                  />
                 ))}
               </div>
             ) : null}

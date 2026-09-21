@@ -377,6 +377,7 @@ export function Lo1CoreContentStudy({
   onFocusOutcomeConsumed,
   bodyVariant = "default",
   insightsLocked = false,
+  activitiesLocked = false,
   isSignedIn = true,
   objectiveNumber,
 }: {
@@ -393,6 +394,8 @@ export function Lo1CoreContentStudy({
   bodyVariant?: "default" | "pfq-takeaway";
   /** PFQ / PMQ Starter: Insights chip is static + Pro lock; tip/body already redacted. */
   insightsLocked?: boolean;
+  /** PMQ Starter LO2–24: padlock beside Pair/Group/Line icons. */
+  activitiesLocked?: boolean;
   isSignedIn?: boolean;
   objectiveNumber?: number;
 }) {
@@ -612,6 +615,7 @@ export function Lo1CoreContentStudy({
     studyTables,
     activities,
     insightsLocked,
+    activitiesLocked,
   };
 
   const renderBody = (block: CoreContentBlockType) =>

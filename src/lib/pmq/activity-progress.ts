@@ -26,7 +26,12 @@ export type RecordWrongTurnInput = {
   msSinceStart: number | null;
 };
 
-async function requireRecallUser(courseId: string = PMQ_COURSE_ID) {
+async function requireRecallUser(opts?: {
+  courseId?: string;
+  /** When set, enforce LO-scoped recall access (Starter may play LO1 only). */
+  loNumber?: number;
+}) {
+  const courseId = opts?.courseId ?? PMQ_COURSE_ID;
   const supabase = await createClient();
   const {
     data: { user },
@@ -34,9 +39,11 @@ async function requireRecallUser(courseId: string = PMQ_COURSE_ID) {
   if (!user) {
     return { error: "not_signed_in" as const, supabase: null, userId: null };
   }
-  const tier = await getPmqTier(supabase, user.id, courseId);
-  if (!canAccessRecallActivities(tier)) {
-    return { error: "locked" as const, supabase: null, userId: null };
+  if (opts?.loNumber != null) {
+    const tier = await getPmqTier(supabase, user.id, courseId);
+    if (!canAccessRecallActivities(tier, opts.loNumber)) {
+      return { error: "locked" as const, supabase: null, userId: null };
+    }
   }
   return { error: null, supabase, userId: user.id };
 }
@@ -52,7 +59,10 @@ export async function startActivityAttempt(input: {
   | { ok: false; error: string }
 > {
   const courseId = input.courseId ?? PMQ_COURSE_ID;
-  const gate = await requireRecallUser(courseId);
+  const gate = await requireRecallUser({
+    courseId,
+    loNumber: input.loNumber,
+  });
   if (gate.error || !gate.supabase) {
     return { ok: false, error: gate.error ?? "unavailable" };
   }

@@ -32,6 +32,7 @@ import {
   trackActivityOpened,
   trackActivityWrongTurn,
 } from "@/lib/analytics/events";
+import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type ActivityIconProps = {
@@ -98,6 +99,11 @@ type ActivityLauncherProps = {
   activity: LoActivity;
   className?: string;
   iconClassName?: string;
+  /**
+   * Starter LO2–24: show the icon with a padlock; do not open play.
+   * Payload was already stripped server-side via `redactPmqInsights`.
+   */
+  locked?: boolean;
 };
 
 /** Icon in a study table rowhead — opens the recall activity modal. */
@@ -105,6 +111,7 @@ export function ActivityLauncher({
   activity,
   className,
   iconClassName,
+  locked = false,
 }: ActivityLauncherProps) {
   const { loNumber, courseId } = useActivityPlayCourse();
   const [open, setOpen] = useState(false);
@@ -321,6 +328,27 @@ export function ActivityLauncher({
     onWrongTurn: handleWrongTurn,
     onComplete: handleComplete,
   };
+
+  if (locked) {
+    return (
+      <span
+        className={cn(
+          "inline-flex size-9 shrink-0 items-center justify-center gap-0.5 rounded-md text-teal/40",
+          className,
+        )}
+        title={`${label} — Pro`}
+        aria-label={`${label} locked — Pro`}
+      >
+        <Icon active={false} className={cn("size-6", iconClassName)} />
+        <Lock
+          className="size-2.5 shrink-0 text-ink/45"
+          fill="currentColor"
+          strokeWidth={0}
+          aria-hidden
+        />
+      </span>
+    );
+  }
 
   return (
     <>

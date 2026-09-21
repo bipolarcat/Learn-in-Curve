@@ -159,14 +159,18 @@ export function canAccessSly(tier: PmqTier): boolean {
 }
 
 /**
- * Recall activities in Learn (pair up, lineup, group up): Pro and above.
+ * Recall activities in Learn (pair up, lineup, group up).
  *
- * Starter sees the table as it always was, with no icon and no padlock. The
- * teaser belongs on the pricing page, not scattered through every table in the
- * course — a locked control on a row a Starter learner is mid-way through
- * reading interrupts the lesson to sell to them.
+ * LO1 is free for every tier (same sampler idea as Insights). LO2–24 need Pro.
+ * Starter still *sees* the icons on LO2–24 — locked with a padlock — so the
+ * Pro feature is visible without shipping playable content in the payload.
  */
-export function canAccessRecallActivities(tier: PmqTier): boolean {
+export function canAccessRecallActivities(
+  tier: PmqTier,
+  loNumber: number,
+): boolean {
+  if (!Number.isInteger(loNumber) || loNumber < 1 || loNumber > 24) return false;
+  if (loNumber === PMQ_FREE_INSIGHTS_LO) return true;
   return tierAtLeast(tier, "pro");
 }
 

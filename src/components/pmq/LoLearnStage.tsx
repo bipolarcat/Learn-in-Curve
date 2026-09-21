@@ -92,8 +92,9 @@ export function LoLearnStage({
   onFocusOutcomeConsumed,
 }: LoLearnStageProps) {
   const studyTables = STUDY_TREATMENT_LOS.has(loNumber);
-  const activities =
-    studyTables && canAccessRecallActivities(userTier);
+  // Always show Pair/Group/Line icons on study LOs; LO1 playable, LO2–24 locked for Starter.
+  const activities = studyTables;
+  const activitiesLocked = !canAccessRecallActivities(userTier, loNumber);
   const insightsLocked = !canAccessPmqInsights(userTier, loNumber);
   const useNotebook = NOTEBOOK_LEARN_LOS.has(loNumber);
   /** Ink-stamp outcome marks — all LOs (rolled out from LO2 trial). */
@@ -126,6 +127,7 @@ export function LoLearnStage({
             blocks={coreContent}
             studyTables={studyTables}
             activities={activities}
+            activitiesLocked={activitiesLocked}
             insightsLocked={insightsLocked}
             shortTitles={loNumber === 3 ? LO3_SHORT_TITLE : undefined}
             badgeVariant={badgeVariant}
@@ -196,6 +198,7 @@ export function LoLearnStage({
                       block={block}
                       studyTables={studyTables}
                       activities={activities}
+                      activitiesLocked={activitiesLocked}
                       insightsLocked={insightsLocked}
                     />
                   </div>

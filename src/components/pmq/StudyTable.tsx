@@ -28,6 +28,7 @@ import styles from "@/components/pmq/StudyTable.module.css";
  */
 type HeadingChromeState = {
   activities?: LoActivity[];
+  activitiesLocked?: boolean;
 } | null;
 
 type HeadingChromeContextValue = {
@@ -76,11 +77,15 @@ export function StudyHeadingChromeSlot() {
   }, [setSlotMounted]);
 
   if (!ctx?.chrome) return null;
-  const { activities } = ctx.chrome;
+  const { activities, activitiesLocked } = ctx.chrome;
   if (!activities?.length) return null;
   return (
     <span className="ml-1.5 inline-flex align-middle">
-      <ActivityRowHead activities={activities} compact />
+      <ActivityRowHead
+        activities={activities}
+        locked={activitiesLocked}
+        compact
+      />
     </span>
   );
 }
@@ -97,7 +102,8 @@ export function StudyHeadingChromeSlot() {
  * screens). No column-focus / column-picker chrome.
  *
  * Pro recall activities (pair up / lineup / group up) and worked examples are
- * opt-in icons — Starter never sees them.
+ * always visible as icons. Starter may play LO1; LO2–24 show locked chrome
+ * (padlock beside the icon) until Pro.
  */
 
 function nodeText(node: ReactNode): string {
@@ -165,6 +171,7 @@ function parseMarkdownTable(children: ReactNode): Parsed | null {
 
 type StudyExtras = {
   activities?: LoActivity[];
+  activitiesLocked?: boolean;
   workedExamples?: WorkedExampleCard[];
   /** LO2: hoist Pair up onto the ## heading; drop LEVEL label. */
   toolbarOnHeading?: boolean;
@@ -172,9 +179,11 @@ type StudyExtras = {
 
 function ActivityRowHead({
   activities,
+  locked = false,
   compact = false,
 }: {
   activities?: LoActivity[];
+  locked?: boolean;
   /** Heading chrome — smaller hit box so title + icons share one tight line. */
   compact?: boolean;
 }) {
@@ -185,7 +194,16 @@ function ActivityRowHead({
         <ActivityLauncher
           key={activity.id}
           activity={activity}
-          className={compact ? "!size-7" : undefined}
+          locked={locked}
+          className={
+            locked
+              ? compact
+                ? "!size-auto !h-7 min-w-7 gap-0.5 px-0.5"
+                : "!size-auto !h-9 min-w-9 gap-0.5 px-0.5"
+              : compact
+                ? "!size-7"
+                : undefined
+          }
         />
       ))}
     </div>
@@ -195,16 +213,18 @@ function ActivityRowHead({
 /** Register Pair up / Lineup / Group up on the ## heading row. */
 export function HoistActivitiesToHeading({
   activities,
+  locked = false,
 }: {
   activities?: LoActivity[];
+  locked?: boolean;
 }) {
   const headingChrome = useContext(HeadingChromeContext);
   const setChrome = headingChrome?.setChrome;
   useEffect(() => {
     if (!setChrome) return;
-    setChrome({ activities });
+    setChrome({ activities, activitiesLocked: locked });
     return () => setChrome(null);
-  }, [setChrome, activities]);
+  }, [setChrome, activities, locked]);
   return null;
 }
 
@@ -216,6 +236,7 @@ function TwoColumnTable({
   headers,
   rows,
   activities,
+  activitiesLocked = false,
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
@@ -225,7 +246,7 @@ function TwoColumnTable({
     <figure className={cn(styles.figure, "not-prose min-w-0")}>
       {!toolbarOnHeading && (activities?.length ?? 0) > 0 ? (
         <div className="mb-1.5 flex flex-wrap items-center justify-end gap-2">
-          <ActivityRowHead activities={activities} />
+          <ActivityRowHead activities={activities} locked={activitiesLocked} />
         </div>
       ) : null}
 
@@ -304,10 +325,12 @@ function MultiColumnTable({
   headers,
   rows,
   activities,
+  activitiesLocked = false,
   workedExamples,
   hoistToHeading = false,
 }: Parsed & {
   activities?: LoActivity[];
+  activitiesLocked?: boolean;
   workedExamples?: WorkedExampleCard[];
   hoistToHeading?: boolean;
 }) {
@@ -336,7 +359,7 @@ function MultiColumnTable({
     <figure className={cn(styles.figure, "not-prose min-w-0")}>
       {!hoistToHeading && (activities?.length ?? 0) > 0 ? (
         <div className="mb-2 flex flex-wrap items-center gap-2">
-          <ActivityRowHead activities={activities} />
+          <ActivityRowHead activities={activities} locked={activitiesLocked} />
         </div>
       ) : null}
       <div
@@ -361,7 +384,10 @@ function MultiColumnTable({
                     <span className="inline-flex flex-wrap items-center gap-2">
                       <span>{header || "Aspect"}</span>
                       {!hoistToHeading ? (
-                        <ActivityRowHead activities={activities} />
+                        <ActivityRowHead
+                          activities={activities}
+                          locked={activitiesLocked}
+                        />
                       ) : null}
                     </span>
                   </th>
@@ -427,17 +453,24 @@ function MultiColumnTable({
 export function StudyTable({
   children,
   activities,
+  activitiesLocked = false,
   workedExamples,
   toolbarOnHeading = false,
 }: {
   children: ReactNode;
   activities?: LoActivity[];
+  activitiesLocked?: boolean;
   workedExamples?: WorkedExampleCard[];
   /** When true, hoist activity launchers onto the section ## heading. */
   toolbarOnHeading?: boolean;
 }) {
   const parsed = parseMarkdownTable(children);
-  const extras: StudyExtras = { activities, workedExamples, toolbarOnHeading };
+  const extras: StudyExtras = {
+    activities,
+    activitiesLocked,
+    workedExamples,
+    toolbarOnHeading,
+  };
 
   if (!parsed) {
     return (
@@ -461,6 +494,7 @@ function MultiColumnStudyTables({
   headers,
   rows,
   activities,
+  activitiesLocked = false,
   workedExamples,
   toolbarOnHeading = false,
 }: Parsed & StudyExtras) {
@@ -469,6 +503,7 @@ function MultiColumnStudyTables({
       headers={headers}
       rows={rows}
       activities={activities}
+      activitiesLocked={activitiesLocked}
       workedExamples={workedExamples}
       hoistToHeading={toolbarOnHeading}
     />
