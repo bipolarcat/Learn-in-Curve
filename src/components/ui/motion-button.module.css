@@ -10,15 +10,13 @@
   overflow: hidden;
   border: none;
   border-radius: 999px;
-  /* Solid ink track — always visible on cream cards (CSS module, not Tailwind arbitrary) */
   background: rgb(var(--ink-rgb));
   color: #f6efdd;
   outline: none;
-  container-type: inline-size;
 }
 
-/* Full-width orange plate; scaleX from disc-sized to full — no width animation */
-.circle {
+/* Expanding orange plate on press — transform only, never width */
+.fill {
   position: absolute;
   top: var(--motion-pad);
   bottom: var(--motion-pad);
@@ -26,19 +24,33 @@
   width: calc(100% - 2 * var(--motion-pad));
   border-radius: 999px;
   background: var(--orange, #d5501f);
-  transform: scaleX(calc(var(--motion-disc) / (100cqw - 2 * var(--motion-pad))));
+  transform: scaleX(0);
   transform-origin: left center;
   transition: transform 500ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+/* True circle at rest (equal width/height) */
+.disc {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: var(--motion-disc);
+  height: var(--motion-disc);
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--orange, #d5501f);
 }
 
 .icon {
   position: absolute;
   top: 50%;
-  left: calc(var(--motion-pad) + 0.45rem);
-  z-index: 1;
+  left: calc(var(--motion-pad) + (var(--motion-disc) - 1.25rem) / 2);
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
   pointer-events: none;
   color: rgb(var(--ink-rgb));
   transform: translateY(-50%);
@@ -54,7 +66,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
+  z-index: 2;
   margin-left: 0.75rem;
   pointer-events: none;
   font-family: var(--font-figtree), system-ui, sans-serif;
@@ -68,7 +80,7 @@
   transition: color 500ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
-.pressed .circle {
+.pressed .fill {
   transform: scaleX(1);
 }
 
@@ -81,7 +93,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circle,
+  .fill,
   .icon,
   .label {
     transition: none;

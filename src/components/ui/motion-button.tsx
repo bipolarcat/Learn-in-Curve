@@ -15,9 +15,8 @@ type MotionButtonProps = {
 };
 
 /**
- * 21st.dev motion-button pattern: circle expands to fill the pill.
- * Styles live in a CSS module so the ink track always paints on mobile Safari
- * (Tailwind arbitrary bg-[rgb(var(--ink-rgb))] was invisible on LAN phones).
+ * 21st.dev motion-button: circular orange disc; on press a fill expands across
+ * the ink pill (transform only — disc stays a true circle at rest).
  */
 export function MotionButton({
   label,
@@ -30,7 +29,8 @@ export function MotionButton({
       data-pressed={pressed ? "true" : "false"}
       className={cn(styles.root, pressed && styles.pressed, className)}
     >
-      <span className={styles.circle} aria-hidden />
+      <span className={styles.fill} aria-hidden />
+      <span className={styles.disc} aria-hidden />
       <span className={styles.icon} aria-hidden>
         <ArrowRight className={styles.arrow} strokeWidth={2.25} />
       </span>
