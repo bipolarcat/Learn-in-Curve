@@ -21,7 +21,7 @@ export const CATALOG_COURSES: Course[] = [
     slug: PMQ_SLUG,
     name: COURSE_STATIC["pmq-in-5-days"].displayName,
     description:
-      "Everything You Need to Pass Your APM - Project Management Qualification Exam",
+      "Every one of the 24 learning objectives and 71 learning outcomes, plus practice questions and mock exams, so nothing in the exam is new.",
     price_cents: 0,
     is_free: true,
     status: "live",

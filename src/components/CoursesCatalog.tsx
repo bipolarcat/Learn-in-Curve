@@ -62,8 +62,9 @@ const SUBHEADS: Partial<
   Record<string, { line1: string; line2: string }>
 > = {
   [PMQ_SLUG]: {
-    line1: "Everything You Need to Pass Your APM - Project",
-    line2: "Management Qualification Exam",
+    line1:
+      "Every one of the 24 learning objectives and 71 learning outcomes, plus practice questions and mock exams, so nothing in the exam is new.",
+    line2: "",
   },
   "pfq-in-2-days": {
     line1:

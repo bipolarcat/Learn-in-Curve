@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Catalogue PMQ card subhead: coverage sell (“24 learning objectives and 71 learning outcomes…”) replaces generic pass line (`CoursesCatalog`, `courses-catalog`).
 - **2026-09-21** — Catalogue “View plans”: no hover wash / ink darken — underline only (`CoursesCatalog` `CARD_TERTIARY`).
 - **2026-09-21** — Footer nav spacing: equal spread only on narrow phones (`justify-between`); from `sm` cluster right with gap; `lg` stays end-aligned — stops iPad from stretching links edge-to-edge (`SiteFooter`).
 - **2026-09-21** — Catalogue PFQ card matches PMQ: Start free course → preview, Course overview → `/courses/pfq-in-2-days`, View plans → pricing (`CoursesCatalog`).
