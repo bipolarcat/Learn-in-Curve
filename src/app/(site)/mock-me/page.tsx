@@ -50,6 +50,13 @@ const CARD_ART: Record<
   },
 };
 
+/** Hub card titles only — short `mark` stays for the exam runner chrome. */
+const CARD_MARK: Record<FreeMockExamId, string> = {
+  "apm-pmq": "APM - PMQ",
+  "apm-pfq": "APM - PFQ",
+  pmp: "PMI - PMP",
+};
+
 export default function MockMeHubPage() {
   return (
     <div className={styles.page}>
@@ -87,7 +94,7 @@ export default function MockMeHubPage() {
                     />
                   </div>
                   <div className={styles.meta}>
-                    <h2 className={styles.mark}>{exam.mark}</h2>
+                    <h2 className={styles.mark}>{CARD_MARK[examId]}</h2>
                     <p className={styles.count}>
                       {exam.questionCount} questions
                     </p>
