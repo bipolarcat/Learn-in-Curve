@@ -315,7 +315,7 @@ export function FreeMockExamClient({
         aria-labelledby="free-mock-results-title"
       >
         <p className="m-0 font-body text-[11px] font-bold tracking-[-0.01em] text-orange">
-          {config.mark} Mock Exam result
+          {config.mark} Mock Exam Result
         </p>
         <h2
           id="free-mock-results-title"
