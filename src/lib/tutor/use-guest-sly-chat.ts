@@ -23,6 +23,32 @@ type UseGuestSlyChatOptions = {
   active: boolean;
 };
 
+const GUEST_SLY_CHAT_STORAGE_KEY = "lic-guest-sly-chat-v1";
+
+function readStoredGuestMessages(): GuestChatMessage[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = sessionStorage.getItem(GUEST_SLY_CHAT_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (m): m is GuestChatMessage =>
+        !!m &&
+        typeof m === "object" &&
+        typeof (m as GuestChatMessage).id === "string" &&
+        ((m as GuestChatMessage).role === "user" ||
+          (m as GuestChatMessage).role === "assistant") &&
+        typeof (m as GuestChatMessage).content === "string" &&
+        typeof (m as GuestChatMessage).createdAt === "string" &&
+        // Drop in-flight placeholders from a previous interrupted stream.
+        !(m as GuestChatMessage).id.startsWith("pending-"),
+    );
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Guest Sly chat engine — 3 messages per hashed IP, streamed over SSE.
  *
@@ -51,6 +77,7 @@ export function useGuestSlyChat({ active }: UseGuestSlyChatOptions) {
   /** False once the reader scrolls up — auto-scroll must not yank them back. */
   const stickToBottomRef = useRef(true);
   const loadedRef = useRef(false);
+  const skipPersistOnceRef = useRef(true);
 
   const scrollToBottom = useCallback((behavior: ScrollBehavior = "auto") => {
     if (!stickToBottomRef.current) return;
@@ -69,6 +96,28 @@ export function useGuestSlyChat({ active }: UseGuestSlyChatOptions) {
     stickToBottomRef.current =
       el.scrollHeight - el.scrollTop - el.clientHeight < 48;
   }, []);
+
+  // Restore transcript after mount (SSR can't read sessionStorage).
+  useEffect(() => {
+    setMessages(readStoredGuestMessages());
+  }, []);
+
+  // Keep the transcript across refresh so a locked trial still shows what they asked.
+  useEffect(() => {
+    if (skipPersistOnceRef.current) {
+      skipPersistOnceRef.current = false;
+      return;
+    }
+    try {
+      const durable = messages.filter((m) => !m.id.startsWith("pending-"));
+      sessionStorage.setItem(
+        GUEST_SLY_CHAT_STORAGE_KEY,
+        JSON.stringify(durable),
+      );
+    } catch {
+      /* private mode / quota — ignore */
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (!active || loadedRef.current) return;

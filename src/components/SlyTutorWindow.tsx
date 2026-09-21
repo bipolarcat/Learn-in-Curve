@@ -140,50 +140,50 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         >
           {messages.length === 0 ? (
             <div className="flex h-full min-h-[10rem] flex-col items-center justify-center gap-5 px-1 py-4 text-center">
-              <div className="max-w-[22rem]">
-                {isSignedIn || unavailable || locked ? (
-                  <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
-                    {isSignedIn
-                      ? "Launching soon!"
-                      : unavailable
-                        ? "Sly’s free trial is taking a short break"
-                        : "Free trial used on this network"}
-                  </p>
-                ) : null}
-                <p
-                  className={`m-0 text-[13px] leading-relaxed text-ink/65 text-pretty ${
-                    isSignedIn || unavailable || locked ? "mt-1.5" : ""
-                  }`}
-                >
-                  {isSignedIn
-                    ? "Open your course to keep studying."
-                    : unavailable
-                      ? "Create a free account to keep learning in the meantime."
-                      : locked
-                        ? "Sign up to keep chatting with your own free messages."
-                        : "Type your question or choose a prompt"}
-                </p>
-              </div>
-              {!isSignedIn && !composerLocked ? (
-                <div
-                  className={`flex w-full max-w-[22rem] flex-col gap-2 ${
-                    chipsReady ? "" : "pointer-events-none"
-                  }`}
-                  aria-hidden={!chipsReady}
-                >
-                  {SUGGESTIONS.map((suggestion) => (
-                    <button
-                      key={suggestion}
-                      type="button"
-                      onClick={() => void send(suggestion)}
-                      disabled={sending || !chipsReady}
-                      className={`${showcase.suggestChip} min-h-11 w-full text-left`}
+              {locked ? null : (
+                <>
+                  <div className="max-w-[22rem]">
+                    {isSignedIn || unavailable ? (
+                      <p className="m-0 font-body text-[15px] font-semibold tracking-[-0.02em] text-ink">
+                        {isSignedIn
+                          ? "Launching soon!"
+                          : "Sly’s free trial is taking a short break"}
+                      </p>
+                    ) : null}
+                    <p
+                      className={`m-0 text-[13px] leading-relaxed text-ink/65 text-pretty ${
+                        isSignedIn || unavailable ? "mt-1.5" : ""
+                      }`}
                     >
-                      {suggestion}
-                    </button>
-                  ))}
-                </div>
-              ) : null}
+                      {isSignedIn
+                        ? "Open your course to keep studying."
+                        : unavailable
+                          ? "Create a free account to keep learning in the meantime."
+                          : "Type your question or choose a prompt"}
+                    </p>
+                  </div>
+                  {!isSignedIn && !composerLocked ? (
+                    <div
+                      className={`flex w-full max-w-[22rem] flex-col gap-2 ${
+                        chipsReady ? "" : "pointer-events-none"
+                      }`}
+                      aria-hidden={!chipsReady}
+                    >
+                      {SUGGESTIONS.map((suggestion) => (
+                        <button
+                          key={suggestion}
+                          type="button"
+                          onClick={() => void send(suggestion)}
+                          disabled={sending || !chipsReady}
+                          className={`${showcase.suggestChip} min-h-11 w-full text-left`}
+                        >
+                          {suggestion}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                </>
+              )}
             </div>
           ) : (
             <ul className="mx-auto flex w-full max-w-[36rem] list-none flex-col gap-4">
