@@ -413,7 +413,7 @@ export function FreeMockExamClient({
     >
       <div className="mb-1 text-left">
         <p className="m-0 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-orange sm:text-[10px]">
-          Free {config.mark} readiness check
+          {config.mark} mock exam
         </p>
         <h2
           id="free-mock-quiz-title"
