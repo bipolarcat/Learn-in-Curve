@@ -6,7 +6,7 @@ export const page = scaffoldLibraryPage({
   metaTitle: "Is the APM PMQ Worth It? Honest Answer | Learn in Curve",
   metaDescription:
     "What the APM PMQ actually does for your career, who gets the most out of it, and the situations where it isn't the right spend. Written without the sales pitch.",
-  group: "choosing",
+  group: "exam-prep",
   related: [
     "apm-pmq-vs-prince2",
     "apm-pmq-vs-pmp",
