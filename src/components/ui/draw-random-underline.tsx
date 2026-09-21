@@ -13,10 +13,10 @@ import { cn } from "@/lib/utils";
  * - Draws once only after the user scrolls AND the phrase is in view
  */
 const UNDERLINE_PATH = {
-  // Near-full-width stroke so the right edge reaches the last word on narrow screens
-  d: "M4.99805 20.9998C65.6267 17.4649 126.268 13.845 187.208 12.8887C226.483 12.2723 265.751 13.2796 304.998 13.9998",
+  // Hand-bent stroke (Osmo variant 0) — not the flat line
+  d: "M5 20.9999C26.7762 16.2245 49.5532 11.5572 71.7979 14.6666C84.9553 16.5057 97.0392 21.8432 109.987 24.3888C116.413 25.6523 123.012 25.5143 129.042 22.6388C135.981 19.3303 142.586 15.1422 150.092 13.3333C156.799 11.7168 161.702 14.6225 167.887 16.8333C181.562 21.7212 194.975 22.6234 209.252 21.3888C224.678 20.0548 239.912 17.991 255.42 18.3055C272.027 18.6422 288.409 18.867 305 17.9999",
   viewBox: "0 0 310 40",
-  length: 300.5,
+  length: 305.77,
 } as const;
 
 type DrawRandomUnderlineProps = {
@@ -142,8 +142,9 @@ export function DrawRandomUnderline({
       ref={rootRef}
       className={cn(
         // nowrap = full phrase width on mobile; pb keeps stroke inside the box
-        // so section overflow-x-clip doesn’t chop the right end / “Effect”
-        "relative inline-block whitespace-nowrap pb-[0.4em] align-baseline",
+        // so section overflow-x-clip doesn’t chop the right end / “Effect”.
+        // Mobile needs a clearer gap under the type than desktop.
+        "relative inline-block whitespace-nowrap pb-[0.7em] align-baseline sm:pb-[0.45em]",
         className,
       )}
     >
@@ -151,7 +152,7 @@ export function DrawRandomUnderline({
         {text}
       </span>
       <svg
-        className="pointer-events-none absolute bottom-0 left-0 h-2.5 w-full overflow-visible sm:h-3"
+        className="pointer-events-none absolute bottom-0 left-0 h-3 w-full overflow-visible sm:h-3"
         viewBox={UNDERLINE_PATH.viewBox}
         preserveAspectRatio="none"
         fill="none"
