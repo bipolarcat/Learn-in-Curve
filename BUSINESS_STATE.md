@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Shelf article byline: LIC fox logo to the right of “Learn in Curve” (`LibraryAuthorByline`).
 - **2026-09-21** — Shelf article byline: LIC fox logo beside “Learn in Curve” (`LibraryAuthorByline`).
 - **2026-09-21** — Shelf list view mobile: date + category share one row under the title (`LibraryHub`).
 - **2026-09-21** — Shelf mobile category chips: Apple-style ink fill + paper text when selected (drop orange outline wash) (`LibraryHub`).

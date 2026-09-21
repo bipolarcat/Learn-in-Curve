@@ -35,12 +35,8 @@ export function LibraryAuthorByline({ className = "" }: LibraryAuthorBylineProps
         <p className="m-0 mt-0.5 flex flex-wrap items-center gap-x-1 font-body text-[12.5px] text-ink/55">
           <span>Founder,</span>
           <span className="inline-flex items-center gap-1">
-            <Logo
-              size={14}
-              className="h-3.5 w-3.5"
-              alt=""
-            />
             <span>Learn in Curve</span>
+            <Logo size={14} className="h-3.5 w-3.5" alt="" />
           </span>
         </p>
       </div>
