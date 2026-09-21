@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Draw Random Underline gap: `mt-[3px]` / `sm:mt-[2px]` (clear descenders without the oversized `mt-2` air) (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline: explain/fix gap — path sits in top of viewBox so `bottom-0` painted through glyphs; switch to flow layout + `mt-2` gap (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline: restore bent Osmo path; larger mobile gap under text (`pb-[0.7em]`) (`draw-random-underline`).
 - **2026-09-21** — Draw Random Underline: full-width nowrap + in-box stroke (mobile “Effect” was clipped); draw only after user scroll when in view (`draw-random-underline`).
