@@ -64,9 +64,8 @@ export function TestingMethod() {
             id="home-testing-method-heading"
             className="font-display text-[clamp(1.65rem,3.5vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink"
           >
-            Learning sticks when you{" "}
-            <span className="text-orange">recall</span> it, not when you
-            re-read or re-watch it
+            You learn it when you{" "}
+            <span className="text-orange">recall</span> it
           </h2>
           <p className="mx-auto mt-3 max-w-[34rem] text-pretty font-body text-[15px] leading-relaxed text-ink/65 sm:text-[16px]">
             Psychologists call it “The Testing Effect”. Every time you
