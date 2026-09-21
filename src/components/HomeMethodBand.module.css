@@ -1,30 +1,31 @@
-/* Home Method + practice console — Wispr-style inset teal stadium (not full-bleed). */
+/* Home Method + practice console — Wispr-style teal stadium, full-bleed width. */
 
 .section {
   position: relative;
   overflow-x: clip;
+  /* Vertical breathing only — panel owns the full viewport width. */
   padding-block: clamp(1.75rem, 4.5vw, 3rem);
-}
-
-.wrap {
-  position: relative;
-  z-index: 1;
+  padding-inline: 0;
 }
 
 .panel {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
   border-radius: clamp(1.75rem, 4.5vw, 3.25rem);
   background: var(--teal-deep);
   color: rgb(var(--paper-rgb));
   box-shadow:
     0 1px 0 rgb(255 255 255 / 0.06) inset,
     0 22px 40px -18px rgb(18 63 60 / 0.55);
-  padding:
+  padding-block:
     clamp(2rem, 5vw, 3.5rem)
-    clamp(1.15rem, 3vw, 2rem)
     clamp(1.75rem, 4.5vw, 3rem);
+  /* Horizontal pad lives on .inner via .wrap — not on the teal edge. */
+  padding-inline: 0;
 }
 
 .panel::before {
@@ -47,9 +48,8 @@
 
 @media (min-width: 64rem) {
   .panel {
-    padding:
+    padding-block:
       clamp(2.5rem, 4vw, 3.75rem)
-      clamp(1.75rem, 3vw, 2.75rem)
       clamp(2.25rem, 4vw, 3.25rem);
   }
 }

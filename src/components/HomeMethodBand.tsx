@@ -6,8 +6,8 @@ type HomeMethodBandProps = {
 };
 
 /**
- * Wispr Flow–style inset teal stadium wrapping Method + practice console
- * so they read as one band, not stacked sections.
+ * Wispr Flow–style teal stadium: full viewport width, content still in `.wrap`.
+ * Method + practice console read as one band.
  */
 export function HomeMethodBand({ children }: HomeMethodBandProps) {
   return (
@@ -16,10 +16,8 @@ export function HomeMethodBand({ children }: HomeMethodBandProps) {
       aria-label="The Method"
       className={styles.section}
     >
-      <div className={`wrap ${styles.wrap}`}>
-        <div className={styles.panel}>
-          <div className={styles.inner}>{children}</div>
-        </div>
+      <div className={styles.panel}>
+        <div className={`wrap ${styles.inner}`}>{children}</div>
       </div>
     </section>
   );
