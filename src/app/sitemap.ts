@@ -9,19 +9,17 @@ const SITE_URL =
  * Real last-modified dates for static public URLs.
  * Update a path's date when that page's indexable content actually changes —
  * not on every deploy. `/courses/pmq-in-5-days` is omitted: signed-out visitors
- * get a 3XX to sign-in; the public course overview is `/pmq`.
+ * get a 3XX to sign-in; public marketing for PMQ/PFQ is the pricing page.
  */
 const STATIC_LAST_MODIFIED: Record<string, string> = {
   "/": "2026-09-15",
   "/about": "2026-08-06",
   "/contact": "2026-07-20",
-  "/courses": "2026-09-15",
-  "/pmq": "2026-09-15",
+  "/courses": "2026-09-22",
   "/mock-me": "2026-09-10",
   "/free-mock-exam/apm-pmq": "2026-09-10",
   "/free-mock-exam/apm-pfq": "2026-09-10",
   "/free-mock-exam/pmp": "2026-09-10",
-  "/courses/pfq-in-2-days": "2026-09-15",
   "/courses/pfq-in-2-days/pricing": "2026-09-15",
   "/courses/pmq-in-5-days/pricing": "2026-09-15",
   "/library": "2026-08-19",
@@ -46,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path === "/" ||
       path === "/mock-me" ||
       path.startsWith("/free-mock-exam/") ||
-      path === "/pmq" ||
-      path === "/courses/pfq-in-2-days" ||
       path === "/library"
         ? "weekly"
         : "monthly",
@@ -56,8 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : path === "/mock-me" ||
             path.startsWith("/free-mock-exam/") ||
-            path === "/pmq" ||
-            path === "/courses/pfq-in-2-days" ||
             path === "/courses/pfq-in-2-days/pricing" ||
             path === "/courses/pmq-in-5-days/pricing" ||
             path === "/library"

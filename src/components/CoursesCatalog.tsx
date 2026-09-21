@@ -12,12 +12,8 @@ import {
   filterCatalogCourses,
 } from "@/lib/courses-catalog";
 import { PMQ_SLUG } from "@/lib/pmq/constants";
+import { PMQ_PRICING_HREF } from "@/lib/pmq/plans";
 import {
-  PMQ_OVERVIEW_HREF,
-  PMQ_PRICING_HREF,
-} from "@/lib/pmq/plans";
-import {
-  PFQ_BASE_HREF,
   PFQ_PRICING_HREF,
 } from "@/lib/pfq/constants";
 import { PmqStartLink } from "@/components/PmqStartLink";
@@ -36,9 +32,6 @@ import styles from "@/components/CoursesCatalog.module.css";
 /** Homepage catalogue CTAs — shared min-h-11 tokens, no compact !min-h overrides. */
 const CARD_PRIMARY = `${stampCtaPrimary} !normal-case !tracking-[-0.01em]`;
 const CARD_SECONDARY = `${stampCtaSecondary} !normal-case !tracking-[-0.01em]`;
-/** Tertiary “View plans” — quieter than secondary (text link, no hover wash). */
-const CARD_TERTIARY =
-  "group inline-flex min-h-11 w-fit items-center justify-center gap-1.5 rounded-xl border border-transparent bg-transparent px-3 font-body text-[13px] font-semibold tracking-tight text-ink/65 underline-offset-2 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2";
 
 type CoursesCatalogProps = {
   courses: Course[];
@@ -414,20 +407,12 @@ export function CoursesCatalog({
                           Start free course
                         </PmqStartLink>
                         <CatalogNavLink
-                          href={PMQ_OVERVIEW_HREF}
-                          className={CARD_SECONDARY}
-                          busyLabel="Opening overview"
-                          analyticsLabel="Course overview"
-                        >
-                          Course overview
-                        </CatalogNavLink>
-                        <CatalogNavLink
                           href={PMQ_PRICING_HREF}
-                          className={CARD_TERTIARY}
+                          className={CARD_SECONDARY}
                           busyLabel="Opening plans"
-                          analyticsLabel="View plans"
+                          analyticsLabel="View Plans"
                         >
-                          View plans
+                          View Plans
                         </CatalogNavLink>
                       </>
                     ) : course.slug === "pfq-in-2-days" ? (
@@ -442,20 +427,12 @@ export function CoursesCatalog({
                           Start free course
                         </PfqStartLink>
                         <CatalogNavLink
-                          href={PFQ_BASE_HREF}
-                          className={CARD_SECONDARY}
-                          busyLabel="Opening overview"
-                          analyticsLabel="Course overview"
-                        >
-                          Course overview
-                        </CatalogNavLink>
-                        <CatalogNavLink
                           href={PFQ_PRICING_HREF}
-                          className={CARD_TERTIARY}
+                          className={CARD_SECONDARY}
                           busyLabel="Opening plans"
-                          analyticsLabel="View plans"
+                          analyticsLabel="View Plans"
                         >
-                          View plans
+                          View Plans
                         </CatalogNavLink>
                       </>
                     ) : (

@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/pfq",
-        destination: "/courses/pfq-in-2-days",
+        destination: "/courses/pfq-in-2-days/pricing",
         statusCode: 301 as const,
       },
       {
@@ -51,6 +51,17 @@ const nextConfig: NextConfig = {
         // Preserve rankings for the original free PMQ mock URL.
         source: "/free-mock-exam",
         destination: "/free-mock-exam/apm-pmq",
+        statusCode: 301 as const,
+      },
+      {
+        // Public course overviews retired — plans page is the marketing surface.
+        source: "/pmq",
+        destination: "/courses/pmq-in-5-days/pricing",
+        statusCode: 301 as const,
+      },
+      {
+        source: "/courses/pfq-in-2-days",
+        destination: "/courses/pfq-in-2-days/pricing",
         statusCode: 301 as const,
       },
     ];
