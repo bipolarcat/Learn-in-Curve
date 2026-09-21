@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getLibraryPagesByGroup, LIBRARY_PAGES } from "@/content/library";
 import { LibraryHub } from "@/components/library/LibraryHub";
+import { LIBRARY_OG_IMAGE } from "@/components/library/LibraryArticle";
 import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
@@ -13,11 +14,19 @@ export const metadata: Metadata = {
     "Plain-English project management guides — exam preparation, qualification comparisons, and syllabus topics.",
   alternates: { canonical: `${SITE_URL}/library` },
   openGraph: {
-    title: "Guides | Learn in Curve",
+    title: "APM PMQ Guides | Learn in Curve",
     description:
-      "Plain-English project management guides — browse by topic, then open one.",
+      "Plain-English APM PMQ guides: exam format, pass mark, syllabus topics and qualification comparisons.",
     url: `${SITE_URL}/library`,
     type: "website",
+    images: [{ url: `${SITE_URL}${LIBRARY_OG_IMAGE}`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "APM PMQ Guides | Learn in Curve",
+    description:
+      "Plain-English APM PMQ guides: exam format, pass mark, syllabus topics and qualification comparisons.",
+    images: [`${SITE_URL}${LIBRARY_OG_IMAGE}`],
   },
 };
 

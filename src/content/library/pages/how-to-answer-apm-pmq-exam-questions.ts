@@ -3,9 +3,9 @@ import { scaffoldLibraryPage } from "../scaffold";
 export const page = scaffoldLibraryPage({
   slug: "how-to-answer-apm-pmq-exam-questions",
   title: "How to answer APM PMQ exam questions",
-  metaTitle: "How to Answer APM PMQ Exam Questions: Marks Per Point and Command Words | Learn in Curve",
+  metaTitle: "How to Answer APM PMQ Exam Questions | Learn in Curve",
   metaDescription:
-    "Exam technique for the APM PMQ: how to work out marks per point, what each command word is asking for, why half the marks are in the justification, and a worked five-mark answer.",
+    "Exam technique for the APM PMQ: how to work out marks per point, what each command word asks for, and a worked five-mark answer.",
   group: "exam-prep",
   related: [
     "apm-pmq-exam-format",

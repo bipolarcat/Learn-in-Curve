@@ -36,7 +36,8 @@ type LibraryViewToggleProps = {
 };
 
 /**
- * Grid / List switch with labeled segments — Claude Shelf mock + 21st spring thumb.
+ * Compact Grid / List switch — Claude Shelf proportions, opaque cream track
+ * (hides site dots). Avoids `rounded-md` (16px in LIC Tailwind).
  */
 export function LibraryViewToggle({
   value,
@@ -74,18 +75,18 @@ export function LibraryViewToggle({
       role="radiogroup"
       aria-label="View mode"
       className={cn(
-        "relative inline-flex shrink-0 select-none rounded-md border border-ink/12 bg-paper p-[3px]",
+        "relative inline-flex h-[2.65rem] shrink-0 select-none items-center rounded-[8px] border border-ink/12 bg-cream p-[3px]",
         className,
       )}
     >
       <div
-        className="relative grid grid-cols-2"
+        className="relative grid h-full grid-cols-2"
         style={{ touchAction: "manipulation" }}
         onPointerLeave={() => setHovered(-1)}
       >
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-[5px] bg-cream shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.1)] ring-1 ring-ink/10"
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/2 rounded-[5px] bg-paper shadow-[0_1px_2px_rgb(var(--ink-rgb)_/_0.08)] ring-1 ring-ink/[0.08]"
           style={{ x: thumbX }}
           initial={false}
         />
@@ -115,7 +116,7 @@ export function LibraryViewToggle({
                   go(0);
                 }
               }}
-              className="relative z-[1] flex h-9 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-[5px] px-3 outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
+              className="relative z-[1] flex h-full min-w-[4.6rem] items-center justify-center gap-1.5 rounded-[5px] px-2.5 outline-none focus-visible:shadow-[inset_0_0_0_2px_rgb(var(--ink-rgb)_/_0.28)]"
             >
               <Icon
                 className={cn(
@@ -126,12 +127,12 @@ export function LibraryViewToggle({
                       ? "text-ink/65"
                       : "text-ink/40",
                 )}
-                strokeWidth={2.15}
+                strokeWidth={2}
                 aria-hidden
               />
               <span
                 className={cn(
-                  "font-body text-[12.5px] font-semibold tracking-[-0.01em] transition-colors duration-150 ease-[var(--ease-out-quint)]",
+                  "font-body text-[12px] font-semibold tracking-[-0.01em] transition-colors duration-150 ease-[var(--ease-out-quint)]",
                   active
                     ? "text-ink"
                     : hovered === i

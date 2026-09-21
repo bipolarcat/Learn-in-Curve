@@ -18,6 +18,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
+/** Shared social + schema image for every Shelf guide. */
+export const LIBRARY_OG_IMAGE = "/brand/og/og-default.png";
+
 export function buildLibraryJsonLd(page: LibraryPage) {
   const url = `${SITE_URL}/library/${page.slug}`;
   const faqLd = {
@@ -41,16 +44,37 @@ export function buildLibraryJsonLd(page: LibraryPage) {
     dateModified: page.updatedAt,
     datePublished: page.updatedAt,
     mainEntityOfPage: url,
+    url,
+    inLanguage: "en-GB",
+    image: `${SITE_URL}${LIBRARY_OG_IMAGE}`,
     author: {
       "@type": "Person",
       name: LIBRARY_AUTHOR.name,
+      // author.url is what lets a search or answer engine follow the byline
+      // to a real person. Without it the author block is unverifiable.
+      url: `${SITE_URL}${LIBRARY_AUTHOR.url}`,
       image: `${SITE_URL}${LIBRARY_AUTHOR.imageSrc}`,
       jobTitle: LIBRARY_AUTHOR.role,
     },
     publisher: {
       "@type": "Organization",
       name: "Learn in Curve",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}${LIBRARY_OG_IMAGE}`,
+      },
     },
+    ...(page.sources?.length
+      ? {
+          citation: page.sources.map((src) => ({
+            "@type": "CreativeWork",
+            name: src.label,
+            url: src.url,
+            publisher: { "@type": "Organization", name: src.publisher },
+          })),
+        }
+      : {}),
   };
 
   const breadcrumbLd = {
@@ -79,6 +103,20 @@ export function buildLibraryJsonLd(page: LibraryPage) {
   };
 
   return [faqLd, articleLd, breadcrumbLd];
+}
+
+/**
+ * "August 2026". Readers and answer engines both want to know how current
+ * exam content is, and the date existed only in JSON-LD until now.
+ */
+function formatUpdated(iso: string): string {
+  const ms = Date.parse(iso);
+  if (Number.isNaN(ms)) return iso;
+  return new Intl.DateTimeFormat("en-GB", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(ms));
 }
 
 export function LibraryArticle({ page }: { page: LibraryPage }) {
@@ -122,6 +160,12 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
             <p className="mt-5 rounded-xl border border-orange/25 bg-orange/[0.06] px-4 py-3.5 font-body text-[16px] leading-relaxed text-ink sm:text-[17px]">
               {page.answerFirst}
             </p>
+            <p className="mt-3 font-body text-[12.5px] text-ink/50">
+              Updated{" "}
+              <time dateTime={page.updatedAt}>
+                {formatUpdated(page.updatedAt)}
+              </time>
+            </p>
             {showPlaceholderBanner ? (
               <p className="mt-3 font-body text-[12px] text-ink/45">
                 Draft / placeholder copy — not for indexing.
@@ -135,6 +179,32 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
               className="pmq-markdown--library-core"
             />
           </div>
+
+          {page.sources?.length ? (
+            <section className="mt-10" aria-labelledby="library-sources-heading">
+              <h2
+                id="library-sources-heading"
+                className="m-0 font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-ink/55"
+              >
+                Sources
+              </h2>
+              <ul className="mt-3 space-y-2 font-body text-[14px] leading-relaxed">
+                {page.sources.map((src) => (
+                  <li key={src.url}>
+                    <a
+                      href={src.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-sm font-semibold text-orange underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55"
+                    >
+                      {src.label}
+                    </a>
+                    <span className="text-ink/50"> ({src.publisher})</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           <LibraryAuthorByline className="mt-10" />
         </div>

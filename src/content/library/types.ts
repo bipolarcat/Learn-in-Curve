@@ -10,6 +10,19 @@ export type LibraryFaq = {
   answer: string;
 };
 
+/**
+ * External citation for a factual claim in the body.
+ * Only primary sources: the awarding body's own page, never a competitor's
+ * blog. Every URL here was checked to resolve before it was added, and any
+ * new one must be too: a dead citation is worse than none.
+ */
+export type LibrarySource = {
+  label: string;
+  url: string;
+  /** Who publishes it, shown so the reader can judge it at a glance. */
+  publisher: string;
+};
+
 export type LibraryPage = {
   slug: string;
   /** Visible H1 */
@@ -27,6 +40,8 @@ export type LibraryPage = {
   status: "draft" | "published";
   /** ISO date — Article dateModified freshness signal. */
   updatedAt: string;
+  /** Primary sources backing the factual claims. Omit when none apply. */
+  sources?: LibrarySource[];
 };
 
 export const LIBRARY_GROUP_LABELS: Record<LibraryGroup, string> = {

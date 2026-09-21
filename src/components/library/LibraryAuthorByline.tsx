@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LIBRARY_AUTHOR } from "@/content/library/author";
 
 type LibraryAuthorBylineProps = {
@@ -22,7 +23,13 @@ export function LibraryAuthorByline({ className = "" }: LibraryAuthorBylineProps
       </div>
       <div className="min-w-0">
         <p className="m-0 font-body text-[14px] font-semibold tracking-[-0.01em] text-ink">
-          {LIBRARY_AUTHOR.name}
+          <Link
+            href={LIBRARY_AUTHOR.url}
+            rel="author"
+            className="rounded-sm underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange/55"
+          >
+            {LIBRARY_AUTHOR.name}
+          </Link>
         </p>
         <p className="m-0 mt-0.5 font-body text-[12.5px] text-ink/55">
           {LIBRARY_AUTHOR.role}

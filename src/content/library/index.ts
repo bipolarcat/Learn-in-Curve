@@ -8,6 +8,7 @@ import { page as apmPmqVsPfq } from "./pages/apm-pmq-vs-pfq";
 import { page as apmPmqVsPrince2 } from "./pages/apm-pmq-vs-prince2";
 import { page as apmPmqVsPmp } from "./pages/apm-pmq-vs-pmp";
 import { page as isApmPmqWorthIt } from "./pages/is-apm-pmq-worth-it";
+import { page as howToAnswerExamQuestions } from "./pages/how-to-answer-apm-pmq-exam-questions";
 import { page as apmPmqBusinessCase } from "./pages/apm-pmq-business-case";
 import { page as apmPmqRiskManagement } from "./pages/apm-pmq-risk-management";
 import { page as apmPmqStakeholderManagement } from "./pages/apm-pmq-stakeholder-management";
@@ -31,6 +32,7 @@ export const LIBRARY_PAGES: LibraryPage[] = [
   apmPmqVsPrince2,
   apmPmqVsPmp,
   isApmPmqWorthIt,
+  howToAnswerExamQuestions,
   apmPmqBusinessCase,
   apmPmqRiskManagement,
   apmPmqStakeholderManagement,

@@ -178,7 +178,7 @@
 
 .toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -186,6 +186,7 @@
 
 .toolbar > :last-child {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .searchWrap {
