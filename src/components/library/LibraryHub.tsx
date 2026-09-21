@@ -10,7 +10,6 @@ import { FreeMockExamLink } from "@/components/FreeMockExamLink";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { LibraryPageIllustration } from "@/components/library/libraryIllustrations";
 import { stampCtaPrimary } from "@/components/stamp-chip";
-import { withSoftNavFrom } from "@/lib/soft-nav-back";
 import styles from "./LibraryHub.module.css";
 
 type FilterId = "all" | LibraryGroup;
@@ -80,20 +79,6 @@ export function LibraryHub({
           <header className={styles.hero}>
             <p className={styles.eyebrow}>The Shelf</p>
             <h1 className={styles.title}>Guides</h1>
-            <p className={styles.lede}>
-              Plain-English project management guides — browse by topic, then
-              open one.
-            </p>
-            <div className={styles.heroMeta}>
-              <span className={styles.metaChip}>
-                {pages.length} published
-              </span>
-              {draftCount > 0 ? (
-                <span className={styles.metaChipMuted}>
-                  {draftCount} draft{draftCount === 1 ? "" : "s"} in progress
-                </span>
-              ) : null}
-            </div>
           </header>
 
           {pages.length === 0 ? (
@@ -150,19 +135,6 @@ export function LibraryHub({
                       );
                     })}
                   </ul>
-
-                  <div className={styles.sideCta}>
-                    <p className={styles.sideCtaLabel}>Ready to test?</p>
-                    <LibrarySoftNavLink
-                      href={withSoftNavFrom("/free-mock-exam/apm-pmq", "library")}
-                      busyLabel="Opening free mock exam"
-                      spinner="ellipsis"
-                      spinnerClassName="text-orange"
-                      className={styles.sideCtaLink}
-                    >
-                      Free 15-question mock →
-                    </LibrarySoftNavLink>
-                  </div>
                 </div>
               </aside>
 
