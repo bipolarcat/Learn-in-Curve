@@ -122,7 +122,7 @@ export function SlyTutorWindow({ isSignedIn }: { isSignedIn: boolean }) {
         <div className="pointer-events-none absolute inset-x-0 flex items-center justify-center gap-2">
           <SlyFace size={22} />
           <span className="font-body text-[13px] font-semibold tracking-tight text-ink">
-            Sly : AI tutor
+            Sly
           </span>
           <BetaBadge />
         </div>
