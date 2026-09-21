@@ -54,6 +54,7 @@ export type PfqPlanFeature = {
     | "practice"
     | "mock"
     | "misconceptions"
+    | "memory"
     | "report"
     | "sly"
     | "structure"
@@ -94,7 +95,7 @@ export const PFQ_PLANS: PfqPlan[] = [
           "Study material covering all 59 learning outcomes as per PFQ exam handbook",
       },
       {
-        icon: "misconceptions",
+        icon: "memory",
         label:
           "Key takeaways, definitions glossary, common misconceptions and memory aids",
       },
@@ -119,7 +120,7 @@ export const PFQ_PLANS: PfqPlan[] = [
     tagline:
       "The whole course. Every objective taught in full, the complete question bank, and three timed mocks.",
     inheritsFrom: "starter",
-    ctaLabel: "Get Pro",
+    ctaLabel: "Get Pro Bundle",
     features: [
       {
         icon: "practice",

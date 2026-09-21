@@ -13,6 +13,7 @@ import { PFQ_AI_PRO_NOTIFY_KEY } from "@/lib/notify/lists";
 import {
   IconCore,
   IconInsights,
+  IconMemory,
   IconMisconceptions,
   IconMock,
   IconPractice,
@@ -36,6 +37,7 @@ const FEATURE_ICONS: Record<
   practice: IconPractice,
   mock: IconMock,
   misconceptions: IconMisconceptions,
+  memory: IconMemory,
   report: IconReport,
   sly: IconSly,
   structure: IconStructure,
