@@ -2,7 +2,6 @@ import {
   PFQ_AI_PRO_PRICE_CENTS,
   PFQ_PRO_PRICE_CENTS,
 } from "./constants";
-import { PFQ_FREE_INSIGHTS_OBJECTIVE } from "./tiers";
 
 /**
  * PFQ in 2 days plan ladder, display copy for the pricing cards.
@@ -83,22 +82,23 @@ export const PFQ_PLANS: PfqPlan[] = [
     features: [
       {
         icon: "core",
-        label: `full lesson insights on objective ${PFQ_FREE_INSIGHTS_OBJECTIVE}`,
-        value: "1 of 10",
-      },
-      {
-        icon: "core",
         label:
-          "key takeaways, definitions, misconceptions and memory aids on all 10 objectives",
-      },
-      {
-        icon: "practice",
-        label: "practice questions, 5 on every objective",
-        value: "50",
+          "Study material covering all 10 learning objectives and 59 learning outcomes",
       },
       {
         icon: "misconceptions",
-        label: "Trap School, the formats that cost people marks",
+        label:
+          "Key takeaways, definitions glossary, common misconceptions and memory aids",
+      },
+      {
+        icon: "practice",
+        label: "practice questions",
+        value: "50",
+      },
+      {
+        icon: "mock",
+        label:
+          "Exam structure and mark weighting, so you revise what actually scores",
       },
     ],
   },
