@@ -100,7 +100,7 @@ export function TestingMethod() {
                   />
                   <div className="flex min-w-0 flex-1 flex-col px-0.5">
                     <p
-                      className="font-stamp text-[11px] font-bold tracking-[0.08em] text-orange sm:text-[12px]"
+                      className="font-body text-[11px] font-bold tabular-nums tracking-[0.1em] text-orange sm:text-[12px]"
                       aria-hidden
                     >
                       {step.step}
