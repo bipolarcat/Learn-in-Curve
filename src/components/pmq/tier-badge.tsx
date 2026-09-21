@@ -1,3 +1,5 @@
+import { Lock } from "lucide-react";
+
 /**
  * Tier chips — one definition, used by the practice console toast, plan chrome
  * and the landing feature cards. Previously duplicated inside
@@ -8,10 +10,21 @@
 const aiProBadgeClass =
   "inline-flex h-4 shrink-0 items-center rounded-[0.25rem] bg-[color-mix(in_srgb,var(--gold)_32%,rgb(var(--paper-rgb)))] px-1 font-body text-[9px] font-bold tracking-[0.02em] text-[color-mix(in_srgb,var(--gold)_55%,#241a12)]";
 
+const proBadgeClass =
+  "inline-flex h-4 shrink-0 items-center gap-0.5 rounded-[0.25rem] bg-teal/[0.14] px-1 font-body text-[9px] font-bold tracking-[0.02em] text-teal dark:bg-teal/[0.22]";
+
 /** Teal Pro chip — matches plan cards / course chrome. */
-export function ProBadge() {
+export function ProBadge({ locked = false }: { locked?: boolean } = {}) {
   return (
-    <span className="inline-flex h-4 shrink-0 items-center rounded-[0.25rem] bg-teal/[0.14] px-1 font-body text-[9px] font-bold tracking-[0.02em] text-teal dark:bg-teal/[0.22]">
+    <span className={proBadgeClass}>
+      {locked ? (
+        <Lock
+          className="size-2.5 shrink-0"
+          fill="currentColor"
+          strokeWidth={0}
+          aria-hidden
+        />
+      ) : null}
       Pro
     </span>
   );

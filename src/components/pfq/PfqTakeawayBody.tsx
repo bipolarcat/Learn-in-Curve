@@ -1,6 +1,5 @@
 "use client";
 
-import { Lock } from "lucide-react";
 import { LightbulbIcon } from "@animateicons/react/lucide/lightbulb-icon";
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import {
@@ -16,7 +15,7 @@ import { cn } from "@/lib/utils";
  * shared Insights chip (lightbulb, chevron flip, underline→rail) as PMQ.
  *
  * When `insightsLocked`, teaching text was stripped server-side — same Insights
- * label with a filled padlock + Pro Bundle mark (mock-console style). No expand.
+ * label with a Pro badge that includes the padlock. No expand.
  */
 export function PfqTakeawayBody({
   block,
@@ -49,7 +48,7 @@ export function PfqTakeawayBody({
             "not-prose m-0 inline-flex items-center gap-1 font-body text-[12.5px] font-medium leading-none tracking-tight text-ink/45",
             takeaway ? "mt-2" : "mt-0.5",
           )}
-          aria-label="Insights locked — Pro Bundle"
+          aria-label="Insights locked — Pro"
         >
           <LightbulbIcon
             size={14}
@@ -59,16 +58,7 @@ export function PfqTakeawayBody({
             aria-hidden
           />
           <span>Insights</span>
-          <Lock
-            className="size-3 shrink-0 text-ink/40"
-            fill="currentColor"
-            strokeWidth={0}
-            aria-hidden
-          />
-          <span className="inline-flex items-center gap-0.5 text-[11px] font-medium tracking-tight text-ink/38">
-            <ProBadge />
-            Bundle
-          </span>
+          <ProBadge locked />
         </p>
       ) : showInsights ? (
         <InsightsExpand className={takeaway ? "mt-2" : "mt-0.5"}>
