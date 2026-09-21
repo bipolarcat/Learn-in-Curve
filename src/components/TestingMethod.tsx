@@ -63,7 +63,7 @@ export function TestingMethod() {
           </p>
           <h2
             id="home-testing-method-heading"
-            className="font-display text-[clamp(1.65rem,3.5vw,2.35rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink"
+            className="font-display text-[clamp(2.05rem,5.2vw,3.65rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink"
           >
             You learn it when you{" "}
             <span className="text-orange">recall</span> it
