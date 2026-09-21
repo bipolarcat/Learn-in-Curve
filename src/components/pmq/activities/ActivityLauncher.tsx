@@ -32,7 +32,6 @@ import {
   trackActivityOpened,
   trackActivityWrongTurn,
 } from "@/lib/analytics/events";
-import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type ActivityIconProps = {
@@ -333,19 +332,14 @@ export function ActivityLauncher({
     return (
       <span
         className={cn(
-          "inline-flex size-9 shrink-0 items-center justify-center gap-0.5 rounded-md text-teal/40",
+          "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-ink/30 opacity-45",
           className,
         )}
         title={`${label} — Pro`}
         aria-label={`${label} locked — Pro`}
+        aria-disabled
       >
         <Icon active={false} className={cn("size-6", iconClassName)} />
-        <Lock
-          className="size-2.5 shrink-0 text-ink/45"
-          fill="currentColor"
-          strokeWidth={0}
-          aria-hidden
-        />
       </span>
     );
   }

@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import type { CoreContentBlock as CoreContentBlockType } from "@/types/pmq";
 import { DiagramFigure } from "@/components/content/DiagramFigure";
 import {
+  ActivityRowHead,
   HoistActivitiesToHeading,
   StudyHeadingChromeProvider,
   StudyHeadingChromeSlot,
@@ -12,7 +13,6 @@ import {
 } from "@/components/pmq/StudyTable";
 import { ExamTipList } from "@/components/pmq/ExamTipCallout";
 import { InsightsDisclosureList } from "@/components/pmq/InsightsDisclosure";
-import { ActivityLauncher } from "@/components/pmq/activities/ActivityLauncher";
 import { cn } from "@/lib/utils";
 
 const LEGACY_DIAGRAM_BASE = "/courses/pmq-in-5-days/public/diagrams";
@@ -367,14 +367,11 @@ export function CoreContentBlock({
             {!toolbarOnHeading &&
             !sectionHasTable &&
             sectionActivities.length > 0 ? (
-              <div className="not-prose mt-2 flex flex-wrap items-center gap-1.5">
-                {sectionActivities.slice(0, 2).map((activity) => (
-                  <ActivityLauncher
-                    key={activity.id}
-                    activity={activity}
-                    locked={activitiesLocked}
-                  />
-                ))}
+              <div className="not-prose mt-2">
+                <ActivityRowHead
+                  activities={sectionActivities}
+                  locked={activitiesLocked}
+                />
               </div>
             ) : null}
             {closingDiagrams.length > 0 ? (

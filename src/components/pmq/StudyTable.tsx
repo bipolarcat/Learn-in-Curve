@@ -19,6 +19,7 @@ import {
   WorkedExampleLauncher,
   workedExampleForRow,
 } from "@/components/pmq/activities/WorkedExampleLauncher";
+import { ProBadge } from "@/components/pmq/tier-badge";
 import { cn } from "@/lib/utils";
 import styles from "@/components/pmq/StudyTable.module.css";
 
@@ -177,7 +178,8 @@ type StudyExtras = {
   toolbarOnHeading?: boolean;
 };
 
-function ActivityRowHead({
+/** Pair / Group / Line icons — one locked Pro badge for the whole group. */
+export function ActivityRowHead({
   activities,
   locked = false,
   compact = false,
@@ -188,25 +190,31 @@ function ActivityRowHead({
   compact?: boolean;
 }) {
   if (!activities?.length) return null;
+  const icons = activities.slice(0, 2).map((activity) => (
+    <ActivityLauncher
+      key={activity.id}
+      activity={activity}
+      locked={locked}
+      className={compact ? "!size-7" : undefined}
+    />
+  ));
+
+  if (!locked) {
+    return (
+      <div className="flex shrink-0 flex-nowrap items-center gap-1">{icons}</div>
+    );
+  }
+
   return (
-    <div className="flex shrink-0 flex-nowrap items-center gap-1">
-      {activities.slice(0, 2).map((activity) => (
-        <ActivityLauncher
-          key={activity.id}
-          activity={activity}
-          locked={locked}
-          className={
-            locked
-              ? compact
-                ? "!size-auto !h-7 min-w-7 gap-0.5 px-0.5"
-                : "!size-auto !h-9 min-w-9 gap-0.5 px-0.5"
-              : compact
-                ? "!size-7"
-                : undefined
-          }
-        />
-      ))}
-    </div>
+    <span
+      className="relative inline-flex shrink-0 flex-nowrap items-center gap-1 pr-0.5 pt-1"
+      aria-label="Recall activities locked — Pro"
+    >
+      {icons}
+      <span className="pointer-events-none absolute -right-0.5 -top-0.5 z-10">
+        <ProBadge locked />
+      </span>
+    </span>
   );
 }
 
