@@ -102,8 +102,7 @@ export function LibraryHub({
       <div className="px-3 sm:px-5">
         <div className={`mx-auto w-full max-w-wrap ${styles.shell}`}>
           <header className={styles.hero}>
-            <p className={styles.eyebrow}>The Shelf</p>
-            <h1 className={styles.title}>Guides</h1>
+            <h1 className={styles.title}>The Shelf</h1>
           </header>
 
           {pages.length === 0 ? (
