@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Header Sign in / Menu: kill iOS sticky hover wash — fine-pointer-only hover + tap-highlight off + blur on Sign in click (`header-control`, `SiteHeaderControls`).
 - **2026-09-21** — Header menu current page: orange text/icon only (no ink wash) (`SiteHeaderMenu`).
 - **2026-09-21** — Method recall plate: opaque `#f2e8d5` (matches `memory.webp` bake). Prior `bg-cream/90` let teal bleed through behind contain-fit art, reading as a halo (`LabArtPlate`, `TestingMethod`).
 - **2026-09-21** — Method recall art plate: cream tone uses cream border (not white/ink halo) so it matches the illustration like the teal/orange cards (`LabArtPlate`, `TestingMethod`).

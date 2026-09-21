@@ -61,13 +61,15 @@ function HeaderNavButton({
       aria-label={pending ? busyLabel : ariaLabel}
       title={title ?? ariaLabel}
       className={`${className} disabled:opacity-90`}
-      onClick={() => {
+      onClick={(event) => {
         if (analyticsLocation) {
           trackCtaClicked({
             variant: analyticsVariant ?? ariaLabel,
             location: analyticsLocation,
           });
         }
+        // iOS can leave :hover/:focus wash stuck after soft-nav — clear it.
+        event.currentTarget.blur();
         startTransition(() => {
           router.push(href);
         });
