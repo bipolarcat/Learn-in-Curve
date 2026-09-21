@@ -13,9 +13,9 @@
   font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
   line-height: 1.2;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .intro h1:not(.courseTitle),
