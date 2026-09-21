@@ -176,7 +176,14 @@ export function TrialQuiz({
   const panelId = `${idPrefix}-panel`;
 
   const runner = (
-        <div className={styles.runner} aria-label="Sample quiz">
+        <div
+          className={
+            embedded
+              ? `${styles.runner} flex min-h-0 flex-1 flex-col`
+              : styles.runner
+          }
+          aria-label="Sample quiz"
+        >
           <div className={styles.qRail}>
             <div
               className={styles.qGrid}
@@ -233,7 +240,11 @@ export function TrialQuiz({
             id={panelId}
             role="tabpanel"
             aria-labelledby={`${idPrefix}-tab-${qi + 1}`}
-            className={styles.questionPanel}
+            className={
+              embedded
+                ? `${styles.questionPanel} flex min-h-0 flex-1 flex-col`
+                : styles.questionPanel
+            }
           >
             <p className={styles.prompt}>
               <span className="sr-only">
@@ -259,87 +270,89 @@ export function TrialQuiz({
               }}
             />
 
-            {!attempt ? (
-              <div className={styles.checkRow}>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    if (!selected) {
-                      showCheckAnswerHint("mcq", e.currentTarget);
-                      const loMatch = /^LO(\d+)$/i.exec(question.lo);
-                      trackHintViewed({
-                        lo_number: loMatch ? Number(loMatch[1]) : 0,
-                        question_type: "mcq",
-                      });
-                      return;
-                    }
-                    handleCheck();
-                  }}
-                  className={styles.checkBtn}
-                >
-                  Check answer
-                </button>
-              </div>
-            ) : null}
-
-            {feedback ? (
-              <p className={styles.feedback} aria-live="polite">
-                {feedback}
-              </p>
-            ) : null}
-
-            {allDone ? (
-              embedded ? null : (
-              <div className="mt-5 border-t border-dashed border-ink/15 pt-4">
-                <p className="m-0 font-body text-[14px] font-medium leading-snug text-ink text-pretty">
-                  That&apos;s the taster. The full course is free.
-                </p>
-                <div className="mt-3.5">
-                  <PmqStartLink
-                    isSignedIn={isSignedIn}
-                    from="home"
-                    className={stampCtaPrimary}
-                    analyticsLocation="quiz_demo"
-                    analyticsVariant="enrol"
+            <div className={embedded ? "mt-auto" : undefined}>
+              {!attempt ? (
+                <div className={styles.checkRow}>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      if (!selected) {
+                        showCheckAnswerHint("mcq", e.currentTarget);
+                        const loMatch = /^LO(\d+)$/i.exec(question.lo);
+                        trackHintViewed({
+                          lo_number: loMatch ? Number(loMatch[1]) : 0,
+                          question_type: "mcq",
+                        });
+                        return;
+                      }
+                      handleCheck();
+                    }}
+                    className={styles.checkBtn}
                   >
-                    Start free with APM PMQ
-                  </PmqStartLink>
+                    Check answer
+                  </button>
                 </div>
-              </div>
-              )
-            ) : (
-              <div className={styles.navRow}>
-                <div className="min-w-0">
-                  {canGoPrev ? (
-                    <button
-                      type="button"
-                      onClick={() => goTo(qi - 1)}
-                      className={styles.navBtn}
+              ) : null}
+
+              {feedback ? (
+                <p className={styles.feedback} aria-live="polite">
+                  {feedback}
+                </p>
+              ) : null}
+
+              {allDone ? (
+                embedded ? null : (
+                <div className="mt-5 border-t border-dashed border-ink/15 pt-4">
+                  <p className="m-0 font-body text-[14px] font-medium leading-snug text-ink text-pretty">
+                    That&apos;s the taster. The full course is free.
+                  </p>
+                  <div className="mt-3.5">
+                    <PmqStartLink
+                      isSignedIn={isSignedIn}
+                      from="home"
+                      className={stampCtaPrimary}
+                      analyticsLocation="quiz_demo"
+                      analyticsVariant="enrol"
                     >
-                      Previous
-                    </button>
-                  ) : null}
+                      Start free with APM PMQ
+                    </PmqStartLink>
+                  </div>
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
-                  {canGoNext ? (
-                    <button
-                      type="button"
-                      onClick={() => goTo(qi + 1)}
-                      className={`${styles.navBtn} ${styles.navBtnNext}`}
-                    >
-                      Next
-                    </button>
-                  ) : null}
+                )
+              ) : canGoPrev || canGoNext ? (
+                <div className={styles.navRow}>
+                  <div className="min-w-0">
+                    {canGoPrev ? (
+                      <button
+                        type="button"
+                        onClick={() => goTo(qi - 1)}
+                        className={styles.navBtn}
+                      >
+                        Previous
+                      </button>
+                    ) : null}
+                  </div>
+                  <div className="flex shrink-0 items-center gap-2">
+                    {canGoNext ? (
+                      <button
+                        type="button"
+                        onClick={() => goTo(qi + 1)}
+                        className={`${styles.navBtn} ${styles.navBtnNext}`}
+                      >
+                        Next
+                      </button>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            )}
+              ) : null}
+            </div>
           </div>
         </div>
   );
 
   if (embedded) {
     return (
-      <div data-quiz-card="">
+      <div data-quiz-card="" className="flex min-h-0 flex-1 flex-col">
         <CheckAnswerHintHost />
         {runner}
       </div>

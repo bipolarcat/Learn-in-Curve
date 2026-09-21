@@ -47,7 +47,7 @@ export function McqResponseFields({
 }) {
   return (
     <div
-      className={`grid w-full min-w-0 gap-2 ${compact ? "sm:grid-cols-2" : ""}`}
+      className={`grid w-full min-w-0 ${compact ? "gap-2.5 sm:grid-cols-2" : "gap-2"}`}
       role="radiogroup"
       aria-label={ariaLabel}
     >
@@ -65,7 +65,7 @@ export function McqResponseFields({
             onClick={() => onChange(letter)}
             className={`w-full min-w-0 rounded-lg border px-3.5 text-left font-body leading-snug transition-[background-color,border-color,color,box-shadow] duration-150 ease-[var(--ease-out-quint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default ${
               compact
-                ? "min-h-10 py-2 text-[13px]"
+                ? "min-h-11 py-2.5 text-[13.5px] sm:min-h-12 sm:text-[14px]"
                 : "min-h-11 py-3 text-[14px]"
             } ${MCQ_STYLES[state]}`}
           >

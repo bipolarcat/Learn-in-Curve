@@ -201,7 +201,7 @@ export function LabActivityDemo({
           role="tabpanel"
           id={panelId}
           aria-labelledby={`${tabPrefix}-${mode}`}
-          className="lab-activity-stage mt-4 min-h-[13.875rem] min-w-0 flex-1 overflow-x-clip md:min-h-[14rem]"
+          className="lab-activity-stage mt-4 flex min-h-[13.875rem] min-w-0 flex-1 flex-col overflow-x-clip md:min-h-[14rem]"
         >
           {mode === "quiz" ? (
             <TrialQuiz
