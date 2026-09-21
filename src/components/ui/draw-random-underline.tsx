@@ -148,9 +148,11 @@ export function DrawRandomUnderline({
         className,
       )}
     >
-      <span className={cn("text-orange", textClassName)}>{text}</span>
+      <span className={cn("leading-none text-orange", textClassName)}>
+        {text}
+      </span>
       <svg
-        className="pointer-events-none mt-[2px] h-2.5 w-full overflow-visible sm:mt-px sm:h-2.5"
+        className="pointer-events-none mt-px h-2.5 w-full overflow-visible"
         viewBox={UNDERLINE_PATH.viewBox}
         preserveAspectRatio="none"
         fill="none"
