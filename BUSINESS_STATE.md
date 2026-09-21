@@ -19,6 +19,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-09-21** — Pricing pages: course label above plan cards (“PMQ in 5 days” / “PFQ in 2 days”, orange on days) so the two three-tier grids aren’t confused (`pmq`/`pfq` pricing pages).
 - **2026-09-21** — PFQ pricing page: match PMQ heading (“Start free. / Upgrade only if you love it.” + crumb) and footer legal line; plan cards unchanged (`pfq-in-2-days/pricing/page.tsx`).
 - **2026-09-21** — PMQ pricing page: remove header subcopy under “Start free.” (`pmq-in-5-days/pricing/page.tsx`).
 - **2026-09-21** — Catalogue PMQ subhead: “APM PMQ syllabus” (`CoursesCatalog`, `courses-catalog`).
