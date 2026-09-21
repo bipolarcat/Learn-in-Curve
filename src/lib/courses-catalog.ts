@@ -21,7 +21,7 @@ export const CATALOG_COURSES: Course[] = [
     slug: PMQ_SLUG,
     name: COURSE_STATIC["pmq-in-5-days"].displayName,
     description:
-      "Covers all 24 learning objectives and 71 learning outcomes in the PMQ syllabus. Test yourself with practice questions, mock exams and active recall exercises, so you know what to expect on exam day.",
+      "Covers all 24 learning objectives and 71 learning outcomes in the PMQ syllabus.",
     price_cents: 0,
     is_free: true,
     status: "live",

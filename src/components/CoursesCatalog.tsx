@@ -65,8 +65,7 @@ function CourseSubhead({ course }: { course: Course }) {
       <p className={styles.subhead}>
         <span className={styles.subheadLine}>
           Covers all 24 learning objectives and 71 learning outcomes in the PMQ
-          syllabus. Test yourself with practice questions, mock exams and active
-          recall exercises, so you know what to expect on exam day.
+          syllabus.
         </span>
       </p>
     );
