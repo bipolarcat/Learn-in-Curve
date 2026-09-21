@@ -22,6 +22,7 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - **2026-09-21** — Home Testing Method copy block widened on desktop (52/58rem shell; 42/48rem ledes) so H2 + body don’t stack so tightly (`TestingMethod`).
 - **2026-09-21** — Home Testing Method “Psychologists call it…” type matched to hero subcopy (`clamp(13.5px,4.2vw,16px)` / `sm:text-[18px]`) (`TestingMethod`).
 - **2026-09-21** — Home Testing Method H2 type scale matched to hero headline (`clamp(2.05rem,5.2vw,3.65rem)` semibold) (`TestingMethod`).
+- **2026-09-21** — Home Method H2 “recall” matches hero “curve.” accent (orange, no italic) (`TestingMethod`).
 - **2026-09-21** — Home Method H2: optical gap after italic “recall” (`pe-[0.18em]`) so it doesn’t collide with “it” (`TestingMethod`).
 - **2026-09-21** — Home Method band eyebrow → cream/72 to match body lede (`TestingMethod` embedded).
 - **2026-09-21** — Home Method band: teal stadium full-bleed to viewport edges (content still `.wrap`-guttered); was inset inside wrap (`HomeMethodBand`).
