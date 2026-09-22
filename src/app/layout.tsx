@@ -10,6 +10,7 @@ import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import { AppToaster } from "@/components/ui/toast";
 import { ProLockHintHost } from "@/components/pmq/ProLockHint";
 import { buildTitle } from "@/lib/seo/title";
+import { ogImages, twitterImages } from "@/lib/seo/og";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -49,20 +50,12 @@ export const metadata: Metadata = {
     url: "/",
     title: ROOT_TITLE,
     description: ROOT_DESCRIPTION,
-    images: [
-      {
-        url: "/brand/og/og-default.png",
-        width: 1200,
-        height: 630,
-        alt: "Learn in Curve",
-      },
-    ],
+    ...ogImages(SITE_URL),
   },
   twitter: {
-    card: "summary_large_image",
     title: ROOT_TITLE,
     description: ROOT_DESCRIPTION,
-    images: ["/brand/og/og-default.png"],
+    ...twitterImages(SITE_URL),
   },
 };
 

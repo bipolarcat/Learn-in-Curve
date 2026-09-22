@@ -12,7 +12,22 @@
  * library pages do). Never hand-type the path.
  */
 
-export const OG_DEFAULT_IMAGE_PATH = "/brand/og/og-default.png";
+/**
+ * Cache-bust token for the default artwork.
+ *
+ * Every social platform caches an og:image against its URL, not against the
+ * bytes behind it. Telegram, WhatsApp, LinkedIn and Slack will keep serving a
+ * preview they scraped weeks ago even after the file on disk has changed, and
+ * most of them offer no way to purge it. So the URL has to change whenever the
+ * artwork does: bump this number in the same commit that replaces the PNG, and
+ * every platform treats it as a new image and re-scrapes.
+ *
+ * 2 = header lockup sized to survive the centre square crop that small
+ * previews take (2026-09-22). See scripts/build-og-default.py.
+ */
+export const OG_IMAGE_REVISION = "2";
+
+export const OG_DEFAULT_IMAGE_PATH = `/brand/og/og-default.png?v=${OG_IMAGE_REVISION}`;
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
 

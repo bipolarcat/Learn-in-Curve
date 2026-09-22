@@ -13,13 +13,14 @@ import {
 } from "@/content/library";
 import { LIBRARY_AUTHOR } from "@/content/library/author";
 import { LIBRARY_HUB_APM_DISCLAIMER } from "@/lib/legal-copy";
+import { OG_DEFAULT_IMAGE_PATH } from "@/lib/seo/og";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
 /** Shared social + schema image for every Shelf guide. */
-export const LIBRARY_OG_IMAGE = "/brand/og/og-default.png";
+export const LIBRARY_OG_IMAGE = OG_DEFAULT_IMAGE_PATH;
 
 export function buildLibraryJsonLd(page: LibraryPage) {
   const url = `${SITE_URL}/library/${page.slug}`;
