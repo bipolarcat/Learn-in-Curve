@@ -1,4 +1,6 @@
 # Terms of Service — changes required before PFQ can be sold
+Last updated: 22 September 2026
+
 
 **Written 13 Aug 2026.** Educational drafting, not legal advice. Sim to have a solicitor review before `PFQ_CHECKOUT_ENABLED` is flipped true in production.
 

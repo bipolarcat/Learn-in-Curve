@@ -301,6 +301,25 @@ export function FreeMockExamClient({
               "Show my results"
             )}
           </button>
+          {/*
+            Says what actually happens to the address. This screen used to promise a
+            "test summary", which read as a promise to email one; nothing is sent, the
+            breakdown renders on the next screen and the address is stored as a lead.
+            Saying so plainly is a UK GDPR Art. 13 transparency requirement and keeps the
+            screen clear of a claim that would be a misleading action under the CPRs.
+          */}
+          <p className="max-w-md text-[12.5px] leading-relaxed text-ink/60">
+            Your breakdown appears on the next screen, we do not email it. We keep your
+            email address and your answers so we can tell you about Learn in Curve
+            courses. See our{" "}
+            <Link
+              href="/privacy"
+              className="text-orange underline-offset-2 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </form>
       </section>
     );

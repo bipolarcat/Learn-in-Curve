@@ -75,9 +75,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     heroSupport:
       "Test yourself with real APM PMQ-style questions covering multiple choice, scenario-based, and select-from-list formats.",
     gatePrompt:
-      "Enter your email to get your test summary and identify your weakest learning objectives, so you know exactly what to revise first.",
+      "Your learning objective breakdown is ready. Enter your email to unlock it and see exactly what to revise first.",
     marketingConsentLabel:
-      "Email me PMQ study tips and product updates. You can unsubscribe any time.",
+      "Get useful project management tips, AI insights, learning resources and updates from Learn in Curve. Unsubscribe anytime, no spam.",
     faqs: [
       {
         q: "Is this the full APM PMQ mock exam?",
@@ -116,9 +116,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     heroSupport:
       "Test yourself with APM PFQ-style multiple choice questions. Spot weak learning objectives before you book the real exam.",
     gatePrompt:
-      "Enter your email to get your test summary and identify your weakest learning objectives, so you know exactly what to revise first.",
+      "Your learning objective breakdown is ready. Enter your email to unlock it and see exactly what to revise first.",
     marketingConsentLabel:
-      "Email me PFQ study tips and product updates. You can unsubscribe any time.",
+      "Get useful project management tips, AI insights, learning resources and updates from Learn in Curve. Unsubscribe anytime, no spam.",
     faqs: [
       {
         q: "Is this the full APM PFQ exam?",
@@ -157,9 +157,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     heroSupport:
       "Fifteen scenario questions across the three PMP domains. See where you are strong and where to focus next.",
     gatePrompt:
-      "Enter your email to get your test summary and see how you scored across the three domains.",
+      "Your domain breakdown is ready. Enter your email to unlock it and see how you scored across the three domains.",
     marketingConsentLabel:
-      "Email me PMP study tips and product updates. You can unsubscribe any time.",
+      "Get useful project management tips, AI insights, learning resources and updates from Learn in Curve. Unsubscribe anytime, no spam.",
     faqs: [
       {
         q: "Is this the full PMP exam?",

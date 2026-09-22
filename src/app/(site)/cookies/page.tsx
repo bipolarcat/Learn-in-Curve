@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { LegalPage } from "@/components/LegalPage";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { buildTitle } from "@/lib/seo/title";
 
 const SITE_URL =
@@ -21,5 +22,9 @@ export default function CookiesPage() {
     "utf-8",
   );
 
-  return <LegalPage content={content} />;
+  return (
+    <LegalPage content={content}>
+      <CookieSettingsButton />
+    </LegalPage>
+  );
 }

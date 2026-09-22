@@ -1,5 +1,5 @@
 # Terms of Service - Learn in Curve
-*Last updated: 13 August 2026*
+*Last updated: 22 September 2026*
 
 ## 1. Acceptance
 By creating an account or using learnincurve.com (the "Service"), you agree to be bound by these terms. If you do not agree to these terms, please do not use the Service.
@@ -7,7 +7,7 @@ By creating an account or using learnincurve.com (the "Service"), you agree to b
 ## 2. What the Service Is
 Learn in Curve is a self-directed, AI-assisted revision platform for professional certifications. We publish Courses, each of which provides revision content, practice questions and mock exams aimed at the published syllabus of a specific professional qualification. The Courses available at any time, and what each includes, are listed in the Schedule at the end of these terms.
 
-**Disclaimer of Affiliation:** We are an independent educational platform. We are not affiliated with, endorsed by, or acting on behalf of any awarding body, examining body or professional membership organisation, including but not limited to APM (the Association for Project Management). Our course content is original revision material aimed at published syllabuses. It is not official examining body material, and purchasing a Course does not enrol you for, or award, any qualification.
+**Disclaimer of Affiliation:** We are an independent educational platform. We are not affiliated with, endorsed by, or acting on behalf of any awarding body, examining body or professional membership organisation, including but not limited to APM (the Association for Project Management) and PMI (the Project Management Institute). APM, PMQ, PFQ, PMI and PMP are trade marks of their respective owners. Our course content is original revision material aimed at published syllabuses. It is not official examining body material, and purchasing a Course does not enrol you for, or award, any qualification.
 
 ## 3. Eligibility
 You must be at least 18 years old to create an account and make purchases on Learn in Curve.
@@ -83,7 +83,7 @@ To the maximum extent permitted by law, Learn in Curve is provided on an "as is"
 This section does not limit liability that cannot legally be excluded under UK law, such as liability for death or personal injury caused by our negligence, or for fraud.
 
 ## 13. Account Suspension and Termination
-We may suspend or terminate accounts that violate these terms, in particular the Acceptable Use policy in section 9 or the Fair Usage policy in section 7, without prior notice or refund. You may terminate your agreement with us at any time by requesting account deletion via support@learnincurve.com.
+We may suspend or terminate accounts that violate these terms, in particular the Acceptable Use policy in section 9 or the Fair Usage policy in section 7, without prior notice or refund. You may terminate your agreement with us at any time by deleting your account, which you can do yourself from Account in the dashboard menu. You can also email support@learnincurve.com and we will do it for you.
 
 ## 14. Changes to These Terms
 We may update these terms periodically to reflect new features, product changes, or legal requirements. We will update the "Last updated" date above and notify registered users by email of any material change. Continued use of the platform after changes take effect constitutes acceptance of the revised terms.
@@ -103,7 +103,7 @@ For any questions regarding these terms, contact us at support@learnincurve.com.
 ---
 
 # Schedule — Courses, Free Features and Paid Features
-*In force from 18 August 2026*
+*In force from 22 September 2026*
 
 This Schedule sets out the Courses available, what is free in each, and what counts as a Paid Feature for the purposes of the 14-Day Unused Guarantee in section 8. Prices are shown on each course page and confirmed at checkout, not here.
 
@@ -111,7 +111,7 @@ This Schedule sets out the Courses available, what is free in each, and what cou
 *Preparation for the APM Project Management Qualification.*
 
 - **Free Features:** core course content, standard quizzes, and the first mock exam.
-- **Paid Unlocks:** a Pro unlock covering additional quiz sets and further mock exams. An AI Pro unlock covering everything in Pro plus the AI tutor and AI-marked mock exams.
+- **Paid Unlocks:** a Pro unlock covering additional quiz sets and further mock exams. An AI Pro unlock covering everything in Pro plus the AI tutor and AI-marked mock exams. **Not currently available for purchase.** It is offered by waitlist only, and no charge is taken for it.
 - **A Paid Feature is treated as used if you have:** sent a message to the AI tutor under a Paid Unlock, opened a paid quiz set, or started any mock exam beyond the first.
 
 ### PFQ in 2 Days
@@ -121,6 +121,22 @@ This Schedule sets out the Courses available, what is free in each, and what cou
 - **Paid Unlock (Pro):** the full lesson insights for Learning Objectives 2 to 10, the complete practice question bank, all three timed mock papers, and the coverage map.
 - **Paid Unlock (AI Pro):** everything in Pro, plus the Sly AI tutor and an end-of-course report. **Not currently available for purchase.** It is offered by waitlist only, and no charge is taken for it.
 - **A Paid Feature is treated as used if you have:** opened the insights for any Learning Objective from 2 to 10, answered a practice question outside the first practice set, started any mock paper, or opened the coverage map.
+
+### Free mock exams
+
+*Standalone readiness checks, not Courses.*
+
+We publish short, free mock exams for the APM PMQ, the APM PFQ and the PMI PMP. They need no
+account and no payment. They are not a Course: they do not include lessons, and passing one
+tells you where you stand rather than granting access to anything.
+
+- **Free Features:** the whole thing. There is nothing paid in a free mock exam.
+- **Paid Unlocks:** none.
+- To receive your result you give us an email address. What we do with it is set out in our
+  [Privacy Policy](/privacy).
+
+A free mock exam for a qualification does not mean we publish a Course for that
+qualification. At the date above we publish Courses for the PMQ and the PFQ only.
 
 ---
 

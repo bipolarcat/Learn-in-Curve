@@ -4,9 +4,12 @@ import styles from "@/components/LegalPage.module.css";
 
 type LegalPageProps = {
   content: string;
+  /** Optional interactive block rendered after the markdown (e.g. the cookie
+   *  consent withdrawal button). The legal text itself stays a static file. */
+  children?: React.ReactNode;
 };
 
-export function LegalPage({ content }: LegalPageProps) {
+export function LegalPage({ content, children }: LegalPageProps) {
   return (
     <section className={styles.page}>
       <div className={styles.shell}>
@@ -15,6 +18,7 @@ export function LegalPage({ content }: LegalPageProps) {
         </Link>
         <div className={styles.content}>
           <MarkdownBlock content={content} />
+          {children}
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 # Cookie Policy - Learn in Curve
-*Last updated: 7 August 2026*
+*Last updated: 22 September 2026*
 
 ## 1. Introduction
 At Learn in Curve ("we", "us"), we believe in being clear and transparent about how we collect and use data related to you. This Cookie Policy applies to learnincurve.com and explains how we use cookies and similar tracking technologies to ensure our platform functions securely and effectively.
@@ -31,7 +31,12 @@ We use PostHog to understand which lessons and features are actually used, where
 **How long it is kept:** Session replays are kept for 30 days and then automatically deleted. Analytics events are currently retained for up to 7 years under our PostHog plan. You can ask us to delete data associated with you at any time (see our Privacy Policy).
 
 ## 3. Changing Your Mind
-You can withdraw or change your consent at any time, and it is as easy as giving it. Clearing the `lic_cookie_consent_v2` entry from your browser's Local Storage — or clearing site data for learnincurve.com in your browser settings — will make the banner reappear so you can choose again. If you then select Reject, PostHog is switched off and its identifier is cleared.
+You can withdraw or change your consent at any time, and it is as easy as giving it. Use the
+**Change cookie settings** button below: it brings the cookie banner back so you can choose
+again. If you then select Reject, PostHog is switched off and its identifier is cleared.
+
+Clearing site data for learnincurve.com in your browser settings does the same thing, if you
+prefer to work that way.
 
 ## 4. Advertising
 We do not load any advertising pixels or third-party marketing trackers. We have no plans to.
