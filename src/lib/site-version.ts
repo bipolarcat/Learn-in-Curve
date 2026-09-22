@@ -14,7 +14,7 @@
  * Ordinary commits never touch this file. The git pre-commit hook only
  * enforces legal "Last updated:" dates.
  */
-export const SITE_VERSION = "3.2";
+export const SITE_VERSION = "3.3";
 
 /** Flip to false to show the version but pause deploy-time bumps. */
 export const SITE_VERSION_AUTO_BUMP = true;
