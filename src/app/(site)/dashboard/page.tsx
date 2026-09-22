@@ -180,7 +180,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             {welcome}
           </h1>
           <div className="flex shrink-0 items-center gap-2">
-            <DashboardInboxBell />
+            <DashboardInboxBell seenAt={profile.whats_new_seen_at} />
             <DashboardProfileMenu
               email={user.email ?? ""}
               initial={profile}

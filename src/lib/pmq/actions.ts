@@ -842,7 +842,7 @@ export async function createAiTutorCheckout(input: {
           currency: "gbp",
           unit_amount: priceCents,
           product_data: {
-            name: "Pro Bundle — PMQ in 5 days",
+            name: "PMQ in 5 days - Pro Bundle",
             // Every figure here is derived, never typed. This string renders on
             // the Stripe checkout page beside the price, so anything hardcoded
             // that drifts from its source shows the buyer one claim here and a
@@ -857,7 +857,7 @@ export async function createAiTutorCheckout(input: {
             // `status: "waitlist"` in plans.ts and not on sale. The old copy
             // promised Sly tutoring and fair-usage credit to Pro buyers, which
             // the tier ladder in tiers.ts does not grant.
-            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, and video & audio overviews for every learning objective. One-off payment. No subscription.`,
+            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, video & audio overviews, ${planFeatureValue("pro", "recall")} recall activities and insights. One-off payment. No subscription.`,
           },
         },
         quantity: 1,

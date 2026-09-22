@@ -372,3 +372,17 @@ grant execute on function public.record_activity_wrong_turn(
 grant execute on function public.finish_activity_attempt(
   uuid, text, int, int
 ) to authenticated;
+
+-- Supabase grants execute on public-schema functions to anon by default, and
+-- `revoke ... from public` above does not clear that. These functions already
+-- raise 'not authenticated' when auth.uid() is null, so this is defence in
+-- depth: it keeps them off the anonymous REST surface entirely.
+revoke execute on function public.start_activity_attempt(
+  text, text, uuid, int, text, text, text, text
+) from anon;
+revoke execute on function public.record_activity_wrong_turn(
+  uuid, text, text, text, jsonb, int
+) from anon;
+revoke execute on function public.finish_activity_attempt(
+  uuid, text, int, int
+) from anon;

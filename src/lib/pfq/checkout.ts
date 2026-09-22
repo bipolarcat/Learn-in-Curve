@@ -6,8 +6,8 @@ import {
   PFQ_COURSE_ID,
   PFQ_PRICING_HREF,
   PFQ_PRO_PRICE_CENTS,
-  formatPfqPriceGbp,
 } from "@/lib/pfq/constants";
+import { pfqPlanFeatureValue } from "@/lib/pfq/plans";
 import { COURSE_STATIC } from "@/lib/courses/registry-data";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { pfqTierAtLeast } from "@/lib/pfq/tiers";
@@ -121,8 +121,15 @@ export async function createPfqCheckout(input: {
             currency: "gbp",
             unit_amount: PFQ_PRO_PRICE_CENTS,
             product_data: {
-              name: "PFQ in 2 Days, Pro",
-              description: `APM PFQ revision, Pro unlock: insights on all 10 objectives, the full practice bank, all 3 timed mock papers and the coverage map. One-off ${formatPfqPriceGbp()}. No subscription.`,
+              name: "PFQ in 2 days - Pro Bundle",
+              // Figures are read from PFQ_PLANS, never typed: this string sits
+              // beside the price on Stripe Checkout, so a number that drifts
+              // from the pricing card shows the buyer two different claims at
+              // the moment of payment. "50+ insights" is deliberately below the
+              // real total (59 learning outcomes in PFQ_EXPECTED_OUTCOMES) —
+              // under-claiming is fine, over-claiming is a misleading action.
+              // No price literal here: Stripe renders unit_amount itself.
+              description: `Unlock the complete PFQ revision experience with ${pfqPlanFeatureValue("pro", "practice")} total practice questions, ${pfqPlanFeatureValue("pro", "mock")} timed mock exams and 50+ insights. One-off payment. No subscription.`,
             },
           },
           quantity: 1,

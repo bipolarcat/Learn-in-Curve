@@ -175,6 +175,28 @@ export const PFQ_PLANS: PfqPlan[] = [
   },
 ];
 
+/**
+ * Advertised quantity for one feature on one plan.
+ *
+ * Same contract as PMQ's `planFeatureValue`: the Stripe checkout description
+ * and the pricing card quote the same figures to the same buyer seconds apart,
+ * so the checkout copy reads them from here rather than typing them. Throws
+ * rather than defaulting — a silent fallback would ship a wrong number to a
+ * payment page, which is a misleading commercial practice, not a typo.
+ */
+export function pfqPlanFeatureValue(
+  id: PfqPlanId,
+  icon: PfqPlanFeature["icon"],
+): string {
+  const feature = getPfqPlan(id).features.find((f) => f.icon === icon);
+  if (!feature?.value) {
+    throw new Error(
+      `PFQ plan "${id}" has no advertised value for feature "${icon}"`,
+    );
+  }
+  return feature.value;
+}
+
 export function getPfqPlan(id: PfqPlanId): PfqPlan {
   const plan = PFQ_PLANS.find((item) => item.id === id);
   if (!plan) throw new Error(`Unknown PFQ plan: ${id}`);

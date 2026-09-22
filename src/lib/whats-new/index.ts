@@ -44,22 +44,6 @@ export function unseenNotes(
   return notes.filter((note) => isUnseen(note, seenMs));
 }
 
-/**
- * Newest unseen note for the dashboard banner.
- * Ignores the badge age cap; returns at most one note (never stack banners).
- */
-export function newestUnseen(
-  notes: readonly ReleaseNote[],
-  seenAtIso: string | null | undefined,
-  nowIso: string,
-): ReleaseNote | null {
-  void nowIso;
-  const unseen = unseenNotes(notes, seenAtIso, nowIso);
-  if (unseen.length === 0) return null;
-  // Registry is newest-first; first unseen is the newest.
-  return unseen[0] ?? null;
-}
-
 /** Nav hrefs that should show a New chip (unseen and within MAX_BADGE_AGE_DAYS). */
 export function newBadgeHrefs(
   notes: readonly ReleaseNote[],

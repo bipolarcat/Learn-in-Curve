@@ -22,32 +22,41 @@ import {
   type InboxSection,
 } from "@/content/dashboard-inbox";
 import { Logo } from "@/components/Logo";
+import { markWhatsNewSeen } from "@/lib/whats-new/actions";
 import { cn } from "@/lib/utils";
 
-const STORAGE_KEY = "lic-dashboard-inbox-read";
 const FOX_SRC = "/brand/logo/fox-logo-png.png";
 /** Same ease as SiteHeaderMenu panel. */
 const blurEase = [0.22, 1, 0.36, 1] as const;
 
-function loadReadIds(): Set<string> {
-  if (typeof window === "undefined") return new Set();
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return new Set();
-    const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(parsed.filter((id): id is string => typeof id === "string"));
-  } catch {
-    return new Set();
-  }
+/**
+ * Read state lives on the account (`profiles.whats_new_seen_at`), not in
+ * localStorage, so it follows the user across devices and browsers. One
+ * timestamp means "read everything published up to here", so opening any
+ * message clears the whole list.
+ */
+function publishedMs(message: InboxMessage): number {
+  const t = Date.parse(`${message.publishedAt}T00:00:00`);
+  return Number.isNaN(t) ? 0 : t;
 }
 
-function saveReadIds(ids: Set<string>) {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify([...ids]));
-  } catch {
-    // private mode / quota — unread badge may reappear; message still works
-  }
+/** Missing or unparseable seenAt is treated as never seen. */
+function seenMs(seenAtIso: string | null | undefined): number {
+  if (!seenAtIso) return 0;
+  const t = Date.parse(seenAtIso);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+/**
+ * A message counts as unread only inside its announcement window. Without this
+ * an old release note would greet every new sign-up forever, since a fresh
+ * browser has no read state at all.
+ */
+function withinUnreadWindow(message: InboxMessage): boolean {
+  if (!message.unreadUntil) return true;
+  const until = Date.parse(`${message.unreadUntil}T00:00:00`);
+  if (Number.isNaN(until)) return true;
+  return Date.now() < until;
 }
 
 function timeAgoLabel(iso: string): string {
@@ -131,7 +140,7 @@ function renderSection(section: InboxSection, i: number) {
     return (
       <h3
         key={i}
-        className="pt-1 font-display text-[0.95rem] font-bold tracking-[-0.02em] text-ink"
+        className="pt-2 font-display text-[0.95rem] font-bold tracking-[-0.02em] text-ink"
       >
         {section.text}
       </h3>
@@ -170,7 +179,12 @@ function renderSection(section: InboxSection, i: number) {
 
 type PanelPos = { top: number; left: number; width: number };
 
-export function DashboardInboxBell() {
+export function DashboardInboxBell({
+  seenAt,
+}: {
+  /** `profiles.whats_new_seen_at` for the signed-in user. */
+  seenAt: string | null;
+}) {
   const listId = useId();
   const headingId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -183,14 +197,18 @@ export function DashboardInboxBell() {
   const [activeMessage, setActiveMessage] = useState<InboxMessage | null>(
     null,
   );
-  const [readIds, setReadIds] = useState<Set<string>>(() => new Set());
+  const [seenAtIso, setSeenAtIso] = useState<string | null>(seenAt);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    setReadIds(loadReadIds());
     setHydrated(true);
   }, []);
+
+  // Server is the source of truth; pick up a newer value after revalidate.
+  useEffect(() => {
+    setSeenAtIso(seenAt);
+  }, [seenAt]);
 
   const placePanel = useCallback(() => {
     const btn = triggerRef.current;
@@ -218,19 +236,23 @@ export function DashboardInboxBell() {
     };
   }, [dropdownOpen, placePanel]);
 
+  const isUnread = useCallback(
+    (message: InboxMessage) =>
+      withinUnreadWindow(message) &&
+      publishedMs(message) > seenMs(seenAtIso),
+    [seenAtIso],
+  );
+
   const unreadCount = hydrated
-    ? DASHBOARD_INBOX.filter((m) => !readIds.has(m.id)).length
+    ? DASHBOARD_INBOX.filter(isUnread).length
     : 0;
   const hasUnread = unreadCount > 0;
 
-  const markRead = useCallback((id: string) => {
-    setReadIds((prev) => {
-      if (prev.has(id)) return prev;
-      const next = new Set(prev);
-      next.add(id);
-      saveReadIds(next);
-      return next;
-    });
+  const markRead = useCallback(() => {
+    // Optimistic: clear the badge now, persist in the background. A failed
+    // write just means the badge returns on the next load, never a broken UI.
+    setSeenAtIso(new Date().toISOString());
+    void markWhatsNewSeen();
   }, []);
 
   const closeDropdown = useCallback(() => setDropdownOpen(false), []);
@@ -279,7 +301,7 @@ export function DashboardInboxBell() {
   }, [activeMessage, closeModal]);
 
   function openMessage(message: InboxMessage) {
-    markRead(message.id);
+    markRead();
     setDropdownOpen(false);
     setActiveMessage(message);
   }
@@ -339,7 +361,7 @@ export function DashboardInboxBell() {
           <NotificationItem
             key={message.id}
             message={message}
-            unread={hydrated && !readIds.has(message.id)}
+            unread={hydrated && isUnread(message)}
             onOpen={() => openMessage(message)}
           />
         ))}
@@ -393,7 +415,7 @@ export function DashboardInboxBell() {
       {activeMessage && typeof document !== "undefined"
         ? createPortal(
             <div
-              className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/40 p-3 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:p-4"
+              className="fixed inset-0 z-[120] flex items-start justify-center overflow-y-auto overscroll-contain bg-ink/40 p-3 backdrop-blur-[2px] motion-safe:animate-[feedback-backdrop-in_0.22s_var(--ease-out-quint)_both] motion-reduce:backdrop-blur-none sm:p-4"
               onMouseDown={(e) => {
                 if (e.target === e.currentTarget) closeModal();
               }}
@@ -402,8 +424,7 @@ export function DashboardInboxBell() {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={headingId}
-                className="inbox-scroll relative max-h-[calc(100dvh-1.5rem)] w-full max-w-[26rem] overflow-y-auto overscroll-y-contain rounded-[1.35rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:max-h-[min(85dvh,36rem)] sm:rounded-[1.5rem]"
-                style={{ WebkitOverflowScrolling: "touch" }}
+                className="inbox-scroll relative my-auto max-h-full w-full max-w-[26rem] overflow-y-auto overscroll-y-contain rounded-[1.35rem] border border-ink/[0.06] bg-cream shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_12px_32px_rgb(0_0_0_/_0.08)] motion-safe:animate-[feedback-dialog-in_0.32s_var(--ease-out-quint)_both] sm:max-h-[36rem] sm:rounded-[1.5rem]"
               >
                 <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-ink/[0.06] bg-cream/95 px-4 pb-3 pt-4 backdrop-blur-md sm:px-5 sm:pt-5">
                   <div className="flex min-w-0 items-start gap-2.5 pr-1">
@@ -430,17 +451,16 @@ export function DashboardInboxBell() {
                 </div>
 
                 <div className="px-4 py-4 sm:px-5 sm:py-5">
-                  <div className="space-y-3.5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/75 text-pretty">
+                  <div className="space-y-5 font-body text-[13.5px] leading-relaxed tracking-tight text-ink/75 text-pretty">
                     {activeMessage.sections.map(renderSection)}
 
                     <div className="space-y-1 pb-1 pt-2">
                       <p>{activeMessage.signOff.thanks}</p>
                       <p className="pt-2">{activeMessage.signOff.farewell}</p>
-                      <p className="font-medium text-ink">
-                        {activeMessage.signOff.name}
-                      </p>
-                      <p className="text-[12px] text-ink/40">
-                        {activeMessage.signOff.role}
+                      <p>{activeMessage.signOff.name}</p>
+                      <p className="flex items-center gap-1.5 text-[12px] text-ink/40">
+                        <span>{activeMessage.signOff.role}</span>
+                        <Logo size={18} alt="" className="size-[18px] shrink-0 object-contain" />
                       </p>
                     </div>
                   </div>

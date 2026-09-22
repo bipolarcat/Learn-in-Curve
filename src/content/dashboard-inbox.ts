@@ -1,6 +1,14 @@
 /**
  * Dashboard inbox messages (bell dropdown). Newest first.
- * Keep ids stable — they key localStorage read state.
+ *
+ * Ids are stable announcement keys. Read state itself lives on
+ * `profiles.whats_new_seen_at` (one timestamp clears the whole list). Changing
+ * an id does not re-announce; bump `publishedAt` past the user's seen-at, or
+ * reset seen-at, if you need that deliberately.
+ *
+ * `unreadUntil` closes the announcement window. Past that date the message
+ * stays in the list as history but stops counting towards the unread badge, so
+ * someone signing up later is not greeted by an old release note.
  */
 export type InboxMessage = {
   id: string;
@@ -8,6 +16,11 @@ export type InboxMessage = {
   title: string;
   /** ISO date. */
   publishedAt: string;
+  /**
+   * ISO date, exclusive. Until this date the message shows as unread to anyone
+   * who has not opened it, including new sign-ups. Omit for no expiry.
+   */
+  unreadUntil?: string;
   /** Modal heading. */
   heading: string;
   /** Body sections rendered in order. */
@@ -30,9 +43,10 @@ export type InboxSection =
 
 export const DASHBOARD_INBOX: readonly InboxMessage[] = [
   {
-    id: "2026-09-21-v3",
+    id: "2026-09-21-v3-announce",
     title: "Learn in Curve Version 3.0 is live",
     publishedAt: "2026-09-21",
+    unreadUntil: "2026-10-06",
     heading: "Version 3.0 of Learn in Curve is now live",
     sections: [
       { kind: "lead", text: "Here's what's changed" },
@@ -104,7 +118,11 @@ export const DASHBOARD_INBOX: readonly InboxMessage[] = [
       },
       {
         kind: "paragraph",
-        text: "If you have joined the PMQ in 5 Days AI Pro waitlist on or before 21/09/2026, you can still purchase it at the previous price.",
+        text: "If you have joined the PMQ in 5 Days AI Pro waitlist on or before 21 September 2026, you can still purchase it at the previous price, with no deadline to do so.",
+      },
+      {
+        kind: "paragraph",
+        text: "If you join the waitlist from 22 September 2026 onwards, the new price applies.",
       },
       {
         kind: "paragraph",

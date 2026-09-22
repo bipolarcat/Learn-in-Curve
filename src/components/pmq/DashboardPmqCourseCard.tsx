@@ -30,9 +30,15 @@ import type { FairUsageSummary } from "@/lib/tutor/fair-usage";
 import {
   IconAudio,
   IconCore,
+  IconInsights,
+  IconMemory,
+  IconMisconceptions,
   IconMock,
   IconPractice,
+  IconRecall,
   IconReport,
+  IconSly,
+  IconStructure,
   IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import {
@@ -48,18 +54,28 @@ const PMQ_PRO_PLAN_FEATURES =
 const PFQ_PRO_PLAN_FEATURES =
   PFQ_PLANS.find((plan) => plan.id === "pro")?.features ?? [];
 
-const PRO_FEATURE_ICONS: Partial<
-  Record<
-    PmqPlanFeature["icon"] | PfqPlanFeature["icon"],
-    ComponentType<{ className?: string }>
-  >
+/**
+ * Every icon key used by PMQ_PLANS / PFQ_PLANS must map to a mark here, so the
+ * dashboard card shows the same icons as the pricing page. Deliberately a total
+ * Record, not Partial: adding a new icon key to either plans file is then a
+ * compile error here rather than a silently blank line on the dashboard.
+ */
+const PRO_FEATURE_ICONS: Record<
+  PmqPlanFeature["icon"] | PfqPlanFeature["icon"],
+  ComponentType<{ className?: string }>
 > = {
+  core: IconCore,
   practice: IconPractice,
   mock: IconMock,
+  misconceptions: IconMisconceptions,
+  memory: IconMemory,
+  sly: IconSly,
   video: IconVideo,
   audio: IconAudio,
-  core: IconCore,
   report: IconReport,
+  structure: IconStructure,
+  insights: IconInsights,
+  recall: IconRecall,
 };
 
 /** Same mark as pricing Pro card “Everything in Starter, plus”. */
