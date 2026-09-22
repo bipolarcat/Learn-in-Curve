@@ -22,6 +22,22 @@ const termsPath = join(root, "legal", "TERMS_OF_SERVICE.md");
 const tutorConstantsPath = join(root, "src", "lib", "tutor", "constants.ts");
 const pfqConstantsPath = join(root, "src", "lib", "pfq", "constants.ts");
 
+/**
+ * Schedule sections that are deliberately NOT Courses.
+ *
+ * The Schedule gained "Free mock exams" on 2026-09-22: the free PMQ, PFQ and
+ * PMP readiness checks need somewhere in the Terms that says what they are and
+ * what they cost (nothing), but they are not Courses, have no registry entry
+ * and nothing about them is purchasable. The Terms section says so in its own
+ * first line.
+ *
+ * Keep this list as short as it can possibly be. Every name here is a heading
+ * that the registry check below can no longer protect, so adding one should
+ * feel like a decision, not a convenience. If you are adding a name because a
+ * real course is missing from COURSE_REGISTRY, you are using the wrong fix.
+ */
+const NON_COURSE_SECTIONS = new Set(["Free mock exams"]);
+
 function scheduleHeadings(markdown) {
   const scheduleIdx = markdown.indexOf("# Schedule — Courses");
   assert.ok(scheduleIdx >= 0, "Terms must contain a Schedule heading");
@@ -42,12 +58,26 @@ test("every registry course appears in the Terms Schedule by display name", () =
 
 test("every Terms Schedule course appears in the registry by display name", () => {
   const terms = readFileSync(termsPath, "utf8");
-  const headings = scheduleHeadings(terms);
+  const headings = scheduleHeadings(terms).filter(
+    (h) => !NON_COURSE_SECTIONS.has(h),
+  );
   const names = new Set(COURSE_STATIC_LIST.map((c) => c.displayName));
   for (const heading of headings) {
     assert.ok(
       names.has(heading),
       `Terms Schedule course "${heading}" missing from COURSE_REGISTRY`,
+    );
+  }
+});
+
+test("every non-course Schedule section still exists in the Terms", () => {
+  // Stops NON_COURSE_SECTIONS rotting into a list of names that no longer
+  // appear, which would quietly punch a hole in the check above.
+  const headings = new Set(scheduleHeadings(readFileSync(termsPath, "utf8")));
+  for (const name of NON_COURSE_SECTIONS) {
+    assert.ok(
+      headings.has(name),
+      `NON_COURSE_SECTIONS lists "${name}" but the Terms Schedule has no such section`,
     );
   }
 });
