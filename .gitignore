@@ -57,3 +57,6 @@ scripts/pfq/trap-backfill-report.json
 
 # Playwright MCP test artifacts (console logs, page snapshots)
 .playwright-mcp/
+
+# Claude/Cowork session scratch (previews, one-off checks). Never deploy-blocking.
+Claude outputs/
