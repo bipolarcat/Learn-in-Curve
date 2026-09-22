@@ -32,10 +32,15 @@ import {
   MOCK_EXAM_QUESTION_COUNT,
   MOCK_EXAM_TOTAL_MARKS,
 } from "@/lib/pmq/mock-domain";
-import { getPmqPlan, PMQ_OVERVIEW_HREF, PMQ_PRICING_HREF } from "@/lib/pmq/plans";
+import {
+  getPmqPlan,
+  PMQ_OVERVIEW_HREF,
+  PMQ_PRICING_HREF,
+} from "@/lib/pmq/plans";
 import { canAccessMedia } from "@/lib/pmq/tiers";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
 import { buildTitle } from "@/lib/seo/title";
+import { ogImages, twitterImages } from "@/lib/seo/og";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -56,6 +61,13 @@ export const metadata: Metadata = {
       "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
     url: `${SITE_URL}${PMQ_OVERVIEW_HREF}`,
     type: "website",
+    ...ogImages(SITE_URL),
+  },
+  twitter: {
+    ...twitterImages(SITE_URL),
+    title: buildTitle("PMQ in 5 Days: Course overview"),
+    description:
+      "The PMQ is an application exam, not a memory test. Study all 24 learning objectives, practise why answers fail, and sit mocks marked like the real paper.",
   },
 };
 
@@ -130,7 +142,10 @@ export default async function PmqMarketingOverviewPage() {
         </p>
       </section>
 
-      <section className={styles.featureBlock} aria-labelledby="pmq-features-heading">
+      <section
+        className={styles.featureBlock}
+        aria-labelledby="pmq-features-heading"
+      >
         <h2 id="pmq-features-heading" className={styles.sectionTitle}>
           What&apos;s in the course
         </h2>

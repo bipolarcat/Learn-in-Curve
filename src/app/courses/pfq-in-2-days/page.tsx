@@ -24,6 +24,7 @@ import {
 } from "@/lib/pfq/constants";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
 import { buildTitle } from "@/lib/seo/title";
+import { ogImages, twitterImages } from "@/lib/seo/og";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -40,6 +41,12 @@ export const metadata: Metadata = {
     description: `59 lessons, practice sets, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
     url: `${SITE_URL}${PFQ_BASE_HREF}`,
     type: "website",
+    ...ogImages(SITE_URL),
+  },
+  twitter: {
+    ...twitterImages(SITE_URL),
+    title: buildTitle("PFQ in 2 Days: Course overview"),
+    description: `59 lessons, practice sets, and three timed mock exams mapped to every APM PFQ learning outcome. Pro Bundle ${PRICE}.`,
   },
 };
 
@@ -124,24 +131,24 @@ export default async function PfqMarketingPage() {
           <IconCore className={styles.featureIcon} />
           <h2 className={styles.featureTitle}>59 lessons</h2>
           <p className={styles.featureBody}>
-            One for every learning outcome in the APM syllabus, split across
-            two days.
+            One for every learning outcome in the APM syllabus, split across two
+            days.
           </p>
         </li>
         <li className={styles.feature}>
           <IconPractice className={styles.featureIcon} />
           <h2 className={styles.featureTitle}>Practice in sets of five</h2>
           <p className={styles.featureBody}>
-            Five free questions on every objective. Generate more sets with
-            Pro. Each question is tagged to the outcome it tests.
+            Five free questions on every objective. Generate more sets with Pro.
+            Each question is tagged to the outcome it tests.
           </p>
         </li>
         <li className={styles.feature}>
           <IconMock className={styles.featureIcon} />
           <h2 className={styles.featureTitle}>Two mocks + coverage map</h2>
           <p className={styles.featureBody}>
-            Two 60-question papers, both in the Pro Bundle, then a map of
-            which outcomes you can answer and which you cannot.
+            Two 60-question papers, both in the Pro Bundle, then a map of which
+            outcomes you can answer and which you cannot.
           </p>
         </li>
       </ul>

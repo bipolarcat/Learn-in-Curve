@@ -4,11 +4,9 @@ import { FREE_MOCK_EXAM_IDS, FREE_MOCK_EXAMS } from "@/lib/free-mock/config";
 import type { FreeMockExamId } from "@/lib/free-mock/types";
 import { MockMeExamCard } from "@/components/MockMeExamCard";
 import { SoftNavBackLink } from "@/components/SoftNavBackLink";
-import {
-  parseSoftNavFrom,
-  SOFT_NAV_BACK,
-} from "@/lib/soft-nav-back";
+import { parseSoftNavFrom, SOFT_NAV_BACK } from "@/lib/soft-nav-back";
 import styles from "./MockMePage.module.css";
+import { ogImages, twitterImages } from "@/lib/seo/og";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
@@ -27,6 +25,12 @@ export const metadata: Metadata = {
     description: PAGE_DESCRIPTION,
     url: `${SITE_URL}/mock-me`,
     type: "website",
+    ...ogImages(SITE_URL),
+  },
+  twitter: {
+    ...twitterImages(SITE_URL),
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
   },
 };
 
@@ -118,8 +122,7 @@ export default async function MockMeHubPage({
         </ul>
 
         <p className={styles.coursesLink}>
-          Looking for a full course?{" "}
-          <Link href="/courses">Browse courses</Link>
+          Looking for a full course? <Link href="/courses">Browse courses</Link>
         </p>
       </div>
     </div>
