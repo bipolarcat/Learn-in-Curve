@@ -143,9 +143,9 @@
 
 .founderPanel {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.1rem;
   width: 100%;
-  padding: clamp(1.15rem, 3vw, 1.5rem);
+  padding: clamp(1.1rem, 3.5vw, 1.75rem);
   border: 1px solid rgb(var(--ink-rgb) / 0.14);
   border-radius: 1.1rem;
   background: rgb(var(--paper-rgb));
@@ -153,82 +153,124 @@
     0 10px 28px rgb(var(--ink-rgb) / 0.07);
 }
 
+/* Header row: small round photo beside name, role and credentials.
+   Stays a single compact row on mobile instead of a large stacked photo. */
+.founderHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .founderPhoto {
   position: relative;
-  aspect-ratio: 1;
-  width: min(100%, 9.5rem);
+  width: 4.5rem;
+  height: 4.5rem;
   overflow: hidden;
-  border-radius: 0.8rem;
+  border-radius: 999px;
   border: 1px solid rgb(var(--ink-rgb) / 0.2);
   background: rgb(var(--sand-rgb));
 }
 
-.founderCopy {
-  min-width: 0;
+.founderEyebrow {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
 }
 
 .founderName {
   margin: 0;
   font-family: var(--font-fraunces), ui-serif, Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(1.5rem, 5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: rgb(var(--ink-rgb));
 }
 
-.founderCreds {
-  margin: 0.3rem 0 0.9rem;
-  font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: rgb(var(--ink-rgb) / 0.62);
-}
-
-/* Mobile: pretty wrapping leaves lines short of the card edge in the narrow
-   founder column. Use plain wrapping so the copy fills the card width. */
-@media (max-width: 39.99rem) {
-  .founderCopy p,
-  .founderCopy .body {
-    max-width: none;
-    text-wrap: wrap;
-  }
-}
-
-.founderLead {
-  margin: 0 0 0.7rem;
-  max-width: 54ch;
-  font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.55;
-  text-wrap: pretty;
-  color: rgb(var(--ink-rgb) / 0.72);
-}
-
-@media (min-width: 40rem) {
-  .founderLead {
-    font-size: 0.9375rem;
-  }
-}
-
-.belief {
-  margin: 1rem 0 0;
-  max-width: none;
-  width: 100%;
-  font-family: var(--font-figtree), system-ui, sans-serif;
+.founderRole {
+  margin: 0.25rem 0 0;
   font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: rgb(var(--ink-rgb) / 0.66);
+}
+
+.founderCreds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.founderCreds li {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgb(var(--ink-rgb) / 0.16);
+  border-radius: 999px;
+  background: rgb(var(--sand-rgb) / 0.5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  color: rgb(var(--ink-rgb) / 0.78);
+}
+
+.founderIntro {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgb(var(--ink-rgb));
+}
+
+.founderStory {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.founderStory p {
+  margin: 0;
+  font-size: 0.9375rem;
   line-height: 1.6;
-  text-wrap: pretty;
-  color: rgb(var(--ink-rgb) / 0.72);
+  color: rgb(var(--ink-rgb) / 0.74);
+}
+
+.founderQuote {
+  margin: 0.25rem 0 0;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  border-left: 3px solid var(--orange);
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: rgb(var(--ink-rgb));
+}
+
+/* Plain wrapping on mobile so copy fills the card width (pretty wrapping
+   ended lines early in the narrow column). Pretty wrapping kept on desktop. */
+.founderPanel p {
+  text-wrap: wrap;
 }
 
 @media (min-width: 40rem) {
-  .belief {
-    font-size: 0.9375rem;
+  .founderPanel p {
+    text-wrap: pretty;
+  }
+
+  .founderPhoto {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .founderHeader {
+    gap: 1.25rem;
   }
 }
 
@@ -268,9 +310,4 @@
     grid-row: 1;
   }
 
-  .founderPanel {
-    grid-template-columns: 9.5rem minmax(0, 1fr);
-    align-items: start;
-    gap: 1.5rem;
-  }
 }

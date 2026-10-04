@@ -11,13 +11,48 @@ const SITE_URL =
   "https://www.learnincurve.com";
 
 export const metadata: Metadata = {
-  title: buildTitle("About"),
+  title: buildTitle("Sim Samaar Shened, Founder"),
   description:
-    "Learn in Curve helps project managers prepare for the APM PFQ and PMQ without the overwhelm — honest study tools built around how the exams actually work.",
+    "Sim Samaar Shened is the founder of Learn in Curve, an AI-first platform helping project managers prepare for the APM PMQ and PFQ with honest, practical study tools.",
   alternates: { canonical: `${SITE_URL}/about` },
+  openGraph: {
+    title: "Sim Samaar Shened, Founder of Learn in Curve",
+    url: `${SITE_URL}/about`,
+    type: "profile",
+    images: [{ url: `${SITE_URL}/brand/sim-profile.jpg` }],
+  },
 };
 
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/simsamaarshened";
+const FOUNDER_NAME = "Sim Samaar Shened";
+
+/** Person + Organization structured data so Google can tie this page to Sim. */
+const founderJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/about#sim`,
+      name: FOUNDER_NAME,
+      url: `${SITE_URL}/about`,
+      image: `${SITE_URL}/brand/sim-profile.jpg`,
+      jobTitle: "Founder",
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "Heriot-Watt University" },
+        { "@type": "CollegeOrUniversity", name: "Manipal University" },
+      ],
+      sameAs: [FOUNDER_LINKEDIN],
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Learn in Curve",
+      url: SITE_URL,
+      founder: { "@id": `${SITE_URL}/about#sim` },
+    },
+  ],
+}).replace(/</g, "\\u003c");
 
 function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
@@ -206,85 +241,86 @@ export default function AboutPage() {
         <section className={styles.founder} aria-labelledby="about-founder">
           <ScrollReveal>
             <div className={styles.founderPanel}>
-              <div className={styles.founderPhoto}>
-                <Image
-                  src="/brand/sim-profile.jpg"
-                  alt="Sim Samaar Shened, founder of Learn in Curve"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 180px"
-                  className="object-cover object-top"
-                />
+              <div className={styles.founderHeader}>
+                <div className={styles.founderPhoto}>
+                  <Image
+                    src="/brand/sim-profile.jpg"
+                    alt="Sim Samaar Shened, founder of Learn in Curve"
+                    fill
+                    sizes="88px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <p className={styles.founderEyebrow}>Founder</p>
+                  <h2 id="about-founder" className={styles.founderName}>
+                    {FOUNDER_NAME}
+                  </h2>
+                  <p className={styles.founderRole}>Founder, Learn in Curve</p>
+                </div>
               </div>
 
-              <div className={styles.founderCopy}>
-                <h2 id="about-founder" className={styles.sectionTitle}>
-                  Founder
-                </h2>
-                <p className={styles.founderName}>Sim Samaar Shened</p>
-                <p className={styles.founderCreds}>
-                  MSc Construction Project Management,{" "}
-                  <span className="whitespace-nowrap">
-                    Heriot-Watt University
-                  </span>
-                  <span aria-hidden> · </span>
-                  BArch, <span className="whitespace-nowrap">Manipal University</span>
-                  <span aria-hidden> · </span>
-                  <span className="whitespace-nowrap">APM PMQ</span>
-                  <span aria-hidden> · </span>
-                  CAPM
-                </p>
-                <p className={styles.founderLead}>
+              <ul className={styles.founderCreds} aria-label="Qualifications">
+                <li>MSc Construction PM, Heriot-Watt</li>
+                <li>BArch, Manipal University</li>
+                <li>APM PMQ</li>
+                <li>CAPM</li>
+              </ul>
+
+              <p className={styles.founderIntro}>
+                Hi, I&apos;m Sim. I&apos;m a project management professional
+                who trained as an architect before moving into delivering
+                major infrastructure and rail programmes in London. I hold an
+                MSc in Construction Project Management from Heriot-Watt
+                University and the APM PMQ, and I&apos;m working towards
+                Chartered Project Professional status.
+              </p>
+
+              <div className={styles.founderStory}>
+                <p>
                   I founded Learn in Curve after experiencing first-hand how
                   expensive, time-consuming, and inaccessible professional
-                  learning can be.
+                  learning can be. While managing complex projects and working
+                  towards industry certifications, I saw an opportunity to use
+                  AI to make learning more personalised, practical, and
+                  genuinely effective.
                 </p>
-                <div className={styles.body}>
-                  <p>
-                    While managing complex projects and working towards industry
-                    certifications, I saw an opportunity to use AI to make
-                    learning more personalised, practical, and genuinely
-                    effective.
-                  </p>
-                  <p>
-                    For me, the biggest benefit of AI is simple: learning is now
-                    at your fingertips. You no longer need to search through
-                    endless pages or watch a two-hour YouTube video just to
-                    understand one small topic. You can ask a question, explore
-                    an idea, and get to the answer in minutes. The speed at
-                    which you can learn is what makes AI so powerful.
-                  </p>
-                  <p>
-                    I believe curiosity is all you really need. If you are
-                    curious and willing to keep learning, AI gives you the
-                    ability to learn faster than ever before. And in a world
-                    where the ability to learn quickly can set you apart, that
-                    is incredibly powerful.
-                  </p>
-                  <p>
-                    What started as a tool to solve my own challenges has grown
-                    into Learn in Curve, an AI-first learning platform built to
-                    help professionals master new skills, earn certifications,
-                    and accelerate their careers.
-                  </p>
-                </div>
-                <p className={styles.belief}>
-                  Built by one founder. Driven by one belief: exceptional
-                  learning should be accessible to everyone.
+                <p>
+                  For me, the biggest benefit of AI is simple: learning is now
+                  at your fingertips. You no longer need to search through
+                  endless pages or watch a two-hour YouTube video to understand
+                  one small topic. Ask a question, explore an idea, and get to
+                  the answer in minutes.
                 </p>
-                <div className={styles.founderActions}>
-                  <a
-                    href={FOUNDER_LINKEDIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${stampCtaPrimaryCompact} ${styles.founderLinkedIn}`}
-                  >
-                    <LinkedInIcon className="shrink-0" />
-                    Connect with Sim
-                  </a>
-                </div>
+                <p>
+                  What started as a tool to solve my own challenges has grown
+                  into Learn in Curve, an AI-first learning platform built to
+                  help professionals master new skills, earn certifications,
+                  and accelerate their careers.
+                </p>
+              </div>
+
+              <blockquote className={styles.founderQuote}>
+                Exceptional learning should be accessible to everyone.
+              </blockquote>
+
+              <div className={styles.founderActions}>
+                <a
+                  href={FOUNDER_LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${stampCtaPrimaryCompact} ${styles.founderLinkedIn}`}
+                >
+                  <LinkedInIcon className="shrink-0" />
+                  Connect with Sim
+                </a>
               </div>
             </div>
           </ScrollReveal>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: founderJsonLd }}
+          />
         </section>
       </div>
     </div>

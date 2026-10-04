@@ -13,7 +13,7 @@ const SITE_URL =
  */
 const STATIC_LAST_MODIFIED: Record<string, string> = {
   "/": "2026-09-15",
-  "/about": "2026-08-06",
+  "/about": "2026-10-04",
   "/contact": "2026-07-20",
   "/courses": "2026-09-22",
   "/mock-me": "2026-09-10",

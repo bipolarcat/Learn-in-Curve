@@ -137,7 +137,9 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       dpr: number,
     ): Uint8Array => {
       const mask = new Uint8Array(cols * rows);
-      if (!text) return mask;
+      // A zero-size canvas (hidden tab, collapsed layout on first paint) makes
+      // getImageData throw, which crashed the whole page to the error screen.
+      if (!text || canvasWidth < 1 || canvasHeight < 1) return mask;
 
       const maskCanvas = document.createElement("canvas");
       maskCanvas.width = canvasWidth;
