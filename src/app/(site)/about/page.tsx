@@ -220,6 +220,19 @@ export default function AboutPage() {
                 <h2 id="about-founder" className={styles.sectionTitle}>
                   Founder
                 </h2>
+                <p className={styles.founderName}>Sim Samaar Shened</p>
+                <p className={styles.founderCreds}>
+                  MSc Construction Project Management,{" "}
+                  <span className="whitespace-nowrap">
+                    Heriot-Watt University
+                  </span>
+                  <span aria-hidden> · </span>
+                  BArch, <span className="whitespace-nowrap">Manipal University</span>
+                  <span aria-hidden> · </span>
+                  <span className="whitespace-nowrap">APM PMQ</span>
+                  <span aria-hidden> · </span>
+                  CAPM
+                </p>
                 <p className={styles.founderLead}>
                   I founded Learn in Curve after experiencing first-hand how
                   expensive, time-consuming, and inaccessible professional

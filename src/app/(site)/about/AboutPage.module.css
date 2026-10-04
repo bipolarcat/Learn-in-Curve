@@ -167,6 +167,34 @@
   min-width: 0;
 }
 
+.founderName {
+  margin: 0;
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: rgb(var(--ink-rgb));
+}
+
+.founderCreds {
+  margin: 0.3rem 0 0.9rem;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgb(var(--ink-rgb) / 0.62);
+}
+
+/* Mobile: pretty wrapping leaves lines short of the card edge in the narrow
+   founder column. Use plain wrapping so the copy fills the card width. */
+@media (max-width: 39.99rem) {
+  .founderCopy p,
+  .founderCopy .body {
+    max-width: none;
+    text-wrap: wrap;
+  }
+}
+
 .founderLead {
   margin: 0 0 0.7rem;
   max-width: 54ch;
