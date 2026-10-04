@@ -252,7 +252,6 @@ export default function AboutPage() {
                   />
                 </div>
                 <div>
-                  <p className={styles.founderEyebrow}>Founder</p>
                   <h2 id="about-founder" className={styles.founderName}>
                     {FOUNDER_NAME}
                   </h2>
@@ -260,23 +259,15 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <ul className={styles.founderCreds} aria-label="Qualifications">
-                <li>MSc Construction PM, Heriot-Watt</li>
-                <li>BArch, Manipal University</li>
-                <li>APM PMQ</li>
-                <li>CAPM</li>
-              </ul>
-
-              <p className={styles.founderIntro}>
-                Hi, I&apos;m Sim. I&apos;m a project management professional
-                who trained as an architect before moving into delivering
-                major infrastructure and rail programmes in London. I hold an
-                MSc in Construction Project Management from Heriot-Watt
-                University and the APM PMQ, and I&apos;m working towards
-                Chartered Project Professional status.
-              </p>
-
               <div className={styles.founderStory}>
+                <p>
+                  Hi, I&rsquo;m Sim. I&rsquo;m a project management
+                  professional who trained as an architect before moving into
+                  the delivery of major infrastructure and rail programmes in
+                  London. I hold an MSc in Construction Project Management from
+                  Heriot-Watt University, Edinburgh and the APM Project
+                  Management Qualification.
+                </p>
                 <p>
                   I founded Learn in Curve after experiencing first-hand how
                   expensive, time-consuming, and inaccessible professional
@@ -288,9 +279,9 @@ export default function AboutPage() {
                 <p>
                   For me, the biggest benefit of AI is simple: learning is now
                   at your fingertips. You no longer need to search through
-                  endless pages or watch a two-hour YouTube video to understand
-                  one small topic. Ask a question, explore an idea, and get to
-                  the answer in minutes.
+                  endless pages or watch a two-hour YouTube video just to
+                  understand one small topic. Ask a question, explore an idea,
+                  and get to the answer in minutes.
                 </p>
                 <p>
                   What started as a tool to solve my own challenges has grown

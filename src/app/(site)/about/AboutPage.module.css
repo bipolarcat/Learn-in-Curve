@@ -172,16 +172,6 @@
   background: rgb(var(--sand-rgb));
 }
 
-.founderEyebrow {
-  margin: 0 0 0.2rem;
-  font-family: var(--font-figtree), system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--orange);
-}
-
 .founderName {
   margin: 0;
   font-family: var(--font-fraunces), ui-serif, Georgia, serif;
@@ -197,35 +187,6 @@
   font-size: 0.875rem;
   line-height: 1.4;
   color: rgb(var(--ink-rgb) / 0.66);
-}
-
-.founderCreds {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.founderCreds li {
-  padding: 0.25rem 0.6rem;
-  border: 1px solid rgb(var(--ink-rgb) / 0.16);
-  border-radius: 999px;
-  background: rgb(var(--sand-rgb) / 0.5);
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.3;
-  white-space: nowrap;
-  color: rgb(var(--ink-rgb) / 0.78);
-}
-
-.founderIntro {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.55;
-  color: rgb(var(--ink-rgb));
 }
 
 .founderStory {
