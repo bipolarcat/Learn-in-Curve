@@ -49,6 +49,10 @@ const founderJsonLd = JSON.stringify({
       "@id": `${SITE_URL}/#organization`,
       name: "Learn in Curve",
       url: SITE_URL,
+      sameAs: [
+        "https://www.linkedin.com/company/learn-in-curve/",
+        "https://www.instagram.com/learn.in.curve/",
+      ],
       founder: { "@id": `${SITE_URL}/about#sim` },
     },
   ],

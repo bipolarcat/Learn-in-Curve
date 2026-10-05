@@ -95,6 +95,9 @@ export function SiteFooter({
             aria-label="Footer"
             className="flex w-full flex-wrap items-center justify-between gap-x-1 gap-y-1 sm:justify-end sm:gap-x-5 lg:w-auto lg:justify-end"
           >
+            <Link href="/about" className={footerLinkClass}>
+              About
+            </Link>
             <Link href="/privacy" className={footerLinkClass}>
               Privacy
             </Link>
