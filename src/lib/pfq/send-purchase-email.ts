@@ -1,95 +1,53 @@
 /**
  * Receipt + access email after a successful PFQ purchase.
- * Same Resend fetch pattern as notify confirmation — never throws.
+ *
+ * Thin wrapper over the shared receipt template (same email PMQ buyers get),
+ * so both products send one consistent receipt. Never throws.
  *
  * Under the Consumer Contracts Regulations, the buyer loses the 14-day
  * cancellation right only if they consent at checkout AND receive confirmation
  * of that acknowledgement in a durable medium. This email is that confirmation.
  */
 
-import { notifyFrom } from "@/lib/notify/senders";
-import { formatPfqPriceGbp, PFQ_LEARN_HREF } from "@/lib/pfq/constants";
+import {
+  PURCHASE_CANCELLATION_ACK,
+  sendPurchaseReceipt,
+} from "@/lib/notify/send-purchase-receipt";
+import { PFQ_LEARN_HREF } from "@/lib/pfq/constants";
 
 type SendPfqPurchaseEmailInput = {
   email: string;
   amountCents: number;
   paymentId: string;
+  /** Tier bought: "pro" or "ai_pro". Defaults to "pro". */
+  feature?: string;
+  /** Unix seconds (Stripe event.created). */
+  purchasedAt?: number;
+  currency?: string;
   origin?: string;
 };
 
-/** Wording aligned with the checkout checkbox on /pfq/pricing. */
-export const PFQ_PURCHASE_CANCELLATION_ACK =
-  "You asked for access straight away and acknowledged that by starting the course you lose the standard 14-day cancellation right for this digital content. This email confirms that acknowledgement.";
+/** Kept for any caller that referenced the PFQ-specific wording. */
+export const PFQ_PURCHASE_CANCELLATION_ACK = PURCHASE_CANCELLATION_ACK;
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
+const PFQ_RECEIPT_PRODUCT: Record<string, string> = {
+  pro: "PFQ in 2 Days: Pro Bundle",
+  ai_pro: "PFQ in 2 Days: AI Pro Bundle",
+};
 
 export async function sendPfqPurchaseEmail(
   input: SendPfqPurchaseEmailInput,
 ): Promise<boolean> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error(
-      `[pfq] purchase email NOT sent to ${input.email} — RESEND_API_KEY missing. Payment ${input.paymentId} still needs access confirmed in DB.`,
-    );
-    return false;
-  }
-
-  const origin =
-    input.origin?.replace(/\/+$/, "") ||
-    process.env.NEXT_PUBLIC_APP_URL?.replace(/\/+$/, "") ||
-    "https://www.learnincurve.com";
-  const learnUrl = `${origin}${PFQ_LEARN_HREF}`;
-  const price = formatPfqPriceGbp(input.amountCents);
-
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: notifyFrom(),
-        to: [input.email],
-        subject: "Your PFQ in 2 Days access",
-        html: `<!DOCTYPE html><html><body style="font-family:Figtree,system-ui,sans-serif;color:#241A12;background:#F4E9D6;padding:24px;">
-  <div style="max-width:480px;margin:0 auto;background:#FBF3E1;border:1px solid rgba(36,26,18,0.12);border-radius:12px;padding:24px;">
-    <p style="margin:0 0 8px;font-size:13px;font-weight:700;">Learn in <span style="color:#D5501F;">Curve</span></p>
-    <h1 style="margin:0 0 12px;font-family:Fraunces,Georgia,serif;font-size:22px;">You're in</h1>
-    <p style="margin:0 0 12px;font-size:15px;line-height:1.5;">Thanks for buying <strong>PFQ in 2 Days</strong> (${escapeHtml(price)}, one-off). Your Pro access is ready.</p>
-    <p style="margin:0 0 16px;"><a href="${escapeHtml(learnUrl)}" style="display:inline-block;background:#D5501F;color:#FBF3E1;text-decoration:none;padding:10px 16px;border-radius:10px;font-weight:600;">Open the course</a></p>
-    <p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:rgba(36,26,18,0.75);">${escapeHtml(PFQ_PURCHASE_CANCELLATION_ACK)}</p>
-    <p style="margin:0;font-size:12px;line-height:1.45;color:rgba(36,26,18,0.55);">Receipt reference: ${escapeHtml(input.paymentId)}. The APM exam is booked and paid separately with APM — this course prepares you for it.</p>
-  </div>
-</body></html>`,
-        text: [
-          "You're in",
-          "",
-          `Thanks for buying PFQ in 2 Days (${price}, one-off). Your Pro access is ready.`,
-          "",
-          `Open the course: ${learnUrl}`,
-          "",
-          PFQ_PURCHASE_CANCELLATION_ACK,
-          "",
-          `Receipt reference: ${input.paymentId}. The APM exam is booked and paid separately with APM — this course prepares you for it.`,
-        ].join("\n"),
-      }),
-    });
-
-    if (!res.ok) {
-      const body = await res.text();
-      console.error("[pfq] purchase email Resend error", res.status, body);
-      return false;
-    }
-    return true;
-  } catch (err) {
-    console.error("[pfq] purchase email failed", err);
-    return false;
-  }
+  return sendPurchaseReceipt({
+    email: input.email,
+    productName:
+      PFQ_RECEIPT_PRODUCT[input.feature ?? "pro"] ?? PFQ_RECEIPT_PRODUCT.pro,
+    amountCents: input.amountCents,
+    currency: input.currency,
+    paymentId: input.paymentId,
+    purchasedAt: input.purchasedAt,
+    kind: "unlock",
+    accessPath: PFQ_LEARN_HREF,
+    origin: input.origin,
+  });
 }

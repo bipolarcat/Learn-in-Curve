@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PfqTrapSchoolPage() {
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(`/courses/pfq-in-2-days/trap-school`);
 
   return (
     <div className="mx-auto flex w-full max-w-wrap flex-col gap-8 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">

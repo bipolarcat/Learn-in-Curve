@@ -55,7 +55,7 @@ export default async function PfqLearnObjectivePage({ params }: Props) {
     notFound();
   }
 
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(`/courses/pfq-in-2-days/learn/${objective}`);
 
   const supabase = await createClient();
   const {

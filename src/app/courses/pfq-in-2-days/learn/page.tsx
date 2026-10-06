@@ -33,14 +33,14 @@ export default async function PfqLearnHubPage() {
     redirect(PFQ_PRICING_HREF);
   }
 
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(`/courses/pfq-in-2-days/learn`);
 
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    redirect(PFQ_PRICING_HREF);
+    redirect(`/auth/sign-in?next=${encodeURIComponent("/courses/pfq-in-2-days/learn")}`);
   }
 
   void PFQ_LESSONS.length;

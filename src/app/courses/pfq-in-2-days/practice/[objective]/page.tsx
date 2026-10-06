@@ -33,7 +33,9 @@ export default async function PfqPracticeObjectivePage({ params }: Props) {
     redirect(PFQ_PRICING_HREF);
   }
 
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(
+    `/courses/pfq-in-2-days/practice/${(await params).objective}`,
+  );
 
   const { objective: raw } = await params;
   const objective = Number(raw);

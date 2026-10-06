@@ -31,7 +31,7 @@ const PFQ_DIGITAL_CONTENT_CONSENT: Pick<
   custom_text: {
     terms_of_service_acceptance: {
       message:
-        "I agree to the Terms of Service and Privacy Policy. I want access straight away, and I understand that by starting the course I lose my right to cancel for a refund within 14 days.",
+        "I agree to the Terms of Service and Privacy Policy. I understand my access lasts 12 months from purchase. I want access straight away, and I understand that once access begins I lose my 14-day right to cancel, except where the content is faulty or not as described, which my statutory rights still cover.",
     },
   },
 };
@@ -129,7 +129,7 @@ export async function createPfqCheckout(input: {
               // real total (59 learning outcomes in PFQ_EXPECTED_OUTCOMES) —
               // under-claiming is fine, over-claiming is a misleading action.
               // No price literal here: Stripe renders unit_amount itself.
-              description: `Unlock the complete PFQ revision experience with ${pfqPlanFeatureValue("pro", "practice")} total practice questions, ${pfqPlanFeatureValue("pro", "mock")} timed mock exams and 50+ insights. One-off payment. No subscription.`,
+              description: `Unlock the complete PFQ revision experience with ${pfqPlanFeatureValue("pro", "practice")} total practice questions, ${pfqPlanFeatureValue("pro", "mock")} timed mock exams and 50+ insights. One-off payment, 12 months' access. No subscription.`,
             },
           },
           quantity: 1,

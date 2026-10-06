@@ -10,7 +10,15 @@ import {
 import { PFQ_COURSE_ID, PFQ_PRO_PRICE_CENTS } from "@/lib/pfq/constants";
 import { isPfqPaidTier } from "@/lib/pfq/tiers";
 import { sendPfqPurchaseEmail } from "@/lib/pfq/send-purchase-email";
-import { PMQ_COURSE_ID } from "@/lib/pmq/constants";
+import { PMQ_COURSE_ID, PMQ_SLUG } from "@/lib/pmq/constants";
+import { sendPurchaseReceipt } from "@/lib/notify/send-purchase-receipt";
+
+const PMQ_RECEIPT_PRODUCT: Record<string, string> = {
+  pro: "PMQ in 5 Days: Pro Bundle",
+  ai_pro: "PMQ in 5 Days: AI Pro Bundle",
+  ai_tutor: "PMQ in 5 Days: AI Pro Bundle",
+  ai_tutor_topup: "Sly fair-usage top-up",
+};
 
 export const runtime = "nodejs";
 
@@ -169,6 +177,9 @@ export async function POST(request: Request) {
           email,
           amountCents: amount,
           paymentId,
+          feature,
+          purchasedAt: event.created,
+          currency: session.currency ?? "gbp",
         });
         if (!sent) {
           console.error(
@@ -243,6 +254,54 @@ export async function POST(request: Request) {
           source: "topup",
           stripePaymentId: paymentId,
         });
+      }
+
+      // ─── Receipt + CCR durable-medium confirmation (PMQ / Sly) ───
+      // Runs after the grant so a retry never double-grants (grant + credit
+      // are idempotent). A failed send returns 500 so Stripe retries; the
+      // Resend Idempotency-Key stops a retry from emailing twice.
+      const receiptProduct = feature ? PMQ_RECEIPT_PRODUCT[feature] : undefined;
+      if (receiptProduct) {
+        const email =
+          session.customer_details?.email || session.customer_email || undefined;
+        if (!email) {
+          console.error(
+            "[stripe] PMQ purchase granted but no customer email on session; receipt not sent",
+            { userId, paymentId, sessionId: session.id },
+          );
+          return NextResponse.json(
+            { error: "Missing customer email for purchase receipt" },
+            { status: 500 },
+          );
+        }
+
+        const sent = await sendPurchaseReceipt({
+          email,
+          productName: receiptProduct,
+          amountCents:
+            typeof session.amount_total === "number" && session.amount_total > 0
+              ? session.amount_total
+              : feature === "ai_tutor_topup"
+                ? Number(session.metadata?.amount_cents ?? 0)
+                : SLY_UNLOCK_PRICE_CENTS,
+          currency: session.currency ?? "gbp",
+          paymentId,
+          purchasedAt: event.created,
+          kind: feature === "ai_tutor_topup" ? "topup" : "unlock",
+          accessPath: `/courses/${PMQ_SLUG}`,
+          accessLabel:
+            feature === "ai_tutor_topup" ? "Back to the course" : "Open the course",
+        });
+        if (!sent) {
+          console.error(
+            "[stripe] PMQ purchase granted but receipt email failed; Stripe will retry",
+            { userId, paymentId, email },
+          );
+          return NextResponse.json(
+            { error: "Purchase receipt email failed" },
+            { status: 500 },
+          );
+        }
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Webhook handler failed";

@@ -19,7 +19,7 @@ export default async function PfqFreeSamplePracticePage() {
     redirect(PFQ_PRICING_HREF);
   }
 
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(`/courses/pfq-in-2-days/practice/sample`);
 
   return (
     <div className="mx-auto w-full max-w-wrap px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">

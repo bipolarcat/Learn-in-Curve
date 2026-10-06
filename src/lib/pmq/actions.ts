@@ -788,7 +788,25 @@ const DIGITAL_CONTENT_CONSENT: Pick<
   custom_text: {
     terms_of_service_acceptance: {
       message:
-        "I agree to the Terms of Service and Privacy Policy. I want access straight away, and I understand that once access begins I lose my 14-day right to cancel — except where the content is faulty or not as described, which my statutory rights still cover.",
+        "I agree to the Terms of Service and Privacy Policy. I understand my access lasts 12 months from purchase. I want access straight away, and I understand that once access begins I lose my 14-day right to cancel, except where the content is faulty or not as described, which my statutory rights still cover.",
+    },
+  },
+};
+
+/** Top-ups add Sly credit, not time-limited course access, so no 12-month line. */
+const TOPUP_DIGITAL_CONTENT_CONSENT: Pick<
+  // `import type` is erased at compile time, so this keeps the Stripe SDK out of
+  // the runtime graph while still type-checking the shape against the real API.
+  import("stripe").Stripe.Checkout.SessionCreateParams,
+  "consent_collection" | "custom_text"
+> = {
+  consent_collection: {
+    terms_of_service: "required",
+  },
+  custom_text: {
+    terms_of_service_acceptance: {
+      message:
+        "I agree to the Terms of Service and Privacy Policy. I want access straight away, and I understand that once access begins I lose my 14-day right to cancel, except where the content is faulty or not as described, which my statutory rights still cover.",
     },
   },
 };
@@ -857,7 +875,7 @@ export async function createAiTutorCheckout(input: {
             // `status: "waitlist"` in plans.ts and not on sale. The old copy
             // promised Sly tutoring and fair-usage credit to Pro buyers, which
             // the tier ladder in tiers.ts does not grant.
-            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, video & audio overviews, ${planFeatureValue("pro", "recall")} recall activities and insights. One-off payment. No subscription.`,
+            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, video & audio overviews, ${planFeatureValue("pro", "recall")} recall activities and insights. One-off payment, 12 months' access. No subscription.`,
           },
         },
         quantity: 1,
@@ -951,7 +969,7 @@ export async function createSlyTopUpCheckout(input: {
       feature: "ai_tutor_topup",
       amount_cents: String(amountCents),
     },
-    ...DIGITAL_CONTENT_CONSENT,
+    ...TOPUP_DIGITAL_CONTENT_CONSENT,
     success_url: `${appUrl}${returnPath}?sly_topup=1`,
     cancel_url: `${appUrl}${returnPath}`,
     customer_email: user.email ?? undefined,

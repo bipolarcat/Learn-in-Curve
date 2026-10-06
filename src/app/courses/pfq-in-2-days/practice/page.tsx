@@ -24,7 +24,7 @@ export default async function PfqPracticeIndexPage() {
   if (!PFQ_PRACTICE_ENABLED) {
     redirect(PFQ_PRICING_HREF);
   }
-  await requirePfqSignedInOrRedirect();
+  await requirePfqSignedInOrRedirect(`/courses/pfq-in-2-days/practice`);
 
   const supabase = await createClient();
   const {

@@ -1,5 +1,5 @@
 # Terms of Service - Learn in Curve
-*Last updated: 22 September 2026*
+*Last updated: 6 October 2026*
 
 ## 1. Acceptance
 By creating an account or using learnincurve.com (the "Service"), you agree to be bound by these terms. If you do not agree to these terms, please do not use the Service.
@@ -30,7 +30,7 @@ Learn in Curve operates on a one-time purchase model, rather than recurring subs
 - **What is free:** where a Course includes Free Features, they are listed in the Schedule. Where the Schedule lists no Free Features for a Course, no part of that Course is available without purchase. Free Features are a permanent product decision for the Courses that have them, not a temporary introductory offer.
 - **Prices:** the price of each Paid Unlock is shown on the relevant course page and confirmed at checkout before you pay. The price shown at checkout is the price that applies to your purchase. Prices are not listed in these terms, so that these terms and our published prices cannot disagree.
 - **Price changes:** we may adjust prices in future. Any change applies only to new purchases and never retroactively to a Paid Unlock you already hold.
-- **Duration of access:** a Paid Unlock is one-time and is not time-limited. If we ever retire a Course, we will give reasonable notice to anyone holding a Paid Unlock for it.
+- **Duration of access:** a Paid Unlock bought on or after 6 October 2026 gives you access to that Course for 12 months from the date of purchase. Your purchase confirmation email states the date your access ends. A Paid Unlock bought before 6 October 2026 is not time-limited. If we ever retire a Course, we will give reasonable notice to anyone whose access has not yet ended.
 - **Payments:** all transactions are securely processed by Stripe. We do not process or store your card details on our servers.
 
 ## 7. Fair Usage Policy
