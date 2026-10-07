@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
+import { posthogProxyRewrites } from "./src/lib/analytics/posthog-hosts";
 
 const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // PostHog capture URLs use a trailing slash (`/e/`). Without this, Next
+  // redirects them and the event body is dropped.
+  skipTrailingSlashRedirect: true,
   /*
    * Testing on a real phone means loading the dev server over the LAN IP, which
    * Next treats as a cross-origin request to /_next/* and warns about in the
@@ -35,6 +39,9 @@ const nextConfig: NextConfig = {
    * Explicit 301 (not Next's permanent:true → 308) so bookmarks and SEO update.
    * Middleware also redirects; this layer covers cases where middleware is skipped.
    */
+  async rewrites() {
+    return posthogProxyRewrites();
+  },
   async redirects() {
     return [
       {

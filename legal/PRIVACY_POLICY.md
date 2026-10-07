@@ -1,5 +1,5 @@
 # Privacy Policy - Learn in Curve
-Last updated: 22 September 2026
+Last updated: 7 October 2026
 
 ## 1. Who We Are
 Learn in Curve, operated by Sim Samaar Shened ("we", "us"), operates learnincurve.com, an AI-assisted revision platform for professional certifications designed to help users pass their exams, along with our associated newsletter and blog.
@@ -26,13 +26,15 @@ leave it unticked and we will not add you to our mailing list.
 - **Job Applications:** If you apply for a role via our Careers section, we process your submitted CV and cover note to assess your application.
 
 ## 3. Cookies and Analytics
-We use strictly necessary cookies, and — only with your consent — product analytics cookies.
+We use strictly necessary cookies, and — only with your consent — product analytics cookies. We also count anonymous visits without cookies, as described below.
 
 **Strictly necessary.** This includes Supabase's authentication session cookie, which securely keeps you signed in. Because it is strictly necessary for the service to function, UK/EU guidance does not require a prior consent choice for it.
 
-**Product analytics (consent-based).** We use PostHog to understand how the platform is actually used — which lessons people complete, where they get stuck, and what to improve. PostHog only loads if you select **Accept** on our cookie banner. If you select Reject, or make no choice, no analytics script is loaded and no analytics cookie is set. You can change your mind at any time.
+**Anonymous visit counts (no cookie).** Before you choose on the cookie banner, and if you select Reject, we still record anonymous visits with PostHog: pages, the referring link, and campaign parameters on the link you clicked, plus on-site actions such as starting a free mock exam. That measurement does not set a cookie, does not use local storage, and does not include session replay. It is not advertising, and it is not sold. You can object by emailing support@learnincurve.com.
 
-This includes **session replay**, which reconstructs the pages you moved through and where you clicked. All text and all typed input is masked in your browser before anything is sent, so your written exam answers and personal details are not captured. PostHog processes this data on its **EU Cloud** infrastructure.
+**Product analytics cookies (consent-based).** If you select **Accept**, PostHog also stores a cookie and local storage so visits from the same browser can be tied together. You can change your mind at any time. If you select Reject, or make no choice, no analytics cookie is set.
+
+**Session replay** runs only after you select Accept. It reconstructs the pages you moved through and where you clicked. All text and all typed input is masked in your browser before anything is sent, so your written exam answers and personal details are not captured. PostHog processes this data on its **EU Cloud** infrastructure.
 
 Our full [Cookie Policy](/cookies) explains each cookie, what it does, and how to change your choice.
 
@@ -43,9 +45,7 @@ submission and your score against your email address. This is how we know a mock
 a sign-up. It is not advertising, and it is never shared with advertisers. Ask us and we will
 delete it.
 
-**Legal basis:** consent (UK GDPR Art. 6(1)(a) and PECR reg. 6) for analytics cookies; legitimate
-interests for the server-side events described above; legitimate interests / contract performance
-for strictly necessary cookies.
+**Legal basis:** legitimate interests (UK GDPR Art. 6(1)(f)) for the anonymous cookieless visit counts and for the server-side events described above; consent (UK GDPR Art. 6(1)(a) and PECR reg. 6) for analytics cookies and session replay; legitimate interests / contract performance for strictly necessary cookies.
 
 ## 4. Who We Share Data With
 We do not sell your personal data to anyone, under any circumstances. We share data strictly with trusted infrastructure providers necessary to operate the service:
@@ -53,7 +53,7 @@ We do not sell your personal data to anyone, under any circumstances. We share d
 - **Supabase:** Our database and authentication provider (hosted in the EU - Ireland), which securely stores your account, progress, and mock exam data.
 - **Google (OAuth):** Used only if you choose "Continue with Google" for account creation and sign-in.
 - **Stripe:** Our payment processor, which directly handles your card details when you make a purchase.
-- **PostHog:** Our product analytics provider (EU Cloud). With your consent to analytics cookies it receives page views, in-app interactions, masked session replays, and technical error diagnostics when something on the site fails. Separately, and without cookies, our servers send it the free mock exam events described in section 3, which include your email address and your score.
+- **PostHog:** Our product analytics provider (EU Cloud). Before you accept analytics cookies, and if you reject them, it receives anonymous cookieless visit counts (pages, referrer, campaign parameters, and on-site actions) with no cookie and no session replay. With your consent to analytics cookies it also receives tied-together page views, in-app interactions, masked session replays, and technical error diagnostics when something on the site fails. Separately, and without cookies, our servers send it the free mock exam events described in section 3, which include your email address and your score.
 - **Resend:** Our email provider, which delivers the email we send you: sign-in and
 confirmation emails, purchase confirmations, free mock exam results, replies to anything you
 send us, and the newsletter if you opted in. It processes your email address and the contents
@@ -66,7 +66,7 @@ Your core personal data and learning progress are stored in our primary database
 ## 6. How Long We Keep Your Data
 - **Account, Progress, and Exam Data:** Kept securely for as long as your account remains active so you can review previous attempts and track your learning.
 - **Guest Trial IP Hashes:** Kept for 30 days from last use, then automatically deleted. These exist solely to prevent abuse of the free public trial.
-- **Analytics Events (PostHog):** Only collected if you consented. Your IP address is discarded at the point of collection and never stored. Events are currently retained for up to 7 years under our PostHog plan. Deleted sooner on request.
+- **Analytics Events (PostHog):** Cookieless visit counts are collected before a cookie choice and after Reject. Cookie-based events and tied-together history are collected only if you consented. Your IP address is discarded at the point of collection and never stored. Events are currently retained for up to 7 years under our PostHog plan. Deleted sooner on request.
 - **Session Replays (PostHog):** Only collected if you consented. Kept for 30 days, then automatically deleted. Replays are masked in your browser before they are sent, so they never contain text you typed. Deleted sooner on request.
 - **Newsletters:** Kept until you unsubscribe.
 - **Account Deletion:** You can delete your account yourself at any time from Account in the dashboard menu. Deletion is immediate and permanent: your progress, mock attempts and scores, practice history, certificates, Sly conversations, course access and marketing sign-ups are erased, and your login is removed. You can also email support@learnincurve.com and we will process the request manually within 30 days. Our payment provider keeps its own record of any transaction, because UK tax law requires us to be able to account for payments received.

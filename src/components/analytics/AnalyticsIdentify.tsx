@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { identify } from "@/components/PostHogProvider";
+import { CONSENT_EVENT, readConsent } from "@/lib/analytics/consent";
 
 /**
  * Mounted in the authenticated layout so every signed-in page view is attached
@@ -20,7 +21,13 @@ export function AnalyticsIdentify({
 }) {
   useEffect(() => {
     if (!userId) return;
-    identify(userId, tier ? { tier } : undefined);
+    function run() {
+      if (readConsent() !== "granted") return;
+      identify(userId, tier ? { tier } : undefined);
+    }
+    run();
+    window.addEventListener(CONSENT_EVENT, run);
+    return () => window.removeEventListener(CONSENT_EVENT, run);
   }, [userId, tier]);
 
   return null;

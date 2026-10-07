@@ -7,36 +7,119 @@ import {
   readConsent,
   type ConsentState,
 } from "@/lib/analytics/consent";
+import { posthogBrowserInitConfig } from "@/lib/analytics/posthog-hosts";
 
 /**
- * PostHog, gated behind cookie consent.
+ * PostHog.
  *
- * Nothing here runs — no script, no cookie, no network call — until the visitor
- * has clicked Accept in the cookie banner. That ordering is the whole point:
- * PECR requires consent *before* a non-essential cookie is set, so the SDK is
- * dynamically imported rather than bundled into the initial load.
+ * Before the visitor accepts (and after they reject), the SDK runs with
+ * persistence "memory": pageviews, pageleaves, and the app's capture()
+ * events are sent, but nothing is written to cookies, localStorage, or
+ * sessionStorage, and session replay stays off.
  *
- * If the user later rejects, we opt out and reset, which clears PostHog's
- * distinct_id so the next session isn't stitched to the old one.
+ * Accept switches persistence to localStorage+cookie and starts replay.
+ * set_config migrates the in-memory distinct id, so the landing UTMs stay
+ * attached to later events. Reject (or withdrawing consent) switches back
+ * to memory and stops replay. It does not call opt_out_capturing(), which
+ * would drop the cookieless events.
  *
- * Env: NEXT_PUBLIC_POSTHOG_KEY is a *public, write-only* project token — it can
- * only send events, never read them, so shipping it to the browser is expected
- * and safe. NEXT_PUBLIC_POSTHOG_HOST must stay on the EU cloud
- * (https://eu.i.posthog.com); routing UK/EU users' behavioural data through the
- * US host would add an international-transfer question we don't currently have.
+ * Requests go to the first-party proxy path (see posthog-hosts.ts), not
+ * eu.i.posthog.com. $host is still the page host, so the PostHog project's
+ * localhost / LAN filters are unchanged.
+ *
+ * Env: NEXT_PUBLIC_POSTHOG_KEY is a public write-only project token.
+ * Server-side capture still uses the EU ingest host directly.
  */
 
 type PostHogModule = typeof import("posthog-js")["default"];
 
 let posthogInstance: PostHogModule | null = null;
 
+type PersonProps = Record<string, string | number | boolean | null>;
+
+let pendingIdentify: {
+  userId: string;
+  properties?: Record<string, unknown>;
+} | null = null;
+
+let pendingPerson: PersonProps | null = null;
+
+function flushPending(): void {
+  if (!posthogInstance || readConsent() !== "granted") return;
+  if (pendingIdentify) {
+    const queued = pendingIdentify;
+    pendingIdentify = null;
+    posthogInstance.identify(queued.userId, queued.properties);
+  }
+  if (pendingPerson) {
+    const queued = pendingPerson;
+    pendingPerson = null;
+    posthogInstance.setPersonProperties(queued);
+  }
+}
+
+/**
+ * Older builds called opt_out_capturing() on Reject, which stores a PostHog
+ * opt-out flag and then refuses to send. Clear that flag so a declined
+ * visitor is still counted cookieless. Fresh visitors have no flag, so this
+ * does not write storage for them.
+ */
+function clearLegacyOptOut(posthog: PostHogModule): void {
+  if (posthog.has_opted_out_capturing()) {
+    posthog.clear_opt_in_out_capturing();
+  }
+}
+
+/** Drop any PostHog cookie or localStorage entry. Consent choice is a different key. */
+function clearPostHogBrowserStorage(): void {
+  try {
+    for (const key of Object.keys(localStorage)) {
+      if (key.startsWith("ph_") || key.startsWith("__ph_")) {
+        localStorage.removeItem(key);
+      }
+    }
+  } catch {
+    /* private mode */
+  }
+  try {
+    for (const part of document.cookie.split(";")) {
+      const name = part.split("=")[0]?.trim();
+      if (!name || (!name.startsWith("ph_") && !name.startsWith("__ph_"))) continue;
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+    }
+  } catch {
+    /* ignore */
+  }
+}
+
+function applyTrackingMode(posthog: PostHogModule, consent: ConsentState): void {
+  if (consent === "granted") {
+    posthog.set_config({
+      persistence: "localStorage+cookie",
+      disable_surveys: false,
+    });
+    posthog.startSessionRecording();
+    flushPending();
+    return;
+  }
+  posthog.stopSessionRecording();
+  posthog.set_config({
+    persistence: "memory",
+    disable_surveys: true,
+  });
+  clearLegacyOptOut(posthog);
+  clearPostHogBrowserStorage();
+}
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  const [consent, setConsent] = useState<ConsentState>("unset");
+  // null until we've read localStorage, so a returning Accept isn't briefly
+  // initialised cookieless.
+  const [consent, setConsent] = useState<ConsentState | null>(null);
   const pathname = usePathname();
   const initialised = useRef(false);
+  const mode = useRef<"full" | "cookieless" | null>(null);
+  const capturedPath = useRef<string | null>(null);
 
-  // Read stored consent after mount. Reading during render would touch
-  // localStorage during SSR and mismatch on hydration.
   useEffect(() => {
     setConsent(readConsent());
     function onChange(event: Event) {
@@ -48,56 +131,62 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-    const host =
-      process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://eu.i.posthog.com";
-    if (!key) return;
+    if (!key || consent === null) return;
 
-    if (consent === "granted" && !initialised.current) {
-      initialised.current = true;
-      void import("posthog-js").then(({ default: posthog }) => {
-        posthog.init(key, {
-          api_host: host,
-          // Data minimisation: without an explicit identify() call this creates
-          // no person profile at all, so anonymous visitors leave events but no
-          // stored profile. Funnels and trends still work.
-          person_profiles: "identified_only",
-          // App Router does not emit the history events posthog watches for, so
-          // pageviews are captured manually in the effect below.
-          capture_pageview: false,
-          capture_pageleave: true,
-          session_recording: {
-            // Aggressive masking. Learners type exam answers and personal
-            // details into this app; recording them would turn replay into a
-            // second copy of their coursework and contact details.
-            maskAllInputs: true,
-            maskTextSelector: "*",
-          },
-        });
+    let cancelled = false;
+    const want = consent === "granted" ? "full" : "cookieless";
+
+    void import("posthog-js").then(({ default: posthog }) => {
+      if (cancelled) return;
+
+      if (!initialised.current) {
+        initialised.current = true;
+        posthog.init(key, posthogBrowserInitConfig(consent));
         posthogInstance = posthog;
+        mode.current = want;
+        if (want === "cookieless") {
+          clearLegacyOptOut(posthog);
+          clearPostHogBrowserStorage();
+        } else {
+          flushPending();
+        }
+        capturedPath.current = window.location.pathname;
         posthog.capture("$pageview");
-      });
-    }
+        return;
+      }
 
-    if (consent === "denied" && posthogInstance) {
-      posthogInstance.opt_out_capturing();
-      posthogInstance.reset();
-    }
+      if (mode.current === want) {
+        if (want === "cookieless") {
+          clearLegacyOptOut(posthog);
+          clearPostHogBrowserStorage();
+        } else {
+          flushPending();
+        }
+        return;
+      }
+      applyTrackingMode(posthog, consent);
+      mode.current = want;
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [consent]);
 
-  // Manual pageview on client-side navigation.
+  // Client-side navigations. The landing view is captured at init.
   useEffect(() => {
-    if (consent !== "granted" || !posthogInstance || !pathname) return;
+    if (!pathname || !posthogInstance) return;
+    if (capturedPath.current === pathname) return;
+    capturedPath.current = pathname;
     posthogInstance.capture("$pageview");
-  }, [pathname, consent]);
+  }, [pathname]);
 
   return <>{children}</>;
 }
 
 /**
- * Safe accessor for custom event tracking elsewhere in the app.
- * Returns null when the user hasn't consented, so callers never need to guard.
- *
- * Usage: capture("quiz_completed", { lo_id: "1.1", score: 8 })
+ * Custom events. Sends before consent as well: the SDK is in memory
+ * persistence, so this does not set a cookie. No-ops until init finishes.
  */
 export function capture(
   event: string,
@@ -108,26 +197,37 @@ export function capture(
 
 /**
  * Associates subsequent events with a stable user. Required for retention,
- * cohorts and any per-user funnel — with `person_profiles: "identified_only"`
+ * cohorts and any per-user funnel. With `person_profiles: "identified_only"`
  * PostHog creates no profile at all until this fires.
  *
- * Pass the Supabase user UUID only. Never email, never name: ANALYTICS_SPEC.md
- * §5 forbids PII in PostHog, and a UUID is enough to join back to Supabase
- * when we need the human behind a number.
+ * Pass the Supabase user UUID only. Never email, never name.
+ * Held back until cookie consent: a UUID is a persistent identifier.
  */
 export function identify(
   userId: string,
   properties?: Record<string, unknown>,
 ): void {
-  posthogInstance?.identify(userId, properties);
+  if (readConsent() !== "granted") {
+    pendingIdentify = null;
+    return;
+  }
+  if (!posthogInstance) {
+    pendingIdentify = { userId, properties };
+    return;
+  }
+  posthogInstance.identify(userId, properties);
 }
 
 /**
  * Update person properties without changing distinct_id. Use when the layout
- * already has the value (e.g. dashboard tier) — do not fetch just to set this.
+ * already has the value (e.g. dashboard tier). Held back until consent, same
+ * as identify().
  */
-export function setPersonProperties(
-  properties: Record<string, string | number | boolean | null>,
-): void {
-  posthogInstance?.setPersonProperties(properties);
+export function setPersonProperties(properties: PersonProps): void {
+  if (readConsent() !== "granted") return;
+  if (!posthogInstance) {
+    pendingPerson = { ...pendingPerson, ...properties };
+    return;
+  }
+  posthogInstance.setPersonProperties(properties);
 }

@@ -5,7 +5,7 @@
  * Distinct IDs must match client `identify()` — Supabase user UUID, never email.
  */
 
-const DEFAULT_EU_HOST = "https://eu.i.posthog.com";
+import { resolvePostHogServerHost } from "@/lib/analytics/posthog-hosts";
 
 export async function captureServer(
   distinctId: string,
@@ -19,9 +19,7 @@ export async function captureServer(
   },
 ): Promise<void> {
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  const host = (
-    process.env.NEXT_PUBLIC_POSTHOG_HOST ?? DEFAULT_EU_HOST
-  ).replace(/\/+$/, "");
+  const host = resolvePostHogServerHost();
 
   if (!apiKey || !distinctId) return;
 

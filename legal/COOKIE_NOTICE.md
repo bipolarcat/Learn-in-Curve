@@ -1,5 +1,5 @@
 # Cookie Policy - Learn in Curve
-*Last updated: 22 September 2026*
+*Last updated: 7 October 2026*
 
 ## 1. Introduction
 At Learn in Curve ("we", "us"), we believe in being clear and transparent about how we collect and use data related to you. This Cookie Policy applies to learnincurve.com and explains how we use cookies and similar tracking technologies to ensure our platform functions securely and effectively.
@@ -14,8 +14,11 @@ This notice is kept separate from our general Privacy Policy to make it easy for
 
 Because these are strictly necessary for the service to function, UK and EU privacy regulations (PECR and GDPR) do not require prior consent to set them.
 
-### 2.2 Analytics (only with your consent)
-If — and only if — you select **Accept** on our cookie banner, we load **PostHog**, a product analytics tool, which sets cookies and local storage entries in your browser. If you select Reject, or if you make no choice at all, the PostHog script is never downloaded and no analytics cookie is set.
+### 2.2 Anonymous visit counts (no cookie)
+If you have not chosen yet, or if you select **Reject**, we still count anonymous visits with **PostHog** so we can see which pages and ad links are used. That count does not set a cookie, does not use local storage or session storage, and does not include session replay. It covers pages you open, the link that brought you (including campaign parameters such as `utm_source`), and the same on-site actions we already record after you accept, such as starting a free mock exam. Your IP address is discarded at the point of collection and is never stored. This is not advertising, and we never sell or share it with advertisers.
+
+### 2.3 Analytics cookies (only with your consent)
+If — and only if — you select **Accept** on our cookie banner, PostHog also sets cookies and local storage entries in your browser so later visits can be tied to the same browser, and session replay can run. If you select Reject, or if you make no choice at all, no analytics cookie is set and session replay stays off.
 
 We use PostHog to understand which lessons and features are actually used, where learners get stuck or drop out, and which parts of the platform are worth improving. We do not use it for advertising, and we never sell or share this data with advertisers.
 
@@ -33,7 +36,7 @@ We use PostHog to understand which lessons and features are actually used, where
 ## 3. Changing Your Mind
 You can withdraw or change your consent at any time, and it is as easy as giving it. Use the
 **Change cookie settings** button below: it brings the cookie banner back so you can choose
-again. If you then select Reject, PostHog is switched off and its identifier is cleared.
+again. If you then select Reject, analytics cookies and session replay are switched off and the cookie identifier is cleared. Anonymous visit counts, which do not use a cookie, continue.
 
 Clearing site data for learnincurve.com in your browser settings does the same thing, if you
 prefer to work that way.

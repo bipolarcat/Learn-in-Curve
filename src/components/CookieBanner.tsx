@@ -46,9 +46,10 @@ const FOCUS =
 /**
  * Sitewide cookie consent: a compact pill in the bottom-left corner.
  *
- * This is a real consent gate, not an acknowledgement. PostHog analytics and
- * session replay are non-essential cookies, so under UK PECR reg 6 they cannot
- * load until the visitor actively accepts. Two rules follow, and neither is
+ * This is a real consent gate, not an acknowledgement. Analytics cookies and
+ * session replay are non-essential, so under UK PECR reg 6 they cannot load
+ * until the visitor actively accepts. Anonymous cookieless counts still run
+ * before a choice and after Reject. Two rules follow, and neither is
  * cosmetic:
  *
  *   1. Reject is the same size and weight as Accept. Demoting it to a text
@@ -70,7 +71,8 @@ const FOCUS =
  * resetConsent() and brings this back via CONSENT_EVENT.
  *
  * The choice is read by src/lib/analytics/consent.ts, which PostHogProvider
- * watches. Until "granted", no analytics script is even downloaded.
+ * watches. Until "granted", analytics stays cookieless: no cookie, no
+ * replay. Reject keeps it that way.
  */
 export function CookieBanner() {
   const pathname = usePathname();
@@ -152,7 +154,8 @@ export function CookieBanner() {
           <p className="mt-2 text-[13px] leading-relaxed text-ink/75">
             We use one strictly necessary cookie to keep you signed in. We’d also
             like analytics cookies to see which lessons work and where people get
-            stuck. No ads, ever.
+            stuck. If you don’t choose, or you reject, we still count anonymous
+            visits without cookies or recordings. No ads, ever.
           </p>
           <div className="mt-4 flex items-center gap-5">
             <Link

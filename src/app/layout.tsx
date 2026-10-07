@@ -144,8 +144,8 @@ export default function RootLayout({
       <body className="min-h-screen" suppressHydrationWarning>
         <ThemeRoutePolicy />
         {/*
-          PostHog wraps children so route changes are visible to it, but it
-          loads nothing until cookie consent is granted — see PostHogProvider.
+          PostHog wraps children so route changes are visible to it. Before
+          Accept it sends cookieless events only. See PostHogProvider.
         */}
         <PostHogProvider>
           <AttributionCapture />

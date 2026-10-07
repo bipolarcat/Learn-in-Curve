@@ -1,4 +1,6 @@
 # Pre-Launch Legal Checklist — Learn in Curve
+Last updated: 7 October 2026
+
 
 **Do not publish the live site to real users until every box below is checked.**
 This is the gate referenced in `BUSINESS_STATE.md` — if you're reading this
@@ -87,7 +89,13 @@ decision below are independent of the payment question.
       trailing 12 months) — drafted by Claude, **not sized or reviewed by a
       solicitor**, published anyway per the 2026-07-10 conscious-risk
       decision above.
-- [ ] `COOKIE_NOTICE.md` — **partially stale risk (2026-07-08):** Intercom
+- [ ] `COOKIE_NOTICE.md` — **2026-10-07:** notice and privacy policy now
+      describe anonymous cookieless PostHog counts (no cookie, no replay)
+      before a choice and after Reject, plus the first-party proxy. Lawful
+      basis stated as legitimate interests. Informal draft only: a solicitor
+      should confirm that wording before you treat it as signed off. The
+      Intercom item below is still open.
+      **partially stale risk (2026-07-08):** Intercom
       Messenger is now wired (`IntercomProvider` / `SendFeedbackButton`) but
       dormant without `NEXT_PUBLIC_INTERCOM_APP_ID`. Notice + Privacy §3/§4
       already document the dormancy. **2026-07-28:** on-site acknowledgement

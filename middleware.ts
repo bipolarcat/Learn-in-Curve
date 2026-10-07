@@ -1,4 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
+import {
+  headersForPostHogProxy,
+  isPostHogProxyPath,
+} from "@/lib/analytics/posthog-hosts";
 import { updateSession } from "@/lib/supabase/middleware";
 
 /**
@@ -19,6 +23,14 @@ function redirectLegacyPfq(request: NextRequest): NextResponse | null {
 }
 
 export async function middleware(request: NextRequest) {
+  // Rewrites proxy this path to PostHog. Skip the Supabase session lookup
+  // and strip cookies so auth tokens are not forwarded.
+  if (isPostHogProxyPath(request.nextUrl.pathname)) {
+    return NextResponse.next({
+      request: { headers: headersForPostHogProxy(request.headers) },
+    });
+  }
+
   const legacy = redirectLegacyPfq(request);
   if (legacy) return legacy;
   const response = await updateSession(request);

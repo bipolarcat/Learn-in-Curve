@@ -15,6 +15,16 @@ capture — see §6.
 
 ## 1. Consent gating — non-negotiable, ships with LIC-11
 
+**Superseded 2026-10-07 for cookieless events.** The ads test showed that
+waiting for Accept made Reddit clicks invisible. The SDK now initialises
+immediately with `persistence: "memory"` (no cookie, no localStorage, no
+session replay) and sends pageviews plus the existing funnel events through
+the first-party `/rq` proxy. Accept switches to `localStorage+cookie` and
+replay via `set_config`, keeping the same distinct id. Reject stays on
+memory. `cookieless_mode: "on_reject"` was not used: it sends nothing until
+the visitor chooses. Cookie and replay consent is unchanged. The paragraphs
+below describe the original cookie gate and are kept as history.
+
 PostHog must not fire — no script load, no init — until the user has
 accepted non-essential cookies via the LIC-11 banner. This is a hard
 sequencing dependency, not a nice-to-have:
