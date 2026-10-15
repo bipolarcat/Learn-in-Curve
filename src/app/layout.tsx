@@ -35,6 +35,40 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
+/**
+ * Sitewide Organization + WebSite structured data (SEO audit, 2026-10-15).
+ * Before this, only /about carried an Organization node, and /about is not
+ * indexed, so Google had nothing tying the brand name, logo, socials and
+ * founder to the homepage. @ids match the ones /about uses so the graphs merge.
+ */
+const SITE_JSON_LD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Learn in Curve",
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon.png`,
+      description:
+        "Exam revision for the APM PMQ and PFQ: free mock exams, structured courses and AI tutoring.",
+      founder: { "@id": `${SITE_URL}/about#sim` },
+      sameAs: [
+        "https://www.linkedin.com/company/learn-in-curve/",
+        "https://www.instagram.com/learn.in.curve/",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Learn in Curve",
+      url: SITE_URL,
+      inLanguage: "en-GB",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
+}).replace(/</g, "\\u003c");
+
 const ROOT_TITLE = buildTitle("APM PMQ & PFQ Exam Revision");
 const ROOT_DESCRIPTION =
   "Interactive exam revision for the APM PMQ and PFQ. Free mock exams, structured courses, and AI tutoring, wherever you are on the curve.";
@@ -66,7 +100,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${fraunces.variable} ${figtree.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
     >
@@ -142,6 +176,10 @@ export default function RootLayout({
         reasoning as the <html> opt-out above; children still hydrate normally.
       */}
       <body className="min-h-screen" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: SITE_JSON_LD }}
+        />
         <ThemeRoutePolicy />
         {/*
           PostHog wraps children so route changes are visible to it. Before

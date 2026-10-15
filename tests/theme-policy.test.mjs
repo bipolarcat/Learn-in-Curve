@@ -93,7 +93,7 @@ test("every public page is light, whatever is stored", () => {
   const publicPaths = [
     "/",
     "/about",
-    "/careers",
+    "/contact",
     "/privacy",
     "/terms",
     "/courses",

@@ -44,6 +44,56 @@ const footerLinkClass =
   "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-2.5 text-[13px] font-medium tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-[var(--orange-on-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
 
 /**
+ * Crawlable site map in the footer (SEO audit, 2026-10-15).
+ *
+ * Why this exists: the header menu only renders its links after a click, so in
+ * the server HTML Google sees the logo, About and the legal pages and nothing
+ * else. Search Console showed 22 URLs "Discovered, not indexed" and the Library
+ * had no incoming link from the homepage at all. Real <a href> links here put
+ * every money page and the main guides one hop from every page on the site.
+ *
+ * Keep these as plain hardcoded paths: this component ships in the client
+ * bundle (ConditionalSiteFooter is a client component), so importing the
+ * library content index here would pull every article into the bundle.
+ * If a slug changes, update it here too.
+ */
+const footerGroups: {
+  heading: { href: string; label: string };
+  links: { href: string; label: string }[];
+}[] = [
+  {
+    heading: { href: "/courses", label: "All Courses" },
+    links: [
+      { href: "/courses/pmq-in-5-days/pricing", label: "APM PMQ in 5 Days" },
+      { href: "/courses/pfq-in-2-days/pricing", label: "PFQ in 2 Days" },
+    ],
+  },
+  {
+    heading: { href: "/mock-me", label: "Mock Me" },
+    links: [
+      { href: "/free-mock-exam/apm-pmq", label: "Free APM PMQ mock exam" },
+      { href: "/free-mock-exam/apm-pfq", label: "Free APM PFQ mock exam" },
+      { href: "/free-mock-exam/pmp", label: "Free PMP readiness check" },
+    ],
+  },
+  {
+    heading: { href: "/library", label: "The Library" },
+    links: [
+      { href: "/library/how-hard-is-apm-pmq", label: "How hard is the APM PMQ?" },
+      { href: "/library/apm-pmq-pass-mark", label: "APM PMQ pass mark" },
+      { href: "/library/apm-pmq-exam-format", label: "APM PMQ exam format" },
+      { href: "/library/apm-pmq-vs-pfq", label: "APM PMQ vs PFQ" },
+    ],
+  },
+];
+
+const footerGroupHeadingClass =
+  "mb-1 inline-flex min-h-9 items-center text-[13px] font-semibold leading-snug tracking-tight text-[var(--orange-on-ink)] transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+
+const footerGroupLinkClass =
+  "inline-flex min-h-9 items-center text-[13px] leading-snug tracking-tight text-cream/70 transition-colors duration-150 ease-[var(--ease-out-quint)] hover:text-[var(--orange-on-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--orange-on-ink)] focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+
+/**
  * Full-bleed ink footer — compact brand/social + links row, then newsletter.
  *
  * Course disclaimer is opt-in via `showApmDisclaimer` (LIC-48), wording via
@@ -98,6 +148,9 @@ export function SiteFooter({
             <Link href="/about" className={footerLinkClass}>
               About
             </Link>
+            <Link href="/contact" className={footerLinkClass}>
+              Contact
+            </Link>
             <Link href="/privacy" className={footerLinkClass}>
               Privacy
             </Link>
@@ -113,6 +166,28 @@ export function SiteFooter({
             />
           </nav>
         </div>
+
+        <nav
+          aria-label="Site map"
+          className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-cream/[0.08] pt-4 sm:grid-cols-3"
+        >
+          {footerGroups.map((group) => (
+            <div key={group.heading.href} className="min-w-0">
+              <Link href={group.heading.href} className={footerGroupHeadingClass}>
+                {group.heading.label}
+              </Link>
+              <ul className="flex flex-col">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={footerGroupLinkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
 
         <section
           id="newsletter"

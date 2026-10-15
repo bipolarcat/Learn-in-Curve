@@ -26,8 +26,6 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   "/privacy": "2026-07-20",
   "/terms": "2026-07-20",
   "/cookies": "2026-07-20",
-  "/recruitment-privacy": "2026-07-20",
-  "/careers": "2026-07-20",
 };
 
 /**

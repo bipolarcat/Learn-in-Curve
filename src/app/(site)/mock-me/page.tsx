@@ -14,7 +14,7 @@ const SITE_URL =
 
 const PAGE_TITLE = "Mock Me - Free PMQ, PFQ and PMP Readiness Checks";
 const PAGE_DESCRIPTION =
-  "Pick a free readiness check: APM PMQ, APM PFQ, or PMP. No account required.";
+  "Free APM PMQ, APM PFQ and PMP mock exam questions in real exam format. Pick a readiness check, get your score and see where to focus. No account required.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

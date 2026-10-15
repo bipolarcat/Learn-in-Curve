@@ -45,6 +45,20 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // Careers page removed 2026-10-15 (no hiring planned). 301 so the
+        // already-discovered URL drops out of Google cleanly.
+        source: "/careers",
+        destination: "/",
+        statusCode: 301 as const,
+      },
+      {
+        // Recruitment Privacy Notice removed with Careers (no hiring). Source
+        // copy kept in legal/RECRUITMENT_PRIVACY_NOTICE.md if hiring restarts.
+        source: "/recruitment-privacy",
+        destination: "/privacy",
+        statusCode: 301 as const,
+      },
+      {
         source: "/pfq",
         destination: "/courses/pfq-in-2-days/pricing",
         statusCode: 301 as const,

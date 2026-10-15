@@ -18,8 +18,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sim Samaar Shened, Founder of Learn in Curve",
     url: `${SITE_URL}/about`,
+    description:
+      "Sim Samaar Shened is the founder of Learn in Curve, an AI-first platform helping project managers prepare for the APM PMQ and PFQ with honest, practical study tools.",
     type: "profile",
     images: [{ url: `${SITE_URL}/brand/sim-profile.jpg` }],
+  },
+  // Without this block the page inherited the root layout's homepage title and
+  // description on X/Slack/Teams cards (found in the 2026-10-15 SEO audit).
+  twitter: {
+    card: "summary",
+    title: "Sim Samaar Shened, Founder of Learn in Curve",
+    description:
+      "Sim Samaar Shened is the founder of Learn in Curve, an AI-first platform helping project managers prepare for the APM PMQ and PFQ.",
+    images: [`${SITE_URL}/brand/sim-profile.jpg`],
   },
 };
 
@@ -37,6 +48,15 @@ const founderJsonLd = JSON.stringify({
       url: `${SITE_URL}/about`,
       image: `${SITE_URL}/brand/sim-profile.jpg`,
       jobTitle: "Founder",
+      description:
+        "Project management professional and founder of Learn in Curve. Trained as an architect, delivered infrastructure and rail programmes in London, holds the APM Project Management Qualification (PMQ).",
+      knowsAbout: [
+        "APM Project Management Qualification (PMQ)",
+        "APM Project Fundamentals Qualification (PFQ)",
+        "Project management",
+        "Project controls",
+        "AI in education",
+      ],
       worksFor: { "@id": `${SITE_URL}/#organization` },
       alumniOf: [
         { "@type": "CollegeOrUniversity", name: "Heriot-Watt University" },
