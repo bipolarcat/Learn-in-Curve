@@ -8,6 +8,10 @@ import {
   type ConsentState,
 } from "@/lib/analytics/consent";
 import { posthogBrowserInitConfig } from "@/lib/analytics/posthog-hosts";
+import {
+  anonIdFromSearch,
+  searchWithoutAnonId,
+} from "@/lib/analytics/checkout-return";
 
 /**
  * PostHog.
@@ -34,6 +38,28 @@ import { posthogBrowserInitConfig } from "@/lib/analytics/posthog-hosts";
 type PostHogModule = typeof import("posthog-js")["default"];
 
 let posthogInstance: PostHogModule | null = null;
+
+/**
+ * Anonymous id carried through the Stripe return URL. Cached at module scope
+ * so a Strict Mode remount still has it after the first read strips the URL.
+ */
+let checkoutAnonId: string | undefined;
+
+function checkoutBootstrapId(): string | undefined {
+  if (checkoutAnonId) return checkoutAnonId;
+  if (typeof window === "undefined") return undefined;
+  const id = anonIdFromSearch(window.location.search);
+  if (id) checkoutAnonId = id;
+  return checkoutAnonId;
+}
+
+function stripCheckoutAnonIdFromUrl(): void {
+  if (typeof window === "undefined") return;
+  const nextSearch = searchWithoutAnonId(window.location.search);
+  if (nextSearch === window.location.search) return;
+  const url = `${window.location.pathname}${nextSearch}${window.location.hash}`;
+  window.history.replaceState(window.history.state, "", url);
+}
 
 type PersonProps = Record<string, string | number | boolean | null>;
 
@@ -136,12 +162,20 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
     const want = consent === "granted" ? "full" : "cookieless";
 
+    const bootId = checkoutBootstrapId();
+
     void import("posthog-js").then(({ default: posthog }) => {
       if (cancelled) return;
 
       if (!initialised.current) {
         initialised.current = true;
-        posthog.init(key, posthogBrowserInitConfig(consent));
+        if (bootId) stripCheckoutAnonIdFromUrl();
+        posthog.init(key, {
+          ...posthogBrowserInitConfig(consent),
+          ...(bootId
+            ? { bootstrap: { distinctID: bootId, isIdentifiedID: false } }
+            : {}),
+        });
         posthogInstance = posthog;
         mode.current = want;
         if (want === "cookieless") {
@@ -188,6 +222,22 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
  * Custom events. Sends before consent as well: the SDK is in memory
  * persistence, so this does not set a cookie. No-ops until init finishes.
  */
+/** In-memory PostHog ids. Empty until init finishes. Does not read or write cookies. */
+export function getAnalyticsIdentity(): {
+  distinctId?: string;
+  sessionId?: string;
+} {
+  if (!posthogInstance) return {};
+  const sessionId =
+    typeof posthogInstance.get_session_id === "function"
+      ? posthogInstance.get_session_id()
+      : undefined;
+  return {
+    distinctId: posthogInstance.get_distinct_id(),
+    sessionId: sessionId || undefined,
+  };
+}
+
 export function capture(
   event: string,
   properties?: Record<string, unknown>,

@@ -10,7 +10,11 @@ import {
 } from "@/lib/pmq/plans";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
-import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
+import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import {
+  readCheckoutAnalyticsContext,
+  trackGuestCheckoutClick,
+} from "@/lib/analytics/checkout-client";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 
 type PmqProCheckoutButtonProps = {
@@ -65,12 +69,9 @@ export function PmqProCheckoutButton({
       location: "pro_checkout_button",
       price_cents: SLY_UNLOCK_PRICE_CENTS,
     });
-    trackCheckoutStarted({
-      product: "pro",
-      price_cents: SLY_UNLOCK_PRICE_CENTS,
-    });
+    const analytics = readCheckoutAnalyticsContext();
     startTransition(async () => {
-      const result = await createAiTutorCheckout({ returnPath });
+      const result = await createAiTutorCheckout({ returnPath, analytics });
       if ("error" in result && result.error) {
         startedRef.current = false;
         setError(result.error);
@@ -86,6 +87,11 @@ export function PmqProCheckoutButton({
 
   const handleClick = () => {
     if (!isSignedIn) {
+      trackGuestCheckoutClick({
+        product: "pro",
+        priceCents: SLY_UNLOCK_PRICE_CENTS,
+        course: "pmq",
+      });
       router.push(
         authHrefWithNext("/auth/sign-up", PMQ_PRICING_PRO_INTENT_HREF),
       );

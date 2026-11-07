@@ -24,7 +24,6 @@ import {
 import { getPfqDashboardCardState } from "@/lib/pfq/lesson-actions";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { DashboardPmqCourseCard } from "@/components/pmq/DashboardPmqCourseCard";
-import { CheckoutCompletedBeacon } from "@/components/pmq/CheckoutCompletedBeacon";
 import { DashboardAnalyticsPerson } from "@/components/analytics/DashboardAnalyticsPerson";
 import { CourseReportCard } from "@/components/pmq/CourseReportCard";
 import { DashboardInboxBell } from "@/components/DashboardInboxBell";
@@ -59,7 +58,6 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   }
 
   const topUpSuccess = params.sly_topup === "1";
-  const tutorUnlockSuccess = params.tutor_unlocked === "1";
 
   const [courses, profile] = await Promise.all([
     getUserCourses(user.id, supabase),
@@ -163,15 +161,6 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
         totalXp={stats?.total_xp ?? 0}
         losCompleted={completedSectionIds.length}
       />
-      {topUpSuccess ? (
-        <CheckoutCompletedBeacon product="sly_topup" priceCents={0} />
-      ) : null}
-      {tutorUnlockSuccess ? (
-        <CheckoutCompletedBeacon
-          product="pro"
-          priceCents={tutorPriceCents}
-        />
-      ) : null}
       <div className="relative z-20 mx-auto max-w-wrap">
         <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <h1

@@ -7,6 +7,15 @@ import { isQaMode } from "@/lib/qa";
 import { PMQ_COURSE_ID, pmqLoHref, PMQ_SLUG } from "@/lib/pmq/constants";
 import { planFeatureValue } from "@/lib/pmq/plans";
 import { getSafeNextPath } from "@/lib/auth-next";
+import { trackCheckoutStartedServer } from "@/lib/analytics/checkout-track";
+import {
+  anonDistinctIdForReturn,
+  checkoutAnalyticsMetadata,
+  checkoutAppOrigin,
+  checkoutReturnUrls,
+  sanitizeSourcePath,
+  type CheckoutAnalyticsContext,
+} from "@/lib/analytics/checkout-return";
 import {
   getAiTutorEntitlement,
   getPmqQuizSetQuestions,
@@ -814,6 +823,7 @@ const TOPUP_DIGITAL_CONTENT_CONSENT: Pick<
 export async function createAiTutorCheckout(input: {
   loNumber?: number;
   returnPath?: string;
+  analytics?: CheckoutAnalyticsContext;
 } = {}) {
   const supabase = await createClient();
   const {
@@ -825,7 +835,7 @@ export async function createAiTutorCheckout(input: {
   }
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = checkoutAppOrigin();
 
   if (!stripeKey) {
     return { error: "Stripe is not configured" };
@@ -850,6 +860,20 @@ export async function createAiTutorCheckout(input: {
     input.returnPath,
     pmqLoHref(input.loNumber ?? 1),
   );
+  const checkoutRef = crypto.randomUUID();
+  const anonDistinctId = anonDistinctIdForReturn({
+    userId: user.id,
+    analytics: input.analytics,
+  });
+  const { success_url, cancel_url } = checkoutReturnUrls({
+    origin: appUrl,
+    returnPath,
+    course: "pmq",
+    product: "pro",
+    checkoutRef,
+    anonDistinctId,
+    successFlags: { tutor_unlocked: "1" },
+  });
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
@@ -887,12 +911,34 @@ export async function createAiTutorCheckout(input: {
       // The tier this purchase grants. Read by the Stripe webhook and written
       // straight into `feature_entitlements.feature` — see tiers.ts.
       feature: "pro",
+      ...checkoutAnalyticsMetadata({
+        checkoutRef,
+        userId: user.id,
+        analytics: input.analytics,
+      }),
     },
     ...DIGITAL_CONTENT_CONSENT,
-    success_url: `${appUrl}${returnPath}${returnPath.includes("?") ? "&" : "?"}tutor_unlocked=1`,
-    cancel_url: `${appUrl}${returnPath}`,
+    success_url,
+    cancel_url,
     customer_email: user.email ?? undefined,
   });
+
+  try {
+    await trackCheckoutStartedServer({
+      userId: user.id,
+      stripeSessionId: session.id,
+      checkoutRef,
+      product: "pro",
+      course: "pmq",
+      priceCents,
+      sourcePath:
+        sanitizeSourcePath(input.analytics?.sourcePath) ??
+        sanitizeSourcePath(returnPath),
+      analytics: input.analytics,
+    });
+  } catch (err) {
+    console.error("PostHog checkout_started failed", err);
+  }
 
   if (!session.url) {
     return { error: "Could not create checkout session" };
@@ -904,6 +950,7 @@ export async function createAiTutorCheckout(input: {
 export async function createSlyTopUpCheckout(input: {
   amountCents: number;
   returnPath?: string;
+  analytics?: CheckoutAnalyticsContext;
 }) {
   const supabase = await createClient();
   const {
@@ -936,7 +983,7 @@ export async function createSlyTopUpCheckout(input: {
   }
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = checkoutAppOrigin();
 
   if (!stripeKey) {
     return { error: "Stripe is not configured" };
@@ -946,6 +993,20 @@ export async function createSlyTopUpCheckout(input: {
   const Stripe = (await import("stripe")).default;
   const stripe = new Stripe(stripeKey);
   const returnPath = getSafeNextPath(input.returnPath, "/dashboard");
+  const checkoutRef = crypto.randomUUID();
+  const anonDistinctId = anonDistinctIdForReturn({
+    userId: user.id,
+    analytics: input.analytics,
+  });
+  const { success_url, cancel_url } = checkoutReturnUrls({
+    origin: appUrl,
+    returnPath,
+    course: "pmq",
+    product: "sly_topup",
+    checkoutRef,
+    anonDistinctId,
+    successFlags: { sly_topup: "1" },
+  });
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
@@ -968,12 +1029,34 @@ export async function createSlyTopUpCheckout(input: {
       course_id: PMQ_COURSE_ID,
       feature: "ai_tutor_topup",
       amount_cents: String(amountCents),
+      ...checkoutAnalyticsMetadata({
+        checkoutRef,
+        userId: user.id,
+        analytics: input.analytics,
+      }),
     },
     ...TOPUP_DIGITAL_CONTENT_CONSENT,
-    success_url: `${appUrl}${returnPath}?sly_topup=1`,
-    cancel_url: `${appUrl}${returnPath}`,
+    success_url,
+    cancel_url,
     customer_email: user.email ?? undefined,
   });
+
+  try {
+    await trackCheckoutStartedServer({
+      userId: user.id,
+      stripeSessionId: session.id,
+      checkoutRef,
+      product: "sly_topup",
+      course: "pmq",
+      priceCents: amountCents,
+      sourcePath:
+        sanitizeSourcePath(input.analytics?.sourcePath) ??
+        sanitizeSourcePath(returnPath),
+      analytics: input.analytics,
+    });
+  } catch (err) {
+    console.error("PostHog checkout_started failed", err);
+  }
 
   if (!session.url) {
     return { error: "Could not create checkout session" };

@@ -3,6 +3,7 @@ import {
   setPersonProperties,
 } from "@/components/PostHogProvider";
 import { getAttribution } from "@/lib/analytics/attribution";
+import { isLiveAnalyticsBrowser } from "@/lib/analytics/live-host";
 
 /**
  * Every custom PostHog event the app fires. Centralised on purpose: a typo in a
@@ -15,6 +16,11 @@ import { getAttribution } from "@/lib/analytics/attribution";
  *
  * `purchase_completed` is server-only (Stripe webhook) — see
  * `src/lib/analytics/purchase.ts`. Do not add a client substitute.
+ * `checkout_started` for a real Stripe session is also server-only
+ * (`checkout-track.ts`). The client function is the guest click, which
+ * never creates a session. `checkout_completed` is the success URL.
+ * `checkout_cancelled` is the cancel URL (or a bare return from Stripe).
+ * `purchase_grant_failed` is the webhook when the entitlement was not written.
  */
 
 /** Product key stamped on tutor / LO events. Not the course UUID. */
@@ -286,18 +292,63 @@ export function trackAiTutorUnlockClicked(props: {
   capture("ai_tutor_unlock_clicked", props);
 }
 
+function captureCheckout(
+  event: string,
+  properties: Record<string, unknown>,
+): void {
+  if (!isLiveAnalyticsBrowser()) return;
+  capture(event, properties);
+}
+
+/** Guest click that cannot open Stripe yet (no account to grant to). */
 export function trackCheckoutStarted(props: {
   product: string;
   price_cents: number;
+  course?: string;
+  source_path?: string;
+  signed_in?: boolean;
 }): void {
-  capture("checkout_started", props);
+  captureCheckout("checkout_started", {
+    ...props,
+    signed_in: props.signed_in ?? false,
+    source_path:
+      props.source_path ??
+      (typeof window !== "undefined" ? window.location.pathname : undefined),
+  });
 }
 
+/** Browser landed on the success URL. Not proof the payment cleared. */
 export function trackCheckoutCompleted(props: {
-  product: string;
-  price_cents: number;
+  product?: string;
+  price_cents?: number;
+  course?: string;
+  source_path?: string;
+  checkout_ref?: string;
+  stripe_session_id?: string;
 }): void {
-  capture("checkout_completed", props);
+  captureCheckout("checkout_completed", {
+    ...props,
+    source_path:
+      props.source_path ??
+      (typeof window !== "undefined" ? window.location.pathname : undefined),
+  });
+}
+
+/** Browser landed on the cancel URL, or came back from Stripe with no success flag. */
+export function trackCheckoutCancelled(props: {
+  product?: string;
+  course?: string;
+  source_path?: string;
+  checkout_ref?: string;
+  stripe_session_id?: string;
+  signal: "cancel_url" | "stripe_referrer";
+}): void {
+  captureCheckout("checkout_cancelled", {
+    ...props,
+    source_path:
+      props.source_path ??
+      (typeof window !== "undefined" ? window.location.pathname : undefined),
+  });
 }
 
 export function trackTopupClicked(props: { amount_cents: number }): void {
