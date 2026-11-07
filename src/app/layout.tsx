@@ -7,6 +7,7 @@ import { ThemeRoutePolicy } from "@/components/ThemeRoutePolicy";
 import { CookieBanner } from "@/components/CookieBanner";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { AttributionCapture } from "@/components/analytics/AttributionCapture";
+import { CheckoutReturnNotice } from "@/components/analytics/CheckoutReturnNotice";
 import { AppToaster } from "@/components/ui/toast";
 import { ProLockHintHost } from "@/components/pmq/ProLockHint";
 import { buildTitle } from "@/lib/seo/title";
@@ -191,7 +192,10 @@ export default function RootLayout({
             Cream + dots live here so body/html can stay ink for iOS
             overscroll (Safari paints body, not html, on rubber-band).
           */}
-          <div className="site-shell">{children}</div>
+          <div className="site-shell">
+            <CheckoutReturnNotice />
+            {children}
+          </div>
         </PostHogProvider>
         <CookieBanner />
         <GrainOverlay />

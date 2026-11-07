@@ -91,7 +91,7 @@ second flag (next experiment, TBD) can reuse the same pattern.
 ## 6. Explicitly out of scope for v1, not forgotten
 
 - Self-hosting PostHog — use PostHog Cloud's free tier (1M events/month).
-- Server-side capture — **superseded 2026-09-11 for `purchase_completed` only.** The Stripe webhook fires that event via `src/lib/analytics/server.ts` + `purchase.ts` (distinct_id = Supabase user UUID, matching `identify()`). A client-only paid event is not a substitute. Other events stay client-side behind consent.
+- Server-side capture — **superseded 2026-09-11 for `purchase_completed`, and 2026-11-07 for the rest of the checkout funnel.** The Stripe webhook fires `purchase_completed` (only after the entitlement or credit write, with `entitlement_granted`) and `purchase_grant_failed` when that write does not happen. Session creation fires `checkout_started`. The browser fires `checkout_completed` on the success URL and `checkout_cancelled` on the cancel URL. Before cookie consent these share the anonymous in-memory id (passed through the return URL, not stored). After Accept they use the same Supabase user UUID as `identify()`. Server events are sent only when the configured site origin is `www.learnincurve.com`. A client-only paid event is not a substitute.
 - ~~Session replay~~ — **superseded 2026-08-07. Replay is intentionally
   live.** See §7.
 

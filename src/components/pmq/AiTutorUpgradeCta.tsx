@@ -7,7 +7,8 @@ import { SlyUnlockInvite } from "@/components/pmq/SlyUnlockInvite";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
 import { PurchaseCtaButton } from "@/components/ui/PurchaseCtaButton";
-import { trackAiTutorUnlockClicked, trackCheckoutStarted } from "@/lib/analytics/events";
+import { trackAiTutorUnlockClicked } from "@/lib/analytics/events";
+import { readCheckoutAnalyticsContext } from "@/lib/analytics/checkout-client";
 import { SLY_UNLOCK_PRICE_CENTS } from "@/lib/tutor/constants";
 import { cn } from "@/lib/utils";
 
@@ -80,14 +81,12 @@ export function AiTutorUpgradeCta({
       location: "ai_tutor_upgrade_cta_compact",
       price_cents: SLY_UNLOCK_PRICE_CENTS,
     });
-    trackCheckoutStarted({
-      product: "pro",
-      price_cents: priceCents,
-    });
+    const analytics = readCheckoutAnalyticsContext();
     startTransition(async () => {
       const result = await createAiTutorCheckout({
         loNumber,
         returnPath,
+        analytics,
       });
       if ("error" in result && result.error) {
         setError(result.error);

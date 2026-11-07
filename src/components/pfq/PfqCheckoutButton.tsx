@@ -13,12 +13,17 @@ import { authHrefWithNext } from "@/lib/auth-next";
 import {
   PFQ_CHECKOUT_ENABLED,
   PFQ_PRICING_PRO_INTENT_HREF,
+  PFQ_PRO_PRICE_CENTS,
   formatPfqPriceGbp,
 } from "@/lib/pfq/constants";
 import { Spinner } from "@/components/ui/spinner";
 import { fieldErrorHint } from "@/components/ui/semantic";
 import { stampCtaPrimary } from "@/components/stamp-chip";
 import { PurchaseCtaButton } from "@/components/ui/PurchaseCtaButton";
+import {
+  readCheckoutAnalyticsContext,
+  trackGuestCheckoutClick,
+} from "@/lib/analytics/checkout-client";
 
 type Props = {
   label?: ReactNode;
@@ -63,6 +68,11 @@ export function PfqCheckoutButton({
   function startCheckout() {
     setError("");
     if (!isSignedIn) {
+      trackGuestCheckoutClick({
+        product: "pro",
+        priceCents: PFQ_PRO_PRICE_CENTS,
+        course: "pfq",
+      });
       router.push(authHrefWithNext("/auth/sign-up", PFQ_PRICING_PRO_INTENT_HREF));
       return;
     }
@@ -73,7 +83,10 @@ export function PfqCheckoutButton({
       return;
     }
     startTransition(async () => {
-      const result = await createPfqCheckout({ returnPath });
+      const result = await createPfqCheckout({
+        returnPath,
+        analytics: readCheckoutAnalyticsContext(),
+      });
       if ("error" in result) {
         setError(result.error);
         return;

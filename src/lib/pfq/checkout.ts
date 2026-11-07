@@ -12,6 +12,15 @@ import { COURSE_STATIC } from "@/lib/courses/registry-data";
 import { getPfqTier } from "@/lib/pfq/entitlement";
 import { pfqTierAtLeast } from "@/lib/pfq/tiers";
 import { getSafeNextPath } from "@/lib/auth-next";
+import { trackCheckoutStartedServer } from "@/lib/analytics/checkout-track";
+import {
+  anonDistinctIdForReturn,
+  checkoutAnalyticsMetadata,
+  checkoutAppOrigin,
+  checkoutReturnUrls,
+  sanitizeSourcePath,
+  type CheckoutAnalyticsContext,
+} from "@/lib/analytics/checkout-return";
 
 /**
  * Consumer Contracts Regulations waiver for digital content.
@@ -36,14 +45,10 @@ const PFQ_DIGITAL_CONTENT_CONSENT: Pick<
   },
 };
 
-function withUnlockedFlag(path: string): string {
-  const sep = path.includes("?") ? "&" : "?";
-  return `${path}${sep}pfq_unlocked=1`;
-}
-
 export async function createPfqCheckout(input: {
   /** Where Stripe Back / cancel and success return. Defaults to pricing. */
   returnPath?: string;
+  analytics?: CheckoutAnalyticsContext;
 } = {}): Promise<{ url: string } | { error: string }> {
   if (!PFQ_CHECKOUT_ENABLED) {
     return {
@@ -69,7 +74,7 @@ export async function createPfqCheckout(input: {
   }
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = checkoutAppOrigin();
 
   if (!stripeKey) {
     return { error: "Stripe is not configured" };
@@ -136,6 +141,20 @@ export async function createPfqCheckout(input: {
         };
 
   const returnPath = getSafeNextPath(input.returnPath, PFQ_PRICING_HREF);
+  const checkoutRef = crypto.randomUUID();
+  const anonDistinctId = anonDistinctIdForReturn({
+    userId: user.id,
+    analytics: input.analytics,
+  });
+  const { success_url, cancel_url } = checkoutReturnUrls({
+    origin: appUrl,
+    returnPath,
+    course: "pfq",
+    product: "pro",
+    checkoutRef,
+    anonDistinctId,
+    successFlags: { pfq_unlocked: "1" },
+  });
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
@@ -147,11 +166,33 @@ export async function createPfqCheckout(input: {
       course_id: PFQ_COURSE_ID,
       feature: "pro",
       product: "pfq",
+      ...checkoutAnalyticsMetadata({
+        checkoutRef,
+        userId: user.id,
+        analytics: input.analytics,
+      }),
     },
     ...PFQ_DIGITAL_CONTENT_CONSENT,
-    success_url: `${appUrl}${withUnlockedFlag(returnPath)}`,
-    cancel_url: `${appUrl}${returnPath}`,
+    success_url,
+    cancel_url,
   });
+
+  try {
+    await trackCheckoutStartedServer({
+      userId: user.id,
+      stripeSessionId: session.id,
+      checkoutRef,
+      product: "pro",
+      course: "pfq",
+      priceCents: PFQ_PRO_PRICE_CENTS,
+      sourcePath:
+        sanitizeSourcePath(input.analytics?.sourcePath) ??
+        sanitizeSourcePath(returnPath),
+      analytics: input.analytics,
+    });
+  } catch (err) {
+    console.error("PostHog checkout_started failed", err);
+  }
 
   if (!session.url) {
     return { error: "Stripe did not return a checkout URL." };

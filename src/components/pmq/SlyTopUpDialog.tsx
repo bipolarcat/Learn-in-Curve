@@ -10,10 +10,8 @@ import {
   SLY_TOPUP_PRESETS_CENTS,
   topUpCreditGbpCents,
 } from "@/lib/tutor/constants";
-import {
-  trackCheckoutStarted,
-  trackTopupClicked,
-} from "@/lib/analytics/events";
+import { trackTopupClicked } from "@/lib/analytics/events";
+import { readCheckoutAnalyticsContext } from "@/lib/analytics/checkout-client";
 
 type SlyTopUpDialogProps = {
   open: boolean;
@@ -90,14 +88,12 @@ export function SlyTopUpDialog({
       return;
     }
     trackTopupClicked({ amount_cents: amountCents });
-    trackCheckoutStarted({
-      product: "sly_topup",
-      price_cents: amountCents,
-    });
+    const analytics = readCheckoutAnalyticsContext();
     startTransition(async () => {
       const result = await createSlyTopUpCheckout({
         amountCents,
         returnPath,
+        analytics,
       });
       if ("error" in result && result.error) {
         setError(result.error);
