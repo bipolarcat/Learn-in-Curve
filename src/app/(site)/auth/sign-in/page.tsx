@@ -27,7 +27,7 @@ export default async function SignInPage({
   const authError = getAuthErrorMessage(params.error);
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-4.5rem)] flex-col items-center justify-center overflow-x-clip px-5 py-6 sm:px-8 sm:py-8">
+    <section className="relative flex min-h-[calc(100dvh-4.5rem)] flex-col items-center justify-start overflow-x-clip px-5 py-6 sm:justify-center sm:px-8 sm:py-8">
       <AuthDeskPanel
         mode="sign-in"
         nextPath={nextPath}
