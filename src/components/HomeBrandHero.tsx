@@ -10,13 +10,13 @@ import { marketingActionSecondary } from "@/components/ui/semantic";
 import { BouncingText } from "@/components/ui/bouncing-text";
 import { AVATARS } from "@/lib/avatars";
 
-/** Primary hero CTA — teal solid, uses shared min-h-11 (no downward !min-h overrides). */
-const HERO_COURSE_CTA =
-  `${stampCtaTealFlat} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
-
-/** Secondary mock CTA — outline/ghost weight so primary reads as the main action. */
+/** Primary hero CTA: the free PMQ mock. Full width on a phone. */
 const HERO_MOCK_CTA =
-  `${marketingActionSecondary} !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!text-[14px]`;
+  `${stampCtaTealFlat} min-h-11 !w-full justify-center !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!w-auto sm:!text-[14px]`;
+
+/** Secondary: browse courses. */
+const HERO_COURSE_CTA =
+  `${marketingActionSecondary} min-h-11 !w-full justify-center !normal-case !text-[13px] !font-semibold !tracking-[-0.01em] sm:!w-auto sm:!text-[14px]`;
 
 /** Profile-selector animals for the hero trust row. */
 const HERO_TRUST_AVATAR_IDS = AVATARS.map((a) => a.id);
@@ -82,7 +82,7 @@ function Headline() {
 
 /**
  * Home brand hero — animals + copy; only “curve” animates in the headline.
- * Two ranked CTAs: Explore Courses (primary) + Mock Me hub (secondary).
+ * Two ranked CTAs: free PMQ mock (primary) + Explore Courses (secondary).
  */
 export function HomeBrandHero() {
   return (
@@ -113,18 +113,19 @@ export function HomeBrandHero() {
 
       <div className="wrap relative z-10">
         <div className="mx-auto mt-3 flex w-full max-w-[58rem] flex-col items-center sm:mt-3.5">
-          <div className="hero-ctas flex w-full flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+          <div className="hero-ctas flex w-full flex-col items-stretch justify-center gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+            <FreeMockExamLink
+              className={HERO_MOCK_CTA}
+              from="home"
+              href="/free-mock-exam/apm-pmq"
+              label="Try the free PMQ mock"
+              location="home_hero"
+              freeMockCta={{ location: "home_hero" }}
+            />
             <ExploreCoursesLink
               className={HERO_COURSE_CTA}
               label="Explore Courses"
               showArrow={false}
-            />
-            <FreeMockExamLink
-              className={HERO_MOCK_CTA}
-              from="home"
-              href="/mock-me"
-              label="Take free mock exams"
-              location="hero"
             />
           </div>
           <div className="mt-3.5 flex w-full flex-col items-center gap-2 sm:mt-4 sm:gap-2.5">
