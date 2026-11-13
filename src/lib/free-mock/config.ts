@@ -8,11 +8,11 @@ import {
   PFQ_ATP_DISCLAIMER,
   PMI_DISCLAIMER,
 } from "@/lib/legal-copy";
-import { AI_PRO_LIST_KEY, PMP_LIST_KEY } from "@/lib/notify/lists";
+import { PMP_LIST_KEY } from "@/lib/notify/lists";
 import { getFreeMockBank } from "@/lib/free-mock/banks";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 
-/** Single results CTA: pricing page, or waitlist dialog (PMQ AI Pro / PMP). */
+/** Single results CTA: pricing page, or waitlist dialog (PMP only). */
 export type FreeMockResultsCtaKind = "pricing" | "waitlist";
 
 export type FreeMockFaq = {
@@ -62,12 +62,12 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     mark: "PMQ",
     questionCount: PMQ_ITEMS.length,
     items: PMQ_ITEMS,
-    resultsCtaKind: "waitlist",
-    ctaHref: null,
+    resultsCtaKind: "pricing",
+    ctaHref: "/courses/pmq-in-5-days/pricing",
     ctaLabel: "See pricing",
-    waitlistNotifyKey: AI_PRO_LIST_KEY,
-    waitlistSubjectLabel: "AI Pro Bundle",
-    waitlistCourseCopy: "the AI Pro Bundle",
+    waitlistNotifyKey: null,
+    waitlistSubjectLabel: null,
+    waitlistCourseCopy: null,
     breakdownNoun: "learning objective",
     breakdownNounPlural: "learning objectives",
     disclaimer: LIBRARY_HUB_APM_DISCLAIMER,
