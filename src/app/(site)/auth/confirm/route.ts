@@ -1,6 +1,10 @@
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
-import { getSafeNextPath } from "@/lib/auth-next";
+import {
+  AUTH_NEXT_COOKIE,
+  readAuthNextCookie,
+  resolveAuthDestination,
+} from "@/lib/auth-return";
 import { createClient } from "@/lib/supabase/server";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import { getSiteOrigin } from "@/lib/site-origin";
@@ -58,7 +62,10 @@ export async function GET(request: Request) {
 
   const tokenHash = searchParams.get("token_hash");
   const rawType = searchParams.get("type");
-  const nextPath = getSafeNextPath(searchParams.get("next"));
+  const nextPath = resolveAuthDestination(
+    searchParams.get("next"),
+    readAuthNextCookie(request.headers.get("cookie")),
+  );
 
   if (tokenHash && isAllowedOtpType(rawType)) {
     const supabase = await createClient();
@@ -68,16 +75,23 @@ export async function GET(request: Request) {
     });
 
     if (!error) {
-      // Password recovery must land on the reset form, not the dashboard —
-      // the user has a session but hasn't chosen a password yet.
+      // Password recovery must land on the reset form, not the dashboard.
+      // The user has a session but has not chosen a password yet. `next`
+      // is where they go after the new password is saved.
       if (rawType === "recovery") {
-        return NextResponse.redirect(new URL("/auth/reset-password", origin));
+        const resetUrl = new URL("/auth/reset-password", origin);
+        resetUrl.searchParams.set("next", nextPath);
+        const response = NextResponse.redirect(resetUrl);
+        response.cookies.set(AUTH_NEXT_COOKIE, "", { path: "/", maxAge: 0 });
+        return response;
       }
 
       // Seed the theme mirror cookie before the first render so a dark-mode
       // user doesn't land light-then-dark. Same reason as /auth/callback.
       await syncThemeCookieFromProfile();
-      return NextResponse.redirect(new URL(nextPath, origin));
+      const response = NextResponse.redirect(new URL(nextPath, origin));
+      response.cookies.set(AUTH_NEXT_COOKIE, "", { path: "/", maxAge: 0 });
+      return response;
     }
 
     console.error("[auth/confirm] verifyOtp failed", {

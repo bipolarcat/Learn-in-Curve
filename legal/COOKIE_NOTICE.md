@@ -1,6 +1,5 @@
 # Cookie Policy - Learn in Curve
-*Last updated: 7 October 2026*
-
+*Last updated: 13 November 2026*
 ## 1. Introduction
 At Learn in Curve ("we", "us"), we believe in being clear and transparent about how we collect and use data related to you. This Cookie Policy applies to learnincurve.com and explains how we use cookies and similar tracking technologies to ensure our platform functions securely and effectively.
 
@@ -10,6 +9,7 @@ This notice is kept separate from our general Privacy Policy to make it easy for
 
 ### 2.1 Strictly necessary (no consent required)
 - **Authentication Cookie (Supabase):** A secure session cookie provided by our backend database infrastructure, Supabase. It is strictly necessary to authenticate your account and keep you signed in as you navigate between pages.
+- **Return path (`lic_auth_next`):** Set for up to one hour when you create an account or ask for a password reset, so the link in the email can bring you back to the page you started from. It is strictly necessary for that step. It is not used for analytics.
 - **Cookie Choice Marker:** When you choose Accept or Reject on our cookie banner, we store your choice (`lic_cookie_consent_v2`) in your browser's Local Storage so we do not ask you again on every page. This records your decision; it does not track you.
 
 Because these are strictly necessary for the service to function, UK and EU privacy regulations (PECR and GDPR) do not require prior consent to set them.

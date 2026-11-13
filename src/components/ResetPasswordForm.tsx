@@ -12,12 +12,16 @@ import {
 } from "@/lib/analytics/events";
 import { createClient } from "@/lib/supabase/client";
 import { formActionPrimary } from "@/components/ui/semantic";
+import { clearAuthNextCookie } from "@/lib/auth-return";
+import { getSafeNextPath } from "@/lib/auth-next";
 import { Spinner } from "@/components/ui/spinner";
 import styles from "@/components/AuthForm.module.css";
 
-const COURSE_PATH = "/courses/pmq-in-5-days";
-
-export function ResetPasswordForm() {
+export function ResetPasswordForm({
+  nextPath = "/dashboard",
+}: {
+  nextPath?: string;
+}) {
   const router = useRouter();
   const supabase = createClient();
   const [password, setPassword] = useState("");
@@ -50,7 +54,8 @@ export function ResetPasswordForm() {
     }
 
     trackPasswordResetCompleted();
-    router.push(COURSE_PATH);
+    clearAuthNextCookie();
+    router.push(getSafeNextPath(nextPath));
     router.refresh();
   }
 

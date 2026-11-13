@@ -731,9 +731,15 @@ export function MockExamRunner({
                 questionIndex ===
                   questions.findIndex((q) => q.part === currentPart)
               }
+              aria-label={
+                questionIndex ===
+                questions.findIndex((q) => q.part === currentPart)
+                  ? "First question in this part"
+                  : "Previous question"
+              }
               onClick={() => goToQuestion(questionIndex - 1)}
             >
-              ← Previous
+              Previous
             </button>
             <button
               type="button"
@@ -743,10 +749,22 @@ export function MockExamRunner({
                 questionIndex ===
                   questions.findLastIndex((q) => q.part === currentPart)
               }
+              aria-label={
+                questionIndex ===
+                questions.findLastIndex((q) => q.part === currentPart)
+                  ? "Last question in this part"
+                  : "Next question"
+              }
               onClick={() => goToQuestion(questionIndex + 1, { scrollToTop: true })}
             >
-              Next →
+              Next
             </button>
+            {questionIndex ===
+            questions.findLastIndex((q) => q.part === currentPart) ? (
+              <p className="m-0 w-full font-body text-[12.5px] text-ink/60" role="status">
+                Last question in this part. Submit the part when you are ready.
+              </p>
+            ) : null}
           </div>
         </div>
       ) : null}

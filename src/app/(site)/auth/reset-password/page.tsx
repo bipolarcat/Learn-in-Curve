@@ -6,12 +6,21 @@ import { quietFormSurface } from "@/components/ui/semantic";
 import { createClient } from "@/lib/supabase/server";
 import styles from "@/components/AuthDeskPanel.module.css";
 import { buildTitle } from "@/lib/seo/title";
+import { getSafeNextPath } from "@/lib/auth-next";
 
 export const metadata: Metadata = {
   title: buildTitle("Set a new password"),
 };
 
-export default async function ResetPasswordPage() {
+type ResetPasswordPageProps = {
+  searchParams?: Promise<{ next?: string | string[] }>;
+};
+
+export default async function ResetPasswordPage({
+  searchParams,
+}: ResetPasswordPageProps) {
+  const params = searchParams ? await searchParams : {};
+  const nextPath = getSafeNextPath(params.next);
   const supabase = await createClient();
   const {
     data: { user },
@@ -20,7 +29,7 @@ export default async function ResetPasswordPage() {
   const hasSession = Boolean(user);
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-4.5rem)] flex-col items-center justify-center overflow-x-clip px-5 py-6 sm:px-8 sm:py-8">
+    <section className="relative flex min-h-[calc(100dvh-4.5rem)] flex-col items-center justify-start overflow-x-clip px-5 py-6 sm:justify-center sm:px-8 sm:py-8">
       <div className="relative w-full max-w-[22rem]">
         <AuthDeskScene />
         <div
@@ -45,7 +54,7 @@ export default async function ResetPasswordPage() {
             </p>
           </div>
           {hasSession ? (
-            <ResetPasswordForm />
+            <ResetPasswordForm nextPath={nextPath} />
           ) : (
             <p className="text-center text-[12.5px] text-ink/45">
               <Link

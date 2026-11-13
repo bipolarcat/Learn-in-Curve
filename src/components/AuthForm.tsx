@@ -18,7 +18,14 @@ import {
   type LastAuthMethod,
 } from "@/lib/auth-hints";
 import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
-import { getAuthFailureReason } from "@/lib/auth-errors";
+import {
+  getAuthFailureReason,
+  getEmailAuthErrorMessage,
+} from "@/lib/auth-errors";
+import {
+  clearAuthNextCookie,
+  writeAuthNextCookie,
+} from "@/lib/auth-return";
 import {
   trackSignInFailed,
   trackSignUpFailed,
@@ -198,6 +205,7 @@ export function AuthForm({
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(initialError);
+  const [suggestGoogle, setSuggestGoogle] = useState(false);
   const [isError, setIsError] = useState(Boolean(initialError));
   const [agreed, setAgreed] = useState(false);
   const [termsError, setTermsError] = useState(false);
@@ -292,6 +300,10 @@ export function AuthForm({
     setMessage(null);
     setIsError(false);
 
+    if (mode === "sign-up") {
+      writeAuthNextCookie(safeNextPath);
+    }
+
     const action =
       mode === "sign-up"
         ? supabase.auth.signUp({
@@ -306,10 +318,12 @@ export function AuthForm({
     const { data, error } = await action;
 
     if (error) {
+      const friendly = getEmailAuthErrorMessage(error, mode);
       setIsError(true);
-      setMessage(error.message);
+      setMessage(friendly.text);
+      setSuggestGoogle(friendly.suggestGoogle);
       setLoading(false);
-      showAuthToast(error.message, "error");
+      showAuthToast(friendly.text, "error");
       const reason = getAuthFailureReason(error);
       if (mode === "sign-up") {
         trackSignUpFailed({ method: "email", reason });
@@ -345,6 +359,7 @@ export function AuthForm({
       trackSignedUp({ signup_method: "email" });
     } else {
       trackSignedIn({ method: "email" });
+      clearAuthNextCookie();
     }
 
     router.push(safeNextPath);
@@ -496,7 +511,7 @@ export function AuthForm({
             />
             {mode === "sign-in" && (
               <Link
-                href="/auth/forgot-password"
+                href={`/auth/forgot-password?next=${encodeURIComponent(safeNextPath)}`}
                 className="mt-1.5 inline-block text-[12px] font-medium text-orange hover:text-orange-dark"
               >
                 Forgot password?
@@ -512,6 +527,15 @@ export function AuthForm({
               {message}
             </p>
           )}
+          {suggestGoogle && isError ? (
+            <button
+              type="button"
+              onClick={() => void handleGoogle()}
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-ink/15 bg-paper px-4 text-[13px] font-semibold text-ink active:scale-[0.98]"
+            >
+              Use Google instead
+            </button>
+          ) : null}
 
           <div className="relative mt-0.5">
             <button
@@ -719,7 +743,7 @@ export function AuthForm({
           />
           {mode === "sign-in" && (
             <Link
-              href="/auth/forgot-password"
+              href={`/auth/forgot-password?next=${encodeURIComponent(safeNextPath)}`}
               className="mt-2 inline-block text-sm font-bold text-primary hover:text-primary-dark"
             >
               Forgot password?
@@ -735,6 +759,15 @@ export function AuthForm({
             {message}
           </p>
         )}
+        {suggestGoogle && isError ? (
+          <button
+            type="button"
+            onClick={() => void handleGoogle()}
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-ink/15 bg-paper px-4 text-[13px] font-semibold text-ink active:scale-[0.98]"
+          >
+            Use Google instead
+          </button>
+        ) : null}
 
         <div className="relative">
           <button

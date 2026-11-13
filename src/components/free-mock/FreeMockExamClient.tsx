@@ -7,9 +7,7 @@ import {
   McqResponseFields,
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
-import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import {
-  stampCtaCompact,
   stampCtaPrimary,
   stampCtaSecondaryFlat,
 } from "@/components/stamp-chip";
@@ -19,7 +17,13 @@ import {
   trackFreeMockCompleted,
   trackFreeMockLeadCaptured,
   trackFreeMockStarted,
+  trackMockResultsCtaClicked,
 } from "@/lib/analytics/events";
+import { authHrefWithNext } from "@/lib/auth-next";
+import {
+  SEE_PRO_HREF,
+  weakAreaDestination,
+} from "@/lib/free-mock/weak-area";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
@@ -46,6 +50,7 @@ const NAV_SPINNER_MS = 280;
 export type FreeMockExamClientProps = {
   examId: FreeMockExamId;
   items: FreeMockItem[];
+  isSignedIn: boolean;
   config: Pick<
     FreeMockExamConfig,
     | "displayName"
@@ -84,6 +89,7 @@ function answerComplete(
 export function FreeMockExamClient({
   examId,
   items,
+  isSignedIn,
   config,
 }: FreeMockExamClientProps) {
   const total = items.length;
@@ -301,25 +307,6 @@ export function FreeMockExamClient({
               "Show my results"
             )}
           </button>
-          {/*
-            Says what actually happens to the address. This screen used to promise a
-            "test summary", which read as a promise to email one; nothing is sent, the
-            breakdown renders on the next screen and the address is stored as a lead.
-            Saying so plainly is a UK GDPR Art. 13 transparency requirement and keeps the
-            screen clear of a claim that would be a misleading action under the CPRs.
-          */}
-          <p className="max-w-md text-[12.5px] leading-relaxed text-ink/60">
-            Your breakdown appears on the next screen, we do not email it. We keep your
-            email address and your answers so we can tell you about Learn in Curve
-            courses. See our{" "}
-            <Link
-              href="/privacy"
-              className="text-orange underline-offset-2 hover:underline"
-            >
-              Privacy Policy
-            </Link>
-            .
-          </p>
         </form>
       </section>
     );
@@ -370,40 +357,40 @@ export function FreeMockExamClient({
           </table>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          {config.resultsCtaKind === "course" && config.ctaHref ? (
-            <Link
-              href={config.ctaHref}
-              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
-            >
-              {config.ctaLabel}
-            </Link>
-          ) : config.waitlistNotifyKey ? (
-            <JoinWaitlistButton
-              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
-              notifyKey={config.waitlistNotifyKey}
-              subjectLabel={config.waitlistSubjectLabel ?? config.displayName}
-              courseCopy={
-                config.waitlistCourseCopy ?? `a ${config.displayName} readiness course`
-              }
-              label={config.ctaLabel}
-            />
-          ) : null}
-          {config.resultsCtaKind === "course" ? (
-            <Link
-              href="/courses"
-              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
-            >
-              Browse courses
-            </Link>
-          ) : (
-            <Link
-              href="/mock-me"
-              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
-            >
-              More readiness checks
-            </Link>
-          )}
+        <div className="mt-8 grid w-full gap-3 sm:max-w-sm">
+          <Link
+            href={
+              isSignedIn
+                ? weakAreaDestination(examId, results.weakest[0])
+                : authHrefWithNext(
+                    "/auth/sign-up",
+                    weakAreaDestination(examId, results.weakest[0]),
+                  )
+            }
+            onClick={() =>
+              trackMockResultsCtaClicked({
+                cta: "fix_weak_areas",
+                signed_in: isSignedIn,
+                exam: examId,
+              })
+            }
+            className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+          >
+            Fix your weak areas
+          </Link>
+          <Link
+            href={SEE_PRO_HREF}
+            onClick={() =>
+              trackMockResultsCtaClicked({
+                cta: "see_pro",
+                signed_in: isSignedIn,
+                exam: examId,
+              })
+            }
+            className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+          >
+            See Pro
+          </Link>
         </div>
 
         <p className="mt-8 max-w-[40rem] font-body text-[12px] leading-relaxed text-ink/55">
@@ -533,11 +520,11 @@ export function FreeMockExamClient({
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             {qi > 0 ? (
-              <button
-                type="button"
-                className={`${stampCtaSecondaryFlat} ${stampCtaCompact}${
-                  navPending === "prev" ? " opacity-60" : ""
-                }`}
+            <button
+              type="button"
+              className={`${stampCtaSecondaryFlat} min-h-11${
+                navPending === "prev" ? " opacity-60" : ""
+              }`}
                 disabled={Boolean(navPending)}
                 aria-busy={navPending === "prev"}
                 aria-label={navPending === "prev" ? "Going back" : "Previous"}
@@ -554,21 +541,19 @@ export function FreeMockExamClient({
             )}
             <button
               type="button"
-              className={`${stampCtaPrimary} ${stampCtaCompact}${
-                navPending === "next"
-                  ? " opacity-60"
-                  : !canContinue
-                    ? " opacity-50"
-                    : ""
+              className={`${stampCtaPrimary} min-h-11${
+                navPending === "next" ? " opacity-60" : ""
               }`}
               disabled={!canContinue || Boolean(navPending)}
               aria-busy={navPending === "next" || undefined}
               aria-label={
-                navPending === "next"
-                  ? continueLabel === "Finish"
-                    ? "Finishing"
-                    : "Continuing"
-                  : continueLabel
+                !canContinue
+                  ? "Choose an answer to continue"
+                  : navPending === "next"
+                    ? continueLabel === "Finish"
+                      ? "Finishing"
+                      : "Continuing"
+                    : continueLabel
               }
               onClick={handleContinue}
             >
@@ -578,6 +563,11 @@ export function FreeMockExamClient({
                 continueLabel
               )}
             </button>
+            {!canContinue ? (
+              <p className="m-0 w-full text-right font-body text-[12.5px] text-ink/60" role="status">
+                Choose an answer to continue.
+              </p>
+            ) : null}
           </div>
         </div>
       </div>

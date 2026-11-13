@@ -68,16 +68,28 @@ export function StageContinueButton({
     </button>
   );
 
+  const reason = !enabled ? (
+    <p className="m-0 mt-2 text-center font-body text-[13px] leading-snug text-ink/60" role="status">
+      {CHECKPOINT_GATE_COPY}
+    </p>
+  ) : null;
+
   if (!aside) {
     return (
-      <div className="mt-6 flex justify-center sm:mt-8">{continueBtn}</div>
+      <div className="mt-6 flex flex-col items-center sm:mt-8">
+        {continueBtn}
+        {reason}
+      </div>
     );
   }
 
   return (
     <div className="mt-3 sm:mt-4">
       <div className="mb-2 flex justify-start sm:mb-2.5">{aside}</div>
-      <div className="flex justify-center">{continueBtn}</div>
+      <div className="flex flex-col items-center">
+        {continueBtn}
+        {reason}
+      </div>
     </div>
   );
 }

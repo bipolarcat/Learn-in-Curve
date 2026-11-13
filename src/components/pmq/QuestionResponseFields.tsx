@@ -130,7 +130,7 @@ export function InlineDropdownResponseFields({
             disabled={disabled}
             aria-label={`Blank ${key.toUpperCase()}`}
             onChange={(event) => onChange(key, event.target.value)}
-            className={`mx-0.5 my-0.5 inline-block h-8 w-[8.75rem] shrink-0 cursor-pointer appearance-auto rounded-md border px-2 py-0 align-baseline font-body text-[13px] font-medium leading-none transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] focus:outline-none focus-visible:outline-none disabled:cursor-default ${
+            className={`mx-0.5 my-1 inline-flex h-11 min-h-11 w-[8.75rem] shrink-0 cursor-pointer appearance-auto items-center rounded-md border px-2 align-middle font-body text-[16px] font-medium leading-none transition-[background-color,border-color] duration-150 ease-[var(--ease-out-quint)] focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 ${
               quiet
                 ? "focus:border-ink/25 focus-visible:border-ink/25 focus-visible:ring-0"
                 : "focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"

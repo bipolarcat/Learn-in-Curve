@@ -83,7 +83,7 @@ test("the OS colour-scheme setting is never consulted", () => {
 });
 
 test("dark mode is limited to the dashboard and LO pages", () => {
-  for (const path of ["/dashboard", "/dashboard/", "/courses/pmq-in-5-days/lo/1", "/courses/pmq-in-5-days/lo/24"]) {
+  for (const path of ["/dashboard", "/dashboard/", "/courses/pmq-in-5-days", "/courses/pmq-in-5-days/", "/courses/pmq-in-5-days/lo/1", "/courses/pmq-in-5-days/lo/24"]) {
     assert.equal(allowsDarkMode(path), true, path);
     assert.equal(resolve(path, "lic_theme=dark").dark, true, path);
   }
@@ -97,7 +97,6 @@ test("every public page is light, whatever is stored", () => {
     "/privacy",
     "/terms",
     "/courses",
-    "/courses/pmq-in-5-days",
     "/courses/pmq-in-5-days/pricing",
     "/courses/pmq-in-5-days/preview",
     "/courses/pmq-in-5-days/mock",
