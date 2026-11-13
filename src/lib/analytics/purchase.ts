@@ -1,5 +1,10 @@
 import { createHash } from "crypto";
 import { captureServer } from "@/lib/analytics/server";
+import {
+  resolveCheckoutPerson,
+  sanitizeCheckoutRef,
+  sanitizeSourcePath,
+} from "@/lib/analytics/checkout-return";
 import { PMQ_COURSE_ID, PFQ_COURSE_ID } from "@/lib/courses/ids";
 
 /**
@@ -64,31 +69,59 @@ function paymentId(session: CheckoutSessionForPurchase): string {
   return session.id;
 }
 
+export type PurchaseGrantFlags = {
+  /** A `feature_entitlements` row was written for this payment. */
+  entitlementGranted: boolean;
+  /** A tutor credit row was written (PMQ Pro also writes one; top-ups only write this). */
+  creditGranted: boolean;
+};
+
 /**
  * Map a paid Checkout Session to a PostHog `purchase_completed` payload.
  * Returns null when we cannot identify the buyer or the session is not paid.
+ *
+ * Call this only after the entitlement (or top-up credit) write has succeeded.
+ * `entitlement_granted` is that confirmation. A webhook that does not grant
+ * uses `purchase_grant_failed` instead, and must not call this.
  *
  * @param eventCreatedSeconds Stripe `event.created` (unix seconds).
  */
 export function purchaseCompletedFromCheckoutSession(
   session: CheckoutSessionForPurchase,
   eventCreatedSeconds: number,
+  grant: PurchaseGrantFlags = { entitlementGranted: false, creditGranted: false },
 ): PurchaseCompletedCapture | null {
   if (session.payment_status && session.payment_status !== "paid") {
     return null;
   }
 
-  const distinctId = session.metadata?.user_id;
-  if (!distinctId) return null;
+  const userId = session.metadata?.user_id;
+  if (!userId) return null;
+
+  const person = resolveCheckoutPerson({
+    userId,
+    consent: session.metadata?.ph_consent,
+    anonDistinctId: session.metadata?.ph_distinct_id,
+    posthogSessionId: session.metadata?.ph_session_id,
+    fallbackDistinctId: userId,
+  });
 
   const product = productFromFeature(session.metadata?.feature);
   const course = courseFromId(session.metadata?.course_id);
   const stripePaymentId = paymentId(session);
+  const sourcePath = sanitizeSourcePath(session.metadata?.source_path);
+  const checkoutRef = sanitizeCheckoutRef(session.metadata?.checkout_ref);
 
   const properties: Record<string, unknown> = {
     stripe_session_id: session.id,
     stripe_payment_id: stripePaymentId,
+    signed_in: true,
+    entitlement_granted: grant.entitlementGranted,
+    credit_granted: grant.creditGranted,
   };
+  if (person.posthogSessionId) properties.$session_id = person.posthogSessionId;
+  if (sourcePath) properties.source_path = sourcePath;
+  if (checkoutRef) properties.checkout_ref = checkoutRef;
 
   if (typeof session.amount_total === "number") {
     properties.amount_cents = session.amount_total;
@@ -104,7 +137,7 @@ export function purchaseCompletedFromCheckoutSession(
   }
 
   return {
-    distinctId,
+    distinctId: person.distinctId,
     uuid: purchaseCompletedEventUuid(session.id),
     timestamp: new Date(eventCreatedSeconds * 1000).toISOString(),
     properties,
@@ -118,10 +151,12 @@ export function purchaseCompletedFromCheckoutSession(
 export async function trackPurchaseCompleted(
   session: CheckoutSessionForPurchase,
   eventCreatedSeconds: number,
+  grant: PurchaseGrantFlags = { entitlementGranted: false, creditGranted: false },
 ): Promise<void> {
   const payload = purchaseCompletedFromCheckoutSession(
     session,
     eventCreatedSeconds,
+    grant,
   );
   if (!payload) return;
   await captureServer(

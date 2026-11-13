@@ -1,7 +1,5 @@
 # Pre-Launch Legal Checklist — Learn in Curve
-Last updated: 7 October 2026
-
-
+Last updated: 7 November 2026
 **Do not publish the live site to real users until every box below is checked.**
 This is the gate referenced in `BUSINESS_STATE.md` — if you're reading this
 because you're about to flip the site live, that's exactly the right instinct.
@@ -91,7 +89,10 @@ decision below are independent of the payment question.
       decision above.
 - [ ] `COOKIE_NOTICE.md` — **2026-10-07:** notice and privacy policy now
       describe anonymous cookieless PostHog counts (no cookie, no replay)
-      before a choice and after Reject, plus the first-party proxy. Lawful
+      before a choice and after Reject, plus the first-party proxy. **2026-11-07:**
+      checkout return passes that same anonymous id in the URL (`aid`) so the
+      trip back from Stripe stays one person, then removes it from the address
+      bar. Still no cookie before Accept. Lawful
       basis stated as legitimate interests. Informal draft only: a solicitor
       should confirm that wording before you treat it as signed off. The
       Intercom item below is still open.

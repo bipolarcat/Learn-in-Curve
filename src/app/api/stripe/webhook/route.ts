@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { notifyAdminOfPurchase } from "@/lib/admin/notify-admin-purchase";
+import { trackPurchaseGrantFailed } from "@/lib/analytics/checkout-track";
 import { trackPurchaseCompleted } from "@/lib/analytics/purchase";
 import { createServiceClient } from "@/lib/supabase/admin";
 import {
@@ -77,6 +78,30 @@ async function grantFeatureEntitlement(input: {
   }
 }
 
+async function recordPurchase(
+  session: Stripe.Checkout.Session,
+  eventCreated: number,
+  grant: { entitlementGranted: boolean; creditGranted: boolean },
+) {
+  try {
+    await trackPurchaseCompleted(session, eventCreated, grant);
+  } catch (err) {
+    console.error("PostHog purchase_completed failed", err);
+  }
+}
+
+async function recordGrantFailed(
+  session: Stripe.Checkout.Session,
+  eventCreated: number,
+  reason: Parameters<typeof trackPurchaseGrantFailed>[2],
+) {
+  try {
+    await trackPurchaseGrantFailed(session, eventCreated, reason);
+  } catch (err) {
+    console.error("PostHog purchase_grant_failed failed", err);
+  }
+}
+
 export async function POST(request: Request) {
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -121,12 +146,16 @@ export async function POST(request: Request) {
         "[stripe] checkout.session.completed missing user_id/course_id",
         session.id,
       );
+      await recordGrantFailed(session, event.created, "missing_metadata");
       // 500 so Stripe retries — silent 200 would hide an unrecoverable grant.
       return NextResponse.json(
         { error: "Missing metadata" },
         { status: 500 },
       );
     }
+
+    let entitlementGranted = false;
+    let creditGranted = false;
 
     try {
       const isPfq =
@@ -145,6 +174,7 @@ export async function POST(request: Request) {
             sessionId: session.id,
             feature,
           });
+          await recordGrantFailed(session, event.created, "invalid_feature");
           return NextResponse.json(
             { error: "Invalid PFQ feature" },
             { status: 400 },
@@ -156,6 +186,11 @@ export async function POST(request: Request) {
           courseId: PFQ_COURSE_ID,
           feature,
           paymentId,
+        });
+        entitlementGranted = true;
+        await recordPurchase(session, event.created, {
+          entitlementGranted,
+          creditGranted,
         });
 
         const amount =
@@ -199,15 +234,6 @@ export async function POST(request: Request) {
           );
         }
 
-        // Must run before return — the old early return skipped PostHog, which
-        // is why purchase_completed never fired for PFQ (and matched the
-        // production gap on other purchases that exited before this call).
-        try {
-          await trackPurchaseCompleted(session, event.created);
-        } catch (err) {
-          console.error("PostHog purchase_completed failed", err);
-        }
-
         notifyAdminOfPurchase({
           email,
           productName:
@@ -234,6 +260,7 @@ export async function POST(request: Request) {
           feature: grantedTier,
           paymentId,
         });
+        entitlementGranted = true;
 
         const gross =
           typeof session.amount_total === "number" && session.amount_total > 0
@@ -248,6 +275,7 @@ export async function POST(request: Request) {
           source: "unlock",
           stripePaymentId: paymentId,
         });
+        creditGranted = true;
       }
 
       if (feature === "ai_tutor_topup") {
@@ -259,6 +287,7 @@ export async function POST(request: Request) {
 
         if (gross < 100) {
           console.error("ai_tutor_topup missing/invalid amount", session.id);
+          await recordGrantFailed(session, event.created, "invalid_amount");
           return NextResponse.json(
             { error: "Invalid top-up amount" },
             { status: 400 },
@@ -273,7 +302,25 @@ export async function POST(request: Request) {
           source: "topup",
           stripePaymentId: paymentId,
         });
+        creditGranted = true;
       }
+
+      if (!entitlementGranted && !creditGranted) {
+        console.error("[stripe] checkout.session.completed granted nothing", {
+          sessionId: session.id,
+          feature,
+        });
+        await recordGrantFailed(session, event.created, "invalid_feature");
+        return NextResponse.json(
+          { error: "Nothing to grant" },
+          { status: 400 },
+        );
+      }
+
+      await recordPurchase(session, event.created, {
+        entitlementGranted,
+        creditGranted,
+      });
 
       // ─── Receipt + CCR durable-medium confirmation (PMQ / Sly) ───
       // Runs after the grant so a retry never double-grants (grant + credit
@@ -343,14 +390,21 @@ export async function POST(request: Request) {
         courseId,
         paymentId,
       });
+      if (entitlementGranted || creditGranted) {
+        // The Pro row (or the top-up credit) is already written. Record that
+        // even though Stripe will retry the rest of the handler.
+        await recordPurchase(session, event.created, {
+          entitlementGranted,
+          creditGranted,
+        });
+      } else {
+        await recordGrantFailed(
+          session,
+          event.created,
+          feature === "ai_tutor_topup" ? "credit_write_failed" : "entitlement_write_failed",
+        );
+      }
       return NextResponse.json({ error: message }, { status: 500 });
-    }
-
-    // After a successful grant/credit only — PostHog uuid dedupes webhook retries.
-    try {
-      await trackPurchaseCompleted(session, event.created);
-    } catch (err) {
-      console.error("PostHog purchase_completed failed", err);
     }
   }
 
