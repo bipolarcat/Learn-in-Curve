@@ -1,11 +1,9 @@
 import type { FreeMockExamId, LoBreakdownRow } from "./types";
 
-/** PMQ pricing. The results screen's only pricing link. */
-export const SEE_PRO_HREF = "/courses/pmq-in-5-days/pricing";
-
 /**
  * Lesson for the weakest row, when this exam has lessons.
  * PMQ LOs are 1-24. PFQ objectives are 1-10. PMP has domains, not lessons.
+ * Kept for deep-links; the free-mock results CTAs no longer use this path.
  */
 export function weakAreaLessonPath(
   examId: FreeMockExamId,
@@ -22,13 +20,17 @@ export function weakAreaLessonPath(
   return null;
 }
 
-/** Where "Fix your weak areas" goes once the learner has an account. */
+/** Course overview fallback when there is no lesson for the weakest row. */
 export function weakAreaDestination(
   examId: FreeMockExamId,
   weakest: LoBreakdownRow | undefined,
 ): string {
   return (
     weakAreaLessonPath(examId, weakest) ??
-    (examId === "apm-pfq" ? "/courses/pfq-in-2-days" : "/courses/pmq-in-5-days")
+    (examId === "apm-pfq"
+      ? "/courses/pfq-in-2-days"
+      : examId === "pmp"
+        ? "/mock-me"
+        : "/courses/pmq-in-5-days")
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { NotifyDialog } from "@/components/NotifyDialog";
 import {
   InlineDropdownResponseFields,
   McqResponseFields,
@@ -20,10 +21,6 @@ import {
   trackMockResultsCtaClicked,
 } from "@/lib/analytics/events";
 import { authHrefWithNext } from "@/lib/auth-next";
-import {
-  SEE_PRO_HREF,
-  weakAreaDestination,
-} from "@/lib/free-mock/weak-area";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
@@ -62,12 +59,20 @@ export type FreeMockExamClientProps = {
     | "resultsCtaKind"
     | "ctaHref"
     | "ctaLabel"
+    | "secondaryCtaKind"
+    | "secondaryCtaLabel"
+    | "secondaryCtaHref"
     | "waitlistNotifyKey"
     | "waitlistSubjectLabel"
     | "waitlistCourseCopy"
     | "disclaimer"
   >;
 };
+
+function titleCaseNoun(noun: string): string {
+  if (!noun) return noun;
+  return noun.charAt(0).toUpperCase() + noun.slice(1);
+}
 
 function emptyDropdownValues(item: FreeMockItem): Record<string, string> {
   if (item.type !== "dropdown" || !item.dropdowns) return {};
@@ -104,6 +109,7 @@ export function FreeMockExamClient({
   const [navPending, setNavPending] = useState<NavAction | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<ResultsPayload | null>(null);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
   const startedTracked = useRef(false);
 
   useEffect(() => {
@@ -313,90 +319,158 @@ export function FreeMockExamClient({
   }
 
   if (phase === "results" && results) {
-    const categoryHeader =
-      config.breakdownNoun === "domain" ? "Domain" : "LO";
+    const categoryHeader = titleCaseNoun(config.breakdownNoun);
+    const courseHref = config.ctaHref;
+    const startLearningHref =
+      courseHref == null
+        ? null
+        : isSignedIn
+          ? courseHref
+          : authHrefWithNext("/auth/sign-up", courseHref);
+    const secondaryIsWaitlist = config.secondaryCtaKind === "waitlist";
+    const secondaryIsPricing =
+      config.secondaryCtaKind === "pricing" &&
+      Boolean(config.secondaryCtaHref);
+    const primaryIsWaitlist =
+      config.resultsCtaKind === "waitlist" &&
+      Boolean(config.waitlistNotifyKey);
+    const showWaitlistDialog =
+      Boolean(config.waitlistNotifyKey) &&
+      Boolean(config.waitlistSubjectLabel) &&
+      Boolean(config.waitlistCourseCopy) &&
+      (secondaryIsWaitlist || primaryIsWaitlist);
+
     return (
-      <section
-        className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
-        aria-labelledby="free-mock-results-title"
-      >
-        <p className="m-0 font-body text-[11px] font-bold tracking-[-0.01em] text-orange">
-          {config.mark} Mock Exam Result
-        </p>
-        <h2
-          id="free-mock-results-title"
-          className="m-0 mt-2 font-display text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink"
+      <>
+        <section
+          className="rounded-xl border border-ink/10 bg-paper px-5 py-6 sm:px-7 sm:py-8"
+          aria-labelledby="free-mock-results-title"
         >
-          {results.score}/{results.maxScore}
-        </h2>
-        <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
-          Here&apos;s how you did across the {config.breakdownNounPlural} in
-          this check.
-        </p>
+          <p className="m-0 font-body text-[11px] font-bold tracking-[-0.01em] text-orange">
+            {config.mark} Mock Exam Result
+          </p>
+          <h2
+            id="free-mock-results-title"
+            className="m-0 mt-2 font-display text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink"
+          >
+            {results.score}/{results.maxScore}
+          </h2>
+          <p className="mt-3 max-w-[36rem] font-body text-[15px] leading-relaxed text-ink/75">
+            Here&apos;s how you did across the {config.breakdownNounPlural} in
+            this check.
+          </p>
 
-        <div className="mt-6 overflow-x-auto">
-          <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
-            <thead>
-              <tr className="border-b border-ink/10 text-left text-ink/55">
-                <th className="py-2 pr-3 font-semibold">{categoryHeader}</th>
-                <th className="py-2 font-semibold">Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.loBreakdown.map((row) => (
-                <tr key={row.lo_code} className="border-b border-ink/5">
-                  <td className="py-2 pr-3 font-semibold text-ink">
-                    {row.lo_code}
-                  </td>
-                  <td className="py-2 text-ink">
-                    {row.correct}/{row.total}
-                  </td>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[20rem] border-collapse font-body text-[13.5px]">
+              <thead>
+                <tr className="border-b border-ink/10 text-left text-ink/55">
+                  <th className="py-2 pr-3 font-semibold">{categoryHeader}</th>
+                  <th className="py-2 font-semibold">Score</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {results.loBreakdown.map((row) => (
+                  <tr key={row.lo_code} className="border-b border-ink/5">
+                    <td className="py-2 pr-3 font-semibold text-ink">
+                      {row.lo_title}
+                    </td>
+                    <td className="py-2 whitespace-nowrap text-ink">
+                      {row.correct}/{row.total}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-        <div className="mt-8 grid w-full gap-3 sm:max-w-sm">
-          <Link
-            href={
-              isSignedIn
-                ? weakAreaDestination(examId, results.weakest[0])
-                : authHrefWithNext(
-                    "/auth/sign-up",
-                    weakAreaDestination(examId, results.weakest[0]),
-                  )
-            }
-            onClick={() =>
-              trackMockResultsCtaClicked({
-                cta: "fix_weak_areas",
-                signed_in: isSignedIn,
-                exam: examId,
-              })
-            }
-            className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
-          >
-            Fix your weak areas
-          </Link>
-          <Link
-            href={SEE_PRO_HREF}
-            onClick={() =>
-              trackMockResultsCtaClicked({
-                cta: "see_pro",
-                signed_in: isSignedIn,
-                exam: examId,
-              })
-            }
-            className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
-          >
-            See Pro
-          </Link>
-        </div>
+          <div className="mt-8 grid w-full gap-3 sm:max-w-sm">
+            {startLearningHref ? (
+              <Link
+                href={startLearningHref}
+                onClick={() =>
+                  trackMockResultsCtaClicked({
+                    cta: "start_learning",
+                    signed_in: isSignedIn,
+                    exam: examId,
+                  })
+                }
+                className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+              >
+                {config.ctaLabel}
+              </Link>
+            ) : null}
 
-        <p className="mt-8 max-w-[40rem] font-body text-[12px] leading-relaxed text-ink/55">
-          {config.disclaimer}
-        </p>
-      </section>
+            {primaryIsWaitlist ? (
+              <button
+                type="button"
+                onClick={() => {
+                  trackMockResultsCtaClicked({
+                    cta: "join_waitlist",
+                    signed_in: isSignedIn,
+                    exam: examId,
+                  });
+                  setWaitlistOpen(true);
+                }}
+                className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+              >
+                {config.ctaLabel}
+              </button>
+            ) : null}
+
+            {secondaryIsWaitlist && config.secondaryCtaLabel ? (
+              <button
+                type="button"
+                onClick={() => {
+                  trackMockResultsCtaClicked({
+                    cta: "see_pricing",
+                    signed_in: isSignedIn,
+                    exam: examId,
+                  });
+                  setWaitlistOpen(true);
+                }}
+                className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+              >
+                {config.secondaryCtaLabel}
+              </button>
+            ) : null}
+
+            {secondaryIsPricing &&
+            config.secondaryCtaHref &&
+            config.secondaryCtaLabel ? (
+              <Link
+                href={config.secondaryCtaHref}
+                onClick={() =>
+                  trackMockResultsCtaClicked({
+                    cta: "see_pricing",
+                    signed_in: isSignedIn,
+                    exam: examId,
+                  })
+                }
+                className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+              >
+                {config.secondaryCtaLabel}
+              </Link>
+            ) : null}
+          </div>
+
+          <p className="mt-8 max-w-[40rem] font-body text-[12px] leading-relaxed text-ink/55">
+            {config.disclaimer}
+          </p>
+        </section>
+
+        {showWaitlistDialog &&
+        config.waitlistNotifyKey &&
+        config.waitlistSubjectLabel &&
+        config.waitlistCourseCopy ? (
+          <NotifyDialog
+            open={waitlistOpen}
+            onClose={() => setWaitlistOpen(false)}
+            notifyKey={config.waitlistNotifyKey}
+            subjectLabel={config.waitlistSubjectLabel}
+            courseCopy={config.waitlistCourseCopy}
+          />
+        ) : null}
+      </>
     );
   }
 

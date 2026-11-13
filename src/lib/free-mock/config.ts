@@ -8,11 +8,13 @@ import {
   PFQ_ATP_DISCLAIMER,
   PMI_DISCLAIMER,
 } from "@/lib/legal-copy";
-import { PMP_LIST_KEY } from "@/lib/notify/lists";
+import { AI_PRO_LIST_KEY, PMP_LIST_KEY } from "@/lib/notify/lists";
 import { getFreeMockBank } from "@/lib/free-mock/banks";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 
 export type FreeMockResultsCtaKind = "course" | "waitlist";
+/** Secondary results action: pricing page, or waitlist dialog (PMQ AI Pro). */
+export type FreeMockSecondaryCtaKind = "pricing" | "waitlist";
 
 export type FreeMockFaq = {
   q: string;
@@ -33,6 +35,11 @@ export type FreeMockExamConfig = {
   /** Course href when resultsCtaKind is course; null for waitlist. */
   ctaHref: string | null;
   ctaLabel: string;
+  /** Optional second button under the primary results CTA. */
+  secondaryCtaKind: FreeMockSecondaryCtaKind | null;
+  secondaryCtaLabel: string | null;
+  /** Pricing href when secondaryCtaKind is pricing. */
+  secondaryCtaHref: string | null;
   waitlistNotifyKey: string | null;
   waitlistSubjectLabel: string | null;
   waitlistCourseCopy: string | null;
@@ -62,10 +69,13 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     items: PMQ_ITEMS,
     resultsCtaKind: "course",
     ctaHref: "/courses/pmq-in-5-days",
-    ctaLabel: "Start PMQ in 5 Days for free",
-    waitlistNotifyKey: null,
-    waitlistSubjectLabel: null,
-    waitlistCourseCopy: null,
+    ctaLabel: "Start learning for free",
+    secondaryCtaKind: "waitlist",
+    secondaryCtaLabel: "See pricing",
+    secondaryCtaHref: null,
+    waitlistNotifyKey: AI_PRO_LIST_KEY,
+    waitlistSubjectLabel: "AI Pro Bundle",
+    waitlistCourseCopy: "the AI Pro Bundle",
     breakdownNoun: "learning objective",
     breakdownNounPlural: "learning objectives",
     disclaimer: LIBRARY_HUB_APM_DISCLAIMER,
@@ -103,7 +113,10 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     items: PFQ_ITEMS,
     resultsCtaKind: "course",
     ctaHref: "/courses/pfq-in-2-days",
-    ctaLabel: "Explore PFQ in 2 Days",
+    ctaLabel: "Start learning for free",
+    secondaryCtaKind: "pricing",
+    secondaryCtaLabel: "See pricing",
+    secondaryCtaHref: "/courses/pfq-in-2-days/pricing",
     waitlistNotifyKey: null,
     waitlistSubjectLabel: null,
     waitlistCourseCopy: null,
@@ -145,6 +158,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     resultsCtaKind: "waitlist",
     ctaHref: null,
     ctaLabel: "Join the PMP waitlist",
+    secondaryCtaKind: null,
+    secondaryCtaLabel: null,
+    secondaryCtaHref: null,
     waitlistNotifyKey: PMP_LIST_KEY,
     waitlistSubjectLabel: "PMP readiness course",
     waitlistCourseCopy: "a PMP readiness course",
