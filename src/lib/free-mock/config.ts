@@ -12,9 +12,8 @@ import { AI_PRO_LIST_KEY, PMP_LIST_KEY } from "@/lib/notify/lists";
 import { getFreeMockBank } from "@/lib/free-mock/banks";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 
-export type FreeMockResultsCtaKind = "course" | "waitlist";
-/** Secondary results action: pricing page, or waitlist dialog (PMQ AI Pro). */
-export type FreeMockSecondaryCtaKind = "pricing" | "waitlist";
+/** Single results CTA: pricing page, or waitlist dialog (PMQ AI Pro / PMP). */
+export type FreeMockResultsCtaKind = "pricing" | "waitlist";
 
 export type FreeMockFaq = {
   q: string;
@@ -32,14 +31,10 @@ export type FreeMockExamConfig = {
   questionCount: number;
   items: FreeMockItem[];
   resultsCtaKind: FreeMockResultsCtaKind;
-  /** Course href when resultsCtaKind is course; null for waitlist. */
+  /** Pricing href when resultsCtaKind is pricing; null for waitlist. */
   ctaHref: string | null;
+  /** Results button label — "See pricing" across exams. */
   ctaLabel: string;
-  /** Optional second button under the primary results CTA. */
-  secondaryCtaKind: FreeMockSecondaryCtaKind | null;
-  secondaryCtaLabel: string | null;
-  /** Pricing href when secondaryCtaKind is pricing. */
-  secondaryCtaHref: string | null;
   waitlistNotifyKey: string | null;
   waitlistSubjectLabel: string | null;
   waitlistCourseCopy: string | null;
@@ -67,12 +62,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     mark: "PMQ",
     questionCount: PMQ_ITEMS.length,
     items: PMQ_ITEMS,
-    resultsCtaKind: "course",
-    ctaHref: "/courses/pmq-in-5-days",
-    ctaLabel: "Start learning for free",
-    secondaryCtaKind: "waitlist",
-    secondaryCtaLabel: "See pricing",
-    secondaryCtaHref: null,
+    resultsCtaKind: "waitlist",
+    ctaHref: null,
+    ctaLabel: "See pricing",
     waitlistNotifyKey: AI_PRO_LIST_KEY,
     waitlistSubjectLabel: "AI Pro Bundle",
     waitlistCourseCopy: "the AI Pro Bundle",
@@ -111,12 +103,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     mark: "PFQ",
     questionCount: PFQ_ITEMS.length,
     items: PFQ_ITEMS,
-    resultsCtaKind: "course",
-    ctaHref: "/courses/pfq-in-2-days",
-    ctaLabel: "Start learning for free",
-    secondaryCtaKind: "pricing",
-    secondaryCtaLabel: "See pricing",
-    secondaryCtaHref: "/courses/pfq-in-2-days/pricing",
+    resultsCtaKind: "pricing",
+    ctaHref: "/courses/pfq-in-2-days/pricing",
+    ctaLabel: "See pricing",
     waitlistNotifyKey: null,
     waitlistSubjectLabel: null,
     waitlistCourseCopy: null,
@@ -157,10 +146,7 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     items: PMP_ITEMS,
     resultsCtaKind: "waitlist",
     ctaHref: null,
-    ctaLabel: "Join the PMP waitlist",
-    secondaryCtaKind: null,
-    secondaryCtaLabel: null,
-    secondaryCtaHref: null,
+    ctaLabel: "See pricing",
     waitlistNotifyKey: PMP_LIST_KEY,
     waitlistSubjectLabel: "PMP readiness course",
     waitlistCourseCopy: "a PMP readiness course",

@@ -442,7 +442,7 @@ export function trackFreeMockCtaClicked(props: {
 }
 
 export function trackMockResultsCtaClicked(props: {
-  cta: "start_learning" | "see_pricing" | "join_waitlist";
+  cta: "see_pricing";
   signed_in: boolean;
   exam: "apm-pmq" | "apm-pfq" | "pmp";
 }): void {

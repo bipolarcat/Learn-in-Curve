@@ -20,7 +20,6 @@ import {
   trackFreeMockStarted,
   trackMockResultsCtaClicked,
 } from "@/lib/analytics/events";
-import { authHrefWithNext } from "@/lib/auth-next";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
@@ -59,9 +58,6 @@ export type FreeMockExamClientProps = {
     | "resultsCtaKind"
     | "ctaHref"
     | "ctaLabel"
-    | "secondaryCtaKind"
-    | "secondaryCtaLabel"
-    | "secondaryCtaHref"
     | "waitlistNotifyKey"
     | "waitlistSubjectLabel"
     | "waitlistCourseCopy"
@@ -320,25 +316,13 @@ export function FreeMockExamClient({
 
   if (phase === "results" && results) {
     const categoryHeader = titleCaseNoun(config.breakdownNoun);
-    const courseHref = config.ctaHref;
-    const startLearningHref =
-      courseHref == null
-        ? null
-        : isSignedIn
-          ? courseHref
-          : authHrefWithNext("/auth/sign-up", courseHref);
-    const secondaryIsWaitlist = config.secondaryCtaKind === "waitlist";
-    const secondaryIsPricing =
-      config.secondaryCtaKind === "pricing" &&
-      Boolean(config.secondaryCtaHref);
-    const primaryIsWaitlist =
+    const isWaitlistCta =
       config.resultsCtaKind === "waitlist" &&
-      Boolean(config.waitlistNotifyKey);
-    const showWaitlistDialog =
       Boolean(config.waitlistNotifyKey) &&
       Boolean(config.waitlistSubjectLabel) &&
-      Boolean(config.waitlistCourseCopy) &&
-      (secondaryIsWaitlist || primaryIsWaitlist);
+      Boolean(config.waitlistCourseCopy);
+    const isPricingCta =
+      config.resultsCtaKind === "pricing" && Boolean(config.ctaHref);
 
     return (
       <>
@@ -384,28 +368,12 @@ export function FreeMockExamClient({
           </div>
 
           <div className="mt-8 grid w-full gap-3 sm:max-w-sm">
-            {startLearningHref ? (
-              <Link
-                href={startLearningHref}
-                onClick={() =>
-                  trackMockResultsCtaClicked({
-                    cta: "start_learning",
-                    signed_in: isSignedIn,
-                    exam: examId,
-                  })
-                }
-                className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
-              >
-                {config.ctaLabel}
-              </Link>
-            ) : null}
-
-            {primaryIsWaitlist ? (
+            {isWaitlistCta ? (
               <button
                 type="button"
                 onClick={() => {
                   trackMockResultsCtaClicked({
-                    cta: "join_waitlist",
+                    cta: "see_pricing",
                     signed_in: isSignedIn,
                     exam: examId,
                   });
@@ -417,28 +385,9 @@ export function FreeMockExamClient({
               </button>
             ) : null}
 
-            {secondaryIsWaitlist && config.secondaryCtaLabel ? (
-              <button
-                type="button"
-                onClick={() => {
-                  trackMockResultsCtaClicked({
-                    cta: "see_pricing",
-                    signed_in: isSignedIn,
-                    exam: examId,
-                  });
-                  setWaitlistOpen(true);
-                }}
-                className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
-              >
-                {config.secondaryCtaLabel}
-              </button>
-            ) : null}
-
-            {secondaryIsPricing &&
-            config.secondaryCtaHref &&
-            config.secondaryCtaLabel ? (
+            {isPricingCta && config.ctaHref ? (
               <Link
-                href={config.secondaryCtaHref}
+                href={config.ctaHref}
                 onClick={() =>
                   trackMockResultsCtaClicked({
                     cta: "see_pricing",
@@ -446,9 +395,9 @@ export function FreeMockExamClient({
                     exam: examId,
                   })
                 }
-                className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+                className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
               >
-                {config.secondaryCtaLabel}
+                {config.ctaLabel}
               </Link>
             ) : null}
           </div>
@@ -458,7 +407,7 @@ export function FreeMockExamClient({
           </p>
         </section>
 
-        {showWaitlistDialog &&
+        {isWaitlistCta &&
         config.waitlistNotifyKey &&
         config.waitlistSubjectLabel &&
         config.waitlistCourseCopy ? (
