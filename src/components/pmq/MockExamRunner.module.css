@@ -605,7 +605,7 @@
 .dialogBtnPrimary,
 .dialogBtnSecondary {
   display: inline-flex;
-  min-height: 2.35rem;
+  min-height: 2.75rem;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
@@ -782,6 +782,19 @@
   font-size: 0.5rem;
 }
 
+@media (max-width: 39.99rem) {
+  .railGrid,
+  .railGridCompact {
+    grid-template-columns: repeat(auto-fill, minmax(2.75rem, 1fr));
+  }
+
+  .railCell,
+  .railCompact .railCell {
+    min-height: 2.75rem;
+    font-size: 0.75rem;
+  }
+}
+
 .railCompact .railFlagIcon {
   top: 0.08rem;
   right: 0.08rem;
@@ -918,8 +931,8 @@
 
 .flagBtn {
   display: inline-flex;
-  height: 2rem;
-  width: 2rem;
+  height: 2.75rem;
+  width: 2.75rem;
   align-items: center;
   justify-content: center;
   border: none;
@@ -996,7 +1009,8 @@
 
 .navBtn {
   display: inline-flex;
-  height: 2.25rem;
+  height: 2.75rem;
+  min-height: 2.75rem;
   align-items: center;
   justify-content: center;
   padding: 0 0.75rem;
@@ -1019,8 +1033,12 @@
   border-color: rgb(var(--ink-rgb) / 0.18);
 }
 
+.navBtn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
 .navBtn:disabled {
-  opacity: 0.4;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 

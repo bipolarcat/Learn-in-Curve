@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CtaArrow } from "@/components/stamp-chip";
 import { Spinner } from "@/components/ui/spinner";
-import { trackCtaClicked } from "@/lib/analytics/events";
+import {
+  trackCtaClicked,
+  trackFreeMockCtaClicked,
+} from "@/lib/analytics/events";
 import {
   type SoftNavFrom,
   isSoftNavClick,
@@ -26,6 +29,11 @@ type FreeMockExamLinkProps = {
   showArrow?: boolean;
   /** Soft-nav `?from=` so free-mock can show a contextual back control. */
   from?: SoftNavFrom;
+  /** Fires `free_mock_cta_clicked` in addition to the generic CTA event. */
+  freeMockCta?: {
+    location: "library_top" | "library_end" | "home_hero";
+    slug?: string;
+  };
 };
 
 /** Soft-nav to a free-mock exam with ellipsis pending state. */
@@ -37,6 +45,7 @@ export function FreeMockExamLink({
   location = "hero",
   showArrow = false,
   from,
+  freeMockCta,
 }: FreeMockExamLinkProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -49,6 +58,9 @@ export function FreeMockExamLink({
       variant: plainLabel,
       location,
     });
+    if (freeMockCta) {
+      trackFreeMockCtaClicked(freeMockCta);
+    }
     if (!isSoftNavClick(event)) return;
     event.preventDefault();
     startTransition(() => {

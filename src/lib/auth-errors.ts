@@ -14,7 +14,7 @@
 export const AUTH_ERROR_MESSAGES: Record<string, string> = {
   oauth: "We couldn't finish signing you in. Please try again.",
   confirm:
-    "That confirmation link didn't work — it may have expired or already been used. Sign in below, or sign up again to get a new one.",
+    "That confirmation link did not work. It may have expired or already been used. Sign in below, or sign up again to get a new one.",
   expired:
     "That link has expired. Sign up again and we'll send you a fresh one.",
 };
@@ -108,4 +108,55 @@ export function getAuthFailureReason(error: {
     return "email_unconfirmed";
   }
   return "unknown";
+}
+
+/**
+ * Sign-in and sign-up copy. Does not say whether an email is registered
+ * except when Supabase already says the address is taken on sign-up.
+ */
+export function getEmailAuthErrorMessage(
+  error: { message?: string; code?: string },
+  mode: "sign-in" | "sign-up",
+): { text: string; suggestGoogle: boolean } {
+  const reason = getAuthFailureReason(error);
+  if (mode === "sign-in" && reason === "invalid_credentials") {
+    return {
+      text: "That email and password do not match. If you signed up with Google, use Google instead.",
+      suggestGoogle: true,
+    };
+  }
+  if (reason === "email_unconfirmed") {
+    return {
+      text: "Confirm your email before you sign in. Open the link we sent, then try again.",
+      suggestGoogle: false,
+    };
+  }
+  if (mode === "sign-up" && reason === "already_registered") {
+    return {
+      text: "That email already has an account. Sign in, or use Google if that is how you joined.",
+      suggestGoogle: true,
+    };
+  }
+  if (reason === "weak_password") {
+    return {
+      text: "That password is too short. Use at least 6 characters.",
+      suggestGoogle: false,
+    };
+  }
+  if (reason === "rate_limited") {
+    return {
+      text: "Too many tries. Wait a minute, then try again.",
+      suggestGoogle: false,
+    };
+  }
+  if (mode === "sign-up") {
+    return {
+      text: "We could not create your account. Try again.",
+      suggestGoogle: false,
+    };
+  }
+  return {
+    text: "We could not sign you in. Try again.",
+    suggestGoogle: false,
+  };
 }

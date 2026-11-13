@@ -23,7 +23,12 @@ import {
   InlineDropdownResponseFields,
   McqResponseFields,
 } from "@/components/pmq/QuestionResponseFields";
-import { showCheckAnswerHint, CheckAnswerHintHost } from "@/components/pmq/CheckAnswerHint";
+import {
+  CHECK_ANSWER_DROPDOWN_COPY,
+  CHECK_ANSWER_MCQ_COPY,
+  showCheckAnswerHint,
+  CheckAnswerHintHost,
+} from "@/components/pmq/CheckAnswerHint";
 import styles from "@/components/pmq/PracticeQuiz.module.css";
 import type { PmqQuestion } from "@/types/pmq";
 
@@ -253,6 +258,13 @@ function CheckAnswerBar({
           "Check answer"
         )}
       </button>
+      {!canCheck && !pending ? (
+        <p className="m-0 w-full text-right font-body text-[12.5px] leading-snug text-ink/60" role="status">
+          {emptyHint === "dropdown"
+            ? CHECK_ANSWER_DROPDOWN_COPY
+            : CHECK_ANSWER_MCQ_COPY}
+        </p>
+      ) : null}
     </div>
   );
 }

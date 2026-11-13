@@ -39,8 +39,5 @@
   box-shadow: 0 0 0 3px rgb(var(--orange-rgb) / 0.12);
 }
 
-@media (min-width: 40rem) {
-  .input {
-    font-size: 0.875rem;
-  }
-}
+/* Stay at 16px on every width. A smaller size makes iOS zoom the field
+   and push the submit button under the keyboard. */
