@@ -52,7 +52,7 @@ const chromeShell =
 
 /** Flat “Next ▶▶” — same control on mobile and desktop. */
 const continueNextClass =
-  "relative inline-flex shrink-0 items-center gap-1 bg-transparent px-0.5 py-1 font-body text-[12px] font-bold leading-none tracking-tight text-orange transition-opacity duration-150 ease-[var(--ease-out-quint)] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-1 focus-visible:ring-offset-paper active:opacity-75 before:absolute before:-inset-y-2 before:-inset-x-1.5 before:content-['']";
+  "relative inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1 bg-transparent px-2 font-body text-[12px] font-bold leading-none tracking-tight text-orange transition-opacity duration-150 ease-[var(--ease-out-quint)] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-1 focus-visible:ring-offset-paper active:opacity-75";
 
 /** Double filled right triangles — matches attached Next mark. */
 function NextFfGlyph({ className = "" }: { className?: string }) {

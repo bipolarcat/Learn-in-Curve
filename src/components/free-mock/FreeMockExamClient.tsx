@@ -8,7 +8,6 @@ import {
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
 import {
-  stampCtaCompact,
   stampCtaPrimary,
   stampCtaSecondaryFlat,
 } from "@/components/stamp-chip";
@@ -540,11 +539,11 @@ export function FreeMockExamClient({
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             {qi > 0 ? (
-              <button
-                type="button"
-                className={`${stampCtaSecondaryFlat} ${stampCtaCompact}${
-                  navPending === "prev" ? " opacity-60" : ""
-                }`}
+            <button
+              type="button"
+              className={`${stampCtaSecondaryFlat} min-h-11${
+                navPending === "prev" ? " opacity-60" : ""
+              }`}
                 disabled={Boolean(navPending)}
                 aria-busy={navPending === "prev"}
                 aria-label={navPending === "prev" ? "Going back" : "Previous"}
@@ -561,21 +560,19 @@ export function FreeMockExamClient({
             )}
             <button
               type="button"
-              className={`${stampCtaPrimary} ${stampCtaCompact}${
-                navPending === "next"
-                  ? " opacity-60"
-                  : !canContinue
-                    ? " opacity-50"
-                    : ""
+              className={`${stampCtaPrimary} min-h-11${
+                navPending === "next" ? " opacity-60" : ""
               }`}
               disabled={!canContinue || Boolean(navPending)}
               aria-busy={navPending === "next" || undefined}
               aria-label={
-                navPending === "next"
-                  ? continueLabel === "Finish"
-                    ? "Finishing"
-                    : "Continuing"
-                  : continueLabel
+                !canContinue
+                  ? "Choose an answer to continue"
+                  : navPending === "next"
+                    ? continueLabel === "Finish"
+                      ? "Finishing"
+                      : "Continuing"
+                    : continueLabel
               }
               onClick={handleContinue}
             >
@@ -585,6 +582,11 @@ export function FreeMockExamClient({
                 continueLabel
               )}
             </button>
+            {!canContinue ? (
+              <p className="m-0 w-full text-right font-body text-[12.5px] text-ink/60" role="status">
+                Choose an answer to continue.
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
