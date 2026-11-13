@@ -7,7 +7,6 @@ import {
   McqResponseFields,
   type ResponseVisualState,
 } from "@/components/pmq/QuestionResponseFields";
-import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import {
   stampCtaCompact,
   stampCtaPrimary,
@@ -19,7 +18,13 @@ import {
   trackFreeMockCompleted,
   trackFreeMockLeadCaptured,
   trackFreeMockStarted,
+  trackMockResultsCtaClicked,
 } from "@/lib/analytics/events";
+import { authHrefWithNext } from "@/lib/auth-next";
+import {
+  SEE_PRO_HREF,
+  weakAreaDestination,
+} from "@/lib/free-mock/weak-area";
 import { submitFreeMockLead } from "@/lib/free-mock/actions";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
 import {
@@ -46,6 +51,7 @@ const NAV_SPINNER_MS = 280;
 export type FreeMockExamClientProps = {
   examId: FreeMockExamId;
   items: FreeMockItem[];
+  isSignedIn: boolean;
   config: Pick<
     FreeMockExamConfig,
     | "displayName"
@@ -84,6 +90,7 @@ function answerComplete(
 export function FreeMockExamClient({
   examId,
   items,
+  isSignedIn,
   config,
 }: FreeMockExamClientProps) {
   const total = items.length;
@@ -370,40 +377,40 @@ export function FreeMockExamClient({
           </table>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          {config.resultsCtaKind === "course" && config.ctaHref ? (
-            <Link
-              href={config.ctaHref}
-              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
-            >
-              {config.ctaLabel}
-            </Link>
-          ) : config.waitlistNotifyKey ? (
-            <JoinWaitlistButton
-              className={`${stampCtaPrimary} !normal-case !tracking-[-0.01em]`}
-              notifyKey={config.waitlistNotifyKey}
-              subjectLabel={config.waitlistSubjectLabel ?? config.displayName}
-              courseCopy={
-                config.waitlistCourseCopy ?? `a ${config.displayName} readiness course`
-              }
-              label={config.ctaLabel}
-            />
-          ) : null}
-          {config.resultsCtaKind === "course" ? (
-            <Link
-              href="/courses"
-              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
-            >
-              Browse courses
-            </Link>
-          ) : (
-            <Link
-              href="/mock-me"
-              className={`${stampCtaSecondaryFlat} !normal-case !tracking-[-0.01em]`}
-            >
-              More readiness checks
-            </Link>
-          )}
+        <div className="mt-8 grid w-full gap-3 sm:max-w-sm">
+          <Link
+            href={
+              isSignedIn
+                ? weakAreaDestination(examId, results.weakest[0])
+                : authHrefWithNext(
+                    "/auth/sign-up",
+                    weakAreaDestination(examId, results.weakest[0]),
+                  )
+            }
+            onClick={() =>
+              trackMockResultsCtaClicked({
+                cta: "fix_weak_areas",
+                signed_in: isSignedIn,
+                exam: examId,
+              })
+            }
+            className={`${stampCtaPrimary} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+          >
+            Fix your weak areas
+          </Link>
+          <Link
+            href={SEE_PRO_HREF}
+            onClick={() =>
+              trackMockResultsCtaClicked({
+                cta: "see_pro",
+                signed_in: isSignedIn,
+                exam: examId,
+              })
+            }
+            className={`${stampCtaSecondaryFlat} min-h-11 w-full justify-center !normal-case !tracking-[-0.01em]`}
+          >
+            See Pro
+          </Link>
         </div>
 
         <p className="mt-8 max-w-[40rem] font-body text-[12px] leading-relaxed text-ink/55">

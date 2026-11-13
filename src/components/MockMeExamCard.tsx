@@ -24,9 +24,9 @@ type MockMeExamCardProps = {
 };
 
 /**
- * Mock Me picker card. Only the Start mock control navigates —
- * the card surface itself is not a link. Navigation waits until the
- * press expand animation finishes so the motion reads clearly.
+ * Mock Me picker card. The whole card is one link, so a tap on the
+ * picture starts the mock. Navigation waits until the press expand
+ * animation finishes so the motion reads clearly.
  */
 export function MockMeExamCard({
   href,
@@ -78,7 +78,12 @@ export function MockMeExamCard({
   }
 
   return (
-    <article className={styles.card}>
+    <Link
+      href={href}
+      className={styles.card}
+      onClick={startMock}
+      aria-label={`Start ${mark} mock, ${questionCount} questions`}
+    >
       <div className={styles.art}>
         <Image
           src={art.src}
@@ -99,16 +104,10 @@ export function MockMeExamCard({
           <h2 className={styles.mark}>{mark}</h2>
           <p className={styles.count}>{questionCount} questions</p>
         </div>
-        <Link
-          href={href}
-          className={styles.ctaLink}
-          onClick={startMock}
-          aria-label={`Start ${mark} mock`}
-          aria-busy={pressed || undefined}
-        >
+        <span className={styles.ctaLink} aria-busy={pressed || undefined}>
           <MotionButton label="Start mock" pressed={pressed} />
-        </Link>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

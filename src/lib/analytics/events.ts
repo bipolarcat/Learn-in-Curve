@@ -434,6 +434,14 @@ export function trackFreeMockCompleted(props: {
   });
 }
 
+export function trackMockResultsCtaClicked(props: {
+  cta: "fix_weak_areas" | "see_pro";
+  signed_in: boolean;
+  exam: "apm-pmq" | "apm-pfq" | "pmp";
+}): void {
+  capture("mock_results_cta_clicked", props);
+}
+
 export function trackFreeMockLeadCaptured(props: {
   exam_id: "apm-pmq" | "apm-pfq" | "pmp";
   score: number;

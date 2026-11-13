@@ -2,6 +2,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamClient } from "@/components/free-mock/FreeMockExamClient";
 import { SoftNavBackLink } from "@/components/SoftNavBackLink";
 import type { FreeMockExamConfig } from "@/lib/free-mock/config";
+import { createClient } from "@/lib/supabase/server";
 import {
   FREE_MOCK_SOFT_NAV_BACK,
   parseFreeMockSoftNavFrom,
@@ -16,6 +17,12 @@ export async function FreeMockExamShell({
   config,
   searchParams,
 }: FreeMockExamShellProps) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const isSignedIn = Boolean(user);
+
   const from = parseFreeMockSoftNavFrom((await searchParams)?.from);
   const back = from
     ? FREE_MOCK_SOFT_NAV_BACK[from]
@@ -87,6 +94,7 @@ export async function FreeMockExamShell({
             examId={config.examId}
             items={config.items}
             config={config}
+            isSignedIn={isSignedIn}
           />
         </div>
 
