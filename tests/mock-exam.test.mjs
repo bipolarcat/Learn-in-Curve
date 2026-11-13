@@ -76,11 +76,12 @@ test("Pro selector resolves coming-soon, start, resume, conflict and result stat
   };
   assert.deepEqual(
     mockExamSelectorState({ ...base, ready: false }, true, null),
-    { status: "Coming soon", action: "Coming soon", enabled: false },
+    { status: "Coming soon", tone: "plain", action: "Coming soon", enabled: false },
   );
   assert.deepEqual(mockExamSelectorState(base, true, null), {
-    status: "Ready",
-    action: "Start Exam 2 →",
+    status: null,
+    tone: "plain",
+    action: "Start",
     enabled: true,
   });
   assert.deepEqual(
@@ -89,7 +90,7 @@ test("Pro selector resolves coming-soon, start, resume, conflict and result stat
       true,
       2,
     ),
-    { status: "In progress", action: "Resume Exam 2 →", enabled: true },
+    { status: "In progress", tone: "open", action: "Resume", enabled: true },
   );
   assert.equal(mockExamSelectorState(base, true, 3).action, "Finish Exam 3 first");
   assert.equal(
@@ -117,7 +118,7 @@ test("Pro selector resolves coming-soon, start, resume, conflict and result stat
       true,
       null,
     ).action,
-    "View Exam 2 result →",
+    "View result",
   );
   assert.equal(
     mockExamSelectorState({ ...base, latestResult: "refer" }, false, null)
@@ -176,7 +177,7 @@ test("selector labels distinguish expired vs abandoned", () => {
       true,
       3,
     ).action,
-    "View Exam 2 result →",
+    "View result",
   );
 });
 
