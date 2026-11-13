@@ -12,7 +12,8 @@ import { PMP_LIST_KEY } from "@/lib/notify/lists";
 import { getFreeMockBank } from "@/lib/free-mock/banks";
 import type { FreeMockExamId, FreeMockItem } from "@/lib/free-mock/types";
 
-export type FreeMockResultsCtaKind = "course" | "waitlist";
+/** Single results CTA: pricing page, or waitlist dialog (PMP only). */
+export type FreeMockResultsCtaKind = "pricing" | "waitlist";
 
 export type FreeMockFaq = {
   q: string;
@@ -30,8 +31,9 @@ export type FreeMockExamConfig = {
   questionCount: number;
   items: FreeMockItem[];
   resultsCtaKind: FreeMockResultsCtaKind;
-  /** Course href when resultsCtaKind is course; null for waitlist. */
+  /** Pricing href when resultsCtaKind is pricing; null for waitlist. */
   ctaHref: string | null;
+  /** Results button label — "See pricing" across exams. */
   ctaLabel: string;
   waitlistNotifyKey: string | null;
   waitlistSubjectLabel: string | null;
@@ -60,9 +62,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     mark: "PMQ",
     questionCount: PMQ_ITEMS.length,
     items: PMQ_ITEMS,
-    resultsCtaKind: "course",
-    ctaHref: "/courses/pmq-in-5-days",
-    ctaLabel: "Start PMQ in 5 Days for free",
+    resultsCtaKind: "pricing",
+    ctaHref: "/courses/pmq-in-5-days/pricing",
+    ctaLabel: "See pricing",
     waitlistNotifyKey: null,
     waitlistSubjectLabel: null,
     waitlistCourseCopy: null,
@@ -101,9 +103,9 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     mark: "PFQ",
     questionCount: PFQ_ITEMS.length,
     items: PFQ_ITEMS,
-    resultsCtaKind: "course",
-    ctaHref: "/courses/pfq-in-2-days",
-    ctaLabel: "Explore PFQ in 2 Days",
+    resultsCtaKind: "pricing",
+    ctaHref: "/courses/pfq-in-2-days/pricing",
+    ctaLabel: "See pricing",
     waitlistNotifyKey: null,
     waitlistSubjectLabel: null,
     waitlistCourseCopy: null,
@@ -144,7 +146,7 @@ export const FREE_MOCK_EXAMS: Record<FreeMockExamId, FreeMockExamConfig> = {
     items: PMP_ITEMS,
     resultsCtaKind: "waitlist",
     ctaHref: null,
-    ctaLabel: "Join the PMP waitlist",
+    ctaLabel: "See pricing",
     waitlistNotifyKey: PMP_LIST_KEY,
     waitlistSubjectLabel: "PMP readiness course",
     waitlistCourseCopy: "a PMP readiness course",

@@ -5,7 +5,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  SEE_PRO_HREF,
   weakAreaDestination,
   weakAreaLessonPath,
 } from "../src/lib/free-mock/weak-area.ts";
@@ -32,11 +31,7 @@ test("PFQ weakest row opens that objective", () => {
   );
 });
 
-test("PMP domains have no lesson, so the course overview is the fallback", () => {
+test("PMP domains have no lesson, so Mock Me is the fallback", () => {
   assert.equal(weakAreaLessonPath("pmp", row(1)), null);
-  assert.equal(weakAreaDestination("pmp", row(1)), "/courses/pmq-in-5-days");
-});
-
-test("See Pro is the PMQ pricing page", () => {
-  assert.equal(SEE_PRO_HREF, "/courses/pmq-in-5-days/pricing");
+  assert.equal(weakAreaDestination("pmp", row(1)), "/mock-me");
 });
