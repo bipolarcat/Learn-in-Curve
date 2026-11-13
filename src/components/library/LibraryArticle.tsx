@@ -172,6 +172,14 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
                 Draft / placeholder copy — not for indexing.
               </p>
             ) : null}
+            <FreeMockExamLink
+              className={`${stampCtaPrimary} mt-5 min-h-11 w-full justify-center !normal-case !tracking-[-0.01em] sm:w-auto`}
+              label="Try the free PMQ mock"
+              location="library_top"
+              showArrow
+              from="library"
+              freeMockCta={{ location: "library_top", slug: page.slug }}
+            />
           </header>
 
           <div className="mt-8">
@@ -232,11 +240,12 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
             Fifteen questions in real APM PMQ format. No account required.
           </p>
           <FreeMockExamLink
-            className={`${stampCtaPrimary} mt-5`}
-            label="Start free PMQ mock exam"
-            location="library_article"
+            className={`${stampCtaPrimary} mt-5 min-h-11 w-full justify-center !normal-case !tracking-[-0.01em] sm:w-auto`}
+            label="Try the free PMQ mock"
+            location="library_end"
             showArrow
             from="library"
+            freeMockCta={{ location: "library_end", slug: page.slug }}
           />
         </div>
 
