@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { notifyAdminOfPurchase } from "@/lib/admin/notify-admin-purchase";
 import { trackPurchaseCompleted } from "@/lib/analytics/purchase";
 import { createServiceClient } from "@/lib/supabase/admin";
 import {
@@ -18,6 +19,11 @@ const PMQ_RECEIPT_PRODUCT: Record<string, string> = {
   ai_pro: "PMQ in 5 Days: AI Pro Bundle",
   ai_tutor: "PMQ in 5 Days: AI Pro Bundle",
   ai_tutor_topup: "Sly fair-usage top-up",
+};
+
+const PFQ_RECEIPT_PRODUCT: Record<string, string> = {
+  pro: "PFQ in 2 Days: Pro Bundle",
+  ai_pro: "PFQ in 2 Days: AI Pro Bundle",
 };
 
 export const runtime = "nodejs";
@@ -202,6 +208,19 @@ export async function POST(request: Request) {
           console.error("PostHog purchase_completed failed", err);
         }
 
+        notifyAdminOfPurchase({
+          email,
+          productName:
+            (feature && PFQ_RECEIPT_PRODUCT[feature]) ||
+            "PFQ in 2 Days: Pro Bundle",
+          amountCents: amount,
+          currency: session.currency ?? "gbp",
+          paymentId,
+          purchasedAt: event.created,
+          courseId: PFQ_COURSE_ID,
+          feature,
+        });
+
         return NextResponse.json({ received: true });
       }
 
@@ -275,15 +294,17 @@ export async function POST(request: Request) {
           );
         }
 
+        const amountCents =
+          typeof session.amount_total === "number" && session.amount_total > 0
+            ? session.amount_total
+            : feature === "ai_tutor_topup"
+              ? Number(session.metadata?.amount_cents ?? 0)
+              : SLY_UNLOCK_PRICE_CENTS;
+
         const sent = await sendPurchaseReceipt({
           email,
           productName: receiptProduct,
-          amountCents:
-            typeof session.amount_total === "number" && session.amount_total > 0
-              ? session.amount_total
-              : feature === "ai_tutor_topup"
-                ? Number(session.metadata?.amount_cents ?? 0)
-                : SLY_UNLOCK_PRICE_CENTS,
+          amountCents,
           currency: session.currency ?? "gbp",
           paymentId,
           purchasedAt: event.created,
@@ -302,6 +323,17 @@ export async function POST(request: Request) {
             { status: 500 },
           );
         }
+
+        notifyAdminOfPurchase({
+          email,
+          productName: receiptProduct,
+          amountCents,
+          currency: session.currency ?? "gbp",
+          paymentId,
+          purchasedAt: event.created,
+          courseId: courseId || PMQ_COURSE_ID,
+          feature,
+        });
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Webhook handler failed";
