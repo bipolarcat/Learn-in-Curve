@@ -21,6 +21,8 @@ import { syncThemeCookieFromProfile } from "@/lib/profile-actions";
 import {
   getAuthFailureReason,
   getEmailAuthErrorMessage,
+  isRepeatSignup,
+  looksLikeEmail,
 } from "@/lib/auth-errors";
 import {
   clearAuthNextCookie,
@@ -296,6 +298,23 @@ export function AuthForm({
       return;
     }
 
+    if (!looksLikeEmail(email)) {
+      const friendly = getEmailAuthErrorMessage(
+        { code: "email_address_invalid" },
+        mode,
+      );
+      setIsError(true);
+      setMessage(friendly.text);
+      setSuggestGoogle(false);
+      showAuthToast(friendly.text, "error");
+      if (mode === "sign-up") {
+        trackSignUpFailed({ method: "email", reason: "invalid_email" });
+      } else {
+        trackSignInFailed({ method: "email", reason: "invalid_email" });
+      }
+      return;
+    }
+
     setLoading(true);
     setMessage(null);
     setIsError(false);
@@ -330,6 +349,22 @@ export function AuthForm({
       } else {
         trackSignInFailed({ method: "email", reason });
       }
+      return;
+    }
+
+    // Repeat signup: Supabase returns success with no identities and sends no
+    // email. Without this the user waits on "Check your inbox" forever.
+    if (mode === "sign-up" && isRepeatSignup(data.user)) {
+      const friendly = getEmailAuthErrorMessage(
+        { code: "user_already_exists" },
+        mode,
+      );
+      setIsError(true);
+      setMessage(friendly.text);
+      setSuggestGoogle(friendly.suggestGoogle);
+      setLoading(false);
+      showAuthToast(friendly.text, "error");
+      trackSignUpFailed({ method: "email", reason: "already_registered" });
       return;
     }
 

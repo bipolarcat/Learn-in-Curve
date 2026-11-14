@@ -101,6 +101,15 @@ export function getAuthFailureReason(error: {
   ) {
     return "already_registered";
   }
+  if (
+    code === "email_address_invalid" ||
+    code === "validation_failed" ||
+    message.includes("invalid recipient") ||
+    (message.includes("email") && message.includes("invalid")) ||
+    message.includes("unable to validate email")
+  ) {
+    return "invalid_email";
+  }
   if (message.includes("rate") || code.includes("rate")) {
     return "rate_limited";
   }
@@ -133,8 +142,14 @@ export function getEmailAuthErrorMessage(
   }
   if (mode === "sign-up" && reason === "already_registered") {
     return {
-      text: "That email already has an account. Sign in, or use Google if that is how you joined.",
+      text: "That email already has an account. Sign in, or reset your password if you have forgotten it. If you joined with Google, use Google.",
       suggestGoogle: true,
+    };
+  }
+  if (reason === "invalid_email") {
+    return {
+      text: "That email address does not look right. Check it, for example name@gmail.com.",
+      suggestGoogle: false,
     };
   }
   if (reason === "weak_password") {
@@ -159,4 +174,26 @@ export function getEmailAuthErrorMessage(
     text: "We could not sign you in. Try again.",
     suggestGoogle: false,
   };
+}
+
+/**
+ * Cheap client-side shape check: something@something.tld. Not full RFC 5322,
+ * just enough to catch the common typo (gmailcom) before Supabase tries to
+ * send a confirmation email and fails with a generic 500.
+ */
+export function looksLikeEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(value.trim());
+}
+
+/**
+ * Supabase signUp() with "Confirm email" on does NOT return an error when the
+ * address is already registered. To avoid account enumeration it returns a
+ * fake user whose `identities` array is empty, and sends no email. LIC chooses
+ * to tell the user (low-sensitivity product; a stuck "check your inbox" screen
+ * costs more than the enumeration risk). Decided 2026-11-14.
+ */
+export function isRepeatSignup(
+  user: { identities?: unknown[] | null } | null | undefined,
+): boolean {
+  return Array.isArray(user?.identities) && user.identities.length === 0;
 }

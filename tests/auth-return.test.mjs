@@ -49,3 +49,25 @@ test("sign-up duplicate uses Supabase's already-registered fact", () => {
   assert.equal(result.suggestGoogle, true);
   assert.match(result.text, /already has an account/);
 });
+
+test("repeat signup is detected from an empty identities array", async () => {
+  const { isRepeatSignup } = await import("../src/lib/auth-errors.ts");
+  assert.equal(isRepeatSignup({ identities: [] }), true);
+  assert.equal(isRepeatSignup({ identities: [{ id: "x" }] }), false);
+  assert.equal(isRepeatSignup({}), false);
+  assert.equal(isRepeatSignup(null), false);
+});
+
+test("email shape check catches a missing dot before the TLD", async () => {
+  const { looksLikeEmail } = await import("../src/lib/auth-errors.ts");
+  assert.equal(looksLikeEmail("name+test1@gmailcom"), false);
+  assert.equal(looksLikeEmail("name+test1@gmail.com"), true);
+  assert.equal(looksLikeEmail(" name@learnincurve.co.uk "), true);
+  assert.equal(looksLikeEmail("name@gmail.c"), false);
+});
+
+test("invalid email gets its own message, not the generic one", async () => {
+  const { getEmailAuthErrorMessage } = await import("../src/lib/auth-errors.ts");
+  const r = getEmailAuthErrorMessage({ code: "email_address_invalid" }, "sign-up");
+  assert.match(r.text, /does not look right/);
+});
