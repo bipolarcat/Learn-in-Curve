@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   // redirects them and the event body is dropped.
   skipTrailingSlashRedirect: true,
   /*
+   * LIC-197: Next 15 streams metadata, which put <title>, description,
+   * canonical, Open Graph and JSON-LD inside <body> for every user agent,
+   * Googlebot included. Google ignores rel=canonical found in <body>.
+   * Matching every user agent makes metadata blocking, so it is always in
+   * <head>. Our metadata is static, so the cost is negligible.
+   */
+  htmlLimitedBots: /.*/,
+  /*
    * Testing on a real phone means loading the dev server over the LAN IP, which
    * Next treats as a cross-origin request to /_next/* and warns about in the
    * overlay. Private ranges only — this never applies to a production build.
