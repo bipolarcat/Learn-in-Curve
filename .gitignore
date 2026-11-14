@@ -60,3 +60,7 @@ scripts/pfq/trap-backfill-report.json
 
 # Claude/Cowork session scratch (previews, one-off checks). Never deploy-blocking.
 Claude outputs/
+
+# IndexNow ping state + background log (LIC-202). Local only.
+.indexnow-state.json
+.indexnow.log

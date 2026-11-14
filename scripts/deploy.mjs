@@ -12,8 +12,9 @@
  *   npm run deploy -- --set 3.0     # milestone version instead of +0.1
  *   npm run deploy -- --skip-build  # skip `npm run build` (tests + next build)
  *   npm run deploy -- --yes         # no interactive confirmation (CI)
+ *   npm run deploy -- --no-indexnow # skip the background Bing/IndexNow ping
  */
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import readline from "node:readline/promises";
@@ -27,6 +28,7 @@ const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
 const skipBuild = args.includes("--skip-build");
 const assumeYes = args.includes("--yes");
+const skipIndexNow = args.includes("--no-indexnow");
 const setIdx = args.indexOf("--set");
 const setTo = setIdx >= 0 ? args[setIdx + 1] : null;
 
@@ -148,3 +150,26 @@ if (branch !== DEPLOY_BRANCH) {
 
 console.log("");
 console.log(`deploy: v${next} pushed to ${remoteMaster}. Railway is deploying.`);
+
+// --- IndexNow (LIC-202) ------------------------------------------------------
+// Railway takes ~5-15 min to go live, so the ping runs as a detached background
+// process: it polls the live footer for the new version, then submits changed
+// sitemap URLs to Bing via IndexNow. It never blocks or fails the deploy.
+// Output: .indexnow.log (gitignored). Manual re-run: `npm run indexnow`.
+if (!skipIndexNow) {
+  try {
+    const logFd = fs.openSync(path.join(root, ".indexnow.log"), "a");
+    const pingArgs = bumping ? ["--wait-version", next] : ["--delay", "900"];
+    const child = spawn(
+      process.execPath,
+      [path.join(root, "scripts", "indexnow-ping.mjs"), ...pingArgs],
+      { cwd: root, detached: true, stdio: ["ignore", logFd, logFd] },
+    );
+    child.unref();
+    console.log(
+      "deploy: IndexNow ping queued in background (waits for go-live). Log: .indexnow.log",
+    );
+  } catch (e) {
+    console.warn(`deploy: could not start IndexNow ping (ignored): ${e.message}`);
+  }
+}
