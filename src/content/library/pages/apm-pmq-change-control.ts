@@ -12,6 +12,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-business-case",
     "apm-pmq-quality-management",
   ],
+  loNumber: 24,
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:

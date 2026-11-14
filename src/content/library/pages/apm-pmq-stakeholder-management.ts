@@ -14,6 +14,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-leadership-and-teams",
     "apm-pmq-governance",
   ],
+  loNumber: 10,
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:

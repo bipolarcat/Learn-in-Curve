@@ -441,6 +441,18 @@ export function trackFreeMockCtaClicked(props: {
   capture("free_mock_cta_clicked", props);
 }
 
+export function trackLibraryQuizAnswered(props: {
+  slug: string;
+  question_index: number;
+  correct: boolean;
+}): void {
+  capture("library_quiz_answered", {
+    slug: props.slug,
+    question_index: props.question_index,
+    correct: props.correct,
+  });
+}
+
 export function trackMockResultsCtaClicked(props: {
   cta: "see_pricing";
   signed_in: boolean;

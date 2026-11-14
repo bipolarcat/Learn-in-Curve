@@ -12,6 +12,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-risk-management",
     "apm-pmq-breakdown-structures",
   ],
+  loNumber: 18,
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:

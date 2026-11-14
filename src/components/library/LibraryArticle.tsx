@@ -1,5 +1,6 @@
 import { MarkdownBlock } from "@/components/pmq/MarkdownBlock";
 import { LibraryAuthorByline } from "@/components/library/LibraryAuthorByline";
+import { LibraryPracticeQuiz } from "@/components/library/LibraryPracticeQuiz";
 import { LibrarySoftNavLink } from "@/components/library/LibrarySoftNavLink";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FreeMockExamLink } from "@/components/FreeMockExamLink";
@@ -188,6 +189,10 @@ export function LibraryArticle({ page }: { page: LibraryPage }) {
               className="pmq-markdown--library-core"
             />
           </div>
+
+          {page.practice?.length ? (
+            <LibraryPracticeQuiz slug={page.slug} questions={page.practice} />
+          ) : null}
 
           {page.sources?.length ? (
             <section className="mt-10" aria-labelledby="library-sources-heading">

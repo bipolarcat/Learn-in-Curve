@@ -22,7 +22,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   "/free-mock-exam/pmp": "2026-09-10",
   "/courses/pfq-in-2-days/pricing": "2026-09-15",
   "/courses/pmq-in-5-days/pricing": "2026-09-15",
-  "/library": "2026-08-19",
+  "/library": "2026-11-14",
   "/privacy": "2026-07-20",
   "/terms": "2026-07-20",
   "/cookies": "2026-07-20",

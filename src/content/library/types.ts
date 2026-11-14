@@ -23,6 +23,18 @@ export type LibrarySource = {
   publisher: string;
 };
 
+/** Click-to-reveal MCQ on syllabus pages (answers never in plain body copy). */
+export type LibraryPracticeOption = {
+  key: "A" | "B" | "C" | "D";
+  label: string;
+};
+
+export type LibraryPracticeQuestion = {
+  prompt: string;
+  options: LibraryPracticeOption[];
+  correctKey: LibraryPracticeOption["key"];
+};
+
 export type LibraryPage = {
   slug: string;
   /** Visible H1 */
@@ -30,10 +42,20 @@ export type LibraryPage = {
   metaTitle: string;
   metaDescription: string;
   group: LibraryGroup;
+  /**
+   * APM PMQ learning-objective number when this is a syllabus topic page.
+   * Used to sort the syllabus shelf LO1 → LO24.
+   */
+  loNumber?: number;
   /** ≤40 words. Direct answer — first thing after H1 for AI extraction. */
   answerFirst: string;
   /** Markdown body, target 600–900 words when copy lands. */
   body: string;
+  /**
+   * Structured "Test yourself" MCQs. Rendered by LibraryPracticeQuiz —
+   * do not leave answers as plain markdown in `body`.
+   */
+  practice?: LibraryPracticeQuestion[];
   faqs: LibraryFaq[];
   /** Sibling slugs for the related-links block. Omit or leave empty for none. */
   related?: string[];

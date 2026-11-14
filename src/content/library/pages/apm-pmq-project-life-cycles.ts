@@ -12,6 +12,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-breakdown-structures",
     "apm-pmq-exam-format",
   ],
+  loNumber: 1,
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:

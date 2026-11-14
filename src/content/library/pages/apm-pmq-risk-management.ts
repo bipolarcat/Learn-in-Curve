@@ -14,6 +14,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-scheduling-and-critical-path",
     "apm-pmq-quality-management",
   ],
+  loNumber: 23,
   status: "published",
   updatedAt: "2026-08-08",
   answerFirst:
