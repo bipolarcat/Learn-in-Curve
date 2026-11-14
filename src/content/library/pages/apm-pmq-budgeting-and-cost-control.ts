@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-breakdown-structures",
     "apm-pmq-risk-management",
   ],
-  status: "draft",
+  loNumber: 22,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ budgeting and cost control (LO22) tests whether you can build a budget through a cost breakdown structure, tell cost types apart, hold contingency properly, and use earned value to compare spend with progress. Be ready to calculate and interpret CPI and SPI.",
@@ -118,21 +119,39 @@ Five distinct points, each a figure with its meaning attached.
 - **"Contingency is the project manager's spare money."** No. Governance controls it, and the board releases management reserve.
 - **"Earned value applies to every project."** No. Critical chain monitors buffer consumption instead.
 - **"The budget work ends when delivery ends."** No. Financial closedown is a distinct task.
-
-## Test yourself: three quick questions
-
-**1. Earned value is £90,000 and actual cost is £100,000. What is the CPI?**
-A) 1.11  B) 0.9  C) minus £10,000  D) 0.1
-
-**2. Who typically releases the management reserve?**
-A) The project manager  B) The supplier  C) The governance board  D) The PMO analyst
-
-**3. A cost that does not change however many units are produced is best described as:**
-A) Variable  B) Indirect  C) Recurring  D) Fixed
-
-**Answers:** 1 B, 2 C, 3 D.
-
-Three for three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Earned value is £90,000 and actual cost is £100,000. What is the CPI?",
+      options: [
+        { key: "A", label: "1.11" },
+        { key: "B", label: "0.9" },
+        { key: "C", label: "minus £10,000" },
+        { key: "D", label: "0.1" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Who typically releases the management reserve?",
+      options: [
+        { key: "A", label: "The project manager" },
+        { key: "B", label: "The supplier" },
+        { key: "C", label: "The governance board" },
+        { key: "D", label: "The PMO analyst" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "A cost that does not change however many units are produced is best described as:",
+      options: [
+        { key: "A", label: "Variable" },
+        { key: "B", label: "Indirect" },
+        { key: "C", label: "Recurring" },
+        { key: "D", label: "Fixed" },
+      ],
+      correctKey: "D",
+    },
+  ],
   faqs: [
     {
       question: "What is LO22 in the APM PMQ?",

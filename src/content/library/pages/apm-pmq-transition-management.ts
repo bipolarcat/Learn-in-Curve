@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-assurance",
     "how-to-answer-apm-pmq-exam-questions",
   ],
-  status: "draft",
+  loNumber: 8,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ transition management (LO8) tests whether you know that handover is planned from the start of a project, not arranged at the end. Outputs only become benefits once the business adopts them, knowledge must be transferred, and risk is relocated, not removed.",
@@ -119,20 +120,39 @@ Five distinct points, each one easy for a marker to credit. Same topic, but ever
 - **"Once the project closes, its risks are gone."** No. Transition relocates risk to whoever accepts ownership.
 - **"Closing a project early means it failed."** No. Early closure stops investment in work unlikely to deliver benefits.
 
-## Test yourself: three quick questions
-
-**1. When should planning for transition begin?**
-A) In the final phase  B) After acceptance testing  C) From the outset of the project  D) At administrative closure
-
-**2. Which type of knowledge is hardest to transfer at handover?**
-A) Explicit  B) Tacit  C) Documented  D) Contractual
-
-**3. In an iterative life cycle, when does transition typically take place?**
-A) Only at project closure  B) When the sponsor or product owner accepts outputs  C) At the start of each iteration  D) After the final audit
-
-**Answers:** 1 C, 2 B, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "When should planning for transition begin?",
+      options: [
+        { key: "A", label: "In the final phase" },
+        { key: "B", label: "After acceptance testing" },
+        { key: "C", label: "From the outset of the project" },
+        { key: "D", label: "At administrative closure" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "Which type of knowledge is hardest to transfer at handover?",
+      options: [
+        { key: "A", label: "Explicit" },
+        { key: "B", label: "Tacit" },
+        { key: "C", label: "Documented" },
+        { key: "D", label: "Contractual" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "In an iterative life cycle, when does transition typically take place?",
+      options: [
+        { key: "A", label: "Only at project closure" },
+        { key: "B", label: "When the sponsor or product owner accepts outputs" },
+        { key: "C", label: "At the start of each iteration" },
+        { key: "D", label: "After the final audit" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO8 in the APM PMQ?",

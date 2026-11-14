@@ -12,6 +12,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-stakeholder-management",
     "apm-pmq-project-life-cycles",
   ],
+  loNumber: 2,
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:

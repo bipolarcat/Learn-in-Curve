@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-change-control",
     "apm-pmq-project-life-cycles",
   ],
-  status: "draft",
+  loNumber: 17,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ solutions development (LO17) tests whether you can get from agreed requirements to the best way of meeting them. That means framing the problem, generating several options, judging them against criteria agreed in advance, then defining scope tightly enough to control it.",
@@ -116,21 +117,39 @@ Five distinct points, each tied to a named technique a marker can credit.
 - **"Criteria are drawn up once the options are known."** No. Agree them with stakeholders first, so they cannot be shaped to suit a favourite.
 - **"Iterative projects do not define scope."** They do, just later and in stages, through a prioritised backlog.
 - **"MVP and MMP mean the same thing."** No. An MVP is for learning; an MMP is the smallest thing worth releasing to users.
-
-## Test yourself: three quick questions
-
-**1. Why should evaluation criteria be agreed before options are identified?**
-A) It saves time later  B) It stops criteria being shaped to favour a preferred option  C) It is required by the procurement strategy  D) It removes the need for a business case
-
-**2. Which option should always be considered in solutions development?**
-A) The most innovative option  B) The supplier's recommended option  C) Doing nothing  D) The option with the longest life
-
-**3. In an iterative life cycle, how is potential scope usually held?**
-A) In a fixed work breakdown structure  B) In a prioritised product backlog  C) In the risk register  D) In the benefits realisation plan
-
-**Answers:** 1 B, 2 C, 3 B.
-
-Three from three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Why should evaluation criteria be agreed before options are identified?",
+      options: [
+        { key: "A", label: "It saves time later" },
+        { key: "B", label: "It stops criteria being shaped to favour a preferred option" },
+        { key: "C", label: "It is required by the procurement strategy" },
+        { key: "D", label: "It removes the need for a business case" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Which option should always be considered in solutions development?",
+      options: [
+        { key: "A", label: "The most innovative option" },
+        { key: "B", label: "The supplier's recommended option" },
+        { key: "C", label: "Doing nothing" },
+        { key: "D", label: "The option with the longest life" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "In an iterative life cycle, how is potential scope usually held?",
+      options: [
+        { key: "A", label: "In a fixed work breakdown structure" },
+        { key: "B", label: "In a prioritised product backlog" },
+        { key: "C", label: "In the risk register" },
+        { key: "D", label: "In the benefits realisation plan" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO17 in the APM PMQ?",

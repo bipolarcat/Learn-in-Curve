@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "how-to-answer-apm-pmq-exam-questions",
     "apm-pmq-exam-format",
   ],
-  status: "draft",
+  loNumber: 11,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ conflict resolution (LO11) tests whether you understand that conflict is not the problem: how it is conducted is. Positive conflict produces better decisions, no conflict creates hidden risk, and the Thomas-Kilmann model helps you choose a strategy based on outcome and relationship.",
@@ -121,20 +122,39 @@ Five distinct points, each easy for a marker to credit. The strong answer separa
 - **"Resolving the issue resolves the conflict."** No. Relationship damage needs repairing too.
 - **"A mediator decides who is right."** No. A mediator helps communication. An arbitrator decides.
 
-## Test yourself: three quick questions
-
-**1. In the Thomas-Kilmann model, which strategy is high assertiveness and low cooperativeness?**
-A) Accommodate  B) Compete  C) Compromise  D) Avoid
-
-**2. A group agrees quickly because disagreeing feels awkward, and relevant concerns go unspoken. What is this called?**
-A) Risky shift  B) Escalation  C) Groupthink  D) Accommodation
-
-**3. What is the role of a mediator?**
-A) To decide the outcome  B) To help the parties communicate  C) To enforce the contract  D) To escalate to the sponsor
-
-**Answers:** 1 B, 2 C, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "In the Thomas-Kilmann model, which strategy is high assertiveness and low cooperativeness?",
+      options: [
+        { key: "A", label: "Accommodate" },
+        { key: "B", label: "Compete" },
+        { key: "C", label: "Compromise" },
+        { key: "D", label: "Avoid" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "A group agrees quickly because disagreeing feels awkward, and relevant concerns go unspoken. What is this called?",
+      options: [
+        { key: "A", label: "Risky shift" },
+        { key: "B", label: "Escalation" },
+        { key: "C", label: "Groupthink" },
+        { key: "D", label: "Accommodation" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "What is the role of a mediator?",
+      options: [
+        { key: "A", label: "To decide the outcome" },
+        { key: "B", label: "To help the parties communicate" },
+        { key: "C", label: "To enforce the contract" },
+        { key: "D", label: "To escalate to the sponsor" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO11 in the APM PMQ?",

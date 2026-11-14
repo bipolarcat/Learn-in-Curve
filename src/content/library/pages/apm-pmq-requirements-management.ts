@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-solutions-development",
     "apm-pmq-quality-management",
   ],
-  status: "draft",
+  loNumber: 16,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ requirements management (LO16) tests two linked processes. Requirements management establishes scope by gathering, analysing, prioritising and baselining what stakeholders need. Configuration management then controls that scope, so every approved change lands in an accurate, traceable record.",
@@ -113,20 +114,39 @@ Five points that follow the request from proposal to record, which is exactly th
 - **"Configuration management approves changes."** No. Change control approves; configuration control records the approved change.
 - **"Configuration management is just document version control."** Only at its simplest. It scales up to complex designs and asset control.
 
-## Test yourself: three quick questions
-
-**1. Who is accountable for the project's success criteria being met at handover?**
-A) The sponsor  B) The project manager  C) The end users  D) The governance board
-
-**2. Which configuration management step checks that the deliverable matches the recorded configuration?**
-A) Identification  B) Control  C) Status accounting  D) Verification audit
-
-**3. A requirement reads "the system must be fast". What is it most clearly missing?**
-A) A stakeholder  B) A measure  C) A MoSCoW category  D) A configuration item
-
-**Answers:** 1 B, 2 D, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Who is accountable for the project's success criteria being met at handover?",
+      options: [
+        { key: "A", label: "The sponsor" },
+        { key: "B", label: "The project manager" },
+        { key: "C", label: "The end users" },
+        { key: "D", label: "The governance board" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Which configuration management step checks that the deliverable matches the recorded configuration?",
+      options: [
+        { key: "A", label: "Identification" },
+        { key: "B", label: "Control" },
+        { key: "C", label: "Status accounting" },
+        { key: "D", label: "Verification audit" },
+      ],
+      correctKey: "D",
+    },
+    {
+      prompt: "A requirement reads \"the system must be fast\". What is it most clearly missing?",
+      options: [
+        { key: "A", label: "A stakeholder" },
+        { key: "B", label: "A measure" },
+        { key: "C", label: "A MoSCoW category" },
+        { key: "D", label: "A configuration item" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO16 in the APM PMQ?",

@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-business-case",
     "how-to-answer-apm-pmq-exam-questions",
   ],
-  status: "draft",
+  loNumber: 5,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ procurement (LO5) tests whether you can plan what to buy before buying it, select suppliers fairly, negotiate from a known walk-away point, and choose contract and payment terms that put risk in the right place. Contracts move risk; they never delete it.",
@@ -127,20 +128,39 @@ Five distinct points across strategy, selection, contract and management, each e
 - **"Your negotiating floor is your target."** No. It is your BATNA.
 - **"Procurement ends when the contract is signed."** No. Supplier management and contract closure are part of it.
 
-## Test yourself: three quick questions
-
-**1. Which reimbursement method shares savings and overruns between buyer and supplier?**
-A) Fixed price  B) Cost plus fee  C) Target cost  D) Per unit quantity
-
-**2. During a tender, one bidder asks a clarification question. What should happen?**
-A) Answer that bidder privately  B) Ignore the question  C) Share the answer with every bidder  D) Disqualify the bidder
-
-**3. The buyer's maximum price is below the seller's minimum. What does this mean?**
-A) There is no zone of possible agreement  B) The buyer should raise their BATNA  C) A win-win deal is guaranteed  D) The seller must accept the offer
-
-**Answers:** 1 C, 2 C, 3 A.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Which reimbursement method shares savings and overruns between buyer and supplier?",
+      options: [
+        { key: "A", label: "Fixed price" },
+        { key: "B", label: "Cost plus fee" },
+        { key: "C", label: "Target cost" },
+        { key: "D", label: "Per unit quantity" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "During a tender, one bidder asks a clarification question. What should happen?",
+      options: [
+        { key: "A", label: "Answer that bidder privately" },
+        { key: "B", label: "Ignore the question" },
+        { key: "C", label: "Share the answer with every bidder" },
+        { key: "D", label: "Disqualify the bidder" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "The buyer's maximum price is below the seller's minimum. What does this mean?",
+      options: [
+        { key: "A", label: "There is no zone of possible agreement" },
+        { key: "B", label: "The buyer should raise their BATNA" },
+        { key: "C", label: "A win-win deal is guaranteed" },
+        { key: "D", label: "The seller must accept the offer" },
+      ],
+      correctKey: "A",
+    },
+  ],
   faqs: [
     {
       question: "What is LO5 in the APM PMQ?",

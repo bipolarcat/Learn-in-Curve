@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-budgeting-and-cost-control",
     "apm-pmq-governance",
   ],
-  status: "draft",
+  loNumber: 21,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ resource management (LO21) tests whether you can identify, schedule and manage the internal and external resources a project needs. Expect questions on building a RACI matrix from the OBS and WBS, allocating resources in linear and iterative life cycles, and levelling versus smoothing.",
@@ -127,21 +128,39 @@ Five distinct points, each one tied to the fixed date in the question.
 - **"Levelling and smoothing are two names for the same thing."** No. Levelling moves the date; smoothing holds the date and accepts cost.
 - **"Smoothing means hiring more people."** Not necessarily. Reshaping when work happens is also smoothing.
 - **"Resources are optimised after the budget is set."** No. The budget is built on the resourced schedule.
-
-## Test yourself: three quick questions
-
-**1. Which two structures are combined to create a responsibility assignment matrix?**
-A) PBS and CBS  B) OBS and WBS  C) WBS and CBS  D) PBS and OBS
-
-**2. Resources are fixed and no more can be obtained. Which technique should be used?**
-A) Resource smoothing  B) Resource levelling  C) Crashing  D) Fast tracking
-
-**3. In a RACI matrix, what is the role of the person marked "A"?**
-A) Carries out the work  B) Is kept informed of progress  C) Owns the work and approves it when complete  D) Gives advice on the work
-
-**Answers:** 1 B, 2 B, 3 C.
-
-Scored three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Which two structures are combined to create a responsibility assignment matrix?",
+      options: [
+        { key: "A", label: "PBS and CBS" },
+        { key: "B", label: "OBS and WBS" },
+        { key: "C", label: "WBS and CBS" },
+        { key: "D", label: "PBS and OBS" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Resources are fixed and no more can be obtained. Which technique should be used?",
+      options: [
+        { key: "A", label: "Resource smoothing" },
+        { key: "B", label: "Resource levelling" },
+        { key: "C", label: "Crashing" },
+        { key: "D", label: "Fast tracking" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "In a RACI matrix, what is the role of the person marked \"A\"?",
+      options: [
+        { key: "A", label: "Carries out the work" },
+        { key: "B", label: "Is kept informed of progress" },
+        { key: "C", label: "Owns the work and approves it when complete" },
+        { key: "D", label: "Gives advice on the work" },
+      ],
+      correctKey: "C",
+    },
+  ],
   faqs: [
     {
       question: "What is LO21 in the APM PMQ?",

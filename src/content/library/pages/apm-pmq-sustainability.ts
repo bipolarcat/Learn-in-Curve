@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-project-life-cycles",
     "how-to-answer-apm-pmq-exam-questions",
   ],
-  status: "draft",
+  loNumber: 3,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ sustainability (LO3) tests whether you see sustainability as more than carbon. Economic, environmental, social, human and governance factors run through the whole life cycle, and APM aims beyond doing less harm towards leaving things better than you found them.",
@@ -122,20 +123,39 @@ Five separate points, each tied to a stage of the measurement chain, which is wh
 - **"Sustainability is measured when the project finishes."** No. KPIs are set at definition, monitored throughout and tracked after handover.
 - **"LCA and EIA are interchangeable."** No. LCA covers a product's whole life. EIA assesses a project before the go decision.
 
-## Test yourself: three quick questions
-
-**1. Which approach aims to leave the environment and communities better than before?**
-A) Sustainable  B) Regenerative  C) Compliant  D) Carbon neutral
-
-**2. A new road scheme needs its environmental consequences assessed before the decision to proceed. Which assessment fits?**
-A) Life cycle assessment  B) Environmental product declaration  C) Environmental impact assessment  D) Carbon footprint
-
-**3. In a materiality assessment, which issues should the project act and report on?**
-A) Every issue raised by any stakeholder  B) Issues high on both stakeholder importance and business impact  C) Only issues with a legal requirement  D) Issues the project manager finds easiest to measure
-
-**Answers:** 1 B, 2 C, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Which approach aims to leave the environment and communities better than before?",
+      options: [
+        { key: "A", label: "Sustainable" },
+        { key: "B", label: "Regenerative" },
+        { key: "C", label: "Compliant" },
+        { key: "D", label: "Carbon neutral" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "A new road scheme needs its environmental consequences assessed before the decision to proceed. Which assessment fits?",
+      options: [
+        { key: "A", label: "Life cycle assessment" },
+        { key: "B", label: "Environmental product declaration" },
+        { key: "C", label: "Environmental impact assessment" },
+        { key: "D", label: "Carbon footprint" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "In a materiality assessment, which issues should the project act and report on?",
+      options: [
+        { key: "A", label: "Every issue raised by any stakeholder" },
+        { key: "B", label: "Issues high on both stakeholder importance and business impact" },
+        { key: "C", label: "Only issues with a legal requirement" },
+        { key: "D", label: "Issues the project manager finds easiest to measure" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO3 in the APM PMQ?",

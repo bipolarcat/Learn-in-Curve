@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-risk-management",
     "apm-pmq-business-case",
   ],
-  status: "draft",
+  loNumber: 19,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ integrated planning (LO19) tests whether you understand that separate plans are not enough. Scope, schedule, cost, resources, risk and quality must be collected, aligned and kept consistent in one project management plan, so stakeholders can believe the business case is deliverable.",
@@ -120,21 +121,39 @@ Five distinct reasons, each one something the PMP actually does.
 - **"The plan will change, so detailed planning is wasted."** No. Problems will arise regardless, and that is no reason to plan less carefully.
 - **"Contingency only covers risks in the register."** No. It also covers unidentified risks and estimating uncertainty.
 - **"Once the baseline is approved, planning is finished."** No. Estimates, dependencies and risks are reviewed and the plan is updated throughout.
-
-## Test yourself: three quick questions
-
-**1. Which estimating method reaches agreement among a group of subject-matter experts?**
-A) Parametric  B) Analogous  C) Delphi  D) Analytical
-
-**2. A communication must not be issued until peer review is complete. What type of dependency is this?**
-A) Logical  B) Preferential  C) Resource  D) External
-
-**3. What is the main purpose of an integrated project management plan?**
-A) To replace the business case  B) To give stakeholders confidence that the business case is deliverable  C) To record lessons learned  D) To list every task in full detail
-
-**Answers:** 1 C, 2 B, 3 B.
-
-All three right? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Which estimating method reaches agreement among a group of subject-matter experts?",
+      options: [
+        { key: "A", label: "Parametric" },
+        { key: "B", label: "Analogous" },
+        { key: "C", label: "Delphi" },
+        { key: "D", label: "Analytical" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "A communication must not be issued until peer review is complete. What type of dependency is this?",
+      options: [
+        { key: "A", label: "Logical" },
+        { key: "B", label: "Preferential" },
+        { key: "C", label: "Resource" },
+        { key: "D", label: "External" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "What is the main purpose of an integrated project management plan?",
+      options: [
+        { key: "A", label: "To replace the business case" },
+        { key: "B", label: "To give stakeholders confidence that the business case is deliverable" },
+        { key: "C", label: "To record lessons learned" },
+        { key: "D", label: "To list every task in full detail" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO19 in the APM PMQ?",

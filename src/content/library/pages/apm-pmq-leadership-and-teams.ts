@@ -12,6 +12,7 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-governance",
     "how-hard-is-apm-pmq",
   ],
+  loNumber: 12,
   status: "published",
   updatedAt: "2026-08-19",
   answerFirst:

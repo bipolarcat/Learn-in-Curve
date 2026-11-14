@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-risk-management",
     "apm-pmq-change-control",
   ],
-  status: "draft",
+  loNumber: 15,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ ethics, compliance and professionalism (LO15) tests whether you know that responsibility sits with the individual. You own your own CPD, you seek specialist advice when the law is unclear, and not knowing a regulation existed is never a defence.",
@@ -109,20 +110,39 @@ Five separate points, each easy for a marker to find, and all of them putting re
 - **"Non-compliance only puts the organisation at risk."** No. For some breaches, an individual can go to prison.
 - **"The project manager chooses which standard applies when laws conflict."** No. That is a governance decision, taken on specialist advice.
 
-## Test yourself: three quick questions
-
-**1. Who holds primary responsibility for a project professional's CPD?**
-A) The employer  B) The line manager  C) The individual  D) The professional body
-
-**2. A regulation requires employers to reduce injury risk but leaves the method to them. Which type is this?**
-A) Prescriptive  B) Competence-based  C) Goal-setting  D) Discretionary
-
-**3. An organisation adopts ISO 14001 mainly to stand out in tenders. Which statement is correct?**
-A) This is not a valid reason  B) It is a legitimate reason for adopting a discretionary standard  C) ISO 14001 is legally mandatory  D) Only regulators can choose standards
-
-**Answers:** 1 C, 2 C, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Who holds primary responsibility for a project professional's CPD?",
+      options: [
+        { key: "A", label: "The employer" },
+        { key: "B", label: "The line manager" },
+        { key: "C", label: "The individual" },
+        { key: "D", label: "The professional body" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "A regulation requires employers to reduce injury risk but leaves the method to them. Which type is this?",
+      options: [
+        { key: "A", label: "Prescriptive" },
+        { key: "B", label: "Competence-based" },
+        { key: "C", label: "Goal-setting" },
+        { key: "D", label: "Discretionary" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "An organisation adopts ISO 14001 mainly to stand out in tenders. Which statement is correct?",
+      options: [
+        { key: "A", label: "This is not a valid reason" },
+        { key: "B", label: "It is a legitimate reason for adopting a discretionary standard" },
+        { key: "C", label: "ISO 14001 is legally mandatory" },
+        { key: "D", label: "Only regulators can choose standards" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO15 in the APM PMQ?",

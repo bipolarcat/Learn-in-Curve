@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-benefits-management",
     "how-to-answer-apm-pmq-exam-questions",
   ],
-  status: "draft",
+  loNumber: 6,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ reviews (LO6) tests whether you understand reviews as the internal check on a project's status and ongoing viability. Decision gates re-test the business case, reports pair each deviation with a reason and a response, and a review can rightly end in re-planning or termination.",
@@ -126,20 +127,39 @@ Five distinct points, each one easy for a marker to find and credit.
 - **"A polished summary is the best input to a review."** No. Raw data gives a more objective decision.
 - **"Once a remedial action is approved, the review is closed."** No. Governance expects the remediation to be monitored and reported.
 
-## Test yourself: three quick questions
-
-**1. What makes a review different from assurance?**
-A) Reviews only happen at the end  B) Reviews are internal to the initiative  C) Reviews are always run by auditors  D) Reviews never involve stakeholders
-
-**2. A gate allows the project to proceed provided two issues are fixed within a month. What is this outcome called?**
-A) Go  B) No go  C) Conditional go  D) Re-baseline
-
-**3. Which of these is the stage of information management people most often forget?**
-A) Collection  B) Dissemination  C) Storage  D) Destruction
-
-**Answers:** 1 B, 2 C, 3 D.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "What makes a review different from assurance?",
+      options: [
+        { key: "A", label: "Reviews only happen at the end" },
+        { key: "B", label: "Reviews are internal to the initiative" },
+        { key: "C", label: "Reviews are always run by auditors" },
+        { key: "D", label: "Reviews never involve stakeholders" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "A gate allows the project to proceed provided two issues are fixed within a month. What is this outcome called?",
+      options: [
+        { key: "A", label: "Go" },
+        { key: "B", label: "No go" },
+        { key: "C", label: "Conditional go" },
+        { key: "D", label: "Re-baseline" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "Which of these is the stage of information management people most often forget?",
+      options: [
+        { key: "A", label: "Collection" },
+        { key: "B", label: "Dissemination" },
+        { key: "C", label: "Storage" },
+        { key: "D", label: "Destruction" },
+      ],
+      correctKey: "D",
+    },
+  ],
   faqs: [
     {
       question: "What is LO6 in the APM PMQ?",

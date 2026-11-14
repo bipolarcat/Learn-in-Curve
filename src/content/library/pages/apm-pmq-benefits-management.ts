@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "how-to-answer-apm-pmq-exam-questions",
     "apm-pmq-exam-format",
   ],
-  status: "draft",
+  loNumber: 9,
+  status: "published",
   updatedAt: "2026-11-13",
   answerFirst:
     "APM PMQ benefits management (LO9) tests whether you know that delivering outputs guarantees nothing. Benefits arrive only when people adopt what was built, and someone measures it. The sponsor is accountable, benefit owners sit in the business, and tracking continues after handover.",
@@ -105,20 +106,39 @@ Five distinct points, each one easy for a marker to find and credit. Same knowle
 - **"A target is enough."** No. Without a baseline you cannot prove improvement.
 - **"If benefits fall short, the project failed."** Not necessarily. Increase adoption or re-baseline the target.
 
-## Test yourself: three quick questions
-
-**1. Which of these is NOT one of the five benefits management processes?**
-A) Identification  B) Tracking  C) Procurement  D) Realisation
-
-**2. Who is accountable overall for benefits being realised?**
-A) The project manager  B) The sponsor  C) The project team  D) The PMO
-
-**3. Forecast benefits are falling short because users are not using the new system. Which response is most appropriate first?**
-A) Close the project as a failure  B) Increase adoption of the system  C) Remove the benefit from the business case  D) Extend the delivery schedule
-
-**Answers:** 1 C, 2 B, 3 B.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "Which of these is NOT one of the five benefits management processes?",
+      options: [
+        { key: "A", label: "Identification" },
+        { key: "B", label: "Tracking" },
+        { key: "C", label: "Procurement" },
+        { key: "D", label: "Realisation" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "Who is accountable overall for benefits being realised?",
+      options: [
+        { key: "A", label: "The project manager" },
+        { key: "B", label: "The sponsor" },
+        { key: "C", label: "The project team" },
+        { key: "D", label: "The PMO" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Forecast benefits are falling short because users are not using the new system. Which response is most appropriate first?",
+      options: [
+        { key: "A", label: "Close the project as a failure" },
+        { key: "B", label: "Increase adoption of the system" },
+        { key: "C", label: "Remove the benefit from the business case" },
+        { key: "D", label: "Extend the delivery schedule" },
+      ],
+      correctKey: "B",
+    },
+  ],
   faqs: [
     {
       question: "What is LO9 in the APM PMQ?",

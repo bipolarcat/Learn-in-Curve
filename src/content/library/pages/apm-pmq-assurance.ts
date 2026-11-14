@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "how-to-answer-apm-pmq-exam-questions",
     "apm-pmq-exam-format",
   ],
-  status: "draft",
+  loNumber: 7,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ assurance (LO7) tests whether you can tell a project checking itself from someone independent checking the project. Assurance gives the governance board grounds for confidence, the sponsor sets it up, it targets the greatest risk, and it informs decisions rather than making them.",
@@ -121,20 +122,39 @@ Five distinct points, each easy for a marker to find. The difference is not more
 - **"An accurate assurance report means the problem gets fixed."** Not necessarily. Assurance also fails when the organisation does not act on what it found.
 - **"Applying the three lines of defence guarantees success."** No. It reduces risk and improves controls. It does not remove risk.
 
-## Test yourself: three quick questions
-
-**1. What most clearly distinguishes assurance from a review?**
-A) Assurance happens at the end  B) Assurance is independent of the project  C) Assurance is always an audit  D) Assurance is run by the project manager
-
-**2. Who is responsible for setting up assurance arrangements?**
-A) The project manager  B) The PMO  C) The sponsor  D) The internal auditor
-
-**3. An assurance report finds serious weaknesses in a project. Who decides whether the project continues?**
-A) The assurance team  B) The auditee  C) The project manager  D) The governance board
-
-**Answers:** 1 B, 2 C, 3 D.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "What most clearly distinguishes assurance from a review?",
+      options: [
+        { key: "A", label: "Assurance happens at the end" },
+        { key: "B", label: "Assurance is independent of the project" },
+        { key: "C", label: "Assurance is always an audit" },
+        { key: "D", label: "Assurance is run by the project manager" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Who is responsible for setting up assurance arrangements?",
+      options: [
+        { key: "A", label: "The project manager" },
+        { key: "B", label: "The PMO" },
+        { key: "C", label: "The sponsor" },
+        { key: "D", label: "The internal auditor" },
+      ],
+      correctKey: "C",
+    },
+    {
+      prompt: "An assurance report finds serious weaknesses in a project. Who decides whether the project continues?",
+      options: [
+        { key: "A", label: "The assurance team" },
+        { key: "B", label: "The auditee" },
+        { key: "C", label: "The project manager" },
+        { key: "D", label: "The governance board" },
+      ],
+      correctKey: "D",
+    },
+  ],
   faqs: [
     {
       question: "What is LO7 in the APM PMQ?",

@@ -14,7 +14,8 @@ export const page = scaffoldLibraryPage({
     "apm-pmq-stakeholder-management",
     "how-to-answer-apm-pmq-exam-questions",
   ],
-  status: "draft",
+  loNumber: 14,
+  status: "published",
   updatedAt: "2026-11-14",
   answerFirst:
     "APM PMQ diversity and inclusion (LO14) tests whether you know that diversity without inclusion delivers nothing. A varied team only performs when people can be heard, bias is a delivery risk handled through process, and fairness means adapting to individual needs, not identical treatment.",
@@ -112,20 +113,39 @@ Five distinct points, each tied to a named idea from the syllabus, and none of t
 - **"Unconscious bias is fixed by trying harder to be fair."** No. It sits below awareness, so inclusive processes are what address it.
 - **"Bias is an ethical issue, not a project issue."** No. It skews decisions, alienates stakeholders and puts delivery at risk.
 
-## Test yourself: three quick questions
-
-**1. A team member helps a quieter colleague get time on the agenda so she can present her own proposal. What is this?**
-A) Advocacy  B) Allyship  C) Belonging  D) Positive discrimination
-
-**2. Which strategy is most effective against unconscious bias in recruitment?**
-A) Asking interviewers to be more careful  B) Inclusive processes such as blinded CVs  C) Hiring people the team already knows  D) Relying on the manager's experience
-
-**3. A long-established team gets on very well, agrees quickly and rarely challenges ideas. What does this most likely describe?**
-A) Diversity with inclusion  B) Diversity without inclusion  C) Inclusion without diversity  D) A high-performing team
-
-**Answers:** 1 B, 2 B, 3 C.
-
-Got all three? The written questions are where the PMQ is really won. [Try the free APM PMQ mock exam](/free-mock-exam/apm-pmq) to see how your written answers hold up.`,
+`,
+  practice: [
+    {
+      prompt: "A team member helps a quieter colleague get time on the agenda so she can present her own proposal. What is this?",
+      options: [
+        { key: "A", label: "Advocacy" },
+        { key: "B", label: "Allyship" },
+        { key: "C", label: "Belonging" },
+        { key: "D", label: "Positive discrimination" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "Which strategy is most effective against unconscious bias in recruitment?",
+      options: [
+        { key: "A", label: "Asking interviewers to be more careful" },
+        { key: "B", label: "Inclusive processes such as blinded CVs" },
+        { key: "C", label: "Hiring people the team already knows" },
+        { key: "D", label: "Relying on the manager's experience" },
+      ],
+      correctKey: "B",
+    },
+    {
+      prompt: "A long-established team gets on very well, agrees quickly and rarely challenges ideas. What does this most likely describe?",
+      options: [
+        { key: "A", label: "Diversity with inclusion" },
+        { key: "B", label: "Diversity without inclusion" },
+        { key: "C", label: "Inclusion without diversity" },
+        { key: "D", label: "A high-performing team" },
+      ],
+      correctKey: "C",
+    },
+  ],
   faqs: [
     {
       question: "What is LO14 in the APM PMQ?",
