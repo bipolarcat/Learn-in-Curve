@@ -126,6 +126,18 @@ export type LoMediaAsset = {
   sectionTitle: string;
 };
 
+/**
+ * Base URL for large course media (mp4 video, m4a audio). LIC-182: these move
+ * out of git `public/` to object storage, because 2.1 GB in the repo exhausts
+ * the Railway builder disk. Empty = legacy same-origin `/videos`, `/audio`
+ * paths, so nothing changes until the env var is set. Posters and captions are
+ * small and stay in git.
+ */
+const MEDIA_BASE_URL = (process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? "").replace(
+  /\/+$/,
+  "",
+);
+
 function padLo(n: number): string {
   return String(n).padStart(2, "0");
 }
@@ -140,7 +152,7 @@ export const PMQ_LO_EXPLAINER_VIDEOS: Record<number, LoMediaAsset> =
       return [
         lo,
         {
-          src: `/videos/pmq/lo-${pad}.mp4`,
+          src: `${MEDIA_BASE_URL}/videos/pmq/lo-${pad}.mp4`,
           posterSrc: `/videos/pmq/posters/lo-${pad}.jpg`,
           captionsSrc: null,
           title: `${title} — video overview`,
@@ -156,7 +168,7 @@ export const PMQ_LO_AUDIO_OVERVIEWS: Record<number, LoMediaAsset> =
     Array.from({ length: PMQ_SECTION_COUNT }, (_, i) => {
       const lo = i + 1;
       const title = PMQ_LO_TITLES[lo] ?? `Learning Objective ${lo}`;
-      const readySrc = `/audio/pmq/lo-${padLo(lo)}.m4a`;
+      const readySrc = `${MEDIA_BASE_URL}/audio/pmq/lo-${padLo(lo)}.m4a`;
       return [
         lo,
         {

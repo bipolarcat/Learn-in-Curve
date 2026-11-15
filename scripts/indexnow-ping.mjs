@@ -94,7 +94,9 @@ function readState() {
 
 async function waitForLiveVersion(version) {
   const deadline = Date.now() + 25 * 60 * 1000;
-  const needle = `v${version}<`;
+  // React SSR renders `v{SITE_VERSION}` as `v<!-- -->3.15`, so match with or
+  // without the text-node separator comment.
+  const needle = new RegExp(`v(?:<!-- -->)?${version.replace(".", "\\.")}<`);
   log(`waiting for live footer to show v${version} (max 25 min)...`);
   while (Date.now() < deadline) {
     try {
@@ -102,7 +104,7 @@ async function waitForLiveVersion(version) {
         headers: { "cache-control": "no-cache" },
       });
       const html = await res.text();
-      if (html.includes(needle)) {
+      if (needle.test(html)) {
         log(`v${version} is live.`);
         return true;
       }

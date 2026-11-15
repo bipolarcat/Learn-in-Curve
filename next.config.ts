@@ -53,6 +53,15 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // LIC-204: short shareable link for the free full PMQ mock (Mock Exam 1).
+        // 307 (temporary) so the target can change later. Sign-up page sends
+        // already-signed-in visitors straight on to `next`.
+        source: "/pmq-mock",
+        destination:
+          "/auth/sign-up?next=%2Fcourses%2Fpmq-in-5-days%2Fmock%3Ftier%3Dlite%26exam%3D1&utm_source=linkedin&utm_campaign=free_mock",
+        permanent: false,
+      },
+      {
         // Careers page removed 2026-10-15 (no hiring planned). 301 so the
         // already-discovered URL drops out of Google cleanly.
         source: "/careers",
