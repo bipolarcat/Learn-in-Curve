@@ -350,9 +350,9 @@ future flag flip.
       paid product. `PHILOSOPHY_PAGE_COPY.md` and `PHILOSOPHY_PAGE_DETAILED.md`
       were corrected on 2026-08-28 (and again for media removal 2026-11-17);
       the live site copy has **not** been audited for this. `TERMS_OF_SERVICE.md`
-      is clean — it deliberately lists no prices (§3) and scopes the AI
-      fair-usage clause to "a Paid Unlock **covering AI features**" (§4), which
-      stays accurate under the new ladder.
+      deliberately lists no prices. **2026-11-17:** §7 narrowed to guest AI
+      demos only (no paid AI fair-usage language while AI Pro is waitlist);
+      PMQ Schedule Pro line now includes Insights + recall.
       **Also outstanding:** live Supabase `courses.exam_config` still holds
       `ai_tutor_price_cents: 999` (PMQ) and `pfq_pro_price_cents: 500` (PFQ),
       verified 2026-08-28. Checkout passes explicit amounts so charges are

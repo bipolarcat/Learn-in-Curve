@@ -1,5 +1,5 @@
 # Terms of Service - Learn in Curve
-*Last updated: 6 October 2026*
+*Last updated: 17 November 2026*
 
 ## 1. Acceptance
 By creating an account or using learnincurve.com (the "Service"), you agree to be bound by these terms. If you do not agree to these terms, please do not use the Service.
@@ -33,14 +33,10 @@ Learn in Curve operates on a one-time purchase model, rather than recurring subs
 - **Duration of access:** a Paid Unlock bought on or after 6 October 2026 gives you access to that Course for 12 months from the date of purchase. Your purchase confirmation email states the date your access ends. A Paid Unlock bought before 6 October 2026 is not time-limited. If we ever retire a Course, we will give reasonable notice to anyone whose access has not yet ended.
 - **Payments:** all transactions are securely processed by Stripe. We do not process or store your card details on our servers.
 
-## 7. Fair Usage Policy
-Where a Course includes an AI tutor, we apply a fair usage policy to keep the platform stable and to manage AI computing costs.
+## 7. Guest AI Demonstrations
+Where we offer an unregistered visitor a short demonstration of an AI tutor on the homepage, that demonstration is strictly limited and capped per network address, so the free trial cannot be abused.
 
-- **Guest demonstrations:** unregistered visitors may be offered a strictly limited trial of the AI tutor, capped per network address.
-- **Registered accounts without a Paid Unlock:** a limited trial allowance, sufficient to test the AI tutor before deciding whether to buy.
-- **Accounts with a Paid Unlock covering AI features:** an allowance calibrated for normal, individual exam revision across a full syllabus.
-
-If usage on an account falls clearly outside normal human study patterns, for example near-continuous usage, account sharing, or automated or scripted requests, we may temporarily pause access and ask you to contact support to restore it. This policy exists to prevent abuse, not to restrict genuine studying.
+If use of a guest demonstration falls clearly outside normal human behaviour, for example automated or scripted requests, we may pause further guest access from that network address. This exists to prevent abuse of the free trial, not to restrict genuine exploring of the Service.
 
 ## 8. Refunds and Digital Content Waiver
 A Paid Unlock gives you access to digital content immediately upon payment.
@@ -83,7 +79,7 @@ To the maximum extent permitted by law, Learn in Curve is provided on an "as is"
 This section does not limit liability that cannot legally be excluded under UK law, such as liability for death or personal injury caused by our negligence, or for fraud.
 
 ## 13. Account Suspension and Termination
-We may suspend or terminate accounts that violate these terms, in particular the Acceptable Use policy in section 9 or the Fair Usage policy in section 7, without prior notice or refund. You may terminate your agreement with us at any time by deleting your account, which you can do yourself from Account in the dashboard menu. You can also email support@learnincurve.com and we will do it for you.
+We may suspend or terminate accounts that violate these terms, in particular the Acceptable Use policy in section 9, without prior notice or refund. Guest demonstration abuse is handled under section 7. You may terminate your agreement with us at any time by deleting your account, which you can do yourself from Account in the dashboard menu. You can also email support@learnincurve.com and we will do it for you.
 
 ## 14. Changes to These Terms
 We may update these terms periodically to reflect new features, product changes, or legal requirements. We will update the "Last updated" date above and notify registered users by email of any material change. Continued use of the platform after changes take effect constitutes acceptance of the revised terms.
@@ -103,16 +99,16 @@ For any questions regarding these terms, contact us at support@learnincurve.com.
 ---
 
 # Schedule — Courses, Free Features and Paid Features
-*In force from 22 September 2026*
+*In force from 17 November 2026*
 
 This Schedule sets out the Courses available, what is free in each, and what counts as a Paid Feature for the purposes of the 14-Day Unused Guarantee in section 8. Prices are shown on each course page and confirmed at checkout, not here.
 
 ### PMQ in 5 Days
 *Preparation for the APM Project Management Qualification.*
 
-- **Free Features:** core course content, standard quizzes, and the first mock exam.
-- **Paid Unlocks:** a Pro unlock covering additional quiz sets and further mock exams. An AI Pro unlock covering everything in Pro plus the AI tutor and AI-marked mock exams. **Not currently available for purchase.** It is offered by waitlist only, and no charge is taken for it.
-- **A Paid Feature is treated as used if you have:** sent a message to the AI tutor under a Paid Unlock, opened a paid quiz set, or started any mock exam beyond the first.
+- **Free Features:** core course content, standard quizzes, and the first mock exam. Insights and recall activities on the first learning objective are also free as a sampler.
+- **Paid Unlocks:** a Pro unlock covering additional quiz sets, further mock exams, Insights on learning objectives 2 to 24, and recall activities on learning objectives 2 to 24. An AI Pro unlock is listed on the pricing page as a future tier. **It is not currently available for purchase.** It is offered by waitlist only, and no charge is taken for it.
+- **A Paid Feature is treated as used if you have:** opened a paid quiz set, or started any mock exam beyond the first.
 
 ### PFQ in 2 Days
 *Preparation for the APM Project Fundamentals Qualification.*

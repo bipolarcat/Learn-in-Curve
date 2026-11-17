@@ -99,8 +99,8 @@ export async function hasUsedPfqPaidFeature(userId: string): Promise<boolean> {
 }
 
 /**
- * PMQ Schedule: AI tutor message under a Paid Unlock, opened a paid quiz set,
- * or started any mock exam beyond the first.
+ * PMQ Schedule (in force 17 November 2026): opened a paid quiz set, or started
+ * any mock exam beyond the first. Keep in sync with legal/TERMS_OF_SERVICE.md.
  */
 export async function hasUsedPmqPaidFeature(userId: string): Promise<boolean> {
   const supabase = createServiceClient();
@@ -137,48 +137,5 @@ export async function hasUsedPmqPaidFeature(userId: string): Promise<boolean> {
     console.error("[courses/used] pmq mocks", mockError.message);
     return true;
   }
-  if ((mockCount ?? 0) > 0) return true;
-
-  // AI tutor under Paid Unlock.
-  const { data: entitlement } = await supabase
-    .from("feature_entitlements")
-    .select("feature")
-    .eq("user_id", userId)
-    .eq("course_id", PMQ_COURSE_ID)
-    .in("feature", ["pro", "ai_pro"])
-    .limit(1)
-    .maybeSingle();
-
-  if (entitlement) {
-    const { count: tutorCount, error: tutorError } = await supabase
-      .from("tutor_messages")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", userId)
-      .eq("course_id", PMQ_COURSE_ID)
-      .eq("role", "user")
-      .limit(1);
-    if (tutorError) {
-      console.error("[courses/used] pmq tutor", tutorError.message);
-      return true;
-    }
-    if ((tutorCount ?? 0) > 0) return true;
-  }
-
-  const { count: creditCount, error: creditError } = await supabase
-    .from("tutor_usage_credits")
-    .select("id", { count: "exact", head: true })
-    .eq("user_id", userId)
-    .eq("course_id", PMQ_COURSE_ID)
-    .lt("delta_gbp_cents", 0)
-    .limit(1);
-  if (creditError) {
-    if (!/does not exist|schema cache|column/i.test(creditError.message)) {
-      console.error("[courses/used] pmq credits", creditError.message);
-      return true;
-    }
-  } else if ((creditCount ?? 0) > 0) {
-    return true;
-  }
-
-  return false;
+  return (mockCount ?? 0) > 0;
 }

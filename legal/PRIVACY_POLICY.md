@@ -1,5 +1,5 @@
 # Privacy Policy - Learn in Curve
-Last updated: 7 October 2026
+Last updated: 17 November 2026
 
 ## 1. Who We Are
 Learn in Curve, operated by Sim Samaar Shened ("we", "us"), operates learnincurve.com, an AI-assisted revision platform for professional certifications designed to help users pass their exams, along with our associated newsletter and blog.
@@ -16,6 +16,7 @@ We collect only what is necessary to run the platform, process your purchases, a
 - **Purchases & Payments:** When you buy a course unlock, payment is securely processed by Stripe. We receive only a payment confirmation and transaction reference. We never see or store your raw credit card details.
 - **Newsletter & Blog Subscriptions:** If you opt in, we collect your email address to send you course launch notices, product updates, and blog articles. You can withdraw your consent and unsubscribe at any time via the link in any email.
 - **Homepage Guest Trial:** If you use the free trial on the homepage without an account, we hash your IP address (SHA-256 with a server salt) to enforce our free usage limits. We do not keep raw IP addresses or guest chat transcripts in our database. Guest messages are processed by our AI provider strictly to generate a live reply for that session.
+- **AI Tutor Messages (when available on your account):** If a signed-in AI tutor is available to your account and you use it, we store the messages in that conversation so the tutor can reply with context and so you can continue a thread. We keep them while your account is active. They are deleted when you delete your account.
 - **Free Mock Exams:** The free mock exams need no account. When you finish one and unlock your
 breakdown, we collect the email address you give us, your answers to that exam, and basic
 campaign attribution (which link or search brought you to us). Your breakdown is shown to you on
@@ -55,10 +56,9 @@ We do not sell your personal data to anyone, under any circumstances. We share d
 - **Stripe:** Our payment processor, which directly handles your card details when you make a purchase.
 - **PostHog:** Our product analytics provider (EU Cloud). Before you accept analytics cookies, and if you reject them, it receives anonymous cookieless visit counts (pages, referrer, campaign parameters, and on-site actions) with no cookie and no session replay. With your consent to analytics cookies it also receives tied-together page views, in-app interactions, masked session replays, and technical error diagnostics when something on the site fails. Separately, and without cookies, our servers send it the free mock exam events described in section 3, which include your email address and your score.
 - **Resend:** Our email provider, which delivers the email we send you: sign-in and
-confirmation emails, purchase confirmations, free mock exam results, replies to anything you
-send us, and the newsletter if you opted in. It processes your email address and the contents
-of those messages.
-- **Google (Gemini API):** Our AI service provider, used exclusively for the homepage guest trial and AI grading of written answers in mock exams. Relevant text from your written mock exam answers and the marking rubric are sent to Gemini to generate grading feedback. We use Google's Enterprise Gemini API; your messages and mock exam answers are used strictly to generate real-time feedback and are not used by Google to train their foundational AI models.
+confirmation emails, purchase confirmations, replies to anything you send us, and the
+newsletter if you opted in. It processes your email address and the contents of those messages.
+- **Google (Gemini API):** Our AI service provider, used for the homepage guest trial, AI grading of written answers in mock exams, and — when a signed-in AI tutor is available to your account — those tutor replies. Relevant text from your messages or written mock exam answers, plus any marking rubric needed for grading, may be sent to Gemini to generate a reply or feedback. We use Google's Enterprise Gemini API; your messages and mock exam answers are used strictly to generate real-time feedback and are not used by Google to train their foundational AI models.
 
 ## 5. International Transfers
 Your core personal data and learning progress are stored in our primary database hosted in the EU (Ireland). When utilizing the Gemini API for exam marking or guest trials, data may be processed securely outside the UK/EU. We ensure our third-party providers rely on appropriate legal safeguards—such as Standard Contractual Clauses or certified data protection frameworks—before any processing takes place.

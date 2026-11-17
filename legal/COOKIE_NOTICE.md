@@ -1,5 +1,5 @@
 # Cookie Policy - Learn in Curve
-*Last updated: 13 November 2026*
+*Last updated: 17 November 2026*
 ## 1. Introduction
 At Learn in Curve ("we", "us"), we believe in being clear and transparent about how we collect and use data related to you. This Cookie Policy applies to learnincurve.com and explains how we use cookies and similar tracking technologies to ensure our platform functions securely and effectively.
 
