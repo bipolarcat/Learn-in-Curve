@@ -19,6 +19,8 @@ Phase 1 platform shell — in progress. Next.js app scaffolded at repo root with
 - No users, revenue, or infrastructure stood up for the new platform yet (no Supabase project, no Stripe account, no deployment) — the 60 logins are on the existing standalone "PMQ in 5 days" site.
 - **How the backlog gets built:** Claude plans/specs/grooms Linear/verifies; **Cursor** (a separate AI coding agent Sim runs locally) executes the actual code changes, picking up work from `cursor-prompt-*.md` files Claude writes in `cursor-prompts/` (they lived at the project root until 2026-09-15). Full definition in `CLAUDE.md` under "Collaborators & tools" — check there first if a session ever seems unsure what "Cursor" refers to.
 
+- **2026-11-17** — Cookie banner details panel (“What we use cookies for”) opens by default so Accept/Reject is harder to ignore without reading (`CookieBanner.tsx`).
+
 - **2026-11-17** — Removed Pro Bundle video and audio overviews from the product: LO pathway drops Video/Audio stages (now Orient→Learn→Polish→Drill→Lock in; 5 stages / 120 progress units); deleted ~2.1 GB of course media (`public/videos/pmq`, `public/audio/pmq`, `scripts/captions`, landing slide 6); stripped media claims from pricing/plans/tiers/FeatureStack/PMQ overview/Stripe checkout description and related docs. Legacy `video_reached_at`/`audio_reached_at` columns left unused (no migration).
 
 - **2026-11-14** — LIC-200: published 14 new PMQ LO syllabus pages on The Shelf (all 24 LOs now covered). Each has a click-to-reveal practice quiz (`LibraryPracticeQuiz`, `library_quiz_answered`) instead of plain-text answers. Syllabus shelf sorts by optional `loNumber`. Pages registered in `library/index.ts`; status flipped to published.

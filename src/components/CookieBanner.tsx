@@ -78,7 +78,8 @@ export function CookieBanner() {
   const pathname = usePathname();
   const panelId = useId();
   const [visible, setVisible] = useState(false);
-  const [open, setOpen] = useState(false);
+  /** Open by default so the choice is explained, not just Accept/Reject pills. */
+  const [open, setOpen] = useState(true);
   const [leaving, setLeaving] = useState(false);
   const exitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -94,7 +95,7 @@ export function CookieBanner() {
       setVisible(next);
       if (next) {
         setLeaving(false);
-        setOpen(false);
+        setOpen(true);
       }
     }
     window.addEventListener(CONSENT_EVENT, onConsentChange);
