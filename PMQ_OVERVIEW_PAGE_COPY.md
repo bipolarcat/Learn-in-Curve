@@ -101,12 +101,6 @@ Section heading:
 
 **Row 3**
 
-**Video overview per objective** (`IconVideo`)
-> A recap for every objective, for the days when reading is not going to happen.
-
-**Audio overview per objective** (`IconAudio`)
-> The same content to listen to, on the commute or the walk.
-
 **Sly, your AI tutor** (`IconSly`)
 > Reads how you are getting things wrong and points at the objective that needs the work. Scoped to the APM PMQ, so revision stays on the exam.
 
@@ -116,7 +110,7 @@ Section heading:
 
 That single sentence carries the honesty burden the plan table used to carry. It states what is free without turning the page into a comparison chart.
 
-**Tier chips.** Video, Audio and Sly are not on the free plan. Each needs a small chip: `Pro` on Video and Audio, `Launching soon` on Sly. A chip is not a plan breakdown, and without one the grid promises nine free things and delivers six.
+**Tier chips.** Sly is not on the free plan. It needs a small chip: `Launching soon`. A chip is not a plan breakdown. (Video and Audio overviews were removed from the product 2026-11-17.)
 
 ---
 

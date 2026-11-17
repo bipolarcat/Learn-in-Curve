@@ -9,14 +9,12 @@ import {
   stampCtaSecondary,
 } from "@/components/stamp-chip";
 import {
-  IconAudio,
   IconCore,
   IconMemory,
   IconMisconceptions,
   IconMock,
   IconPractice,
   IconSly,
-  IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import {
   PmqPathwayView,
@@ -37,7 +35,6 @@ import {
   PMQ_OVERVIEW_HREF,
   PMQ_PRICING_HREF,
 } from "@/lib/pmq/plans";
-import { canAccessMedia } from "@/lib/pmq/tiers";
 import styles from "@/components/course-overview/CourseMarketing.module.css";
 import { buildTitle } from "@/lib/seo/title";
 import { ogImages, twitterImages } from "@/lib/seo/og";
@@ -46,7 +43,6 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
   "https://www.learnincurve.com";
 
-const mediaLockedForStarter = !canAccessMedia("starter");
 const slyWaitlisted = getPmqPlan("ai_pro").status === "waitlist";
 const stages = buildLoStages();
 
@@ -213,35 +209,6 @@ export default async function PmqMarketingOverviewPage() {
             <p className={styles.featureBody}>
               State, Explain, Describe, Compare. Each one tells you how many
               marks are on offer and what shape the answer needs.
-            </p>
-          </li>
-          <li className={styles.feature}>
-            <IconVideo className={styles.featureIcon} />
-            <div className={styles.featureHead}>
-              <h3 className={styles.featureTitle}>
-                Video overview per objective
-              </h3>
-              {mediaLockedForStarter ? (
-                <span className={styles.chipPro}>Pro</span>
-              ) : null}
-            </div>
-            <p className={styles.featureBody}>
-              A recap for every objective, for the days when reading is not
-              going to happen.
-            </p>
-          </li>
-          <li className={styles.feature}>
-            <IconAudio className={styles.featureIcon} />
-            <div className={styles.featureHead}>
-              <h3 className={styles.featureTitle}>
-                Audio overview per objective
-              </h3>
-              {mediaLockedForStarter ? (
-                <span className={styles.chipPro}>Pro</span>
-              ) : null}
-            </div>
-            <p className={styles.featureBody}>
-              The same content to listen to, on the commute or the walk.
             </p>
           </li>
           <li className={styles.feature}>

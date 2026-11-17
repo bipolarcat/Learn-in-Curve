@@ -35,7 +35,6 @@ scripts/captions/.tmp/
 .impeccable/config.local.json
 *.mp4
 !public/brand/hero/hero-animals-2.mp4
-!public/videos/pmq/*.mp4
 node_modules/
 .claude/skills/
 

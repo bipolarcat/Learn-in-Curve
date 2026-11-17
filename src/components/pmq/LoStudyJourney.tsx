@@ -6,20 +6,12 @@ import type { LessonBody, PmqQuestion, PmqSection } from "@/types/pmq";
 import { LoPageHeader } from "@/components/pmq/LoPageHeader";
 import { LoOrientStage } from "@/components/pmq/LoOrientStage";
 import { LoLearnStage } from "@/components/pmq/LoLearnStage";
-import { LoVideoStage } from "@/components/pmq/LoVideoStage";
-import { LoAudioStage } from "@/components/pmq/LoAudioStage";
 import { LoApplyStage } from "@/components/pmq/LoApplyStage";
 import { PracticeQuizSection } from "@/components/pmq/PracticeQuizSection";
 import { LoCheckpointStage } from "@/components/pmq/LoCheckpointStage";
 import { StudyJourney } from "@/components/course/StudyJourney";
 import { LearnBackToTopButton } from "@/components/course/LearnBackToTopButton";
-import {
-  PMQ_LO_AUDIO_OVERVIEWS,
-  PMQ_LO_EXPLAINER_VIDEOS,
-  PMQ_SLUG,
-  pmqLoHref,
-  type LoMediaAsset,
-} from "@/lib/pmq/constants";
+import { PMQ_SLUG, pmqLoHref } from "@/lib/pmq/constants";
 import type { PmqTier } from "@/lib/pmq/tiers";
 import {
   buildLoStages,
@@ -47,15 +39,12 @@ type LoStudyJourneyProps = {
     { submittedAnswer: string | Record<string, string>; isCorrect: boolean | null }
   >;
   initialLoXp?: number;
-  hasEntitlement: boolean;
   /** Starter / Pro / AI Pro — drives Practise Generate gates. */
   userTier: PmqTier;
   priceCents: number;
   completedCheckpoints: number[];
   quizCompleted: boolean;
   isSectionCompleted: boolean;
-  explainerVideo?: LoMediaAsset | null;
-  audioOverview?: LoMediaAsset | null;
   allSections: PmqSection[];
   showQaComplete: boolean;
   /** 0–100 overall course completion for LO chrome. */
@@ -84,14 +73,11 @@ export function LoStudyJourney({
   set1Questions,
   totalSets,
   priorAttempts = {},
-  hasEntitlement,
   userTier,
   priceCents,
   completedCheckpoints,
   quizCompleted,
   isSectionCompleted,
-  explainerVideo,
-  audioOverview,
   allSections,
   showQaComplete,
   completionPercent = 0,
@@ -109,12 +95,6 @@ export function LoStudyJourney({
     completedCheckpointCount: completedCheckpoints.length,
   });
 
-  const mediaLocked = !hasEntitlement;
-  const lockedStageIds = useMemo(() => {
-    if (!mediaLocked) return new Set<LoStageId>();
-    return new Set<LoStageId>(["video", "audio"]);
-  }, [mediaLocked]);
-
   const timestampStageIds = useMemo(
     () =>
       (Object.keys(STAGE_REACHED_COLUMN) as LoStageId[]).filter(
@@ -122,9 +102,6 @@ export function LoStudyJourney({
       ),
     [],
   );
-
-  const video = explainerVideo ?? PMQ_LO_EXPLAINER_VIDEOS[loNumber];
-  const audio = audioOverview ?? PMQ_LO_AUDIO_OVERVIEWS[loNumber];
 
   const router = useRouter();
   const [, startNextLoTransition] = useTransition();
@@ -189,32 +166,15 @@ export function LoStudyJourney({
       timestampStageIds={timestampStageIds}
       completionPercent={completionPercent}
       progressUnitPercent={PMQ_PROGRESS_UNIT_PERCENT}
-      lockedIds={lockedStageIds}
-      stagesCompletedOnAdvance={(fromId) => {
-        if (mediaLocked && fromId === "learn") {
-          return ["learn", "video", "audio"];
-        }
-        return [fromId];
-      }}
-      resolveNextIndex={(fromId, fromIndex, stageIds) => {
-        if (mediaLocked && fromId === "learn") {
-          const applyIdx = stageIds.indexOf("apply");
-          if (applyIdx > fromIndex) return applyIdx;
-        }
-        return fromIndex + 1;
-      }}
-      continueLabelFor={(currentId, defaultLabel) =>
-        mediaLocked && currentId === "learn" ? "Continue to Apply" : defaultLabel
-      }
-      continueAsideFor={(currentId) =>
-        currentId === "learn" ? <LearnBackToTopButton /> : null
-      }
       onStagesMarkedDone={onStagesMarkedDone}
       checkpointContinueLabel={checkpointContinueLabel}
       checkpointReady={checkpointReady}
       onCheckpointContinue={goNextLo}
       showCheckpointContinueButton={false}
       srTitle={`LO ${loNumber}: ${loTitle}`}
+      continueAsideFor={(currentId) =>
+        currentId === "learn" ? <LearnBackToTopButton /> : null
+      }
       renderChrome={(ctx) => (
         <LoPageHeader
           loNumber={loNumber}
@@ -230,7 +190,7 @@ export function LoStudyJourney({
           completionPercent={ctx.optimisticCompletionPercent}
         />
       )}
-      renderStage={(currentId, { selectStage, jumpToStage }) => {
+      renderStage={(currentId, { jumpToStage }) => {
         if (currentId === "orient") {
           return (
             <LoOrientStage
@@ -254,29 +214,6 @@ export function LoStudyJourney({
               userTier={userTier}
               focusOutcomeCode={learnFocusCode}
               onFocusOutcomeConsumed={() => setLearnFocusCode(null)}
-            />
-          );
-        }
-        if (currentId === "video" && video) {
-          return (
-            <LoVideoStage
-              video={video}
-              loNumber={loNumber}
-              loTitle={loTitle}
-              mediaLocked={mediaLocked}
-              priceCents={priceCents}
-              onJumpToLearn={() => selectStage("learn")}
-            />
-          );
-        }
-        if (currentId === "audio" && audio) {
-          return (
-            <LoAudioStage
-              audio={audio}
-              loNumber={loNumber}
-              loTitle={loTitle}
-              mediaLocked={mediaLocked}
-              priceCents={priceCents}
             />
           );
         }

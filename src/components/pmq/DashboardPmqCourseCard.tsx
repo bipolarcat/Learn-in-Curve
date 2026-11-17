@@ -28,7 +28,6 @@ import { tierAtLeast } from "@/lib/pmq/tiers";
 import type { PfqTier } from "@/lib/pfq/tiers";
 import type { FairUsageSummary } from "@/lib/tutor/fair-usage";
 import {
-  IconAudio,
   IconCore,
   IconInsights,
   IconMemory,
@@ -39,7 +38,6 @@ import {
   IconReport,
   IconSly,
   IconStructure,
-  IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import {
   productActionPrimary,
@@ -70,8 +68,6 @@ const PRO_FEATURE_ICONS: Record<
   misconceptions: IconMisconceptions,
   memory: IconMemory,
   sly: IconSly,
-  video: IconVideo,
-  audio: IconAudio,
   report: IconReport,
   structure: IconStructure,
   insights: IconInsights,

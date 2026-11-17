@@ -14,14 +14,14 @@
  *
  * The tier matrix, from `tiers.ts`:
  *
- *              quiz sets   mock exams   video/audio   Sly   report
- *   starter    1           1            no            no    no
- *   pro        1-5         1-3          yes           no    no
- *   ai_pro     1-8         1-4          yes           yes   yes
+ *              quiz sets   mock exams   insights   Sly   report
+ *   starter    1           1            LO1 only   no    no
+ *   pro        1-5         1-3          LO1–24     no    no
+ *   ai_pro     1-8         1-4          LO1–24     yes   yes
  *
- * So Pro grants EXACTLY four things over Starter: more questions, more mocks,
- * video per LO, audio per LO. It does NOT grant Sly or the end-of-course report
- * — those are AI Pro, which is `status: "waitlist"` and not on sale.
+ * So Pro grants EXACTLY: more questions, more mocks, Insights (LO2–24), and
+ * recall (LO2–24). It does NOT grant Sly or the end-of-course report — those
+ * are AI Pro, which is `status: "waitlist"` and not on sale.
  *
  * Corrected 2026-07-31: this file previously sold "Meet Sly", "AI-marked written
  * answers" and "End-of-course report" as part of the £15 Pro Bundle, rendered
@@ -29,19 +29,18 @@
  * "800+ questions" where /pricing says 1,200 total, and "~280 quizzes" on the
  * free tier where /pricing says 240. Do not reintroduce any of these.
  *
+ * 2026-11-17: video/audio overviews removed from Pro (and the product).
+ *
  * NOTE: the old header here named FEATURES.md as the source of truth. It isn't —
  * FEATURES.md is known stale. Use tiers.ts + plans.ts.
  */
 
-export type ProIncludedIcon = "sly" | "video" | "report" | "questions" | "mock";
+export type ProIncludedIcon = "sly" | "report" | "questions" | "mock";
 
 /**
  * Shown next to Pro buy CTAs when a “What’s included” panel is needed.
  * Mirrors `PMQ_PLANS.pro.features` exactly — if you change one, change the
  * other, or /pricing and the buy button disagree.
- *
- * Note: the free-tier Video/Audio lock card (`ProMediaLockedPreview`) no longer
- * renders this dropdown (removed 2026-08-06) — keep the list for other surfaces.
  */
 export const PRO_INCLUDED: {
   title: string;
@@ -57,16 +56,6 @@ export const PRO_INCLUDED: {
     title: "3 total mock exams",
     body: "Three full papers in total, sat under real exam conditions.",
     icon: "mock",
-  },
-  {
-    title: "Video overview for every LO",
-    body: "A video recap for every single learning objective.",
-    icon: "video",
-  },
-  {
-    title: "Audio overview for every LO",
-    body: "Listen back to any learning objective, hands-free.",
-    icon: "video",
   },
 ];
 

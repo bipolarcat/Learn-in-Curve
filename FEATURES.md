@@ -33,10 +33,6 @@ Everything in Starter, plus:
 **Practice — unlocked**
 - Additional practice questions on top of Starter's bank, across all 24 LOs
 
-**Media**
-- One video per learning objective
-- Audio overview per learning objective
-
 **Mock exam upgrade**
 - Additional 40-question papers, each separate from the free Exam 1; written
   answers are AI-graded by Gemini, same as Exam 1

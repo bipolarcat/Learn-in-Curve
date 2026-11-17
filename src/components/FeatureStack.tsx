@@ -29,13 +29,6 @@ const SYLLABUS_SLIDES: ExpandCardImage[] = [
     label: "Remember what matters",
   },
   {
-    src: "/Landing page/Learn the full syllabus/6.png",
-    alt: "Watch or listen anywhere with bite-sized video and audio overviews.",
-    label: "Watch or listen anywhere",
-    badge: "Pro Bundle",
-    badgeTone: "pro",
-  },
-  {
     src: "/Landing page/Learn the full syllabus/7.png",
     alt: "Sly, your AI tutor, with personalised study planning, adaptive learning and an exam-readiness report.",
     label: "Meet Sly, your AI tutor",

@@ -3,7 +3,6 @@ import { createClient } from "@/lib/supabase/server";
 import { isDemoSkipAuth } from "@/lib/demo";
 import { isQaMode } from "@/lib/qa";
 import {
-  getAiTutorEntitlement,
   getAiTutorPriceCents,
   getCourseCompletion,
   getLoQuizPriorAttempts,
@@ -16,19 +15,14 @@ import {
   getUserCourseStats,
   getPmqTier,
 } from "@/lib/pmq/queries";
-import { canAccessMedia, canAccessSly } from "@/lib/pmq/tiers";
+import { canAccessSly } from "@/lib/pmq/tiers";
 import { redactPmqInsights } from "@/lib/pmq/redact-insights";
 import { LoStudyJourney } from "@/components/pmq/LoStudyJourney";
 import { LoAnalytics } from "@/components/pmq/LoAnalytics";
 import type { LoStageId } from "@/lib/pmq/lo-stages";
 import { AiTutorPanel } from "@/components/pmq/AiTutorPanel";
 import { DemoBanner } from "@/components/pmq/DemoBanner";
-import {
-  PMQ_COURSE_ID,
-  PMQ_LO_AUDIO_OVERVIEWS,
-  PMQ_LO_EXPLAINER_VIDEOS,
-  PMQ_SLUG,
-} from "@/lib/pmq/constants";
+import { PMQ_COURSE_ID, PMQ_SLUG } from "@/lib/pmq/constants";
 import { getDisplayFirstName } from "@/lib/user-display";
 import { getUserProfile } from "@/lib/profile";
 
@@ -138,12 +132,8 @@ export default async function PmqLoPage({ params }: LoPageProps) {
   const dbReachedStageIds: LoStageId[] = [
     progress?.orient_reached_at ? "orient" : null,
     progress?.learn_reached_at ? "learn" : null,
-    progress?.video_reached_at ? "video" : null,
-    progress?.audio_reached_at ? "audio" : null,
     progress?.apply_reached_at ? "apply" : null,
   ].filter((id): id is LoStageId => id !== null);
-  const explainerVideo = PMQ_LO_EXPLAINER_VIDEOS[loNumber];
-  const audioOverview = PMQ_LO_AUDIO_OVERVIEWS[loNumber];
   // Zero pathway stages across the course = first real LO visit.
   const isFirstLoVisit = (completion?.percentExact ?? 0) === 0;
   const courseJustCompleted = (completion?.completedCount ?? 0) >= 24;
@@ -174,14 +164,11 @@ export default async function PmqLoPage({ params }: LoPageProps) {
         totalSets={practiceSetCount}
         priorAttempts={priorAttempts}
         initialLoXp={loPractiseXp}
-        hasEntitlement={canAccessMedia(userTier)}
         userTier={userTier}
         priceCents={tutorPriceCents}
         completedCheckpoints={completedCheckpoints}
         quizCompleted={quizCompleted}
         isSectionCompleted={isSectionCompleted}
-        explainerVideo={explainerVideo}
-        audioOverview={audioOverview}
         allSections={allSections}
         showQaComplete={isQaMode() && !!user}
         dbReachedStageIds={dbReachedStageIds}

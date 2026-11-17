@@ -53,8 +53,6 @@ export type PmqPlanFeature = {
     | "misconceptions"
     | "memory"
     | "sly"
-    | "video"
-    | "audio"
     | "report"
     | "structure"
     | "insights"
@@ -141,7 +139,7 @@ export const PMQ_PLANS: PmqPlan[] = [
     priceCents: SLY_UNLOCK_PRICE_CENTS,
     priceNote: "one-off · No subscription",
     tagline:
-      "More questions, mock exams, and video/audio overviews for every learning objective.",
+      "More questions, mock exams, recall activities, and Insights for every learning objective.",
     featured: true,
     badge: "Recommended",
     badgeVariant: "value",
@@ -159,10 +157,6 @@ export const PMQ_PLANS: PmqPlan[] = [
         label:
           "recall activities across the course, including Pair Up, Line Up and Group Up",
         value: "60+",
-      },
-      {
-        icon: "video",
-        label: "Video & Audio overview for every learning objective",
       },
       {
         icon: "insights",
@@ -198,10 +192,6 @@ export const PMQ_PLANS: PmqPlan[] = [
         label:
           "recall activities across the course, including Pair Up, Line Up and Group Up",
         value: "60+",
-      },
-      {
-        icon: "video",
-        label: "Video & Audio overview for every learning objective",
       },
       {
         icon: "insights",

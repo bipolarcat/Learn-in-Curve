@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   canAccessCourseReport,
-  canAccessMedia,
   canAccessMockExam,
   canAccessQuizSet,
   canAccessSly,
@@ -58,16 +57,13 @@ test("mock exams split 1 / 1-3 / 1-4", () => {
   }
 });
 
-test("Sly and the report are AI Pro only; media is Pro and above", () => {
+test("Sly and the report are AI Pro only", () => {
   assert.equal(canAccessSly("starter"), false);
   assert.equal(canAccessSly("pro"), false, "Pro must not reach Sly");
   assert.equal(canAccessSly("ai_pro"), true);
 
   assert.equal(canAccessCourseReport("pro"), false);
   assert.equal(canAccessCourseReport("ai_pro"), true);
-
-  assert.equal(canAccessMedia("starter"), false);
-  assert.equal(canAccessMedia("pro"), true);
 });
 
 test("unknown entitlement values fail closed to starter", () => {

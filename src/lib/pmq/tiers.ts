@@ -10,10 +10,10 @@
  * ─────────────────────────────────────────────────────────────────────────────
  * The ladder (decided 2026-07-30; insights lock clarified 2026-09-21)
  *
- *              quiz sets      mock exams   video/audio   insights   Sly   report
- *   starter    1              1            no            LO1 only   no    no
- *   pro        1-5            1-3          yes           LO1–24     no    no
- *   ai_pro     1-8            1-4          yes           LO1–24     yes   yes
+ *              quiz sets      mock exams   insights   Sly   report
+ *   starter    1              1            LO1 only   no    no
+ *   pro        1-5            1-3          LO1–24     no    no
+ *   ai_pro     1-8            1-4          LO1–24     yes   yes
  *
  * "Insights" is the learner-facing name for the exam-tip chips under Learn
  * (`exam_tips` on each core_content block). LO1 stays free so Starter can see
@@ -139,11 +139,6 @@ export function mockExamCountForTier(tier: PmqTier): number {
 export function canAccessPmqInsights(tier: PmqTier, loNumber: number): boolean {
   if (!Number.isInteger(loNumber) || loNumber < 1 || loNumber > 24) return false;
   if (loNumber === PMQ_FREE_INSIGHTS_LO) return true;
-  return tierAtLeast(tier, "pro");
-}
-
-/** Video + audio overviews: Pro and above. */
-export function canAccessMedia(tier: PmqTier): boolean {
   return tierAtLeast(tier, "pro");
 }
 

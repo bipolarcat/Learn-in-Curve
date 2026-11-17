@@ -19,7 +19,7 @@ const SITE_URL =
 export const metadata: Metadata = {
   title: buildTitle("Plans & pricing: PMQ in 5 Days"),
   description:
-    "Start free with the complete APM PMQ syllabus. Upgrade for more practice, mock exams, and video and audio overviews — or wait for Sly, your AI tutor.",
+    "Start free with the complete APM PMQ syllabus. Upgrade for more practice, mock exams, recall activities and Insights — or wait for Sly, your AI tutor.",
   alternates: { canonical: `${SITE_URL}/courses/pmq-in-5-days/pricing` },
 };
 

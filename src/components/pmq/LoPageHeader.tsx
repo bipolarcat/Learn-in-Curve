@@ -3,14 +3,12 @@
 import { useMemo, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import {
-  AudioLines,
   BookOpen,
   CheckSquare,
   ClipboardList,
   Compass,
   Flag,
   Lock,
-  Video,
   type LucideIcon,
 } from "lucide-react";
 import { CourseChromeProgress } from "@/components/pmq/CourseChromeProgress";
@@ -108,8 +106,6 @@ function PathwayNextButton({
 const STAGE_ICONS: Record<string, LucideIcon> = {
   orient: Compass,
   learn: BookOpen,
-  video: Video,
-  audio: AudioLines,
   apply: CheckSquare,
   practice: ClipboardList,
   drill: ClipboardList,

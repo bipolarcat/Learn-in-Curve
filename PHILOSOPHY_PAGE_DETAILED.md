@@ -28,7 +28,7 @@ Learn in Curve tells you exactly what's free, what costs money, and why — beca
 
 The PMQ in 5 Days course — every learning objective, every quiz, the full mock exam question bank — is free. It always will be.
 
-The only payment on the platform is a one-off £20 that unlocks the Pro Bundle: four more practice quiz sets per learning objective, two more AI-graded mock exam papers, and a video and audio overview for every one of the 24 learning objectives. Sly, the AI tutor, is not in this tier — he sits in AI Pro (£30), which is a waitlist card with no checkout behind it.
+The only payment on the platform is a one-off £20 that unlocks the Pro Bundle: four more practice quiz sets per learning objective, two more AI-graded mock exam papers, recall activities, and Insights across all 24 learning objectives. Sly, the AI tutor, is not in this tier — he sits in AI Pro (£30), which is a waitlist card with no checkout behind it.
 
 That £20 isn't a markup. It's a platform fee — it covers the actual infrastructure cost of running the course and its AI grading. Use more than that and you can top up on a pay-as-you-go basis. No hidden limits, no silent auto-upgrade to a subscription. You can always see how much keeps the platform running and how much you get to spend.
 

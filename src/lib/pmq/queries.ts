@@ -438,7 +438,7 @@ export async function getCourseCompletion(
   const { data, error } = await supabase
     .from("section_progress")
     .select(
-      "completed_at, quiz_completed_at, orient_reached_at, learn_reached_at, video_reached_at, audio_reached_at, apply_reached_at",
+      "completed_at, quiz_completed_at, orient_reached_at, learn_reached_at, apply_reached_at",
     )
     .eq("user_id", userId)
     .eq("course_id", courseId);
@@ -485,7 +485,7 @@ export async function getLoStageReachedMap(
   const { data, error } = await supabase
     .from("section_progress")
     .select(
-      "section_id, completed_at, quiz_completed_at, orient_reached_at, learn_reached_at, video_reached_at, audio_reached_at, apply_reached_at",
+      "section_id, completed_at, quiz_completed_at, orient_reached_at, learn_reached_at, apply_reached_at",
     )
     .eq("user_id", userId)
     .eq("course_id", courseId);

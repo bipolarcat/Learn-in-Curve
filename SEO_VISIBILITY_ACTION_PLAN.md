@@ -91,7 +91,7 @@ Your own `PMP_COURSE_DECISION.md` already set the rule: 250 or more organic sess
 
 So the sequence is: fix the links, deploy, publish more Shelf pages, then read the numbers in the autumn.
 
-**The thing to reconsider is releasing more free mock exams.** You currently have a 15-question free readiness check as the lead magnet, and separately Mock Exam 1 free inside the course with Exams 2 and 3 as the Pro Bundle. More free full mock papers would be giving away the main thing Pro sells. Pro's entire increment over Starter is more questions, more mocks, and the video and audio overviews. Remove the mocks from that and you are asking people to pay for media overviews.
+**The thing to reconsider is releasing more free mock exams.** You currently have a 15-question free readiness check as the lead magnet, and separately Mock Exam 1 free inside the course with Exams 2 and 3 as the Pro Bundle. More free full mock papers would be giving away the main thing Pro sells. Pro's entire increment over Starter is more questions, more mocks, Insights and recall. Remove the mocks from that and the paid bundle gets thin.
 
 If you want more top-of-funnel, add more short readiness checks in the style of the 15-question one, or make them topic-specific, for example a 10-question risk management check that links to the risk management library page. Those are lead magnets. Full 40-question papers are product.
 

@@ -520,14 +520,14 @@ async function tryMarkSectionCompleteIfReady(
 }
 
 /**
- * Persists that the learner has reached one of the 5 pre-quiz pathway
- * stages (Orient/Learn/Video/Audio/Apply) to `section_progress`, so
- * per-LO and overall course progress stay accurate (the LO still opens
- * on Orient; these timestamps mark stages done in the chrome). The
- * client-only sessionStorage journey cache this used to sit alongside
- * has been removed; see lo-stages.ts and OPERATIONS.md. Idempotent:
- * only sets the timestamp if it isn't already set, so re-visiting a
- * stage never resets its reached time.
+ * Persists that the learner has reached one of the pre-quiz pathway
+ * stages (Orient/Learn/Apply) to `section_progress`, so per-LO and
+ * overall course progress stay accurate (the LO still opens on Orient;
+ * these timestamps mark stages done in the chrome). The client-only
+ * sessionStorage journey cache this used to sit alongside has been
+ * removed; see lo-stages.ts and OPERATIONS.md. Idempotent: only sets
+ * the timestamp if it isn't already set, so re-visiting a stage never
+ * resets its reached time.
  */
 export async function markLoStageReached(input: {
   sectionId: string;
@@ -899,7 +899,7 @@ export async function createAiTutorCheckout(input: {
             // `status: "waitlist"` in plans.ts and not on sale. The old copy
             // promised Sly tutoring and fair-usage credit to Pro buyers, which
             // the tier ladder in tiers.ts does not grant.
-            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, video & audio overviews, ${planFeatureValue("pro", "recall")} recall activities and insights. One-off payment, 12 months' access. No subscription.`,
+            description: `Unlock the complete PMQ revision experience with ${planFeatureValue("pro", "practice")} total practice questions, ${planFeatureValue("pro", "mock")} total mock exams, ${planFeatureValue("pro", "recall")} recall activities and insights. One-off payment, 12 months' access. No subscription.`,
           },
         },
         quantity: 1,

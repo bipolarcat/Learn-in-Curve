@@ -1,14 +1,12 @@
 import type { ComponentType, ReactNode } from "react";
 import { formatGbp } from "@/lib/pmq/constants";
 import {
-  IconAudio,
   IconCore,
   IconMemory,
   IconMisconceptions,
   IconMock,
   IconPractice,
   IconSly,
-  IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import styles from "./PmqPreviewCompare.module.css";
 
@@ -70,20 +68,6 @@ const ROWS: CompareRow[] = [
     starter: "hyphen",
     pro: "tick",
     Icon: IconSly,
-  },
-  {
-    id: "video",
-    feature: "Video overview",
-    starter: "hyphen",
-    pro: "tick",
-    Icon: IconVideo,
-  },
-  {
-    id: "audio",
-    feature: "Audio overview",
-    starter: "hyphen",
-    pro: "tick",
-    Icon: IconAudio,
   },
 ];
 

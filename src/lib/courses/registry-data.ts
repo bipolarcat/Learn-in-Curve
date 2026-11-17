@@ -54,7 +54,6 @@ export const COURSE_STATIC: { [K in CourseSlug]: CourseStaticProduct } = {
     paidFeatures: [
       "additional_quiz_sets",
       "further_mock_exams",
-      "video_audio",
       "ai_tutor",
       "ai_marked_mocks",
     ],

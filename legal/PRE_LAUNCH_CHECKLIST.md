@@ -129,11 +129,11 @@ decision below are independent of the payment question.
       substantiated — keep the row count as the evidence if the copy is ever
       challenged, and re-check if the bank is ever pruned.
 - [x] **Landing syllabus slides tier-qualified — 2026-07-31.** The new
-      `public/Landing page/Learn the full syllabus/` artwork markets video/audio
-      overviews and Sly capabilities. `ui/expand-cards` visibly labels slide 6
-      “Pro Bundle” and slide 7 “AI Pro · launching soon” so the illustrations do
-      not imply those features are part of Starter or already generally
-      available. Re-check these qualifiers when AI Pro launches.
+      `public/Landing page/Learn the full syllabus/` artwork originally marketed
+      video/audio overviews and Sly capabilities. **2026-11-17:** video/audio
+      slide (6.png) removed from `FeatureStack` and deleted; remaining Sly slide
+      stays labeled “AI Pro · launching soon”. Re-check that qualifier when AI
+      Pro launches.
 - [x] **Contact email swapped to Workspace addresses — 2026-07-30.** All four
       docs (`PRIVACY_POLICY.md`, `TERMS_OF_SERVICE.md`, `COOKIE_NOTICE.md`,
       `RECRUITMENT_PRIVACY_NOTICE.md`) now list `support@learnincurve.com`
@@ -343,14 +343,16 @@ future flag flip.
       on 2026-07-30 and `tiers.ts` began enforcing a real ladder: Sly and the
       end-of-course report moved to **AI Pro (£30)**, which is `status:
       "waitlist"` with no checkout. The £20 Pro Bundle therefore grants quiz sets
-      2–5, mock papers 2–3, and video/audio per LO — **no Sly, and no £5
-      credit**. Any customer-facing copy still pairing "£20" with "AI tutor" or
-      "£5 credit" is an over-claim on a paid product. `PHILOSOPHY_PAGE_COPY.md`
-      and `PHILOSOPHY_PAGE_DETAILED.md` were corrected on 2026-08-28; the live
-      site copy has **not** been audited for this. `TERMS_OF_SERVICE.md` is
-      clean — it deliberately lists no prices (§3) and scopes the AI fair-usage
-      clause to "a Paid Unlock **covering AI features**" (§4), which stays
-      accurate under the new ladder.
+      2–5, mock papers 2–3, Insights and recall — **no Sly, and no £5
+      credit**. **2026-11-17:** video/audio per LO was removed from the product
+      and from Pro claims. Any customer-facing copy still pairing "£20" with
+      "AI tutor", "£5 credit", or video/audio overviews is an over-claim on a
+      paid product. `PHILOSOPHY_PAGE_COPY.md` and `PHILOSOPHY_PAGE_DETAILED.md`
+      were corrected on 2026-08-28 (and again for media removal 2026-11-17);
+      the live site copy has **not** been audited for this. `TERMS_OF_SERVICE.md`
+      is clean — it deliberately lists no prices (§3) and scopes the AI
+      fair-usage clause to "a Paid Unlock **covering AI features**" (§4), which
+      stays accurate under the new ladder.
       **Also outstanding:** live Supabase `courses.exam_config` still holds
       `ai_tutor_price_cents: 999` (PMQ) and `pfq_pro_price_cents: 500` (PFQ),
       verified 2026-08-28. Checkout passes explicit amounts so charges are

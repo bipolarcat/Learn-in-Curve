@@ -10,17 +10,16 @@ import {
 
 /**
  * Stage IDs are PERSISTED: `section_progress` has `orient_reached_at`,
- * `learn_reached_at`, `video_reached_at`, `audio_reached_at`,
- * `apply_reached_at` columns keyed to these strings. Display names are in
- * STAGE_META and may be renamed freely; renaming an ID needs a migration.
+ * `learn_reached_at`, `apply_reached_at` columns keyed to these strings
+ * (legacy `video_reached_at` / `audio_reached_at` remain in the DB but are
+ * unused after media stages were removed). Display names are in STAGE_META
+ * and may be renamed freely; renaming an ID needs a migration.
  * Current display names: apply = "Polish", practice = "Drill",
  * checkpoint = "Lock in".
  */
 export type LoStageId =
   | "orient"
   | "learn"
-  | "video"
-  | "audio"
   | "apply"
   | "practice"
   | "checkpoint";
@@ -32,9 +31,7 @@ const STAGE_META: Record<
   { label: string; continueLabel: string }
 > = {
   orient: { label: "Orient", continueLabel: "Continue to Learn" },
-  learn: { label: "Learn", continueLabel: "Continue to Video" },
-  video: { label: "Video", continueLabel: "Continue to Audio" },
-  audio: { label: "Audio", continueLabel: "Continue to Polish" },
+  learn: { label: "Learn", continueLabel: "Continue to Polish" },
   apply: { label: "Polish", continueLabel: "Continue to Drill" },
   practice: { label: "Drill", continueLabel: "Continue to Lock in" },
   checkpoint: { label: "Lock in", continueLabel: "Done" },
@@ -44,8 +41,6 @@ const STAGE_META: Record<
 export const LO_STAGE_ORDER: LoStageId[] = [
   "orient",
   "learn",
-  "video",
-  "audio",
   "apply",
   "practice",
   "checkpoint",
@@ -73,13 +68,13 @@ export function collectUnlockedLoStages(
 }
 
 /**
- * Total equally-weighted units of overall course progress: 24 LOs × 7 stages
- * = 168.
+ * Total equally-weighted units of overall course progress: 24 LOs × 5 stages
+ * = 120.
  */
 export const PMQ_TOTAL_PROGRESS_UNITS = PMQ_SECTION_COUNT * LO_STAGE_COUNT;
 
 /**
- * What one pathway stage is worth on the 0–100 course bar — 100/168 ≈ 0.595%.
+ * What one pathway stage is worth on the 0–100 course bar — 100/120 ≈ 0.833%.
  *
  * Keep this un-rounded everywhere it's summed. Rounding per stage is what made
  * the header bar look frozen: five consecutive tabs are only ~3 points, so an
@@ -114,7 +109,7 @@ export function sealBlockedReason(input: {
 }
 
 /**
- * The 5 pre-quiz pathway stages that get their own DB timestamp column on
+ * Pre-quiz pathway stages that get their own DB timestamp column on
  * `section_progress`. Quiz and Checkpoint reuse existing columns
  * (`quiz_completed_at`, `completed_at`) rather than new ones — see
  * `getLoReachedCountFromProgress` below.
@@ -122,15 +117,15 @@ export function sealBlockedReason(input: {
 export const STAGE_REACHED_COLUMN: Partial<Record<LoStageId, keyof LoStageSignals>> = {
   orient: "orient_reached_at",
   learn: "learn_reached_at",
-  video: "video_reached_at",
-  audio: "audio_reached_at",
   apply: "apply_reached_at",
 };
 
 export type LoStageSignals = {
   orient_reached_at?: string | null;
   learn_reached_at?: string | null;
+  /** Legacy — unused after video/audio stages were removed. */
   video_reached_at?: string | null;
+  /** Legacy — unused after video/audio stages were removed. */
   audio_reached_at?: string | null;
   apply_reached_at?: string | null;
   quiz_completed_at?: string | null;
@@ -138,9 +133,9 @@ export type LoStageSignals = {
 };
 
 /**
- * DB-backed count of pathway stages reached, out of `LO_STAGE_COUNT` (7)
- * equally-weighted segments: Orient, Learn, Video, Audio, Apply, Quiz,
- * Checkpoint. Checkpoint only counts once the full checklist is done
+ * DB-backed count of pathway stages reached, out of `LO_STAGE_COUNT` (5)
+ * equally-weighted segments: Orient, Learn, Apply, Quiz, Checkpoint.
+ * Checkpoint only counts once the full checklist is done
  * (`completed_at` set by `tryMarkSectionCompleteIfReady` in actions.ts) —
  * reaching the Checkpoint *page* isn't itself a milestone; finishing every
  * checklist item is. This replaces the old client-only sessionStorage
@@ -154,8 +149,6 @@ export function getLoReachedCountFromProgress(
   return [
     row.orient_reached_at,
     row.learn_reached_at,
-    row.video_reached_at,
-    row.audio_reached_at,
     row.apply_reached_at,
     row.quiz_completed_at,
     row.completed_at,

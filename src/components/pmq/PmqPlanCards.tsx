@@ -10,7 +10,6 @@ import {
   type PmqPlanId,
 } from "@/lib/pmq/plans";
 import {
-  IconAudio,
   IconCore,
   IconInsights,
   IconMemory,
@@ -21,7 +20,6 @@ import {
   IconReport,
   IconSly,
   IconStructure,
-  IconVideo,
 } from "@/components/pmq/PmqPreviewFeatureIcons";
 import { JoinWaitlistButton } from "@/components/pmq/JoinWaitlistButton";
 import { PmqProCheckoutButton } from "@/components/pmq/PmqProCheckoutButton";
@@ -41,8 +39,6 @@ const FEATURE_ICONS: Record<
   misconceptions: IconMisconceptions,
   memory: IconMemory,
   sly: IconSly,
-  video: IconVideo,
-  audio: IconAudio,
   report: IconReport,
   structure: IconStructure,
   insights: IconInsights,

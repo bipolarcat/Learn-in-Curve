@@ -10,7 +10,6 @@ export type CourseFeatureId =
   | "first_mock_exam"
   | "additional_quiz_sets"
   | "further_mock_exams"
-  | "video_audio"
   | "ai_tutor"
   | "ai_marked_mocks"
   | "lessons"
